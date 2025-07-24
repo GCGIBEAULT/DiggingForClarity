@@ -1,9 +1,9 @@
-<div style="max-width:100%;margin:30px 0;padding:10px;">
-  <label for="askBox" style="font-weight:bold;font-size:16px;color:#222;display:block;margin-left:10px;">Just Ask Me</label>
+<div style="max-width:400px;margin:30px auto;padding:20px;background:#fffbe6;border-radius:8px;box-shadow:0 0 5px rgba(0,0,0,0.1);">
+  <label for="askBox" style="font-weight:bold;font-size:18px;color:#333;display:block;margin-bottom:10px;">Just Ask Me</label>
   <input id="askBox" type="text" placeholder="Type your question..." 
-    style="width:90%;margin-left:10px;padding:10px;border:1px solid #ccc;border-radius:4px;background:#fffff9;font-size:15px;" 
+    style="width:100%;padding:10px;border:1px solid #bbb;border-radius:4px;background:#fffff9;font-size:16px;" 
     onkeydown="if(event.key==='Enter'){event.preventDefault(); respond();}">
-  <div id="response" style="margin-top:15px;margin-left:10px;color:#222;font-style:italic;"></div>
+  <div id="response" style="margin-top:15px;color:#222;font-style:italic;"></div>
 </div>
 
 <script>
@@ -17,4 +17,5 @@
     responseBox.textContent = "Answer coming soon: \"" + input + "\"";
   }
 </script>
+
 
