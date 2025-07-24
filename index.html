@@ -3,9 +3,9 @@
   <!-- Left Column -->
   <div style="display:flex; flex-direction:column; gap:24px;">
     
-    <!-- Just Ask Me -->
-    <div class="section" style="background-color:#DFFFD6; padding:12px; width:300px;">
-      <h2 style="margin-bottom:8px;">Just ask me</h2>
+    <!-- Just Ask Me Module (Yellow, "Begin here") -->
+    <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+      <h2 style="margin-bottom:8px;">Begin here</h2>
       <input type="text" id="askBox" placeholder="Ask anything..." onkeydown="if(event.key==='Enter') handleAsk();" style="padding:8px; width:100%;">
       <div id="askResponse" style="margin-top:8px;"></div>
     </div>
@@ -13,8 +13,8 @@
     <!-- Weather Module -->
     <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
       <h2 style="margin-bottom:8px;">Weather Forecast</h2>
-      <input type="text" id="zipcodeBox" placeholder="80224 (or enter ZIP)" onkeydown="if(event.key==='Enter') handleZIP();" style="padding:8px; width:100%;">
-      <div id="weatherResponse" style="margin-top:8px;"></div>
+      <input type="text" id="zipcodeBox" value="80224" placeholder="80224 (or enter ZIP)" onkeydown="if(event.key==='Enter') handleZIP();" style="padding:8px; width:100%;">
+      <div id="weatherResponse" style="margin-top:8px;">Currently loading weather for 80224...</div>
     </div>
   </div>
 
