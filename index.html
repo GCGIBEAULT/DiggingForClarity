@@ -1,27 +1,25 @@
-<!-- Just Ask Me Section -->
-<div class="section" style="padding:12px;">
-  <h2 style="margin-bottom:8px;">Just ask me</h2>
-  <input type="text" id="questionBox" 
-         placeholder="Begin here..." 
-         onkeydown="if(event.key==='Enter') showAnswer();"
-         style="background-color:#FFF9DB; padding:8px; border:none; width:25%; font-weight:bold;">
-  <div id="answerBox"></div>
-</div>
+<!-- Container for both modules -->
+<div style="display:flex; justify-content:center; gap:24px; margin-top:48px;">
 
-<!-- Weather Section -->
-<div class="section" style="margin-top:24px; padding:12px;">
-  <h2 style="margin-bottom:8px;">Weather Forecast</h2>
-  <input type="text" id="zipcodeBox" 
-         placeholder="Zip Code" 
-         onkeydown="if(event.key==='Enter') handleZIP();"
-         style="background-color:#FFF9DB; padding:8px; border:none; width:25%; font-weight:bold;">
-  <div id="weatherResponse" style="margin-top:12px; font-weight:bold; line-height:1.6;">
-    <div>80224 • Denver, CO</div>
-    <div>Partly sunny</div>
-    <div>High: 89°F</div>
-    <div>Low: 66°F</div>
-    <div>Winds: WNW at 9mph</div>
-    <div>Rain chance: 20%</div>
+  <!-- Weather Module -->
+  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+    <h2 style="margin-bottom:8px;">Weather Forecast</h2>
+    <input type="text" id="zipcodeBox" placeholder="80224 (or enter ZIP)" 
+           onkeydown="if(event.key==='Enter') handleZIP();" 
+           style="padding:8px; width:100%;">
+    <div id="weatherResponse" style="margin-top:8px;"></div>
   </div>
+
+  <!-- Traffic Module -->
+  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+    <h2 style="margin-bottom:8px;">Traffic Conditions</h2>
+    <input type="text" id="fromBox" placeholder="From" 
+           style="padding:8px; width:100%; margin-bottom:8px;">
+    <input type="text" id="toBox" placeholder="To" 
+           style="padding:8px; width:100%; margin-bottom:8px;">
+    <button onclick="checkTraffic()" style="width:100%;">Check Traffic</button>
+    <div id="trafficResponse" style="margin-top:8px;"></div>
+  </div>
+
 </div>
 
