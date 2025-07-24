@@ -1,30 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>NoMoreBaloney.com</title>
-  </head>
-  <body>
-    <p>This site is rooted in precision, curiosity, and civic clarity—values passed down over mustard and meaning.</p>
-    <p>Scroll coming soon...</p>
+<div style="max-width:100%;margin:30px 0;padding:10px;">
+  <label for="askBox" style="font-weight:bold;font-size:16px;color:#222;display:block;margin-left:10px;">Just Ask Me</label>
+  <input id="askBox" type="text" placeholder="Type your question..." 
+    style="width:90%;margin-left:10px;padding:10px;border:1px solid #ccc;border-radius:4px;background:#fffff9;font-size:15px;" 
+    onkeydown="if(event.key==='Enter'){event.preventDefault(); respond();}">
+  <div id="response" style="margin-top:15px;margin-left:10px;color:#222;font-style:italic;"></div>
+</div>
 
-    <div style="max-width:400px;margin:30px auto;padding:20px;border:1px solid #444;border-radius:8px;background:#fffbe6;box-shadow:0 0 10px rgba(0,0,0,0.1);">
-      <label for="askBox" style="font-weight:bold;font-size:18px;color:#333;">🎯 Just Ask Me</label>
-      <input id="askBox" type="text" placeholder="Type your question..." 
-        style="width:100%;padding:12px;margin-top:10px;border:1px solid #888;border-radius:6px;background:#fffff9;font-size:16px;" 
-        onkeydown="if(event.key==='Enter'){event.preventDefault(); respond();}">
-      <div id="response" style="margin-top:15px;color:#222;font-style:italic;background:#eef;border:1px solid #aac;padding:10px;border-radius:6px;"></div>
-    </div>
-
-    <script>
-      function respond() {
-        const input = document.getElementById('askBox').value.trim();
-        const responseBox = document.getElementById('response');
-        if (input === '') {
-          responseBox.textContent = '';
-          return;
-        }
-        responseBox.textContent = "Answer coming soon: \"" + input + "\"";
-      }
-    </script>
-  </body>
-</html>
+<script>
+  function respond() {
+    const input = document.getElementById('askBox').value.trim();
+    const responseBox = document.getElementById('response');
+    if (input === '') {
+      responseBox.textContent = '';
+      return;
+    }
+    responseBox.textContent = "Answer coming soon: \"" + input + "\"";
+  }
+</script>
