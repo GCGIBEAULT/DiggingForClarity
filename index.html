@@ -1,7 +1,12 @@
 <div style="text-align:left; padding-left:12px; max-width:300px;">
   <h2 style="margin-bottom:8px;">Just ask me</h2>
-  <input type="text" id="questionBox" placeholder="Just ask me..." style="width:100%; padding:6px; font-size:14px; border-radius:4px; margin-bottom:8px;">
-  <button onclick="showAnswer()" style="padding:6px 12px;">Submit</button>
+  <input
+    type="text"
+    id="questionBox"
+    placeholder="Just ask me..."
+    style="width:100%; padding:6px; font-size:14px; border-radius:4px; background-color:#D2B04C; color:black;"
+    onkeydown="if(event.key === 'Enter') showAnswer();"
+  >
   <div id="answerBox" style="margin-top:10px; font-size:14px;"></div>
 </div>
 
