@@ -11,7 +11,7 @@
   <h2 style="font-size:20px; margin-bottom:16px;">Weather by ZIP Code</h2>
   <input id="zipcodeBox" type="text" placeholder="Enter ZIP..." 
          style="width:180px; padding:6px; font-size:14px; border-radius:4px;" 
-         onkeydown="if(event.key === 'Enter') saveZIPAndShowWeather();">
+         onkeydown="if(event.key === 'Enter') handleZIP();">
   <div id="weatherResponse" style="margin-top:14px; font-size:14px;"></div>
 </div>
 
@@ -23,40 +23,30 @@
     }
   }
 
-  function saveZIPAndShowWeather() {
+  function handleZIP() {
     const zip = document.getElementById('zipcodeBox').value.trim();
-    if (zip !== '') {
-      localStorage.setItem('savedZIP', zip);
-      showWeather(zip);
-    }
-  }
-
-  function showWeather(zip) {
-    const weatherBox = document.getElementById('weatherResponse');
-    if (!zip) {
-      zip = localStorage.getItem('savedZIP');
-      if (!zip) {
-        weatherBox.textContent = 'Please enter a ZIP code.';
-        return;
-      }
-    }
-
-    // Simulated ZIP-based weather
-    if (zip === '80202') {
-      weatherBox.textContent = 'Denver (80202): Sunny, high of 88°F. NW wind 7 mph. 0% chance of rain.';
-    } else if (zip === '33870') {
-      weatherBox.textContent = 'Sebring (33870): Partly cloudy, high of 91°F. SE wind 5 mph. 10% chance of showers.';
-    } else {
-      weatherBox.textContent = 'Weather for ' + zip + ': Clear conditions. Temp: 85°F. Wind: Calm. Precipitation: none.';
-    }
-  }
-
-  // Auto-load weather on page load if ZIP was saved
-  window.onload = function() {
-    const zip = localStorage.getItem('savedZIP');
     if (zip) {
-      document.getElementById('zipcodeBox').value = zip;
-      showWeather(zip);
+      localStorage.setItem('userZIP', zip);
+      renderWeather(zip);
+    }
+  }
+
+  function renderWeather(zip) {
+    const weatherBox = document.getElementById('weatherResponse');
+    if (zip === '80202') {
+      weatherBox.textContent = 'Denver: Sunny, 88°F, NW wind 7 mph, 0% rain chance.';
+    } else if (zip === '33870') {
+      weatherBox.textContent = 'Sebring: Partly cloudy, 91°F, SE wind 5 mph, 10% chance of showers.';
+    } else {
+      weatherBox.textContent = 'ZIP ' + zip + ': Temp 85°F, Wind calm, Precipitation: none.';
+    }
+  }
+
+  window.onload = function() {
+    const storedZIP = localStorage.getItem('userZIP');
+    if (storedZIP) {
+      document.getElementById('zipcodeBox').value = storedZIP;
+      renderWeather(storedZIP);
     }
   };
 </script>
