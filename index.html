@@ -1,9 +1,24 @@
-weatherBox.innerHTML = `
-  <div style="font-size:18px; line-height:1.6;">
-    <strong>Denver</strong><br>
-    Sunny<br>
-    88°F<br>
-    NW wind 7 mph<br>
-    0% rain chance
-  </div>
-`;
+<div style="text-align:left; padding-left:12px; max-width:300px;">
+  <h2 style="margin-bottom:8px;">Just ask me</h2>
+  <input
+    type="text"
+    id="questionBox"
+    placeholder="Just ask me..."
+    style="width:100%; padding:6px; font-size:14px; border-radius:4px;
+           background-color:#FFF9C4; color:black; border:1px solid #ccc;"
+    onkeydown="if(event.key === 'Enter') showAnswer();"
+  >
+  <div id="answerBox" style="margin-top:10px; font-size:14px;"></div>
+</div>
+
+<script>
+  function showAnswer() {
+    const q = document.getElementById('questionBox').value.trim();
+    const answerBox = document.getElementById('answerBox');
+    if (q) {
+      answerBox.textContent = 'You asked: ' + q;
+    } else {
+      answerBox.textContent = 'Just ask me something.';
+    }
+  }
+</script>
