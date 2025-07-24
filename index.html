@@ -1,9 +1,36 @@
-weatherBox.innerHTML = `
-  <div style="font-size:18px; line-height:1.6; font-weight:bold;">
-    Denver (80224)<br>
-    Mostly sunny<br>
-    86°F<br>
-    Light NW breeze<br>
-    0% rain chance
-  </div>
-`;
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 1rem; /* base size for scaling */
+    margin: 0;
+    padding: 12px;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1rem;
+    border-radius: 4px;
+    background-color: #FFF9C4;
+    color: black;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5em;
+  }
+
+  #weatherResponse, #answerBox {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    font-weight: bold;
+    margin-top: 0.75em;
+  }
+
+  .section {
+    max-width: 320px;
+    margin-bottom: 96px;
+  }
+</style>
