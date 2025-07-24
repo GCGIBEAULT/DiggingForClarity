@@ -1,9 +1,11 @@
-<!-- Just Ask Me Block -->
-<input id="questionBox" placeholder="Ask a question..." style="width:180px; padding:6px; font-size:14px; border-radius:4px;">
+<!-- Just Ask Me Block (TOP) -->
+<input id="questionBox" placeholder="Ask a question..." 
+       style="width:180px; padding:6px; font-size:14px; border-radius:4px;">
 <button onclick="showAnswer()" style="margin-left:8px;">Submit</button>
 
-<!-- Weather Block -->
-<input id="zipcodeBox" placeholder="Enter ZIP..." style="width:180px; padding:6px; font-size:14px; border-radius:4px; margin-top:16px;" 
+<!-- Weather Block (BELOW) -->
+<input id="zipcodeBox" placeholder="Enter ZIP..." 
+       style="width:180px; padding:6px; font-size:14px; border-radius:4px; margin-top:16px;" 
        onkeydown="if(event.key === 'Enter') handleZIP();">
 <div id="weatherResponse" style="margin-top:10px; font-size:14px;"></div>
 
@@ -25,6 +27,10 @@
 
   function renderWeather(zip) {
     const weatherBox = document.getElementById('weatherResponse');
+    if (!zip) {
+      weatherBox.textContent = 'Please enter a ZIP code.';
+      return;
+    }
     if (zip === '80202') {
       weatherBox.textContent = 'Denver: Sunny, 88°F, NW wind 7 mph, 0% rain chance.';
     } else if (zip === '33870') {
@@ -34,11 +40,10 @@
     }
   }
 
-  window.onload = function() {
-    const storedZIP = localStorage.getItem('userZIP');
-    if (storedZIP) {
-      document.getElementById('zipcodeBox').value = storedZIP;
-      renderWeather(storedZIP);
-    }
-  };
+  // Immediate load logic
+  const storedZIP = localStorage.getItem('userZIP');
+  if (storedZIP) {
+    document.getElementById('zipcodeBox').value = storedZIP;
+    renderWeather(storedZIP);
+  }
 </script>
