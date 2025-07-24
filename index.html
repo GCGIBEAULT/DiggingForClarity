@@ -1,24 +1,36 @@
-<div style="text-align:left; padding-left:12px; max-width:300px;">
-  <h2 style="margin-bottom:8px;">Just ask me</h2>
+<!-- Weather Lookup Block -->
+<div style="text-align:left; padding-left:12px; max-width:300px; margin-top:96px;"> <!-- 1 inch below in web units -->
+  <h2 style="margin-bottom:8px;">Your Weather</h2>
   <input
     type="text"
-    id="questionBox"
-    placeholder="Just ask me..."
+    id="zipcodeBox"
+    placeholder="80202 (or enter ZIP)..."
     style="width:100%; padding:6px; font-size:14px; border-radius:4px;
            background-color:#FFF9C4; color:black; border:1px solid #ccc;"
-    onkeydown="if(event.key === 'Enter') showAnswer();"
+    onkeydown="if(event.key === 'Enter') handleZIP();"
   >
-  <div id="answerBox" style="margin-top:10px; font-size:14px;"></div>
+  <div id="weatherResponse" style="margin-top:10px; font-size:14px;"></div>
 </div>
 
 <script>
-  function showAnswer() {
-    const q = document.getElementById('questionBox').value.trim();
-    const answerBox = document.getElementById('answerBox');
-    if (q) {
-      answerBox.textContent = 'You asked: ' + q;
+  function handleZIP() {
+    const zip = document.getElementById('zipcodeBox').value.trim();
+    renderWeather(zip);
+  }
+
+  function renderWeather(zip) {
+    const weatherBox = document.getElementById('weatherResponse');
+    if (!zip) {
+      weatherBox.textContent = 'Please enter a ZIP code.';
+    } else if (zip === '80202') {
+      weatherBox.textContent = 'Denver: Sunny, 88°F, NW wind 7 mph, 0% rain chance.';
+    } else if (zip === '33870') {
+      weatherBox.textContent = 'Sebring: Partly cloudy, 91°F, SE wind 5 mph, 10% chance of showers.';
     } else {
-      answerBox.textContent = 'Just ask me something.';
+      weatherBox.textContent = 'ZIP ' + zip + ': Temp 85°F, Wind calm, Precipitation: none.';
     }
   }
+
+  // Auto-set to Denver on initial load
+  window.onload = () => renderWeather('80202');
 </script>
