@@ -1,24 +1,16 @@
 <!-- Just Ask Me Block -->
-<div style="background-color:#7C6000; color:#FFFFFF; padding:30px; font-family:Arial, sans-serif; width:220px; float:left; border-radius:6px; margin-bottom:30px;">
-  <h2 style="font-size:20px; margin-bottom:16px;">Just Ask Me</h2>
-  <input id="questionBox" type="text" placeholder="Type your question..." 
-         style="width:180px; padding:6px; font-size:14px; border-radius:4px;" 
-         onkeydown="if(event.key === 'Enter') showAnswer();">
-</div>
+<input id="questionBox" placeholder="Ask a question..." style="width:180px; padding:6px; font-size:14px; border-radius:4px;">
+<button onclick="showAnswer()" style="margin-left:8px;">Submit</button>
 
 <!-- Weather Block -->
-<div style="background-color:#333333; color:#FFFFFF; padding:30px; font-family:Arial, sans-serif; width:220px; float:left; border-radius:6px;">
-  <h2 style="font-size:20px; margin-bottom:16px;">Weather by ZIP Code</h2>
-  <input id="zipcodeBox" type="text" placeholder="Enter ZIP..." 
-         style="width:180px; padding:6px; font-size:14px; border-radius:4px;" 
-         onkeydown="if(event.key === 'Enter') handleZIP();">
-  <div id="weatherResponse" style="margin-top:14px; font-size:14px;"></div>
-</div>
+<input id="zipcodeBox" placeholder="Enter ZIP..." style="width:180px; padding:6px; font-size:14px; border-radius:4px; margin-top:16px;" 
+       onkeydown="if(event.key === 'Enter') handleZIP();">
+<div id="weatherResponse" style="margin-top:10px; font-size:14px;"></div>
 
 <script>
   function showAnswer() {
     const q = document.getElementById('questionBox').value.trim();
-    if (q !== '') {
+    if (q) {
       alert("You asked: " + q);
     }
   }
