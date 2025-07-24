@@ -11,7 +11,7 @@
   <h2 style="font-size:20px; margin-bottom:16px;">Weather by ZIP Code</h2>
   <input id="zipcodeBox" type="text" placeholder="Enter ZIP..." 
          style="width:180px; padding:6px; font-size:14px; border-radius:4px;" 
-         onkeydown="if(event.key === 'Enter') showWeather();">
+         onkeydown="if(event.key === 'Enter') saveZIPAndShowWeather();">
   <div id="weatherResponse" style="margin-top:14px; font-size:14px;"></div>
 </div>
 
@@ -23,14 +23,27 @@
     }
   }
 
-  function showWeather() {
+  function saveZIPAndShowWeather() {
     const zip = document.getElementById('zipcodeBox').value.trim();
-    const weatherBox = document.getElementById('weatherResponse');
-    if (zip === '') {
-      weatherBox.textContent = 'Please enter a ZIP code.';
-      return;
+    if (zip !== '') {
+      localStorage.setItem('savedZIP', zip);
+      showWeather(zip);
     }
+  }
+
+  function showWeather(zip) {
+    const weatherBox = document.getElementById('weatherResponse');
+    if (!zip) {
+      zip = localStorage.getItem('savedZIP');
+      if (!zip) {
+        weatherBox.textContent = 'Please enter a ZIP code.';
+        return;
+      }
+    }
+
+    // Simulated ZIP-based weather
     if (zip === '80202') {
+      weather
       weatherBox.textContent = 'Denver (80202): Sunny, high of 88°F, NW wind at 7 mph.';
     } else if (zip === '33870') {
       weatherBox.textContent = 'Sebring (33870): Partly cloudy, high of 91°F, SE wind at 5 mph.';
