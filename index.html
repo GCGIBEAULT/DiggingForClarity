@@ -1,15 +1,41 @@
-<div style="background-color:#7C6000; color:#FFFFFF; padding:30px; font-family:Arial, sans-serif; width:200px; float:left; margin-right:30px; border-radius:6px;">
+<!-- Just Ask Me Block -->
+<div style="background-color:#7C6000; color:#FFFFFF; padding:30px; font-family:Arial, sans-serif; width:220px; float:left; border-radius:6px; margin-bottom:30px;">
   <h2 style="font-size:20px; margin-bottom:16px;">Just Ask Me</h2>
   <input id="questionBox" type="text" placeholder="Type your question..." 
          style="width:180px; padding:6px; font-size:14px; border-radius:4px;" 
          onkeydown="if(event.key === 'Enter') showAnswer();">
 </div>
 
+<!-- Weather Block -->
+<div style="background-color:#333333; color:#FFFFFF; padding:30px; font-family:Arial, sans-serif; width:220px; float:left; border-radius:6px;">
+  <h2 style="font-size:20px; margin-bottom:16px;">Weather by ZIP Code</h2>
+  <input id="zipcodeBox" type="text" placeholder="Enter ZIP..." 
+         style="width:180px; padding:6px; font-size:14px; border-radius:4px;" 
+         onkeydown="if(event.key === 'Enter') showWeather();">
+  <div id="weatherResponse" style="margin-top:14px; font-size:14px;"></div>
+</div>
+
 <script>
   function showAnswer() {
     const q = document.getElementById('questionBox').value.trim();
     if (q !== '') {
-      alert("You asked: " + q); // Later can route this to civic responses or insights
+      alert("You asked: " + q);
+    }
+  }
+
+  function showWeather() {
+    const zip = document.getElementById('zipcodeBox').value.trim();
+    const weatherBox = document.getElementById('weatherResponse');
+    if (zip === '') {
+      weatherBox.textContent = 'Please enter a ZIP code.';
+      return;
+    }
+    if (zip === '80202') {
+      weatherBox.textContent = 'Denver (80202): Sunny, high of 88°F, NW wind at 7 mph.';
+    } else if (zip === '33870') {
+      weatherBox.textContent = 'Sebring (33870): Partly cloudy, high of 91°F, SE wind at 5 mph.';
+    } else {
+      weatherBox.textContent = 'Weather data for ' + zip + ' is loading...';
     }
   }
 </script>
