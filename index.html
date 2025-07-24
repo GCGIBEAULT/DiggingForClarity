@@ -1,9 +1,34 @@
-<!-- Just Ask Me Section -->
-<div class="section" style="margin-top:40px;">
-  <h2 style="padding-top:10px;">Just ask me</h2>
-  <input type="text" id="questionBox"
-    placeholder="Just ask me..."
-    style="width:300px; font-size:18px; padding:10px; background-color:yellow;"
-    onkeydown="if(event.key==='Enter') showAnswer();">
-  <div id="answerBox" style="margin-top:10px; font-size:18px;"></div>
-</div>
+<body style="font-family:sans-serif; margin-left:40px;">
+
+  <!-- Just Ask Me Section -->
+  <div class="section" style="margin-top:40px;">
+    <h2 style="padding-top:10px;">Just ask me</h2>
+    <input type="text" id="questionBox"
+      placeholder="Just ask me..."
+      style="width:300px; font-size:18px; padding:10px; background-color:yellow;"
+      onkeydown="if(event.key==='Enter') showAnswer();">
+    <div id="answerBox" style="margin-top:10px; font-size:18px;"></div>
+  </div>
+
+  <!-- Weather Section -->
+  <div class="section" style="margin-top:96px;">
+    <h2 style="padding-top:10px;">Weather</h2>
+    <div style="font-size:18px; margin-bottom:10px;">
+      Forecast for <strong>80224</strong>:
+    </div>
+    <div style="font-size:18px; background-color:yellow; padding:10px; max-width:300px;">
+      <div>🌤️ Today: 82°F, partly sunny</div>
+      <div>🌧️ Tomorrow: 75°F, chance of showers</div>
+      <div>☀️ Friday: 88°F, clear skies</div>
+      <div>⛅ Saturday: 84°F, partly cloudy</div>
+    </div>
+  </div>
+
+  <!-- Script to power Just ask me -->
+  <script>
+    function showAnswer() {
+      const question = document.getElementById('questionBox').value;
+      document.getElementById('answerBox').innerText = "You asked: " + question;
+    }
+  </script>
+</body>
