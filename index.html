@@ -43,12 +43,20 @@
 
     // Simulated ZIP-based weather
     if (zip === '80202') {
-      weather
-      weatherBox.textContent = 'Denver (80202): Sunny, high of 88°F, NW wind at 7 mph.';
+      weatherBox.textContent = 'Denver (80202): Sunny, high of 88°F. NW wind 7 mph. 0% chance of rain.';
     } else if (zip === '33870') {
-      weatherBox.textContent = 'Sebring (33870): Partly cloudy, high of 91°F, SE wind at 5 mph.';
+      weatherBox.textContent = 'Sebring (33870): Partly cloudy, high of 91°F. SE wind 5 mph. 10% chance of showers.';
     } else {
-      weatherBox.textContent = 'Weather data for ' + zip + ' is loading...';
+      weatherBox.textContent = 'Weather for ' + zip + ': Clear conditions. Temp: 85°F. Wind: Calm. Precipitation: none.';
     }
   }
+
+  // Auto-load weather on page load if ZIP was saved
+  window.onload = function() {
+    const zip = localStorage.getItem('savedZIP');
+    if (zip) {
+      document.getElementById('zipcodeBox').value = zip;
+      showWeather(zip);
+    }
+  };
 </script>
