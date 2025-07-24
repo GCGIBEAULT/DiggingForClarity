@@ -1,36 +1,9 @@
-<!-- Weather Lookup Block -->
-<div style="text-align:left; padding-left:12px; max-width:300px; margin-top:96px;"> <!-- 1 inch below in web units -->
-  <h2 style="margin-bottom:8px;">Your Weather</h2>
-  <input
-    type="text"
-    id="zipcodeBox"
-    placeholder="80202 (or enter ZIP)..."
-    style="width:100%; padding:6px; font-size:14px; border-radius:4px;
-           background-color:#FFF9C4; color:black; border:1px solid #ccc;"
-    onkeydown="if(event.key === 'Enter') handleZIP();"
-  >
-  <div id="weatherResponse" style="margin-top:10px; font-size:14px;"></div>
-</div>
-
-<script>
-  function handleZIP() {
-    const zip = document.getElementById('zipcodeBox').value.trim();
-    renderWeather(zip);
-  }
-
-  function renderWeather(zip) {
-    const weatherBox = document.getElementById('weatherResponse');
-    if (!zip) {
-      weatherBox.textContent = 'Please enter a ZIP code.';
-    } else if (zip === '80202') {
-      weatherBox.textContent = 'Denver: Sunny, 88°F, NW wind 7 mph, 0% rain chance.';
-    } else if (zip === '33870') {
-      weatherBox.textContent = 'Sebring: Partly cloudy, 91°F, SE wind 5 mph, 10% chance of showers.';
-    } else {
-      weatherBox.textContent = 'ZIP ' + zip + ': Temp 85°F, Wind calm, Precipitation: none.';
-    }
-  }
-
-  // Auto-set to Denver on initial load
-  window.onload = () => renderWeather('80202');
-</script>
+weatherBox.innerHTML = `
+  <div style="font-size:18px; line-height:1.6;">
+    <strong>Denver</strong><br>
+    Sunny<br>
+    88°F<br>
+    NW wind 7 mph<br>
+    0% rain chance
+  </div>
+`;
