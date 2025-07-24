@@ -1,16 +1,23 @@
-<body>
+<body style="font-family:sans-serif; margin-left:40px;">
+
   <!-- Just Ask Me Section -->
-  <div class="section">
-    <h2>Just ask me</h2>
-    <input type="text" id="questionBox" placeholder="Just ask me..." onkeydown="if(event.key==='Enter') showAnswer();">
-    <div id="answerBox"></div>
+  <div class="section" style="margin-top:40px;">
+    <h2 style="padding-top:10px;">Just ask me</h2>
+    <input type="text" id="questionBox"
+      placeholder="Just ask me..."
+      style="width:300px; font-size:18px; padding:10px; background-color:yellow;"
+      onkeydown="if(event.key==='Enter') showAnswer();">
+    <div id="answerBox" style="margin-top:10px;"></div>
   </div>
 
-  <!-- Weather Section (1 inch lower) -->
+  <!-- Weather Section -->
   <div class="section" style="margin-top:96px;">
-    <h2>Weather</h2>
-    <input type="text" id="zipcodeBox" placeholder="80224 (or enter ZIP)..." onkeydown="if(event.key==='Enter') handleZIP();">
-    <div id="weatherResponse"></div>
+    <h2 style="padding-top:10px;">Weather</h2>
+    <input type="text" id="zipcodeBox"
+      placeholder="80224 (or enter ZIP)..."
+      style="width:300px; font-size:18px; padding:10px; background-color:yellow;"
+      onkeydown="if(event.key==='Enter') handleZIP();">
+    <div id="weatherResponse" style="margin-top:10px;"></div>
   </div>
-</body>
 
+</body>
