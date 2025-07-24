@@ -1,19 +1,10 @@
-<!-- Container for modules -->
-<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 32px; font-family: sans-serif; margin: 48px; color: #000;">
-
-  <!-- Prompt Module -->
-  <div style="width: 320px;">
-    <h2 style="margin-bottom: 8px;">Just ask me</h2>
-    <p style="margin: 0; font-style: italic; background-color: #FFF9DB; padding: 8px; border: 1px solid #999; border-radius: 4px;">Begin here...</p>
-  </div>
+<!-- Container for Weather and Traffic Modules -->
+<div style="display: flex; justify-content: center; gap: 24px; margin-top: 48px; font-family: sans-serif; color: #000;">
 
   <!-- Weather Module -->
-  <div style="width: 320px;">
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
-      <h2 style="margin: 0;">Weather Forecast</h2>
-      <input type="text" id="zipcodeBox" placeholder="Enter ZIP" onkeydown="if(event.key==='Enter') handleZIP();" style="padding: 6px; width: 100px;">
-    </div>
-    <div id="weatherResponse" style="background-color: #FFF9DB; padding: 16px; border: 1px solid #999; border-radius: 8px; font-weight: bold;">
+  <div style="width: 300px;">
+    <h2 style="margin-bottom: 12px;">Weather Forecast</h2>
+    <div style="background-color: #FFF9DB; padding: 16px; border: 1px solid #999; border-radius: 8px; font-weight: bold;">
       <p>ZIP: 80224</p>
       <p>Conditions: Partly Sunny</p>
       <p>High: 89°F &nbsp; Low: 66°F</p>
@@ -22,24 +13,31 @@
     </div>
   </div>
 
+  <!-- Traffic Module -->
+  <div style="width: 300px;">
+    <h2 style="margin-bottom: 12px;">Traffic Conditions</h2>
+    <div style="margin-bottom: 8px;">
+      <input type="text" id="fromBox" placeholder="From" style="padding: 8px; width: 100%; margin-bottom: 8px;">
+      <input type="text" id="toBox" placeholder="To" style="padding: 8px; width: 100%; margin-bottom: 8px;">
+      <button onclick="checkTraffic()" style="width: 100%;">Check Traffic</button>
+    </div>
+    <div id="trafficResponse" style="background-color: #FFF9DB; padding: 16px; border: 1px solid #999; border-radius: 8px; font-weight: bold;"></div>
+  </div>
+
 </div>
 
 <script>
-  let currentZip = "80224";
-
-  function handleZIP() {
-    const zip = document.getElementById("zipcodeBox").value.trim();
-    if (zip && zip !== currentZip) {
-      currentZip = zip;
-      // Replace this with actual forecast fetch logic
-      document.getElementById("weatherResponse").innerHTML = `
-        <p>ZIP: ${zip}</p>
-        <p>Conditions: Mostly Sunny</p>
-        <p>High: 91°F &nbsp; Low: 67°F</p>
-        <p>Wind: SSW @ 7 mph</p>
-        <p>Chance of Rain: 10%</p>
+  function checkTraffic() {
+    const from = document.getElementById("fromBox").value.trim();
+    const to = document.getElementById("toBox").value.trim();
+    if (from && to) {
+      document.getElementById("trafficResponse").innerHTML = `
+        <p>From: ${from}</p>
+        <p>To: ${to}</p>
+        <p>Estimated Time: 24 mins</p>
+        <p>Congestion: Moderate</p>
+        <p>Incidents: None reported</p>
       `;
     }
   }
 </script>
-``
