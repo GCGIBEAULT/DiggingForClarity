@@ -1,5 +1,6 @@
 <!-- Just Ask Me Section -->
 <div class="section" style="background-color:#FFF9DB; padding:12px;">
+  <!-- Headline above input prompt -->
   <h2 style="margin-bottom:8px;">Letter to You</h2>
   <input type="text" id="questionBox" placeholder="Just ask me..." onkeydown="if(event.key==='Enter') showAnswer();">
   <div id="answerBox"></div>
@@ -7,7 +8,9 @@
 
 <!-- Weather Section -->
 <div class="section" style="margin-top:48px; background-color:#FFF9DB; padding:12px;">
+  <!-- Clear title -->
   <h2 style="margin-bottom:8px;">Weather Forecast</h2>
+  <!-- Default ZIP set to Denver (80224), but editable -->
   <input type="text" id="zipcodeBox" placeholder="80224 (or enter ZIP)" onkeydown="if(event.key==='Enter') handleZIP();">
   <div id="weatherResponse"></div>
 </div>
