@@ -1,37 +1,12 @@
-<!-- Just Ask Me Block (TOP) -->
-<input id="questionBox" placeholder="Ask a question..." 
-       style="width:180px; padding:6px; font-size:14px; border-radius:4px;">
-<button onclick="showAnswer()" style="margin-left:8px;">Submit</button>
-
-<!-- Weather Block (BELOW) -->
-<input id="zipcodeBox" placeholder="Enter ZIP..." 
-       style="width:180px; padding:6px; font-size:14px; border-radius:4px; margin-top:16px;" 
-       onkeydown="if(event.key === 'Enter') handleZIP();">
-<div id="weatherResponse" style="margin-top:10px; font-size:14px;"></div>
-
+<div id="answerBox" style="margin-top:10px; font-size:14px;"></div>
 <script>
   function showAnswer() {
     const q = document.getElementById('questionBox').value.trim();
+    const answerBox = document.getElementById('answerBox');
     if (q) {
-      alert("You asked: " + q);
-    }
-  }
-
-  function handleZIP() {
-    const zip = document.getElementById('zipcodeBox').value.trim();
-    renderWeather(zip);
-  }
-
-  function renderWeather(zip) {
-    const weatherBox = document.getElementById('weatherResponse');
-    if (!zip) {
-      weatherBox.textContent = 'Please enter a ZIP code.';
-    } else if (zip === '80202') {
-      weatherBox.textContent = 'Denver: Sunny, 88°F, NW wind 7 mph, 0% rain chance.';
-    } else if (zip === '33870') {
-      weatherBox.textContent = 'Sebring: Partly cloudy, 91°F, SE wind 5 mph, 10% chance of showers.';
+      answerBox.textContent = 'You asked: ' + q;
     } else {
-      weatherBox.textContent = 'ZIP ' + zip + ': Temp 85°F, Wind calm, Precipitation: none.';
+      answerBox.textContent = '';
     }
   }
 </script>
