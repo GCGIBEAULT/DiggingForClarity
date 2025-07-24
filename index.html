@@ -1,7 +1,53 @@
-<div style="background-color:#7C6000; color:#FFFFFF; padding:40px; text-align:left; font-family:sans-serif; width:220px; float:left; margin-right:30px; border-radius:6px;">
-  <h2 style="margin-bottom:10px; font-size:24px;">
-    <span style="color:red;">★</span> Just Ask Me
-  </h2>
-  <input id="questionBox" placeholder="Type your question..." style="width:180px; padding:8px; font-size:14px; border-radius:4px;">
-  <button onclick="showAnswer()" style="padding:8px 12px; font-size:14px; margin-top:10px;">Submit</button>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Just Ask Me</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 150px;
+    }
+    h1 {
+      font-size: 36px;
+      color: #444444;
+      margin-bottom: 40px;
+    }
+    input[type="text"] {
+      width: 500px;
+      padding: 14px;
+      font-size: 18px;
+      border: 1px solid #DDD;
+      border-radius: 24px;
+      outline: none;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      margin-left: 10px;
+      border: none;
+      background-color: #4285F4;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #357AE8;
+    }
+  </style>
+</head>
+<body>
+  <h1>★ Just Ask Me</h1>
+  <input id="questionBox" type="text" placeholder="Type your question...">
+  <button onclick="showAnswer()">Submit</button>
+
+  <script>
+    function showAnswer() {
+      const q = document.getElementById('questionBox').value.trim();
+      alert("You asked: " + q);
+    }
+  </script>
+</body>
+</html>
