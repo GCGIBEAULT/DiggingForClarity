@@ -1,3 +1,4 @@
+<!-- Just Ask Me Block -->
 <div style="text-align:left; padding-left:12px; max-width:300px;">
   <h2 style="margin-bottom:8px;">Just ask me</h2>
   <input
@@ -11,14 +12,61 @@
   <div id="answerBox" style="margin-top:10px; font-size:14px;"></div>
 </div>
 
+<!-- Weather Block -->
+<div style="text-align:left; padding-left:12px; max-width:300px; margin-top:96px;">
+  <h2 style="margin-bottom:8px;">Weather</h2>
+  <input
+    type="text"
+    id="zipcodeBox"
+    placeholder="80224 (or enter ZIP)..."
+    style="width:100%; padding:6px; font-size:14px; border-radius:4px;
+           background-color:#FFF9C4; color:black; border:1px solid #ccc;"
+    onkeydown="if(event.key === 'Enter') handleZIP();"
+  >
+  <div id="weatherResponse" style="margin-top:10px; font-size:18px; line-height:1.6;"></div>
+</div>
+
 <script>
   function showAnswer() {
     const q = document.getElementById('questionBox').value.trim();
     const answerBox = document.getElementById('answerBox');
-    if (q) {
-      answerBox.textContent = 'You asked: ' + q;
-    } else {
-      answerBox.textContent = 'Just ask me something.';
-    }
+    answerBox.textContent = q ? 'You asked: ' + q : 'Just ask me something.';
   }
+
+  function handleZIP() {
+    const zip = document.getElementById('zipcodeBox').value.trim();
+    renderWeather(zip);
+  }
+
+  function renderWeather(zip) {
+    const weatherBox = document.getElementById('weatherResponse');
+    let output = '';
+    if (!zip || zip === '80224') {
+      output = `
+        <strong>Denver (80224)</strong><br>
+        Mostly sunny<br>
+        86°F<br>
+        Light NW breeze<br>
+        0% rain chance
+      `;
+    } else if (zip === '33870') {
+      output = `
+        <strong>Sebring</strong><br>
+        Partly cloudy<br>
+        91°F<br>
+        SE wind 5 mph<br>
+        10% chance of showers
+      `;
+    } else {
+      output = `
+        <strong>ZIP ${zip}</strong><br>
+        Temp 85°F<br>
+        Wind calm<br>
+        Precipitation: none
+      `;
+    }
+    weatherBox.innerHTML = `<div>${output}</div>`;
+  }
+
+  window.onload = () => renderWeather('80224');
 </script>
