@@ -1,13 +1,3 @@
 <input id="questionBox" placeholder="Ask a question...">
 <button onclick="showAnswer()">Submit</button>
-<p id="responseText"></p>
-
-<script>
-function showAnswer() {
-  const question = document.getElementById('questionBox').value.toLowerCase();
-  let answer = "Answer coming soon.";
-  if (question.includes("how")) answer = "Working on layout tweaks and readability next.";
-  document.getElementById('responseText').innerText = answer;
-}
-</script>
 
