@@ -1,19 +1,6 @@
-<div style="max-width:400px;margin:30px auto;padding:20px;background:#fffbe6;border-radius:8px;box-shadow:0 0 5px rgba(0,0,0,0.1);">
-  <label for="askBox" style="font-weight:bold;font-size:18px;color:#333;display:block;margin-bottom:10px;">Just Ask Me</label>
-  <input id="askBox" type="text" placeholder="Type your question..." 
-    style="width:100%;padding:10px;border:1px solid #bbb;border-radius:4px;background:#fffff9;font-size:16px;" 
-    onkeydown="if(event.key==='Enter'){event.preventDefault(); respond();}">
-  <div id="response" style="margin-top:15px;color:#222;font-style:italic;"></div>
+<div style="background-color:#4A3F00; color:#FFFFFF; padding:40px; text-align:left; font-family:sans-serif;">
+  <h2 style="margin-bottom:10px; font-size:28px;">
+    <span style="color:red;">:</span>Just Ask Me<span style="color:red;">:</span>
+  </h2>
+  <p style="font-size:18px;">How’s it looking?</p>
 </div>
-
-<script>
-  function respond() {
-    const input = document.getElementById('askBox').value.trim();
-    const responseBox = document.getElementById('response');
-    if (input === '') {
-      responseBox.textContent = '';
-      return;
-    }
-    responseBox.textContent = "Answer coming soon: \"" + input + "\"";
-  }
-</script>
