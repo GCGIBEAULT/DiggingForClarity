@@ -1,18 +1,29 @@
-<div style="max-width:400px;margin:30px auto;padding:20px;border:1px solid #ccc;border-radius:8px;background:#f9f9f9;">
-  <label for="askBox" style="font-weight:bold;">Just Ask Me</label>
-  <input id="askBox" type="text" placeholder="Type your question..." style="width:100%;padding:10px;margin-top:10px;border:1px solid #aaa;border-radius:4px;" onkeydown="if(event.key==='Enter'){event.preventDefault(); respond();}">
-  <div id="response" style="margin-top:15px;color:#333;font-style:italic;"></div>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NoMoreBaloney.com</title>
+  </head>
+  <body>
+    <h1>🥪 A Sandwich, A Scroll, A Legacy</h1>
+    <p>This site is rooted in precision, curiosity, and civic clarity—values passed down over mustard and meaning.</p>
+    <p>Scroll coming soon...</p>
 
-<script>
-  function respond() {
-    const input = document.getElementById('askBox').value.trim();
-    const responseBox = document.getElementById('response');
-    if (input === '') {
-      responseBox.textContent = '';
-      return;
-    }
-    // Replace this with real response logic later
-    responseBox.textContent = "Answer coming soon: \"" + input + "\"";
-  }
-</script>
+    <div style="max-width:400px;margin:30px auto;padding:20px;border:1px solid #ccc;border-radius:8px;background:#f9f9f9;">
+      <label for="askBox" style="font-weight:bold;">Just Ask Me</label>
+      <input id="askBox" type="text" placeholder="Type your question..." style="width:100%;padding:10px;margin-top:10px;border:1px solid #aaa;border-radius:4px;" onkeydown="if(event.key==='Enter'){event.preventDefault(); respond();}">
+      <div id="response" style="margin-top:15px;color:#333;font-style:italic;"></div>
+    </div>
+
+    <script>
+      function respond() {
+        const input = document.getElementById('askBox').value.trim();
+        const responseBox = document.getElementById('response');
+        if (input === '') {
+          responseBox.textContent = '';
+          return;
+        }
+        responseBox.textContent = "Answer coming soon: \"" + input + "\"";
+      }
+    </script>
+  </body>
+</html>
