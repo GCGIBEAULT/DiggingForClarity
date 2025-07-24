@@ -1,39 +1,13 @@
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+<!-- Just Ask Me Section -->
+<div class="section" style="background-color:#FFF9DB; padding:12px;">
+  <h2 style="margin-bottom:8px;">Letter to You</h2>
+  <input type="text" id="questionBox" placeholder="Just ask me..." onkeydown="if(event.key==='Enter') showAnswer();">
+  <div id="answerBox"></div>
+</div>
 
-<body style="font-family:sans-serif; margin-left:40px;">
-
-  <!-- Just Ask Me Section -->
-  <div class="section" style="margin-top:40px;">
-    <h2 style="padding-top:10px;">Just ask me</h2>
-    <input type="text" id="questionBox"
-      placeholder="Just ask me..."
-      style="width:90%; max-width:300px; font-size:20px; padding:12px; background-color:yellow;"
-      onkeydown="if(event.key==='Enter') showAnswer();">
-    <div id="answerBox" style="margin-top:10px; font-size:18px;"></div>
-  </div>
-
-  <!-- Weather Section -->
-  <div class="section" style="margin-top:96px;">
-    <h2 style="padding-top:10px;">Weather</h2>
-    <div style="font-size:18px; margin-bottom:10px;">
-      Forecast for <strong>80224</strong>:
-    </div>
-    <div style="font-size:18px; background-color:yellow; padding:10px; max-width:300px;">
-      <div>🌤️ Today: 82°F, partly sunny</div>
-      <div>🌧️ Tomorrow: 75°F, chance of showers</div>
-      <div>☀️ Friday: 88°F, clear skies</div>
-      <div>⛅ Saturday: 84°F, partly cloudy</div>
-    </div>
-  </div>
-
-  <!-- Response Logic -->
-  <script>
-    function showAnswer() {
-      const question = document.getElementById('questionBox').value;
-      document.getElementById('answerBox').innerText = "You asked: " + question;
-    }
-  </script>
-
-</body>
+<!-- Weather Section (closer alignment) -->
+<div class="section" style="margin-top:48px; background-color:#FFF9DB; padding:12px;">
+  <h2 style="margin-bottom:8px;">Weather Forecast</h2>
+  <input type="text" id="zipcodeBox" placeholder="80224 (or enter ZIP)" onkeydown="if(event.key==='Enter') handleZIP();">
+  <div id="weatherResponse"></div>
+</div>
