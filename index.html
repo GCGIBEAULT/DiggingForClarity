@@ -1,8 +1,67 @@
-<!-- Live Clock (SVG-based) -->
-<div id="clockWrapper" style="margin-left:256px;">
-  <canvas id="analogClock" width="100" height="100"></canvas>
+<!-- Main Container -->
+<div style="display:flex; flex-direction:row; justify-content:flex-start; gap:24px; margin-top:48px;">
+  
+  <!-- Left Column Modules -->
+  <div style="display:flex; flex-direction:column; gap:24px;">
+    
+    <!-- Just Ask Me + Timestamp -->
+    <div style="display:flex; align-items:center;">
+      <!-- Ask Box -->
+      <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+        <h2 style="margin-bottom:8px;">Just ask me</h2>
+        <input type="text" id="askBox" placeholder="Begin here" onkeydown="if(event.key==='Enter') handleAsk();" style="padding:8px; width:100%; font-size:16px;">
+        <div id="askResponse" style="margin-top:8px;"></div>
+      </div>
+
+      <!-- Timestamp -->
+      <div id="lastUpdated" style="margin-left:128px; font-size:20px; font-weight:bold; color:#555;">
+        Last Update 0530
+      </div>
+    </div>
+
+    <!-- Weather Forecast -->
+    <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+      <h2 style="margin-bottom:8px;">Weather Forecast</h2>
+      <input type="text" id="zipcodeBox" value="80224" placeholder="80224 (or enter ZIP)" onkeydown="if(event.key==='Enter') handleZIP();" style="padding:8px; width:100%; font-size:16px;">
+      <div id="weatherResponse" style="margin-top:12px; font-weight:bold; line-height:1.4;">
+        84°F <br>Clear skies <br>Light SE wind <br>Humidity 22%
+      </div>
+    </div>
+
+    <!-- Traffic Conditions -->
+    <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+      <h2 style="margin-bottom:8px;">Traffic Conditions</h2>
+      <input type="text" id="fromBox" placeholder="From" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
+      <input type="text" id="toBox" placeholder="To" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
+      <button onclick="checkTraffic()" style="width:100%; font-size:16px;">Check Traffic</button>
+      <div id="trafficResponse" style="margin-top:8px;"></div>
+    </div>
+  </div>
+
+  <!-- Clock: Far Right -->
+  <div style="margin-left:auto; padding-top:12px;">
+    <canvas id="analogClock" width="100" height="100"></canvas>
+  </div>
 </div>
 
+<!-- Timestamp Logic: Updates at 5am and every 3 hours -->
+<script>
+  function updateTimestamp() {
+    const now = new Date();
+    const hour = now.getHours();
+    const validHours = [5, 8, 11, 14, 17, 20, 23];
+
+    if (validHours.includes(hour)) {
+      const h = String(hour).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      document.getElementById('lastUpdated').textContent = `Last Update ${h}${m}`;
+    }
+  }
+  updateTimestamp();
+  setInterval(updateTimestamp, 60000);
+</script>
+
+<!-- Analog Clock Logic -->
 <script>
   function drawClock() {
     const canvas = document.getElementById("analogClock");
@@ -32,6 +91,39 @@
         ctx.rotate(-ang);
       }
     }
+
+    function drawHands(time) {
+      const hour = time.getHours() % 12;
+      const minute = time.getMinutes();
+      const second = time.getSeconds();
+
+      function drawHand(pos, length, width) {
+        ctx.beginPath();
+        ctx.lineWidth = width;
+        ctx.lineCap = "round";
+        ctx.moveTo(0, 0);
+        ctx.rotate(pos);
+        ctx.lineTo(0, -length);
+        ctx.stroke();
+        ctx.rotate(-pos);
+      }
+
+      drawHand((hour * Math.PI / 6) + (minute * Math.PI / 360), radius * 0.5, 6);
+      drawHand((minute * Math.PI / 30), radius * 0.75, 4);
+      drawHand((second * Math.PI / 30), radius * 0.85, 2);
+    }
+
+    function updateClock() {
+      ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
+      drawFace();
+      drawHands(new Date());
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  }
+  drawClock();
+</script>
 
     function drawHands(time) {
       const hour = time.getHours() % 12;
