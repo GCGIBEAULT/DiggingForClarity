@@ -1,33 +1,20 @@
-<!-- Main container -->
-<div style="display:flex; justify-content:flex-start; gap:24px; margin-top:48px;">
+<!-- Clock Module -->
+<div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+  <h2>Clock</h2>
+  <div id="realClock" style="font-size:28px; font-weight:bold; text-align:center;"></div>
+</div>
 
-  <!-- Left Column -->
-  <div style="display:flex; flex-direction:column; gap:24px;">
-    <!-- Just Ask Me -->
-    <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
-      <h2>Just ask me</h2>
-      <input type="text" id="askBox" placeholder="Begin here" onkeydown="if(event.key==='Enter') handleAsk();" style="padding:8px; width:100%; font-size:16px;">
-      <div id="askResponse" style="margin-top:8px;"></div>
-    </div>
-
-    <!-- Weather -->
-    <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
-      <h2>Weather Forecast</h2>
-      <input type="text" id="zipcodeBox" value="80224" placeholder="80224 (or enter ZIP)" onkeydown="if(event.key==='Enter') handleZIP();" style="padding:8px; width:100%; font-size:16px;">
-      <div id="weatherResponse" style="margin-top:12px; font-weight:bold; line-height:1.4;">
-        84°F<br>Clear skies<br>Light SE wind<br>Humidity 22%
-      </div>
-    </div>
-
-    <!-- Traffic -->
-    <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
-      <h2>Traffic Conditions</h2>
-      <input type="text" id="fromBox" placeholder="From" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
-      <input type="text" id="toBox" placeholder="To" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
-      <button onclick="checkTraffic()" style="width:100%; font-size:16px;">Check Traffic</button>
-      <div id="trafficResponse" style="margin-top:8px;"></div>
-    </div>
-  </div>
+<!-- Live Clock Script -->
+<script>
+  function updateClock() {
+    const now = new Date();
+    const options = { hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
+    const timeString = now.toLocaleTimeString(undefined, options);
+    document.getElementById('realClock').textContent = timeString;
+  }
+  setInterval(updateClock, 1000);
+  updateClock(); // Initialize immediately
+</script>
 
   <!-- Right Column -->
   <div style="display:flex; flex-direction:column; gap:24px;">
