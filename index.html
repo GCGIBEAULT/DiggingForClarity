@@ -1,45 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grinder Clarity</title>
-</head>
-<body>
-
-<!-- Main container -->
-<div style="display:flex; flex-wrap:wrap; justify-content:flex-start; gap:48px; margin-top:48px;">
-
-  <!-- Left Column with All Modules -->
-  <div style="display:flex; flex-direction:column; gap:48px;">
-
-    <!-- Just Ask Me Module -->
-    <div class="section" style="background-color:#FFF9DB; padding:12px; width:calc(100% - 24px); max-width:320px; min-width:280px;">
-      <h2 style="margin-bottom:8px;">Just ask me</h2>
-      <input type="text" id="askBox" placeholder="Begin here" onkeydown="if(event.key==='Enter') handleAsk();" style="padding:8px; width:100%; font-size:16px;">
-      <div id="askResponse" style="margin-top:8px;"></div>
-    </div>
-
-    <!-- Weather Module -->
-    <div class="section" style="background-color:#FFF9DB; padding:12px; width:calc(100% - 24px); max-width:320px; min-width:280px;">
-      <h2 style="margin-bottom:8px;">Weather Forecast</h2>
-      <input type="text" id="zipcodeBox" value="80224" placeholder="80224 (or enter ZIP)" onkeydown="if(event.key==='Enter') handleZIP();" style="padding:8px; width:100%; font-size:16px;">
-      <div id="weatherResponse" style="margin-top:12px; font-weight:bold; line-height:1.4;">
-        84°F<br>Clear skies<br>Light SE wind<br>Humidity 22%
-      </div>
-    </div>
-
-    <!-- Traffic Module -->
-    <div class="section" style="background-color:#FFF9DB; padding:12px; width:calc(100% - 24px); max-width:320px; min-width:280px;">
-      <h2 style="margin-bottom:8px;">Traffic Conditions</h2>
-      <input type="text" id="fromBox" placeholder="From" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
-      <input type="text" id="toBox" placeholder="To" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
-      <button onclick="checkTraffic()" style="width:100%; font-size:16px;">Check Traffic</button>
-      <div id="trafficResponse" style="margin-top:8px;"></div>
-    </div>
-
+<!-- Wrapper for Ask + Timestamp -->
+<div style="display:flex; align-items:center;">
+  <!-- Just Ask Me Module -->
+  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+    <h2 style="margin-bottom:8px;">Just ask me</h2>
+    <input type="text" id="askBox" placeholder="Begin here" onkeydown="if(event.key==='Enter') handleAsk();" style="padding:8px; width:100%; font-size:16px;">
+    <div id="askResponse" style="margin-top:8px;"></div>
   </div>
 
+  <!-- Last Updated Timestamp -->
+  <div id="lastUpdated" style="margin-left:128px; font-size:14px; color:#555;">
+    Last Update 0530
+  </div>
 </div>
 
-</body>
-</html>
+<script>
+  function updateTimestamp() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('lastUpdated').textContent = `Last Update ${hours}${minutes}`;
+  }
+  updateTimestamp(); // Runs on load
+  setInterval(updateTimestamp, 60000); // Refreshes every minute
+</script>
