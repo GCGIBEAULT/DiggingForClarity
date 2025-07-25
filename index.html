@@ -1,55 +1,68 @@
-<!-- Full Dashboard Container -->
-<div style="display:flex; flex-direction:column; gap:24px; margin-top:48px;">
-
-  <!-- Top Row: Ask + Timestamp -->
-  <div style="display:flex; align-items:center;">
-    <!-- Just Ask Me -->
-    <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
-      <h2 style="margin-bottom:8px;">Just ask me</h2>
-      <input type="text" id="askBox" placeholder="Begin here" onkeydown="if(event.key==='Enter') handleAsk();" style="padding:8px; width:100%; font-size:16px;">
-      <div id="askResponse" style="margin-top:8px;"></div>
-    </div>
-
-    <!-- Timestamp: 2 inches to the right -->
-    <div id="lastUpdated" style="margin-left:128px; font-size:20px; font-weight:bold; color:#555;">
-      Last Update 0530
-    </div>
-  </div>
-
-  <!-- Weather Forecast -->
-  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
-    <h2 style="margin-bottom:8px;">Weather Forecast</h2>
-    <input type="text" id="zipcodeBox" value="80224" placeholder="80224 (or enter ZIP)" onkeydown="if(event.key==='Enter') handleZIP();" style="padding:8px; width:100%; font-size:16px;">
-    <div id="weatherResponse" style="margin-top:12px; font-weight:bold; line-height:1.4;">
-      84°F <br>Clear skies <br>Light SE wind <br>Humidity 22%
-    </div>
-  </div>
-
-  <!-- Traffic Conditions -->
-  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
-    <h2 style="margin-bottom:8px;">Traffic Conditions</h2>
-    <input type="text" id="fromBox" placeholder="From" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
-    <input type="text" id="toBox" placeholder="To" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
-    <button onclick="checkTraffic()" style="width:100%; font-size:16px;">Check Traffic</button>
-    <div id="trafficResponse" style="margin-top:8px;"></div>
-  </div>
-
+<!-- Live Clock (SVG-based) -->
+<div id="clockWrapper" style="margin-left:256px;">
+  <canvas id="analogClock" width="100" height="100"></canvas>
 </div>
 
-<!-- Timestamp Logic (3-hour rhythm starting at 5am) -->
 <script>
-  function updateTimestamp() {
-    const now = new Date();
-    const hours = now.getHours();
-    const validHours = [5, 8, 11, 14, 17, 20, 23];
+  function drawClock() {
+    const canvas = document.getElementById("analogClock");
+    const ctx = canvas.getContext("2d");
+    const radius = canvas.height / 2;
+    ctx.translate(radius, radius);
 
-    if (validHours.includes(hours)) {
-      const displayHours = String(hours).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
-      document.getElementById('lastUpdated').textContent = `Last Update ${displayHours}${minutes}`;
+    function drawFace() {
+      ctx.beginPath();
+      ctx.arc(0, 0, radius * 0.95, 0, 2 * Math.PI);
+      ctx.fillStyle = "#FFF9DB";
+      ctx.fill();
+      ctx.strokeStyle = "#333";
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      for (let num = 1; num <= 12; num++) {
+        const ang = num * Math.PI / 6;
+        ctx.rotate(ang);
+        ctx.translate(0, -radius * 0.85);
+        ctx.rotate(-ang);
+        ctx.fillStyle = "#333";
+        ctx.font = "14px Arial";
+        ctx.fillText(num.toString(), -6, 4);
+        ctx.rotate(ang);
+        ctx.translate(0, radius * 0.85);
+        ctx.rotate(-ang);
+      }
     }
+
+    function drawHands(time) {
+      const hour = time.getHours() % 12;
+      const minute = time.getMinutes();
+      const second = time.getSeconds();
+
+      function drawHand(pos, length, width) {
+        ctx.beginPath();
+        ctx.lineWidth = width;
+        ctx.lineCap = "round";
+        ctx.moveTo(0, 0);
+        ctx.rotate(pos);
+        ctx.lineTo(0, -length);
+        ctx.stroke();
+        ctx.rotate(-pos);
+      }
+
+      drawHand((hour * Math.PI / 6) + (minute * Math.PI / 360), radius * 0.5, 6);
+      drawHand((minute * Math.PI / 30), radius * 0.75, 4);
+      drawHand((second * Math.PI / 30), radius * 0.85, 2);
+    }
+
+    function updateClock() {
+      ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
+      drawFace();
+      drawHands(new Date());
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
   }
 
-  updateTimestamp(); // On load
-  setInterval(updateTimestamp, 60000); // Check every minute
+  drawClock();
 </script>
