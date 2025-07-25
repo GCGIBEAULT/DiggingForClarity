@@ -1,5 +1,27 @@
-<!-- GrinderClarity Visual - Positioned in White Space Below Clock -->
-<div id="grinderLogo" style="margin:36px auto 0 auto; text-align:center; width:300px;">
-  <img src="grinder_clarity.png" alt="Grinder Clarity Logo" style="max-width:200px; height:auto;">
-  <p style="font-weight:bold; margin-top:8px;">Grinder Clarity</p>
+<!-- Left Column Modules -->
+<div style="display:flex; flex-direction:column; gap:24px;">
+  <!-- Just Ask Me -->
+  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+    <h2 style="margin-bottom:8px;">Just ask me</h2>
+    <input type="text" id="askBox" placeholder="Begin here" onkeydown="if(event.key==='Enter') handleAsk();" style="padding:8px; width:100%; font-size:16px;">
+    <div id="askResponse" style="margin-top:8px;"></div>
+  </div>
+
+  <!-- Weather -->
+  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+    <h2 style="margin-bottom:8px;">Weather Forecast</h2>
+    <input type="text" id="zipcodeBox" value="80224" placeholder="80224 (or enter ZIP)" onkeydown="if(event.key==='Enter') handleZIP();" style="padding:8px; width:100%; font-size:16px;">
+    <div id="weatherResponse" style="margin-top:12px; font-weight:bold; line-height:1.4;">
+      84°F<br>Clear skies<br>Light SE wind<br>Humidity 22%
+    </div>
+  </div>
+
+  <!-- Traffic -->
+  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+    <h2 style="margin-bottom:8px;">Traffic Conditions</h2>
+    <input type="text" id="fromBox" placeholder="From" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
+    <input type="text" id="toBox" placeholder="To" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
+    <button onclick="checkTraffic()" style="width:100%; font-size:16px;">Check Traffic</button>
+    <div id="trafficResponse" style="margin-top:8px;"></div>
+  </div>
 </div>
