@@ -1,6 +1,6 @@
 <!-- Main Container -->
 <div style="display:flex; flex-direction:row; justify-content:flex-start; gap:24px; margin-top:48px;">
-  
+
   <!-- Left Column Modules -->
   <div style="display:flex; flex-direction:column; gap:24px;">
     
@@ -38,30 +38,13 @@
     </div>
   </div>
 
-  <!-- Clock: Far Right -->
-  <div style="margin-left:auto; padding-top:12px;">
+  <!-- Clock: Nudged Left by 1 Inch -->
+  <div style="margin-left:calc(100px); padding-top:12px;">
     <canvas id="analogClock" width="100" height="100"></canvas>
   </div>
 </div>
 
-<!-- Timestamp Logic: Updates at 5am and every 3 hours -->
-<script>
-  function updateTimestamp() {
-    const now = new Date();
-    const hour = now.getHours();
-    const validHours = [5, 8, 11, 14, 17, 20, 23];
-
-    if (validHours.includes(hour)) {
-      const h = String(hour).padStart(2, '0');
-      const m = String(now.getMinutes()).padStart(2, '0');
-      document.getElementById('lastUpdated').textContent = `Last Update ${h}${m}`;
-    }
-  }
-  updateTimestamp();
-  setInterval(updateTimestamp, 60000);
-</script>
-
-<!-- Analog Clock Logic -->
+<!-- Clock Logic (cleaned, no extras below) -->
 <script>
   function drawClock() {
     const canvas = document.getElementById("analogClock");
@@ -122,39 +105,5 @@
     setInterval(updateClock, 1000);
     updateClock();
   }
-  drawClock();
-</script>
-
-    function drawHands(time) {
-      const hour = time.getHours() % 12;
-      const minute = time.getMinutes();
-      const second = time.getSeconds();
-
-      function drawHand(pos, length, width) {
-        ctx.beginPath();
-        ctx.lineWidth = width;
-        ctx.lineCap = "round";
-        ctx.moveTo(0, 0);
-        ctx.rotate(pos);
-        ctx.lineTo(0, -length);
-        ctx.stroke();
-        ctx.rotate(-pos);
-      }
-
-      drawHand((hour * Math.PI / 6) + (minute * Math.PI / 360), radius * 0.5, 6);
-      drawHand((minute * Math.PI / 30), radius * 0.75, 4);
-      drawHand((second * Math.PI / 30), radius * 0.85, 2);
-    }
-
-    function updateClock() {
-      ctx.clearRect(-radius, -radius, canvas.width, canvas.height);
-      drawFace();
-      drawHands(new Date());
-    }
-
-    setInterval(updateClock, 1000);
-    updateClock();
-  }
-
   drawClock();
 </script>
