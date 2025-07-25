@@ -1,14 +1,52 @@
-<!-- Just Ask Me + Timestamp Row -->
-<div style="display:flex; align-items:center;">
-  <!-- Just Ask Me Module -->
-  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
-    <h2 style="margin-bottom:8px;">Just ask me</h2>
-    <input type="text" id="askBox" placeholder="Begin here" onkeydown="if(event.key==='Enter') handleAsk();" style="padding:8px; width:100%; font-size:16px;">
-    <div id="askResponse" style="margin-top:8px;"></div>
-  </div>
+<!-- Main Container -->
+<div style="display:flex; gap:24px; margin-top:48px;">
+  
+  <!-- Left Column -->
+  <div style="display:flex; flex-direction:column; gap:24px;">
+    
+    <!-- Ask Me + Timestamp Row -->
+    <div style="display:flex; align-items:center;">
+      <!-- Just Ask Me Module -->
+      <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+        <h2 style="margin-bottom:8px;">Just ask me</h2>
+        <input type="text" id="askBox" placeholder="Begin here" onkeydown="if(event.key==='Enter') handleAsk();" style="padding:8px; width:100%; font-size:16px;">
+        <div id="askResponse" style="margin-top:8px;"></div>
+      </div>
 
-  <!-- Timestamp: 2 inches to the right, same styling as header -->
-  <div id="lastUpdated" style="margin-left:128px; font-size:20px; font-weight:bold; color:#555;">
-    Last Update 0530
+      <!-- Timestamp: 2 inches to the right -->
+      <div id="lastUpdated" style="margin-left:128px; font-size:20px; font-weight:bold; color:#555;">
+        Last Update 0530
+      </div>
+    </div>
+
+    <!-- Weather Forecast Module -->
+    <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+      <h2 style="margin-bottom:8px;">Weather Forecast</h2>
+      <input type="text" id="zipcodeBox" value="80224" placeholder="80224 (or enter ZIP)" onkeydown="if(event.key==='Enter') handleZIP();" style="padding:8px; width:100%; font-size:16px;">
+      <div id="weatherResponse" style="margin-top:12px; font-weight:bold; line-height:1.4;">
+        84°F <br>Clear skies <br>Light SE wind <br>Humidity 22%
+      </div>
+    </div>
+
+    <!-- Traffic Conditions Module -->
+    <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+      <h2 style="margin-bottom:8px;">Traffic Conditions</h2>
+      <input type="text" id="fromBox" placeholder="From" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
+      <input type="text" id="toBox" placeholder="To" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
+      <button onclick="checkTraffic()" style="width:100%; font-size:16px;">Check Traffic</button>
+      <div id="trafficResponse" style="margin-top:8px;"></div>
+    </div>
+    
   </div>
 </div>
+
+<script>
+  function updateTimestamp() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('lastUpdated').textContent = `Last Update ${hours}${minutes}`;
+  }
+  updateTimestamp();
+  setInterval(updateTimestamp, 60000);
+</script>
