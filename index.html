@@ -4,16 +4,16 @@
 </div>
 
 <!-- Live Clock -->
-<div style="text-align: center; margin-top: -4px;">
+<div style="text-align: center;">
   <div id="clock" style="font-size: 40px; font-family: Arial, sans-serif; font-weight: bold;"></div>
 </div>
 
-<!-- Centered Image -->
+<!-- Image -->
 <div style="text-align: center; margin-top: 36px;">
   <img src="Copilot_20250726_103039.png" alt="Site logo" style="width: 338px; height: auto;">
 </div>
 
-<!-- Centered Quote -->
+<!-- Quote -->
 <div style="text-align: center; margin-top: 24px;">
   <p style="font-style: italic; font-weight: bold; font-family: Georgia, serif; font-size: 18px; line-height: 1.6;">
     I stopped watching the news.<br>
@@ -22,3 +22,24 @@
     Yet I wanted to be informed.
   </p>
 </div>
+
+<!-- JavaScript -->
+<script>
+  function updateClock() {
+    const now = new Date();
+
+    const timeString = now.toLocaleTimeString('en-US', {
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+    document.getElementById("clock").textContent = timeString;
+
+    const dateString = now.toLocaleString('en-US', {
+      weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+      hour: 'numeric', minute: '2-digit'
+    });
+    document.getElementById("updateTime").textContent = dateString;
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
