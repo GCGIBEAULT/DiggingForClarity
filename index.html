@@ -1,19 +1,21 @@
-<!-- Live Digital Clock -->
-<div style="display:flex; justify-content:center; margin-top:-4px;">
-  <div id="clock" style="font-size:40px; font-family:Arial, sans-serif; font-weight:bold;"></div>
+<!-- Last Updated -->
+<b style="display: block;">Last Updated: <span id="updateTime"></span></b>
+
+<!-- Logo Image -->
+<div style="margin-top:36px;">
+  <img src="Copilot_20250726_103039.png" alt="Site logo" style="width:338px; height:auto;">
 </div>
 
+<!-- JavaScript for Timestamp -->
 <script>
-  function updateClock() {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString('en-US', {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
-    });
-    document.getElementById("clock").textContent = timeString;
-  }
-
-  updateClock(); // Initial display
-  setInterval(updateClock, 1000); // Tick every second
+  const now = new Date();
+  const formatted = now.toLocaleString('en-US', {
+    weekday: 'short',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit'
+  });
+  document.getElementById("updateTime").textContent = formatted;
 </script>
