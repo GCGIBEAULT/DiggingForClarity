@@ -23,27 +23,6 @@
   </p>
 </div>
 
-<!-- Info Toggle Link -->
-<div style="text-align: center; margin-top: 40px;">
-  <a href="#" onclick="toggleInfo()" style="font-family: Georgia, serif; font-size: 15px; color: #336699; text-decoration: underline;">
-    What this site stands for — and who built it
-  </a>
-</div>
-
-<!-- Hidden Info Panel -->
-<div id="infoPanel" style="display: none; text-align: center; margin-top: 20px;">
-  <p style="font-family: Georgia, serif; font-size: 15px; color: #444; line-height: 1.6;">
-    I'm not sponsored yet. With your help and clicks, maybe I will be soon.<br>
-    My promise to you: <em>every penny this site brings in through ads will be donated to charity.</em><br>
-    <strong>Every shiny penny.</strong> And <span style="text-decoration: underline;">you</span> will decide what charity it goes to.<br>
-    I'm doing this site for my personal clarity — and the hope that I can share that with you.<br><br>
-    <strong>About the Author:</strong><br>
-    Gregg Gibeault is a disciplined designer and pragmatic thinker.<br>
-    He builds for clarity, questions noise, and seeks quiet impact.<br>
-    This site is part of his personal journey — and maybe yours too.
-  </p>
-</div>
-
 <!-- JavaScript -->
 <script>
 function updateClock() {
@@ -61,9 +40,4 @@ function updateClock() {
 }
 updateClock();
 setInterval(updateClock, 1000);
-
-function toggleInfo() {
-  const panel = document.getElementById("infoPanel");
-  panel.style.display = panel.style.display === "none" ? "block" : "none";
-}
 </script>
