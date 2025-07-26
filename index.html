@@ -1,14 +1,25 @@
 <!-- Main container -->
 <div style="display:flex; flex-direction:column; gap:24px; margin-top:48px;">
+  
+  <!-- First Row: Ask + Update (side-by-side) -->
+  <div style="display:flex; gap:32px;">
+    <!-- Just Ask Me -->
+    <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+      <h2>Just ask me</h2>
+      <input type="text" id="askBox" placeholder="Begin here" onkeydown="if(event.key==='Enter') handleAsk();" style="padding:8px; width:100%; font-size:16px;">
+      <div id="askResponse" style="margin-top:8px;"></div>
+    </div>
 
-  <!-- Just Ask Me -->
-  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
-    <h2>Just ask me</h2>
-    <input type="text" id="askBox" placeholder="Begin here" onkeydown="if(event.key==='Enter') handleAsk();" style="padding:8px; width:100%; font-size:16px;">
-    <div id="askResponse" style="margin-top:8px;"></div>
+    <!-- Last Update (2 inches ≈ 192px right offset via spacing) -->
+    <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px; margin-left:192px;">
+      <h2>Last Update</h2>
+      <div id="updateTime" style="font-size:16px; font-weight:bold; line-height:1.4;">
+        Calculating...
+      </div>
+    </div>
   </div>
 
-  <!-- Weather Forecast -->
+  <!-- Second Row: Weather -->
   <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
     <h2>Weather Forecast</h2>
     <input type="text" id="zipcodeBox" value="80224" placeholder="80224 (or enter ZIP)" onkeydown="if(event.key==='Enter') handleZIP();" style="padding:8px; width:100%; font-size:16px;">
@@ -17,7 +28,7 @@
     </div>
   </div>
 
-  <!-- Traffic Conditions -->
+  <!-- Third Row: Traffic -->
   <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
     <h2>Traffic Conditions</h2>
     <input type="text" id="fromBox" placeholder="From" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
@@ -25,4 +36,5 @@
     <button onclick="checkTraffic()" style="width:100%; font-size:16px;">Check Traffic</button>
     <div id="trafficResponse" style="margin-top:8px;"></div>
   </div>
+
 </div>
