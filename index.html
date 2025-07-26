@@ -1,42 +1,45 @@
-<!-- Last Updated - Upper Left -->
-<div style="text-align: left; margin-bottom: 4px;">
-  <b>Last Updated: <span id="updateTime"></span></b>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digging for Clarity</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        text-align: center;
+      }
+      .timestamp {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 12px;
+      }
+      blockquote {
+        font-style: italic;
+        font-weight: bold;
+        margin: 20px auto;
+        width: 60%;
+      }
+      img {
+        max-width: 80%;
+        height: auto;
+        margin: 20px auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="timestamp">Last Updated: July 26, 2025</div>
 
-<!-- Clock - Center Top -->
-<div style="text-align: center;">
-  <div id="clock" style="font-size: 40px; font-family: Arial, sans-serif; font-weight: bold;"></div>
-</div>
+    <blockquote>
+      I stopped watching the news. I stopped reading the news. I no longer wanted
+      someone else's commentary to become my opinion.
+    </blockquote>
 
-<!-- Quote Block - Single Spaced, Italicized, Vertically Blocked, Centered ABOVE Image -->
-<div style="text-align: center; margin-top: 36px;">
-  <pre style="font-family: Courier New, monospace; font-size: 18px; font-style: italic; font-weight: bold; display: inline-block; text-align: left; line-height: 1.2;">
-I stopped watching the news.
-I stopped reading the news.
-I no longer wanted someone else's commentary to become my opinion.
-I wanted to be informed.
-  </pre>
-</div>
+    <img src="path-to-your-image.jpg" alt="Relevant image" />
 
-<!-- Image - Centered Below Quote -->
-<div style="text-align: center; margin-top: 36px;">
-  <img src="Copilot_20250726_103039.png" alt="Site logo" style="width: 338px; height: auto;">
-</div>
-
-<!-- JavaScript for Clock + Timestamp -->
-<script>
-  function updateClock() {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString('en-US', {
-      hour: '2-digit', minute: '2-digit', second: '2-digit'
-    });
-    document.getElementById("clock").textContent = timeString;
-    const dateString = now.toLocaleString('en-US', {
-      weekday: 'short', year: 'numeric', month: 'short',
-      day: 'numeric', hour: 'numeric', minute: '2-digit'
-    });
-    document.getElementById("updateTime").textContent = dateString;
-  }
-  updateClock();
-  setInterval(updateClock, 1000);
-</script>
+    <p><strong><em>Yet</em></strong> I wanted to be informed.</p>
+  </body>
+</html>
