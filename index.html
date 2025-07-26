@@ -4,21 +4,21 @@
 </div>
 
 <!-- Just Ask Me -->
-<div style="font-size:14px; font-weight:bold; background-color:#D8F6FF; padding:8px;">
+<div style="font-size:14px; font-weight:bold; background-color:#D8F6FF; padding:8px; margin-top:8px;">
   Just Ask Me section goes here.
 </div>
 
 <!-- Weather -->
-<div style="font-size:14px; font-weight:bold; background-color:#E1FFD1; padding:8px;">
+<div style="font-size:14px; font-weight:bold; background-color:#E1FFD1; padding:8px; margin-top:8px;">
   Weather info goes here.
 </div>
 
 <!-- Traffic -->
-<div style="font-size:14px; font-weight:bold; background-color:#FFD1D1; padding:8px;">
+<div style="font-size:14px; font-weight:bold; background-color:#FFD1D1; padding:8px; margin-top:8px;">
   Traffic updates go here.
 </div>
 
-<!-- Time + Date Script -->
+<!-- Timestamp Script -->
 <script>
   const now = new Date();
   const formatted = now.toLocaleString('en-US', {
@@ -27,7 +27,7 @@
     month: 'short',
     day: 'numeric',
     hour: 'numeric',
-    minute: '2-digit',
+    minute: '2-digit'
   });
   document.getElementById("updateTime").textContent = formatted;
 </script>
