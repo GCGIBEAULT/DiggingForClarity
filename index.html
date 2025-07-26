@@ -41,3 +41,25 @@
   </div>
 
 </div>
+<script>
+function getLastUpdateTime() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 5, 0);
+  let latest = new Date(start);
+
+  while (latest <= now) {
+    latest.setHours(latest.getHours() + 3);
+  }
+  latest.setHours(latest.getHours() - 3);
+
+  const formatted = latest.toLocaleTimeString('en-US', {
+    hour: '2-digit', minute: '2-digit', hour12: true
+  });
+  const date = latest.toLocaleDateString('en-US');
+
+  document.getElementById("updateTime").innerText =
+    `Last Update: ${date} @ ${formatted}`;
+}
+
+getLastUpdateTime();
+</script>
