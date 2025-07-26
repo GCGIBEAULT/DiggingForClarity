@@ -1,33 +1,43 @@
-<!-- Last Update Block -->
-<div style="font-size:14px; font-weight:bold; background-color:#FFF9DB; padding:8px; display:inline-block; position:relative; left:1in;">
-  Last Updated: <span id="updateTime"></span>
-</div>
+<!-- Main container -->
+<div style="display:flex; flex-direction:column; gap:24px; margin-top:48px;">
 
-<!-- Just Ask Me Section -->
-<div style="font-size:14px; background-color:#D8F6FF; padding:8px; margin-top:12px;">
-  <strong>Just Ask Me:</strong> Curious about something? Drop your question below and let’s get digging for clarity.
-</div>
+  <!-- Horizontal Flex for Ask + Update -->
+  <div style="display:flex; flex-direction:row; gap:32px; align-items:flex-start;">
+    
+    <!-- Just Ask Me Block -->
+    <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+      <h2>Just ask me</h2>
+      <input type="text" id="askBox" placeholder="Begin here" 
+        onkeydown="if(event.key==='Enter') handleAsk();" 
+        style="padding:8px; width:100%; font-size:16px;">
+      <div id="askResponse" style="margin-top:8px;"></div>
+    </div>
 
-<!-- Weather Section -->
-<div style="font-size:14px; background-color:#E1FFD1; padding:8px; margin-top:12px;">
-  <strong>Weather Update:</strong> Stay ahead of the day — sunny skies or stormy vibes, right here.
-</div>
+    <!-- Last Update Block -->
+    <div style="border:1px solid black; padding:8px; background-color:#FFF9DB; font-size:14px; font-weight:bold;">
+      <span id="updateTime">Calculating...</span>
+    </div>
 
-<!-- Traffic Section -->
-<div style="font-size:14px; background-color:#FFD1D1; padding:8px; margin-top:12px;">
-  <strong>Traffic Snapshot:</strong> Navigate the city smarter. Real-time bottlenecks and smooth lanes at a glance.
-</div>
+  </div>
 
-<!-- Timestamp Script -->
-<script>
-  const now = new Date();
-  const formatted = now.toLocaleString('en-US', {
-    weekday: 'short',
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit'
-  });
-  document.getElementById("updateTime").textContent = formatted;
-</script>
+  <!-- Weather Forecast -->
+  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+    <h2>Weather Forecast</h2>
+    <input type="text" id="zipcodeBox" value="80224" placeholder="80224 (or enter ZIP)" 
+      onkeydown="if(event.key==='Enter') handleZIP();" 
+      style="padding:8px; width:100%; font-size:16px;">
+    <div id="weatherResponse" style="margin-top:12px; font-weight:bold; line-height:1.4;">
+      84°F<br>Clear skies<br>Light SE wind<br>Humidity 22%
+    </div>
+  </div>
+
+  <!-- Traffic Conditions -->
+  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
+    <h2>Traffic Conditions</h2>
+    <input type="text" id="fromBox" placeholder="From" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
+    <input type="text" id="toBox" placeholder="To" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
+    <button onclick="checkTraffic()" style="width:100%; font-size:16px;">Check Traffic</button>
+    <div id="trafficResponse" style="margin-top:8px;"></div>
+  </div>
+
+</div>
