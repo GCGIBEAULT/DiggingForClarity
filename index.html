@@ -34,7 +34,7 @@
     });
     document.getElementById("clock").textContent = timeString;
 <!-- ASK ME ANYTHING Capsule -->
-<div class="ask-button">ASK ME ANYTHING</div>
+
 
     // TIMESTAMP
     const dateString = now.toLocaleString('en-US', {
@@ -51,26 +51,3 @@
   updateClock();
   setInterval(updateClock, 1000);
 </script>
-<style>
-.ask-button {
-  position: sticky;
-  top: 1em;
-  margin-left: 20px;
-  background-color: #eaeaea;
-  padding: 0.6em 1.2em;
-  border-radius: 30px;
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-  letter-spacing: 0.05em;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  float: right;
-}
-
-.ask-button:hover {
-  background-color: #ddd;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-</style>
