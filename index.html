@@ -1,4 +1,14 @@
-<!-- Just Ask Me Section -->
-<div style="font-size:14px; background-color:#D8F6FF; padding:8px; margin-top:12px;">
-  <strong>Just Ask Me:</strong> <span style="font-style:italic;">Begin your journey.</span>
-</div>
+Last Updated: <span id="updateTime"></span>
+
+<script>
+  const now = new Date();
+  const formatted = now.toLocaleString('en-US', {
+    weekday: 'short',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit'
+  });
+  document.getElementById("updateTime").textContent = formatted;
+</script>
