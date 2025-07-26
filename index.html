@@ -40,3 +40,13 @@ I wanted to be informed.
   updateClock();
   setInterval(updateClock, 1000);
 </script>
+
+    const dateString = now.toLocaleString('en-US', {
+      weekday: 'short', year: 'numeric', month: 'short',
+      day: 'numeric', hour: 'numeric', minute: '2-digit'
+    });
+    document.getElementById("updateTime").textContent = dateString;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
