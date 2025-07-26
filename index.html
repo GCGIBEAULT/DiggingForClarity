@@ -1,47 +1,24 @@
 <!-- Last Updated -->
-<b style="display: block;">
-  Last Updated: <span id="updateTime"></span>
-</b>
+<div style="text-align: center; margin-bottom: 4px;">
+  <b>Last Updated: <span id="updateTime"></span></b>
+</div>
 
 <!-- Live Clock -->
-<div style="display:flex; justify-content:center; margin-top:-4px;">
-  <div id="clock" style="font-size:40px; font-family:Arial, sans-serif; font-weight:bold;"></div>
+<div style="text-align: center; margin-top: -4px;">
+  <div id="clock" style="font-size: 40px; font-family: Arial, sans-serif; font-weight: bold;"></div>
 </div>
 
-<!-- Image Block -->
-<div style="margin-top:36px;">
-  <img src="Copilot_20250726_103039.png" alt="Site logo" style="width:338px; height:auto;">
+<!-- Centered Image -->
+<div style="text-align: center; margin-top: 36px;">
+  <img src="Copilot_20250726_103039.png" alt="Site logo" style="width: 338px; height: auto;">
 </div>
 
-<!-- Quote Block -->
-<div style="margin-top:-120px; margin-left:360px;">
-  <p style="font-style:italic; font-weight:bold; font-family:Georgia, serif; font-size:18px; line-height:1.4;">
+<!-- Centered Quote -->
+<div style="text-align: center; margin-top: 24px;">
+  <p style="font-style: italic; font-weight: bold; font-family: Georgia, serif; font-size: 18px; line-height: 1.6;">
     I stopped watching the news.<br>
     I stopped reading the news.<br>
     I no longer wanted someone else's commentary to become my opinion.<br>
     Yet I wanted to be informed.
   </p>
 </div>
-
-<!-- JavaScript Clock + Timestamp -->
-<script>
-  function updateClock() {
-    const now = new Date();
-
-    // Live Clock
-    const timeString = now.toLocaleTimeString('en-US', {
-      hour: '2-digit', minute: '2-digit', second: '2-digit'
-    });
-    document.getElementById("clock").textContent = timeString;
-
-    // Timestamp
-    const dateString = now.toLocaleString('en-US', {
-      weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
-      hour: 'numeric', minute: '2-digit'
-    });
-    document.getElementById("updateTime").textContent = dateString;
-  }
-
-  updateClock();
-  setInterval(updateClock, 1000);
-</script>
