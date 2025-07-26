@@ -1,33 +1,4 @@
-<!-- Last Update Block -->
-<div style="font-size:14px; font-weight:bold; background-color:#FFF9DB; padding:8px; display:inline-block; position:relative; left:1in;">
-  Last Updated: <span id="updateTime"></span>
-</div>
-
 <!-- Just Ask Me Section -->
 <div style="font-size:14px; background-color:#D8F6FF; padding:8px; margin-top:12px;">
-  <strong>Just Ask Me:</strong> Wondering about something specific? Ask away and let's sort it out.
+  <strong>Just Ask Me:</strong> <span style="font-style:italic;">Begin your journey.</span>
 </div>
-
-<!-- Weather Section -->
-<div style="font-size:14px; background-color:#E1FFD1; padding:8px; margin-top:12px;">
-  <strong>Weather Forecast (80224):</strong> 84°F — Clear skies, light SE wind, humidity 22%
-</div>
-
-<!-- Traffic Section -->
-<div style="font-size:14px; background-color:#FFD1D1; padding:8px; margin-top:12px;">
-  <strong>Traffic Conditions:</strong> Use dropdowns below to check traffic from one point to another.
-</div>
-
-<!-- Timestamp Script -->
-<script>
-  const now = new Date();
-  const formatted = now.toLocaleString('en-US', {
-    weekday: 'short',
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit'
-  });
-  document.getElementById("updateTime").textContent = formatted;
-</script>
