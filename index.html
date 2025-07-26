@@ -1,29 +1,28 @@
-<!-- Main container -->
-<div style="display:flex; flex-direction:column; gap:24px; margin-top:48px;">
-  
-  <!-- Just Ask Me -->
-  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
-    <h2>Just ask me</h2>
-    <input type="text" id="askBox" placeholder="Begin here" onkeydown="if(event.key==='Enter') handleAsk();" style="padding:8px; width:100%; font-size:16px;">
-    <div id="askResponse" style="margin-top:8px;"></div>
+<!-- Last Update (compact) -->
+<div style="margin-left:192px;">
+  <div style="border:1px solid black; display:inline-block; padding:4px 8px; background-color:#FFF9DB;">
+    <span id="updateTime" style="font-size:14px; font-weight:bold;">Calculating...</span>
   </div>
-
-  <!-- Weather Forecast -->
-  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
-    <h2>Weather Forecast</h2>
-    <input type="text" id="zipcodeBox" value="80224" placeholder="80224 (or enter ZIP)" onkeydown="if(event.key==='Enter') handleZIP();" style="padding:8px; width:100%; font-size:16px;">
-    <div id="weatherResponse" style="margin-top:12px; font-weight:bold; line-height:1.4;">
-      84°F<br>Clear skies<br>Light SE wind<br>Humidity 22%
-    </div>
-  </div>
-
-  <!-- Traffic Conditions -->
-  <div class="section" style="background-color:#FFF9DB; padding:12px; width:300px;">
-    <h2>Traffic Conditions</h2>
-    <input type="text" id="fromBox" placeholder="From" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
-    <input type="text" id="toBox" placeholder="To" style="padding:8px; width:100%; margin-bottom:8px; font-size:16px;">
-    <button onclick="checkTraffic()" style="width:100%; font-size:16px;">Check Traffic</button>
-    <div id="trafficResponse" style="margin-top:8px;"></div>
-  </div>
-
 </div>
+<script>
+function getLastUpdateTime() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 5, 0);
+  let latest = new Date(start);
+
+  while (latest <= now) {
+    latest.setHours(latest.getHours() + 3);
+  }
+  latest.setHours(latest.getHours() - 3);
+
+  const formatted = latest.toLocaleTimeString('en-US', {
+    hour: '2-digit', minute: '2-digit', hour12: true
+  });
+  const date = latest.toLocaleDateString('en-US');
+
+  document.getElementById("updateTime").innerText =
+    `Last Update: ${date} @ ${formatted}`;
+}
+
+getLastUpdateTime();
+</script>
