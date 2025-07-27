@@ -1,100 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Digging For Clarity</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-    }
-
-    /* Timestamp at Top Left */
-    .timestamp {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      font-size: 15px;
-      font-weight: bold;
-      background-color: #f9f9f9;
-      padding: 4px 8px;
-      border-radius: 4px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-
-    /* Clock at Center Top */
-    #clock {
-      font-size: 40px;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 48px;
-    }
-
-    /* Quote Block */
-    .quote-block {
-      text-align: center;
-      margin-top: 36px;
-    }
-
-    .quote-block pre {
-      font-family: Courier New, monospace;
-      font-size: 18px;
-      font-style: italic;
-      font-weight: bold;
-      display: inline-block;
-      text-align: left;
-      line-height: 1.2;
-    }
-
-    /* Logo */
-    .logo-block {
-      text-align: center;
-      margin-top: 36px;
-    }
-
-    /* Ask Me Anything with Cement Crack Texture */
-    .cement-crack-background {
-      background: url('cement_cracks_texture.jpg') no-repeat center center;
-      background-size: cover;
-      background-blend-mode: multiply;
-      background-color: #f3f3f3;
-      padding: 20px;
-      border-left: 4px solid #555;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      width: 300px;
-      color: #222;
-      position: absolute;
-      top: 370px;
-      left: 12px;
-    }
-
-    input[type="text"] {
-      margin-top: 12px;
-      padding: 10px;
-      width: 100%;
-      font-size: 16px;
-      font-style: italic;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-
-    /* Answer Display Section */
-    .answer-box {
-      position: absolute;
-      top: 500px;
-      left: 12px;
-      background-color: #eef2f5;
-      padding: 20px;
-      border-left: 4px solid #339;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      width: 300px;
-      display: none;
-    }
-  </style>
-</head>
 <body>
-
   <!-- Last Updated -->
   <div class="timestamp">
     Last Updated: <span id="updateTime"></span>
@@ -106,51 +10,37 @@
   <!-- Quote Block -->
   <div class="quote-block">
     <pre>
-I stopped watching the news.
-I stopped reading the news.
-I no longer wanted someone else's commentary to become my opinion.
-I wanted to be informed.
+    I stopped watching the news.
+    I stopped reading the news.
+    I no longer wanted someone else's commentary to become my opinion.
+    Yet I wanted to be informed.
     </pre>
   </div>
 
-  <!-- Logo -->
+  <!-- Logo Block -->
   <div class="logo-block">
-    <img src="Copilot_20250726_103039.png" alt="Site logo" style="width: 338px; height: auto;" id="logoImage">
+    <img src="your_logo_file.png" alt="Your Logo" width="120">
   </div>
 
-  <!-- Ask Me Anything Section -->
+  <!-- Ask Me Anything Box -->
   <div class="cement-crack-background">
-    <form onsubmit="event.preventDefault(); const question = document.getElementById('amaInput').value; document.getElementById('answerText').textContent = 'Thanks for asking about: ' + question; document.getElementById('answerBox').style.display = 'block';">
-      <label for="amaInput" style="font-size: 18px; font-weight: 600;">Ask Me Anything</label><br>
-      <input type="text" id="amaInput" name="amaInput" placeholder="What do you want to know">
-      <button type="submit" style="display: none;"></button>
-    </form>
+    <label for="askField"><strong>Ask Me Anything</strong></label>
+    <input type="text" id="askField" placeholder="What do you want to know">
   </div>
 
-  <!-- Answer Display Section -->
-  <div class="answer-box" id="answerBox">
-    <p style="font-size: 16px; margin: 0;"><strong>Answer:</strong> <span id="answerText">Your response will appear here.</span></p>
-  </div>
+  <!-- Answer Display (optional for future interactivity) -->
+  <div class="answer-box" id="answerBox"></div>
 
-  <!-- Clock + Timestamp Script -->
   <script>
+    // Clock logic
     function updateClock() {
       const now = new Date();
-      const timeString = now.toLocaleTimeString('en-US', {
-        hour: '2-digit', minute: '2-digit', second: '2-digit'
-      });
-      document.getElementById("clock").textContent = timeString;
-
-      const dateString = now.toLocaleString('en-US', {
-        weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
-        hour: 'numeric', minute: '2-digit'
-      });
-      document.getElementById("updateTime").textContent = dateString;
+      const time = now.toLocaleTimeString();
+      document.getElementById('clock').textContent = time;
     }
-
-    updateClock();
     setInterval(updateClock, 1000);
-  </script>
 
+    // Last Updated logic
+    document.getElementById('updateTime').textContent = new Date().toLocaleDateString();
+  </script>
 </body>
-</html>
