@@ -1,16 +1,72 @@
-<!-- QUESTION PROMPT BLOCK -->
-<section style="margin-top: 1rem; display: flex; justify-content: flex-end;">
-  <div style="background-color: #fff; padding: 0.5rem 0.75rem; border-radius: 6px; max-width: 120px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    <p style="margin: 0; font-size: 0.9rem; color: #333; text-align: right;">
-      What do you want to know
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Digging For Clarity</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    .content-box {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: calc(100% - 0.5in);
+      margin: 0 auto;
+    }
+    .quote {
+      font-style: italic;
+      margin: 20px 0;
+    }
+    .image-box {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .image-box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .clock {
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="clock">Current Time: <span id="current-time"></span></div>
+  <p>Last Updated: Sun, Jul 27, 2025, 5:09 PM</p>
+
+  <div class="content-box">
+    <h2>Digging For Clarity</h2>
+
+    <div class="quote">
+      “I stopped watching the news. I stopped reading the news. I no longer wanted someone else's commentary to become my opinion. I wanted to be informed.”
+    </div>
+
+    <div class="image-box">
+      <img src="your-image.jpg" alt="Thoughtful reflection image">
+    </div>
+
+    <h2>Ask Me Anything</h2>
+    <p>What’s on your mind?</p>
+    <input type="text" placeholder="Type your question here..." style="width: 100%; padding: 10px; font-size: 1em;" />
+    <button style="margin-top: 10px; padding: 8px 12px;">Submit</button>
   </div>
-</section>
-<!-- QUESTION PROMPT BLOCK -->
-<section style="margin-top: 1rem; display: flex; justify-content: flex-end;">
-  <div style="background-color: #fff; padding: 0.4rem 0.6rem; border-radius: 6px; max-width: 60px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-    <p style="margin: 0; font-size: 0.8rem; color: #333; text-align: right;">
-      What do you want to know
-    </p>
-  </div>
-</section>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      document.getElementById('current-time').textContent = timeString;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+</body>
+</html>
