@@ -18,18 +18,24 @@ I wanted to be informed.
   </pre>
 </div>
 
-<!-- Image - Centered Below Quote -->
-<div style="text-align: center; margin-top: 36px;">
-  <img src="Copilot_20250726_103039.png" alt="Site logo" style="width: 338px; height: auto;" id="logoImage">
-</div>
-
-<!-- Ask Me Anything Section - Centered under 'U' in 'Updated', 1 inch (~96px) below top of image -->
-<div style="position: relative; text-align: center; margin-top: 96px;">
-  <form>
-    <label for="amaInput" style="font-size: 18px; font-weight: bold;">Ask Me Anything</label><br>
-    <input type="text" id="amaInput" name="amaInput" placeholder="Ask me about clarity, information, or life..." style="margin-top: 12px; padding: 10px; width: 60%; font-size: 16px;">
-    <br><button type="submit" style="margin-top: 16px; padding: 10px 20px; font-size: 16px;">Submit</button>
-  </form>
+<!-- Image and Ask Me Anything Layout Block -->
+<div style="display: flex; justify-content: center; align-items: flex-start; margin-top: 36px; gap: 48px;">
+  
+  <!-- Ask Me Anything Box - Left of image -->
+  <div style="flex: 1; max-width: 300px;">
+    <form>
+      <label for="amaInput" style="font-size: 18px; font-weight: bold;">Ask Me Anything</label><br>
+      <input type="text" id="amaInput" name="amaInput" placeholder="Ask me about clarity, information, or life..." style="margin-top: 12px; padding: 10px; width: 100%; font-size: 16px;">
+      <br>
+      <button type="submit" style="margin-top: 16px; padding: 10px 20px; font-size: 16px;">Submit</button>
+    </form>
+  </div>
+  
+  <!-- Site Logo Image - Centered in flex row -->
+  <div>
+    <img src="Copilot_20250726_103039.png" alt="Site logo" style="width: 338px; height: auto;" id="logoImage">
+  </div>
+  
 </div>
 
 <!-- JavaScript for Clock + Timestamp -->
