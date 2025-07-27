@@ -18,13 +18,13 @@ I wanted to be informed.
   </pre>
 </div>
 
-<!-- Image - Centered Below Quote -->
+<!-- Site Logo Image - Centered -->
 <div style="text-align: center; margin-top: 36px;">
   <img src="Copilot_20250726_103039.png" alt="Site logo" style="width: 338px; height: auto;" id="logoImage">
 </div>
 
-<!-- Ask Me Anything Section - Aligned beneath 'U' in 'Updated' (~1 inch below image top) -->
-<div style="margin-top: -338px; padding-top: 96px; margin-left: 12px; width: fit-content;">
+<!-- Ask Me Anything Section - Left Margin, Vertically Aligned to Image Top -->
+<div style="position: absolute; top: 310px; left: 12px;">
   <form>
     <label for="amaInput" style="font-size: 18px; font-weight: bold;">Ask Me Anything</label><br>
     <input type="text" id="amaInput" name="amaInput" placeholder="Ask me about clarity, information, or life..." style="margin-top: 12px; padding: 10px; width: 280px; font-size: 16px;">
@@ -42,11 +42,4 @@ I wanted to be informed.
     });
     document.getElementById("clock").textContent = timeString;
     const dateString = now.toLocaleString('en-US', {
-      weekday: 'short', year: 'numeric', month: 'short',
-      day: 'numeric', hour: 'numeric', minute: '2-digit'
-    });
-    document.getElementById("updateTime").textContent = dateString;
-  }
-  updateClock();
-  setInterval(updateClock, 1000);
-</script>
+      weekday: 'short', year: 'numeric
