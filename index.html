@@ -18,18 +18,17 @@ I wanted to be informed.
   </pre>
 </div>
 
-<!-- Site Logo Image - Centered -->
+<!-- Site Logo Image - Centered Below Quote -->
 <div style="text-align: center; margin-top: 36px;">
   <img src="Copilot_20250726_103039.png" alt="Site logo" style="width: 338px; height: auto;" id="logoImage">
 </div>
 
-<!-- Ask Me Anything Section - Left Margin, Vertically Aligned to Image Top -->
-<div style="position: absolute; top: 310px; left: 12px;">
-  <form>
+<!-- Ask Me Anything Section - Left Margin, aligned with top of image -->
+<div style="position: absolute; top: 370px; left: 12px;">
+  <form onsubmit="event.preventDefault(); alert('Question submitted: ' + document.getElementById('amaInput').value);">
     <label for="amaInput" style="font-size: 18px; font-weight: bold;">Ask Me Anything</label><br>
     <input type="text" id="amaInput" name="amaInput" placeholder="Ask me about clarity, information, or life..." style="margin-top: 12px; padding: 10px; width: 280px; font-size: 16px;">
-    <br>
-    <button type="submit" style="margin-top: 16px; padding: 10px 20px; font-size: 16px;">Submit</button>
+    <button type="submit" style="display: none;"></button>
   </form>
 </div>
 
@@ -42,4 +41,11 @@ I wanted to be informed.
     });
     document.getElementById("clock").textContent = timeString;
     const dateString = now.toLocaleString('en-US', {
-      weekday: 'short', year: 'numeric
+      weekday: 'short', year: 'numeric', month: 'short',
+      day: 'numeric', hour: 'numeric', minute: '2-digit'
+    });
+    document.getElementById("updateTime").textContent = dateString;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
