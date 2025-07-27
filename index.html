@@ -47,4 +47,28 @@ I wanted to be informed.
 
   <!-- Answer Display Section -->
   <div id="answerBox" style="position: absolute; top: 500px; left: 12px; background-color: #eef2f5; padding: 20px; border-left: 4px solid #339; box-shadow: 0 2px 6px rgba(0,0,0,0.08); width: 300px; display: none;">
-    <p style="font-size
+    <p style="font-size: 16px; margin: 0;"><strong>Answer:</strong> <span id="answerText">Your response will appear here.</span></p>
+  </div>
+
+  <!-- JavaScript for Clock + Timestamp -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString('en-US', {
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+      document.getElementById("clock").textContent = timeString;
+
+      const dateString = now.toLocaleString('en-US', {
+        weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+        hour: 'numeric', minute: '2-digit'
+      });
+      document.getElementById("updateTime").textContent = dateString;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+
+</body>
+</html>
