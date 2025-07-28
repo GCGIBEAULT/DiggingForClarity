@@ -10,31 +10,10 @@
       background-color: #f9f9f9;
       color: #333;
     }
-    .content-box {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: calc(100% - 0.5in);
-      margin: 0 auto;
-    }
-    .quote {
-      font-family: Courier New, monospace;
-      font-size: 18px;
-      font-style: italic;
-      font-weight: bold;
-      display: inline-block;
+    .last-updated {
       text-align: left;
-      line-height: 1.2;
-      margin: 36px 0;
-    }
-    .image-box {
-      text-align: center;
-      margin: 36px 0;
-    }
-    .image-box img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
+      margin-bottom: 4px;
+      font-weight: bold;
     }
     .clock {
       text-align: center;
@@ -42,11 +21,28 @@
       font-weight: bold;
       margin-bottom: 8px;
     }
-    .last-updated {
-      text-align: left;
-      margin-bottom: 4px;
+    .quote-block {
+      text-align: center;
+      margin-top: 36px;
     }
-    .askme-box {
+    .quote-block pre {
+      font-family: Courier New, monospace;
+      font-size: 18px;
+      font-style: italic;
+      font-weight: bold;
+      display: inline-block;
+      text-align: left;
+      line-height: 1.2;
+    }
+    .split-layout {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .askme-cement {
       background-image: url('askme_cement.png');
       background-size: cover;
       background-position: center;
@@ -58,52 +54,53 @@
       font-weight: bold;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
       border-radius: 12px;
-      margin-top: 40px;
+      width: 45%;
+    }
+    .photo-box {
+      width: 45%;
+      text-align: center;
+    }
+    .photo-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
   <div class="last-updated">
-    <b>Last Updated: <span id="updateTime"></span></b>
+    Last Updated: <span id="updateTime"></span>
   </div>
-
   <div class="clock">
     <div id="clock"></div>
   </div>
 
-  <div class="content-box">
-    <h2>Digging For Clarity</h2>
-
-    <div class="quote">
-<pre>
+  <div class="quote-block">
+    <pre>
 I stopped watching the news.
 I stopped reading the news.
 I no longer wanted someone else's commentary to become my opinion.
 I wanted to be informed.
-</pre>
-    </div>
+    </pre>
+  </div>
 
-    <div class="image-box">
-      <img src="Copilot_20250726_103039.png" alt="Site logo" style="width: 338px;">
-    </div>
-
-    <div class="askme-box">
-      Ask Me Anything
+  <div class="split-layout">
+    <div class="askme-cement">Ask Me Anything</div>
+    <div class="photo-box">
+      <img src="Copilot_20250726_103039.png" alt="Site logo">
     </div>
   </div>
 
   <script>
     function updateClock() {
       const now = new Date();
-      const timeString = now.toLocaleTimeString('en-US', {
+      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
         hour: '2-digit', minute: '2-digit', second: '2-digit'
       });
-      document.getElementById("clock").textContent = timeString;
-      const dateString = now.toLocaleString('en-US', {
+      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
         weekday: 'short', year: 'numeric', month: 'short',
         day: 'numeric', hour: 'numeric', minute: '2-digit'
       });
-      document.getElementById("updateTime").textContent = dateString;
     }
     updateClock();
     setInterval(updateClock, 1000);
