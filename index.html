@@ -18,12 +18,18 @@
       margin: 0 auto;
     }
     .quote {
+      font-family: Courier New, monospace;
+      font-size: 18px;
       font-style: italic;
-      margin: 20px 0;
+      font-weight: bold;
+      display: inline-block;
+      text-align: left;
+      line-height: 1.2;
+      margin: 36px 0;
     }
     .image-box {
-      margin: 20px 0;
       text-align: center;
+      margin: 36px 0;
     }
     .image-box img {
       max-width: 100%;
@@ -31,43 +37,61 @@
       border-radius: 8px;
     }
     .clock {
+      text-align: center;
+      font-size: 40px;
       font-weight: bold;
-      font-size: 1.1em;
+      margin-bottom: 8px;
+    }
+    .last-updated {
+      text-align: left;
+      margin-bottom: 4px;
+    }
+    .askme-box {
+      background-image: url('askme_cement.png');
+      background-size: cover;
+      background-position: center;
+      padding: 80px 20px;
+      text-align: center;
+      color: white;
+      font-family: Impact, Arial Black, sans-serif;
+      font-size: 48px;
+      font-weight: bold;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+      border-radius: 12px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <!-- Last Updated - Upper Left -->
-  <div style="text-align: left; margin-bottom: 4px;">
+  <div class="last-updated">
     <b>Last Updated: <span id="updateTime"></span></b>
   </div>
 
-  <!-- Clock - Center Top -->
-  <div style="text-align: center;">
-    <div id="clock" style="font-size: 40px; font-family: Arial, sans-serif; font-weight: bold;"></div>
+  <div class="clock">
+    <div id="clock"></div>
   </div>
 
   <div class="content-box">
     <h2>Digging For Clarity</h2>
+
     <div class="quote">
-      <pre style="font-family: Courier New, monospace; font-size: 18px; font-style: italic; font-weight: bold; display: inline-block; text-align: left; line-height: 1.2;">
+<pre>
 I stopped watching the news.
 I stopped reading the news.
 I no longer wanted someone else's commentary to become my opinion.
 I wanted to be informed.
-      </pre>
-    </div>
-    <div class="image-box">
-      <img src="Copilot_20250726_103039.png" alt="Site logo" style="width: 338px; height: auto;">
+</pre>
     </div>
 
-    <h2>Ask Me Anything</h2>
-    <p>What’s on your mind?</p>
-    <input type="text" placeholder="Type your question here..." style="width: 100%; padding: 10px; font-size: 1em;" />
-    <button style="margin-top: 10px; padding: 8px 12px;">Submit</button>
+    <div class="image-box">
+      <img src="Copilot_20250726_103039.png" alt="Site logo" style="width: 338px;">
+    </div>
+
+    <div class="askme-box">
+      Ask Me Anything
+    </div>
   </div>
 
-  <!-- JavaScript for Clock + Timestamp -->
   <script>
     function updateClock() {
       const now = new Date();
