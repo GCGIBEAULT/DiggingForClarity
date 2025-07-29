@@ -24,7 +24,7 @@
     <div id="clock" style="font-size: 40px; font-weight: bold;"></div>
   </div>
 
-  <!-- Quote Block -->
+  <!-- Quote Block (Updated) -->
   <div style="text-align: center; margin-top: 36px;">
     <pre style="
       font-family:'Courier New',monospace;
@@ -36,7 +36,7 @@
       text-align:left;
       line-height:1.4;
     ">
-“I do not read the news. I no longer want someone else's commentary influencing my opinion. Yet, I still want to be informed. This site will add years to my life, and perhaps, yours.”
+“I no longer want someone else's commentary influencing my opinion. Yet, I still want to be informed. This site will add years to my life, and perhaps, yours.”
     </pre>
   </div>
 
@@ -62,23 +62,4 @@
   <script>
     function updateClock() {
       const now = new Date();
-      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
-        weekday: 'short',
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-  </script>
-</body>
-</html>
+      document.getElementById("clock").textContent = now.to
