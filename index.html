@@ -1,58 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Grow Your Self</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body style="
-  margin: 40px;
-  font-family: Arial, sans-serif;
-  background-image: url('crack_texture.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: #333;
-">
+  <head>
+    <meta charset="UTF-8">
+    <title>Grow Your Self</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        margin: 40px;
+        font-family: Arial, sans-serif;
+        background-image: url('crack_texture.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center;">
+      <h1 style="font-size: 36px; margin-bottom: 10px;">Grow Your Self</h1>
+      <p style="font-style: italic; font-size: 18px;">
+        Align your actions with who you truly are.
+      </p>
+    </div>
 
-  <!-- Header Section -->
-  <div style="text-align: center;">
-    <h1 style="font-size: 36px; margin-bottom: 10px;">Grow Your Self</h1>
-    <p style="font-style: italic; font-size: 18px;">
-      Align your actions with who you truly are.
-    </p>
-  </div>
+    <div style="max-width: 800px; margin: 40px auto; font-size: 16px; line-height: 1.6;">
+      <p>Welcome to Grow Your Self—a space for reclaiming independence, amplifying self-respect, and embracing the clarity that comes from solitude. This is where growth isn’t measured by clicks, but by the discipline of consistency.</p>
+      <p>Like DFC, this site stands in contrast to platforms that flood your attention. Instead, you decide when to come and what to take. No distractions—just the texture of truth and growth.</p>
+    </div>
 
-  <!-- Content Section -->
-  <div style="max-width: 800px; margin: 40px auto; font-size: 16px; line-height: 1.6;">
-    <p>Welcome to Grow Your Self—a space for reclaiming independence, amplifying self-respect, and embracing the clarity that comes from solitude. This is where growth isn’t measured by clicks, but by the discipline of consistency.</p>
+    <div style="text-align: center; margin-top: 40px;">
+      <img src="gys_logo.png" alt="GYS Logo" style="width: 300px; height: auto;">
+    </div>
 
-    <p>Like DFC, this site stands in contrast to platforms that flood your attention. Instead, you decide when to come and what to take. No distractions—just the texture of truth and growth.</p>
-  </div>
+    <div style="text-align: center; margin-top: 60px; font-size: 14px;">
+      <b>Last Updated:</b> <span id="updateTime"></span>
+    </div>
 
-  <!-- Logo Row -->
-  <div style="text-align: center; margin-top: 40px;">
-    <img src="gys_logo.png" alt="GYS Logo" style="width: 300px; height: auto;">
-  </div>
-
-  <!-- Footer Timestamp -->
-  <div style="text-align: center; margin-top: 60px; font-size: 14px;">
-    <b>Last Updated:</b> <span id="updateTime"></span>
-  </div>
-
-  <!-- JavaScript for Timestamp -->
-  <script>
-    const now = new Date();
-    document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
-      weekday: 'short',
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
-    });
-  </script>
-
-</body>
+    <script>
+      const now = new Date();
+      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+    </script>
+  </body>
 </html>
