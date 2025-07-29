@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Finalized: Clarity layout v3 – image cleaned and centered -->
+<!-- Finalized: Clarity layout v2 – reflection inserted -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -21,16 +21,20 @@
   <!-- Quote Block -->
   <div style="text-align: center; margin-top: 36px;">
     <pre style="font-family: 'Courier New', monospace; font-size: 18px; font-style: italic; font-weight: bold; display: inline-block; text-align: left; line-height: 1.4;">
-      [Insert your new reflection here.]
+      “I do not watch the news.  
+      I do not read the news.  
+      I no longer want someone else's commentary influencing my opinion.  
+      Yet, I still want to be informed.  
+      This site will add years to my life—and perhaps, yours.”
     </pre>
   </div>
 
-  <!-- Image Block – logo with no alt/caption -->
+  <!-- Image Block -->
   <div style="text-align: center; margin-top: 36px;">
-    <img src="new_logo.png" style="width: 434px; height: auto;">
+    <img src="Copilot_20250726_103039.png" alt="Site logo" style="width: 338px; height: auto;">
   </div>
 
-  <!-- JavaScript for Clock and Update Time -->
+  <!-- JavaScript -->
   <script>
     function updateClock() {
       const now = new Date();
@@ -44,18 +48,4 @@
       const dateString = now.toLocaleString('en-US', {
         weekday: 'short',
         year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-      document.getElementById("updateTime").textContent = dateString;
-    }
-
-    updateClock();
-    setInterval(updateClock, 1000);
-  </script>
-
-</body>
-</html>
+        month: '
