@@ -12,6 +12,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+      scroll-behavior: smooth; /* Ensures GitHub registers change */
       color: #333;
     }
   </style>
@@ -21,7 +22,6 @@
   <div style="text-align: left; margin-bottom: 4px;">
     <b>Last Updated: <span id="updateTime"></span></b>
   </div>
-
   <div style="text-align: center;">
     <div id="clock" style="font-size: 40px; font-weight: bold;"></div>
   </div>
@@ -36,8 +36,7 @@
       white-space:pre-wrap;
       display:inline-block;
       text-align:left;
-      line-height:1.4;
-    ">
+      line-height:1.4;">
 I no longer want someone else's commentary influencing my opinion.
 Yet, I still want to be informed.
 This site will add years to my life, and perhaps, yours.
@@ -53,3 +52,17 @@ This site will add years to my life, and perhaps, yours.
   <!-- JavaScript -->
   <script>
     const now = new Date();
+    document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+    document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
+      weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+    setInterval(() => {
+      const current = new Date();
+      document.getElementById("clock").textContent = current.toLocaleTimeString();
+    }, 1000);
+  </script>
+</body>
+</html>
