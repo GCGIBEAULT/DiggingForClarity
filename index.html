@@ -5,61 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digging For Clarity</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       padding: 2rem;
       background-color: #f0f2f5;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #222;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
     }
-
     .container {
-      background-color: #ffffff;
+      max-width: 700px;
+      margin: auto;
+      background-color: #fff;
       padding: 2rem;
       border-radius: 8px;
-      max-width: 700px;
-      width: 100%;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
-
-    .message {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-
-    .extra {
-      font-size: 1rem;
-      color: #444;
-      margin-bottom: 1.5rem;
-    }
-
-    footer {
-      font-size: 0.9rem;
-      color: #666;
+    #clock {
+      font-size: 40px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
       text-align: center;
+      margin-bottom: 20px;
     }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="message">
-      <p>I stopped watching the news. I stopped reading the news. I no longer wanted someone else's commentary to become my opinion. I wanted to be informed.</p>
-    </div>
-    <div class="extra">
-      <p>This space is reserved for future reflections—independent thoughts, useful sources, or things that challenge but don’t co-opt your perspective. Add sections here as your clarity evolves.</p>
-    </div>
-    <footer>
-      Last updated: July 28, 2025, 2:16 PM
-    </footer>
-  </div>
-</body>
-</html>
+    #updateTime {
+      font-weight: bold;
+    }
+    .timestamp {
+      text-align: left;
+      margin-bottom: 12px;
+    }
+    .quote {
+      text-align: center;
+      margin-top: 36px;
+      font-family: 'Courier New', monospace;
+      font-size
