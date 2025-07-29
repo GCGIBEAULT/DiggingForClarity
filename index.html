@@ -25,41 +25,4 @@ This site will add years to my life, and perhaps, yours.
     </pre>
   </div>
 
-  <!-- Image Row: Your Picture Left + Logo Center -->
-  <div style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px; gap: 40px;">
-    <!-- Your new image -->
-    <div>
-      <img src="newjustask.png" alt="Just Ask image" style="width: 150px; height: auto;">
-    </div>
-
-    <!-- Logo (centered and enlarged) -->
-    <div>
-      <img src="new_logo.png" alt="Site logo" style="width: 500px; height: auto;">
-    </div>
-  </div>
-
-  <!-- JavaScript -->
-  <script>
-    function updateClock() {
-      const now = new Date();
-      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
-        weekday: 'short',
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-  </script>
-
-</body>
-</html>
+  <!-- Image Row: Your Image Left
