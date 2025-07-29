@@ -14,46 +14,55 @@
       background-position: center;
       color: #333;
     }
-    #quoteBlock {
-      margin-top: 36px;
-      max-width: 600px;
-      margin-left: 0;
-    }
-    #quoteBlock pre {
-      font-family: 'Courier New', monospace;
-      font-size: 18px;
-      font-style: italic;
+    #titleLabel {
+      font-size: 28px;
       font-weight: bold;
-      white-space: pre-wrap;
-      line-height: 1.4;
+      font-style: italic;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <!-- Last Updated + Clock -->
+  <!-- Timestamp Block -->
   <div style="text-align: left; margin-bottom: 4px;">
     <b>Last Updated: <span id="updateTime"></span></b>
   </div>
+
+  <!-- Clock Block -->
   <div style="text-align: center;">
     <div id="clock" style="font-size: 40px; font-weight: bold;"></div>
   </div>
 
-  <!-- Left-Aligned Quote Block -->
-  <div id="quoteBlock">
-    <pre>
+  <!-- “Grab Your Shovel” Label Left-Aligned -->
+  <div id="titleLabel">
+    Grab Your Shovel
+  </div>
+
+  <!-- Philosophy Quote Block Centered -->
+  <div style="text-align: center; margin-top: 36px;">
+    <pre style="
+      font-family:'Courier New', monospace;
+      font-size: 18px;
+      font-style: italic;
+      font-weight: bold;
+      white-space: pre-wrap;
+      display: inline-block;
+      text-align: left;
+      line-height: 1.4;
+    ">
 I no longer want someone else's commentary influencing my opinion.
 Yet, I still want to be informed.
 This site will add years to my life, and perhaps, yours.
     </pre>
   </div>
 
-  <!-- Logo Row: Unchanged -->
+  <!-- Logo Row -->
   <div style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px; gap: 40px;">
     <div><img src="newjustask.png" alt="Just Ask image" style="width: 150px; height: auto;"></div>
     <div><img src="new_logo.png" alt="Site logo" style="width: 500px; height: auto;"></div>
   </div>
 
-  <!-- JavaScript -->
+  <!-- JavaScript Clock + Timestamp -->
   <script>
     const now = new Date();
     document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
