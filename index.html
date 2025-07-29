@@ -8,9 +8,11 @@
     body {
       margin: 40px;
       font-family: Arial, sans-serif;
-      background-color: #4B4B4B; /* Cement gray background */
-      color: #f4f4f4; /* Light font for contrast */
-      scroll-behavior: smooth;
+      background-image: url('crack_texture.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #333;
     }
   </style>
 </head>
@@ -26,14 +28,40 @@
   <!-- Philosophy Block -->
   <div style="text-align: center; margin-top: 36px;">
     <pre style="
-      font-family: 'Courier New', monospace;
-      font-size: 18px;
-      font-style: italic;
-      font-weight: bold;
-      white-space: pre-wrap;
-      display: inline-block;
-      text-align: left;
-      line-height: 1.4;
-      color: #dddddd; /* Light text inside quote block */
-    ">
-I no longer want someone else's commentary
+      font-family:'Courier New',monospace;
+      font-size:18px;
+      font-style:italic;
+      font-weight:bold;
+      white-space:pre-wrap;
+      display:inline-block;
+      text-align:left;
+      line-height:1.4;">
+I no longer want someone else's commentary influencing my opinion.
+Yet, I still want to be informed.
+This site will add years to my life, and perhaps, yours.
+    </pre>
+  </div>
+
+  <!-- Logo Row -->
+  <div style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px; gap: 40px;">
+    <div><img src="newjustask.png" alt="Just Ask image" style="width: 150px; height: auto;"></div>
+    <div><img src="new_logo.png" alt="Site logo" style="width: 500px; height: auto;"></div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const now = new Date();
+    document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+    document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
+      weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+    setInterval(() => {
+      const current = new Date();
+      document.getElementById("clock").textContent = current.toLocaleTimeString();
+    }, 1000);
+  </script>
+</body>
+</html>
