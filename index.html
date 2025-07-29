@@ -8,7 +8,7 @@
 <body style="
   margin: 40px;
   font-family: Arial, sans-serif;
-  background-image: url('crack_texture.png');
+  background-image: url('crack_texture.png'); /* Replace with your file name */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -32,25 +32,42 @@
     </pre>
   </div>
 
-  <!-- Logo -->
-  <img src="new_logo.png" alt="Site logo" style="display:block; margin:36px auto; width:338px; height:auto;">
+  <!-- Layout Row: Vertical Line + Prompt + Logo -->
+  <div style="display: flex; align-items: flex-start; margin-top: 40px;">
 
-  <!-- Start Digging Section -->
-  <div style="display: flex; flex-direction: row; align-items: flex-start; margin-top: 60px;">
-    <!-- Vertical Black Line -->
-    <div style="width: 2px; height: 1in; background-color: black;"></div>
+    <!-- Left Margin Prompt Column -->
+    <div style="display: flex; flex-direction: column; align-items: flex-start;">
 
-    <!-- Text Block -->
-    <div style="margin-left: 16px;">
-      <!-- Start Digging -->
-      <div style="font-size: 24px; font-weight: bold; margin-bottom: 12px;">Start Digging</div>
+      <!-- Vertical Black Line -->
+      <div style="width: 2px; height: 1in; background-color: black;"></div>
 
-      <!-- What's On Your Mind Input -->
-      <input type="text" placeholder="What's On Your Mind"
-        style="padding: 8px; font-size: 16px; width: 250px;">
+      <!-- Start Digging + Prompt Input -->
+      <div style="margin-top: 12px;">
+        <div style="font-size: 12px; font-weight: bold; margin-bottom: 8px;">Start Digging</div>
+        <input type="text" placeholder="What's On Your Mind" 
+          style="padding: 6px; font-size: 14px; width: 200px;">
+      </div>
     </div>
+
+    <!-- Logo - Right of Prompt -->
+    <img src="new_logo.png" alt="Site logo" style="margin-left: 40px; width: 338px; height: auto;">
   </div>
 
-  <!-- JavaScript for Last Updated and Clock -->
+  <!-- JavaScript -->
   <script>
     function updateClock() {
+      const now = new Date();
+      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
+        weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+
+</body>
+</html>
