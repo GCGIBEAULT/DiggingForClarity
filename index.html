@@ -25,17 +25,18 @@
       width: auto;
     }
 
+    /* ✅ Row with shovelBlock + logos */
     .topRow {
       display: flex;
       align-items: flex-start;
-      justify-content: flex-start; /* aligns all items to the left */
+      justify-content: flex-start;
       gap: 40px;
       margin-top: 40px;
     }
 
     #shovelBlock {
       text-align: left;
-      margin-right: 40px;
+      margin: 0;
     }
   </style>
 </head>
@@ -53,48 +54,4 @@
     <pre style="
       font-family:'Courier New',monospace;
       font-size:18px;
-      font-style:italic;
-      font-weight:bold;
-      white-space:pre-wrap;
-      display:inline-block;
-      text-align:left;
-      line-height:1.4;">
-      I no longer want someone else's commentary influencing my opinion.
-      Yet, I still want to be informed.
-      This site will add years to my life, and perhaps, yours.
-    </pre>
-  </div>
-
-  <!-- shovelBlock + Logos side-by-side -->
-  <div class="topRow">
-    <!-- shovelBlock pinned left -->
-    <div id="shovelBlock">
-      <div style="font-size: 28px; font-weight: bold; font-style: italic;">Grab Your Shovel</div>
-      <div style="font-size: 16px;">Start digging.</div>
-      <div style="font-size: 16px;">What’s on our mind.</div>
-    </div>
-
-    <!-- Logos beside it -->
-    <div><img src="newjustask.png" alt="Just Ask image" class="logoImage" style="width: 150px;"></div>
-    <div><img src="new_logo.png" alt="Site logo" class="logoImage" style="width: 500px;"></div>
-  </div>
-
-  <!-- JavaScript -->
-  <script>
-    const now = new Date();
-    document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
-      hour: '2-digit', minute: '2-digit', second: '2-digit'
-    });
-
-    document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
-      weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
-      hour: '2-digit', minute: '2-digit', second: '2-digit'
-    });
-
-    setInterval(() => {
-      const current = new Date();
-      document.getElementById("clock").textContent = current.toLocaleTimeString();
-    }, 1000);
-  </script>
-</body>
-</html>
+      font
