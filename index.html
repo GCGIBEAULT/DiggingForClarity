@@ -20,7 +20,7 @@
     <b>Last Updated: <span id="updateTime"></span></b>
   </div>
 
-  <!-- Clock - Centered at Top -->
+  <!-- Clock - Center Top -->
   <div style="text-align: center;">
     <div id="clock" style="font-size: 40px; font-weight: bold;"></div>
   </div>
@@ -42,19 +42,7 @@ This site will add years to my life, and perhaps, yours.
     </pre>
   </div>
 
-  <!-- Centered Logo - Full Size -->
+  <!-- Logo - Centered and Full Size -->
   <div style="margin-top: 40px; text-align: center;">
     <img src="new_logo.png" alt="Site logo"
-         style="width: 338px; height: auto;">
-  </div>
-
-  <!-- JavaScript: Clock + Timestamp -->
-  <script>
-    function updateClock() {
-      const now = new Date();
-      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
-        hour: '2-digit', minute: '2-digit', second: '2-digit'
-      });
-      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
-        weekday: 'short', year: 'numeric', month: 'short',
-        day: 'numeric', hour: '2-digit', minute: '2-digit', second
+         style
