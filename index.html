@@ -5,7 +5,15 @@
   <title>Digging For Clarity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="margin: 40px; font-family: Arial, sans-serif; background-color: #f8f8f8; color: #333;">
+<body style="
+  margin: 40px;
+  font-family: Arial, sans-serif;
+  background-image: url('crack_texture.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #333;
+">
 
   <!-- Last Updated - Upper Left -->
   <div style="text-align: left; margin-bottom: 4px;">
@@ -17,43 +25,32 @@
     <div id="clock" style="font-size: 40px; font-weight: bold;"></div>
   </div>
 
-  <!-- Quote Block (no quotation marks) -->
+  <!-- Quote Block -->
   <div style="text-align: center; margin-top: 36px;">
     <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
-I no longer want someone else's commentary influencing my opinion.
-Yet, I still want to be informed.
-This site will add years to my life, and perhaps, yours.
+“I do not read the news. I no longer want someone else's commentary influencing my opinion. Yet, I still want to be informed. This site will add years to my life, and perhaps, yours.”
     </pre>
   </div>
 
   <!-- Logo -->
   <img src="new_logo.png" alt="Site logo" style="display:block; margin:36px auto; width:338px; height:auto;">
 
-  <!-- JavaScript -->
+  <!-- Start Digging Section -->
+  <div style="display: flex; flex-direction: row; align-items: flex-start; margin-top: 60px;">
+    <!-- Vertical Black Line -->
+    <div style="width: 2px; height: 1in; background-color: black;"></div>
+
+    <!-- Text Block -->
+    <div style="margin-left: 16px;">
+      <!-- Start Digging -->
+      <div style="font-size: 24px; font-weight: bold; margin-bottom: 12px;">Start Digging</div>
+
+      <!-- What's On Your Mind Input -->
+      <input type="text" placeholder="What's On Your Mind"
+        style="padding: 8px; font-size: 16px; width: 250px;">
+    </div>
+  </div>
+
+  <!-- JavaScript for Last Updated and Clock -->
   <script>
     function updateClock() {
-      const now = new Date();
-      const timeString = now.toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-      document.getElementById("clock").textContent = timeString;
-
-      const dateString = now.toLocaleString('en-US', {
-        weekday: 'short',
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-      document.getElementById("updateTime").textContent = dateString;
-    }
-
-    updateClock();
-    setInterval(updateClock, 1000);
-  </script>
-</body>
-</html>
