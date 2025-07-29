@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Finalized: Clarity layout v2 – reflection inserted -->
+<!-- Finalized: Clarity layout v2 – quote placeholder restored -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -21,11 +21,7 @@
   <!-- Quote Block -->
   <div style="text-align: center; margin-top: 36px;">
     <pre style="font-family: 'Courier New', monospace; font-size: 18px; font-style: italic; font-weight: bold; display: inline-block; text-align: left; line-height: 1.4;">
-      “I do not watch the news.  
-      I do not read the news.  
-      I no longer want someone else's commentary influencing my opinion.  
-      Yet, I still want to be informed.  
-      This site will add years to my life—and perhaps, yours.”
+      [Insert your new reflection here.]
     </pre>
   </div>
 
@@ -48,4 +44,17 @@
       const dateString = now.toLocaleString('en-US', {
         weekday: 'short',
         year: 'numeric',
-        month: '
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      document.getElementById("updateTime").textContent = dateString;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
