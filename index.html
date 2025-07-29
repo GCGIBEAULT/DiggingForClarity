@@ -20,46 +20,34 @@
   <!-- Quote Block -->
   <div style="text-align: center; margin-top: 36px;">
     <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
-I no longer want someone else's commentary influencing my opinion. Yet, I still want to be informed.
+I no longer want someone else's commentary influencing my opinion. 
+Yet, I still want to be informed.
 This site will add years to my life, and perhaps, yours.
     </pre>
   </div>
 
-  <!-- Row: Your Custom Image Left + Logo Center -->
+  <!-- Grab Your Shovel Prompt (Safe & Stable) -->
+  <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin: 60px 0 40px 0;">
+    <div style="text-align: center;">
+      <span style="font-family:'Courier New',monospace; font-size: 20px; font-style: italic; color: rgba(55,55,55,0.75); transition: color 0.3s ease;"
+        onmouseover="this.style.color='rgb(20,20,20)'"
+        onmouseout="this.style.color='rgba(55,55,55,0.75)'">
+        🛠️ The shovel's leaning against the wall. Ready when you are.
+      </span>
+    </div>
+  </div>
+
+  <!-- Row: Just Ask Image Left + Logo Center -->
   <div style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px; gap: 40px;">
     <!-- JustAsk Image -->
     <div>
       <img src="newjustask.png" alt="Just Ask image" style="width: 150px; height: auto;">
     </div>
-
     <!-- Logo -->
     <div>
-      <img src="new_logo.png" alt="Site logo" style="width: 500px; height: auto;">
+      <!-- Your logo content goes here -->
     </div>
   </div>
-
-  <!-- JavaScript: Clock & Timestamp -->
-  <script>
-    function updateClock() {
-      const now = new Date();
-      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
-        weekday: 'short',
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-  </script>
 
 </body>
 </html>
