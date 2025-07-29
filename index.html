@@ -3,56 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <title>Digging For Clarity</title>
-  <style>
-    body {
-      background-color: #f0f2f5;
-      font-family: Arial, sans-serif;
-      color: #222;
-      padding: 2rem;
-      margin: 0;
-      text-align: center;
-    }
-    #clock {
-      font-size: 40px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-    pre {
-      font-family: "Courier New", monospace;
-      font-size: 18px;
-      font-style: italic;
-      font-weight: bold;
-      line-height: 1.2;
-      display: inline-block;
-      margin-top: 36px;
-      text-align: left;
-      white-space: pre-wrap;
-    }
-    img {
-      margin-top: 36px;
-      width: 338px;
-      height: auto;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
-  <div id="clock"></div>
+<body style="margin: 40px; font-family: Arial, sans-serif; background-color: #f8f8f8; color: #333;">
 
-  <pre>
+  <!-- Last Updated - Upper Left -->
+  <div style="text-align: left; margin-bottom: 4px;">
+    <b>Last Updated: <span id="updateTime"></span></b>
+  </div>
+
+  <!-- Clock - Center Top -->
+  <div style="text-align: center;">
+    <div id="clock" style="font-size: 40px; font-weight: bold;"></div>
+  </div>
+
+  <!-- Quote Block -->
+  <div style="text-align: center; margin-top: 36px;">
+    <pre style="font-family: 'Courier New', monospace; font-size: 18px; font-style: italic; font-weight: bold; display: inline-block; text-align: left; line-height: 1.2;">
 I stopped watching the news.
 I stopped reading the news.
 I no longer wanted someone else's commentary to become my opinion.
 I wanted to be informed.
-  </pre>
+    </pre>
+  </div>
 
-  <img src="Copilot_20250726_103039.png" alt="Site logo">
+  <!-- Image Block -->
+  <div style="text-align: center; margin-top: 36px;">
+    <img src="Copilot_20250726_103039.png" alt="Site logo" style="width: 338px; height: auto;">
+  </div>
 
-  <script>
-    function updateClock() {
-      const now = new Date();
-      const timeString = now.toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-      document
+  <!-- Just Ask Me block (temporarily hidden to avoid layout issues) -->
+  <div style="display: none;">
+    <!--
+    <div style="position: absolute; top: 16px; left: 20px; z-index: 1000; width: 240px; background-image: url('https://i.imgur.com/ZVZfXhp.jpg'); background-size: cover; background
