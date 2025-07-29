@@ -14,6 +14,19 @@
       background-position: center;
       color: #333;
     }
+    #quoteBlock {
+      margin-top: 36px;
+      max-width: 600px;
+      margin-left: 0;
+    }
+    #quoteBlock pre {
+      font-family: 'Courier New', monospace;
+      font-size: 18px;
+      font-style: italic;
+      font-weight: bold;
+      white-space: pre-wrap;
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body>
@@ -25,24 +38,16 @@
     <div id="clock" style="font-size: 40px; font-weight: bold;"></div>
   </div>
 
-  <!-- Philosophy Block -->
-  <div style="text-align: center; margin-top: 36px;">
-    <pre style="
-      font-family:'Courier New',monospace;
-      font-size:18px;
-      font-style:italic;
-      font-weight:bold;
-      white-space:pre-wrap;
-      display:inline-block;
-      text-align:left;
-      line-height:1.4;">
+  <!-- Left-Aligned Quote Block -->
+  <div id="quoteBlock">
+    <pre>
 I no longer want someone else's commentary influencing my opinion.
 Yet, I still want to be informed.
 This site will add years to my life, and perhaps, yours.
     </pre>
   </div>
 
-  <!-- Logo Row -->
+  <!-- Logo Row: Unchanged -->
   <div style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px; gap: 40px;">
     <div><img src="newjustask.png" alt="Just Ask image" style="width: 150px; height: auto;"></div>
     <div><img src="new_logo.png" alt="Site logo" style="width: 500px; height: auto;"></div>
