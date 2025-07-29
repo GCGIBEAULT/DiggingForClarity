@@ -1,44 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Grow Your Self</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      body {
-        margin: 40px;
-        font-family: Arial, sans-serif;
-        background-image: url('crack_texture.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        color: #333;
-      }
-    </style>
-  </head>
-  <body>
-    <div style="text-align: center;">
-      <h1 style="font-size: 36px; margin-bottom: 10px;">Grow Your Self</h1>
-      <p style="font-style: italic; font-size: 18px;">
-        Align your actions with who you truly are.
-      </p>
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <title>Digging For Clarity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin: 40px; font-family: Arial, sans-serif; background-image: url('crack_texture.png'); background-size: cover; background-repeat: no-repeat; background-position: center; color: #333;">
 
-    <div style="max-width: 800px; margin: 40px auto; font-size: 16px; line-height: 1.6;">
-      <p>Welcome to Grow Your Self—a space for reclaiming independence, amplifying self-respect, and embracing the clarity that comes from solitude. This is where growth isn’t measured by clicks, but by the discipline of consistency.</p>
-      <p>Like DFC, this site stands in contrast to platforms that flood your attention. Instead, you decide when to come and what to take. No distractions—just the texture of truth and growth.</p>
-    </div>
+  <!-- Last Updated - Upper Left -->
+  <div style="text-align: left; margin-bottom: 4px;">
+    <b>Last Updated: <span id="updateTime"></span></b>
+  </div>
 
-    <div style="text-align: center; margin-top: 40px;">
-      <img src="gys_logo.png" alt="GYS Logo" style="width: 300px; height: auto;">
-    </div>
+  <!-- Clock - Center Top -->
+  <div style="text-align: center;">
+    <div id="clock" style="font-size: 40px; font-weight: bold;"></div>
+  </div>
 
-    <div style="text-align: center; margin-top: 60px; font-size: 14px;">
-      <b>Last Updated:</b> <span id="updateTime"></span>
-    </div>
+  <!-- Quote Block -->
+  <div style="text-align: center; margin-top: 36px;">
+    <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
+I no longer want someone else's commentary influencing my opinion. 
+Yet, I still want to be informed.
+This site will add years to my life, and perhaps, yours.
+    </pre>
+  </div>
 
-    <script>
+  <!-- Grab Your Shovel Block: Entire Box with Cracked Texture -->
+  <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin: 60px 0 40px 0;">
+    <div style="text-align: center; padding: 20px; background-image: url('crack_texture.png'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+      <span style="font-family:'Courier New',monospace; font-size: 20px; font-style: italic; color: rgba(55,55,55,0.85); transition: color 0.3s ease;"
+        onmouseover="this.style.color='rgb(20,20,20)'"
+        onmouseout="this.style.color='rgba(55,55,55,0.85)'">
+        🛠️ The shovel's leaning against the wall. Ready when you are.
+      </span>
+    </div>
+  </div>
+
+  <!-- Row: Your Custom Image Left + Logo Center -->
+  <div style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px; gap: 40px;">
+    <!-- JustAsk Image -->
+    <div>
+      <img src="newjustask.png" alt="Just Ask image" style="width: 150px; height: auto;">
+    </div>
+    <!-- Logo -->
+    <div>
+      <img src="new_logo.png" alt="Site logo" style="width: 500px; height: auto;">
+    </div>
+  </div>
+
+  <!-- JavaScript: Clock & Timestamp -->
+  <script>
+    function updateClock() {
       const now = new Date();
+      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
       document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
         weekday: 'short',
         year: 'numeric',
@@ -48,6 +67,10 @@
         minute: '2-digit',
         second: '2-digit'
       });
-    </script>
-  </body>
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+
+</body>
 </html>
