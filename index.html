@@ -5,7 +5,15 @@
   <title>Digging For Clarity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="margin: 40px; font-family: Arial, sans-serif; background-image: url('crack_texture.png'); background-size: cover; background-repeat: no-repeat; background-position: center; color: #333;">
+<body style="
+  margin: 40px;
+  font-family: Arial, sans-serif;
+  background-image: url('crack_texture.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #333;
+">
 
   <!-- Last Updated - Upper Left -->
   <div style="text-align: left; margin-bottom: 4px;">
@@ -19,26 +27,52 @@
 
   <!-- Quote Block -->
   <div style="text-align: center; margin-top: 36px;">
-    <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
-I no longer want someone else's commentary influencing my opinion. Yet, I still want to be informed.
+    <pre style="
+      font-family:'Courier New',monospace;
+      font-size:18px;
+      font-style:italic;
+      font-weight:bold;
+      white-space:pre-wrap;
+      display:inline-block;
+      text-align:left;
+      line-height:1.4;
+    ">
+I no longer want someone else's commentary influencing my opinion.
+Yet, I still want to be informed.
 This site will add years to my life, and perhaps, yours.
     </pre>
   </div>
 
-  <!-- Logo Only – Centered and Full Size -->
-  <div style="margin-top: 40px; text-align: center;">
-    <img src="new_logo.png" alt="Site logo" style="width: 400px; height: auto;">
+  <!-- Prompt + Logo Row -->
+  <div style="display: flex; align-items: flex-start; margin-top: 40px;">
+    <!-- Prompt Column -->
+    <div style="display: flex; flex-direction: column; align-items: flex-start;">
+      <div style="width: 2px; height: 1in; background-color: black;"></div>
+      <div style="margin-top: 12px;">
+        <div style="font-size: 12px; font-weight: bold; margin-bottom: 8px;">Start Digging</div>
+        <input type="text" placeholder="What's On Your Mind" style="padding: 6px; font-size: 14px; width: 200px;">
+      </div>
+    </div>
+
+    <!-- Logo Shifted Right & Scaled -->
+    <img src="new_logo.png" alt="Site logo" style="margin-left: 144px; width: 40%; height: auto;">
   </div>
 
-  <!-- JavaScript -->
+  <!-- JavaScript Clock -->
   <script>
     function updateClock() {
       const now = new Date();
       document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
       });
       document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
-        weekday: 'short',
-        year: 'numeric',
+        weekday: 'short', year: 'numeric', month: 'short',
+        day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+
+</body>
+</html>
