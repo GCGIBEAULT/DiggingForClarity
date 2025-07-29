@@ -15,18 +15,46 @@
       font-size: 2em;
       text-transform: uppercase;
     }
-    .philosophy {
+    .philosophy, .quote, .shovelBack {
       margin-top: 2em;
     }
+    .logo {
+      width: 150px;
+      display: block;
+      margin: 1em auto;
+    }
+    .quote {
+      font-style: italic;
+      color: #555;
+      text-align: center;
+      padding: 0.5em;
+      border-left: 4px solid #777;
+      background-color: #eee;
+    }
     footer {
-      margin-top: 4em;
-      font-size: 0.9em;
+      margin-top: 3em;
+      font-size: 0.85em;
       color: #777;
       text-align: center;
     }
+    #clock {
+      font-weight: bold;
+    }
   </style>
+  <script>
+    // Live clock
+    function updateClock() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString();
+      document.getElementById('clock').textContent = timeString;
+    }
+    setInterval(updateClock, 1000);
+    window.onload = updateClock;
+  </script>
 </head>
 <body>
+
+  <img src="logo.png" alt="Site Logo" class="logo">
 
   <h1>Grab Your Shovel</h1>
 
@@ -35,9 +63,15 @@
     <p>This site will add years to my life, and perhaps, yours.</p>
   </div>
 
-  <footer>
-    <p>Built with clarity and independence · No timestamp needed</p>
-  </footer>
+  <div class="quote">
+    “The truth is like the earth—quiet, buried, and waiting to be uncovered.”
+  </div>
 
-</body>
-</html>
+  <div class="shovelBack">
+    <h2>shovelBack</h2>
+    <p>A place to archive what's been dug and preserve what matters.</p>
+  </div>
+
+  <footer>
+    <p>Last Updated: Jul 29, 2025 · Current Time: <span id="clock"></span></p>
+    <p>Built with clarity
