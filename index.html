@@ -2,75 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Digging For Clarity</title>
+  <title>Grab Your Shovel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 40px;
+      font-family: Arial, sans-serif;
+      background-image: url('crack_texture.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #333;
+    }
+  </style>
 </head>
-<body style="margin: 40px; font-family: Arial, sans-serif; background-image: url('crack_texture.png'); background-size: cover; background-repeat: no-repeat; background-position: center; color: #333;">
-
-  <!-- Last Updated - Upper Left -->
+<body>
+  <!-- Last Updated + Clock -->
   <div style="text-align: left; margin-bottom: 4px;">
     <b>Last Updated: <span id="updateTime"></span></b>
   </div>
-
-  <!-- Clock - Center Top -->
   <div style="text-align: center;">
     <div id="clock" style="font-size: 40px; font-weight: bold;"></div>
   </div>
 
-  <!-- Quote Block -->
+  <!-- Philosophy Block -->
   <div style="text-align: center; margin-top: 36px;">
-    <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
-I no longer want someone else's commentary influencing my opinion. 
+    <pre style="
+      font-family:'Courier New',monospace;
+      font-size:18px;
+      font-style:italic;
+      font-weight:bold;
+      white-space:pre-wrap;
+      display:inline-block;
+      text-align:left;
+      line-height:1.4;">
+I no longer want someone else's commentary influencing my opinion.
 Yet, I still want to be informed.
 This site will add years to my life, and perhaps, yours.
     </pre>
   </div>
 
-  <!-- Grab Your Shovel Block: Entire Box with Cracked Texture -->
-  <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin: 60px 0 40px 0;">
-    <div style="text-align: center; padding: 20px; background-image: url('crack_texture.png'); background-size: cover; background-repeat: no-repeat; background-position: center;">
-      <span style="font-family:'Courier New',monospace; font-size: 20px; font-style: italic; color: rgba(55,55,55,0.85); transition: color 0.3s ease;"
-        onmouseover="this.style.color='rgb(20,20,20)'"
-        onmouseout="this.style.color='rgba(55,55,55,0.85)'">
-        🛠️ The shovel's leaning against the wall. Ready when you are.
-      </span>
-    </div>
-  </div>
-
-  <!-- Row: Your Custom Image Left + Logo Center -->
+  <!-- Logo Row -->
   <div style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px; gap: 40px;">
-    <!-- JustAsk Image -->
-    <div>
-      <img src="newjustask.png" alt="Just Ask image" style="width: 150px; height: auto;">
-    </div>
-    <!-- Logo -->
-    <div>
-      <img src="new_logo.png" alt="Site logo" style="width: 500px; height: auto;">
-    </div>
+    <div><img src="newjustask.png" alt="Just Ask image" style="width: 150px; height: auto;"></div>
+    <div><img src="new_logo.png" alt="Site logo" style="width: 500px; height: auto;"></div>
   </div>
 
-  <!-- JavaScript: Clock & Timestamp -->
+  <!-- JavaScript -->
   <script>
-    function updateClock() {
-      const now = new Date();
-      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
-        weekday: 'short',
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
+    const now = new Date();
+    document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+    document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
+      weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+    setInterval(() => {
+      const current = new Date();
+      document.getElementById("clock").textContent = current.toLocaleTimeString();
+    }, 1000);
   </script>
-
 </body>
 </html>
