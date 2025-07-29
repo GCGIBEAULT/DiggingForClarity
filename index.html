@@ -27,15 +27,50 @@
       text-align: center;
       margin-bottom: 20px;
     }
-    #updateTime {
-      font-weight: bold;
-    }
-    .timestamp {
-      text-align: left;
-      margin-bottom: 12px;
-    }
     .quote {
       text-align: center;
       margin-top: 36px;
       font-family: 'Courier New', monospace;
-      font-size
+      font-size: 18px;
+      font-style: italic;
+      font-weight: bold;
+      line-height: 1.2;
+      white-space: pre-wrap;
+    }
+    img {
+      display: block;
+      margin: 36px auto;
+      width: 338px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="clock"></div>
+
+    <div class="quote">
+      I stopped watching the news.<br>
+      I stopped reading the news.<br>
+      I no longer wanted someone else's commentary to become my opinion.<br>
+      Yet I wanted to be informed.
+    </div>
+
+    <img src="Copilot_20250726_103039.png" alt="Site logo" />
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      document.getElementById("clock").textContent = timeString;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
