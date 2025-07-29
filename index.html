@@ -3,78 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <title>Grab Your Shovel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
+      margin: 40px;
       font-family: Arial, sans-serif;
-      margin: 2em;
-      background-color: #f5f5f5;
+      background-image: url('crack_texture.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
       color: #333;
     }
-    h1 {
-      text-align: left;
-      font-size: 2em;
-      text-transform: uppercase;
-    }
-    .philosophy, .quote, .shovelBack {
-      margin-top: 2em;
-    }
-    .logo {
-      width: 150px;
-      display: block;
-      margin: 1em auto;
-    }
-    .quote {
-      font-style: italic;
-      color: #555;
-      text-align: center;
-      padding: 0.5em;
-      border-left: 4px solid #777;
-      background-color: #eee;
-    }
-    footer {
-      margin-top: 3em;
-      font-size: 0.85em;
-      color: #777;
-      text-align: center;
-    }
-    #clock {
-      font-weight: bold;
-    }
   </style>
-  <script>
-    function updateClock() {
-      const now = new Date();
-      const timeString = now.toLocaleTimeString();
-      document.getElementById('clock').textContent = timeString;
-    }
-    setInterval(updateClock, 1000);
-    window.onload = updateClock;
-  </script>
 </head>
 <body>
+  <!-- shovelBlock container -->
+  <div id="shovelBlock">
 
-  <img src="logo.png" alt="Site Logo" class="logo">
+    <!-- Timestamp and Live Clock -->
+    <div style="text-align: left; margin-bottom: 4px;">
+      <b>Last Updated: <span id="updateTime"></span></b>
+    </div>
+    <div style="text-align: center;">
+      <div id="clock" style="font-size: 40px; font-weight: bold;"></div>
+    </div>
 
-  <h1>Grab Your Shovel</h1>
+    <!-- Philosophy Section -->
+    <section id="grabYourShovel" style="text-align: center; margin-top: 36px;">
+      <pre style="
+        font-family:'Courier New',monospace;
+        font-size:18px;
+        font-style:italic;
+        font-weight:bold;
+        white-space:pre-wrap;
+        display:inline-block;
+        text-align:left;
+        line-height:1.4;">
+I no longer want someone else's commentary influencing my opinion.
+Yet, I still want to be informed.
+This site will add years to my life, and perhaps, yours.
+      </pre>
+    </section>
 
-  <div class="philosophy">
-    <p>I no longer want someone else's commentary influencing my opinion. Yet, I still want to be informed.</p>
-    <p>This site will add years to my life, and perhaps, yours.</p>
+    <!-- Logo Section -->
+    <section id="startDigging" style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px; gap: 40px;">
+      <div><img src="newjustask.png" alt="Just Ask image" style="width: 150px; height: auto;"></div>
+      <div><img src="new_logo.png" alt="Site logo" style="width: 500px; height: auto;"></div>
+    </section>
+
+    <!-- JavaScript Clock Update -->
+    <section id="whatsOnYourMind">
+      <script>
+        const now = new Date();
+        document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        document.getElementById("updateTime").textContent = now.toLocaleString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        setInterval(() => {
+          const current = new Date();
+          document.getElementById("clock").textContent = current.toLocaleTimeString();
+        }, 1000);
+      </script>
+    </section>
+
   </div>
-
-  <div class="quote">
-    “The truth is like the earth—quiet, buried, and waiting to be uncovered.”
-  </div>
-
-  <div class="shovelBack">
-    <h2>shovelBack</h2>
-    <p>A place to archive what's been dug and preserve what matters.</p>
-  </div>
-
-  <footer>
-    <p>Last Updated: Jul 29, 2025 · Current Time: <span id="clock"></span></p>
-    <p>Built with clarity and independence</p>
-  </footer>
-
 </body>
 </html>
