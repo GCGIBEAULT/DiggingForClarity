@@ -19,7 +19,7 @@
 <body>
   <!-- shovelBlock container -->
   <div id="shovelBlock" style="margin: 0 auto; text-align: center;">
-    
+
     <!-- Philosophy Section -->
     <section id="grabYourShovel" style="margin-top: 36px;">
       <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; line-height:1.4;">
@@ -33,17 +33,24 @@ I no longer want someone else's commentary influencing my opinion. Yet, I still 
       <div><img src="new_logo.png" alt="Site logo" style="width: 500px; height: auto;"></div>
     </section>
 
-    <!-- JavaScript Clock Update -->
-    <section id="whatsOnYourMind">
-      <div id="clock" style="margin-top: 20px; font-size: 18px; font-weight: bold;"></div>
-      <div id="updateTime" style="font-size: 14px;"></div>
+    <!-- JavaScript Clock Update – Positioned directly below logos -->
+    <section id="whatsOnYourMind" style="margin-top: 30px; text-align: center;">
+      <div id="clock" style="font-size: 18px; font-weight: bold;"></div>
+      <div id="updateTime" style="font-size: 14px; margin-top: 4px;"></div>
       <script>
         const now = new Date();
-        document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        document.getElementById("updateTime").textContent = now.toLocaleString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
+          hour: '2-digit', minute: '2-digit', second: '2-digit'
+        });
+        document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
+          weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+          hour: '2-digit', minute: '2-digit', second: '2-digit'
+        });
         setInterval(() => {
           const current = new Date();
-          document.getElementById("clock").textContent = current.toLocaleTimeString();
+          document.getElementById("clock").textContent = current.toLocaleTimeString('en-US', {
+            hour: '2-digit', minute: '2-digit', second: '2-digit'
+          });
         }, 1000);
       </script>
     </section>
