@@ -1,69 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Grab Your Shovel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 40px;
-      font-family: Arial, sans-serif;
-      background-image: url('crack_texture.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      color: #333;
-    }
-  </style>
-</head>
-<body>
-  <!-- shovelBlock container -->
-  <div id="shovelBlock">
+<!-- Timestamp and Clock (moved outside of shovelBlock) -->
+<div style="text-align: left; margin-bottom: 4px;">
+  <b>Last Updated: <span id="updateTime"></span></b>
+</div>
+<div style="text-align: center;">
+  <div id="clock" style="font-size: 40px; font-weight: bold;"></div>
+</div>
 
-    <!-- Timestamp and Live Clock -->
-    <div style="text-align: left; margin-bottom: 4px;">
-      <b>Last Updated: <span id="updateTime"></span></b>
-    </div>
-    <div style="text-align: center;">
-      <div id="clock" style="font-size: 40px; font-weight: bold;"></div>
-    </div>
-
-    <!-- Philosophy Section -->
-    <section id="grabYourShovel" style="text-align: center; margin-top: 36px;">
-      <pre style="
-        font-family:'Courier New',monospace;
-        font-size:18px;
-        font-style:italic;
-        font-weight:bold;
-        white-space:pre-wrap;
-        display:inline-block;
-        text-align:left;
-        line-height:1.4;">
-I no longer want someone else's commentary influencing my opinion.
-Yet, I still want to be informed.
+<!-- shovelBlock container with only intended content -->
+<div id="shovelBlock" style="position: absolute; left: 0; top: 40px; width: 100vw; padding-left: 40px; box-sizing: border-box; text-align: left;">
+  
+  <!-- Philosophy Section -->
+  <section id="grabYourShovel" style="text-align: center; margin-top: 36px;">
+    <pre style="font-family:'Courier New', monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
+I no longer want someone else's commentary influencing my opinion. Yet, I still want to be informed.
 This site will add years to my life, and perhaps, yours.
-      </pre>
-    </section>
+    </pre>
+  </section>
 
-    <!-- Logo Section -->
-    <section id="startDigging" style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px; gap: 40px;">
-      <div><img src="newjustask.png" alt="Just Ask image" style="width: 150px; height: auto;"></div>
-      <div><img src="new_logo.png" alt="Site logo" style="width: 500px; height: auto;"></div>
-    </section>
+  <!-- Logo Section -->
+  <section id="startDigging" style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px; gap: 40px;">
+    <div><img src="newjustask.png" alt="Just Ask image" style="width: 150px; height: auto;"></div>
+    <div><img src="new_logo.png" alt="Site logo" style="width: 500px; height: auto;"></div>
+  </section>
 
-    <!-- JavaScript Clock Update -->
-    <section id="whatsOnYourMind">
-      <script>
-        const now = new Date();
-        document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        document.getElementById("updateTime").textContent = now.toLocaleString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        setInterval(() => {
-          const current = new Date();
-          document.getElementById("clock").textContent = current.toLocaleTimeString();
-        }, 1000);
-      </script>
-    </section>
+  <!-- JavaScript Clock -->
+  <section id="whatsOnYourMind">
+    <script>
+      const now = new Date();
+      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
-  </div>
-</body>
-</html>
+      setInterval(() => {
+        const current = new Date();
+        document.getElementById("clock").textContent = current.toLocaleTimeString();
+      }, 1000);
+    </script>
+  </section>
+
+</div>
