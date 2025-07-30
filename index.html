@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      margin: 0;
+      margin: 40px;
       font-family: Arial, sans-serif;
       background-image: url('crack_texture.png');
       background-size: cover;
@@ -16,11 +16,10 @@
     }
   </style>
 </head>
-
 <body>
   <!-- shovelBlock container -->
-  <div id="shovelBlock" style="position: absolute; left: 0; top: 40px; width: 100vw; padding-left: 40px; box-sizing: border-box; text-align: left;">
-    
+  <div id="shovelBlock">
+
     <!-- Timestamp and Live Clock -->
     <div style="text-align: left; margin-bottom: 4px;">
       <b>Last Updated: <span id="updateTime"></span></b>
@@ -31,8 +30,17 @@
 
     <!-- Philosophy Section -->
     <section id="grabYourShovel" style="text-align: center; margin-top: 36px;">
-      <pre style="font-family:'Courier New', monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
-I no longer want someone else's commentary influencing my opinion. Yet, I still want to be informed.
+      <pre style="
+        font-family:'Courier New',monospace;
+        font-size:18px;
+        font-style:italic;
+        font-weight:bold;
+        white-space:pre-wrap;
+        display:inline-block;
+        text-align:left;
+        line-height:1.4;">
+I no longer want someone else's commentary influencing my opinion.
+Yet, I still want to be informed.
 This site will add years to my life, and perhaps, yours.
       </pre>
     </section>
@@ -43,3 +51,19 @@ This site will add years to my life, and perhaps, yours.
       <div><img src="new_logo.png" alt="Site logo" style="width: 500px; height: auto;"></div>
     </section>
 
+    <!-- JavaScript Clock Update -->
+    <section id="whatsOnYourMind">
+      <script>
+        const now = new Date();
+        document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        document.getElementById("updateTime").textContent = now.toLocaleString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        setInterval(() => {
+          const current = new Date();
+          document.getElementById("clock").textContent = current.toLocaleTimeString();
+        }, 1000);
+      </script>
+    </section>
+
+  </div>
+</body>
+</html>
