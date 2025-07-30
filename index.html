@@ -15,7 +15,6 @@
       color: #333;
     }
 
-    /* Only affects grab/start/script block */
     #shovelBlock {
       position: relative;
       left: 0;
@@ -24,7 +23,6 @@
       padding-left: 20px;
     }
 
-    /* Quote block styling */
     #grabYourShovel pre {
       font-family: 'Courier New', monospace;
       font-size: 18px;
@@ -36,7 +34,6 @@
       line-height: 1.4;
     }
 
-    /* Logo layout */
     #startDigging {
       display: flex;
       justify-content: flex-start;
@@ -45,7 +42,6 @@
       gap: 40px;
     }
 
-    /* Clock styling */
     #clock {
       font-size: 40px;
       font-weight: bold;
@@ -54,15 +50,16 @@
 </head>
 <body>
 
-  <!-- Timestamp and Clock OUTSIDE shovelBlock -->
+  <!-- Timestamp and Clock OUTSIDE of shovelBlock -->
   <div style="text-align: left; margin-bottom: 4px;">
     <b>Last Updated: <span id="updateTime"></span></b>
   </div>
+
   <div style="text-align: left;">
     <div id="clock"></div>
   </div>
 
-  <!-- shovelBlock contains only quote, logos, script -->
+  <!-- shovelBlock ONLY contains quote, logos, and JS -->
   <div id="shovelBlock">
     <section id="grabYourShovel" style="margin-top: 36px;">
       <pre>
