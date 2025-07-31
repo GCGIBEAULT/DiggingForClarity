@@ -2,101 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Grab Your Shovel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digging For Clarity</title>
   <style>
     body {
-      margin: 40px;
       font-family: Arial, sans-serif;
-      background-image: url('crack_texture.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      color: #333;
+      background-color: #fdfdfd;
+      margin: 0;
+      padding: 0;
     }
-
-    /* Fixed left-margin image aligned with logo top */
-    #leftImage {
-      position: fixed;
-      top: 375px; /* Nudged up from 395px */
-      left: 20px;
-      width: 120px;
-      height: auto;
-      z-index: 10;
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 20px;
     }
-
-    .large-logo {
-      width: 500px;
+    .left-image {
+      flex: 0 0 auto;
+      margin-right: 20px;
+    }
+    .left-image img {
+      width: 100px;
       height: auto;
     }
-
-    #clock {
-      font-size: 40px;
-      font-weight: bold;
+    .content {
+      flex: 1;
     }
-
-    #updateTime {
-      font-weight: bold;
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+    .toggle-section {
+      margin-top: 30px;
+    }
+    .toggle {
+      background-color: #eee;
+      border: none;
+      padding: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    .toggle-content {
+      display: none;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #fafafa;
     }
   </style>
+  <script>
+    function toggleContent(id) {
+      const content = document.getElementById(id);
+      content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
 </head>
 <body>
-
-  <!-- Fixed small image on left margin -->
-  <img id="leftImage" src="newjustask.png" alt="Just Ask image">
-
-  <div id="shovelBlock">
-
-    <!-- Timestamp and Live Clock -->
-    <div style="text-align: left; margin-bottom: 4px;">
-      <b>Last Updated: <span id="updateTime"></span></b>
+  <div class="container">
+    <div class="left-image">
+      <img src="ShovelBlocksmall.png" alt="Updated shovel image">
     </div>
-    <div style="text-align: center;">
-      <div id="clock"></div>
+    <div class="content">
+      <h1>Digging For Clarity</h1>
+      <p>I no longer want someone else's commentary influencing my opinion. Yet, I still want to be informed. This site will add years to my life, and perhaps, yours.</p>
+
+      <div class="toggle-section">
+        <button class="toggle" onclick="toggleContent('section1')">Toggle Section 1</button>
+        <div id="section1" class="toggle-content">
+          <p>This is the first toggle section. You can add modular content here.</p>
+        </div>
+
+        <button class="toggle" onclick="toggleContent('section2')">Toggle Section 2</button>
+        <div id="section2" class="toggle-content">
+          <p>This is the second toggle section. More clarity, more curiosity.</p>
+        </div>
+      </div>
     </div>
-
-    <!-- Philosophy Section -->
-    <section id="grabYourShovel" style="text-align: center; margin-top: 36px;">
-      <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
-I no longer want someone else's commentary influencing my opinion.
-Yet, I still want to be informed.
-This site will add years to my life, and perhaps, yours.
-      </pre>
-    </section>
-
-    <!-- Centered large logo -->
-    <section id="startDigging" style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px;">
-      <img src="new_logo.png" alt="Site logo" class="large-logo">
-    </section>
-
-    <!-- JavaScript Clock Update -->
-    <section id="whatsOnYourMind">
-      <script>
-        function updateClockAndTime() {
-          const now = new Date();
-          document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-          });
-          document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
-            weekday: 'short',
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-          });
-        }
-
-        updateClockAndTime();
-        setInterval(() => {
-          document.getElementById("clock").textContent = new Date().toLocaleTimeString();
-        }, 1000);
-      </script>
-    </section>
-
   </div>
 </body>
 </html>
