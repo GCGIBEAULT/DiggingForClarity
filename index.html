@@ -54,13 +54,17 @@
   </style>
 </head>
 <body>
+  <!-- Timestamp and Clock (outside shovelBlock) -->
+  <div id="updateTime">Last Updated: <span id="updateStamp"></span></div>
+  <div id="clock"></div>
+
+  <!-- shovelBlock contains ONLY the two phrases -->
   <div id="shovelBlock">
-    <div id="updateTime">Last Updated: <span id="updateStamp"></span></div>
-    <div id="clock"></div>
     <h2>Grab Your Shovel, Start Digging</h2>
     <p>What's on your mind?</p>
   </div>
 
+  <!-- JavaScript for live clock and timestamp -->
   <script>
     const now = new Date();
     document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
