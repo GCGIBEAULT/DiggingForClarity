@@ -39,8 +39,7 @@
       align-items: center;
     }
 
-    #leftShovels img,
-    #rightShovels img {
+    #leftShovels img, #rightShovels img {
       width: 200px;
       height: auto;
     }
@@ -68,79 +67,54 @@
   </style>
 </head>
 <body>
-  <!-- Left shovel pair -->
-  <div id="leftShovels">
-    <div>
-      <img src="ShovelBlocksmall.png" alt="Shovel 1">
-      <div class="shovel-label">Shovel 1</div>
-    </div>
-    <div>
-      <img src="ShovelBlocksmall.png" alt="Shovel 2">
-      <div class="shovel-label">Shovel 2</div>
-    </div>
+  <!-- Timestamp and Clock -->
+  <div style="text-align: left; margin-bottom: 4px;">
+    <b>Last Updated: <span id="updateTime"></span></b>
+  </div>
+  <div style="text-align: center;">
+    <div id="clock"></div>
   </div>
 
-  <!-- Right shovel pair -->
-  <div id="rightShovels">
-    <div>
-      <img src="ShovelBlocksmall.png" alt="Shovel 3">
-      <div class="shovel-label">Shovel 3</div>
-    </div>
-    <div>
-      <img src="ShovelBlocksmall.png" alt="Shovel 4">
-      <div class="shovel-label">Shovel 4</div>
-    </div>
-  </div>
-
-  <div id="shovelBlock">
-    <!-- Timestamp and Live Clock -->
-    <div style="text-align: left; margin-bottom: 4px;">
-      <b>Last Updated: <span id="updateTime"></span></b>
-    </div>
-    <div style="text-align: center;">
-      <div id="clock"></div>
-    </div>
-
-    <!-- Philosophy Section -->
-    <section id="grabYourShovel" style="text-align: center; margin-top: 36px;">
-      <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
+  <!-- Philosophy Block -->
+  <section style="text-align: center; margin-top: 36px;">
+    <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
 I no longer want someone else's commentary influencing my opinion.
 Yet, I still want to be informed.
 This site will add years to my life, and perhaps, yours.
-      </pre>
-    </section>
+    </pre>
+  </section>
 
-    <!-- Centered large logo -->
-    <section id="startDigging" style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px;">
-      <img src="new_logo.png" alt="Site logo" class="large-logo">
-    </section>
+  <!-- Logo -->
+  <section style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px;">
+    <img src="new_logo.png" alt="Site logo" class="large-logo">
+  </section>
 
-    <!-- JavaScript Clock Update -->
-    <section id="whatsOnYourMind">
-      <script>
-        function updateClockAndTime() {
-          const now = new Date();
-          document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-          });
-          document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
-            weekday: 'short',
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-          });
-        }
-        updateClockAndTime();
-        setInterval(() => {
-          document.getElementById("clock").textContent = new Date().toLocaleTimeString();
-        }, 1000);
-      </script>
-    </section>
+  <!-- Left Shovel Stack -->
+  <div id="leftShovels">
+    <img src="ShovelBlocksmall.png" alt="Shovel 1">
+    <img src="ShovelBlocksmall.png" alt="Shovel 2">
   </div>
-</body>
-</html>
+
+  <!-- Right Shovel Stack -->
+  <div id="rightShovels">
+    <img src="ShovelBlocksmall.png" alt="Shovel 3">
+    <img src="ShovelBlocksmall.png" alt="Shovel 4">
+  </div>
+
+  <!-- Market Module -->
+  <section style="text-align: center; margin-top: 40px;">
+    <p style="font-family:'Courier New', monospace; font-size:18px; font-style:italic; font-weight:bold;">
+      What’s on your mind.
+    </p>
+    <p><strong>Dow Jones:</strong> <span style="color:red">44,130.98  −330.30  −0.74%</span></p>
+    <p><strong>Nasdaq:</strong> <span style="color:blue">20,960.33  +64.70  +0.31%</span></p>
+  </section>
+
+  <!-- JavaScript Clock Update -->
+  <script>
+    function updateClockAndTime() {
+      const now = new Date();
+      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+      document.getElementById("
