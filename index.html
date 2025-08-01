@@ -16,7 +16,6 @@
     }
 
     #leftShovels, #rightShovels {
-      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -24,7 +23,7 @@
 
     #leftShovels img:nth-child(1) {
       margin-bottom: 80px;
-      margin-left: -60px; /* Shift Shovel 1 ~¾ inch left */
+      transform: translateX(-30px); /* Safe left shift */
     }
 
     #leftShovels img:nth-child(2) {
@@ -33,8 +32,8 @@
 
     #rightShovels img:nth-child(1) {
       margin-bottom: 40px;
-      /* Uncomment below to match Shovel 1 later */
-      /* margin-left: -60px; */
+      /* Uncomment to match Shovel 1 */
+      /* transform: translateX(-30px); */
     }
 
     #rightShovels img:nth-child(2) {
@@ -62,7 +61,6 @@
   </style>
 </head>
 <body>
-  <!-- Timestamp and Clock -->
   <div style="text-align: left; margin-bottom: 4px;">
     <b>Last Updated: <span id="updateTime"></span></b>
   </div>
@@ -70,7 +68,6 @@
     <div id="clock"></div>
   </div>
 
-  <!-- Philosophy Block -->
   <section style="text-align: center; margin-top: 36px;">
     <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
 I no longer want someone else's commentary influencing my opinion.
@@ -79,8 +76,33 @@ This site will add years to my life, and perhaps, yours.
     </pre>
   </section>
 
-  <!-- Logo and Shovel Stacks -->
   <section style="display: flex; justify-content: center; gap: 120px; margin-top: 40px;">
-    <!-- Left Shovel Stack -->
     <div id="leftShovels">
-      <img src="ShovelBlocksmall
+      <img src="ShovelBlocksmall.png" alt="Shovel 1">
+      <img src="ShovelBlocksmall.png" alt="Shovel 2">
+    </div>
+
+    <img src="new_logo.png" alt="Site logo" class="large-logo">
+
+    <div id="rightShovels">
+      <img src="ShovelBlocksmall.png" alt="Shovel 3">
+      <img src="ShovelBlocksmall.png" alt="Shovel 4">
+    </div>
+  </section>
+
+  <script>
+    function updateClockAndTime() {
+      const now = new Date();
+      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
+        weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+    }
+    updateClockAndTime();
+    setInterval(updateClockAndTime, 1000);
+  </script>
+</body>
+</html>
