@@ -16,11 +16,24 @@
     }
     #leftShovels, #rightShovels {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      align-items: center;
-      margin-top: 40px;
+      width: 200px;
+      height: 300px;
+    }
+    #leftShovels img:nth-child(1) {
+      position: absolute;
+      top: 40px;
+    }
+    #leftShovels img:nth-child(2) {
+      position: absolute;
+      top: 180px;
+    }
+    #rightShovels img:nth-child(1) {
+      position: absolute;
+      top: 100px;
+    }
+    #rightShovels img:nth-child(2) {
+      position: absolute;
+      top: 240px;
     }
     #leftShovels img, #rightShovels img {
       width: 200px;
@@ -40,7 +53,6 @@
   </style>
 </head>
 <body>
-  <!-- Timestamp and Clock -->
   <div style="text-align: left; margin-bottom: 4px;">
     <b>Last Updated: <span id="updateTime"></span></b>
   </div>
@@ -48,7 +60,6 @@
     <div id="clock"></div>
   </div>
 
-  <!-- Philosophy Block -->
   <section style="text-align: center; margin-top: 36px;">
     <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
 I no longer want someone else's commentary influencing my opinion.
@@ -57,25 +68,20 @@ This site will add years to my life, and perhaps, yours.
     </pre>
   </section>
 
-  <!-- Logo and Shovel Stacks -->
   <section style="display: flex; justify-content: center; gap: 120px; margin-top: 40px;">
-    <!-- Left Shovel Stack -->
     <div id="leftShovels">
       <img src="ShovelBlocksmall.png" alt="Shovel 1">
       <img src="ShovelBlocksmall.png" alt="Shovel 2">
     </div>
 
-    <!-- Logo -->
     <img src="new_logo.png" alt="Site logo" class="large-logo">
 
-    <!-- Right Shovel Stack -->
     <div id="rightShovels">
       <img src="ShovelBlocksmall.png" alt="Shovel 3">
       <img src="ShovelBlocksmall.png" alt="Shovel 4">
     </div>
   </section>
 
-  <!-- JavaScript Clock Update -->
   <script>
     function updateClockAndTime() {
       const now = new Date();
