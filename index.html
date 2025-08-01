@@ -15,8 +15,8 @@
       color: #333;
     }
 
-    /* Side-by-side shovel images on left margin */
-    #shovelImages {
+    /* Left shovel pair */
+    #leftShovels {
       position: fixed;
       top: 340px;
       left: 20px;
@@ -25,7 +25,18 @@
       gap: 10px;
     }
 
-    #shovelImages img {
+    /* Right shovel pair */
+    #rightShovels {
+      position: fixed;
+      top: 340px;
+      right: 20px;
+      z-index: 10;
+      display: flex;
+      gap: 10px;
+    }
+
+    #leftShovels img,
+    #rightShovels img {
       width: 200px;
       height: auto;
     }
@@ -46,10 +57,16 @@
   </style>
 </head>
 <body>
-  <!-- Fixed side-by-side shovel images -->
-  <div id="shovelImages">
-    <img src="ShovelBlocksmall.png" alt="Shovel image 1">
-    <img src="ShovelBlocksmall.png" alt="Shovel image 2">
+  <!-- Left shovel pair -->
+  <div id="leftShovels">
+    <img src="ShovelBlocksmall.png" alt="Left shovel 1">
+    <img src="ShovelBlocksmall.png" alt="Left shovel 2">
+  </div>
+
+  <!-- Right shovel pair -->
+  <div id="rightShovels">
+    <img src="ShovelBlocksmall.png" alt="Right shovel 1">
+    <img src="ShovelBlocksmall.png" alt="Right shovel 2">
   </div>
 
   <div id="shovelBlock">
