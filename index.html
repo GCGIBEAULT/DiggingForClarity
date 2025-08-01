@@ -106,8 +106,8 @@ This site will add years to my life, and perhaps, yours.
     <p style="font-family:'Courier New', monospace; font-size:18px; font-style:italic; font-weight:bold;">
       What’s on your mind.
     </p>
-    <p><strong>Dow Jones:</strong> <span style="color:red">44,130.98  −330.30  −0.74%</span></p>
-    <p><strong>Nasdaq:</strong> <span style="color:blue">20,960.33  +64.70  +0.31%</span></p>
+    <p><strong>Dow Jones:</strong> <span style="color:red">44,130.98 −330.30 −0.74%</span></p>
+    <p><strong>Nasdaq:</strong> <span style="color:blue">20,960.33 +64.70 +0.31%</span></p>
   </section>
 
   <!-- JavaScript Clock Update -->
@@ -117,4 +117,15 @@ This site will add years to my life, and perhaps, yours.
       document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
         hour: '2-digit', minute: '2-digit', second: '2-digit'
       });
-      document.getElementById("
+      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
+        weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+    }
+    updateClockAndTime();
+    setInterval(() => {
+      document.getElementById("clock").textContent = new Date().toLocaleTimeString();
+    }, 1000);
+  </script>
+</body>
+</html>
