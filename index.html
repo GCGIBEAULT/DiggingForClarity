@@ -15,32 +15,6 @@
       color: #333;
     }
 
-    /* Left shovel pair with wider spacing */
-    #leftShovels {
-      position: fixed;
-      top: 340px;
-      left: 20px;
-      z-index: 10;
-      display: flex;
-      gap: 40px; /* Increased from 10px to 40px */
-    }
-
-    /* Right shovel pair with wider spacing */
-    #rightShovels {
-      position: fixed;
-      top: 340px;
-      right: 20px;
-      z-index: 10;
-      display: flex;
-      gap: 40px; /* Increased from 10px to 40px */
-    }
-
-    #leftShovels img,
-    #rightShovels img {
-      width: 200px;
-      height: auto;
-    }
-
     .large-logo {
       width: 500px;
       height: auto;
@@ -54,21 +28,46 @@
     #updateTime {
       font-weight: bold;
     }
+
+    .yellow-box {
+      background-color: #fff8dc;
+      padding: 15px;
+      border: 2px solid #f0c000;
+      margin-top: 40px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .yellow-box h2 {
+      margin-bottom: 10px;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .watchlist {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .watchlist li {
+      margin: 8px 0;
+      font-size: 1.2em;
+    }
+
+    .watchlist a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .watchlist a:hover {
+      text-decoration: underline;
+      color: #000;
+    }
   </style>
 </head>
 <body>
-  <!-- Left shovel pair -->
-  <div id="leftShovels">
-    <img src="ShovelBlocksmall.png" alt="Left shovel 1">
-    <img src="ShovelBlocksmall.png" alt="Left shovel 2">
-  </div>
-
-  <!-- Right shovel pair -->
-  <div id="rightShovels">
-    <img src="ShovelBlocksmall.png" alt="Right shovel 1">
-    <img src="ShovelBlocksmall.png" alt="Right shovel 2">
-  </div>
-
   <div id="shovelBlock">
     <!-- Timestamp and Live Clock -->
     <div style="text-align: left; margin-bottom: 4px;">
@@ -78,21 +77,26 @@
       <div id="clock"></div>
     </div>
 
-    <!-- Philosophy Section -->
-    <section id="grabYourShovel" style="text-align: center; margin-top: 36px;">
-      <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
-I no longer want someone else's commentary influencing my opinion.
-Yet, I still want to be informed.
-This site will add years to my life, and perhaps, yours.
-      </pre>
-    </section>
-
     <!-- Centered large logo -->
     <section id="startDigging" style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px;">
       <img src="new_logo.png" alt="Site logo" class="large-logo">
     </section>
 
-    <!-- JavaScript Clock Update -->
+    <!-- Box 1, 2, 3 (preserved) -->
+    <!-- Add your existing Box 1, 2, and 3 HTML here -->
+
+    <!-- Box 4: Market Snapshot replacing shovel/philosophy -->
+    <section id="marketSnapshot">
+      <div class="yellow-box">
+        <h2>Market Snapshot</h2>
+        <ul class="watchlist">
+          <li><a href="https://finance.yahoo.com/quote/%5EDJI" target="_blank">DOW</a></li>
+          <li><a href="https://finance.yahoo.com/quote/%5EIXIC" target="_blank">NASDAQ</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- JavaScript Clock Update Every 5 Minutes -->
     <section id="whatsOnYourMind">
       <script>
         function updateClockAndTime() {
@@ -112,10 +116,9 @@ This site will add years to my life, and perhaps, yours.
             second: '2-digit'
           });
         }
+
         updateClockAndTime();
-        setInterval(() => {
-          document.getElementById("clock").textContent = new Date().toLocaleTimeString();
-        }, 1000);
+        setInterval(updateClockAndTime, 300000); // 5 minutes
       </script>
     </section>
   </div>
