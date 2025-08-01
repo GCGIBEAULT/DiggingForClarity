@@ -41,24 +41,10 @@
     #updateTime {
       font-weight: bold;
     }
-    .news-headline {
-      font-size: 20px;
-      font-weight: bold;
-    }
-    .news-snippet {
-      font-size: 16px;
-      color: #555;
-      margin-top: 4px;
-      margin-bottom: 12px;
-    }
-    .more-news {
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 20px;
-    }
   </style>
 </head>
 <body>
+
   <!-- Timestamp and Clock -->
   <div style="text-align: left; margin-bottom: 4px;">
     <b>Last Updated: <span id="updateTime"></span></b>
@@ -70,7 +56,9 @@
   <!-- Philosophy Block -->
   <section style="text-align: center; margin-top: 36px;">
     <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
-I no longer want someone else's commentary influencing my opinion. Yet, I still want to be informed. This site will add years to my life, and perhaps, yours.
+I no longer want someone else's commentary influencing my opinion.
+Yet, I still want to be informed.
+This site will add years to my life, and perhaps, yours.
     </pre>
   </section>
 
@@ -90,40 +78,19 @@ I no longer want someone else's commentary influencing my opinion. Yet, I still 
     </div>
   </section>
 
-  <!-- Denver Local News Section -->
+  <!-- Denver Local News Section (Compact Version) -->
   <section id="denver-local-news" style="margin-top: 40px;">
-    <h2>Denver Local News</h2>
-    <ul style="list-style-type: disc; padding-left: 20px;">
-      <li>
-        <div class="news-headline">DIA adds new cameras</div>
-        <div class="news-snippet">Facial recognition tech aims to reduce wait times.</div>
-      </li>
-      <li>
-        <div class="news-headline">Broncos stadium rumors</div>
-        <div class="news-snippet">City explores funding options for new stadium site.</div>
-      </li>
-      <li>
-        <div class="news-headline">E-470 plaza construction</div>
-        <div class="news-snippet">Expansion project targets peak-hour congestion.</div>
-      </li>
-      <li>
-        <div class="news-headline">Youth pantry project</div>
-        <div class="news-snippet">Local teens launch food pantry for families in need.</div>
-      </li>
-      <li>
-        <div class="news-headline">Stabbing investigation</div>
-        <div class="news-snippet">Police release new details in downtown incident.</div>
-      </li>
-      <li>
-        <div class="news-headline">City council debates zoning</div>
-        <div class="news-snippet">Proposed changes may affect density and green space.</div>
-      </li>
-      <li>
-        <div class="news-headline">New bike lanes proposed</div>
-        <div class="news-snippet">Board considers expansion in Five Points district.</div>
-      </li>
+    <h2 style="font-size: 18px;">Denver Local News</h2>
+    <ul style="list-style-type: none; padding-left: 0; font-size: 14px; line-height: 1.4;">
+      <li><strong style="font-size: 15px;">DIA adds new cameras</strong> – Facial recognition tech aims to reduce wait times.</li>
+      <li><strong style="font-size: 15px;">Broncos stadium rumors</strong> – City explores funding options for new stadium site.</li>
+      <li><strong style="font-size: 15px;">E-470 plaza construction</strong> – Expansion project targets peak-hour congestion.</li>
+      <li><strong style="font-size: 15px;">Youth pantry project</strong> – Local teens launch food pantry for families in need.</li>
+      <li><strong style="font-size: 15px;">Stabbing investigation</strong> – Police release new details in downtown incident.</li>
+      <li><strong style="font-size: 15px;">City council debates zoning</strong> – Proposed changes may affect density and green space.</li>
+      <li><strong style="font-size: 15px;">New bike lanes proposed</strong> – Board considers expansion in Five Points district.</li>
     </ul>
-    <p class="more-news">More Denver News</p>
+    <p style="font-size: 14px;"><em>More Denver News</em></p>
   </section>
 
   <!-- JavaScript Clock Update -->
@@ -148,5 +115,6 @@ I no longer want someone else's commentary influencing my opinion. Yet, I still 
     updateClockAndTime();
     setInterval(updateClockAndTime, 1000);
   </script>
+
 </body>
 </html>
