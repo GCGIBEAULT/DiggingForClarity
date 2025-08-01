@@ -16,24 +16,11 @@
     }
     #leftShovels, #rightShovels {
       position: relative;
-      width: 200px;
-      height: 320px;
-    }
-    #leftShovels img:nth-child(1) {
-      position: absolute;
-      top: 40px;
-    }
-    #leftShovels img:nth-child(2) {
-      position: absolute;
-      top: 200px;
-    }
-    #rightShovels img:nth-child(1) {
-      position: absolute;
-      top: 100px;
-    }
-    #rightShovels img:nth-child(2) {
-      position: absolute;
-      top: 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+      margin-top: 40px;
     }
     #leftShovels img, #rightShovels img {
       width: 200px;
@@ -93,4 +80,15 @@ This site will add years to my life, and perhaps, yours.
     function updateClockAndTime() {
       const now = new Date();
       document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
-        hour: '2-digit', minute:
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
+        weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+    }
+    updateClockAndTime();
+    setInterval(updateClockAndTime, 1000);
+  </script>
+</body>
+</html>
