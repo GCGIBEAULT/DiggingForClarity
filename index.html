@@ -22,32 +22,24 @@
       align-items: center;
     }
 
-    /* Left Stack */
     #leftShovels img:nth-child(1),
     #leftShovels img:nth-child(2) {
-      transform: translateX(-30px); /* Shift both left */
+      transform: translateX(-30px);
     }
 
-    #leftShovels img:nth-child(1) {
-      margin-bottom: 80px;
-    }
-
-    #leftShovels img:nth-child(2) {
-      margin-top: -40px;
-    }
-
-    /* Right Stack */
     #rightShovels img:nth-child(1),
     #rightShovels img:nth-child(2) {
-      transform: translateX(30px); /* Shift both right */
+      transform: translateX(30px);
     }
 
+    #leftShovels img:nth-child(1),
     #rightShovels img:nth-child(1) {
-      margin-bottom: 80px; /* Match left stack */
+      margin-bottom: 40px;
     }
 
+    #leftShovels img:nth-child(2),
     #rightShovels img:nth-child(2) {
-      margin-top: -40px; /* Match left stack */
+      margin-top: -20px;
     }
 
     #leftShovels img, #rightShovels img {
@@ -111,11 +103,18 @@ This site will add years to my life, and perhaps, yours.
     function updateClockAndTime() {
       const now = new Date();
       document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
-        hour: '2-digit', minute: '2-digit', second: '2-digit'
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
       });
       document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
-        weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
-        hour: '2-digit', minute: '2-digit', second: '2-digit'
+        weekday: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
       });
     }
     updateClockAndTime();
