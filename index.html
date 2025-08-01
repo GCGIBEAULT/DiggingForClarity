@@ -22,9 +22,7 @@
       left: 20px;
       z-index: 10;
       display: flex;
-      flex-direction: column;
-      gap: 40px;
-      align-items: center;
+      gap: 40px; /* Increased from 10px to 40px */
     }
 
     /* Right shovel pair with wider spacing */
@@ -34,22 +32,13 @@
       right: 20px;
       z-index: 10;
       display: flex;
-      flex-direction: column;
-      gap: 40px;
-      align-items: center;
+      gap: 40px; /* Increased from 10px to 40px */
     }
 
     #leftShovels img,
     #rightShovels img {
       width: 200px;
       height: auto;
-    }
-
-    .shovel-label {
-      font-size: 16px;
-      font-weight: bold;
-      color: #444;
-      margin-top: 4px;
     }
 
     .large-logo {
@@ -70,26 +59,14 @@
 <body>
   <!-- Left shovel pair -->
   <div id="leftShovels">
-    <div>
-      <img src="ShovelBlocksmall.png" alt="Shovel 1">
-      <div class="shovel-label">Shovel 1</div>
-    </div>
-    <div>
-      <img src="ShovelBlocksmall.png" alt="Shovel 2">
-      <div class="shovel-label">Shovel 2</div>
-    </div>
+    <img src="ShovelBlocksmall.png" alt="Left shovel 1">
+    <img src="ShovelBlocksmall.png" alt="Left shovel 2">
   </div>
 
   <!-- Right shovel pair -->
   <div id="rightShovels">
-    <div>
-      <img src="ShovelBlocksmall.png" alt="Shovel 3">
-      <div class="shovel-label">Shovel 3</div>
-    </div>
-    <div>
-      <img src="ShovelBlocksmall.png" alt="Shovel 4">
-      <div class="shovel-label">Shovel 4</div>
-    </div>
+    <img src="ShovelBlocksmall.png" alt="Right shovel 1">
+    <img src="ShovelBlocksmall.png" alt="Right shovel 2">
   </div>
 
   <div id="shovelBlock">
