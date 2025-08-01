@@ -62,4 +62,45 @@
     </div>
 
     <!-- Philosophy Section -->
-    <section id="grabYourShovel" style="text-align: center; margin-top: 36
+    <section id="grabYourShovel" style="text-align: center; margin-top: 36px;">
+      <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
+I no longer want someone else's commentary influencing my opinion.
+Yet, I still want to be informed.
+This site will add years to my life, and perhaps, yours.
+      </pre>
+    </section>
+
+    <!-- Centered large logo -->
+    <section id="startDigging" style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px;">
+      <img src="new_logo.png" alt="Site logo" class="large-logo">
+    </section>
+
+    <!-- JavaScript Clock Update -->
+    <section id="whatsOnYourMind">
+      <script>
+        function updateClockAndTime() {
+          const now = new Date();
+          document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+          });
+          document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
+            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+          });
+        }
+        updateClockAndTime();
+        setInterval(() => {
+          document.getElementById("clock").textContent = new Date().toLocaleTimeString();
+        }, 1000);
+      </script>
+    </section>
+  </div>
+</body>
+</html>
