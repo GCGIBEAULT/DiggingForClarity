@@ -15,6 +15,16 @@
       color: #333;
     }
 
+    /* Enlarged left-margin image aligned with logo top */
+    #leftImage {
+      position: fixed;
+      top: 340px;
+      left: 20px;
+      width: 200px;
+      height: auto;
+      z-index: 10;
+    }
+
     .large-logo {
       width: 500px;
       height: auto;
@@ -28,46 +38,12 @@
     #updateTime {
       font-weight: bold;
     }
-
-    .yellow-box {
-      background-color: #fff8dc;
-      padding: 15px;
-      border: 2px solid #f0c000;
-      margin-top: 40px;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-
-    .yellow-box h2 {
-      margin-bottom: 10px;
-      font-size: 1.5em;
-      font-weight: bold;
-    }
-
-    .watchlist {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    .watchlist li {
-      margin: 8px 0;
-      font-size: 1.2em;
-    }
-
-    .watchlist a {
-      text-decoration: none;
-      color: #333;
-    }
-
-    .watchlist a:hover {
-      text-decoration: underline;
-      color: #000;
-    }
   </style>
 </head>
 <body>
+  <!-- Fixed larger image on left margin -->
+  <img id="leftImage" src="ShovelBlocksmall.png" alt="Updated shovel image">
+
   <div id="shovelBlock">
     <!-- Timestamp and Live Clock -->
     <div style="text-align: left; margin-bottom: 4px;">
@@ -77,26 +53,21 @@
       <div id="clock"></div>
     </div>
 
+    <!-- Philosophy Section -->
+    <section id="grabYourShovel" style="text-align: center; margin-top: 36px;">
+      <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
+I no longer want someone else's commentary influencing my opinion.
+Yet, I still want to be informed.
+This site will add years to my life, and perhaps, yours.
+      </pre>
+    </section>
+
     <!-- Centered large logo -->
     <section id="startDigging" style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px;">
       <img src="new_logo.png" alt="Site logo" class="large-logo">
     </section>
 
-    <!-- Box 1, 2, 3 (preserved) -->
-    <!-- Add your existing Box 1, 2, and 3 HTML here -->
-
-    <!-- Box 4: Market Snapshot replacing shovel/philosophy -->
-    <section id="marketSnapshot">
-      <div class="yellow-box">
-        <h2>Market Snapshot</h2>
-        <ul class="watchlist">
-          <li><a href="https://finance.yahoo.com/quote/%5EDJI" target="_blank">DOW</a></li>
-          <li><a href="https://finance.yahoo.com/quote/%5EIXIC" target="_blank">NASDAQ</a></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- JavaScript Clock Update Every 5 Minutes -->
+    <!-- JavaScript Clock Update -->
     <section id="whatsOnYourMind">
       <script>
         function updateClockAndTime() {
@@ -118,7 +89,9 @@
         }
 
         updateClockAndTime();
-        setInterval(updateClockAndTime, 300000); // 5 minutes
+        setInterval(() => {
+          document.getElementById("clock").textContent = new Date().toLocaleTimeString();
+        }, 1000);
       </script>
     </section>
   </div>
