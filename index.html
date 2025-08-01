@@ -14,26 +14,48 @@
       background-position: center;
       color: #333;
     }
+
     #leftShovels, #rightShovels {
       position: relative;
       display: flex;
       flex-direction: column;
-      gap: 40px;
       align-items: center;
-      margin-top: 40px;
     }
+
+    #leftShovels img:nth-child(1) {
+      margin-bottom: 80px; /* Push Shovel 1 down */
+      margin-left: -40px;  /* Shift Shovel 1 left */
+    }
+
+    #leftShovels img:nth-child(2) {
+      margin-top: -40px; /* Pull Shovel 2 up slightly */
+    }
+
+    #rightShovels img:nth-child(1) {
+      margin-bottom: 40px; /* Slight stagger for Shovel 3 */
+      /* Uncomment below if you want to match Shovel 1's shift */
+      /* margin-left: -40px; */
+    }
+
+    #rightShovels img:nth-child(2) {
+      margin-top: -20px; /* Slight overlap for Shovel 4 */
+    }
+
     #leftShovels img, #rightShovels img {
       width: 200px;
       height: auto;
     }
+
     .large-logo {
       width: 500px;
       height: auto;
     }
+
     #clock {
       font-size: 40px;
       font-weight: bold;
     }
+
     #updateTime {
       font-weight: bold;
     }
