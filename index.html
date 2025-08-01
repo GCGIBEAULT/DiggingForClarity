@@ -15,7 +15,6 @@
       color: #333;
     }
     #leftShovels, #rightShovels {
-      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -54,6 +53,12 @@
       list-style-type: none;
       padding-left: 0;
     }
+    .news-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
@@ -88,9 +93,8 @@ This site will add years to my life, and perhaps, yours.
     </div>
   </section>
 
-  <!-- News Columns -->
+  <!-- Denver and Colorado News -->
   <section class="news-columns">
-    <!-- Denver Local News -->
     <div class="news-section">
       <h2>Denver Local News</h2>
       <ul>
@@ -105,7 +109,6 @@ This site will add years to my life, and perhaps, yours.
       <p><em>More Denver News</em></p>
     </div>
 
-    <!-- Colorado News -->
     <div class="news-section">
       <h2>Colorado News</h2>
       <ul>
@@ -118,6 +121,37 @@ This site will add years to my life, and perhaps, yours.
         <li><strong>• School funding reform</strong><br>Proposal aims to equalize resources across districts.</li>
       </ul>
       <p><em>More Colorado News</em></p>
+    </div>
+  </section>
+
+  <!-- National and Federal News -->
+  <section class="news-grid">
+    <div class="news-section">
+      <h2>National News</h2>
+      <ul>
+        <li><strong>• Supreme Court ruling</strong><br>Major decision reshapes digital privacy rights.</li>
+        <li><strong>• Inflation trends</strong><br>Consumer prices show signs of stabilization.</li>
+        <li><strong>• Airline merger blocked</strong><br>Federal judge halts proposed consolidation.</li>
+        <li><strong>• National parks funding</strong><br>Congress approves $2B for infrastructure upgrades.</li>
+        <li><strong>• Student loan updates</strong><br>New repayment plans roll out this fall.</li>
+        <li><strong>• Labor strike resolved</strong><br>Union and automakers reach agreement.</li>
+        <li><strong>• Weather extremes</strong><br>Heatwaves and flooding affect multiple states.</li>
+      </ul>
+      <p><em>More National News</em></p>
+    </div>
+
+    <div class="news-section">
+      <h2>Federal News</h2>
+      <ul>
+        <li><strong>• AI regulation framework</strong><br>Congress debates national standards for AI safety.</li>
+        <li><strong>• Social Security reform</strong><br>New proposals aim to stabilize long-term funding.</li>
+        <li><strong>• Defense budget update</strong><br>Pentagon outlines priorities for 2026 fiscal year.</li>
+        <li><strong>• Federal hiring initiative</strong><br>New program targets tech talent recruitment.</li>
+        <li><strong>• Postal service modernization</strong><br>Plan includes electric vehicles and digital tracking.</li>
+        <li><strong>• Immigration policy shift</strong><br>New guidelines streamline asylum processing.</li>
+        <li><strong>• Cybersecurity directive</strong><br>Agencies required to upgrade legacy systems.</li>
+      </ul>
+      <p><em>More Federal News</em></p>
     </div>
   </section>
 
