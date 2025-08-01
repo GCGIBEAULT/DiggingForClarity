@@ -14,26 +14,57 @@
       background-position: center;
       color: #333;
     }
+
     #leftShovels, #rightShovels {
       position: relative;
       display: flex;
       flex-direction: column;
-      gap: 40px;
       align-items: center;
-      margin-top: 40px;
     }
+
+    /* Left Stack */
+    #leftShovels img:nth-child(1),
+    #leftShovels img:nth-child(2) {
+      transform: translateX(-30px); /* Shift both left */
+    }
+
+    #leftShovels img:nth-child(1) {
+      margin-bottom: 80px;
+    }
+
+    #leftShovels img:nth-child(2) {
+      margin-top: -40px;
+    }
+
+    /* Right Stack */
+    #rightShovels img:nth-child(1),
+    #rightShovels img:nth-child(2) {
+      transform: translateX(30px); /* Shift both right */
+    }
+
+    #rightShovels img:nth-child(1) {
+      margin-bottom: 40px;
+    }
+
+    #rightShovels img:nth-child(2) {
+      margin-top: -20px;
+    }
+
     #leftShovels img, #rightShovels img {
       width: 200px;
       height: auto;
     }
+
     .large-logo {
       width: 500px;
       height: auto;
     }
+
     #clock {
       font-size: 40px;
       font-weight: bold;
     }
+
     #updateTime {
       font-weight: bold;
     }
