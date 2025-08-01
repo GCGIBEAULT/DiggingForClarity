@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Digging For Clarity</title>
+  <title>Grab Your Shovel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -14,20 +14,84 @@
       background-position: center;
       color: #333;
     }
+
+    /* Left shovel pair with wider spacing */
+    #leftShovels {
+      position: fixed;
+      top: 340px;
+      left: 20px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
+
+    /* Right shovel pair with wider spacing */
+    #rightShovels {
+      position: fixed;
+      top: 340px;
+      right: 20px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
+
+    #leftShovels img,
+    #rightShovels img {
+      width: 200px;
+      height: auto;
+    }
+
+    .shovel-label {
+      font-size: 16px;
+      font-weight: bold;
+      color: #444;
+      margin-top: 4px;
+    }
+
     .large-logo {
       width: 500px;
       height: auto;
     }
+
     #clock {
       font-size: 40px;
       font-weight: bold;
     }
+
     #updateTime {
       font-weight: bold;
     }
   </style>
 </head>
 <body>
+  <!-- Left shovel pair -->
+  <div id="leftShovels">
+    <div>
+      <img src="ShovelBlocksmall.png" alt="Shovel 1">
+      <div class="shovel-label">Shovel 1</div>
+    </div>
+    <div>
+      <img src="ShovelBlocksmall.png" alt="Shovel 2">
+      <div class="shovel-label">Shovel 2</div>
+    </div>
+  </div>
+
+  <!-- Right shovel pair -->
+  <div id="rightShovels">
+    <div>
+      <img src="ShovelBlocksmall.png" alt="Shovel 3">
+      <div class="shovel-label">Shovel 3</div>
+    </div>
+    <div>
+      <img src="ShovelBlocksmall.png" alt="Shovel 4">
+      <div class="shovel-label">Shovel 4</div>
+    </div>
+  </div>
+
   <div id="shovelBlock">
     <!-- Timestamp and Live Clock -->
     <div style="text-align: left; margin-bottom: 4px;">
@@ -37,8 +101,8 @@
       <div id="clock"></div>
     </div>
 
-    <!-- Philosophy Statement -->
-    <section style="text-align: center; margin-top: 36px;">
+    <!-- Philosophy Section -->
+    <section id="grabYourShovel" style="text-align: center; margin-top: 36px;">
       <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
 I no longer want someone else's commentary influencing my opinion.
 Yet, I still want to be informed.
@@ -46,37 +110,37 @@ This site will add years to my life, and perhaps, yours.
       </pre>
     </section>
 
-    <!-- Centered Logo -->
-    <section style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px;">
+    <!-- Centered large logo -->
+    <section id="startDigging" style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px;">
       <img src="new_logo.png" alt="Site logo" class="large-logo">
     </section>
 
-    <!-- Module 4: Market Tracker -->
-    <section style="text-align: center; margin-top: 40px;">
-      <p style="font-family:'Courier New', monospace; font-size:18px; font-style:italic; font-weight:bold;">
-        What’s on your mind.
-      </p>
-      <p><strong>Dow Jones:</strong> <span style="color:red">44,130.98  −330.30  −0.74%</span></p>
-      <p><strong>Nasdaq:</strong> <span style="color:blue">20,960.33  +64.70  +0.31%</span></p>
-    </section>
-
     <!-- JavaScript Clock Update -->
-    <script>
-      function updateClockAndTime() {
-        const now = new Date();
-        document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
-          hour: '2-digit', minute: '2-digit', second: '2-digit'
-        });
-        document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
-          weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
-          hour: '2-digit', minute: '2-digit', second: '2-digit'
-        });
-      }
-      updateClockAndTime();
-      setInterval(() => {
-        document.getElementById("clock").textContent = new Date().toLocaleTimeString();
-      }, 1000);
-    </script>
+    <section id="whatsOnYourMind">
+      <script>
+        function updateClockAndTime() {
+          const now = new Date();
+          document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+          });
+          document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
+            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+          });
+        }
+        updateClockAndTime();
+        setInterval(() => {
+          document.getElementById("clock").textContent = new Date().toLocaleTimeString();
+        }, 1000);
+      </script>
+    </section>
   </div>
 </body>
 </html>
