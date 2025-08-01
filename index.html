@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,18 +47,18 @@
       gap: 40px;
       margin-top: 40px;
     }
+    .news-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 40px;
+    }
     .news-section {
       width: 48%;
     }
     .news-section ul {
       list-style-type: none;
       padding-left: 0;
-    }
-    .news-grid {
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-      margin-top: 40px;
     }
   </style>
 </head>
@@ -152,27 +153,20 @@ This site will add years to my life, and perhaps, yours.
     </div>
   </section>
 
-  <!-- JavaScript Clock Update -->
-  <script>
-    function updateClockAndTime() {
-      const now = new Date();
-      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
-        weekday: 'short',
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-    }
-    updateClockAndTime();
-    setInterval(updateClockAndTime, 1000);
-  </script>
-</body>
-</html>
+  <!-- International and Sports News -->
+  <section class="news-grid">
+    <div class="news-section">
+      <h2>International News</h2>
+      <ul>
+        <li><strong>• Global summit convenes</strong><br>Leaders gather to discuss climate and trade.</li>
+        <li><strong>• Currency shifts in Europe</strong><br>Euro sees volatility amid policy changes.</li>
+        <li><strong>• Peace talks resume</strong><br>Negotiations restart in long-standing conflict zone.</li>
+        <li><strong>• Tech expansion in Asia</strong><br>Startups surge in Southeast Asian markets.</li>
+        <li><strong>• UN votes on resolution</strong><br>New humanitarian aid package approved.</li>
+        <li><strong>• Arctic research breakthrough</strong><br>Scientists uncover ancient climate data.</li>
+        <li><strong>• Global health update</strong><br>WHO releases new pandemic preparedness guidelines.</li>
+      </ul>
+      <p><em>More International News</em></p>
+    </div>
+    <div class="news-section">
+      <h2>Sports News
