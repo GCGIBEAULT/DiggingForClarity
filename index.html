@@ -105,9 +105,7 @@ This site will add years to my life, and perhaps, yours.
       });
     }
     updateClockAndTime();
-    setInterval(() => {
-      updateClockAndTime();
-    }, 1000);
+    setInterval(updateClockAndTime, 1000);
   </script>
 </body>
 </html>
