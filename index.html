@@ -15,14 +15,41 @@
       color: #333;
     }
 
-    /* Enlarged left-margin image aligned with logo top */
-    #leftImage {
+    /* Left shovel pair with wider spacing */
+    #leftShovels {
       position: fixed;
       top: 340px;
       left: 20px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
+
+    /* Right shovel pair with wider spacing */
+    #rightShovels {
+      position: fixed;
+      top: 340px;
+      right: 20px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
+
+    #leftShovels img,
+    #rightShovels img {
       width: 200px;
       height: auto;
-      z-index: 10;
+    }
+
+    .shovel-label {
+      font-size: 16px;
+      font-weight: bold;
+      color: #444;
+      margin-top: 4px;
     }
 
     .large-logo {
@@ -41,8 +68,29 @@
   </style>
 </head>
 <body>
-  <!-- Fixed larger image on left margin -->
-  <img id="leftImage" src="ShovelBlocksmall.png" alt="Updated shovel image">
+  <!-- Left shovel pair -->
+  <div id="leftShovels">
+    <div>
+      <img src="ShovelBlocksmall.png" alt="Shovel 1">
+      <div class="shovel-label">Shovel 1</div>
+    </div>
+    <div>
+      <img src="ShovelBlocksmall.png" alt="Shovel 2">
+      <div class="shovel-label">Shovel 2</div>
+    </div>
+  </div>
+
+  <!-- Right shovel pair -->
+  <div id="rightShovels">
+    <div>
+      <img src="ShovelBlocksmall.png" alt="Shovel 3">
+      <div class="shovel-label">Shovel 3</div>
+    </div>
+    <div>
+      <img src="ShovelBlocksmall.png" alt="Shovel 4">
+      <div class="shovel-label">Shovel 4</div>
+    </div>
+  </div>
 
   <div id="shovelBlock">
     <!-- Timestamp and Live Clock -->
@@ -87,7 +135,6 @@ This site will add years to my life, and perhaps, yours.
             second: '2-digit'
           });
         }
-
         updateClockAndTime();
         setInterval(() => {
           document.getElementById("clock").textContent = new Date().toLocaleTimeString();
