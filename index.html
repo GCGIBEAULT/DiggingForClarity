@@ -15,11 +15,21 @@
       color: #333;
     }
 
-    /* Enlarged left-margin image aligned with logo top */
+    /* Left fixed shovel image */
     #leftImage {
       position: fixed;
       top: 340px;
       left: 20px;
+      width: 200px;
+      height: auto;
+      z-index: 10;
+    }
+
+    /* Right fixed shovel image */
+    #rightImage {
+      position: fixed;
+      top: 340px;
+      right: 20px;
       width: 200px;
       height: auto;
       z-index: 10;
@@ -41,8 +51,9 @@
   </style>
 </head>
 <body>
-  <!-- Fixed larger image on left margin -->
-  <img id="leftImage" src="ShovelBlocksmall.png" alt="Updated shovel image">
+  <!-- Fixed shovel images on both margins -->
+  <img id="leftImage" src="ShovelBlocksmall.png" alt="Left shovel image">
+  <img id="rightImage" src="ShovelBlocksmall.png" alt="Right shovel image">
 
   <div id="shovelBlock">
     <!-- Timestamp and Live Clock -->
@@ -60,11 +71,6 @@ I no longer want someone else's commentary influencing my opinion.
 Yet, I still want to be informed.
 This site will add years to my life, and perhaps, yours.
       </pre>
-    </section>
-
-    <!-- 🔁 Duplicate shovel image between philosophy and logo -->
-    <section id="shovelBridge" style="display: flex; justify-content: center; margin-top: 20px;">
-      <img src="ShovelBlocksmall.png" alt="Shovel duplicate" style="width: 200px; height: auto;">
     </section>
 
     <!-- Centered large logo -->
