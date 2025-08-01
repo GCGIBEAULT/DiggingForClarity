@@ -41,6 +41,11 @@
     #updateTime {
       font-weight: bold;
     }
+    .news-snippet {
+      color: #555;
+      margin-top: 4px;
+      margin-bottom: 12px;
+    }
   </style>
 </head>
 <body>
@@ -63,54 +68,4 @@ I no longer want someone else's commentary influencing my opinion. Yet, I still 
   <section style="display: flex; justify-content: center; gap: 120px; margin-top: 40px;">
     <!-- Left Shovel Stack -->
     <div id="leftShovels">
-      <img src="ShovelBlocksmall.png" alt="Shovel 1">
-      <img src="ShovelBlocksmall.png" alt="Shovel 2">
-    </div>
-    <!-- Logo -->
-    <img src="new_logo.png" alt="Site logo" class="large-logo">
-    <!-- Right Shovel Stack -->
-    <div id="rightShovels">
-      <img src="ShovelBlocksmall.png" alt="Shovel 3">
-      <img src="ShovelBlocksmall.png" alt="Shovel 4">
-    </div>
-  </section>
-
-  <!-- Denver Local News Section -->
-  <section id="denver-local-news" style="margin-top: 40px;">
-    <h2>Denver Local News</h2>
-    <ul style="list-style-type: none; padding-left: 0;">
-      <li><strong>DIA adds new cameras</strong> – Facial recognition tech aims to reduce wait times.</li>
-      <li><strong>Broncos stadium rumors</strong> – City explores funding options for new stadium site.</li>
-      <li><strong>E-470 plaza construction</strong> – Expansion project targets peak-hour congestion.</li>
-      <li><strong>Youth pantry project</strong> – Local teens launch food pantry for families in need.</li>
-      <li><strong>Stabbing investigation</strong> – Police release new details in downtown incident.</li>
-      <li><strong>City council debates zoning</strong> – Proposed changes may affect density and green space.</li>
-      <li><strong>New bike lanes proposed</strong> – Board considers expansion in Five Points district.</li>
-    </ul>
-    <p><em>More Denver News</em></p>
-  </section>
-
-  <!-- JavaScript Clock Update -->
-  <script>
-    function updateClockAndTime() {
-      const now = new Date();
-      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
-        weekday: 'short',
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      });
-    }
-    updateClockAndTime();
-    setInterval(updateClockAndTime, 1000);
-  </script>
-</body>
-</html>
+      <img src="
