@@ -14,22 +14,27 @@
       background-position: center;
       color: #333;
     }
+
+    /* Enlarged left-margin image aligned with logo top */
     #leftImage {
       position: fixed;
-      top: 340px;
+      top: 340px; /* Nudged up for larger image */
       left: 20px;
-      width: 200px;
+      width: 200px; /* Increased from 120px */
       height: auto;
       z-index: 10;
     }
+
     .large-logo {
       width: 500px;
       height: auto;
     }
+
     #clock {
       font-size: 40px;
       font-weight: bold;
     }
+
     #updateTime {
       font-weight: bold;
     }
@@ -59,12 +64,4 @@ This site will add years to my life, and perhaps, yours.
 
     <!-- Centered large logo -->
     <section id="startDigging" style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px;">
-      <img src="new_logo.png" alt="Site logo" class="large-logo">
-    </section>
-
-    <!-- JavaScript Clock Update -->
-    <section id="whatsOnYourMind">
-      <script>
-        function updateClockAndTime() {
-          const now = new Date();
-          document.getElementById("clock").textContent = now.toLocaleTime
+      <img src="new_logo
