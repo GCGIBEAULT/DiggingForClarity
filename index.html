@@ -1,29 +1,182 @@
-<!-- National News Section -->
-<section id="national-news" style="margin-top: 40px;">
-  <h2>National News</h2>
-  <ul style="list-style-type: none; padding-left: 0;">
-    <li><strong>Supreme Court ruling</strong> – Major decision reshapes digital privacy rights.</li>
-    <li><strong>Inflation trends</strong> – Consumer prices show signs of stabilization.</li>
-    <li><strong>Airline merger blocked</strong> – Federal judge halts proposed consolidation.</li>
-    <li><strong>National parks funding</strong> – Congress approves $2B for infrastructure upgrades.</li>
-    <li><strong>Student loan updates</strong> – New repayment plans roll out this fall.</li>
-    <li><strong>Labor strike resolved</strong> – Union and automakers reach agreement.</li>
-    <li><strong>Weather extremes</strong> – Heatwaves and flooding affect multiple states.</li>
-  </ul>
-  <p><em>More National News</em></p>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grab Your Shovel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 40px;
+      font-family: Arial, sans-serif;
+      background-image: url('crack_texture.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #333;
+    }
+    #leftShovels, #rightShovels {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #leftShovels img:nth-child(1), #rightShovels img:nth-child(1) {
+      margin-bottom: 40px;
+    }
+    #leftShovels img:nth-child(2), #rightShovels img:nth-child(2) {
+      margin-top: -20px;
+    }
+    #leftShovels img, #rightShovels img {
+      width: 200px;
+      height: auto;
+    }
+    .large-logo {
+      width: 500px;
+      height: auto;
+    }
+    #clock {
+      font-size: 40px;
+      font-weight: bold;
+    }
+    #updateTime {
+      font-weight: bold;
+    }
+    .news-columns {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    .news-section {
+      width: 48%;
+    }
+    .news-section ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .news-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
 
-<!-- International News Section -->
-<section id="international-news" style="margin-top: 40px;">
-  <h2>International News</h2>
-  <ul style="list-style-type: none; padding-left: 0;">
-    <li><strong>Gaza aid crisis deepens</strong> – US envoy Witkoff visits controversial food distribution site amid starvation and violence.</li>
-    <li><strong>China faces sanctions</strong> – New US bill targets Chinese firms aiding Russia’s war effort.</li>
-    <li><strong>Indonesia grants clemency</strong> – President Subianto begins releasing thousands of political prisoners.</li>
-    <li><strong>El Salvador reforms constitution</strong> – Bukele’s party allows indefinite presidential re-election.</li>
-    <li><strong>Earthquake off Russian coast</strong> – 8.8 magnitude quake triggers tsunami warnings across Pacific.</li>
-    <li><strong>UK and Canada recognize Palestine</strong> – Diplomatic pressure mounts on Israel over Gaza famine.</li>
-    <li><strong>Myanmar ends emergency rule</strong> – Military prepares for elections after 4.5 years of control.</li>
-  </ul>
-  <p><em>More International News</em></p>
-</section>
+  <!-- Timestamp and Clock -->
+  <div style="text-align: left; margin-bottom: 4px;">
+    <b>Last Updated: <span id="updateTime"></span></b>
+  </div>
+  <div style="text-align: center;">
+    <div id="clock"></div>
+  </div>
+
+  <!-- Philosophy Block -->
+  <section style="text-align: center; margin-top: 36px;">
+    <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
+I no longer want someone else's commentary influencing my opinion.
+Yet, I still want to be informed.
+This site will add years to my life, and perhaps, yours.
+    </pre>
+  </section>
+
+  <!-- Logo and Shovel Stacks -->
+  <section style="display: flex; justify-content: center; gap: 120px; margin-top: 40px;">
+    <div id="leftShovels">
+      <img src="ShovelBlocksmall.png" alt="Shovel 1">
+      <img src="ShovelBlocksmall.png" alt="Shovel 2">
+    </div>
+    <img src="new_logo.png" alt="Site logo" class="large-logo">
+    <div id="rightShovels">
+      <img src="ShovelBlocksmall.png" alt="Shovel 3">
+      <img src="ShovelBlocksmall.png" alt="Shovel 4">
+    </div>
+  </section>
+
+  <!-- Denver and Colorado News -->
+  <section class="news-columns">
+    <div class="news-section">
+      <h2>Denver Local News</h2>
+      <ul>
+        <li><strong>• DIA adds new cameras</strong><br>Facial recognition tech aims to reduce wait times.</li>
+        <li><strong>• Broncos stadium rumors</strong><br>City explores funding options for new stadium site.</li>
+        <li><strong>• E-470 plaza construction</strong><br>Expansion project targets peak-hour congestion.</li>
+        <li><strong>• Youth pantry project</strong><br>Local teens launch food pantry for families in need.</li>
+        <li><strong>• Stabbing investigation</strong><br>Police release new details in downtown incident.</li>
+        <li><strong>• City council debates zoning</strong><br>Proposed changes may affect density and green space.</li>
+        <li><strong>• New bike lanes proposed</strong><br>Board considers expansion in Five Points district.</li>
+      </ul>
+      <p><em>More Denver News</em></p>
+    </div>
+
+    <div class="news-section">
+      <h2>Colorado News</h2>
+      <ul>
+        <li><strong>• Water conservation bill</strong><br>State legislature passes new drought response plan.</li>
+        <li><strong>• Wildfire mitigation grants</strong><br>Funding expands for rural fire prevention programs.</li>
+        <li><strong>• Mountain town housing</strong><br>Affordable housing initiative gains traction.</li>
+        <li><strong>• State park upgrades</strong><br>New trails and facilities planned for 2026.</li>
+        <li><strong>• Renewable energy push</strong><br>Colorado targets 80% clean energy by 2030.</li>
+        <li><strong>• Highway safety improvements</strong><br>CDOT announces new signage and guardrails.</li>
+        <li><strong>• School funding reform</strong><br>Proposal aims to equalize resources across districts.</li>
+      </ul>
+      <p><em>More Colorado News</em></p>
+    </div>
+  </section>
+
+  <!-- National and Federal News -->
+  <section class="news-grid">
+    <div class="news-section">
+      <h2>National News</h2>
+      <ul>
+        <li><strong>• Supreme Court ruling</strong><br>Major decision reshapes digital privacy rights.</li>
+        <li><strong>• Inflation trends</strong><br>Consumer prices show signs of stabilization.</li>
+        <li><strong>• Airline merger blocked</strong><br>Federal judge halts proposed consolidation.</li>
+        <li><strong>• National parks funding</strong><br>Congress approves $2B for infrastructure upgrades.</li>
+        <li><strong>• Student loan updates</strong><br>New repayment plans roll out this fall.</li>
+        <li><strong>• Labor strike resolved</strong><br>Union and automakers reach agreement.</li>
+        <li><strong>• Weather extremes</strong><br>Heatwaves and flooding affect multiple states.</li>
+      </ul>
+      <p><em>More National News</em></p>
+    </div>
+
+    <div class="news-section">
+      <h2>Federal News</h2>
+      <ul>
+        <li><strong>• AI regulation framework</strong><br>Congress debates national standards for AI safety.</li>
+        <li><strong>• Social Security reform</strong><br>New proposals aim to stabilize long-term funding.</li>
+        <li><strong>• Defense budget update</strong><br>Pentagon outlines priorities for 2026 fiscal year.</li>
+        <li><strong>• Federal hiring initiative</strong><br>New program targets tech talent recruitment.</li>
+        <li><strong>• Postal service modernization</strong><br>Plan includes electric vehicles and digital tracking.</li>
+        <li><strong>• Immigration policy shift</strong><br>New guidelines streamline asylum processing.</li>
+        <li><strong>• Cybersecurity directive</strong><br>Agencies required to upgrade legacy systems.</li>
+      </ul>
+      <p><em>More Federal News</em></p>
+    </div>
+  </section>
+
+  <!-- JavaScript Clock Update -->
+  <script>
+    function updateClockAndTime() {
+      const now = new Date();
+      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+    }
+    updateClockAndTime();
+    setInterval(updateClockAndTime, 1000);
+  </script>
+
+</body>
+</html>
