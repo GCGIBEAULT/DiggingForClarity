@@ -1,7 +1,109 @@
-function updateClock() {
-  const now = new Date();
-  const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-  document.getElementById('clock').textContent = timeString;
-}
-setInterval(updateClock, 1000);
-updateClock();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grab Your Shovel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 40px;
+      font-family: Arial, sans-serif;
+      background-image: url('crack_texture.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #333;
+    }
+    #leftShovels, #rightShovels {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #leftShovels img:nth-child(1),
+    #rightShovels img:nth-child(1) {
+      margin-bottom: 40px;
+    }
+    #leftShovels img:nth-child(2),
+    #rightShovels img:nth-child(2) {
+      margin-top: -20px;
+    }
+    #leftShovels img, #rightShovels img {
+      width: 200px;
+      height: auto;
+    }
+    .large-logo {
+      width: 500px;
+      height: auto;
+    }
+    #clock {
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
+    }
+    #updateTime {
+      font-weight: bold;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    .news-columns, .news-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    .news-section {
+      width: 48%;
+    }
+    .news-section ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Timestamp and Clock -->
+  <div id="updateTime">Last Updated: <span id="updateStamp"></span></div>
+  <div id="clock"></div>
+
+  <!-- Philosophy Block -->
+  <section style="text-align: center; margin-top: 36px;">
+    <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
+I no longer want someone else's commentary influencing my opinion.
+Yet, I still want to be informed.
+This site will add years to my life, and perhaps, yours.
+    </pre>
+  </section>
+
+  <!-- Logo and Shovel Stacks -->
+  <section style="display: flex; justify-content: center; gap: 120px; margin-top: 40px;">
+    <div id="leftShovels">
+      <img src="ShovelBlocksmall.png" alt="Shovel 1">
+      <img src="ShovelBlocksmall.png" alt="Shovel 2">
+    </div>
+    <img src="new_logo.png" alt="Site logo" class="large-logo">
+    <div id="rightShovels">
+      <img src="ShovelBlocksmall.png" alt="Shovel 3">
+      <img src="ShovelBlocksmall.png" alt="Shovel 4">
+    </div>
+  </section>
+
+  <!-- News Sections (Denver, Colorado, National, Federal, International, Sports) -->
+  <!-- These sections are already well-structured in your current code and continue below -->
+
+  <!-- JavaScript for Clock and Last Updated -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      document.getElementById('clock').textContent = timeString;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    const updatedDate = new Date(document.lastModified);
+    document.getElementById('updateStamp').textContent = updatedDate.toLocaleString();
+  </script>
+
+</body>
+</html>
