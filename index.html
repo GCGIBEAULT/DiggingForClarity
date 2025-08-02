@@ -14,96 +14,57 @@
       background-position: center;
       color: #333;
     }
-    #leftShovels, #rightShovels {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    #leftShovels img:nth-child(1), #rightShovels img:nth-child(1) {
-      margin-bottom: 40px;
-    }
-    #leftShovels img:nth-child(2), #rightShovels img:nth-child(2) {
-      margin-top: -20px;
-    }
-    #leftShovels img, #rightShovels img {
-      width: 200px;
-      height: auto;
-    }
-    .large-logo {
-      width: 500px;
-      height: auto;
-    }
-    #clock {
-      font-size: 40px;
-      font-weight: bold;
-    }
-    #updateTime {
-      font-weight: bold;
-    }
-    .news-columns, .news-grid {
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-      margin-top: 40px;
-    }
-    .news-section {
-      width: 48%;
-    }
-    .news-section ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
   </style>
 </head>
 <body>
-  <!-- Timestamp and Clock -->
+  <!-- Timestamp and Live Clock -->
   <div style="text-align: left; margin-bottom: 4px;">
     <b>Last Updated: <span id="updateTime"></span></b>
   </div>
   <div style="text-align: center;">
-    <div id="clock"></div>
+    <div id="clock" style="font-size: 40px; font-weight: bold;"></div>
   </div>
 
-  <!-- Philosophy Block -->
-  <section style="text-align: center; margin-top: 36px;">
-    <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
-I no longer want someone else's commentary influencing my opinion. Yet, I still want to be informed. This site will add years to my life, and perhaps, yours.
+  <!-- Philosophy Section -->
+  <section id="grabYourShovel" style="text-align: center; margin-top: 36px;">
+    <pre style="
+      font-family:'Courier New',monospace;
+      font-size:18px;
+      font-style:italic;
+      font-weight:bold;
+      white-space:pre-wrap;
+      display:inline-block;
+      text-align:left;
+      line-height:1.4;">
+I no longer want someone else's commentary influencing my opinion.
+Yet, I still want to be informed.
+This site will add years to my life, and perhaps, yours.
     </pre>
   </section>
 
-  <!-- Logo and Shovel Stacks -->
-  <section style="display: flex; justify-content: center; gap: 120px; margin-top: 40px;">
-    <div id="leftShovels">
-      <img src="ShovelBlocksmall.png" alt="Shovel 1">
-      <img src="ShovelBlocksmall.png" alt="Shovel 2">
-    </div>
-    <img src="new_logo.png" alt="Site logo" class="large-logo">
-    <div id="rightShovels">
-      <img src="ShovelBlocksmall.png" alt="Shovel 3">
-      <img src="ShovelBlocksmall.png" alt="Shovel 4">
-    </div>
+  <!-- Logo Section -->
+  <section id="startDigging" style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px; gap: 40px;">
+    <div><img src="newjustask.png" alt="Just Ask image" style="width: 150px; height: auto;"></div>
+    <div><img src="new_logo.png" alt="Site logo" style="width: 500px; height: auto;"></div>
   </section>
 
-  <!-- News Sections -->
-  <!-- (Denver, Colorado, National, Federal, International, Sports) -->
-  <!-- These sections are already present in your file and unchanged -->
-
-  <!-- JavaScript for Clock and Last Updated -->
-  <script>
-    function updateClock() {
+  <!-- JavaScript Clock Update -->
+  <section id="whatsOnYourMind">
+    <script>
       const now = new Date();
-      const timeString = now.toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
+      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
       });
-      document.getElementById('clock').textContent = timeString;
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-
-    const updatedDate = new Date(document.lastModified);
-    document.getElementById('updateTime').textContent = updatedDate.toLocaleString();
-  </script>
+      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
+        weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+      setInterval(() => {
+        const current = new Date();
+        document.getElementById("clock").textContent = current.toLocaleTimeString();
+      }, 1000);
+    </script>
+  </section>
 </body>
 </html>
+``
