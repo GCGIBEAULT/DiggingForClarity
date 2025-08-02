@@ -19,12 +19,10 @@
       flex-direction: column;
       align-items: center;
     }
-    #leftShovels img:nth-child(1),
-    #rightShovels img:nth-child(1) {
+    #leftShovels img:nth-child(1), #rightShovels img:nth-child(1) {
       margin-bottom: 40px;
     }
-    #leftShovels img:nth-child(2),
-    #rightShovels img:nth-child(2) {
+    #leftShovels img:nth-child(2), #rightShovels img:nth-child(2) {
       margin-top: -20px;
     }
     #leftShovels img, #rightShovels img {
@@ -38,12 +36,9 @@
     #clock {
       font-size: 40px;
       font-weight: bold;
-      text-align: center;
     }
     #updateTime {
       font-weight: bold;
-      text-align: left;
-      margin-bottom: 10px;
     }
     .news-columns, .news-grid {
       display: flex;
@@ -61,7 +56,6 @@
   </style>
 </head>
 <body>
-
   <!-- Timestamp and Clock -->
   <div style="text-align: left; margin-bottom: 4px;">
     <b>Last Updated: <span id="updateTime"></span></b>
@@ -73,9 +67,7 @@
   <!-- Philosophy Block -->
   <section style="text-align: center; margin-top: 36px;">
     <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
-I no longer want someone else's commentary influencing my opinion.
-Yet, I still want to be informed.
-This site will add years to my life, and perhaps, yours.
+I no longer want someone else's commentary influencing my opinion. Yet, I still want to be informed. This site will add years to my life, and perhaps, yours.
     </pre>
   </section>
 
@@ -93,7 +85,6 @@ This site will add years to my life, and perhaps, yours.
   </section>
 
   <!-- News Sections -->
-  <!-- Denver and Colorado News -->
   <section class="news-columns">
     <div class="news-section">
       <h2>Denver Local News</h2>
@@ -123,7 +114,6 @@ This site will add years to my life, and perhaps, yours.
     </div>
   </section>
 
-  <!-- National and Federal News -->
   <section class="news-grid">
     <div class="news-section">
       <h2>National News</h2>
@@ -153,7 +143,6 @@ This site will add years to my life, and perhaps, yours.
     </div>
   </section>
 
-  <!-- International and Sports News -->
   <section class="news-grid">
     <div class="news-section">
       <h2>International News</h2>
@@ -166,4 +155,21 @@ This site will add years to my life, and perhaps, yours.
         <li><strong>• Arctic research breakthrough</strong><br>Scientists uncover ancient climate data.</li>
         <li><strong>• Global health update</strong><br>WHO releases new pandemic preparedness guidelines.</li>
       </ul>
-      <p><em>More International
+      <p><em>More International News</em></p>
+    </div>
+    <div class="news-section">
+      <h2>Sports News</h2>
+      <ul>
+        <li><strong>• Placeholder headline</strong><br>Sports content coming soon.</li>
+      </ul>
+      <p><em>More Sports News</em></p>
+    </div>
+  </section>
+
+  <!-- JavaScript for Clock and Last Updated -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute:
