@@ -10,7 +10,6 @@
       color: #333;
       margin: 0;
       padding: 0;
-      position: relative;
     }
     header {
       text-align: center;
@@ -24,7 +23,6 @@
     .timestamp {
       text-align: center;
       font-size: 1.1em;
-      color: red;
       margin-top: 10px;
     }
     .quote {
@@ -42,16 +40,6 @@
     }
     ul {
       padding-left: 40px;
-    }
-    .margin-labels {
-      position: absolute;
-      left: 20px;
-      top: calc(100vh * 0.35); /* Approximate placement */
-      transform: translateY(-96px);
-      font-size: 1em;
-      color: blue;
-      font-weight: bold;
-      line-height: 1.6em;
     }
   </style>
   <script>
@@ -72,11 +60,6 @@
     <div class="timestamp" id="timestamp"></div>
     <div class="quote">Breaking News. Not Broken News.</div>
   </header>
-
-  <div class="margin-labels">
-    Weather<br>
-    Traffic
-  </div>
 
   <h2>Denver News</h2>
   <ul>
