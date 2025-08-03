@@ -9,6 +9,7 @@
       margin: 40px;
       background-color: #f9f9f9;
       color: #333;
+      position: relative;
     }
     header {
       text-align: center;
@@ -35,7 +36,7 @@
     .quick-links {
       position: absolute;
       left: 40px;
-      top: 640px; /* 96px above Denver Local News */
+      margin-top: -96px; /* 96px above Denver Local News */
       text-align: left;
     }
     .quick-links a {
@@ -67,12 +68,11 @@
   <div class="mission">Breaking News. Not Broken Promises.</div>
   <div class="top-line"><strong>Mon, Aug 4, 2025</strong></div>
 
-  <div class="quick-links">
-    <a href="https://weather.com" target="_blank">Weather</a>
-    <a href="https://www.google.com/maps/@39.7392,-104.9903,12z" target="_blank">Traffic</a>
-  </div>
-
   <section>
+    <div class="quick-links">
+      <a href="https://weather.com" target="_blank">Weather</a>
+      <a href="https://www.google.com/maps/@39.7392,-104.9903,12z" target="_blank">Traffic</a>
+    </div>
     <h2>Denver Local News</h2>
     <ul>
       <li>DIA adds new cameras – Facial recognition tech aims to reduce wait times.</li>
