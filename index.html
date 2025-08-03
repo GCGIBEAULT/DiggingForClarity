@@ -10,36 +10,20 @@
       background-color: #f9f9f9;
       color: #333;
     }
+    .top-line {
+      text-align: left;
+      font-size: 0.9em;
+      color: #333;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
     header {
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
-    .logo-title {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .logo-title img {
-      width: 350px;
+    header img {
+      width: 300px;
       height: auto;
-      margin-bottom: 10px;
-    }
-    .logo-title h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    .tagline {
-      font-size: 1em;
-      color: #555;
-      text-align: center;
-      margin-top: 5px;
-      margin-bottom: 20px;
-    }
-    .top-line {
-      font-size: 0.8em;
-      color: #666;
-      text-align: center;
-      margin-bottom: 20px;
     }
     .mission {
       font-style: italic;
@@ -58,106 +42,33 @@
       list-style-type: disc;
       padding-left: 20px;
     }
-    hr {
-      border: none;
-      border-top: 1px solid #ddd;
-      margin: 30px 0;
-    }
-    @media (max-width: 600px) {
-      body {
-        margin: 20px;
-      }
-      .logo-title img {
-        width: 200px;
-      }
-    }
   </style>
+  <script>
+    function formatDateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const dateStr = now.toLocaleDateString('en-US', options);
+      const timeStr = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+      const timeZone = 'MDT'; // Manually set your time zone
+      return `${dateStr} — ${timeStr} ${timeZone}`;
+    }
+
+    window.onload = function() {
+      const topLine = document.querySelector('.top-line strong');
+      if (topLine) {
+        topLine.textContent = formatDateTime();
+      }
+    };
+  </script>
 </head>
 <body>
+  <div class="top-line">
+    <strong></strong>
+  </div>
+
   <header>
-    <div class="logo-title">
-      <img src="new_logo.png" alt="Grab Your Shovel Logo">
-      <h1>Grab Your Shovel</h1>
-    </div>
-    <div class="tagline">Independent Headlines. No Commentary.</div>
-    <div class="top-line">Updated: Sat, Aug 2, 2025, 08:53 PM</div>
+    <img src="new_logo.png" alt="Grab Your Shovel Logo">
   </header>
 
   <div class="mission">
-    I no longer want someone else's commentary influencing my opinion. Yet, I still want to be informed. This site will add years to my life, and perhaps, yours.
-  </div>
-
-  <section>
-    <h2>Denver Local News</h2>
-    <ul>
-      <li>DIA adds new cameras – Facial recognition tech aims to reduce wait times.</li>
-      <li>Broncos stadium rumors – City explores funding options for new stadium site.</li>
-      <li>E-470 plaza construction – Expansion project targets peak-hour congestion.</li>
-      <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
-      <li>Stabbing investigation – Police release new details in downtown incident.</li>
-      <li>City council debates zoning – Proposed changes may affect density and green space.</li>
-      <li>New bike lanes proposed – Board considers expansion in Five Points district.</li>
-    </ul>
-  </section>
-
-  <hr>
-
-  <section>
-    <h2>Colorado News</h2>
-    <ul>
-      <li>Water conservation bill – State legislature passes new drought response plan.</li>
-      <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
-      <li>Mountain town housing – Affordable housing initiative gains traction.</li>
-      <li>State park upgrades – New trails and facilities planned for 2026.</li>
-      <li>Renewable energy push – Colorado targets 80% clean energy by 2030.</li>
-      <li>Highway safety improvements – CDOT announces new signage and guardrails.</li>
-      <li>School funding reform – Proposal aims to equalize resources across districts.</li>
-    </ul>
-  </section>
-
-  <hr>
-
-  <section>
-    <h2>National News</h2>
-    <ul>
-      <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
-      <li>Inflation trends – Consumer prices show signs of stabilization.</li>
-      <li>Airline merger blocked – Federal judge halts proposed consolidation.</li>
-      <li>National parks funding – Congress approves $2B for infrastructure upgrades.</li>
-      <li>Student loan updates – New repayment plans roll out this fall.</li>
-      <li>Labor strike resolved – Union and automakers reach agreement.</li>
-      <li>Weather extremes – Heatwaves and flooding affect multiple states.</li>
-    </ul>
-  </section>
-
-  <hr>
-
-  <section>
-    <h2>Federal News</h2>
-    <ul>
-      <li>AI regulation framework – Congress debates national standards for AI safety.</li>
-      <li>Social Security reform – New proposals aim to stabilize long-term funding.</li>
-      <li>Defense budget update – Pentagon outlines priorities for 2026 fiscal year.</li>
-      <li>Federal hiring initiative – New program targets tech talent recruitment.</li>
-      <li>Postal service modernization – Plan includes electric vehicles and digital tracking.</li>
-      <li>Immigration policy shift – New guidelines streamline asylum processing.</li>
-      <li>Cybersecurity directive – Agencies required to upgrade legacy systems.</li>
-    </ul>
-  </section>
-
-  <hr>
-
-  <section>
-    <h2>International News</h2>
-    <ul>
-      <li>Global summit convenes – Leaders gather to discuss climate and trade.</li>
-      <li>Currency shifts in Europe – Euro sees volatility amid policy changes.</li>
-      <li>Peace talks resume – Negotiations restart in long-standing conflict zone.</li>
-      <li>Tech expansion in Asia – Startups surge in Southeast Asian markets.</li>
-      <li>Gaza ceasefire plan – U.S. envoy works with Israel to end war and reconstruct Gaza.</li>
-      <li>Kyiv missile strike – Russian attack kills 6, injures 52 in residential building.</li>
-      <li>U.S. tariffs kick in – Global trade tensions rise as new import taxes take effect.</li>
-    </ul>
-  </section>
-</body>
-</html>
+    I no longer want someone else's commentary influencing my opinion. Yet, I still want to be informed. This site will add years to my life, and perhaps, yours
