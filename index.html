@@ -13,10 +13,25 @@
     header {
       text-align: center;
       margin-bottom: 20px;
+      position: relative;
     }
     header img {
       width: 350px;
       height: auto;
+    }
+    .quick-links {
+      position: absolute;
+      left: 0;
+      top: 96px;
+      text-align: left;
+      padding-left: 20px;
+    }
+    .quick-links a {
+      display: block;
+      font-weight: bold;
+      color: #0055aa;
+      text-decoration: none;
+      margin-bottom: 8px;
     }
     .mission {
       font-style: italic;
@@ -50,6 +65,10 @@
 
   <header>
     <img src="new_logo.png" alt="Grab Your Shovel Logo">
+    <div class="quick-links">
+      <a href="https://weather.com" target="_blank">Weather</a>
+      <a href="https://www.google.com/maps/@39.7392,-104.9903,12z" target="_blank">Traffic</a>
+    </div>
   </header>
 
   <div class="mission">
