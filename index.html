@@ -10,6 +10,7 @@
       color: #333;
       margin: 0;
       padding: 0;
+      position: relative;
     }
     header {
       text-align: center;
@@ -41,6 +42,13 @@
     ul {
       padding-left: 40px;
     }
+    .weather-traffic {
+      position: absolute;
+      left: 20px;
+      top: 400px; /* Adjust this value to fine-tune placement */
+      font-weight: bold;
+      color: blue;
+    }
   </style>
   <script>
     function updateTime() {
@@ -61,8 +69,8 @@
     <div class="quote">Breaking News. Not Broken News.</div>
   </header>
 
-  <!-- Weather and Traffic labels placed exactly 96px above Denver News -->
-  <div style="margin-left: 20px; margin-bottom: -76px; font-weight: bold; color: blue;">
+  <!-- Weather and Traffic labels placed above Denver News -->
+  <div class="weather-traffic">
     Weather<br>
     Traffic
   </div>
