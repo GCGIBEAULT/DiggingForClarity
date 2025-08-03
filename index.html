@@ -10,6 +10,7 @@
       color: #333;
       margin: 0;
       padding: 0;
+      position: relative;
     }
     header {
       text-align: center;
@@ -45,7 +46,8 @@
     .margin-labels {
       position: absolute;
       left: 20px;
-      top: 520px; /* Adjusted to appear ~96px above Denver News */
+      top: calc(100vh * 0.35); /* Approximate placement */
+      transform: translateY(-96px);
       font-size: 1em;
       color: blue;
       font-weight: bold;
