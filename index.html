@@ -6,43 +6,37 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
       background: #f9f9f9;
       color: #333;
+      margin: 0;
+      padding: 0;
     }
-    .top-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    header {
+      text-align: center;
       padding: 20px;
-      gap: 40px;
     }
-    .logo img {
+    header img {
       width: 350px;
+      display: block;
+      margin: 0 auto;
     }
     .timestamp {
       text-align: center;
       font-size: 1.1em;
-      margin-bottom: 20px;
+      margin-top: 10px;
     }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    section {
-      background: #fff;
-      border: 1px solid #ccc;
-      padding: 15px;
-      margin-bottom: 30px;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    .quote {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3em;
+      color: red;
+      margin: 20px 0;
     }
     h2 {
-      margin-top: 0;
+      text-decoration: underline;
+      font-weight: bold;
       font-size: 1.2em;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
+      margin-top: 30px;
     }
     ul {
       padding-left: 20px;
@@ -61,61 +55,104 @@
   </script>
 </head>
 <body>
-  <div class="top-row">
-    <section style="width:300px;">
-      <h2>Weather and Traffic</h2>
-      <ul>
-        <li>DIA adds new cameras – Facial recognition tech aims to reduce wait times.</li>
-        <li>E-470 plaza construction – Expansion project targets peak-hour congestion.</li>
-      </ul>
-    </section>
-    <div class="logo">
-      <img src="ShovelBlocksmall.png" alt="Logo">
-    </div>
-  </div>
+  <header>
+    <img src="new_logo.png" alt="Logo">
+    <div class="timestamp" id="timestamp"></div>
+    <div class="quote">Breaking News. Not Broken News.</div>
+  </header>
 
-  <div class="timestamp" id="timestamp"></div>
+  <h2>Weather and Traffic</h2>
+  <ul>
+    <li>DIA adds new cameras – Facial recognition tech aims to reduce wait times.</li>
+    <li>E-470 plaza construction – Expansion project targets peak-hour congestion.</li>
+    <li>RTD expands weekend service – More buses and trains on key routes.</li>
+    <li>Snowpack levels drop – Early melt raises summer drought concerns.</li>
+    <li>CDOT launches pothole tracker – Real-time updates for drivers.</li>
+    <li>Bike lane expansion – City adds 12 miles of protected lanes.</li>
+    <li>Highway 36 resurfacing – Delays expected through mid-August.</li>
+  </ul>
 
-  <div class="container">
-    <section>
-      <h2>Denver News</h2>
-      <ul>
-        <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
-        <li>Stabbing investigation – Police release new details in downtown incident.</li>
-      </ul>
-    </section>
+  <h2>Denver News</h2>
+  <ul>
+    <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
+    <li>Stabbing investigation – Police release new details in downtown incident.</li>
+    <li>City council debates zoning – New rules could reshape neighborhoods.</li>
+    <li>Library hours extended – Weekend access restored at 5 branches.</li>
+    <li>Denver Zoo welcomes baby giraffe – Public naming contest begins.</li>
+    <li>Public art installation – New murals celebrate community resilience.</li>
+    <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
+  </ul>
 
-    <section>
-      <h2>Colorado News</h2>
-      <ul>
-        <li>Water conservation bill – State legislature passes new drought response plan.</li>
-        <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
-      </ul>
-    </section>
+  <h2>Colorado News</h2>
+  <ul>
+    <li>Water conservation bill – State legislature passes new drought response plan.</li>
+    <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
+    <li>State park attendance surges – Record numbers reported this summer.</li>
+    <li>Teacher shortage worsens – Districts scramble to fill vacancies.</li>
+    <li>Colorado River compact talks resume – Western states seek compromise.</li>
+    <li>Electric vehicle rebates increase – New incentives for buyers.</li>
+    <li>Mining cleanup efforts expand – EPA targets legacy sites.</li>
+  </ul>
 
-    <section>
-      <h2>National News</h2>
-      <ul>
-        <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
-        <li>Inflation trends – Consumer prices show signs of stabilization.</li>
-      </ul>
-    </section>
+  <h2>National News</h2>
+  <ul>
+    <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
+    <li>Inflation trends – Consumer prices show signs of stabilization.</li>
+    <li>Presidential debate schedule released – First event set for September.</li>
+    <li>Federal student loan changes – New repayment options announced.</li>
+    <li>Heat wave grips southern states – Emergency declarations issued.</li>
+    <li>Rail safety legislation advances – Bipartisan support grows.</li>
+    <li>Tech antitrust hearings – CEOs testify before Congress.</li>
+  </ul>
 
-    <section>
-      <h2>Federal News</h2>
-      <ul>
-        <li>AI regulation framework – Congress debates national standards for AI safety.</li>
-        <li>Social Security reform – New proposals aim to stabilize long-term funding.</li>
-      </ul>
-    </section>
+  <h2>Federal News</h2>
+  <ul>
+    <li>AI regulation framework – Congress debates national standards for AI safety.</li>
+    <li>Social Security reform – New proposals aim to stabilize long-term funding.</li>
+    <li>Defense budget increases – Pentagon outlines strategic priorities.</li>
+    <li>Postal service modernization – New fleet rollout begins.</li>
+    <li>IRS audit policy changes – Focus shifts to high-income filers.</li>
+    <li>Federal hiring freeze lifted – Agencies resume recruitment.</li>
+    <li>Climate resilience grants – FEMA expands eligibility criteria.</li>
+  </ul>
 
-    <section>
-      <h2>International News</h2>
-      <ul>
-        <li>Global summit convenes – Leaders gather to discuss climate and trade.</li>
-        <li>Currency shifts in Europe – Euro sees volatility amid policy changes.</li>
-      </ul>
-    </section>
-  </div>
+  <h2>International News</h2>
+  <ul>
+    <li>Global summit convenes – Leaders gather to discuss climate and trade.</li>
+    <li>Currency shifts in Europe – Euro sees volatility amid policy changes.</li>
+    <li>UN peacekeeping mission extended – Security council votes unanimously.</li>
+    <li>China launches lunar probe – Mission aims for sample return.</li>
+    <li>Brazil election results – Reformist candidate wins runoff.</li>
+    <li>UK labor strikes continue – Transport disruptions persist.</li>
+    <li>India monsoon floods – Relief efforts underway in affected regions.</li>
+  </ul>
+
+  <h2>Market Watch</h2>
+  <ul>
+    <li>Consumer prices show signs of stabilization.</li>
+    <li>Congress approves $2B for infrastructure upgrades.</li>
+  </ul>
+
+  <h2>Sports News</h2>
+  <ul>
+    <li>PGA Tour expands global schedule for 2026.</li>
+    <li>Tiger Woods announces limited return to competition.</li>
+    <li>Broncos training camp updates – Rookie QB impresses coaches.</li>
+    <li>Olympic qualifiers begin – Track and field heats up.</li>
+    <li>MLB trade deadline looms – Key players on the move.</li>
+    <li>WNBA playoff picture – Top seeds battle for position.</li>
+    <li>College football preview – Top 25 rankings released.</li>
+  </ul>
+
+  <h2>AI in Action</h2>
+  <ul>
+    <li>Medical – AI Detects Lung Nodules with 94% Accuracy</li>
+    <li>Science – AlphaFold Predicts Nearly Every Known Protein</li>
+    <li>Education – Adaptive Learning Tools Boost Retention</li>
+    <li>Finance – AI Flags Fraud in Real Time</li>
+    <li>Art – Generative Models Create Museum-Worthy Pieces</li>
+    <li>Security – AI Monitors Network Threats Proactively</li>
+    <li>Retail – Personalized Shopping Experiences Expand</li>
+  </ul>
 </body>
 </html>
