@@ -101,11 +101,15 @@
 
   <section>
     <h2>Sports News</h2>
-    <label for="sportInput"><strong>Choose your sport:</strong></label>
-    <input type="text" id="sportInput" placeholder="e.g. golf">
-    <button onclick="saveSport()">Set Preference</button>
-    <p id="currentSport" style="margin-top:10px; font-weight:bold;"></p>
-    <ul id="sportsList"></ul>
+    <ul>
+      <li><a href="#">PGA Tour expands global schedule for 2026.</a></li>
+      <li><a href="#">Tiger Woods announces limited return to competition.</a></li>
+      <li><a href="#">New tech in golf balls sparks debate over distance limits.</a></li>
+      <li><a href="#">LPGA adds new international stops to fall calendar.</a></li>
+      <li><a href="#">USGA proposes rule changes for amateur status.</a></li>
+      <li><a href="#">Golf course sustainability efforts gain momentum.</a></li>
+      <li><a href="#">AI-assisted swing analysis tools hit consumer market.</a></li>
+    </ul>
   </section>
 
   <section>
@@ -121,38 +125,5 @@
     </ul>
   </section>
 
-  <script>
-    const sportsNews = {
-      golf: [
-        "PGA Tour expands global schedule for 2026.",
-        "Tiger Woods announces limited return to competition.",
-        "New tech in golf balls sparks debate over distance limits.",
-        "LPGA adds new international stops to fall calendar.",
-        "USGA proposes rule changes for amateur status.",
-        "Golf course sustainability efforts gain momentum.",
-        "AI-assisted swing analysis tools hit consumer market."
-      ]
-    };
-
-    function saveSport() {
-      const sport = document.getElementById("sportInput").value.toLowerCase().trim();
-      if (sport && sportsNews[sport]) {
-        localStorage.setItem("preferredSport", sport);
-        displaySportNews(sport);
-      } else {
-        alert("Sorry, we don't have news for that sport yet.");
-      }
-    }
-
-    function displaySportNews(sport) {
-      document.getElementById("currentSport").textContent = `Showing news for: ${sport.charAt(0).toUpperCase() + sport.slice(1)}`;
-      const list = document.getElementById("sportsList");
-      list.innerHTML = "";
-      sportsNews[sport].forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        list.appendChild(li);
-      });
-    }
-
-    const savedSport = localStorage.getItem("preferredSport");
+</body>
+</html>
