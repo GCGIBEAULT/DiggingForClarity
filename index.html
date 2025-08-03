@@ -36,7 +36,7 @@
     .quick-links {
       position: absolute;
       left: 40px;
-      margin-top: -96px; /* 96px above Denver Local News */
+      margin-top: -96px;
       text-align: left;
     }
     .quick-links a {
@@ -66,7 +66,26 @@
   </header>
 
   <div class="mission">Breaking News. Not Broken Promises.</div>
-  <div class="top-line"><strong>Mon, Aug 4, 2025</strong></div>
+  <div class="top-line" id="dateTimeDisplay">Loading...</div>
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const formatted = now.toLocaleString('en-US', {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      });
+      document.getElementById("dateTimeDisplay").textContent = formatted;
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script>
 
   <section>
     <div class="quick-links">
