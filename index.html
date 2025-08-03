@@ -2,130 +2,150 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Grab Your Shovel</title>
+  <title>Digging for Clarity</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+    header img {
+      width: 350px;
+      display: block;
+      margin: 0 auto;
+    }
+    .timestamp {
+      text-align: center;
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+    .quote {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3em;
+      margin: 20px 0;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    section {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 15px;
+      width: 300px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     }
     h2 {
-      border-bottom: 2px solid #333;
+      margin-top: 0;
+      font-size: 1.2em;
+      border-bottom: 1px solid #ddd;
       padding-bottom: 5px;
     }
     ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    li {
-      margin-bottom: 8px;
-    }
-    a {
-      text-decoration: none;
-      color: #0077cc;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    #logo {
-      display: block;
-      margin: 0 auto 20px;
-      width: 350px;
+      padding-left: 20px;
     }
   </style>
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('timestamp').innerHTML =
+        now.toLocaleDateString(undefined, options) + ' – ' +
+        now.toLocaleTimeString();
+    }
+    setInterval(updateTime, 1000);
+    window.onload = updateTime;
+  </script>
 </head>
 <body>
+  <header>
+    <img src="ShovelBlocksmall.png" alt="Logo">
+    <div class="timestamp" id="timestamp"></div>
+    <div class="quote">Breaking News. Not Broken News.</div>
+  </header>
 
-  <img id="logo" src="ShovelBlocksmall.png" alt="Site Logo">
+  <div class="container">
+    <section>
+      <h2>Weather and Traffic</h2>
+      <ul>
+        <li>DIA adds new cameras – Facial recognition tech aims to reduce wait times.</li>
+        <li>E-470 plaza construction – Expansion project targets peak-hour congestion.</li>
+      </ul>
+    </section>
 
-  <h1>Grab Your Shovel</h1>
+    <section>
+      <h2>Denver News</h2>
+      <ul>
+        <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
+        <li>Stabbing investigation – Police release new details in downtown incident.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Breaking News. Not Broken Promises.</h2>
-    <ul>
-      <li>DIA adds new cameras – Facial recognition tech aims to reduce wait times.</li>
-      <li>Broncos stadium rumors – City explores funding options for new stadium site.</li>
-      <li>E-470 plaza construction – Expansion project targets peak-hour congestion.</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Colorado News</h2>
+      <ul>
+        <li>Water conservation bill – State legislature passes new drought response plan.</li>
+        <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Local News</h2>
-    <ul>
-      <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
-      <li>Stabbing investigation – Police release new details in downtown incident.</li>
-      <li>City council debates zoning – Proposed changes may affect density and green space.</li>
-      <li>New bike lanes proposed – Board considers expansion in Five Points district.</li>
-    </ul>
-  </section>
+    <section>
+      <h2>National News</h2>
+      <ul>
+        <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
+        <li>Inflation trends – Consumer prices show signs of stabilization.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Colorado News</h2>
-    <ul>
-      <li>Water conservation bill – State legislature passes new drought response plan.</li>
-      <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
-      <li>Mountain town housing – Affordable housing initiative gains traction.</li>
-      <li>State park upgrades – New trails and facilities planned for 2026.</li>
-      <li>Renewable energy push – Colorado targets 80% clean energy by 2030.</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Federal News</h2>
+      <ul>
+        <li>AI regulation framework – Congress debates national standards for AI safety.</li>
+        <li>Social Security reform – New proposals aim to stabilize long-term funding.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>National News</h2>
-    <ul>
-      <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
-      <li>Inflation trends – Consumer prices show signs of stabilization.</li>
-      <li>Airline merger blocked – Federal judge halts proposed consolidation.</li>
-      <li>National parks funding – Congress approves $2B for infrastructure upgrades.</li>
-    </ul>
-  </section>
+    <section>
+      <h2>International News</h2>
+      <ul>
+        <li>Global summit convenes – Leaders gather to discuss climate and trade.</li>
+        <li>Currency shifts in Europe – Euro sees volatility amid policy changes.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Federal News</h2>
-    <ul>
-      <li>AI regulation framework – Congress debates national standards for AI safety.</li>
-      <li>Social Security reform – New proposals aim to stabilize long-term funding.</li>
-      <li>Defense budget update – Pentagon outlines priorities for 2026 fiscal year.</li>
-      <li>Federal hiring initiative – New program targets tech talent recruitment.</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Market</h2>
+      <ul>
+        <li>Consumer prices show signs of stabilization.</li>
+        <li>Congress approves $2B for infrastructure upgrades.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>International News</h2>
-    <ul>
-      <li>Global summit convenes – Leaders gather to discuss climate and trade.</li>
-      <li>Currency shifts in Europe – Euro sees volatility amid policy changes.</li>
-      <li>Peace talks resume – Negotiations restart in long-standing conflict zone.</li>
-      <li>Tech expansion in Asia – Startups surge in Southeast Asian markets.</li>
-    </ul>
-  </section>
+    <section>
+      <h2>Sports News</h2>
+      <ul>
+        <li>PGA Tour expands global schedule for 2026.</li>
+        <li>Tiger Woods announces limited return to competition.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Sports News</h2>
-    <ul>
-      <li>PGA Tour expands global schedule for 2026.</li>
-      <li>Tiger Woods announces limited return to competition.</li>
-      <li>New tech in golf balls sparks debate over distance limits.</li>
-      <li>LPGA adds new international stops to fall calendar.</li>
-      <li>USGA proposes rule changes for amateur status.</li>
-      <li>Golf course sustainability efforts gain momentum.</li>
-      <li>AI-assisted swing analysis tools hit consumer market.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 style="text-decoration: underline;">AI in Action</h2>
-    <ul>
-      <li>Medical – AI Detects Lung Nodules with 94% Accuracy</li>
-      <li>Government – AI Powers Early Outbreak Detection</li>
-      <li>Business – 66% of CEOs Report Gains from Generative AI</li>
-      <li>Technology – Gemini Deep Think Wins Math Olympiad Gold</li>
-      <li>Science – AlphaFold Predicts Nearly Every Known Protein</li>
-      <li>Hobbies – Virtual Coaches Personalize Fitness Routines</li>
-      <li>Education – AI Tutors Boost Student Performance</li>
-    </ul>
-  </section>
-
-  <!-- Commit marker: version 31 modified -->
-
+    <section>
+      <h2>AI in Action</h2>
+      <ul>
+        <li>Medical – AI Detects Lung Nodules with 94% Accuracy</li>
+        <li>Science – AlphaFold Predicts Nearly Every Known Protein</li>
+      </ul>
+    </section>
+  </div>
 </body>
 </html>
