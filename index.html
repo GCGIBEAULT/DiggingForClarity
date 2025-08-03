@@ -10,21 +10,36 @@
       background-color: #f9f9f9;
       color: #333;
     }
-    .top-line {
-      text-align: left;
-      font-size: 0.8em;
-      color: #666;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
     header {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
-    header img {
+    .logo-title {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo-title img {
       width: 350px;
       height: auto;
       margin-bottom: 10px;
+    }
+    .logo-title h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .tagline {
+      font-size: 1em;
+      color: #555;
+      text-align: center;
+      margin-top: 5px;
+      margin-bottom: 20px;
+    }
+    .top-line {
+      font-size: 0.8em;
+      color: #666;
+      text-align: center;
+      margin-bottom: 20px;
     }
     .mission {
       font-style: italic;
@@ -52,19 +67,20 @@
       body {
         margin: 20px;
       }
-      header img {
+      .logo-title img {
         width: 200px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="top-line">
-    <strong>Last Updated: Sat, Aug 2, 2025, 08:53:50 PM</strong>
-  </div>
-
   <header>
-    <img src="new_logo.png" alt="Grab Your Shovel Logo">
+    <div class="logo-title">
+      <img src="new_logo.png" alt="Grab Your Shovel Logo">
+      <h1>Grab Your Shovel</h1>
+    </div>
+    <div class="tagline">Independent Headlines. No Commentary.</div>
+    <div class="top-line">Updated: Sat, Aug 2, 2025, 08:53 PM</div>
   </header>
 
   <div class="mission">
