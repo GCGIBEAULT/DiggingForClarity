@@ -23,6 +23,7 @@
     .timestamp {
       text-align: center;
       font-size: 1.1em;
+      color: red;
       margin-top: 10px;
     }
     .quote {
@@ -40,6 +41,19 @@
     }
     ul {
       padding-left: 40px;
+    }
+    .margin-links {
+      position: relative;
+      left: -96px;
+      top: 96px;
+      font-size: 1em;
+      color: blue;
+    }
+    .margin-links span {
+      display: block;
+      margin-bottom: 5px;
+      color: blue;
+      font-weight: bold;
     }
   </style>
   <script>
@@ -60,6 +74,11 @@
     <div class="timestamp" id="timestamp"></div>
     <div class="quote">Breaking News. Not Broken News.</div>
   </header>
+
+  <div class="margin-links">
+    <span>Weather</span>
+    <span>Traffic</span>
+  </div>
 
   <h2>Denver News</h2>
   <ul>
