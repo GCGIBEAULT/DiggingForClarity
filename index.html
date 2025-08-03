@@ -58,12 +58,12 @@
       return `${dateStr} — ${timeStr} ${timeZone}`;
     }
 
-    window.onload = function() {
+    document.addEventListener("DOMContentLoaded", function() {
       const topLine = document.querySelector('.top-line strong');
       if (topLine) {
         topLine.textContent = formatDateTime();
       }
-    };
+    });
   </script>
 </head>
 <body>
@@ -87,24 +87,4 @@
       <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
       <li>Stabbing investigation – Police release new details in downtown incident.</li>
       <li>City council debates zoning – Proposed changes may affect density and green space.</li>
-      <li>New bike lanes proposed – Board considers expansion in Five Points district.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Colorado News</h2>
-    <ul>
-      <li>Water conservation bill – State legislature passes new drought response plan.</li>
-      <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
-      <li>Mountain town housing – Affordable housing initiative gains traction.</li>
-      <li>State park upgrades – New trails and facilities planned for 2026.</li>
-      <li>Renewable energy push – Colorado targets 80% clean energy by 2030.</li>
-      <li>Highway safety improvements – CDOT announces new signage and guardrails.</li>
-      <li>School funding reform – Proposal aims to equalize resources across districts.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>National News</h2>
-    <ul>
-      <li>Supreme Court
+      <li>New bike lanes proposed – Board considers expansion in Five
