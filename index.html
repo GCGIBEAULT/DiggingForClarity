@@ -3,147 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <title>Grab Your Shovel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 40px;
-      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+      background-image: url('crack_texture.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
       color: #333;
-      position: relative;
     }
-    header {
-      text-align: center;
-      margin-bottom: 20px;
+    #leftShovels, #rightShovels {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    header img {
-      width: 350px;
-      height: auto;
-    }
-    .mission {
-      font-style: italic;
-      text-align: center;
-      margin-bottom: 10px;
-      color: #b30000;
-      font-weight: bold;
-    }
-    .top-line {
-      text-align: center;
-      font-size: 0.9em;
-      color: #333;
-      font-weight: bold;
-      margin-bottom: 30px;
-    }
-    .quick-links {
-      position: absolute;
-      left: 40px;
-      margin-top: -96px; /* 96px above Denver Local News */
-      text-align: left;
-    }
-    .quick-links a {
-      display: block;
-      font-weight: bold;
-      color: #0055aa;
-      text-decoration: none;
-      margin-bottom: 8px;
-    }
-    section {
+    #leftShovels img:nth-child(1), #rightShovels img:nth-child(1) {
       margin-bottom: 40px;
     }
-    h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
+    #leftShovels img:nth-child(2), #rightShovels img:nth-child(2) {
+      margin-top: -20px;
     }
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
+    #leftShovels img, #rightShovels img {
+      width: 200px;
+      height: auto;
+    }
+    .spacer {
+      width: 200px;
+      height: 240px;
+      visibility: hidden;
+    }
+    .large-logo {
+      width: 500px;
+      height: auto;
+    }
+    #clock {
+      font-size: 40px;
+      font-weight: bold;
+    }
+    #updateTime {
+      font-weight: bold;
+    }
+    .news-columns, .news-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    .news-section {
+      width: 48%;
+    }
+    .news-section ul {
+      list-style-type: none;
+      padding-left: 0;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="new_logo.png" alt="Grab Your Shovel Logo">
-  </header>
+  <!-- Timestamp and Clock -->
+  <div style="text-align: left; margin-bottom: 4px;">
+    <b>Last Updated: <span id="updateTime">Loading...</span></b>
+  </div>
+  <div style="text-align: center;">
+    <div id="clock">Loading...</div>
+  </div>
 
-  <div class="mission">Breaking News. Not Broken Promises.</div>
-  <div class="top-line"><strong>Mon, Aug 4, 2025</strong></div>
+  <!-- JavaScript for Clock -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+      document.getElementById("clock").textContent = now.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      document.getElementById("updateTime").textContent = now.toLocaleString('en-US', {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      });
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
 
-  <section>
-    <div class="quick-links">
-      <a href="https://weather.com" target="_blank">Weather</a>
-      <a href="https://www.google.com/maps/@39.7392,-104.9903,12z" target="_blank">Traffic</a>
+  <!-- Philosophy Block -->
+  <section style="text-align: center; margin-top: 36px;">
+    <pre style="font-family:'Courier New',monospace; font-size:18px; font-style:italic; font-weight:bold; white-space:pre-wrap; display:inline-block; text-align:left; line-height:1.4;">
+I no longer want someone else's commentary influencing my opinion.
+Yet, I still want to be informed.
+This site will add years to my life, and perhaps, yours.
+    </pre>
+  </section>
+
+  <!-- Logo and Shovel Stacks -->
+  <section style="display: flex; justify-content: center; gap: 120px; margin-top: 40px;">
+    <div id="leftShovels">
+      <img src="ShovelBlocksmall.png" alt="Shovel 1">
+      <img src="ShovelBlocksmall.png" alt="Shovel 2">
     </div>
-    <h2>Denver Local News</h2>
-    <ul>
-      <li>DIA adds new cameras – Facial recognition tech aims to reduce wait times.</li>
-      <li>Broncos stadium rumors – City explores funding options for new stadium site.</li>
-      <li>E-470 plaza construction – Expansion project targets peak-hour congestion.</li>
-      <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
-      <li>Stabbing investigation – Police release new details in downtown incident.</li>
-      <li>City council debates zoning – Proposed changes may affect density and green space.</li>
-      <li>New bike lanes proposed – Board considers expansion in Five Points district.</li>
-    </ul>
+    <img src="new_logo.png" alt="Site logo" class="large-logo">
+    <div id="rightShovels">
+      <div class="spacer"></div>
+      <div class="spacer"></div>
+    </div>
   </section>
 
-  <section>
-    <h2>Colorado News</h2>
-    <ul>
-      <li>Water conservation bill – State legislature passes new drought response plan.</li>
-      <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
-      <li>Mountain town housing – Affordable housing initiative gains traction.</li>
-      <li>State park upgrades – New trails and facilities planned for 2026.</li>
-      <li>Renewable energy push – Colorado targets 80% clean energy by 2030.</li>
-      <li>Highway safety improvements – CDOT announces new signage and guardrails.</li>
-      <li>School funding reform – Proposal aims to equalize resources across districts.</li>
-    </ul>
-  </section>
+  <!-- News Sections -->
+  <!-- (Your existing news sections go here unchanged) -->
 
-  <section>
-    <h2>National News</h2>
-    <ul>
-      <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
-      <li>Inflation trends – Consumer prices show signs of stabilization.</li>
-      <li>Airline merger blocked – Federal judge halts proposed consolidation.</li>
-      <li>National parks funding – Congress approves $2B for infrastructure upgrades.</li>
-      <li>Student loan updates – New repayment plans roll out this fall.</li>
-      <li>Labor strike resolved – Union and automakers reach agreement.</li>
-      <li>Weather extremes – Heatwaves and flooding affect multiple states.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Federal News</h2>
-    <ul>
-      <li>AI regulation framework – Congress debates national standards for AI safety.</li>
-      <li>Social Security reform – New proposals aim to stabilize long-term funding.</li>
-      <li>Defense budget update – Pentagon outlines priorities for 2026 fiscal year.</li>
-      <li>Federal hiring initiative – New program targets tech talent recruitment.</li>
-      <li>Postal service modernization – Plan includes electric vehicles and digital tracking.</li>
-      <li>Immigration policy shift – New guidelines streamline asylum processing.</li>
-      <li>Cybersecurity directive – Agencies required to upgrade legacy systems.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>International News</h2>
-    <ul>
-      <li>Global summit convenes – Leaders gather to discuss climate and trade.</li>
-      <li>Currency shifts in Europe – Euro sees volatility amid policy changes.</li>
-      <li>Peace talks resume – Negotiations restart in long-standing conflict zone.</li>
-      <li>Tech expansion in Asia – Startups surge in Southeast Asian markets.</li>
-      <li>New Arctic shipping routes – Melting ice opens controversial trade paths.</li>
-      <li>UN health initiative – Global vaccination effort expands to 12 new countries.</li>
-      <li>Cyber diplomacy talks – Nations meet to establish digital conflict protocols.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Market Snapshot</h2>
-    <ul>
-      <li>Dow 43,803 ▲214.42 (+0.49%)</li>
-      <li>Nasdaq 23,128 ▲8,628 (+59.47%)</li>
-      <li><a href="https://www.nasdaq.com/market-activity/stocks" target="_blank">Check individual stocks →</a></li>
-    </ul>
-  </section>
 </body>
 </html>
