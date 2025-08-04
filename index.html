@@ -11,6 +11,7 @@
   <!-- Header -->
   <h1 style="color: red; text-align: center;">Breaking News. Not Broken News.</h1>
 
+  <!-- News Sections -->
   <h2>Denver News</h2>
   Youth pantry project – Local teens launch food pantry for families in need.<br>
   Stabbing investigation – Police release new details in downtown incident.<br>
@@ -110,5 +111,23 @@
   <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center; margin-top: 6px;">
     <strong>Keep Digging</strong>
   </div>
+
+  <!-- Timestamp -->
+  <div style="text-align: center; color: gray; margin-top: 40px;">
+    Last updated: <span id="timestamp"></span>
+  </div>
+
+  <script>
+    const now = new Date();
+    const options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    };
+    document.getElementById('timestamp').textContent = now.toLocaleString('en-US', options);
+  </script>
 </body>
 </html>
