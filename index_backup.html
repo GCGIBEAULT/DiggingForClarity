@@ -7,7 +7,7 @@
     h2 {
       border-bottom: 2px solid black;
       padding-bottom: 4px;
-      margin-top: 40px;  /* Adds space above each headline */
+      margin-top: 40px;
       margin-bottom: 12px;
     }
   </style>
@@ -18,6 +18,15 @@
 
   <!-- Header -->
   <h1 style="color: red; text-align: center;">Breaking News. Not Broken News.</h1>
+
+  <!-- Timestamp directly beneath headline -->
+  <div style="text-align: center; color: gray; font-size: 14px; margin-top: 6px;">
+    <script>
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+      document.write(now.toLocaleString('en-US', options));
+    </script>
+  </div>
 
   <!-- News Sections -->
   <h2>Denver News</h2>
@@ -120,15 +129,14 @@
     <strong>Keep Digging</strong>
   </div>
 
-  <!-- Timestamp -->
+  <!-- Footer Timestamp -->
   <div style="text-align: center; color: gray; margin-top: 40px;">
     Last updated: <span id="timestamp"></span>
   </div>
-
   <script>
-    const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-    document.getElementById('timestamp').textContent = now.toLocaleString('en-US', options);
+    const nowFooter = new Date();
+    const optionsFooter = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+    document.getElementById('timestamp').textContent = nowFooter.toLocaleString('en-US', optionsFooter);
   </script>
 </body>
 </html>
