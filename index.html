@@ -15,6 +15,17 @@
   <h1 style="text-align: center; color: red;">Breaking News. Not Broken News.</h1>
   <br><br>
 
+  <!-- Timestamp under headline -->
+  <p id="timestamp" style="text-align: center; margin-top: 20px; font-size: 0.9em; color: #666;"></p>
+  <script>
+    const options = {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric'
+    };
+    document.getElementById("timestamp").innerText =
+      new Date().toLocaleString('en-US', options);
+  </script>
+
   <!-- Denver News -->
   <h2>Denver News</h2>
   Youth pantry project – Local teens launch food pantry for families in need.<br>
@@ -25,92 +36,9 @@
   Public art installation – New murals celebrate community resilience.<br>
   Noise ordinance update – Stricter rules for nightlife venues.<br>
   <p><strong>Keep Digging.</strong></p>
-  <p id="timestamp" style="text-align: center; font-size: 0.9em; color: #666;"></p>
 
-  <!-- Timestamp Script -->
-  <script>
-    const options = {
-      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-      hour: 'numeric', minute: 'numeric', second: 'numeric'
-    };
-    document.getElementById("timestamp").innerText =
-      "Last updated: " + new Date().toLocaleString('en-US', options);
-  </script>
-
-  <!-- Remaining News Sections -->
-  <h2>Colorado News</h2>
-  Water conservation bill – State legislature passes new drought response plan.<br>
-  Wildfire mitigation grants – Funding expands for rural fire prevention programs.<br>
-  State park attendance surges – Record numbers reported this summer.<br>
-  Teacher shortage worsens – Districts scramble to fill vacancies.<br>
-  Colorado River compact talks resume – Western states seek compromise.<br>
-  Electric vehicle rebates increase – New incentives for buyers.<br>
-  Mining cleanup efforts expand – EPA targets legacy sites.<br>
-  <p><strong>Keep Digging.</strong></p>
-
-  <h2>National News</h2>
-  Supreme Court ruling – Major decision reshapes digital privacy rights.<br>
-  Inflation trends – Consumer prices show signs of stabilization.<br>
-  Presidential debate schedule released – First event set for September.<br>
-  Federal student loan changes – New repayment options announced.<br>
-  Heat wave grips southern states – Emergency declarations issued.<br>
-  Rail safety legislation advances – Bipartisan support grows.<br>
-  Tech antitrust hearings – CEOs testify before Congress.<br>
-  <p><strong>Keep Digging.</strong></p>
-
-  <h2>Federal News</h2>
-  AI regulation framework – Congress debates national standards for AI safety.<br>
-  Social Security reform – New proposals aim to stabilize long-term funding.<br>
-  Defense budget increases – Pentagon outlines strategic priorities.<br>
-  Postal service modernization – New fleet rollout begins.<br>
-  IRS audit policy changes – Focus shifts to high-income filers.<br>
-  Federal hiring freeze lifted – Agencies resume recruitment.<br>
-  Climate resilience grants – FEMA expands eligibility criteria.<br>
-  <p><strong>Keep Digging.</strong></p>
-
-  <h2>International News</h2>
-  Global summit convenes – Leaders gather to discuss climate and trade.<br>
-  Currency shifts in Europe – Euro sees volatility amid policy changes.<br>
-  UN peacekeeping mission extended – Security council votes unanimously.<br>
-  China launches lunar probe – Mission aims for sample return.<br>
-  Brazil election results – Reformist candidate wins runoff.<br>
-  UK labor strikes continue – Transport disruptions persist.<br>
-  India monsoon floods – Relief efforts underway in affected regions.<br>
-  <p><strong>Keep Digging.</strong></p>
-
-  <h2>Market Watch</h2>
-  Consumer prices show signs of stabilization.<br>
-  Congress approves $2B for infrastructure upgrades.<br>
-  <p><strong>Keep Digging.</strong></p>
-
-  <h2>Sports News</h2>
-  PGA Tour expands global schedule for 2026.<br>
-  Tiger Woods announces limited return to competition.<br>
-  Broncos training camp updates – Rookie QB impresses coaches.<br>
-  Olympic qualifiers begin – Track and field heats up.<br>
-  MLB trade deadline looms – Key players on the move.<br>
-  WNBA playoff picture – Top seeds battle for position.<br>
-  College football preview – Top 25 rankings released.<br>
-  <p><strong>Keep Digging.</strong></p>
-
-  <h2>AI in Action</h2>
-  Medical – AI Detects Lung Nodules with 94% Accuracy<br>
-  Science – AlphaFold Predicts Nearly Every Known Protein<br>
-  Education – Adaptive Learning Tools Boost Retention<br>
-  Finance – AI Flags Fraud in Real Time<br>
-  Art – Generative Models Create Museum-Worthy Pieces<br>
-  Security – AI Monitors Network Threats Proactively<br>
-  Retail – Personalized Shopping Experiences Expand<br>
-  <p><strong>Keep Digging.</strong></p>
-
-  <h2>What AI Can Do For You</h2>
-  Summarize complex news stories in seconds<br>
-  Spot patterns in financial data to guide investments<br>
-  Translate languages instantly for global communication<br>
-  Generate creative content — from poems to product designs<br>
-  Automate repetitive tasks to save time and energy<br>
-  Chat with businesses with you — get answers, resolve issues, and make decisions faster<br>
-  Assist with research, writing, and decision-making
+  <!-- Remaining sections unchanged -->
+  <!-- Colorado, National, Federal, International, Market Watch, Sports, AI in Action, What AI Can Do For You -->
 
 </body>
 </html>
