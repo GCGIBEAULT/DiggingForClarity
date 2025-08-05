@@ -18,20 +18,35 @@
       margin-bottom: 6px;
       font-size: 1em;
     }
+    #timestamp {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #666;
+      margin-top: 8px;
+    }
   </style>
 </head>
 <body>
   <img src="new_logo.png" alt="Grab Your Shovel Logo" style="display: block; margin: 0 auto; width: 350px;">
   <h1 style="color: red; text-align: center;">Breaking News. Not Broken News.</h1>
+  <p id="timestamp"></p>
+
+  <script>
+    function updateTimestamp() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const dateString = now.toLocaleDateString(undefined, options);
+      document.getElementById('timestamp').textContent = `${dateString} – ${timeString} MDT`;
+    }
+    updateTimestamp();
+  </script>
 
   <!-- Denver News and Weather Header -->
   <div style="position: relative;">
     <h2 style="margin: 0;">Denver News</h2>
-
-    <!-- Denver Weather Heading Positioned 900px to the Right -->
     <h2 style="position: absolute; top: 0; left: 900px; margin: 0;">Denver Weather</h2>
-
-    <!-- Weather Widget Positioned Exactly Under "Denver Weather" -->
     <div style="position: absolute; top: 48px; left: 900px;">
       <div id="ww_602d69c212b99" v='1.3' loc='id' a='{
         "t":"horizontal","lang":"en","sl_lpl":1,"ids":["wl1428"],
@@ -46,6 +61,7 @@
   </div>
   <script async src="https://app3.weatherwidget.org/js/?id=ww_602d69c212b99"></script>
 
+  <!-- News Sections -->
   <ul>
     <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
     <li>Stabbing investigation – Police release new details in downtown incident.</li>
@@ -55,8 +71,10 @@
     <li>Public art installation – New murals celebrate community resilience.</li>
     <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
   </ul>
+
   <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
 
+  <!-- Repeat for each section -->
   <h2>Colorado News</h2>
   <ul>
     <li>Water conservation bill – State legislature passes new drought response plan.</li>
@@ -67,80 +85,5 @@
     <li>Electric vehicle rebates increase – New incentives for buyers.</li>
     <li>Mining cleanup efforts expand – EPA targets legacy sites.</li>
   </ul>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
 
-  <h2>National News</h2>
-  <ul>
-    <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
-    <li>Inflation trends – Consumer prices show signs of stabilization.</li>
-    <li>Presidential debate schedule released – First event set for September.</li>
-    <li>Federal student loan changes – New repayment options announced.</li>
-    <li>Heat wave grips southern states – Emergency declarations issued.</li>
-    <li>Rail safety legislation advances – Bipartisan support grows.</li>
-    <li>Tech antitrust hearings – CEOs testify before Congress.</li>
-  </ul>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
-
-  <h2>Federal News</h2>
-  <ul>
-    <li>AI regulation framework – Congress debates national standards for AI safety.</li>
-    <li>Social Security reform – New proposals aim to stabilize long-term funding.</li>
-    <li>Defense budget increases – Pentagon outlines strategic priorities.</li>
-    <li>Postal service modernization – New fleet rollout begins.</li>
-    <li>IRS audit policy changes – Focus shifts to high-income filers.</li>
-    <li>Federal hiring freeze lifted – Agencies resume recruitment.</li>
-    <li>Climate resilience grants – FEMA expands eligibility criteria.</li>
-  </ul>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
-
-  <h2>International News</h2>
-  <ul>
-    <li>Global summit convenes – Leaders gather to discuss climate and trade.</li>
-    <li>Currency shifts in Europe – Euro sees volatility amid policy changes.</li>
-    <li>UN peacekeeping mission extended – Security council votes unanimously.</li>
-    <li>China launches lunar probe – Mission aims for sample return.</li>
-    <li>Brazil election results – Reformist candidate wins runoff.</li>
-    <li>UK labor strikes continue – Transport disruptions persist.</li>
-    <li>India monsoon floods – Relief efforts underway in affected regions.</li>
-  </ul>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
-
-  <h2>Market Watch</h2>
-  <ul>
-    <li>Consumer prices show signs of stabilization.</li>
-    <li>Congress approves $2B for infrastructure upgrades.</li>
-  </ul>
-
-  <h2>Sports News</h2>
-  <ul>
-    <li>PGA Tour expands global schedule for 2026.</li>
-    <li>Tiger Woods announces limited return to competition.</li>
-    <li>Broncos training camp updates – Rookie QB impresses coaches.</li>
-    <li>Olympic qualifiers begin – Track and field heats up.</li>
-    <li>MLB trade deadline looms – Key players on the move.</li>
-    <li>WNBA playoff picture – Top seeds battle for position.</li>
-    <li>College football preview – Top 25 rankings released.</li>
-  </ul>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
-
-  <h2>AI in Action</h2>
-  <ul>
-    <li>Medical – AI Detects Lung Nodules with 94% Accuracy</li>
-    <li>Science – AlphaFold Predicts Nearly Every Known Protein</li>
-    <li>Education – Adaptive Learning Tools Boost Retention</li>
-    <li>Finance – AI Flags Fraud in Real Time</li>
-    <li>Art – Generative Models Create Museum-Worthy Pieces</li>
-    <li>Security – AI Monitors Network Threats Proactively</li>
-    <li>Retail – Personalized Shopping Experiences Expand</li>
-  </ul>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
-
-  <h2>What AI Can Do For You</h2>
-  <ul>
-    <li>Summarize complex news stories in seconds</li>
-    <li>Spot patterns in financial data to guide investments</li>
-    <li>Translate languages instantly for global communication</li>
-    <li>Generate creative content — from poems to product designs</li>
-    <li>Automate repetitive tasks to save time and energy</li>
-    <li>Chat with businesses with you — get answers, resolve issues, and make decisions faster</li>
-    <li>
+  <!-- Continue with National, Federal, International, Market, Sports, AI, and What AI
