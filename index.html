@@ -32,21 +32,9 @@
       text-align: center;
       font-weight: bold;
     }
-    .weather-block {
-      position: absolute;
-      top: 48px;
-      left: 900px;
-      background-color: #f0f8ff;
-      border: 1px solid #999;
-      border-radius: 8px;
-      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-      padding: 10px;
-      width: 300px;
-    }
   </style>
 </head>
 <body>
-
   <img src="new_logo.png" alt="Grab Your Shovel Logo" style="display: block; margin: 0 auto; width: 350px;">
   <h1 style="color: red; text-align: center;">Breaking News. Not Broken News.</h1>
   <p id="timestamp"></p>
@@ -61,25 +49,41 @@
     updateTimestamp();
   </script>
 
-  <!-- Denver News and Weather -->
+  <!-- Denver News and Enlarged Weather Block -->
   <div style="position: relative;">
     <h2 style="margin: 0;">Denver News</h2>
     <h2 style="position: absolute; top: 0; left: 900px; margin: 0;">Denver Weather</h2>
-
-    <!-- Dynamic Weather Block -->
-    <div class="weather-block">
-      <label for="citySelect"><strong>Choose City:</strong></label>
-      <select id="citySelect" onchange="getWeather()">
-        <option value="Denver">Denver</option>
-        <option value="New York">New York</option>
-        <option value="Los Angeles">Los Angeles</option>
-      </select>
-      <p><strong>Temperature:</strong> <span id="temp">--</span></p>
-      <p><strong>Chance of Rain:</strong> <span id="rain">--</span></p>
-      <p><strong>Wind:</strong> <span id="wind">--</span></p>
-      <p><strong>Air Quality:</strong> <span id="aqi">--</span></p>
-      <p><strong>6-Hour Forecast:</strong></p>
-      <ul id="forecast"></ul>
+    <div style="position: absolute; top: 48px; left: 900px; background-color: #e0f7fa; border: 2px solid #00796b; border-radius: 10px; box-shadow: 3px 3px 8px rgba(0,0,0,0.2); padding: 20px; width: 280px; font-family: Arial, sans-serif; font-size: 1em; color: #333;">
+      <div style="font-size: 2em; font-weight: bold; text-align: center;">96°F ☀️</div>
+      <div style="margin-top: 10px;">
+        <p><strong>Chance of Rain:</strong> 0%</p>
+        <p><strong>Wind:</strong> 5 mph</p>
+        <p><strong>Air Quality:</strong> 42 (Good)</p>
+        <p style="font-size: 0.9em; color: #666;"><em>Updated: Tuesday, August 5, 2025 – 01:12 PM MDT</em></p>
+      </div>
+      <hr style="margin: 10px 0;">
+      <div style="display: flex; justify-content: space-between; text-align: center;">
+        <div>
+          <div>2 PM</div>
+          <div>☀️</div>
+          <div>95°F</div>
+        </div>
+        <div>
+          <div>4 PM</div>
+          <div>☀️</div>
+          <div>93°F</div>
+        </div>
+        <div>
+          <div>6 PM</div>
+          <div>☀️</div>
+          <div>89°F</div>
+        </div>
+        <div>
+          <div>8 PM</div>
+          <div>☀️</div>
+          <div>83°F</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -131,36 +135,6 @@
   </ul>
 
   <div class="section-label">Keep Digging</div>
-  <h2>International News</h2>
-  <ul>
-    <li>Global summit convenes – Leaders gather to discuss climate and trade.</li>
-    <li>Currency shifts in Europe – Euro sees volatility amid policy changes.</li>
-    <li>UN peacekeeping mission extended – Security council votes unanimously.</li>
-    <li>China launches lunar probe – Mission aims for sample return.</li>
-    <li>Brazil election results – Reformist candidate wins runoff.</li>
-    <li>UK labor strikes continue – Transport disruptions persist.</li>
-    <li>India monsoon floods – Relief efforts underway in affected regions.</li>
-  </ul>
-
-  <div class="section-label">Keep Digging</div>
-  <h2>Market Watch</h2>
-  <ul>
-    <li>Consumer prices show signs of stabilization.</li>
-    <li>Congress approves $2B for infrastructure upgrades.</li>
-  </ul>
-
-  <h2>Sports News</h2>
-  <ul>
-    <li>PGA Tour expands global schedule for 2026.</li>
-    <li>Tiger Woods announces limited return to competition.</li>
-    <li>Broncos training camp updates – Rookie QB impresses coaches.</li>
-    <li>Olympic qualifiers begin – Track and field heats up.</li>
-    <li>MLB trade deadline looms – Key players on the move.</li>
-    <li>WNBA playoff picture – Top seeds battle for position.</li>
-    <li>College football preview – Top 25 rankings released.</li>
-  </ul>
-
-  <div class="section-label">Keep Digging</div>
   <h2>AI in Action</h2>
   <ul>
     <li>Medical – AI Detects Lung Nodules with 94% Accuracy</li>
@@ -171,16 +145,5 @@
     <li>Security – AI Monitors Network Threats Proactively</li>
     <li>Retail – Personalized Shopping Experiences Expand</li>
   </ul>
-
-  <div class="section-label">Keep Digging</div>
-  <h2>What AI Can Do For You</h2>
-  <ul>
-    <li>Summarize complex news stories in seconds</li>
-    <li>Spot patterns in financial data to guide investments</li>
-    <li>Translate languages instantly for global communication</li>
-    <li>Generate creative content</li>
-  </ul>
-
-  <!-- Weather Script -->
-  <script>
-    const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
+</body>
+</html>
