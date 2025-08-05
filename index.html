@@ -24,14 +24,16 @@
   <img src="new_logo.png" alt="Grab Your Shovel Logo" style="display: block; margin: 0 auto; width: 350px;">
   <h1 style="color: red; text-align: center;">Breaking News. Not Broken News.</h1>
 
-  <h2>
-    <span style="display: inline-block;">Denver News</span>
-    <span style="display: inline-block; margin-left: 700px;">Denver Weather</span>
+  <h2 style="display: flex; justify-content: space-between; align-items: center;">
+    <span>Denver News</span>
+    <span>Denver Weather</span>
   </h2>
 
-  <!-- Weather Widget -->
-  <div id="ww_602d69c212b99" v='1.3' loc='id' a='{"t":"horizontal","lang":"en","sl_lpl":1,"ids":["wl1428"],"font":"Arial","sl_ics":"one","sl_sot":"fahrenheit","cl_bkg":"image","cl_font":"rgba(18,16,16,1)","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>
-    More forecasts: <a href="https://oneweather.org/new_york_city/30_days/" id="ww_602d69c212b99_u" target="_blank">New York weather 30 days</a>
+  <!-- Weather Widget Aligned Under "Denver Weather" -->
+  <div style="display: flex; justify-content: flex-end;">
+    <div id="ww_602d69c212b99" v='1.3' loc='id' a='{"t":"horizontal","lang":"en","sl_lpl":1,"ids":["wl1428"],"font":"Arial","sl_ics":"one","sl_sot":"fahrenheit","cl_bkg":"image","cl_font":"rgba(18,16,16,1)","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>
+      More forecasts: <a href="https://oneweather.org/new_york_city/30_days/" id="ww_602d69c212b99_u" target="_blank">New York weather 30 days</a>
+    </div>
   </div>
   <script async src="https://app3.weatherwidget.org/js/?id=ww_602d69c212b99"></script>
 
@@ -46,18 +48,94 @@
   </ul>
   <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
 
-  <!-- Remaining Sections -->
-  <!-- Colorado News -->
-  <!-- National News -->
-  <!-- Federal News -->
-  <!-- International News -->
-  <!-- Market Watch -->
-  <!-- Sports News -->
-  <!-- AI in Action -->
-  <!-- What AI Can Do For You -->
+  <h2>Colorado News</h2>
+  <ul>
+    <li>Water conservation bill – State legislature passes new drought response plan.</li>
+    <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
+    <li>State park attendance surges – Record numbers reported this summer.</li>
+    <li>Teacher shortage worsens – Districts scramble to fill vacancies.</li>
+    <li>Colorado River compact talks resume – Western states seek compromise.</li>
+    <li>Electric vehicle rebates increase – New incentives for buyers.</li>
+    <li>Mining cleanup efforts expand – EPA targets legacy sites.</li>
+  </ul>
+  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
 
-  <!-- These sections are unchanged from your current GitHub version and already include the AI headlines. 
-       If you'd like me to paste all of them again here, I can — just say the word. -->
+  <h2>National News</h2>
+  <ul>
+    <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
+    <li>Inflation trends – Consumer prices show signs of stabilization.</li>
+    <li>Presidential debate schedule released – First event set for September.</li>
+    <li>Federal student loan changes – New repayment options announced.</li>
+    <li>Heat wave grips southern states – Emergency declarations issued.</li>
+    <li>Rail safety legislation advances – Bipartisan support grows.</li>
+    <li>Tech antitrust hearings – CEOs testify before Congress.</li>
+  </ul>
+  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
 
+  <h2>Federal News</h2>
+  <ul>
+    <li>AI regulation framework – Congress debates national standards for AI safety.</li>
+    <li>Social Security reform – New proposals aim to stabilize long-term funding.</li>
+    <li>Defense budget increases – Pentagon outlines strategic priorities.</li>
+    <li>Postal service modernization – New fleet rollout begins.</li>
+    <li>IRS audit policy changes – Focus shifts to high-income filers.</li>
+    <li>Federal hiring freeze lifted – Agencies resume recruitment.</li>
+    <li>Climate resilience grants – FEMA expands eligibility criteria.</li>
+  </ul>
+  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
+
+  <h2>International News</h2>
+  <ul>
+    <li>Global summit convenes – Leaders gather to discuss climate and trade.</li>
+    <li>Currency shifts in Europe – Euro sees volatility amid policy changes.</li>
+    <li>UN peacekeeping mission extended – Security council votes unanimously.</li>
+    <li>China launches lunar probe – Mission aims for sample return.</li>
+    <li>Brazil election results – Reformist candidate wins runoff.</li>
+    <li>UK labor strikes continue – Transport disruptions persist.</li>
+    <li>India monsoon floods – Relief efforts underway in affected regions.</li>
+  </ul>
+  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
+
+  <h2>Market Watch</h2>
+  <ul>
+    <li>Consumer prices show signs of stabilization.</li>
+    <li>Congress approves $2B for infrastructure upgrades.</li>
+  </ul>
+
+  <h2>Sports News</h2>
+  <ul>
+    <li>PGA Tour expands global schedule for 2026.</li>
+    <li>Tiger Woods announces limited return to competition.</li>
+    <li>Broncos training camp updates – Rookie QB impresses coaches.</li>
+    <li>Olympic qualifiers begin – Track and field heats up.</li>
+    <li>MLB trade deadline looms – Key players on the move.</li>
+    <li>WNBA playoff picture – Top seeds battle for position.</li>
+    <li>College football preview – Top 25 rankings released.</li>
+  </ul>
+  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
+
+  <h2>AI in Action</h2>
+  <ul>
+    <li>Medical – AI Detects Lung Nodules with 94% Accuracy</li>
+    <li>Science – AlphaFold Predicts Nearly Every Known Protein</li>
+    <li>Education – Adaptive Learning Tools Boost Retention</li>
+    <li>Finance – AI Flags Fraud in Real Time</li>
+    <li>Art – Generative Models Create Museum-Worthy Pieces</li>
+    <li>Security – AI Monitors Network Threats Proactively</li>
+    <li>Retail – Personalized Shopping Experiences Expand</li>
+  </ul>
+  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
+
+  <h2>What AI Can Do For You</h2>
+  <ul>
+    <li>Summarize complex news stories in seconds</li>
+    <li>Spot patterns in financial data to guide investments</li>
+    <li>Translate languages instantly for global communication</li>
+    <li>Generate creative content — from poems to product designs</li>
+    <li>Automate repetitive tasks to save time and energy</li>
+    <li>Chat with businesses with you — get answers, resolve issues, and make decisions faster</li>
+    <li>Assist with research, writing, and decision-making</li>
+  </ul>
+  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
 </body>
 </html>
