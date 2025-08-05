@@ -49,13 +49,9 @@
     .column {
       width: 48%;
     }
-    .weather-wrapper {
-      display: flex;
-      justify-content: flex-start;
-      margin-left: 10%;
-    }
     .weather-column {
       width: 48%;
+      margin-left: 4%;
     }
   </style>
 </head>
@@ -66,10 +62,10 @@
   <!-- Headline Row -->
   <div class="headline-row">
     <h2 style="margin: 0;">Denver News</h2>
-    <h2 style="margin: 0; margin-left: 10%;">Denver Weather</h2>
+    <h2 style="margin: 0;">Denver Weather</h2>
   </div>
 
-  <!-- Denver News and Weather -->
+  <!-- Unified Row: Denver News and Denver Weather -->
   <div class="row">
     <div class="column">
       <ul>
@@ -82,24 +78,22 @@
         <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
       </ul>
     </div>
-    <div class="weather-wrapper">
-      <div class="weather-column">
-        <ul>
-          <li>Heat wave eases — Cooler temps expected through midweek.</li>
-          <li>Air quality alert lifted — Conditions return to moderate levels.</li>
-        </ul>
-        <div style="margin-top: 10px;">
-          <strong>Today’s Forecast:</strong><br>
-          ☀️ Sunny, High: 87°F, Low: 62°F<br>
-          💨 Winds: NW at 5–10 mph<br>
-          🌇 Sunset: 8:12 PM
-        </div>
+    <div class="weather-column">
+      <ul>
+        <li>Heat wave eases — Cooler temps expected through midweek.</li>
+        <li>Air quality alert lifted — Conditions return to moderate levels.</li>
+      </ul>
+      <div style="margin-top: 10px;">
+        <strong>Today’s Forecast:</strong><br>
+        ☀️ Sunny, High: 87°F, Low: 62°F<br>
+        💨 Winds: NW at 5–10 mph<br>
+        🌇 Sunset: 8:12 PM
       </div>
     </div>
   </div>
   <div class="keep-digging">Keep Digging</div>
 
-  <!-- All Other News Sections (unchanged) -->
+  <!-- Colorado News -->
   <h2>Colorado News</h2>
   <ul>
     <li>Water conservation bill – State legislature passes new drought response plan.</li>
@@ -112,6 +106,7 @@
   </ul>
   <div class="keep-digging">Keep Digging</div>
 
+  <!-- National News -->
   <h2>National News</h2>
   <ul>
     <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
@@ -124,6 +119,7 @@
   </ul>
   <div class="keep-digging">Keep Digging</div>
 
+  <!-- Federal News -->
   <h2>Federal News</h2>
   <ul>
     <li>AI regulation framework – Congress debates national standards for AI safety.</li>
@@ -136,6 +132,7 @@
   </ul>
   <div class="keep-digging">Keep Digging</div>
 
+  <!-- International News -->
   <h2>International News</h2>
   <ul>
     <li>Global summit convenes – Leaders gather to discuss climate and trade.</li>
@@ -148,12 +145,14 @@
   </ul>
   <div class="keep-digging">Keep Digging</div>
 
+  <!-- Market Watch -->
   <h2>Market Watch</h2>
   <ul>
     <li>Consumer prices show signs of stabilization.</li>
     <li>Congress approves $2B for infrastructure upgrades.</li>
   </ul>
 
+  <!-- Sports News -->
   <h2>Sports News</h2>
   <ul>
     <li>PGA Tour expands global schedule for 2026.</li>
