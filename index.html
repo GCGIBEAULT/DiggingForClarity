@@ -5,23 +5,11 @@
   <title>Grab Your Shovel</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0 auto;
-      max-width: 800px;
-      padding: 20px;
+      font-family: sans-serif;
     }
-    .headline-row {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 20px;
-    }
-    .headline-row h1 {
+    h1 {
       color: red;
-      margin-bottom: 8px;
-    }
-    .headline-row .datetime {
-      font-weight: bold;
-      font-size: 1em;
+      text-align: center;
     }
     h2 {
       border-bottom: 2px solid black;
@@ -42,16 +30,13 @@
       width: 150px;
       padding: 8px;
       text-align: center;
-      margin-bottom: 30px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="headline-row">
-    <img src="new_logo.png" alt="Grab Your Shovel Logo" style="width: 350px;">
-    <h1>Breaking News. Not Broken News.</h1>
-    <div class="datetime" id="datetime"></div>
-  </div>
+  <img src="new_logo.png" alt="Grab Your Shovel Logo" style="display: block; margin: 0 auto; width: 350px;">
+  <h1>Breaking News. Not Broken News.</h1>
 
   <h2>Denver News</h2>
   <ul>
@@ -62,11 +47,21 @@
     <li>Denver Zoo welcomes baby giraffe – Public naming contest begins.</li>
     <li>Public art installation – New murals celebrate community resilience.</li>
     <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
+  </ul>
+  <div class="keep-digging">Keep Digging</div>
+
+  <h2>Denver Weather</h2>
+  <ul>
     <li>Heat wave eases — Cooler temps expected through midweek.</li>
     <li>Air quality alert lifted — Conditions return to moderate levels.</li>
-    <li>Today’s Forecast: ☀️ Sunny, High: 87°F, Low: 62°F 💨 Winds: NW at 5–10 mph 🌇 Sunset: 8:12 PM</li>
   </ul>
-  <div class="keep-digging"><strong>Keep Digging</strong></div>
+  <div style="margin-left: 20px; margin-bottom: 20px;">
+    <strong>Today’s Forecast:</strong><br>
+    ☀️ Sunny, High: 87°F, Low: 62°F<br>
+    💨 Winds: NW at 5–10 mph<br>
+    🌇 Sunset: 8:12 PM
+  </div>
+  <div class="keep-digging">Keep Digging</div>
 
   <h2>Colorado News</h2>
   <ul>
@@ -78,7 +73,7 @@
     <li>Electric vehicle rebates increase – New incentives for buyers.</li>
     <li>Mining cleanup efforts expand – EPA targets legacy sites.</li>
   </ul>
-  <div class="keep-digging"><strong>Keep Digging</strong></div>
+  <div class="keep-digging">Keep Digging</div>
 
   <h2>National News</h2>
   <ul>
@@ -90,7 +85,7 @@
     <li>Rail safety legislation advances – Bipartisan support grows.</li>
     <li>Tech antitrust hearings – CEOs testify before Congress.</li>
   </ul>
-  <div class="keep-digging"><strong>Keep Digging</strong></div>
+  <div class="keep-digging">Keep Digging</div>
 
   <h2>Federal News</h2>
   <ul>
@@ -102,7 +97,7 @@
     <li>Federal hiring freeze lifted – Agencies resume recruitment.</li>
     <li>Climate resilience grants – FEMA expands eligibility criteria.</li>
   </ul>
-  <div class="keep-digging"><strong>Keep Digging</strong></div>
+  <div class="keep-digging">Keep Digging</div>
 
   <h2>International News</h2>
   <ul>
@@ -114,7 +109,7 @@
     <li>UK labor strikes continue – Transport disruptions persist.</li>
     <li>India monsoon floods – Relief efforts underway in affected regions.</li>
   </ul>
-  <div class="keep-digging"><strong>Keep Digging</strong></div>
+  <div class="keep-digging">Keep Digging</div>
 
   <h2>Market Watch</h2>
   <ul>
@@ -132,7 +127,7 @@
     <li>WNBA playoff picture – Top seeds battle for position.</li>
     <li>College football preview – Top 25 rankings released.</li>
   </ul>
-  <div class="keep-digging"><strong>Keep Digging</strong></div>
+  <div class="keep-digging">Keep Digging</div>
 
   <h2>AI in Action</h2>
   <ul>
@@ -144,7 +139,7 @@
     <li>Security – AI Monitors Network Threats Proactively</li>
     <li>Retail – Personalized Shopping Experiences Expand</li>
   </ul>
-  <div class="keep-digging"><strong>Keep Digging</strong></div>
+  <div class="keep-digging">Keep Digging</div>
 
   <h2>What AI Can Do For You</h2>
   <ul>
@@ -156,12 +151,6 @@
     <li>Chat with businesses with you — get answers, resolve issues, and make decisions faster</li>
     <li>Assist with research, writing, and decision-making</li>
   </ul>
-  <div class="keep-digging"><strong>Keep Digging</strong></div>
-
-  <script>
-    const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
-    document.getElementById('datetime').textContent = now.toLocaleString('en-US', options);
-  </script>
+  <div class="keep-digging">Keep Digging</div>
 </body>
 </html>
