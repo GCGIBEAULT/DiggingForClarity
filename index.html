@@ -18,21 +18,30 @@
       margin-bottom: 6px;
       font-size: 1em;
     }
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .weather-container {
+      margin-top: 8px;
+      margin-left: auto;
+    }
   </style>
 </head>
 <body>
   <img src="new_logo.png" alt="Grab Your Shovel Logo" style="display: block; margin: 0 auto; width: 350px;">
   <h1 style="color: red; text-align: center;">Breaking News. Not Broken News.</h1>
 
-  <h2 style="display: flex; justify-content: space-between; align-items: center;">
-    <span>Denver News</span>
-    <span>Denver Weather</span>
-  </h2>
-
-  <!-- Weather Widget Aligned Under "Denver Weather" -->
-  <div style="display: flex; justify-content: flex-end;">
-    <div id="ww_602d69c212b99" v='1.3' loc='id' a='{"t":"horizontal","lang":"en","sl_lpl":1,"ids":["wl1428"],"font":"Arial","sl_ics":"one","sl_sot":"fahrenheit","cl_bkg":"image","cl_font":"rgba(18,16,16,1)","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>
-      More forecasts: <a href="https://oneweather.org/new_york_city/30_days/" id="ww_602d69c212b99_u" target="_blank">New York weather 30 days</a>
+  <div class="header-row">
+    <h2 style="margin: 0;">Denver News</h2>
+    <div>
+      <h2 style="margin: 0;">Denver Weather</h2>
+      <div class="weather-container">
+        <div id="ww_602d69c212b99" v='1.3' loc='id' a='{"t":"horizontal","lang":"en","sl_lpl":1,"ids":["wl1428"],"font":"Arial","sl_ics":"one","sl_sot":"fahrenheit","cl_bkg":"image","cl_font":"rgba(18,16,16,1)","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>
+          More forecasts: <a href="https://oneweather.org/new_york_city/30_days/" id="ww_602d69c212b99_u" target="_blank">New York weather 30 days</a>
+        </div>
+      </div>
     </div>
   </div>
   <script async src="https://app3.weatherwidget.org/js/?id=ww_602d69c212b99"></script>
@@ -117,25 +126,4 @@
   <h2>AI in Action</h2>
   <ul>
     <li>Medical – AI Detects Lung Nodules with 94% Accuracy</li>
-    <li>Science – AlphaFold Predicts Nearly Every Known Protein</li>
-    <li>Education – Adaptive Learning Tools Boost Retention</li>
-    <li>Finance – AI Flags Fraud in Real Time</li>
-    <li>Art – Generative Models Create Museum-Worthy Pieces</li>
-    <li>Security – AI Monitors Network Threats Proactively</li>
-    <li>Retail – Personalized Shopping Experiences Expand</li>
-  </ul>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
-
-  <h2>What AI Can Do For You</h2>
-  <ul>
-    <li>Summarize complex news stories in seconds</li>
-    <li>Spot patterns in financial data to guide investments</li>
-    <li>Translate languages instantly for global communication</li>
-    <li>Generate creative content — from poems to product designs</li>
-    <li>Automate repetitive tasks to save time and energy</li>
-    <li>Chat with businesses with you — get answers, resolve issues, and make decisions faster</li>
-    <li>Assist with research, writing, and decision-making</li>
-  </ul>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center;"><strong>Keep Digging</strong></div>
-</body>
-</html>
+    <li>Science – AlphaFold Predict
