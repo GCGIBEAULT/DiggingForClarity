@@ -6,34 +6,56 @@
   <style>
     body {
       font-family: sans-serif;
+      font-size: 16px; /* Base size matching original commit */
     }
+
     h2 {
       border-bottom: 2px solid black;
       padding-bottom: 4px;
       margin-top: 40px;
       margin-bottom: 12px;
     }
+
     ul {
       padding-left: 20px;
       margin-bottom: 20px;
     }
+
     li {
       margin-bottom: 6px;
-      font-size: 1em;
+      font-size: 1em; /* Inherits from body */
     }
+
     #timestamp {
       text-align: center;
       font-weight: bold;
-      font-size: 1.2em;
+      font-size: 1.2em; /* Slightly larger for emphasis */
       color: #666;
       margin-top: 8px;
     }
+
     .section-label {
       background-color: #e0f2ff;
       width: 150px;
       padding: 8px;
       text-align: center;
       font-weight: bold;
+    }
+
+    .weather-block {
+      font-size: 0.75em;
+      color: #333;
+    }
+
+    .weather-block .temperature {
+      font-size: 1.5em;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .weather-block .update-time {
+      font-size: 0.8em;
+      color: #666;
     }
   </style>
 </head>
@@ -52,86 +74,8 @@
     updateTimestamp();
   </script>
 
-  <!-- Denver News and Reduced Weather Block -->
+  <!-- Denver News and Weather Block -->
   <div style="position: relative;">
     <h2 style="margin: 0;">Denver News</h2>
     <h2 style="position: absolute; top: 0; left: 900px; margin: 0;">Denver Weather</h2>
-    <div style="position: absolute; top: 48px; left: 900px; background-color: #e0f7fa; border: 1px solid #00796b; border-radius: 8px; box-shadow: 2px 2px 6px rgba(0,0,0,0.1); padding: 10px; width: 210px; font-size: 0.75em; color: #333;">
-      <div style="font-size: 1.5em; font-weight: bold; text-align: center;">96°F ☀️</div>
-      <div style="margin-top: 6px;">
-        <p><strong>Rain:</strong> 0%</p>
-        <p><strong>Wind:</strong> 5 mph</p>
-        <p><strong>Air:</strong> 42 (Good)</p>
-        <p style="font-size: 0.8em; color: #666;"><em>Updated: Tue, Aug 5 – 01:12 PM MDT</em></p>
-      </div>
-      <hr style="margin: 6px 0;">
-      <div style="display: flex; justify-content: space-between; text-align: center;">
-        <div><div>2 PM</div><div>☀️</div><div>95°F</div></div>
-        <div><div>4 PM</div><div>☀️</div><div>93°F</div></div>
-        <div><div>6 PM</div><div>☀️</div><div>89°F</div></div>
-        <div><div>8 PM</div><div>☀️</div><div>83°F</div></div>
-      </div>
-    </div>
-  </div>
-
-  <ul>
-    <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
-    <li>Stabbing investigation – Police release new details in downtown incident.</li>
-    <li>City council debates zoning – New rules could reshape neighborhoods.</li>
-    <li>Library hours extended – Weekend access restored at 5 branches.</li>
-    <li>Denver Zoo welcomes baby giraffe – Public naming contest begins.</li>
-    <li>Public art installation – New murals celebrate community resilience.</li>
-    <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
-  </ul>
-
-  <div class="section-label">Keep Digging</div>
-  <h2>Colorado News</h2>
-  <ul>
-    <li>Water conservation bill – State legislature passes new drought response plan.</li>
-    <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
-    <li>State park attendance surges – Record numbers reported this summer.</li>
-    <li>Teacher shortage worsens – Districts scramble to fill vacancies.</li>
-    <li>Colorado River compact talks resume – Western states seek compromise.</li>
-    <li>Electric vehicle rebates increase – New incentives for buyers.</li>
-    <li>Mining cleanup efforts expand – EPA targets legacy sites.</li>
-  </ul>
-
-  <div class="section-label">Keep Digging</div>
-  <h2>National News</h2>
-  <ul>
-    <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
-    <li>Inflation trends – Consumer prices show signs of stabilization.</li>
-    <li>Presidential debate schedule released – First event set for September.</li>
-    <li>Federal student loan changes – New repayment options announced.</li>
-    <li>Heat wave grips southern states – Emergency declarations issued.</li>
-    <li>Rail safety legislation advances – Bipartisan support grows.</li>
-    <li>Tech antitrust hearings – CEOs testify before Congress.</li>
-  </ul>
-
-  <div class="section-label">Keep Digging</div>
-  <h2>Federal News</h2>
-  <ul>
-    <li>AI regulation framework – Congress debates national standards for AI safety.</li>
-    <li>Social Security reform – New proposals aim to stabilize long-term funding.</li>
-    <li>Defense budget increases – Pentagon outlines strategic priorities.</li>
-    <li>Postal service modernization – New fleet rollout begins.</li>
-    <li>IRS audit policy changes – Focus shifts to high-income filers.</li>
-    <li>Federal hiring freeze lifted – Agencies resume recruitment.</li>
-    <li>Climate resilience grants – FEMA expands eligibility criteria.</li>
-  </ul>
-
-  <div class="section-label">Keep Digging</div>
-  <h2>International News</h2>
-  <ul>
-    <li>Israel considers full Gaza occupation amid humanitarian crisis</li>
-    <li>UN condemns Gaza aid site violence, calls for dismantling of GHF</li>
-    <li>Trump reveals submarine repositioning to pressure Kremlin</li>
-    <li>Ukrainian drone strike ignites Russian oil depot</li>
-    <li>India defends Russian oil imports despite U.S. tariff threats</li>
-  </ul>
-
-  <div class="section-label">Keep Digging</div>
-  <h2>Market News</h2>
-  <ul>
-    <li>Trump’s tariff deadline shakes housing market – building costs surge</li>
-    <
+    <div class="weather-block" style="position: absolute; top: 48px; left: 900px; background-color: #e0f7fa; border
