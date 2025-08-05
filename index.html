@@ -32,9 +32,21 @@
       text-align: center;
       font-weight: bold;
     }
+    .weather-block {
+      position: absolute;
+      top: 48px;
+      left: 900px;
+      background-color: #f0f8ff;
+      border: 1px solid #999;
+      border-radius: 8px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+      padding: 10px;
+      width: 300px;
+    }
   </style>
 </head>
 <body>
+
   <img src="new_logo.png" alt="Grab Your Shovel Logo" style="display: block; margin: 0 auto; width: 350px;">
   <h1 style="color: red; text-align: center;">Breaking News. Not Broken News.</h1>
   <p id="timestamp"></p>
@@ -53,19 +65,23 @@
   <div style="position: relative;">
     <h2 style="margin: 0;">Denver News</h2>
     <h2 style="position: absolute; top: 0; left: 900px; margin: 0;">Denver Weather</h2>
-    <div style="position: absolute; top: 48px; left: 900px; background-color: #f0f8ff; border: 1px solid #999; border-radius: 8px; box-shadow: 2px 2px 6px rgba(0,0,0,0.1); padding: 10px;">
-      <div id="ww_602d69c212b99" v='1.3' loc='id' a='{
-        "t":"horizontal","lang":"en","sl_lpl":1,"ids":["wl1428"],
-        "font":"Arial","sl_ics":"one","sl_sot":"fahrenheit",
-        "cl_bkg":"image","cl_font":"rgba(18,16,16,1)",
-        "cl_cloud":"#FFFFFF","cl_persp":"#81D4FA",
-        "cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"
-      }'>
-        More forecasts: <a href="https://oneweather.org/new_york_city/30_days/" id="ww_602d69c212b99_u" target="_blank">New York weather 30 days</a>
-      </div>
+
+    <!-- Dynamic Weather Block -->
+    <div class="weather-block">
+      <label for="citySelect"><strong>Choose City:</strong></label>
+      <select id="citySelect" onchange="getWeather()">
+        <option value="Denver">Denver</option>
+        <option value="New York">New York</option>
+        <option value="Los Angeles">Los Angeles</option>
+      </select>
+      <p><strong>Temperature:</strong> <span id="temp">--</span></p>
+      <p><strong>Chance of Rain:</strong> <span id="rain">--</span></p>
+      <p><strong>Wind:</strong> <span id="wind">--</span></p>
+      <p><strong>Air Quality:</strong> <span id="aqi">--</span></p>
+      <p><strong>6-Hour Forecast:</strong></p>
+      <ul id="forecast"></ul>
     </div>
   </div>
-  <script async src="https://app3.weatherwidget.org/js/?id=ww_602d69c212b99"></script>
 
   <!-- News Sections -->
   <ul>
@@ -79,7 +95,6 @@
   </ul>
 
   <div class="section-label">Keep Digging</div>
-
   <h2>Colorado News</h2>
   <ul>
     <li>Water conservation bill – State legislature passes new drought response plan.</li>
@@ -92,7 +107,6 @@
   </ul>
 
   <div class="section-label">Keep Digging</div>
-
   <h2>National News</h2>
   <ul>
     <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
@@ -105,7 +119,6 @@
   </ul>
 
   <div class="section-label">Keep Digging</div>
-
   <h2>Federal News</h2>
   <ul>
     <li>AI regulation framework – Congress debates national standards for AI safety.</li>
@@ -118,7 +131,6 @@
   </ul>
 
   <div class="section-label">Keep Digging</div>
-
   <h2>International News</h2>
   <ul>
     <li>Global summit convenes – Leaders gather to discuss climate and trade.</li>
@@ -131,7 +143,6 @@
   </ul>
 
   <div class="section-label">Keep Digging</div>
-
   <h2>Market Watch</h2>
   <ul>
     <li>Consumer prices show signs of stabilization.</li>
@@ -150,7 +161,6 @@
   </ul>
 
   <div class="section-label">Keep Digging</div>
-
   <h2>AI in Action</h2>
   <ul>
     <li>Medical – AI Detects Lung Nodules with 94% Accuracy</li>
@@ -163,10 +173,14 @@
   </ul>
 
   <div class="section-label">Keep Digging</div>
-
   <h2>What AI Can Do For You</h2>
   <ul>
     <li>Summarize complex news stories in seconds</li>
     <li>Spot patterns in financial data to guide investments</li>
     <li>Translate languages instantly for global communication</li>
-    <li>Generate creative content
+    <li>Generate creative content</li>
+  </ul>
+
+  <!-- Weather Script -->
+  <script>
+    const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
