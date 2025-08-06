@@ -1,115 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grab Your Shovel</title>
-  <style>
-    body {
-      font-family: sans-serif;
-    }
-    h2 {
-      margin: 0;
-    }
-    ul {
-      padding-left: 20px;
-      margin-bottom: 20px;
-    }
-    li {
-      margin-bottom: 6px;
-      font-size: 1em;
-    }
-    #timestamp {
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.2em;
-      color: #666;
-      margin-top: 8px;
-    }
-    .section-label {
-      background-color: #e0f2ff;
-      width: 150px;
-      padding: 8px;
-      text-align: center;
-      font-weight: bold;
-    }
-    .standard-headline {
-      border-bottom: 2px solid black;
-      padding-bottom: 4px;
-      margin-top: 40px;
-      margin-bottom: 12px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <img src="new_logo.png" alt="Grab Your Shovel Logo" style="display: block; margin: 0 auto; width: 262px;">
-  <h1 style="color: red; text-align: center;">Breaking News. Not Broken News.</h1>
-  <p id="timestamp"></p>
-  <script>
-    function updateTimestamp() {
-      const now = new Date();
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      const dateString = now.toLocaleDateString(undefined, options);
-      document.getElementById('timestamp').textContent = `${dateString} – ${timeString} MDT`;
-    }
-    updateTimestamp();
-  </script>
+  <header>
+    <h1>Grab Your Shovel</h1>
+    <p id="datetime" class="bold-datetime"></p>
+  </header>
 
-  <!-- Denver News -->
-  <h2 class="standard-headline">Denver News</h2>
-  <ul>
-    <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
-    <li>Stabbing investigation – Police release new details in downtown incident.</li>
-    <li>City council debates zoning – New rules could reshape neighborhoods.</li>
-    <li>Library hours extended – Weekend access restored at 5 branches.</li>
-    <li>Denver Zoo welcomes baby giraffe – Public naming contest begins.</li>
-    <li>Public art installation – New murals celebrate community resilience.</li>
-    <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
-  </ul>
-  <div class="section-label">Keep Digging</div>
+  <main>
+    <section class="headline-section">
+      <h2 class="standard-headline">Denver News</h2>
+      <ul>
+        <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
+        <li>Stabbing investigation – Police release new details in downtown incident.</li>
+        <li>City council debates zoning – New rules could reshape neighborhoods.</li>
+        <li>Library hours extended – Weekend access restored at 5 branches.</li>
+        <li>Denver Zoo welcomes baby giraffe – Public naming contest begins.</li>
+        <li>Public art installation – New murals celebrate community resilience.</li>
+        <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
+      </ul>
+    </section>
 
-  <!-- Colorado News -->
-  <h2 class="standard-headline">Colorado News</h2>
-  <ul>
-    <li>Water conservation bill – State legislature passes new drought response plan.</li>
-    <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
-    <li>State park attendance surges – Record numbers reported this summer.</li>
-    <li>Teacher shortage worsens – Districts scramble to fill vacancies.</li>
-    <li>Colorado River compact talks resume – Western states seek compromise.</li>
-    <li>Electric vehicle rebates increase – New incentives for buyers.</li>
-    <li>Mining cleanup efforts expand – EPA targets legacy sites.</li>
-  </ul>
-  <div class="section-label">Keep Digging</div>
+    <section class="headline-section">
+      <h2 class="standard-headline">Keep Digging Colorado News</h2>
+      <ul>
+        <li>Water conservation bill – State legislature passes new drought response plan.</li>
+        <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
+        <li>State park attendance surges – Record numbers reported this summer.</li>
+        <li>Teacher shortage worsens – Districts scramble to fill vacancies.</li>
+        <li>Colorado River compact talks resume – Western states seek compromise.</li>
+        <li>Electric vehicle rebates increase – New incentives for buyers.</li>
+        <li>Mining cleanup efforts expand – EPA targets legacy sites.</li>
+      </ul>
+    </section>
 
-  <!-- National News -->
-  <h2 class="standard-headline">National News</h2>
-  <ul>
-    <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
-    <li>Inflation trends – Consumer prices show signs of stabilization.</li>
-    <li>Presidential debate schedule released – First event set for September.</li>
-    <li>Federal student loan changes – New repayment options announced.</li>
-    <li>Heat wave grips southern states – Emergency declarations issued.</li>
-    <li>Rail safety legislation advances – Bipartisan support grows.</li>
-    <li>Tech antitrust hearings – CEOs testify before Congress.</li>
-  </ul>
-  <div class="section-label">Keep Digging</div>
+    <section class="headline-section">
+      <h2 class="standard-headline">Keep Digging National News</h2>
+      <ul>
+        <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
+        <li>Inflation trends – Consumer prices show signs of stabilization.</li>
+        <li>Presidential debate schedule released – First event set for September.</li>
+        <li>Federal student loan changes – New repayment options announced.</li>
+        <li>Heat wave grips southern states – Emergency declarations issued.</li>
+        <li>Rail safety legislation advances – Bipartisan support grows.</li>
+        <li>Tech antitrust hearings – CEOs testify before Congress.</li>
+      </ul>
+    </section>
 
-  <!-- Federal News -->
-  <h2 class="standard-headline">Federal News</h2>
-  <ul>
-    <li>AI regulation framework – Congress debates national standards for AI safety.</li>
-    <li>Social Security reform – New proposals aim to stabilize long-term funding.</li>
-    <li>Defense budget increases – Pentagon outlines strategic priorities.</li>
-    <li>Postal service modernization – New fleet rollout begins.</li>
-    <li>IRS audit policy changes – Focus shifts to high-income filers.</li>
-    <li>Federal hiring freeze lifted – Agencies resume recruitment.</li>
-    <li>Climate resilience grants – FEMA expands eligibility criteria.</li>
-  </ul>
-  <div class="section-label">Keep Digging</div>
+    <section class="headline-section">
+      <h2 class="standard-headline">Keep Digging Federal News</h2>
+      <ul>
+        <li>AI regulation framework – Congress debates national standards for AI safety.</li>
+        <li>Social Security reform – New proposals aim to stabilize long-term funding.</li>
+        <li>Defense budget increases – Pentagon outlines strategic priorities.</li>
+        <li>Postal service modernization – New fleet rollout begins.</li>
+        <li>IRS audit policy changes – Focus shifts to high-income filers.</li>
+        <li>Federal hiring freeze lifted – Agencies resume recruitment.</li>
+        <li>Climate resilience grants – FEMA expands eligibility criteria.</li>
+      </ul>
+    </section>
 
-  <!-- International News -->
-  <h2 class="standard-headline">International News</h2>
-  <ul>
-    <li>Global summit convenes – Leaders gather to discuss climate and trade.</li>
-    <li>Currency shifts in Europe – Euro sees volatility amid policy changes.</li>
-    <li>UN peacekeeping mission
+    <section class="headline-section">
+      <h2 class="standard-headline">Keep Digging International News</h2>
+      <ul>
+        <li>Global summit convenes – Leaders gather to discuss climate and trade.</li>
+        <li>Currency shifts in Europe – Euro sees volatility amid policy changes.</li>
+        <li>UN peacekeeping mission – New deployments announced in conflict zones.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
