@@ -14,24 +14,17 @@
       text-align: center;
       margin-bottom: 0.5em;
     }
-    .headline-block {
-      position: relative;
-      width: 100%;
-    }
-    .primary-headline {
-      border-bottom: 2px solid black;
-      padding-bottom: 4px;
+    .headline-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
       margin-top: 40px;
-      margin-bottom: 12px;
-      width: 600px;
+      align-items: end;
     }
-    .secondary-headline {
-      position: absolute;
-      top: 0;
-      left: 700px;
+    .headline-row h2 {
       border-bottom: 2px solid black;
       padding-bottom: 4px;
-      width: 600px;
+      margin: 0 0 12px;
     }
     ul {
       padding-left: 20px;
@@ -40,19 +33,6 @@
     li {
       margin-bottom: 6px;
       font-size: 1em;
-    }
-    .section-label {
-      background-color: #e0f2ff;
-      width: 150px;
-      padding: 8px;
-      text-align: center;
-      font-weight: bold;
-      margin-top: 40px;
-    }
-    img.logo {
-      display: block;
-      margin: 0 auto;
-      width: 262px;
     }
     .local-news {
       position: relative;
@@ -63,15 +43,20 @@
       margin-bottom: 12px;
       width: 600px;
     }
+    img.logo {
+      display: block;
+      margin: 0 auto;
+      width: 262px;
+    }
   </style>
 </head>
 <body>
   <img src="new_logo.png" alt="Grab Your Shovel Logo" class="logo">
   <h1>Breaking News. Not Broken News.</h1>
 
-  <div class="headline-block">
-    <h2 class="primary-headline">1. Denver News</h2>
-    <h2 class="secondary-headline">Elevated Mile Headlines</h2>
+  <div class="headline-row">
+    <h2>1. Denver News</h2>
+    <h2>Elevated Mile Headlines</h2>
   </div>
   <ul>
     <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
@@ -83,9 +68,9 @@
     <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
   </ul>
 
-  <div class="headline-block">
-    <h2 class="primary-headline">2. Colorado News</h2>
-    <h2 class="secondary-headline">Mountain Echoes</h2>
+  <div class="headline-row">
+    <h2>2. Colorado News</h2>
+    <h2>Mountain Echoes</h2>
   </div>
   <ul>
     <li>Water conservation bill – State legislature passes new drought response plan.</li>
@@ -97,9 +82,9 @@
     <li>Mining cleanup efforts expand – EPA targets legacy sites.</li>
   </ul>
 
-  <div class="headline-block">
-    <h2 class="primary-headline">3. National News</h2>
-    <h2 class="secondary-headline">Across the States</h2>
+  <div class="headline-row">
+    <h2>3. National News</h2>
+    <h2>Across the States</h2>
   </div>
   <ul>
     <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
@@ -111,9 +96,9 @@
     <li>Tech antitrust hearings – CEOs testify before Congress.</li>
   </ul>
 
-  <div class="headline-block">
-    <h2 class="primary-headline">4. Federal News</h2>
-    <h2 class="secondary-headline">Capital Currents</h2>
+  <div class="headline-row">
+    <h2>4. Federal News</h2>
+    <h2>Capital Currents</h2>
   </div>
   <ul>
     <li>AI regulation framework – Congress debates national standards for AI safety.</li>
@@ -125,9 +110,9 @@
     <li>Climate resilience grants – FEMA expands eligibility criteria.</li>
   </ul>
 
-  <div class="headline-block">
-    <h2 class="primary-headline">5. International News</h2>
-    <h2 class="secondary-headline">Global Glimpses</h2>
+  <div class="headline-row">
+    <h2>5. International News</h2>
+    <h2>Global Glimpses</h2>
   </div>
   <ul>
     <li>Global summit opens – Leaders meet to discuss climate goals.</li>
@@ -139,9 +124,9 @@
     <li>UN reforms proposed – Security Council may expand membership.</li>
   </ul>
 
-  <div class="headline-block">
-    <h2 class="primary-headline">6. Markets</h2>
-    <h2 class="secondary-headline">Wall Street Pulse</h2>
+  <div class="headline-row">
+    <h2>6. Markets</h2>
+    <h2>Wall Street Pulse</h2>
   </div>
   <ul>
     <li>Dow rises 300 points – Strong earnings push index higher.</li>
@@ -153,9 +138,9 @@
     <li>Tech IPOs return – Several companies set dates.</li>
   </ul>
 
-  <div class="headline-block">
-    <h2 class="primary-headline">7. Sports</h2>
-    <h2 class="secondary-headline">Final Whistle</h2>
+  <div class="headline-row">
+    <h2>7. Sports</h2>
+    <h2>Final Whistle</h2>
   </div>
   <ul>
     <li>Olympic trials begin – Athletes compete for national spots.</li>
@@ -167,9 +152,9 @@
     <li>WNBA expansion plans – League to add two new teams.</li>
   </ul>
 
-  <div class="headline-block">
-    <h2 class="primary-headline">8. AI in Action</h2>
-    <h2 class="secondary-headline">Neural Frontiers</h2>
+  <div class="headline-row">
+    <h2>8. AI in Action</h2>
+    <h2>Neural Frontiers</h2>
   </div>
   <ul>
     <li><strong>Medical</strong> – AI Detects Lung Nodules with 94% Accuracy</li>
@@ -181,13 +166,24 @@
     <li><strong>Retail</strong> – Personalized Shopping Experiences Expand</li>
   </ul>
 
-  <div class="headline-block">
-    <h2 class="primary-headline">9. What AI Can Do For You</h2>
-    <h2 class="secondary-headline">Your Digital Sidekick</h2>
+  <div class="headline-row">
+    <h2>9. What AI Can Do For You</h2>
+    <h2>Your Digital Sidekick</h2>
   </div>
   <ul>
     <li>Summarize complex news stories in seconds</li>
     <li>Spot patterns in financial data to guide investments</li>
     <li>Translate languages instantly for global communication</li>
     <li>Generate creative content — from poems to product designs</li>
-    <li>Autom
+    <li>Automate repetitive tasks to save time and energy</li>
+    <li>Chat with businesses with you — get answers, resolve issues, and make decisions faster</li>
+    <li>Assist with research, writing, and decision-making</li>
+  </ul>
+
+  <h2 class="local-news">10. Local News</h2>
+  <ul>
+    <li>Community garden project – Volunteers transform vacant lot.</li>
+    <li>Road safety initiative – New crosswalk signals installed.</li>
+  </ul>
+</body>
+</html>
