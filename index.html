@@ -7,11 +7,22 @@
     body {
       font-family: sans-serif;
     }
-    h2 {
-      border-bottom: 2px solid black;
-      padding-bottom: 4px;
+    .headline-row {
+      display: flex;
+      align-items: center;
       margin-top: 40px;
       margin-bottom: 12px;
+    }
+    .headline-row h2 {
+      border-bottom: 2px solid black;
+      padding-bottom: 4px;
+      margin: 0;
+    }
+    .offset-title {
+      margin-left: 900px;
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #333;
     }
     ul {
       padding-left: 20px;
@@ -35,15 +46,6 @@
       text-align: center;
       font-weight: bold;
     }
-    .offset-headline {
-      position: relative;
-      left: 900px;
-      font-size: 1.4em;
-      font-weight: bold;
-      margin-top: -20px;
-      margin-bottom: 20px;
-      color: #333;
-    }
   </style>
 </head>
 <body>
@@ -62,8 +64,10 @@
   </script>
 
   <!-- Denver News -->
-  <h2>Denver News</h2>
-  <div class="offset-headline">Denver Weather</div>
+  <div class="headline-row">
+    <h2>Denver News</h2>
+    <div class="offset-title">Denver Weather</div>
+  </div>
   <ul>
     <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
     <li>Stabbing investigation – Police release new details in downtown incident.</li>
@@ -76,8 +80,10 @@
   <div class="section-label">Keep Digging</div>
 
   <!-- Colorado News -->
-  <h2>Colorado News</h2>
-  <div class="offset-headline">Current Developments</div>
+  <div class="headline-row">
+    <h2>Colorado News</h2>
+    <div class="offset-title">Current Developments</div>
+  </div>
   <ul>
     <li>Water conservation bill – State legislature passes new drought response plan.</li>
     <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
