@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Grab Your Shovel</title>
-  <link rel="stylesheet" href="styles.css">
   <style>
     body { font-family: sans-serif; }
+    h1 { color: red; text-align: center; }
     h2 {
       border-bottom: 2px solid black;
       padding-bottom: 4px;
@@ -33,7 +33,7 @@
 <body>
 
   <img src="new_logo.png" alt="Grab Your Shovel Logo" style="display: block; margin: 0 auto; width: 262px;">
-  <h1 style="color: red; text-align: center;">Breaking News. Not Broken News.</h1>
+  <h1>Breaking News. Not Broken News.</h1>
   <p id="timestamp"></p>
   <script>
     function updateTimestamp() {
@@ -46,12 +46,13 @@
     updateTimestamp();
   </script>
 
-  <!-- Denver & Local News on same line -->
+  <!-- Denver & Local News headers on same line -->
   <div style="display: flex; align-items: baseline;">
     <h2 style="margin: 0;">
       <span style="background-color: #ffff99; padding: 4px;">Denver News</span>
     </h2>
-    <h2 style="margin: 0; margin-left: 700px;">
+    <div style="width: 700px;"></div>
+    <h2 style="margin: 0;">
       <span style="background-color: #ffff99; padding: 4px;">Local News</span>
     </h2>
   </div>
