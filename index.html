@@ -4,10 +4,23 @@
   <meta charset="UTF-8">
   <title>Grab Your Shovel</title>
   <style>
-    body { font-family: sans-serif; }
-    h2 { border-bottom: 2px solid black; padding-bottom: 4px; margin-top: 40px; margin-bottom: 12px; }
-    ul { padding-left: 20px; margin-bottom: 20px; }
-    li { margin-bottom: 6px; font-size: 1em; }
+    body {
+      font-family: sans-serif;
+    }
+    h2 {
+      border-bottom: 2px solid black;
+      padding-bottom: 4px;
+      margin-top: 40px;
+      margin-bottom: 12px;
+    }
+    ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    li {
+      margin-bottom: 6px;
+      font-size: 1em;
+    }
     #timestamp {
       text-align: center;
       font-weight: bold;
@@ -21,6 +34,15 @@
       padding: 8px;
       text-align: center;
       font-weight: bold;
+    }
+    .offset-headline {
+      position: relative;
+      left: 900px;
+      font-size: 1.4em;
+      font-weight: bold;
+      margin-top: -20px;
+      margin-bottom: 20px;
+      color: #333;
     }
   </style>
 </head>
@@ -41,6 +63,7 @@
 
   <!-- Denver News -->
   <h2>Denver News</h2>
+  <div class="offset-headline">Denver Weather</div>
   <ul>
     <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
     <li>Stabbing investigation – Police release new details in downtown incident.</li>
@@ -54,6 +77,7 @@
 
   <!-- Colorado News -->
   <h2>Colorado News</h2>
+  <div class="offset-headline">Current Developments</div>
   <ul>
     <li>Water conservation bill – State legislature passes new drought response plan.</li>
     <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
@@ -65,6 +89,7 @@
   </ul>
   <div class="section-label">Keep Digging</div>
 
+  <!-- Remaining sections unchanged -->
   <!-- National News -->
   <h2>National News</h2>
   <ul>
