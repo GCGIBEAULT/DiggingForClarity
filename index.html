@@ -7,19 +7,22 @@
     body {
       font-family: sans-serif;
     }
-    .headline-row {
-      display: flex;
-      align-items: center;
+    .headline-container {
+      position: relative;
       margin-top: 40px;
       margin-bottom: 12px;
+      height: 40px;
     }
-    .headline-row h2 {
+    .headline-container h2 {
       border-bottom: 2px solid black;
       padding-bottom: 4px;
       margin: 0;
+      display: inline-block;
     }
-    .offset-title {
-      margin-left: 900px;
+    .offset-headline {
+      position: absolute;
+      left: 900px;
+      top: 0;
       font-size: 1.4em;
       font-weight: bold;
       color: #333;
@@ -64,9 +67,9 @@
   </script>
 
   <!-- Denver News -->
-  <div class="headline-row">
+  <div class="headline-container">
     <h2>Denver News</h2>
-    <div class="offset-title">Denver Weather</div>
+    <div class="offset-headline">Denver Weather</div>
   </div>
   <ul>
     <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
@@ -80,9 +83,9 @@
   <div class="section-label">Keep Digging</div>
 
   <!-- Colorado News -->
-  <div class="headline-row">
+  <div class="headline-container">
     <h2>Colorado News</h2>
-    <div class="offset-title">Current Developments</div>
+    <div class="offset-headline">Current Developments</div>
   </div>
   <ul>
     <li>Water conservation bill – State legislature passes new drought response plan.</li>
