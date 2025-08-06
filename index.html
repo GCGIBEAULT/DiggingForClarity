@@ -15,20 +15,35 @@
       text-align: center;
       margin-bottom: 0.5em;
     }
-    .section-headline {
-      position: relative;
-      font-weight: bold;
-      font-size: 1.5em;
-      border-bottom: 3px solid black;
-      padding-bottom: 6px;
+    .section-row {
+      display: flex;
+      align-items: baseline;
       margin-top: 40px;
       margin-bottom: 12px;
-      width: 100%;
+      position: relative;
+    }
+    .section-left, .section-right {
+      width: 50%;
+      padding: 0 20px;
+    }
+    .section-headline {
+      font-weight: bold;
+      font-size: 1.5em;
+      margin: 0;
     }
     .section-label {
+      font-size: 1em;
+      color: #333;
+    }
+    .page-divider {
       position: absolute;
-      left: 700px;
+      left: 50%;
       top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: #ccc;
+      transform: translateX(-1px);
+      z-index: -1;
     }
     ul {
       padding-left: 20px;
@@ -46,10 +61,19 @@
   </style>
 </head>
 <body>
+  <div class="page-divider"></div>
   <img src="new_logo.png" alt="Grab Your Shovel Logo" class="logo">
   <h1>Breaking News. Not Broken News.</h1>
 
-  <h2 class="section-headline">Denver News <span class="section-label">Local Weather</span></h2>
+  <!-- Denver News -->
+  <div class="section-row">
+    <div class="section-left">
+      <h2 class="section-headline">Denver News</h2>
+    </div>
+    <div class="section-right">
+      <span class="section-label">Local Weather</span>
+    </div>
+  </div>
   <ul>
     <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
     <li>Stabbing investigation – Police release new details in downtown incident.</li>
@@ -60,18 +84,34 @@
     <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
   </ul>
 
-  <h2 class="section-headline">Colorado News <span class="section-label">Recent Developments</span></h2>
+  <!-- Colorado News / Recent Developments -->
+  <div class="section-row">
+    <div class="section-left">
+      <h2 class="section-headline">Colorado News</h2>
+    </div>
+    <div class="section-right">
+      <span class="section-label">Recent Developments</span>
+    </div>
+  </div>
   <ul>
-    <li>Water conservation bill – State legislature passes new drought response plan.</li>
-    <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
-    <li>State park attendance surges – Record numbers reported this summer.</li>
-    <li>Teacher shortage worsens – Districts scramble to fill vacancies.</li>
-    <li>Colorado River compact talks resume – Western states seek compromise.</li>
-    <li>Electric vehicle rebates increase – New incentives for buyers.</li>
-    <li>Mining cleanup efforts expand – EPA targets legacy sites.</li>
+    <li>Flash flood warning issued – Heavy rains trigger alerts in Boulder County.</li>
+    <li>Governor signs emergency housing bill – Funding fast-tracked for urban shelters.</li>
+    <li>Highway closure extended – I-70 repairs delayed due to rockslide damage.</li>
+    <li>School board recall effort – Parents mobilize over curriculum disputes.</li>
+    <li>New solar farm opens – Clean energy milestone in Pueblo County.</li>
+    <li>State fair attendance spikes – Record turnout reported this weekend.</li>
+    <li>Police body cam policy revised – Transparency measures expanded statewide.</li>
   </ul>
 
-  <h2 class="section-headline">National News <span class="section-label">Across the States</span></h2>
+  <!-- National News -->
+  <div class="section-row">
+    <div class="section-left">
+      <h2 class="section-headline">National News</h2>
+    </div>
+    <div class="section-right">
+      <span class="section-label">Across the States</span>
+    </div>
+  </div>
   <ul>
     <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
     <li>Inflation trends – Consumer prices show signs of stabilization.</li>
@@ -82,7 +122,15 @@
     <li>Tech antitrust hearings – CEOs testify before Congress.</li>
   </ul>
 
-  <h2 class="section-headline">Federal News <span class="section-label">Capital Currents</span></h2>
+  <!-- Federal News -->
+  <div class="section-row">
+    <div class="section-left">
+      <h2 class="section-headline">Federal News</h2>
+    </div>
+    <div class="section-right">
+      <span class="section-label">Capital Currents</span>
+    </div>
+  </div>
   <ul>
     <li>AI regulation framework – Congress debates national standards for AI safety.</li>
     <li>Social Security reform – New proposals aim to stabilize long-term funding.</li>
@@ -93,7 +141,15 @@
     <li>Climate resilience grants – FEMA expands eligibility criteria.</li>
   </ul>
 
-  <h2 class="section-headline">International News <span class="section-label">Global Glimpses</span></h2>
+  <!-- International News -->
+  <div class="section-row">
+    <div class="section-left">
+      <h2 class="section-headline">International News</h2>
+    </div>
+    <div class="section-right">
+      <span class="section-label">Global Glimpses</span>
+    </div>
+  </div>
   <ul>
     <li>Global summit opens – Leaders meet to discuss climate goals.</li>
     <li>UK election surprise – Opposition secures historic win.</li>
@@ -104,7 +160,15 @@
     <li>UN reforms proposed – Security Council may expand membership.</li>
   </ul>
 
-  <h2 class="section-headline">Markets <span class="section-label">Wall Street Pulse</span></h2>
+  <!-- Markets -->
+  <div class="section-row">
+    <div class="section-left">
+      <h2 class="section-headline">Markets</h2>
+    </div>
+    <div class="section-right">
+      <span class="section-label">Wall Street Pulse</span>
+    </div>
+  </div>
   <ul>
     <li>Dow rises 300 points – Strong earnings push index higher.</li>
     <li>Crypto regulation looms – SEC outlines new framework.</li>
@@ -115,7 +179,15 @@
     <li>Tech IPOs return – Several companies set dates.</li>
   </ul>
 
-  <h2 class="section-headline">Sports <span class="section-label">Final Whistle</span></h2>
+  <!-- Sports -->
+  <div class="section-row">
+    <div class="section-left">
+      <h2 class="section-headline">Sports</h2>
+    </div>
+    <div class="section-right">
+      <span class="section-label">Final Whistle</span>
+    </div>
+  </div>
   <ul>
     <li>Olympic trials begin – Athletes compete for national spots.</li>
     <li>MLB playoff picture – Rockies clinch Wild Card berth.</li>
@@ -126,26 +198,19 @@
     <li>WNBA expansion plans – League to add two new teams.</li>
   </ul>
 
-  <h2 class="section-headline">AI in Action <span class="section-label">Neural Frontiers</span></h2>
+  <!-- AI in Action -->
+  <div class="section-row">
+    <div class="section-left">
+      <h2 class="section-headline">AI in Action</h2>
+    </div>
+    <div class="section-right">
+      <span class="section-label">Neural Frontiers</span>
+    </div>
+  </div>
   <ul>
-    <li><strong>Medical</strong> – AI Detects Lung Nodules with 94% Accuracy</li>
-    <li><strong>Science</strong> – AlphaFold Predicts Nearly Every Known Protein</li>
-    <li><strong>Education</strong> – Adaptive Learning Tools Boost Retention</li>
-    <li><strong>Finance</strong> – AI Flags Fraud in Real Time</li>
-    <li><strong>Art</strong> – Generative Models Create Museum-Worthy Pieces</li>
-    <li><strong>Security</strong> – AI Monitors Network Threats Proactively</li>
-    <li><strong>Retail</strong> – Personalized Shopping Experiences Expand</li>
-  </ul>
-
-  <h2 class="section-headline">What AI Can Do For You <span class="section-label">Your Digital Sidekick</span></h2>
-  <ul>
-    <li>Summarize complex news stories in seconds</li>
-    <li>Spot patterns in financial data to guide investments</li>
-    <li>Translate languages instantly for global communication</li>
-    <li>Generate creative content — from poems to product designs</li>
-    <li>Automate repetitive tasks to save time and energy</li>
-    <li>Chat with businesses with you — get answers, resolve issues, and make decisions faster</li>
-    <li>Assist with research, writing, and decision-making</li>
-  </ul>
-</body>
-</html>
+    <li>Medical – AI Detects Lung Nodules with 94% Accuracy</li>
+    <li>Science – AlphaFold Predicts Nearly Every Known Protein</li>
+    <li>Education – Adaptive Learning Tools Boost Retention</li>
+    <li>Finance – AI Flags Fraud in Real Time</li>
+    <li>Art – Generative Models Create Museum-Worthy Pieces</li>
+    <li>Security – AI Monitors Network Threats Proactively</li
