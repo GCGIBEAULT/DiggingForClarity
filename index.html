@@ -1,100 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grab Your Shovel</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0;
+    }
+    .datetime {
+      font-weight: bold;
+      margin-bottom: 40px;
     }
     h2 {
-      border-bottom: 2px solid black;
-      padding-bottom: 4px;
-      margin-top: 40px;
-      margin-bottom: 12px;
+      margin-top: 60px;
+      color: #333;
     }
     ul {
-      padding-left: 20px;
+      list-style-type: disc;
+      margin-left: 20px;
       margin-bottom: 20px;
     }
-    li {
-      margin-bottom: 6px;
-      font-size: 1em;
-    }
-    #timestamp {
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.2em;
-      color: #666;
-      margin-top: 8px;
-    }
     .section-label {
-      background-color: #e0f2ff;
-      width: 150px;
-      padding: 8px;
-      text-align: center;
-      font-weight: bold;
+      font-style: italic;
+      color: #777;
+      margin-bottom: 40px;
     }
   </style>
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+      document.getElementById('datetime').textContent = now.toLocaleString('en-US', options);
+    }
+    window.onload = updateDateTime;
+  </script>
 </head>
 <body>
-  <h1 style="text-align: center; color: red;">Breaking News. Not Broken News.</h1>
-  <p id="timestamp"></p>
-  <script>
-    function updateTimestamp() {
-      const now = new Date();
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      const dateString = now.toLocaleDateString(undefined, options);
-      document.getElementById('timestamp').textContent = `${dateString} – ${timeString} MDT`;
-    }
-    updateTimestamp();
-  </script>
+  <h1>Grab Your Shovel</h1>
+  <div id="datetime" class="datetime"></div>
 
-  <!-- Denver News and Denver Weather -->
-  <div style="position: relative;">
-    <h2 style="margin: 0;">Denver News</h2>
-    <h2 style="position: absolute; top: 0; left: 900px; margin: 0;">Denver Weather</h2>
-  </div>
+  <h2>Denver News</h2>
   <ul>
-    <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
-    <li>Stabbing investigation – Police release new details in downtown incident.</li>
-    <li>City council debates zoning – New rules could reshape neighborhoods.</li>
-    <li>Library hours extended – Weekend access restored at 5 branches.</li>
-    <li>Denver Zoo welcomes baby giraffe – Public naming contest begins.</li>
-    <li>Public art installation – New murals celebrate community resilience.</li>
-    <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
+    <li>City council approves new zoning plan for downtown redevelopment.</li>
+    <li>Denver Public Schools launch mental health initiative.</li>
+    <li>Union Station renovation project begins.</li>
+    <li>Bike lane expansion receives federal funding.</li>
+    <li>Denver Art Museum announces new Indigenous exhibit.</li>
+    <li>Homelessness task force releases strategic plan.</li>
+    <li>Local tech startup secures $10M in funding.</li>
   </ul>
   <div class="section-label">Keep Digging</div>
 
-  <!-- Colorado News and Breaking News -->
+  <h2>Denver Weather</h2>
+  <ul>
+    <li>Heat advisory issued for metro area.</li>
+    <li>Monsoon moisture brings afternoon thunderstorms.</li>
+    <li>Air quality alert due to wildfire smoke.</li>
+    <li>Weekend forecast: sunny with highs in the 90s.</li>
+    <li>Record-breaking temperatures reported this week.</li>
+    <li>Flash flood watch in effect for foothills.</li>
+    <li>Snowpack levels below average for July.</li>
+  </ul>
+  <div class="section-label">Keep Digging</div>
+
   <div style="position: relative;">
     <h2 style="margin: 0;">Colorado News</h2>
     <h2 style="position: absolute; top: 0; left: 900px; margin: 0;">Breaking News</h2>
   </div>
-  <div style="display: flex; gap: 100px;">
-    <ul style="width: 400px;">
-      <li>Water conservation bill – State legislature passes new drought response plan.</li>
-      <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
-      <li>State park attendance surges – Record numbers reported this summer.</li>
-      <li>Teacher shortage worsens – Districts scramble to fill vacancies.</li>
-      <li>Colorado River compact talks resume – Western states seek compromise.</li>
-      <li>Electric vehicle rebates increase – New incentives for buyers.</li>
-      <li>Mining cleanup efforts expand – EPA targets legacy sites.</li>
-    </ul>
-    <ul style="width: 400px;">
-      <li>Brazil’s Supreme Court orders house arrest for ex-President Jair Bolsonaro amid corruption probe.</li>
-      <li>Netanyahu pushes for full conquest of Gaza as ceasefire talks stall and hostage videos spark outrage.</li>
-      <li>Highly contagious disease surges in several U.S. states — CDC monitoring potential fatal cases.</li>
-      <li>Congress debates national AI safety standards following recent tech breaches.</li>
-      <li>Supreme Court ruling reshapes digital privacy rights nationwide.</li>
-      <li>China launches lunar probe for sample return — major step in global space race.</li>
-      <li>Heat wave grips southern states — emergency declarations issued.</li>
-    </ul>
-  </div>
-  <div class="section-label">Keep Digging</div>
 
-  <!-- Remaining sections preserved exactly as on live site -->
+  <ul style="position: absolute; top: 640px; left: 100px; width: 400px;">
+    <li>Water conservation bill – State legislature passes new drought response plan.</li>
+    <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
+    <li>State park attendance surges – Record numbers reported this summer.</li>
+    <li>Teacher shortage worsens – Districts scramble to fill vacancies.</li>
+    <li>Colorado River compact talks resume – Western states seek compromise.</li>
+    <li>Electric vehicle rebates increase – New incentives for buyers.</li>
+    <li>Mining cleanup efforts expand – EPA targets legacy sites.</li>
+  </ul>
+  <div class="section-label" style="position: absolute; top: 860px; left: 100px;">Keep Digging</div>
+
+  <ul style="position: absolute; top: 640px; left: 1000px; width: 400px;">
+    <li>Brazil’s Supreme Court orders house arrest for ex-President Jair Bolsonaro amid corruption probe.</li>
+    <li>Netanyahu pushes for full conquest of Gaza as ceasefire talks stall and hostage videos spark outrage.</li>
+    <li>Highly contagious disease surges in several U.S. states — CDC monitoring potential fatal cases.</li>
+    <li>Congress debates national AI safety standards following recent tech breaches.</li>
+    <li>Supreme Court ruling reshapes digital privacy rights nationwide.</li>
+    <li>China launches lunar probe for sample return — major step in global space race.</li>
+    <li>Heat wave grips southern states — emergency declarations issued.</li>
+  </ul>
+  <div class="section-label" style="position: absolute; top: 860px; left: 1000px;">Keep Digging</div>
+
   <h2>National News</h2>
   <ul>
     <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
@@ -167,4 +169,4 @@
     <li>Summarize complex news stories in seconds</li>
     <li>Spot patterns in financial data to guide investments</li>
     <li>Translate languages instantly for global communication</li>
-    <li>Generate creative content — from poems to product designs</li>
+    <li>Generate creative content
