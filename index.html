@@ -6,16 +6,32 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     body { font-family: sans-serif; }
-    h2 { border-bottom: 2px solid black; padding-bottom: 4px; margin-top: 40px; margin-bottom: 12px; }
+    h2 {
+      border-bottom: 2px solid black;
+      padding-bottom: 4px;
+      margin-top: 40px;
+      margin-bottom: 12px;
+    }
     ul { padding-left: 20px; margin-bottom: 20px; }
     li { margin-bottom: 6px; font-size: 1em; }
-    #timestamp { text-align: center; font-weight: bold; font-size: 1.2em; color: #666; margin-top: 8px; }
-    .section-label { background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center; font-weight: bold; }
+    #timestamp {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #666;
+      margin-top: 8px;
+    }
+    .section-label {
+      background-color: #e0f2ff;
+      width: 150px;
+      padding: 8px;
+      text-align: center;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Logo and Timestamp -->
   <img src="new_logo.png" alt="Grab Your Shovel Logo" style="display: block; margin: 0 auto; width: 262px;">
   <h1 style="color: red; text-align: center;">Breaking News. Not Broken News.</h1>
   <p id="timestamp"></p>
@@ -30,8 +46,16 @@
     updateTimestamp();
   </script>
 
-  <!-- Denver News -->
-  <h2>Denver News</h2>
+  <!-- Denver & Local News on same line -->
+  <div style="display: flex; align-items: baseline;">
+    <h2 style="margin: 0;">
+      <span style="background-color: #ffff99; padding: 4px;">Denver News</span>
+    </h2>
+    <h2 style="margin: 0; margin-left: 700px;">
+      <span style="background-color: #ffff99; padding: 4px;">Local News</span>
+    </h2>
+  </div>
+
   <ul>
     <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
     <li>Stabbing investigation – Police release new details in downtown incident.</li>
@@ -43,7 +67,6 @@
   </ul>
   <div class="section-label">Keep Digging</div>
 
-  <!-- Colorado News -->
   <h2>Colorado News</h2>
   <ul>
     <li>Water conservation bill – State legislature passes new drought response plan.</li>
@@ -56,7 +79,6 @@
   </ul>
   <div class="section-label">Keep Digging</div>
 
-  <!-- National News -->
   <h2>National News</h2>
   <ul>
     <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
@@ -69,7 +91,6 @@
   </ul>
   <div class="section-label">Keep Digging</div>
 
-  <!-- Federal News -->
   <h2>Federal News</h2>
   <ul>
     <li>AI regulation framework – Congress debates national standards for AI safety.</li>
@@ -82,7 +103,6 @@
   </ul>
   <div class="section-label">Keep Digging</div>
 
-  <!-- International News -->
   <h2>International News</h2>
   <ul>
     <li>Global summit convenes – Leaders gather to discuss climate and trade.</li>
@@ -95,7 +115,6 @@
   </ul>
   <div class="section-label">Keep Digging</div>
 
-  <!-- Market Watch -->
   <h2>Market Watch</h2>
   <ul>
     <li>Consumer prices show signs of stabilization.</li>
@@ -103,7 +122,6 @@
   </ul>
   <div class="section-label">Keep Digging</div>
 
-  <!-- Sports News -->
   <h2>Sports News</h2>
   <ul>
     <li>PGA Tour expands global schedule for 2026.</li>
@@ -116,7 +134,6 @@
   </ul>
   <div class="section-label">Keep Digging</div>
 
-  <!-- AI in Action -->
   <h2>AI in Action</h2>
   <ul>
     <li><strong>Medical</strong> – AI Detects Lung Nodules with 94% Accuracy</li>
@@ -129,7 +146,6 @@
   </ul>
   <div class="section-label">Keep Digging</div>
 
-  <!-- What AI Can Do For You -->
   <h2>What AI Can Do For You</h2>
   <ul>
     <li>Summarize complex news stories in seconds</li>
