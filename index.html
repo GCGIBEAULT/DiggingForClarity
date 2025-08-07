@@ -10,11 +10,13 @@
       margin: 0 auto;
       position: relative;
     }
+
     h1 {
       color: red;
       text-align: center;
       margin-bottom: 0.5em;
     }
+
     .section-headline {
       position: relative;
       font-weight: bold;
@@ -25,30 +27,50 @@
       margin-bottom: 12px;
       width: 100%;
     }
+
     .section-label {
       position: absolute;
       left: 700px;
       top: 0;
     }
+
     ul {
       padding-left: 20px;
       margin-bottom: 20px;
     }
+
     li {
       margin-bottom: 6px;
       font-size: 1em;
     }
+
     img.logo {
       display: block;
       margin: 0 auto;
       width: 600px;
       height: auto;
     }
+
+    /* 🧱 Local Weather Block — purely structural */
+    .local-weather-block {
+      position: absolute;
+      left: 700px; /* aligns with .section-label */
+      top: 0; /* starts at top of page */
+      width: 300px;
+      height: calc(8 * 24px); /* 8 snippets tall */
+      background-color: transparent;
+      border: 1px dashed #999; /* optional visual aid */
+      pointer-events: none; /* ensures no interaction */
+      z-index: 0; /* stays behind content */
+    }
   </style>
 </head>
 <body>
   <img src="new_logo.png" alt="Grab Your Shovel Logo" class="logo">
   <h1>Breaking News. Not Broken News.</h1>
+
+  <!-- 🧱 Structural block for Local Weather -->
+  <div class="local-weather-block"></div>
 
   <h2 class="section-headline">Denver News <span class="section-label">Local Weather</span></h2>
   <ul>
