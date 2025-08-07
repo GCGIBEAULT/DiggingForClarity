@@ -5,148 +5,64 @@
   <title>Grab Your Shovel</title>
   <style>
     body {
-      font-family: sans-serif;
-      max-width: 1400px;
-      margin: 0 auto;
-      position: relative;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 40px;
     }
-    h1 {
-      color: red;
-      text-align: center;
-      margin-bottom: 0.5em;
-    }
+
     .section-headline {
       position: relative;
       font-weight: bold;
       font-size: 1.5em;
-      border-bottom: 3px solid black;
       padding-bottom: 6px;
       margin-top: 40px;
       margin-bottom: 12px;
       width: 100%;
     }
+
     .section-label {
-      position: absolute;
-      left: 700px;
-      top: 0;
+      font-size: 0.8em;
+      font-weight: normal;
+      margin-left: 10px;
+      color: #555;
     }
-    ul {
-      padding-left: 20px;
-      margin-bottom: 20px;
-    }
-    li {
-      margin-bottom: 6px;
-      font-size: 1em;
-    }
-    img.logo {
-      display: block;
-      margin: 0 auto;
-      width: 600px;
-      height: auto;
+
+    /* 🔆 Temporary highlight for Denver News block */
+    .section-headline:has(span.section-label:contains("Local Weather")) {
+      background-color: rgba(255, 255, 0, 0.2);
+      padding: 10px;
     }
   </style>
 </head>
 <body>
-  <img src="new_logo.png" alt="Grab Your Shovel Logo" class="logo">
-  <h1>Breaking News. Not Broken News.</h1>
 
-  <h2 class="section-headline">Denver News <span class="section-label">Local Weather</span></h2>
-  <ul>
-    <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
-    <li>Stabbing investigation – Police release new details in downtown incident.</li>
-    <li>City council debates zoning – New rules could reshape neighborhoods.</li>
-    <li>Library hours extended – Weekend access restored at 5 branches.</li>
-    <li>Denver Zoo welcomes baby giraffe – Public naming contest begins.</li>
-    <li>Public art installation – New murals celebrate community resilience.</li>
-    <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
-  </ul>
+<h1>Breaking News. Not Broken News.</h1>
 
-  <h2 class="section-headline">Colorado News <span class="section-label">Recent Developments</span></h2>
-  <ul>
-    <li>Water conservation bill – State legislature passes new drought response plan.</li>
-    <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
-    <li>State park attendance surges – Record numbers reported this summer.</li>
-    <li>Teacher shortage worsens – Districts scramble to fill vacancies.</li>
-    <li>Colorado River compact talks resume – Western states seek compromise.</li>
-    <li>Electric vehicle rebates increase – New incentives for buyers.</li>
-    <li>Mining cleanup efforts expand – EPA targets legacy sites.</li>
-  </ul>
+<h2 class="section-headline">
+  Denver News <span class="section-label">Local Weather</span>
+</h2>
+<ul>
+  <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
+  <li>Stabbing investigation – Police release new details in downtown incident.</li>
+  <li>City council debates zoning – New rules could reshape neighborhoods.</li>
+  <li>Library hours extended – Weekend access restored at 5 branches.</li>
+  <li>Denver Zoo welcomes baby giraffe – Public naming contest begins.</li>
+  <li>Public art installation – New murals celebrate community resilience.</li>
+  <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
+</ul>
 
-  <h2 class="section-headline">National News <span class="section-label">Across the States</span></h2>
-  <ul>
-    <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
-    <li>Inflation trends – Consumer prices show signs of stabilization.</li>
-    <li>Presidential debate schedule released – First event set for September.</li>
-    <li>Federal student loan changes – New repayment options announced.</li>
-    <li>Heat wave grips southern states – Emergency declarations issued.</li>
-    <li>Rail safety legislation advances – Bipartisan support grows.</li>
-    <li>Tech antitrust hearings – CEOs testify before Congress.</li>
-  </ul>
+<h2 class="section-headline">Colorado News <span class="section-label">Recent Developments</span></h2>
+<ul>
+  <li>Water conservation bill – State legislature passes new drought response plan.</li>
+  <li>Wildfire mitigation grants – Funding expands for rural fire prevention programs.</li>
+  <li>State park attendance surges – Record numbers reported this summer.</li>
+  <li>Teacher shortage worsens – Districts scramble to fill vacancies.</li>
+  <li>Colorado River compact talks resume – Western states seek compromise.</li>
+  <li>Electric vehicle rebates increase – New incentives for buyers.</li>
+  <li>Mining cleanup efforts expand – EPA targets legacy sites.</li>
+</ul>
 
-  <h2 class="section-headline">Federal News <span class="section-label">Capital Currents</span></h2>
-  <ul>
-    <li>AI regulation framework – Congress debates national standards for AI safety.</li>
-    <li>Social Security reform – New proposals aim to stabilize long-term funding.</li>
-    <li>Defense budget increases – Pentagon outlines strategic priorities.</li>
-    <li>Postal service modernization – New fleet rollout begins.</li>
-    <li>IRS audit policy changes – Focus shifts to high-income filers.</li>
-    <li>Federal hiring freeze lifted – Agencies resume recruitment.</li>
-    <li>Climate resilience grants – FEMA expands eligibility criteria.</li>
-  </ul>
-
-  <h2 class="section-headline">International News <span class="section-label">Global Glimpses</span></h2>
-  <ul>
-    <li>Global summit opens – Leaders meet to discuss climate goals.</li>
-    <li>UK election surprise – Opposition secures historic win.</li>
-    <li>China trade report – Exports rebound in Q3.</li>
-    <li>Ukraine conflict update – Ceasefire talks resume in Geneva.</li>
-    <li>India launches lunar rover – Mission targets southern pole.</li>
-    <li>Brazil rainforest protection – Enforcement budget triples.</li>
-    <li>UN reforms proposed – Security Council may expand membership.</li>
-  </ul>
-
-  <h2 class="section-headline">Markets <span class="section-label">Wall Street Pulse</span></h2>
-  <ul>
-    <li>Dow rises 300 points – Strong earnings push index higher.</li>
-    <li>Crypto regulation looms – SEC outlines new framework.</li>
-    <li>Retail stocks surge – Consumer demand defies forecasts.</li>
-    <li>Global oil prices dip – Supply increases from OPEC nations.</li>
-    <li>Fed rate decision expected – Economists eye inflation language.</li>
-    <li>Housing market trends – Prices plateau in key metros.</li>
-    <li>Tech IPOs return – Several companies set dates.</li>
-  </ul>
-
-  <h2 class="section-headline">Sports <span class="section-label">Final Whistle</span></h2>
-  <ul>
-    <li>Olympic trials begin – Athletes compete for national spots.</li>
-    <li>MLB playoff picture – Rockies clinch Wild Card berth.</li>
-    <li>NFL preseason highlights – Rookie QBs shine.</li>
-    <li>College football rankings – New top 10 released.</li>
-    <li>NBA trade rumors – Multiple All-Stars in talks.</li>
-    <li>US Open tennis – Surprise upset rocks first round.</li>
-    <li>WNBA expansion plans – League to add two new teams.</li>
-  </ul>
-
-  <h2 class="section-headline">AI in Action <span class="section-label">Neural Frontiers</span></h2>
-  <ul>
-    <li><strong>Medical</strong> – AI Detects Lung Nodules with 94% Accuracy</li>
-    <li><strong>Science</strong> – AlphaFold Predicts Nearly Every Known Protein</li>
-    <li><strong>Education</strong> – Adaptive Learning Tools Boost Retention</li>
-    <li><strong>Finance</strong> – AI Flags Fraud in Real Time</li>
-    <li><strong>Art</strong> – Generative Models Create Museum-Worthy Pieces</li>
-    <li><strong>Security</strong> – AI Monitors Network Threats Proactively</li>
-    <li><strong>Retail</strong> – Personalized Shopping Experiences Expand</li>
-  </ul>
-
-  <h2 class="section-headline">What AI Can Do For You <span class="section-label">Your Digital Sidekick</span></h2>
-  <ul>
-    <li>Summarize complex news stories in seconds</li>
-    <li>Spot patterns in financial data to guide investments</li>
-    <li>Translate languages instantly for global communication</li>
-    <li>Generate creative content — from poems to product designs</li>
-    <li>Automate repetitive tasks to save time and energy</li>
-    <li>Chat with businesses with you — get answers, resolve issues, and make decisions faster</li>
-    <li>Assist with research, writing, and decision-making</li>
-  </ul>
-</body>
-</html>
+<h2 class="section-headline">National News <span class="section-label">Across the States</span></h2>
+<ul>
+  <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
+  <li>Inflation trends – Consumer prices show signs of stabilization
