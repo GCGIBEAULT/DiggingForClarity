@@ -27,8 +27,8 @@
       color: #555;
     }
 
-    /* 🔆 Temporary highlight for Denver News block */
-    .section-headline:has(span.section-label:contains("Local Weather")) {
+    /* ✅ Reliable highlight for Denver News block */
+    .highlight-denver {
       background-color: rgba(255, 255, 0, 0.2);
       padding: 10px;
     }
@@ -38,7 +38,7 @@
 
 <h1>Breaking News. Not Broken News.</h1>
 
-<h2 class="section-headline">
+<h2 class="section-headline highlight-denver">
   Denver News <span class="section-label">Local Weather</span>
 </h2>
 <ul>
@@ -58,11 +58,4 @@
   <li>State park attendance surges – Record numbers reported this summer.</li>
   <li>Teacher shortage worsens – Districts scramble to fill vacancies.</li>
   <li>Colorado River compact talks resume – Western states seek compromise.</li>
-  <li>Electric vehicle rebates increase – New incentives for buyers.</li>
-  <li>Mining cleanup efforts expand – EPA targets legacy sites.</li>
-</ul>
-
-<h2 class="section-headline">National News <span class="section-label">Across the States</span></h2>
-<ul>
-  <li>Supreme Court ruling – Major decision reshapes digital privacy rights.</li>
-  <li>Inflation trends – Consumer prices show signs of stabilization
+  <li>Electric vehicle rebates increase – New incentives for buyers.</li
