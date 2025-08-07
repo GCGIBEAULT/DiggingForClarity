@@ -15,6 +15,12 @@
       text-align: center;
       margin-bottom: 0.5em;
     }
+    .timestamp {
+      text-align: center;
+      color: red;
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
     .section-headline {
       position: relative;
       font-weight: bold;
@@ -29,6 +35,11 @@
       position: absolute;
       left: 700px;
       top: 0;
+    }
+    .local-weather-block {
+      border: 1px dashed #999;
+      padding: 12px;
+      margin-bottom: 20px;
     }
     ul {
       padding-left: 20px;
@@ -49,17 +60,20 @@
 <body>
   <img src="new_logo.png" alt="Grab Your Shovel Logo" class="logo">
   <h1>Breaking News. Not Broken News.</h1>
+  <div class="timestamp">Last updated: August 7, 2025, 5:40 PM MDT</div>
 
-  <h2 class="section-headline">Denver News <span class="section-label">Local Weather</span></h2>
-  <ul>
-    <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
-    <li>Stabbing investigation – Police release new details in downtown incident.</li>
-    <li>City council debates zoning – New rules could reshape neighborhoods.</li>
-    <li>Library hours extended – Weekend access restored at 5 branches.</li>
-    <li>Denver Zoo welcomes baby giraffe – Public naming contest begins.</li>
-    <li>Public art installation – New murals celebrate community resilience.</li>
-    <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
-  </ul>
+  <div class="local-weather-block">
+    <h2 class="section-headline">Denver News <span class="section-label">Local Weather</span></h2>
+    <ul>
+      <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
+      <li>Stabbing investigation – Police release new details in downtown incident.</li>
+      <li>City council debates zoning – New rules could reshape neighborhoods.</li>
+      <li>Library hours extended – Weekend access restored at 5 branches.</li>
+      <li>Denver Zoo welcomes baby giraffe – Public naming contest begins.</li>
+      <li>Public art installation – New murals celebrate community resilience.</li>
+      <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
+    </ul>
+  </div>
 
   <h2 class="section-headline">Colorado News <span class="section-label">Recent Developments</span></h2>
   <ul>
@@ -129,13 +143,13 @@
 
   <h2 class="section-headline">AI in Action <span class="section-label">Neural Frontiers</span></h2>
   <ul>
-    <li><strong>Medical</strong> – AI Detects Lung Nodules with 94% Accuracy</li>
-    <li><strong>Science</strong> – AlphaFold Predicts Nearly Every Known Protein</li>
-    <li><strong>Education</strong> – Adaptive Learning Tools Boost Retention</li>
-    <li><strong>Finance</strong> – AI Flags Fraud in Real Time</li>
-    <li><strong>Art</strong> – Generative Models Create Museum-Worthy Pieces</li>
-    <li><strong>Security</strong> – AI Monitors Network Threats Proactively</li>
-    <li><strong>Retail</strong> – Personalized Shopping Experiences Expand</li>
+    <li>Medical – AI Detects Lung Nodules with 94% Accuracy</li>
+    <li>Science – AlphaFold Predicts Nearly Every Known Protein</li>
+    <li>Education – Adaptive Learning Tools Boost Retention</li>
+    <li>Finance – AI Flags Fraud in Real Time</li>
+    <li>Art – Generative Models Create Museum-Worthy Pieces</li>
+    <li>Security – AI Monitors Network Threats Proactively</li>
+    <li>Retail – Personalized Shopping Experiences Expand</li>
   </ul>
 
   <h2 class="section-headline">What AI Can Do For You <span class="section-label">Your Digital Sidekick</span></h2>
