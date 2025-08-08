@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <title>Digging For Clarity</title>
   <style>
-    .grid {
+    .row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+      justify-content: space-between;
+      margin-bottom: 20px;
     }
     .column {
-      flex: 1 1 calc(10% - 20px);
+      width: 48%;
       border: 1px solid #ccc;
       padding: 10px;
       box-sizing: border-box;
@@ -30,10 +30,9 @@
   <!-- Logo remains unchanged -->
   <img src="new_logo.png" alt="Site Logo">
 
-  <!-- Headline Grid -->
-  <div class="grid">
-    <!-- Left Columns -->
-    <div class="column" id="left-col-1">
+  <!-- Headline Rows -->
+  <div class="row">
+    <div class="column">
       <div class="headline">Left Headline 1</div>
       <div class="snippet">Snippet 1</div>
       <div class="snippet">Snippet 2</div>
@@ -43,27 +42,19 @@
       <div class="snippet">Snippet 6</div>
       <div class="snippet">Snippet 7</div>
     </div>
-    <div class="column" id="left-col-2"><div class="headline">Left Headline 2</div></div>
-    <div class="column" id="left-col-3"><div class="headline">Left Headline 3</div></div>
-    <div class="column" id="left-col-4"><div class="headline">Left Headline 4</div></div>
-    <div class="column" id="left-col-5"><div class="headline">Left Headline 5</div></div>
-    <div class="column" id="left-col-6"><div class="headline">Left Headline 6</div></div>
-    <div class="column" id="left-col-7"><div class="headline">Left Headline 7</div></div>
-    <div class="column" id="left-col-8"><div class="headline">Left Headline 8</div></div>
-    <div class="column" id="left-col-9"><div class="headline">Left Headline 9</div></div>
-    <div class="column" id="left-col-10"><div class="headline">Left Headline 10</div></div>
-
-    <!-- Right Columns -->
-    <div class="column" id="right-col-1"><div class="headline">Right Headline 1</div></div>
-    <div class="column" id="right-col-2"><div class="headline">Right Headline 2</div></div>
-    <div class="column" id="right-col-3"><div class="headline">Right Headline 3</div></div>
-    <div class="column" id="right-col-4"><div class="headline">Right Headline 4</div></div>
-    <div class="column" id="right-col-5"><div class="headline">Right Headline 5</div></div>
-    <div class="column" id="right-col-6"><div class="headline">Right Headline 6</div></div>
-    <div class="column" id="right-col-7"><div class="headline">Right Headline 7</div></div>
-    <div class="column" id="right-col-8"><div class="headline">Right Headline 8</div></div>
-    <div class="column" id="right-col-9"><div class="headline">Right Headline 9</div></div>
-    <div class="column" id="right-col-10"><div class="headline">Right Headline 10</div></div>
+    <div class="column">
+      <div class="headline">Right Headline 1</div>
+      <div class="snippet">Snippet 1</div>
+      <div class="snippet">Snippet 2</div>
+      <div class="snippet">Snippet 3</div>
+      <div class="snippet">Snippet 4</div>
+      <div class="snippet">Snippet 5</div>
+      <div class="snippet">Snippet 6</div>
+      <div class="snippet">Snippet 7</div>
+    </div>
   </div>
+
+  <!-- Repeat for Headlines 2–10 -->
+  <!-- You can copy and paste the row block above 9 more times, updating the headline text accordingly -->
 </body>
 </html>
