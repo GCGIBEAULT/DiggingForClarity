@@ -15,12 +15,6 @@
       text-align: center;
       margin-bottom: 0.5em;
     }
-    .timestamp {
-      text-align: center;
-      color: black;
-      font-size: 0.9em;
-      margin-bottom: 20px;
-    }
     .section-headline {
       position: relative;
       font-weight: bold;
@@ -36,9 +30,11 @@
       left: 700px;
       top: 0;
     }
+    .denver-news-block,
     .local-weather-block {
       padding: 12px;
       margin-bottom: 20px;
+      border: none;
     }
     ul {
       padding-left: 20px;
@@ -59,10 +55,9 @@
 <body>
   <img src="new_logo.png" alt="Grab Your Shovel Logo" class="logo">
   <h1>Breaking News. Not Broken News.</h1>
-  <div class="timestamp">Wednesday, August 7, 2025 – 5:40 PM MDT</div>
 
-  <div class="local-weather-block">
-    <h2 class="section-headline">Denver News <span class="section-label">Local Weather</span></h2>
+  <div class="denver-news-block">
+    <h2 class="section-headline">Denver News</h2>
     <ul>
       <li>Youth pantry project – Local teens launch food pantry for families in need.</li>
       <li>Stabbing investigation – Police release new details in downtown incident.</li>
@@ -71,6 +66,13 @@
       <li>Denver Zoo welcomes baby giraffe – Public naming contest begins.</li>
       <li>Public art installation – New murals celebrate community resilience.</li>
       <li>Noise ordinance update – Stricter rules for nightlife venues.</li>
+    </ul>
+  </div>
+
+  <div class="local-weather-block">
+    <h2 class="section-headline">Local Weather</h2>
+    <ul>
+      <!-- Insert weather snippets here -->
     </ul>
   </div>
 
@@ -151,8 +153,9 @@
     <li>Retail – Personalized Shopping Experiences Expand</li>
   </ul>
 
-  <h2 class="section-headline">What AI Can Do For You <span class="section-label">Your Digital Sidekick</span></h2>
+  <h2 class="section-headline">What AI Can Do For You</h2>
   <ul>
+    <li>Your Digital Sidekick</li>
     <li>Summarize complex news stories in seconds</li>
     <li>Spot patterns in financial data to guide investments</li>
     <li>Translate languages instantly for global communication</li>
