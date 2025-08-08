@@ -4,65 +4,66 @@
   <meta charset="UTF-8">
   <title>Digging For Clarity</title>
   <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      text-align: center;
+    .grid {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
     }
-
-    img {
-      display: block;
-      margin-top: 2rem;
-    }
-
-    .timestamp {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 0.5rem;
-    }
-
-    .quote {
-      font-size: 1.8rem;
-      margin-top: 1rem;
-    }
-
-    .content-wrapper {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-      width: 80%;
-    }
-
     .column {
-      flex: 1;
-      text-align: left;
+      flex: 1 1 calc(10% - 20px);
+      border: 1px solid #ccc;
+      padding: 10px;
+      box-sizing: border-box;
     }
-
     .headline {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .snippet {
+      margin-bottom: 6px;
     }
   </style>
 </head>
 <body>
-  <!-- LOG: Two-column layout added by Gregg on 2025-08-08 -->
+  <!-- LOG: Headline updated by Gregg on 2025-08-08 -->
+  <h1>Just The News Please. Hold The Drama.</h1>
+  <!-- Logo remains unchanged -->
   <img src="new_logo.png" alt="Site Logo">
-  <div class="timestamp">Friday, August 8, 2025 – 09:16 AM</div>
-  <div class="quote">Just The News Please. Hold The Drama.</div>
 
-  <div class="content-wrapper">
-    <div class="column" id="left-column">
-      <div class="headline">Left Column Headline Goes Here</div>
-      <!-- Additional left column content -->
+  <!-- Headline Grid -->
+  <div class="grid">
+    <!-- Left Columns -->
+    <div class="column" id="left-col-1">
+      <div class="headline">Left Headline 1</div>
+      <div class="snippet">Snippet 1</div>
+      <div class="snippet">Snippet 2</div>
+      <div class="snippet">Snippet 3</div>
+      <div class="snippet">Snippet 4</div>
+      <div class="snippet">Snippet 5</div>
+      <div class="snippet">Snippet 6</div>
+      <div class="snippet">Snippet 7</div>
     </div>
-    <div class="column" id="right-column">
-      <div class="headline">Right Column Headline Goes Here</div>
-      <!-- Additional right column content -->
-    </div>
+    <div class="column" id="left-col-2"><div class="headline">Left Headline 2</div></div>
+    <div class="column" id="left-col-3"><div class="headline">Left Headline 3</div></div>
+    <div class="column" id="left-col-4"><div class="headline">Left Headline 4</div></div>
+    <div class="column" id="left-col-5"><div class="headline">Left Headline 5</div></div>
+    <div class="column" id="left-col-6"><div class="headline">Left Headline 6</div></div>
+    <div class="column" id="left-col-7"><div class="headline">Left Headline 7</div></div>
+    <div class="column" id="left-col-8"><div class="headline">Left Headline 8</div></div>
+    <div class="column" id="left-col-9"><div class="headline">Left Headline 9</div></div>
+    <div class="column" id="left-col-10"><div class="headline">Left Headline 10</div></div>
+
+    <!-- Right Columns -->
+    <div class="column" id="right-col-1"><div class="headline">Right Headline 1</div></div>
+    <div class="column" id="right-col-2"><div class="headline">Right Headline 2</div></div>
+    <div class="column" id="right-col-3"><div class="headline">Right Headline 3</div></div>
+    <div class="column" id="right-col-4"><div class="headline">Right Headline 4</div></div>
+    <div class="column" id="right-col-5"><div class="headline">Right Headline 5</div></div>
+    <div class="column" id="right-col-6"><div class="headline">Right Headline 6</div></div>
+    <div class="column" id="right-col-7"><div class="headline">Right Headline 7</div></div>
+    <div class="column" id="right-col-8"><div class="headline">Right Headline 8</div></div>
+    <div class="column" id="right-col-9"><div class="headline">Right Headline 9</div></div>
+    <div class="column" id="right-col-10"><div class="headline">Right Headline 10</div></div>
   </div>
 </body>
 </html>
