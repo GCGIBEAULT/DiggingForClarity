@@ -3,82 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <title>Digging For Clarity</title>
-  <style>
-    body {
-      text-align: center;
-      font-family: sans-serif;
-    }
-    .timestamp {
-      font-size: 0.9em;
-      color: #666;
-      margin-bottom: 10px;
-    }
-    .row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      text-align: left;
-    }
-    .column {
-      width: 48%;
-      border: 1px solid #ccc;
-      padding: 10px;
-      box-sizing: border-box;
-    }
-    .headline {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .snippet {
-      margin-bottom: 6px;
-    }
-  </style>
 </head>
 <body>
   <!-- LOG: Headline updated by Gregg on 2025-08-08 -->
-  <img src="new_logo.png" alt="Site Logo">
-  <div class="timestamp">Last updated: August 8, 2025</div>
   <h1>Just The News Please. Hold The Drama.</h1>
+  <img src="new_logo.png" alt="Site Logo">
+  <div class="timestamp">Friday, August 8, 2025 – 10:28 AM MDT</div>
 
-  <!-- Row 1: Local Weather -->
-  <div class="row">
-    <div class="column">
-      <div class="headline">Local Weather</div>
-      <div style="margin-bottom: 10px;">
-        <label for="zipInput">Enter ZIP code:</label>
-        <input type="text" id="zipInput" maxlength="5" placeholder="e.g. 99501">
-        <button onclick="saveZip()">Lock In</button>
+  <!-- Weather Block -->
+  <section class="weather">
+    <p>Local Weather</p>
+    <ul>
+      <li>Temp: 85°F (Feels like 91°F)</li>
+      <li>Humidity: 16%</li>
+      <li>Wind: 4 mph from the south</li>
+      <li>Visibility: 9.9 miles</li>
+      <li>Air Quality Index: 45 (Good)</li>
+      <li>UV Index: 1 (Low)</li>
+      <li>Sky: Mostly cloudy</li>
+    </ul>
+  </section>
+
+  <!-- Headlines and Snippets -->
+  <section class="headlines">
+    <!-- Headline Rows 1–10 -->
+    <!-- Each row has left and right blocks with 10 snippets each -->
+    <!-- Repeatable modular structure -->
+    <!-- START HEADLINE ROWS -->
+    <!-- You can replace placeholder text with actual headlines/snippets -->
+    ${[...Array(10)].map((_, i) => `
+    <div class="headline-row">
+      <div class="left-headline">
+        <h2>Left Headline ${i + 1}</h2>
+        <ul>
+          ${[...Array(10)].map((_, j) => `<li>Snippet ${j + 1}</li>`).join('')}
+        </ul>
       </div>
-      <div class="snippet">Temp: 85°F (Feels like 91°F)</div>
-      <div class="snippet">Humidity: 16%</div>
-      <div class="snippet">Wind: 4 mph from the south</div>
-      <div class="snippet">Visibility: 9.9 miles</div>
-      <div class="snippet">Air Quality Index: 45 (Good)</div>
-      <div class="snippet">UV Index: 1 (Low)</div>
-      <div class="snippet">Sky: Mostly cloudy</div>
+      <div class="right-headline">
+        <h2>Right Headline ${i + 1}</h2>
+        <ul>
+          ${[...Array(10)].map((_, j) => `<li>Snippet ${j + 1}</li>`).join('')}
+        </ul>
+      </div>
     </div>
-    <div class="column">
-      <div class="headline">Right Headline 1</div>
-      <div class="snippet">Snippet 1</div><div class="snippet">Snippet 2</div><div class="snippet">Snippet 3</div>
-      <div class="snippet">Snippet 4</div><div class="snippet">Snippet 5</div><div class="snippet">Snippet 6</div><div class="snippet">Snippet 7</div>
-    </div>
-  </div>
-
-  <!-- Rows 2–10 -->
-  <!-- Repeatable structure -->
-  <!-- Row 2 -->
-  <div class="row">
-    <div class="column">
-      <div class="headline">Left Headline 2</div>
-      <div class="snippet">Snippet 1</div><div class="snippet">Snippet 2</div><div class="snippet">Snippet 3</div>
-      <div class="snippet">Snippet 4</div><div class="snippet">Snippet 5</div><div class="snippet">Snippet 6</div><div class="snippet">Snippet 7</div>
-    </div>
-    <div class="column">
-      <div class="headline">Right Headline 2</div>
-      <div class="snippet">Snippet 1</div><div class="snippet">Snippet 2</div><div class="snippet">Snippet 3</div>
-      <div class="snippet">Snippet 4</div><div class="snippet">Snippet 5</div><div class="snippet">Snippet 6</div><div class="snippet">Snippet 7</div>
-    </div>
-  </div>
-
-  <!-- Rows 3–10 follow same structure -->
-  <!-- You can copy/paste Row 2 and update headline labels as needed
+    `).join('')}
+    <!-- END HEADLINE ROWS -->
+  </section>
+</body>
+</html>
