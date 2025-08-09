@@ -3,31 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <title>Digging For Clarity</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { text-align: center; font-family: sans-serif; }
+    .timestamp { font-size: 0.9em; color: #666; margin-bottom: 10px; }
+    .row { display: flex; justify-content: space-between; margin-bottom: 20px; text-align: left; }
+    .column { width: 48%; border: 1px solid #ccc; padding: 10px; box-sizing: border-box; }
+    .headline { font-weight: bold; margin-bottom: 10px; }
+    .snippet { margin-bottom: 0px; }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="topnav">
-      <a href="#about">About This Page</a>
-      <a href="#author">About the Author</a>
-      <a href="#contact">Contact</a>
+  <img src="new_logo.png" alt="Site Logo">
+  <div class="timestamp">Friday, August 8, 2025 – 10:28 AM MDT</div>
+  <h1>Just The News Please. Hold The Drama.</h1>
+
+  <!-- Row 1 -->
+  <div class="row">
+    <div class="column">
+      <div class="headline">Local Weather</div>
+      <div class="snippet">Temp: 85°F (Feels like 91°F)</div>
+      <div class="snippet">Humidity: 16%</div>
+      <div class="snippet">Wind: 4 mph from the south</div>
+      <div class="snippet">Visibility: 9.9 miles</div>
+      <div class="snippet">Air Quality Index: 45 (Good)</div>
+      <div class="snippet">UV Index: 1 (Low)</div>
+      <div class="snippet">Sky: Mostly cloudy</div>
     </div>
-    <div class="timestamp">Friday, August 8, 2025 – 10:28 AM MDT</div>
-    <h1>Just The News Please. Hold The Drama.</h1>
-  </header>
-
-  <section class="weather">
-    <div class="headline">Local Weather</div>
-    <div class="snippet">Temp: 85°F (Feels like 91°F)</div>
-    <div class="snippet">Humidity: 16%</div>
-    <div class="snippet">Wind: 4 mph from the south</div>
-    <div class="snippet">Visibility: 9.9 miles</div>
-    <div class="snippet">Air Quality Index: 45 (Good)</div>
-    <div class="snippet">UV Index: 1 (Low)</div>
-    <div class="snippet">Sky: Mostly cloudy</div>
-  </section>
-
-  <section class="news-row">
     <div class="column">
       <div class="headline">Denver News</div>
       <div class="snippet">• Denver Parade of Homes launches with free self-guided tours.</div>
@@ -38,7 +39,10 @@
       <div class="snippet">• Drone show and pig roast kick off Littleton’s Welcome Week.</div>
       <div class="snippet">• Hiroshima survivor remembered 80 years after bombing in Denver.</div>
     </div>
+  </div>
 
+  <!-- Row 2 -->
+  <div class="row">
     <div class="column">
       <div class="headline">Colorado News</div>
       <div class="snippet">• Lee and Elk wildfires near Meeker grow to 75,000+ acres with zero containment.</div>
@@ -49,9 +53,6 @@
       <div class="snippet">• Wheat Ridge Carnation Festival returns with parade, fireworks, and car show.</div>
       <div class="snippet">• Centennial hosts Under the Stars music and food fest at Center Park.</div>
     </div>
-  </section>
-
-  <section class="news-row">
     <div class="column">
       <div class="headline">National News</div>
       <div class="snippet">• Tropical Storm Kendra strengthens off Gulf Coast, evacuation orders issued.</div>
@@ -62,7 +63,10 @@
       <div class="snippet">• Teachers in Chicago vote to strike over class sizes and pay equity.</div>
       <div class="snippet">• U.S. job growth slows in July, unemployment holds steady at 4.1%.</div>
     </div>
+  </div>
 
+  <!-- Row 3 -->
+  <div class="row">
     <div class="column">
       <div class="headline">Federal News</div>
       <div class="snippet">• IRS expands free e-file pilot to 13 states for 2026 season.</div>
@@ -73,9 +77,6 @@
       <div class="snippet">• Federal Reserve signals rate pause amid cooling inflation.</div>
       <div class="snippet">• USPS pilots drone delivery in remote Alaska towns.</div>
     </div>
-  </section>
-
-  <section class="news-row">
     <div class="column">
       <div class="headline">World News</div>
       <div class="snippet">• Ukraine war enters 3rd year as peace talks stall in Geneva.</div>
@@ -86,7 +87,39 @@
       <div class="snippet">• UK inflation slows to 3.2%, easing pressure on central bank.</div>
       <div class="snippet">• India’s lunar rover sends first images from south pole region.</div>
     </div>
+  </div>
 
+  <!-- Row 4 -->
+  <div class="row">
+    <div class="column">
+      <div class="headline">Market Watch</div>
+      <div class="snippet">Dow Jones: 44,175.61 (+0.47%)</div>
+      <div class="snippet">NASDAQ: 21,450.02 (+0.98%)</div>
+      <br>
+      <div class="snippet"><strong>Ticker Lookup:</strong></div>
+      <input type="text" placeholder="Enter Symbol" style="width: 120px; padding: 6px; margin-top: 5px;">
+    </div>
+    <div class="column">
+      <div class="snippet"><strong>Focus Topic:</strong></div>
+      <br>
+      <input type="text" placeholder="Choose your subject and lock it in." style="width: 260px; padding: 4px;">
+    </div>
+  </div>
+
+  <!-- Row 5 -->
+  <div class="row">
+    <div class="column">
+      <div class="headline">Sports</div>
+      <div class="snippet">• Football</div>
+      <div class="snippet">• Hockey</div>
+      <div class="snippet">• Basketball</div>
+      <div class="snippet">• Golf</div>
+      <div class="snippet">• Tennis</div>
+      <div class="snippet">• Baseball</div>
+      <div class="snippet">• Soccer</div>
+      <div class="snippet">• None</div>
+      <input type="text" placeholder="Other" style="width: 60px; padding: 4px; margin-top: 6px;">
+    </div>
     <div class="column">
       <div class="headline">AI Advancements Today</div>
       <div class="snippet">• Agents now run full workflows with minimal human input.</div>
@@ -97,6 +130,6 @@
       <div class="snippet">• Tutors adapt to student pace; teachers save hours weekly.</div>
       <div class="snippet">• Scribes cut clinical documentation time by 90%.</div>
     </div>
-  </section>
+  </div>
 </body>
 </html>
