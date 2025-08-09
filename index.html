@@ -10,6 +10,7 @@
     .column { width: 48%; border: 1px solid #ccc; padding: 10px; box-sizing: border-box; }
     .headline { font-weight: bold; margin-bottom: 10px; }
     .snippet { margin-bottom: 0px; }
+    button { margin: 4px; padding: 6px 10px; font-size: 1em; }
   </style>
 </head>
 <body>
@@ -17,7 +18,7 @@
   <div class="timestamp">Friday, August 8, 2025 – 10:28 AM MDT</div>
   <h1>Just The News Please. Hold The Drama.</h1>
 
-  <!-- Row 1 -->
+  <!-- Row 1: Local & Denver News -->
   <div class="row">
     <div class="column">
       <div class="headline">Local Weather</div>
@@ -41,7 +42,7 @@
     </div>
   </div>
 
-  <!-- Row 2 -->
+  <!-- Row 2: Colorado & National News -->
   <div class="row">
     <div class="column">
       <div class="headline">Colorado News</div>
@@ -65,7 +66,7 @@
     </div>
   </div>
 
-  <!-- Row 3 -->
+  <!-- Row 3: Federal & World News -->
   <div class="row">
     <div class="column">
       <div class="headline">Federal News</div>
@@ -89,7 +90,7 @@
     </div>
   </div>
 
-  <!-- Row 4 -->
+  <!-- Row 4: Market Watch & Focus Topic -->
   <div class="row">
     <div class="column">
       <div class="headline">Market Watch</div>
@@ -114,23 +115,15 @@
     </div>
   </div>
 
-  <!-- Row 5 -->
+  <!-- Row 5: Headline 7 – Sports -->
   <div class="row">
     <div class="column">
-      <div class="headline">Headline 7</div>
-      <div class="snippet">Snippet 1</div>
-      <div class="snippet">Snippet 2</div>
-      <div class="snippet">Snippet 3</div>
-      <div class="snippet">Snippet 4</div>
-      <div class="snippet">Snippet 5</div>
-      <div class="snippet">Snippet 6</div>
-      <div class="snippet">Snippet 7</div>
-    </div>
-    <div class="column">
-      <div class="headline">Reserved</div>
-      <div class="snippet">Snippet 1</div>
-      <div class="snippet">Snippet 2</div>
-      <div class="snippet">Snippet 3</div>
-      <div class="snippet">Snippet 4</div>
-      <div class="snippet">Snippet 5</div>
-      <div class="snippet">Snippet 6</div>
+      <div class="headline">Sports</div>
+      <div style="border: 1px solid #999; padding: 8px; margin: 10px 0; background-color: #f9f9f9;">
+        <strong>Choose your sport:</strong><br>
+        <button onclick="showSport('football')">Snippet 1: Football</button>
+        <button onclick="showSport('hockey')">Snippet 2: Hockey</button>
+        <button onclick="showSport('basketball')">Snippet 3: Basketball</button>
+        <button onclick="showSport('golf')">Snippet 4: Golf</button>
+        <button onclick="showSport('baseball')">Snippet 5: Baseball</button>
+        <button onclick="showSport('tennis')">Snippet 
