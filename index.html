@@ -4,190 +4,132 @@
   <meta charset="UTF-8">
   <title>Digging For Clarity</title>
   <style>
-    body {
-      text-align: center;
-      font-family: sans-serif;
-    }
-    .timestamp {
-      font-size: 0.9em;
-      color: #666;
-      margin-bottom: 10px;
-    }
-    .row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      text-align: left;
-    }
-    .column {
-      width: 48%;
-      border: 1px solid #ccc;
-      padding: 10px;
-      box-sizing: border-box;
-    }
-    .headline {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .snippet {
-      margin-bottom: 0px;
-    }
+    body { text-align: center; font-family: sans-serif; }
+    .timestamp { font-size: 0.9em; color: #666; margin-bottom: 10px; }
+    .row { display: flex; justify-content: space-between; margin-bottom: 20px; text-align: left; }
+    .column { width: 48%; border: 1px solid #ccc; padding: 10px; box-sizing: border-box; }
+    .headline { font-weight: bold; margin-bottom: 10px; }
+    .snippet { margin-bottom: 0px; }
   </style>
 </head>
 <body>
+  <img src="new_logo.png" alt="Site Logo">
+  <div class="timestamp">Friday, August 8, 2025 – 10:28 AM MDT</div>
+  <h1>Just The News Please. Hold The Drama.</h1>
 
-<img src="new_logo.png" alt="Site Logo">
-<div class="timestamp">Friday, August 8, 2025 – 10:28 AM MDT</div>
-<h1>Just The News Please. Hold The Drama.</h1>
+  <!-- Row 1 -->
+  <div class="row">
+    <div class="column">
+      <div class="headline">Local Weather</div>
+      <div class="snippet">Temp: 85°F (Feels like 91°F)</div>
+      <div class="snippet">Humidity: 16%</div>
+      <div class="snippet">Wind: 4 mph from the south</div>
+      <div class="snippet">Visibility: 9.9 miles</div>
+      <div class="snippet">Air Quality Index: 45 (Good)</div>
+      <div class="snippet">UV Index: 1 (Low)</div>
+      <div class="snippet">Sky: Mostly cloudy</div>
+    </div>
+    <div class="column">
+      <div class="headline">Denver News</div>
+      <div class="snippet">• Denver Parade of Homes launches with free self-guided tours.</div>
+      <div class="snippet">• Savannah Bananas bring viral baseball antics to Coors Field.</div>
+      <div class="snippet">• City Council approves $950M bond proposal for November ballot.</div>
+      <div class="snippet">• Parking minimums repealed to boost housing development.</div>
+      <div class="snippet">• Mayor Johnston defends layoffs amid billion-dollar project push.</div>
+      <div class="snippet">• Drone show and pig roast kick off Littleton’s Welcome Week.</div>
+      <div class="snippet">• Hiroshima survivor remembered 80 years after bombing in Denver.</div>
+    </div>
+  </div>
 
-<!-- Local Weather -->
-<div class="row">
-  <div class="column">
-    <div class="headline">Local Weather</div>
-    <p class="snippet">Temp: 85°F (Feels like 91°F)</p>
-    <p class="snippet">Humidity: 16%</p>
-    <p class="snippet">Wind: 4 mph from the south</p>
-    <p class="snippet">Visibility: 9.9 miles</p>
-    <p class="snippet">Air Quality Index: 45 (Good)</p>
-    <p class="snippet">UV Index: 1 (Low)</p>
-    <p class="snippet">Sky: Mostly cloudy</p>
+  <!-- Row 2 -->
+  <div class="row">
+    <div class="column">
+      <div class="headline">Colorado News</div>
+      <div class="snippet">• Lee and Elk wildfires near Meeker grow to 75,000+ acres with zero containment.</div>
+      <div class="snippet">• National Guard deployed to assist firefighting efforts in Rio Blanco County.</div>
+      <div class="snippet">• Stage 2 fire restrictions now active across northwest Colorado.</div>
+      <div class="snippet">• Moffat County Fair continues with rodeo, livestock sale, and free Coke floats.</div>
+      <div class="snippet">• Colorado Rockies face Diamondbacks after brutal 45–6 series loss to Toronto.</div>
+      <div class="snippet">• Wheat Ridge Carnation Festival returns with parade, fireworks, and car show.</div>
+      <div class="snippet">• Centennial hosts Under the Stars music and food fest at Center Park.</div>
+    </div>
+    <div class="column">
+      <div class="headline">National News</div>
+      <div class="snippet">• Tropical Storm Kendra strengthens off Gulf Coast, evacuation orders issued.</div>
+      <div class="snippet">• Senate passes bipartisan wildfire relief bill amid record-breaking blazes.</div>
+      <div class="snippet">• NASA confirms successful launch of Artemis III lunar cargo module.</div>
+      <div class="snippet">• FTC investigates major grocery merger over antitrust concerns.</div>
+      <div class="snippet">• Supreme Court to hear case on digital privacy and geofence warrants.</div>
+      <div class="snippet">• Teachers in Chicago vote to strike over class sizes and pay equity.</div>
+      <div class="snippet">• U.S. job growth slows in July, unemployment holds steady at 4.1%.</div>
+    </div>
   </div>
-</div>
 
-<!-- Denver News -->
-<div class="row">
-  <div class="column">
-    <div class="headline">Denver News</div>
-    <p class="snippet">• Denver Parade of Homes launches with free self-guided tours.</p>
-    <p class="snippet">• Savannah Bananas bring viral baseball antics to Coors Field.</p>
-    <p class="snippet">• City Council approves $950M bond proposal for November ballot.</p>
-    <p class="snippet">• Parking minimums repealed to boost housing development.</p>
-    <p class="snippet">• Mayor Johnston defends layoffs amid billion-dollar project push.</p>
-    <p class="snippet">• Drone show and pig roast kick off Littleton’s Welcome Week.</p>
-    <p class="snippet">• Hiroshima survivor remembered 80 years after bombing in Denver.</p>
+  <!-- Row 3 -->
+  <div class="row">
+    <div class="column">
+      <div class="headline">Federal News</div>
+      <div class="snippet">• IRS expands free e-file pilot to 13 states for 2026 season.</div>
+      <div class="snippet">• DOJ launches investigation into AI bias in federal hiring tools.</div>
+      <div class="snippet">• Social Security COLA forecast revised to 3.2% for 2026.</div>
+      <div class="snippet">• Senate committee advances digital privacy legislation.</div>
+      <div class="snippet">• FEMA updates disaster relief protocols for wildfire zones.</div>
+      <div class="snippet">• Federal Reserve signals rate pause amid cooling inflation.</div>
+      <div class="snippet">• USPS pilots drone delivery in remote Alaska towns.</div>
+    </div>
+    <div class="column">
+      <div class="headline">World News</div>
+      <div class="snippet">• Ukraine war enters 3rd year as peace talks stall in Geneva.</div>
+      <div class="snippet">• Gaza ceasefire collapses amid renewed airstrikes and border clashes.</div>
+      <div class="snippet">• UN calls emergency session over escalating conflict in Sudan.</div>
+      <div class="snippet">• Japan commemorates Hiroshima anniversary with peace summit.</div>
+      <div class="snippet">• Brazil launches national reforestation initiative in Amazon.</div>
+      <div class="snippet">• UK inflation slows to 3.2%, easing pressure on central bank.</div>
+      <div class="snippet">• India’s lunar rover sends first images from south pole region.</div>
+    </div>
   </div>
-</div>
 
-<!-- Colorado News -->
-<div class="row">
-  <div class="column">
-    <div class="headline">Colorado News</div>
-    <p class="snippet">• Lee and Elk wildfires near Meeker grow to 75,000+ acres with zero containment.</p>
-    <p class="snippet">• National Guard deployed to assist firefighting efforts in Rio Blanco County.</p>
-    <p class="snippet">• Stage 2 fire restrictions now active across northwest Colorado.</p>
-    <p class="snippet">• Moffat County Fair continues with rodeo, livestock sale, and free Coke floats.</p>
-    <p class="snippet">• Colorado Rockies face Diamondbacks after brutal 45–6 series loss to Toronto.</p>
-    <p class="snippet">• Wheat Ridge Carnation Festival returns with parade, fireworks, and car show.</p>
-    <p class="snippet">• Centennial hosts Under the Stars music and food fest at Center Park.</p>
+  <!-- Row 4 -->
+  <div class="row">
+    <div class="column">
+      <div class="headline">Market Watch</div>
+      <div class="snippet">Dow Jones: 44,175.61 (+0.47%)</div>
+      <div class="snippet">NASDAQ: 21,450.02 (+0.98%)</div>
+      <br>
+      <div class="snippet"><strong>Ticker Lookup:</strong></div>
+      <input type="text" placeholder="Enter Symbol" style="width: 120px; padding: 6px; margin-top: 5px;">
+    </div>
+    <div class="column">
+      <div class="snippet"><strong>Focus Topic:</strong></div>
+      <br>
+      <input type="text" placeholder="Choose your subject and lock it in." style="width: 260px; padding: 4px;">
+    </div>
   </div>
-</div>
 
-<!-- National News -->
-<div class="row">
-  <div class="column">
-    <div class="headline">National News</div>
-    <p class="snippet">• Tropical Storm Kendra strengthens off Gulf Coast, evacuation orders issued.</p>
-    <p class="snippet">• Senate passes bipartisan wildfire relief bill amid record-breaking blazes.</p>
-    <p class="snippet">• NASA confirms successful launch of Artemis III lunar cargo module.</p>
-    <p class="snippet">• FTC investigates major grocery merger over antitrust concerns.</p>
-    <p class="snippet">• Supreme Court to hear case on digital privacy and geofence warrants.</p>
-    <p class="snippet">• Teachers in Chicago vote to strike over class sizes and pay equity.</p>
-    <p class="snippet">• U.S. job growth slows in July, unemployment holds steady at 4.1%.</p>
+  <!-- Row 5 -->
+  <div class="row">
+    <div class="column">
+      <div class="headline">Sports</div>
+      <div class="snippet">• Football</div>
+      <div class="snippet">• Hockey</div>
+      <div class="snippet">• Basketball</div>
+      <div class="snippet">• Golf</div>
+      <div class="snippet">• Tennis</div>
+      <div class="snippet">• Baseball</div>
+      <div class="snippet">• Soccer</div>
+      <div class="snippet">• None</div>
+      <input type="text" placeholder="Other" style="width: 60px; padding: 4px; margin-top: 6px;">
+    </div>
+    <div class="column">
+      <div class="headline">AI Advancements Today</div>
+      <div class="snippet">• Agents now run full workflows with minimal human input.</div>
+      <div class="snippet">• Cancer and heart disease detected earlier than specialists.</div>
+      <div class="snippet">• New drugs enter trials, including pulmonary fibrosis treatment.</div>
+      <div class="snippet">• Predictive maintenance cuts downtime and saves billions.</div>
+      <div class="snippet">• Genomic data used to forecast disease risk and personalize care.</div>
+      <div class="snippet">• Tutors adapt to student pace; teachers save hours weekly.</div>
+      <div class="snippet">• Scribes cut clinical documentation time by 90%.</div>
+    </div>
   </div>
-</div>
-
-<!-- Federal News -->
-<div class="row">
-  <div class="column">
-    <div class="headline">Federal News</div>
-    <p class="snippet">• IRS expands free e-file pilot to 13 states for 2026 season.</p>
-    <p class="snippet">• DOJ launches investigation into AI bias in federal hiring tools.</p>
-    <p class="snippet">• Social Security COLA forecast revised to 3.2% for 2026.</p>
-    <p class="snippet">• Senate committee advances digital privacy legislation.</p>
-    <p class="snippet">• FEMA updates disaster relief protocols for wildfire zones.</p>
-    <p class="snippet">• Federal Reserve signals rate pause amid cooling inflation.</p>
-    <p class="snippet">• USPS pilots drone delivery in remote Alaska towns.</p>
-  </div>
-</div>
-
-<!-- World News -->
-<div class="row">
-  <div class="column">
-    <div class="headline">World News</div>
-    <p class="snippet">• Ukraine war enters 3rd year as peace talks stall in Geneva.</p>
-    <p class="snippet">• Gaza ceasefire collapses amid renewed airstrikes and border clashes.</p>
-    <p class="snippet">• UN calls emergency session over escalating conflict in Sudan.</p>
-    <p class="snippet">• Japan commemorates Hiroshima anniversary with peace summit.</p>
-    <p class="snippet">• Brazil launches national reforestation initiative in Amazon.</p>
-    <p class="snippet">• UK inflation slows to 3.2%, easing pressure on central bank.</p>
-    <p class="snippet">• India’s lunar rover sends first images from south pole region.</p>
-  </div>
-</div>
-
-<!-- Market Watch -->
-<div class="row">
-  <div class="column">
-    <div class="headline">Market Watch</div>
-    <p class="snippet">Dow Jones: 44,175.61 (+0.47%)</p>
-    <p class="snippet">NASDAQ: 21,450.02 (+0.98%)</p>
-    <p class="snippet">Ticker Lookup: Enter Symbol</p>
-  </div>
-</div>
-
-<!-- Focus Topic -->
-<div class="row">
-  <div class="column">
-    <div class="headline">Focus Topic</div>
-    <p class="snippet">Choose your subject and lock it in.</p>
-  </div>
-</div>
-
-<!-- Sports -->
-<div class="row">
-  <div class="column">
-    <div class="headline">Sports</div>
-    <p class="snippet">• Football</p>
-    <p class="snippet">• Hockey</p>
-    <p class="snippet">• Basketball</p>
-    <p class="snippet">• Golf</p>
-    <p class="snippet">• Tennis</p>
-    <p class="snippet">• Baseball</p>
-    <p class="snippet">• Soccer</p>
-    <p class="snippet">• None Other</p>
-  </div>
-</div>
-
-<!-- AI Advancements Today -->
-<div class="row">
-  <div class="column">
-    <div class="headline">AI Advancements Today</div>
-    <p class="snippet">• Agents now run full workflows with minimal human input.</p>
-    <p class="snippet">• Cancer and heart disease detected earlier than specialists.</p>
-    <p class="snippet">• New drugs enter trials, including pulmonary fibrosis treatment.</p>
-    <p class="snippet">• Predictive maintenance cuts downtime and saves billions.</p>
-    <p class="snippet">• Genomic data used to forecast disease risk and personalize care.</p>
-    <p class="snippet">• Tutors adapt to student pace; teachers save hours weekly.</p>
-    <p class="snippet">• Scribes cut clinical documentation time by 90%.</p>
-  </div>
-</div>
-
-<!-- A and B Blocks -->
-<div class="row">
-  <div class="column">
-    <div class="headline">A</div>
-    <p class="snippet">Content for block A goes here.</p>
-  </div>
-  <div class="column">
-    <div class="headline">B</div>
-    <p class="snippet">Content for block B goes here.</p>
-  </div>
-</div>
-
-<!-- C and D Blocks -->
-<div class="row">
-  <div class="column">
-    <div class="headline">C</div>
-    <p class="snippet">Content for block C goes here.</p>
-  </div>
-  <div class="column">
-    <div class="headline
+</body>
+</html>
