@@ -4,22 +4,72 @@
   <meta charset="UTF-8">
   <title>Digging For Clarity</title>
   <style>
-    body { text-align: center; font-family: sans-serif; }
-    .timestamp { font-size: 0.9em; color: #666; margin-bottom: 10px; }
-    .row { display: flex; justify-content: space-between; margin-bottom: 20px; text-align: left; flex-wrap: wrap; }
-    .column { width: 48%; border: 1px solid #ccc; padding: 10px; box-sizing: border-box; margin-bottom: 20px; }
-    .headline { font-weight: bold; margin-bottom: 10px; }
-    .snippet { margin-bottom: 0px; }
-    .site-logo { max-width: 100%; height: auto; width: 400px; margin-bottom: 15px; }
+    body { 
+      text-align: center; 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+    }
+    header {
+      background: #fff;
+      padding: 15px 10px;
+    }
+    header img {
+      max-width: 300px; /* bigger logo */
+      height: auto;
+    }
+    .timestamp { 
+      font-size: 0.9em; 
+      color: #666; 
+      margin-bottom: 10px; 
+    }
+    h1 {
+      font-size: 1.8em;
+      margin: 10px 0 20px;
+    }
+    .row { 
+      display: flex; 
+      justify-content: space-between; 
+      margin: 0 auto 20px;
+      max-width: 1200px;
+      flex-wrap: wrap;
+      text-align: left; 
+    }
+    .column { 
+      flex: 1 1 48%; 
+      border: 1px solid #ccc; 
+      padding: 10px; 
+      margin: 5px; 
+      box-sizing: border-box; 
+      background: #fafafa;
+    }
+    .headline { 
+      font-weight: bold; 
+      margin-bottom: 10px; 
+      font-size: 1.1em;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+    .snippet { 
+      margin-bottom: 6px; 
+    }
+    input[type="text"] {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    /* Mobile view */
     @media (max-width: 768px) {
-      .column { width: 100%; }
+      .column { flex: 1 1 100%; }
+      header img { max-width: 220px; }
     }
   </style>
 </head>
 <body>
-  <img src="new_logo.png" alt="Digging for Clarity logo" class="site-logo">
-  <div class="timestamp">Friday, August 8, 2025 – 10:28 AM MDT</div>
-  <h1>Just The News Please. Hold The Drama.</h1>
+  <header>
+    <img src="new_logo.png" alt="Site Logo">
+    <div class="timestamp" id="timestamp"></div>
+    <h1>Just The News Please. Hold The Drama.</h1>
+  </header>
 
   <!-- Row 1 -->
   <div class="row">
@@ -76,14 +126,4 @@
       <div class="snippet">• IRS expands free e-file pilot to 13 states for 2026 season.</div>
       <div class="snippet">• DOJ launches investigation into AI bias in federal hiring tools.</div>
       <div class="snippet">• Social Security COLA forecast revised to 3.2% for 2026.</div>
-      <div class="snippet">• Senate committee advances digital privacy legislation.</div>
-      <div class="snippet">• FEMA updates disaster relief protocols for wildfire zones.</div>
-      <div class="snippet">• Federal Reserve signals rate pause amid cooling inflation.</div>
-      <div class="snippet">• USPS pilots drone delivery in remote Alaska towns.</div>
-    </div>
-    <div class="column">
-      <div class="headline">World News</div>
-      <div class="snippet">• Ukraine war enters 3rd year as peace talks stall in Geneva.</div>
-      <div class="snippet">• Gaza ceasefire collapses amid renewed airstrikes and border clashes.</div>
-      <div class="snippet">• UN calls emergency session over escalating conflict in Sudan.</div>
-      <div class="snippet">• Japan commemorates Hiroshima anniversary with peace summit.</div>
+      <div class="snippet">• Senate committee advances digital
