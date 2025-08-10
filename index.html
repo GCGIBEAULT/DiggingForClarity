@@ -3,75 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Digging For Clarity</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      text-align: center;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-    }
-    img {
-      max-width: 150px;
-      margin-top: 10px;
-    }
-    .timestamp {
-      font-size: 0.9em;
-      color: #666;
-      margin-bottom: 15px;
-    }
-    h1 {
-      margin: 15px 0;
-      font-size: 1.8em;
-      color: #333;
-    }
-    .row {
-      display: flex;
-      justify-content: space-between;
-      margin: 0 auto 20px;
-      text-align: left;
-      flex-wrap: wrap;
-      max-width: 1000px;
-      padding: 0 10px;
-    }
-    .column {
-      width: 48%;
-      border: 1px solid #ccc;
-      padding: 10px;
-      box-sizing: border-box;
-      background-color: white;
-      border-radius: 6px;
-      margin-bottom: 10px;
-    }
-    .headline {
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #222;
-      font-size: 1.1em;
-    }
-    .snippet {
-      margin-bottom: 5px;
-      line-height: 1.4;
-      font-size: 0.95em;
-    }
-    input[type="text"] {
-      border: 1px solid #aaa;
-      border-radius: 4px;
-    }
-    @media (max-width: 700px) {
-      .column {
-        width: 100%;
-      }
+    body { text-align: center; font-family: sans-serif; }
+    .timestamp { font-size: 0.9em; color: #666; margin-bottom: 10px; }
+    .row { display: flex; justify-content: space-between; margin-bottom: 20px; text-align: left; flex-wrap: wrap; }
+    .column { width: 48%; border: 1px solid #ccc; padding: 10px; box-sizing: border-box; margin-bottom: 20px; }
+    .headline { font-weight: bold; margin-bottom: 10px; }
+    .snippet { margin-bottom: 0px; }
+    .site-logo { max-width: 100%; height: auto; width: 400px; margin-bottom: 15px; }
+    @media (max-width: 768px) {
+      .column { width: 100%; }
     }
   </style>
 </head>
 <body>
-  <img src="new_logo.png" alt="Site Logo">
-  <div class="timestamp" id="timestamp"></div>
+  <img src="new_logo.png" alt="Digging for Clarity logo" class="site-logo">
+  <div class="timestamp">Friday, August 8, 2025 – 10:28 AM MDT</div>
   <h1>Just The News Please. Hold The Drama.</h1>
 
-  <!-- Your original rows exactly as you had them -->
   <!-- Row 1 -->
   <div class="row">
     <div class="column">
@@ -138,64 +87,3 @@
       <div class="snippet">• Gaza ceasefire collapses amid renewed airstrikes and border clashes.</div>
       <div class="snippet">• UN calls emergency session over escalating conflict in Sudan.</div>
       <div class="snippet">• Japan commemorates Hiroshima anniversary with peace summit.</div>
-      <div class="snippet">• Brazil launches national reforestation initiative in Amazon.</div>
-      <div class="snippet">• UK inflation slows to 3.2%, easing pressure on central bank.</div>
-      <div class="snippet">• India’s lunar rover sends first images from south pole region.</div>
-    </div>
-  </div>
-
-  <!-- Row 4 -->
-  <div class="row">
-    <div class="column">
-      <div class="headline">Market Watch</div>
-      <div class="snippet">Dow Jones: 44,175.61 (+0.47%)</div>
-      <div class="snippet">NASDAQ: 21,450.02 (+0.98%)</div>
-      <br>
-      <div class="snippet"><strong>Ticker Lookup:</strong></div>
-      <input type="text" placeholder="Enter Symbol" style="width: 120px; padding: 6px; margin-top: 5px;">
-    </div>
-    <div class="column">
-      <div class="snippet"><strong>Focus Topic:</strong></div>
-      <br>
-      <input type="text" placeholder="Choose your subject and lock it in." style="width: 260px; padding: 4px;">
-    </div>
-  </div>
-
-  <!-- Row 5 -->
-  <div class="row">
-    <div class="column">
-      <div class="headline">Sports</div>
-      <div class="snippet">• Football</div>
-      <div class="snippet">• Hockey</div>
-      <div class="snippet">• Basketball</div>
-      <div class="snippet">• Golf</div>
-      <div class="snippet">• Tennis</div>
-      <div class="snippet">• Baseball</div>
-      <div class="snippet">• Soccer</div>
-      <div class="snippet">• None</div>
-      <input type="text" placeholder="Other" style="width: 60px; padding: 4px; margin-top: 6px;">
-    </div>
-    <div class="column">
-      <div class="headline">AI Advancements Today</div>
-      <div class="snippet">• Agents now run full workflows with minimal human input.</div>
-      <div class="snippet">• Cancer and heart disease detected earlier than specialists.</div>
-      <div class="snippet">• New drugs enter trials, including pulmonary fibrosis treatment.</div>
-      <div class="snippet">• Predictive maintenance cuts downtime and saves billions.</div>
-      <div class="snippet">• Genomic data used to forecast disease risk and personalize care.</div>
-      <div class="snippet">• Tutors adapt to student pace; teachers save hours weekly.</div>
-      <div class="snippet">• Scribes cut clinical documentation time by 90%.</div>
-    </div>
-  </div>
-
-  <script>
-    function updateTimestamp() {
-      const now = new Date();
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-                        hour: '2-digit', minute: '2-digit', timeZoneName: 'short' };
-      document.getElementById('timestamp').textContent = now.toLocaleString('en-US', options);
-    }
-    updateTimestamp();
-    setInterval(updateTimestamp, 60000);
-  </script>
-</body>
-</html>
