@@ -20,10 +20,11 @@
       padding: 1rem 1.5rem;
       background-color: #fff;
       border-bottom: 2px solid #333;
+      gap: 1rem;
     }
     header.editorial-header {
+      flex: 1;
       text-align: left;
-      width: max-content;
     }
     .editorial-cue {
       font-style: italic;
@@ -34,6 +35,16 @@
       font-family: 'Merriweather', serif;
       font-weight: 700;
       margin-top: 0;
+    }
+    .logo-center {
+      height: 64px;
+      width: auto;
+      margin: 0 1rem;
+    }
+    .logo {
+      height: 160px;
+      max-width: 240px;
+      object-fit: contain;
     }
     .section {
       background-color: #f9f9f9;
@@ -55,29 +66,18 @@
     .snippet {
       margin-bottom: 0.5em;
     }
-    .logo {
-      height: 160px;
-      max-width: 240px;
-      object-fit: contain;
-    }
-    .logo-inline {
-      display: block;
-      margin: 0.5em auto;
-      height: 64px;
-      width: auto;
-    }
   </style>
 </head>
 <body>
   <div class="header-container">
     <header class="editorial-header">
       <p class="editorial-cue">Clarity over chaos. Today’s lens: resilience and reform.</p>
-      <img src="DFC.png" alt="DFC logo" class="logo-inline" />
-
       <h1>Digging For Clarity</h1>
       <p><strong>Friday, August 8, 2025 – 10:28 AM MDT</strong></p>
       <p>Just The News Please. Hold The Drama.</p>
     </header>
+
+    <img src="DFC.png" alt="DFC logo" class="logo-center" />
     <img src="new_logo.png" alt="Site Logo" class="logo" />
   </div>
 
@@ -166,4 +166,3 @@
   </div>
 </body>
 </html>
-
