@@ -12,7 +12,7 @@
       padding: 0;
     }
     img.logo {
-      width: 320px; /* Bigger logo */
+      width: 340px; /* bigger logo */
       height: auto;
       margin-top: 20px;
     }
@@ -27,6 +27,7 @@
     }
     .row { 
       display: flex; 
+      flex-wrap: wrap;
       justify-content: space-between; 
       margin: 0 auto 25px auto; 
       text-align: left; 
@@ -35,6 +36,7 @@
     }
     .column { 
       flex: 1;
+      min-width: 300px;
       border: 1px solid #ccc; 
       background-color: #fff;
       padding: 12px; 
@@ -44,18 +46,18 @@
     }
     .headline { 
       font-weight: bold; 
-      margin-bottom: 8px;
-      color: #0056b3; /* Blue headlines */
+      margin-bottom: 10px; 
+      color: #0056b3; /* blue headlines */
     }
-    .headline a {
-      color: #0056b3;
-      text-decoration: none;
-    }
-    .headline a:hover {
-      text-decoration: underline;
+    .snippet { 
+      margin-bottom: 5px; 
     }
   </style>
 </head>
 <body>
-  <img src="new_logo.png" alt="Digging For Clarity Logo" class="logo">
-  <div class="timestamp">Saturda
+  <img src="new_logo.png" alt="Site Logo" class="logo">
+  <div class="timestamp">Friday, August 8, 2025 – 10:28 AM MDT</div>
+  <h1>Just The News Please. Hold The Drama.</h1>
+
+  <!-- Row 1 -->
+  <div class="row">
