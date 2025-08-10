@@ -1,56 +1,338 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digging For Clarity</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
-    <style>
-      .local-weather-container {
-        position: relative;
-        background-color: #f9f9f9;
-        padding: 1em;
-        border-radius: 4px;
-        z-index: 1;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digging For Clarity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+ .right-weather-box {
+  position: absolute;
+  top: 260px; /* ⬅️ was 160px */
+  left: 700px;
+  width: 300px;
+  background-color: #f9f9f9;
+  padding: 1em;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+ 
+}
 
-      .right-weather-box {
-        position: absolute;
-        top: 260px;
-        left: 700px;
-        width: 300px;
-        background-color: #f9f9f9;
-        padding: 1em;
-        border-radius: 4px;
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-      }
+.right-weather-box .snippet {
+  margin-bottom: 0.75em;
+  line-height: 1.4;
+}
+ 
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+      .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin: 1em;
+  }
 
-      .right-weather-box .snippet {
-        margin-bottom: 0.75em;
-        line-height: 1.4;
-      }
+  .grid.forecast-icons {
+    display: flex;
+    overflow-x: auto;
+    gap: 1em;
+    padding-bottom: 0.5em;
+  }
+  .grid.forecast-icons .snippet {
+    .grid.forecast-icons {
+  margin-left: 150px;
+}
 
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
-        color: #222;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="section">
-      <h2>Local Weather</h2>
-      <div class="local-weather-container">
-        <!-- Weather content goes here -->
-      </div>
-      <div class="right-weather-box">
-        <div class="snippet">Forecast summary</div>
-        <div class="snippet">Radar utility</div>
-        <div class="snippet">Local impact</div>
-        <div class="snippet"><a href="https://weather.com">Weather Channel</a></div>
+    text-align: center;
+    min-width: 80px;
+    flex-shrink: 0;
+  }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      background-color: #fff;
+      border-bottom: 2px solid #333;
+      gap: 1rem;
+    }
+    header.editorial-header {
+      flex: 1;
+      text-align: left;
+    }
+    .editorial-cue {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 0.5em;
+    }
+    h1, h2, h3 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      margin-top: 0;
+    }
+    .logo-center {
+      height: 64px;
+      width: auto;
+      margin-left: -200px; /* Still present in live code */
+    }
+    .logo {
+      height: 160px;
+      max-width: 240px;
+      object-fit: contain;
+    }
+    .section {
+      background-color: #f9f9f9;
+      padding: 1em;
+      margin: 1em;
+      border-radius: 4px;
+    }
+    hr {
+      border: none;
+      border-top: 2px solid #333;
+      margin: 1.5em 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin: 1em;
+    }
+    .snippet {
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-container">
+    <header class="editorial-header">
+      <p class="editorial-cue">Clarity over chaos. Today’s lens: resilience and reform.</p>
+      <h1>Digging For Clarity</h1>
+      <p><strong>Friday, August 8, 2025 – 10:28 AM MDT</strong></p>
+      <p>Just The News Please. Hold The Drama.</p>
+    </header>
+    <img src="DFC.png" alt="DFC logo" class="logo-center" />
+    <img src="new_logo.png" alt="Site Logo" class="logo" />
+  </div>
+
+ <div class="section">
+  <h2>Local Weather</h2>
+  <div class="local-weather-container">
+    <div class="main-weather-block">
+      <div class="snippet"><strong>Now:</strong> 85°F (Feels like 91°) — Mostly cloudy skies</div>
+      <div class="snippet">Humidity: 16% | Wind: 4 mph S | Visibility: 9.9 mi</div>
+      <div class="snippet">Air Quality: 45 (Good) | UV Index: 1 (Low)</div>
+      <div class="snippet">&nbsp;</div> <!-- Blank line after Air Quality -->
+
+<div class="snippet"><strong>Sunrise:</strong> 6:12 AM</div>
+<div class="snippet"><strong>Sunset:</strong> 8:12 PM</div>
+<div class="snippet">&nbsp;</div>
+
+<div class="snippet"><strong>Tip:</strong> <span class="tip-offset">Light layers recommended; stay hydrated</span></div>
+
+<div class="snippet">&nbsp;</div>
+</div> <!-- closes .main-weather-block -->
+<div class="right-weather-box">
+  <div class="snippet"><strong>Local Forecast:</strong> 85°F (Feels like 91°) — Mostly cloudy skies, light southern breeze.</div>
+  <div class="snippet"><strong>Live Radar:</strong> <a href="https://weather.com/weather/radar" target="_blank">Track conditions in real time</a></div>
+  <div class="snippet"><strong>Local Impact:</strong> Dry air and low humidity raise wildfire risk in foothills; visibility remains strong at 9.9 mi.</div>
+  <div class="snippet"><strong>More Weather Tools:</strong> <a href="https://weather.com/" target="_blank">The Weather Channel</a></div>
+</div>
+    
+
+</div>    
+      
+      
+        <!-- Keep your hourly forecast snippets here -->
       </div>
     </div>
-  </body>
+   
+  </div>
+</div>
+
+
+
+ 
+
+
+</div>
+
+
+
+  <hr />
+
+  <div class="grid">
+    <div class="section">
+      <h3>Denver News</h3>
+      <div class="snippet">• BNSF rail worker loses leg after train derailment; NTSB investigation underway.</div>
+      <div class="snippet">• City employees to receive layoff notices starting August 18 amid $50M budget deficit.</div>
+      <div class="snippet">• Four injured in separate overnight shootings; police seek public tips.</div>
+      <div class="snippet">• Savannah Bananas bring viral baseball chaos to Coors Field this weekend.</div>
+      <div class="snippet">• Toro Co.’s R&D site north of Denver sells for $11.4M; Owl Offroad remains tenant.</div>
+      <div class="snippet">• RiNo Art District turns to pop-up shops to fill storefronts and support local artists.</div>
+      <div class="snippet">• Mayor Johnston defends bond proposal while layoffs loom; voters to decide in November.</div>
+    </div>
+    <div class="section">
+  <h3>Colorado News</h3>
+  <div class="snippet">• Colorado Parks & Wildlife confirms mountain lion sighting near Golden; trail advisories issued.</div>
+  <div class="snippet">• Denver Water launches drought resilience initiative with $20M infrastructure upgrade.</div>
+  <div class="snippet">• State legislature debates new wildfire insurance fund for high-risk zones.</div>
+  <div class="snippet">• Colorado Springs airport sees record passenger traffic in July.</div>
+  <div class="snippet">• Fort Collins pilot program tests electric snowplows ahead of winter season.</div>
+  <div class="snippet">• Western Slope farmers report crop damage from unexpected August hailstorm.</div>
+  <div class="snippet">• Aurora expands mental health crisis response teams citywide.</div>
+</div>
+
+  </div>
+
+  <hr />
+
+  <div class="grid">
+   <div class="section">
+  <h3>National News</h3>
+  <div class="snippet">• Tropical Storm Kendra strengthens off Gulf Coast.</div>
+  <div class="snippet">• Senate passes bipartisan wildfire relief bill.</div>
+  <div class="snippet">• NASA confirms Artemis III lunar cargo launch.</div>
+  <div class="snippet">• FTC investigates major grocery merger.</div>
+  <div class="snippet">• IRS expands free e-file pilot to 13 states.</div>
+  <div class="snippet">• DOJ investigates AI bias in hiring tools.</div>
+  <div class="snippet">• Social Security COLA forecast revised to 3.2%.</div>
+</div>
+
+   <div class="section">
+  <h3>Federal News</h3>
+  <div class="snippet">• IRS expands free e-file pilot to 13 states.</div>
+  <div class="snippet">• DOJ investigates AI bias in hiring tools.</div>
+  <div class="snippet">• Social Security COLA forecast revised to 3.2%.</div>
+  <div class="snippet">• Senate committee advances privacy legislation.</div>
+  <div class="snippet">• FTC investigates major grocery merger.</div>
+  <div class="snippet">• Senate passes bipartisan wildfire relief bill.</div>
+  <div class="snippet">• NASA confirms Artemis III lunar cargo launch.</div>
+</div>
+
+  </div>
+
+  <hr />
+
+  <div class="grid">
+   <div class="section">
+  <h3>World News</h3>
+  <div class="snippet">• Ukraine war enters 3rd year as peace talks stall.</div>
+  <div class="snippet">• Gaza ceasefire collapses amid renewed clashes.</div>
+  <div class="snippet">• UN calls emergency session over Sudan conflict.</div>
+  <div class="snippet">• Japan commemorates Hiroshima anniversary.</div>
+  <div class="snippet">• EU proposes new AI transparency regulations.</div>
+  <div class="snippet">• Global heatwave triggers emergency alerts across Europe and Asia.</div>
+  <div class="snippet">• WHO monitors new respiratory virus clusters in Southeast Asia.</div>
+</div>
+
+<div class="section">
+  <h3>Market Watch</h3>
+  <div class="snippet">Dow Jones: 44,175.61 (+206.97 / +0.47%)</div>
+  <div class="snippet">NASDAQ: 21,450.02 (+207.33 / +0.98%)</div>
+  <div class="snippet">&nbsp;</div>
+  <div class="snippet prompt">Stock Symbol: <input type="text" placeholder="Enter ticker (e.g. AAPL)" /></div>
+  <div class="snippet">&nbsp;</div>
+
+  <!-- Split Investor Insights -->
+  <div class="grid">
+    <div>
+      <div class="snippet"><a href="#">Dollar-cost averaging</a></div>
+      <div class="snippet"><a href="#">Compound interest</a></div>
+      <div class="snippet"><a href="#">ETF basics</a></div>
+      <div class="snippet"><a href="#">Diversification</a></div>
+    </div>
+    <div>
+      <div class="snippet"><a href="#">Roth IRA</a></div>
+      <div class="snippet"><a href="#">P/E Ratio</a></div>
+      <div class="snippet"><a href="#">Risk reminder</a></div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+
+
+  </div>
+
+  <hr />
+
+  <div class="grid">
+    <div class="section">
+  <h3>Sports</h3>
+  <div class="snippet">• Broncos training camp highlights: rookie QB impresses.</div>
+  <div class="snippet">• Nuggets sign veteran forward to one-year deal.</div>
+  <div class="snippet">• Rockies face Diamondbacks in weekend series.</div>
+  <div class="snippet">• CU Buffs prepare for season opener vs. TCU.</div>
+  <div class="snippet">• Savannah Bananas bring viral baseball chaos to Coors Field this weekend.</div>
+  <div class="snippet">• U.S. Open tennis qualifiers begin Monday with record entries.</div>
+  <div class="snippet">• Team USA basketball finalizes Olympic roster ahead of Paris Games.</div>
+</div>
+
+    <div class="section">
+      <h3>AI Advancement</h3>
+      <div class="snippet">• OpenAI releases GPT-5 with multimodal capabilities.</div>
+      <div class="snippet">• Microsoft expands Copilot integration across Office suite.</div>
+      <div class="snippet">• Google DeepMind unveils new protein-folding breakthrough.</div>
+      <div class="snippet">• AI-generated art wins international design award.</div>
+      <div class="snippet">• EU proposes new AI transparency regulations.</div>
+      <div class="snippet">• Meta launches open-source LLM for researchers.</div>
+      <div class="snippet">• AI tutors now available in 12 languages.</div>
+    </div>
+  </div>
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
