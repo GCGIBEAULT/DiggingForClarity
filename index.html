@@ -10,6 +10,27 @@
   <title>Digging For Clarity</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
   <style>
+  .local-weather-container {
+  position: relative;
+  background-color: #f9f9f9;
+  padding: 1em;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.local-weather-container::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('https://img.freepik.com/premium-photo/dramatic-lightning-storm-illuminating-dark-sky-captured-from-safe-distance-image-is_891336-40528.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  z-index: 0;
+  border-radius: 4px;
+}
+  
  .right-weather-box {
   position: absolute;
   top: 260px; /* ⬅️ was 160px */
@@ -307,6 +328,7 @@
   </div>
 </body>
 </html>
+
 
 
 
