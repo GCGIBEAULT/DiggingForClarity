@@ -14,6 +14,25 @@
       margin: 0;
       padding: 0;
     }
+      .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin: 1em;
+  }
+
+  .grid.forecast-icons {
+    display: flex;
+    overflow-x: auto;
+    gap: 1em;
+    padding-bottom: 0.5em;
+  }
+  .grid.forecast-icons .snippet {
+    text-align: center;
+    min-width: 80px;
+    flex-shrink: 0;
+  }
+
     .header-container {
       display: flex;
       align-items: center;
@@ -262,6 +281,7 @@
   </div>
 </body>
 </html>
+
 
 
 
