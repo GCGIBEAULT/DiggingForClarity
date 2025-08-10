@@ -1,58 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digging For Clarity</title>
   <style>
-    body { 
-      text-align: center; 
-      font-family: Arial, sans-serif; 
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 0;
-    }
-    img.logo {
-      width: 320px;
-      height: auto;
-      margin-top: 20px;
-    }
-    .timestamp { 
-      font-size: 0.9em; 
-      color: #666; 
-      margin-bottom: 10px; 
-    }
-    h1 {
-      margin-top: 5px;
-      margin-bottom: 20px;
-    }
-    .row { 
-      display: flex; 
-      justify-content: space-between; 
-      margin: 0 auto 25px auto; 
-      text-align: left; 
-      max-width: 1000px;
-      gap: 20px;
-    }
-    .column { 
-      flex: 1;
-      border: 1px solid #ccc; 
-      background-color: #fff;
-      padding: 12px; 
-      box-sizing: border-box; 
-      border-radius: 4px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    .headline { 
-      font-weight: bold; 
-      margin-bottom: 8px;
-      color: #0074d9; /* Blue headlines */
-    }
-    .snippet { 
-      font-size: 0.9em;
-      line-height: 1.4;
-      color: #333;
-    }
-    /* Footer styling */
-    .footer {
-      display: flex;
-      justify-content: spac
+    body { font-family: sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+    header, section { padding: 1rem; border-bottom: 1px solid #ccc; }
+    h1, h2 { margin: 0.5rem 0; }
+    .weather, .markets, .focus-topic, .news-section { margin-bottom: 1rem; }
+    .news-section ul { list-style: none; padding-left: 0; }
+    .news-section li { margin: 0.25rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Digging For Clarity</h1>
+    <p><strong>Friday, August 8, 2025 – 10:28 AM MDT</strong></p>
+    <p><em>Just The News Please. Hold The Drama.</em></p>
+  </header>
+
+  <section class="weather">
+    <h2>Local Weather</h2>
+    <p>Temp: 85°F (Feels like 91°F)</p>
+    <p>Humidity: 16%</p>
+    <p>Wind: 4 mph from the south</p>
+    <p>Visibility: 9.9 miles</p>
+    <p>Air Quality Index: 45 (Good)</p>
+    <p>UV Index: 1 (Low)</p>
+    <p>Sky: Mostly cloudy</p>
+  </section>
+
+  <section class="news-section">
+    <h2>Denver News</h2>
+    <ul>
+      <li>Denver Parade of Homes launches with free self-guided tours.</li>
+      <li>Savannah Bananas bring viral baseball antics to Coors Field.</li>
+      <li>City Council approves $950M bond proposal for November ballot.</li>
+      <li>Parking minimums repealed to boost housing development.</li>
+      <li>Mayor Johnston defends layoffs amid billion-dollar project push.</li>
+      <li>Drone show and pig roast kick off Littleton’s Welcome Week.</li>
+      <li>Hiroshima survivor remembered 80 years after bombing in Denver.</li>
+    </ul>
+  </section>
+
+  <section class="news-section">
+    <h2>Colorado News</h2>
+    <ul>
+      <li>Lee and Elk wildfires near Meeker grow to 75,000+ acres with zero containment.</li>
+      <li>National Guard deployed to assist firefighting efforts in Rio Blanco County.</li>
+      <li>Stage 2 fire restrictions now active across northwest Colorado.</li>
+      <li>Moffat County Fair continues with rodeo, livestock sale, and free Coke floats.</li>
+      <li>Colorado Rockies face Diamondbacks after brutal 45–6 series loss to Toronto.</li>
+      <li>Wheat Ridge Carnation Festival returns with parade, fireworks, and car show.</li>
+      <li>Centennial hosts Under the Stars music and food fest at Center Park.</li>
+    </ul>
+  </section>
+
+  <section class="news-section">
+    <h2>National News</h2>
+    <ul>
+      <li>Tropical Storm Kendra strengthens off Gulf Coast, evacuation orders issued.</li>
+      <li>Senate passes bipartisan wildfire relief bill amid record-breaking blazes.</li>
+      <li>NASA confirms successful launch of Artemis III lunar cargo module.</li>
+      <li>FTC investigates major grocery merger over antitrust concerns.</li>
+      <li>Supreme Court to hear case on digital privacy and geofence warrants.</li>
+      <li>Teachers in Chicago vote to strike over class sizes and pay equity.</li>
+      <li>U.S. job growth slows in July, unemployment holds steady at 4.1%.</li>
+    </ul>
+  </section>
+
+  <section class="news-section">
+    <h2>Federal News</h2>
+    <ul>
+      <li>IRS expands free e-file pilot to 13 states for 2026 season.</li>
+      <li>DOJ launches investigation into AI bias in federal hiring tools.</li>
+      <li>Social Security COLA forecast revised to 3.2% for 2026.</li>
+      <li>Senate committee advances digital privacy legislation.</li>
+      <li>FEMA updates disaster relief protocols for wildfire zones.</li>
+      <li>Federal Reserve signals rate pause amid cooling inflation.</li>
+      <li>USPS pilots drone delivery in remote Alaska towns.</li>
+    </ul>
+  </section>
+
+  <section class="news-section">
+    <h2>World News</h2>
+    <ul>
+      <li>Ukraine war enters 3rd year as peace talks stall in Geneva.</li>
+      <li>Gaza ceasefire collapses amid renewed airstrikes and border clashes.</li>
+      <li>UN calls emergency session over escalating conflict in Sudan.</li>
+      <li>Japan commemorates Hiroshima anniversary with peace summit.</li>
+      <li>Brazil launches national reforestation initiative in Amazon.</li>
+      <li>UK inflation slows to 3.2%, easing pressure on central bank.</li>
+      <li>India’s lunar rover sends first images from south pole region.</li>
+    </ul>
+  </section>
+
+  <section class="markets">
+    <h2>Market Watch</h2>
+    <p>Dow Jones: 44,175.61 (+0.47%)</p>
+    <p>NASDAQ: 21,450.02 (+0.98%)</p>
+    <p>Ticker Lookup: Enter Symbol</p>
+  </section>
+
+  <section class="focus-topic">
+    <h2>Focus Topic</h2>
+    <p>Choose your subject and lock it in.</p>
+  </section>
+
+  <section class="news-section">
+    <h2>Other AI Advancements Today</h2>
+    <ul>
+      <li>Agents now run full workflows with minimal human input.</li>
+      <li>Cancer and heart disease detected earlier than specialists.</li>
+      <li>New drugs enter trials, including pulmonary fibrosis treatment.</li>
+      <li>Predictive maintenance cuts downtime and saves billions.</li>
+      <li>Genomic data used to forecast disease risk and personalize care.</li>
+      <li>Tutors adapt to student pace; teachers save hours weekly.</li>
+      <li>Scribes cut clinical documentation time by 90%.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2025 Digging for Clarity – Just the News. Hold the Drama.</p>
+  </footer>
+</body>
+</html>
