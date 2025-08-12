@@ -14,28 +14,24 @@
   <style>
 .right-weather-box {
   position: absolute;
-  top: 220px; /* matches Local Weather block */
+  top: 260px;
   left: 700px;
   width: 300px;
   background-color: #f9f9f9;
   padding: 1em;
   border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
-
-
-
 
 }
 
  
 }
 
-.right-weather-box {
-  background-color: #eaeaea; /* or try #e0e0e0 for slightly darker */
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+.right-weather-box .snippet {
+  margin-bottom: 0.75em;
+  line-height: 1.4;
 }
-
  
     body {
       font-family: Arial, sans-serif;
@@ -123,24 +119,16 @@
   </style>
 </head>
 <body>
- <div class="header-container" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; background-color: #fff; border-bottom: 2px solid #333; gap: 1rem;">
-  
-  <!-- Editorial box isolated -->
-  <div class="editorial-box" style="display: flex; flex-direction: column; text-align: left;">
-    <p class="editorial-cue">Clarity over chaos. Today’s lens: resilience and reform.</p>
-    <h1>Digging For Clarity</h1>
-    <p><strong>Friday, August 8, 2025 – 10:28 AM MDT</strong></p>
-    <p>Just The News Please. Hold The Drama.</p>
+  <div class="header-container">
+    <header class="editorial-header">
+      <p class="editorial-cue">Clarity over chaos. Today’s lens: resilience and reform.</p>
+      <h1>Digging For Clarity</h1>
+      <p><strong>Friday, August 8, 2025 – 10:28 AM MDT</strong></p>
+      <p>Just The News Please. Hold The Drama.</p>
+    </header>
+    <img src="DFC.png" alt="DFC logo" class="logo-center" />
+    <img src="new_logo.png" alt="Site Logo" class="logo" />
   </div>
-
-  <!-- DFC logo now free to move -->
- <img src="DFC.png" alt="DFC logo" class="logo-center" style="height: 128px; width: auto;" />
-
-
-  <!-- Site logo untouched -->
-  <img src="new_logo.png" alt="Site Logo" class="logo" />
-</div>
-
 
  <div class="section">
   <h2>Local Weather</h2>
@@ -424,15 +412,6 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
 
 
