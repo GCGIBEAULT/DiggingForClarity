@@ -86,12 +86,11 @@
       font-weight: 700;
       margin-top: 0;
     }
-  .logo-center {
-  height: 128px;
-  width: auto;
-  margin-left: -100px;
-}
-
+    .logo-center {
+      height: 64px;
+      width: auto;
+      margin-left: -200px; /* Still present in live code */
+    }
     .logo {
       height: 160px;
       max-width: 240px;
@@ -120,53 +119,36 @@
   </style>
 </head>
 <body>
-<div class="header-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; background-color: #fff; border-bottom: 2px solid #333;">
-
-  <!-- Editorial Header -->
-  <div style="text-align: center; margin-bottom: 1rem;">
-    <p style="font-style: italic; color: #555;">Clarity over chaos. Today’s lens: resilience and reform.</p>
-    <h1 style="font-family: 'Merriweather', serif; font-weight: 700; margin: 0;">Digging For Clarity</h1>
-    <p><strong>Friday, August 8, 2025 – 10:28 AM MDT</strong></p>
-    <p>Just The News Please. Hold The Drama.</p>
+  <div class="header-container">
+    <header class="editorial-header">
+      <p class="editorial-cue">Clarity over chaos. Today’s lens: resilience and reform.</p>
+      <h1>Digging For Clarity</h1>
+      <p><strong>Friday, August 8, 2025 – 10:28 AM MDT</strong></p>
+      <p>Just The News Please. Hold The Drama.</p>
+    </header>
+    <img src="DFC.png" alt="DFC logo" class="logo-center" />
+    <img src="new_logo.png" alt="Site Logo" class="logo" />
   </div>
-
-  <!-- Centered DFC Logo (doubled size) -->
-  <img src="DFC.png" alt="DFC logo" style="height: 128px; width: auto;" />
-
-</div>
-
-
-
-
-
-</div>
-
-
-</div>
-
-</div>
 
  <div class="section">
   <h2>Local Weather</h2>
   <div class="local-weather-container">
     <div class="main-weather-block">
-    
+      <div class="snippet"><strong>Now:</strong> 85°F (Feels like 91°) — Mostly cloudy skies</div>
+      <div class="snippet">Humidity: 16% | Wind: 4 mph S | Visibility: 9.9 mi</div>
+      <div class="snippet">Air Quality: 45 (Good) | UV Index: 1 (Low)</div>
+      <div class="snippet">&nbsp;</div> <!-- Blank line after Air Quality -->
 
 <div class="snippet"><strong>Sunrise:</strong> 6:12 AM</div>
 <div class="snippet"><strong>Sunset:</strong> 8:12 PM</div>
 <div class="snippet">&nbsp;</div>
 
 <div class="snippet"><strong>Tip:</strong> <span class="tip-offset">Light layers recommended; stay hydrated</span></div>
-  <div class="snippet"><strong>Local Forecast:</strong> 85°F (Feels like 91°) — Mostly cloudy skies, light southern breeze.</div>
+
 <div class="snippet">&nbsp;</div>
 </div> <!-- closes .main-weather-block -->
-<div class="right-weather-box">    
-  <div class="snippet"><strong>Now:</strong> 85°F (Feels like 91°) — Mostly cloudy skies</div>
-      <div class="snippet">Humidity: 16% | Wind: 4 mph S | Visibility: 9.9 mi</div>
-      <div class="snippet">Air Quality: 45 (Good) | UV Index: 1 (Low)</div>
-      <div class="snippet">&nbsp;</div> <!-- Blank line after Air Quality -->      
-
-  
+<div class="right-weather-box">
+  <div class="snippet"><strong>Local Forecast:</strong> 85°F (Feels like 91°) — Mostly cloudy skies, light southern breeze.</div>
   <div class="snippet"><strong>Live Radar:</strong> <a href="https://weather.com/weather/radar" target="_blank">Track conditions in real time</a></div>
   <div class="snippet"><strong>Local Impact:</strong> Dry air and low humidity raise wildfire risk in foothills; visibility remains strong at 9.9 mi.</div>
   <div class="snippet"><strong>More Weather Tools:</strong> <a href="https://weather.com/" target="_blank">The Weather Channel</a></div>
@@ -430,19 +412,6 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
