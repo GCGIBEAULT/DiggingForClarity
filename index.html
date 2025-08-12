@@ -62,40 +62,46 @@
     min-width: 80px;
     flex-shrink: 0;
   }
+    
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  border-bottom: 2px solid #333;
+  gap: 1rem;
+}
 
-    .header-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.5rem;
-      background-color: #fff;
-      border-bottom: 2px solid #333;
-      gap: 1rem;
-    }
-    header.editorial-header {
-      flex: 1;
-      text-align: left;
-    }
-    .editorial-cue {
-      font-style: italic;
-      color: #555;
-      margin-bottom: 0.5em;
-    }
-    h1, h2, h3 {
-      font-family: 'Merriweather', serif;
-      font-weight: 700;
-      margin-top: 0;
-    }
-    .logo-center {
-      height: 64px;
-      width: auto;
-      margin-left: -200px; /* Still present in live code */
-    }
-    .logo {
-      height: 160px;
-      max-width: 240px;
-      object-fit: contain;
-    }
+.editorial-box {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.editorial-cue {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 0.5em;
+}
+
+.logo-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-center {
+  height: 160px;
+  width: auto;
+}
+
+.logo {
+  height: 160px;
+  max-width: 240px;
+  object-fit: contain;
+}
+
     .section {
       background-color: #f9f9f9;
       padding: 1em;
@@ -419,6 +425,7 @@
 
 </body>
 </html>
+
 
 
 
