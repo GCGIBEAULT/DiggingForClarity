@@ -5,6 +5,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,10 +77,8 @@
 .header-container {
   display: flex;
   align-items: center;
-justify-content : center ;
-
- padding: 1rem 0;
-
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
   background-color: #fff;
   border-bottom: 2px solid #333;
   gap: 1rem;
@@ -98,12 +97,10 @@ justify-content : center ;
 }
 
 .logo-wrapper {
-  width: 100%;
+  flex: 1;
   display: flex;
   justify-content: center;
-  margin-top: 0.5em;
 }
-
 
 .logo-center {
   height: 220px;
@@ -129,19 +126,15 @@ justify-content : center ;
   width: auto;
   opacity: 0.8;
 }
-<style>
-  .header-container {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;                /* 🔧 Removed vertical spacing */
-    font-size: 0.9em;
-    color: #666;
-    margin: 0;                 /* Optional: remove outer margin */
-  }
-</style>
-
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+  font-size: 0.9em;
+  color: #666;
+  margin: 2em 1.5em;
+}
 
 .footer-logo img {
   height: 48px;
@@ -483,10 +476,6 @@ justify-content : center ;
 
 </body>
 </html>
-
-
-
-
 
 
 
