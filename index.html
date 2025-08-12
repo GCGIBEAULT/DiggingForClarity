@@ -95,22 +95,36 @@
 }
 
 .logo-wrapper {
-  flex: 1;
   display: flex;
   justify-content: center;
+  margin: 1em 0;
 }
 
 .logo-center {
-  height: 120px;
-  width: auto;
+  max-width: 180px;
+  height: auto;
 }
-
 
 .logo {
-  height: 200px;
-  max-width: 300px;
-  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  max-width: 160px;
+  height: auto;
 }
+
+.logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  margin: 1em 0;
+}
+
+.logo-right {
+  max-width: 120px;
+  height: auto;
+}
+
 
 
     .section {
@@ -136,7 +150,7 @@
   </style>
 </head>
 <body>
-  <div class="header-container">
+ <div class="header-container">
   <!-- Editorial box -->
   <div class="editorial-box">
     <p class="editorial-cue">Clarity over chaos. Today’s lens: resilience and reform.</p>
@@ -145,14 +159,13 @@
     <p>Just The News Please. Hold The Drama.</p>
   </div>
 
-  <!-- DFC logo centered and enlarged -->
-  <div class="logo-wrapper">
-    <img src="DFC.png" alt="DFC logo" class="logo-center" />
+  <!-- Logo row: new_logo centered, DFC logo right -->
+  <div class="logo-row">
+    <img src="new_logo.png" alt="Site Logo" class="logo" />
+    <img src="DFC.png" alt="DFC logo" class="logo-right" />
   </div>
-
-  <!-- Site logo -->
-  <img src="new_logo.png" alt="Site Logo" class="logo" />
 </div>
+
 
 <div class="section">
   <h2>Local Weather</h2>
@@ -437,6 +450,7 @@
 
 </body>
 </html>
+
 
 
 
