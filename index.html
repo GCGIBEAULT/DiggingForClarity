@@ -94,17 +94,20 @@
   margin-bottom: 0.5em;
 }
 
-.logo-wrapper {
+.logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 1em 0;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.logo-center {
-  width: 200px;
+.logo {
+  width: 320px;
   height: auto;
+}
+
 }
 
 .logo {
@@ -166,11 +169,11 @@
     <p>Just The News Please. Hold The Drama.</p>
   </div>
 
-  <!-- Logo row: new_logo centered, DFC logo right -->
-  <div class="logo-row">
-    <img src="new_logo.png" alt="Site Logo" class="logo" />
-    <img src="DFC.png" alt="DFC logo" class="logo-right" />
-  </div>
+<!-- Centered logo container -->
+<div class="logo-container">
+  <img src="new_logo.png" alt="Site Logo" class="logo" />
+</div>
+
 </div>
 
 
@@ -457,6 +460,7 @@
 
 </body>
 </html>
+
 
 
 
