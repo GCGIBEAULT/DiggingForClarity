@@ -122,6 +122,25 @@
   width: auto;
   opacity: 0.8;
 }
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+  font-size: 0.9em;
+  color: #666;
+  margin: 2em 1.5em;
+}
+
+.footer-logo img {
+  height: 48px;
+  width: auto;
+  opacity: 0.8;
+}
+
+.footer-text {
+  flex: 1;
+}
 
     .section {
       background-color: #f9f9f9;
@@ -440,12 +459,19 @@
 </div>
 
 </div>
-<footer style="text-align: center; font-size: 0.9em; color: #666; margin: 2em 0;">
-  © Digging For Clarity 2025. All rights reserved.
+<footer class="footer-container">
+  <div class="footer-logo">
+    <img src="DFC.png" alt="DFC logo" class="logo-small" />
+  </div>
+  <div class="footer-text">
+    © Digging For Clarity 2025. All rights reserved.
+  </div>
 </footer>
+
 
 </body>
 </html>
+
 
 
 
