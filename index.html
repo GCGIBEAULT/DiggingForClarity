@@ -132,17 +132,43 @@
     .snippet {
       margin-bottom: 0.5em;
     }
+    .logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.logo-main {
+  height: 160px;
+  width: auto;
+}
+
+.logo-dfc {
+  height: 160px;
+  width: auto;
+}
+
   </style>
 </head>
 <body>
-  <div class="header-container">
-  <!-- Editorial box -->
+ <div class="header-container">
+  <!-- Centered logo row -->
+  <div class="logo-row">
+    <img src="new_logo.png" alt="Site Logo" class="logo-main" />
+    <img src="DFC.png" alt="DFC logo" class="logo-dfc" />
+  </div>
+
+  <!-- Editorial box below logos -->
   <div class="editorial-box">
     <p class="editorial-cue">Clarity over chaos. Today’s lens: resilience and reform.</p>
     <h1>Digging For Clarity</h1>
     <p><strong>Friday, August 8, 2025 – 10:28 AM MDT</strong></p>
     <p>Just The News Please. Hold The Drama.</p>
   </div>
+</div>
+
 
   <!-- DFC logo centered and enlarged -->
   <div class="logo-wrapper">
@@ -436,6 +462,7 @@
 
 </body>
 </html>
+
 
 
 
