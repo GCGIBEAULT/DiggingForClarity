@@ -286,7 +286,10 @@ need more
       color: #222;
       margin-top: 0.6em;
     }
-   
+ .hidden {
+  display: none;
+}
+  
 }
 
   </style>
@@ -324,14 +327,11 @@ need more
  
 </div>
 
-<div class="section">
+<div class="section hidden">
   <h2>Local Weather</h2>
-.hidden {
-  display: none;
-}
+  <div class="main-weather-block">...</div>
+</div>
 
-
-    <div class="main-weather-block">
       <div class="snippet"><strong>Now:</strong> 85°F (Feels like 91°) — Mostly cloudy skies</div>
       <div class="snippet">Humidity: 16% | Wind: 4 mph S | Visibility: 9.9 mi</div>
       <div class="snippet">Air Quality: 45 (Good) | UV Index: 1 (Low)</div>
@@ -750,6 +750,7 @@ need more
 
 
 </html>
+
 
 
 
