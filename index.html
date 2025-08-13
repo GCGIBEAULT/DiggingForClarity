@@ -689,7 +689,45 @@ need more
     updateTimestamp();
   };
 </script>
-  
+ <script>
+  function loadWeatherBlock() {
+    const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+    const weatherPath = `blocks/${location}/Weather.html`;
+
+    fetch(weatherPath)
+      .then(response => {
+        if (!response.ok) throw new Error("Weather block not found");
+        return response.text();
+      })
+      .then(html => {
+        document.querySelector(".local-weather-container").innerHTML = html;
+      })
+      .catch(() => {
+        document.querySelector(".local-weather-container").innerHTML = `
+          <div class="main-weather-block">
+            <div class="snippet"><strong>Now:</strong> 85°F — Mostly cloudy skies</div>
+            <div class="snippet">Humidity: 16% | Wind: 4 mph S | Visibility: 9.9 mi</div>
+            <div class="snippet">Air Quality: 45 (Good) | UV Index: 1 (Low)</div>
+            <div class="snippet"><strong>Sunrise:</strong> 6:12 AM</div>
+            <div class="snippet"><strong>Sunset:</strong> 8:12 PM</div>
+            <div class="snippet"><strong>Tip:</strong> Light layers recommended; stay hydrated</div>
+          </div>
+          <div class="right-weather-box">
+            <div class="snippet"><strong>Local Forecast:</strong> Mostly cloudy skies, light southern breeze.</div>
+            <div class="snippet"><strong>Live Radar:</strong> <a href="https://weather.com/weather/radar" target="_blank">Track conditions in real time</a></div>
+            <div class="snippet"><strong>Local Impact:</strong> Dry air and low humidity raise wildfire risk in foothills.</div>
+            <div class="snippet"><strong>More Weather Tools:</strong> <a href="https://weather.com/" target="_blank">The Weather Channel</a></div>
+          </div>
+        `;
+      });
+  }
+
+  window.onload = function() {
+    updateTimestamp();
+    loadWeatherBlock();
+  };
+</script>
+ 
 <footer class="footer-container" style="display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
   <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
   <span>© Digging For Clarity 2025. All rights reserved.</span>
@@ -700,6 +738,7 @@ need more
 
 
 </html>
+
 
 
 
