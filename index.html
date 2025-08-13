@@ -293,7 +293,8 @@ need more
  <div class="editorial-box">
   <section class="editorial-header">
     <h1 class="site-title">Digging For Clarity</h1>
-    <p class="timestamp">Friday, August 8, 2025 – 10:28 AM MDT</p>
+  <p class="timestamp">Loading local time…</p>
+
     <p class="header-tagline" style="font-size: 1.6rem; font-weight: 600; font-family: 'Merriweather', serif; text-align: center; color: #222; margin: 1em 0 0.5em 0;">Just The News Please. Hold The Drama.</p>
   </section>
 <div class="quiet-settings-box">
@@ -655,6 +656,40 @@ need more
 </div>
 
 </div>
+<script>
+  const cityTimezones = {
+    "denver": "America/Denver",
+    "provo": "America/Denver",
+    "miami": "America/New_York",
+    "san diego": "America/Los_Angeles",
+    "new york": "America/New_York",
+    "chicago": "America/Chicago",
+    "tokyo": "Asia/Tokyo",
+    "paris": "Europe/Paris",
+    "cairo": "Africa/Cairo",
+    "london": "Europe/London"
+    // Add more cities as needed
+  };
+
+  function updateTimestamp() {
+    const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+    const timezone = cityTimezones[location] || "America/Denver";
+
+    const now = new Date();
+    const options = {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', timeZone: timezone, timeZoneName: 'short'
+    };
+    const formatted = new Intl.DateTimeFormat('en-US', options).format(now);
+
+    document.querySelector(".timestamp").textContent = formatted;
+  }
+
+  window.onload = function() {
+    updateTimestamp();
+  };
+</script>
+  
 <footer class="footer-container" style="display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
   <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
   <span>© Digging For Clarity 2025. All rights reserved.</span>
@@ -665,6 +700,7 @@ need more
 
 
 </html>
+
 
 
 
