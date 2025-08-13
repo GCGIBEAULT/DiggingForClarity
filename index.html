@@ -712,7 +712,9 @@ need more
         return response.text();
       })
       .then(html => {
-        document.querySelector(".local-weather-container").innerHTML = html;
+       document.querySelector(".section").classList.remove("hidden");
+ document.querySelector(".local-weather-container").innerHTML = html;
+        
       })
       .catch(() => {
         document.querySelector(".local-weather-container").innerHTML = `
@@ -750,6 +752,7 @@ need more
 
 
 </html>
+
 
 
 
