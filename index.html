@@ -250,11 +250,10 @@ need more
 }
 <div class="quiet-settings-box">
   <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
-  <div style="margin-top:8px;">
+  <div style="text-align:center; margin-top:8px;">
     <label for="zipInput">Zip:</label>
-    <input type="text" id="zipInput" maxlength="5" style="width:60px; margin-right:12px;">
-    
-    <label for="langSelect">Lang:</label>
+    <input type="text" id="zipInput" maxlength="5" style="width:60px;">
+    <label for="langSelect" style="margin-left:12px;">Lang:</label>
     <select id="langSelect" style="width:80px;">
       <option value="">—</option>
       <option value="en">EN</option>
@@ -265,12 +264,11 @@ need more
       <option value="ja">JA</option>
       <option value="ru">RU</option>
     </select>
-    
-    <div style="margin-top:10px;">
-      <button onclick="lockLocation()">Set</button>
-      <button onclick="location.reload()" style="margin-left:12px;">Ref</button>
-    </div>
+    <button onclick="lockLocation()" style="margin-left:12px;">Set</button>
+    <button onclick="location.reload()" style="margin-left:12px;">Ref</button>
   </div>
+</div>
+
 </div>
 
 
@@ -758,6 +756,7 @@ function lockLocation() {
 
 
 </html>
+
 
 
 
