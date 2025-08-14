@@ -638,14 +638,23 @@ need more
     </div>
   </div>
 <script>
-function lockLocation() {
- const lang = document.getElementById("langSelect").value;
+<script>
+  function lockLocation() {
+    const zip = document.getElementById("zipInput").value.trim();
+    const lang = document.getElementById("langSelect").value;
 
-  const lang = document.getElementById("langInput").value.trim();
-  if (zip) localStorage.setItem("userLocation", zip.toLowerCase());
-  if (lang) localStorage.setItem("userLanguage", lang.toLowerCase());
-  location.reload();
-}
+    if (zip.length === 5 && /^\d+$/.test(zip)) {
+      localStorage.setItem("userZip", zip);
+    }
+
+    if (lang !== "") {
+      localStorage.setItem("userLang", lang);
+    }
+
+    location.reload();
+  }
+</script>
+
 </script>
 
 </div>
@@ -756,6 +765,7 @@ function lockLocation() {
 
 
 </html>
+
 
 
 
