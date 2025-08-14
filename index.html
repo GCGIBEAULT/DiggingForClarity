@@ -249,17 +249,8 @@ need more
 
 }
 
-  window.addEventListener("DOMContentLoaded", () => {
-    const savedLang = localStorage.getItem("userLang");
-    if (savedLang) {
-      document.getElementById("langSelect").value = savedLang;
-    }
 
-    const savedZip = localStorage.getItem("userZip");
-    if (savedZip) {
-      document.getElementById("zipInput").value = savedZip;
-    }
-  });
+    
 </script>
 
 </div>
@@ -646,23 +637,7 @@ need more
 
     location.reload();
   }
-</script>
 
-  function lockLocation() {
-    const zip = document.getElementById("zipInput").value.trim();
-    const lang = document.getElementById("langSelect").value;
-
-    if (zip.length === 5 && /^\d+$/.test(zip)) {
-      localStorage.setItem("userZip", zip);
-    }
-
-    if (lang !== "") {
-      localStorage.setItem("userLang", lang);
-    }
-
-    location.reload();
-  }
-</script>
 
 </script>
 
@@ -798,6 +773,7 @@ need more
 
 
 </html>
+
 
 
 
