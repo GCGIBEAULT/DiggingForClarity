@@ -248,27 +248,7 @@ need more
  
 
 }
-<div class="quiet-settings-box">
-  <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
-  <div style="text-align:center; margin-top:8px;">
-    <label for="zipInput">Zip:</label>
-    <input type="text" id="zipInput" maxlength="5" style="width:60px;">
-    <label for="langSelect" style="margin-left:12px;">Lang:</label>
-    <select id="langSelect" style="width:80px;">
-      <option value="">—</option>
-      <option value="en">EN</option>
-      <option value="es">ES</option>
-      <option value="fr">FR</option>
-      <option value="de">DE</option>
-      <option value="zh">ZH</option>
-      <option value="ja">JA</option>
-      <option value="ru">RU</option>
-    </select>
-    <button onclick="lockLocation()" style="margin-left:12px;">Set</button>
-    <button onclick="location.reload()" style="margin-left:12px;">Ref</button>
-  </div>
-</div>
-<script>
+
   window.addEventListener("DOMContentLoaded", () => {
     const savedLang = localStorage.getItem("userLang");
     if (savedLang) {
@@ -668,6 +648,22 @@ need more
   }
 </script>
 
+  function lockLocation() {
+    const zip = document.getElementById("zipInput").value.trim();
+    const lang = document.getElementById("langSelect").value;
+
+    if (zip.length === 5 && /^\d+$/.test(zip)) {
+      localStorage.setItem("userZip", zip);
+    }
+
+    if (lang !== "") {
+      localStorage.setItem("userLang", lang);
+    }
+
+    location.reload();
+  }
+</script>
+
 </script>
 
 </div>
@@ -778,6 +774,7 @@ need more
 
 
 </html>
+
 
 
 
