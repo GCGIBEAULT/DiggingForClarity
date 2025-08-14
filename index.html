@@ -268,6 +268,19 @@ need more
     <button onclick="location.reload()" style="margin-left:12px;">Ref</button>
   </div>
 </div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedLang = localStorage.getItem("userLang");
+    if (savedLang) {
+      document.getElementById("langSelect").value = savedLang;
+    }
+
+    const savedZip = localStorage.getItem("userZip");
+    if (savedZip) {
+      document.getElementById("zipInput").value = savedZip;
+    }
+  });
+</script>
 
 </div>
 
@@ -765,6 +778,7 @@ need more
 
 
 </html>
+
 
 
 
