@@ -245,12 +245,20 @@ need more
       text-align: center;
       margin: 2.5em 0 1.5em 0;
     }
-   .quiet-settings-box {
-  font-size: 0.9em;
-  padding: 10px 14px;
-  margin: 12px 0;
-  background-color: #f9f9f9;
-  border-bottom: 1px solid #ccc;
+  <div class="quiet-settings-box">
+  <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
+  <div style="text-align:center; margin-top:8px;">
+    <label for="zipInput">Zip:</label>
+    <input type="text" id="zipInput" maxlength="5" style="width:60px;">
+    
+    <label for="langInput" style="margin-left:12px;">Lang:</label>
+    <input type="text" id="langInput" maxlength="2" style="width:40px;">
+    
+    <button onclick="lockLocation()" style="margin-left:12px;">Set</button>
+    <button onclick="location.reload()" style="margin-left:12px;">Ref</button>
+  </div>
+</div>
+
 }
 .quiet-settings-box h3 {
   font-size: 1em;
@@ -622,6 +630,15 @@ need more
       <div class="snippet"><a href="https://www.twitter.com" target="_blank">X</a></div>
     </div>
   </div>
+<script>
+function lockLocation() {
+  const zip = document.getElementById("zipInput").value.trim();
+  const lang = document.getElementById("langInput").value.trim();
+  if (zip) localStorage.setItem("userLocation", zip.toLowerCase());
+  if (lang) localStorage.setItem("userLanguage", lang.toLowerCase());
+  location.reload();
+}
+</script>
 
 </div>
 
@@ -731,6 +748,7 @@ need more
 
 
 </html>
+
 
 
 
