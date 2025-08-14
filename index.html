@@ -260,10 +260,18 @@ need more
 </div>
 
 }
-.quiet-settings-box h3 {
-  font-size: 1em;
-  margin: 0;
-  color: #333;
+<div class="quiet-settings-box">
+  <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
+  <div style="text-align:center; margin-top:8px;">
+    <label for="zipInput">Zip:</label>
+    <input type="text" id="zipInput" maxlength="5" style="width:60px;">
+    <label for="langInput" style="margin-left:12px;">Lang:</label>
+    <input type="text" id="langInput" maxlength="2" style="width:40px;">
+    <button onclick="lockLocation()" style="margin-left:12px;">Set</button>
+    <button onclick="location.reload()" style="margin-left:12px;">Ref</button>
+  </div>
+</div>
+
 }
  
 
@@ -759,6 +767,7 @@ function lockLocation() {
 
 
 </html>
+
 
 
 
