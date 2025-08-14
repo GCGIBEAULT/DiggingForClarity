@@ -763,7 +763,31 @@ need more
     loadWeatherBlock();
   };
 </script>
- 
+ <div class="quiet-settings-box" style="margin: 2em 1.5em;">
+  <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
+  <div style="margin-top:8px;">
+    <label for="zipInput">Zip:</label>
+    <input type="text" id="zipInput" maxlength="5" style="width:60px; margin-right:12px;">
+    
+    <label for="langSelect">Lang:</label>
+    <select id="langSelect" style="width:80px;">
+      <option value="">—</option>
+      <option value="en">EN</option>
+      <option value="es">ES</option>
+      <option value="fr">FR</option>
+      <option value="de">DE</option>
+      <option value="zh">ZH</option>
+      <option value="ja">JA</option>
+      <option value="ru">RU</option>
+    </select>
+    
+    <div style="margin-top:10px;">
+      <button onclick="lockLocation()">Set</button>
+      <button onclick="location.reload()" style="margin-left:12px;">Ref</button>
+    </div>
+  </div>
+</div>
+
 <footer class="footer-container" style="display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
   <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
   <span>© Digging For Clarity 2025. All rights reserved.</span>
@@ -774,6 +798,7 @@ need more
 
 
 </html>
+
 
 
 
