@@ -279,6 +279,14 @@ need more
       color: #444;
       margin-bottom: 0.6em;
     }
+.timestamp {
+  opacity: 0;
+  transition: opacity 0.6s ease-in;
+}
+
+.timestamp.visible {
+  opacity: 1;
+}
 
     .editorial-cue {
       font-size: 1.8rem;
@@ -691,7 +699,10 @@ need more
     };
     const formatted = new Intl.DateTimeFormat('en-US', options).format(now);
 
-    document.querySelector(".timestamp").textContent = formatted;
+   const timestampEl = document.querySelector(".timestamp");
+timestampEl.textContent = formatted;
+timestampEl.classList.add("visible");
+
   }
 
   window.onload = function() {
@@ -773,6 +784,7 @@ need more
 
 
 </html>
+
 
 
 
