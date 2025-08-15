@@ -846,12 +846,32 @@ window.onload = function() {
       });
   }
 
-  window.onload = function() {
-    updateTimestamp();
-    loadWeatherBlock();
-  };
+<script>
+document.querySelectorAll('.prompt-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const section = this.closest('.section');
+    const pool = section.dataset.extraStories?.split('|') || [];
+    const maxToLoad = 7;
+    const toLoad = pool.splice(0, maxToLoad);
+
+    toLoad.forEach(text => {
+      const div = document.createElement('div');
+      div.className = 'snippet';
+      div.textContent = text;
+      section.insertBefore(div, section.querySelector('.more-news-prompt'));
+    });
+
+    section.dataset.extraStories = pool.join('|');
+
+    if (pool.length === 0) {
+      this.remove();
+      window.location.href = '#top';
+    }
+  });
+});
 </script>
- 
+
 <footer class="footer-container" style="display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
   <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
   <span>© Digging For Clarity 2025. All rights reserved.</span>
@@ -862,6 +882,7 @@ window.onload = function() {
 
 
 </html>
+
 
 
 
