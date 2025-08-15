@@ -10,6 +10,7 @@
 
 
 
+
 <!DOCTYPE html>
 <!-- === CSS INDEX ===
 1. Header Container
@@ -37,17 +38,6 @@
 <meta name="twitter:title" content="Digging For Clarity">
 <meta name="twitter:description" content="Drama-free news and weather, built for trust and clarity.">
 <meta name="twitter:image" content="https://gcgibeault.github.io/DiggingForClarity/new_logo.png">
-<style>
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .section {
-    padding: 0.5rem;
-  }
-</style>
 
 <!-- Structured Data (JSON-LD) -->
 <script type="application/ld+json">
@@ -64,17 +54,6 @@
   "description": "Drama-free news, weather, and community updates with editorial clarity and modular trust."
 }
 </script>
-<style>
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .section {
-    padding: 0.5rem;
-  }
-</style>
 
 <html lang="en">
 <head>
@@ -170,7 +149,11 @@ need more
 }
 
 
-
+.editorial-cue {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 0.5em;
+}
 
 .logo-wrapper {
   flex: 1;
@@ -263,17 +246,17 @@ need more
       text-align: center;
       margin: 2.5em 0 1.5em 0;
     }
- 
-
+   .quiet-settings-box {
+  font-size: 0.9em;
+  padding: 10px 14px;
+  margin: 12px 0;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ccc;
 }
-
-
-    
-</script>
-
-</div>
-
-
+.quiet-settings-box h3 {
+  font-size: 1em;
+  margin: 0;
+  color: #333;
 }
  
 
@@ -297,14 +280,6 @@ need more
       color: #444;
       margin-bottom: 0.6em;
     }
-.timestamp {
-  opacity: 0;
-  transition: opacity 0.6s ease-in;
-}
-
-.timestamp.visible {
-  opacity: 1;
-}
 
     .editorial-cue {
       font-size: 1.8rem;
@@ -331,8 +306,9 @@ need more
 
     <p class="header-tagline" style="font-size: 1.6rem; font-weight: 600; font-family: 'Merriweather', serif; text-align: center; color: #222; margin: 1em 0 0.5em 0;">Just The News Please. Hold The Drama.</p>
   </section>
-
-
+<div class="quiet-settings-box">
+  <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
+</div>
 
 
 
@@ -389,97 +365,110 @@ need more
 
 
  
-
-
-
- <div class="grid">
+<!-<!-- Unified Grid Block -->
 <div class="grid">
- <div class="grid">
+  <!-- Headline A: Weather -->
   <div class="section">
     <h3>Local Weather</h3>
-    <!-- weather snippets -->
+
+    <div class="snippet">
+      <strong>Now:</strong> 72°F — Light rain<br>
+      Humidity: 88% | Wind: 6 mph NE<br>
+      Air Quality: 55 (Moderate)<br>
+      <br>
+    
+      Sunrise: 6:18 AM | Sunset: 8:04 PM<br>
+  <br>
+      Forecast: Light rain through afternoon, clearing by evening<br>
+      Impact: Wet roads and reduced visibility in foothills<br>
+      Tip: Bring an umbrella and wear light layers
+    </div>
   </div>
-  <div class="section">
-    <h3>Traffic Update</h3>
-    <!-- traffic snippets -->
-  </div>
+
+<div class="section">
+  <h3>Traffic Update</h3>
+  <div class="snippet">I-25 slow near downtown due to rain</div>
+  <div class="snippet">US-36 westbound: minor delays near Federal Blvd</div>
+  <div class="snippet">C-470: clear conditions, no incidents reported</div>
+  <div class="snippet"><strong>Tip:</strong> Allow extra time for foothill routes and watch for hydroplaning</div>
 </div>
 
 
-<div class="grid">
+  <!-- Denver News -->
   <div class="section">
     <h3>Denver News</h3>
-    <ul>
-      <li>Mayor announces new water conservation plan.</li>
-      <li>RTD expands weekend light rail service.</li>
-      <li>Denver Public Schools update fall curriculum.</li>
-    </ul>
+    <div class="snippet">• BNSF rail worker loses leg after train derailment; NTSB investigation underway.</div>
+    <div class="snippet">• City employees to receive layoff notices starting August 18 amid $50M budget deficit.</div>
+    <div class="snippet">• Four injured in separate overnight shootings; police seek public tips.</div>
+    <div class="snippet">• Savannah Bananas bring viral baseball chaos to Coors Field this weekend.</div>
+    <div class="snippet">• Toro Co.’s R&D site north of Denver sells for $11.4M; Owl Offroad remains tenant.</div>
+    <div class="snippet">• RiNo Art District turns to pop-up shops to fill storefronts and support local artists.</div>
+    <div class="snippet">• Mayor Johnston defends bond proposal while layoffs loom; voters to decide in November.</div>
   </div>
 
+  <!-- Colorado News -->
   <div class="section">
     <h3>Colorado News</h3>
-    <ul>
-      <li>Wildfire containment reaches 80% in Boulder County.</li>
-      <li>State legislature debates new housing bill.</li>
-      <li>Colorado Parks launch fall trail cleanup initiative.</li>
-    </ul>
+    <div class="snippet">• Colorado Parks & Wildlife confirms mountain lion sighting near Golden; trail advisories issued.</div>
+    <div class="snippet">• Denver Water launches drought resilience initiative with $20M infrastructure upgrade.</div>
+    <div class="snippet">• State legislature debates new wildfire insurance fund for high-risk zones.</div>
+    <div class="snippet">• Colorado Springs airport sees record passenger traffic in July.</div>
+    <div class="snippet">• Fort Collins pilot program tests electric snowplows ahead of winter season.</div>
+    <div class="snippet">• Western Slope farmers report crop damage from unexpected August hailstorm.</div>
+    <div class="snippet">• Aurora expands mental health crisis response teams citywide.</div>
   </div>
-</div>
 
-<div class="grid">
+  <!-- National News -->
   <div class="section">
     <h3>National News</h3>
-    <ul>
-      <li>Tropical Storm Kendra strengthens off Gulf Coast.</li>
-      <li>Senate passes bipartisan wildfire relief bill.</li>
-      <li>NASA confirms Artemis III lunar cargo launch.</li>
-      <li>FTC investigates major grocery merger.</li>
-      <li>IRS expands free e-file pilot to 13 states.</li>
-      <li>DOJ investigates AI bias in hiring tools.</li>
-      <li>Social Security COLA forecast revised to 3.2%.</li>
-    </ul>
+    <div class="snippet">• Tropical Storm Kendra strengthens off Gulf Coast.</div>
+    <div class="snippet">• Senate passes bipartisan wildfire relief bill.</div>
+    <div class="snippet">• NASA confirms Artemis III lunar cargo launch.</div>
+    <div class="snippet">• FTC investigates major grocery merger.</div>
+    <div class="snippet">• IRS expands free e-file pilot to 13 states.</div>
+    <div class="snippet">• DOJ investigates AI bias in hiring tools.</div>
+    <div class="snippet">• Social Security COLA forecast revised to 3.2%.</div>
   </div>
 
+  <!-- Federal News -->
   <div class="section">
     <h3>Federal News</h3>
-    <ul>
-      <li>IRS expands free e-file pilot to 13 states.</li>
-      <li>DOJ investigates AI bias in hiring tools.</li>
-      <li>Social Security COLA forecast revised to 3.2%.</li>
-      <li>Senate committee advances privacy legislation.</li>
-      <li>FTC investigates major grocery merger.</li>
-      <li>Senate passes bipartisan wildfire relief bill.</li>
-      <li>NASA confirms Artemis III lunar cargo launch.</li>
-    </ul>
+    <div class="snippet">• IRS expands free e-file pilot to 13 states.</div>
+    <div class="snippet">• DOJ investigates AI bias in hiring tools.</div>
+    <div class="snippet">• Social Security COLA forecast revised to 3.2%.</div>
+    <div class="snippet">• Senate committee advances privacy legislation.</div>
+    <div class="snippet">• FTC investigates major grocery merger.</div>
+    <div class="snippet">• Senate passes bipartisan wildfire relief bill.</div>
+    <div class="snippet">• NASA confirms Artemis III lunar cargo launch.</div>
   </div>
-</div>
 
-<div class="grid">
+  <!-- World News -->
   <div class="section">
     <h3>World News</h3>
-    <ul>
-      <li>Ukraine war enters 3rd year as peace talks stall.</li>
-      <li>Gaza ceasefire collapses amid renewed clashes.</li>
-      <li>UN calls emergency session over Sudan conflict.</li>
-      <li>Japan commemorates Hiroshima anniversary.</li>
-      <li>EU proposes new AI transparency regulations.</li>
-      <li>Global heatwave triggers emergency alerts across Europe and Asia.</li>
-      <li>WHO monitors new respiratory virus clusters in Southeast Asia.</li>
-    </ul>
+    <div class="snippet">• Ukraine war enters 3rd year as peace talks stall.</div>
+    <div class="snippet">• Gaza ceasefire collapses amid renewed clashes.</div>
+    <div class="snippet">• UN calls emergency session over Sudan conflict.</div>
+    <div class="snippet">• Japan commemorates Hiroshima anniversary.</div>
+    <div class="snippet">• EU proposes new AI transparency regulations.</div>
+    <div class="snippet">• Global heatwave triggers emergency alerts across Europe and Asia.</div>
+    <div class="snippet">• WHO monitors new respiratory virus clusters in Southeast Asia.</div>
   </div>
 
+  <!-- Market Watch -->
   <div class="section">
     <h3>Market Watch</h3>
-    <ul>
-      <li>Dow closes up 240 points amid tech rally.</li>
-      <li>Oil prices dip as global demand outlook softens.</li>
-      <li>Federal Reserve signals cautious rate stance.</li>
-      <li>Gold hits 3-month high on inflation concerns.</li>
-      <li>Crypto markets rebound after regulatory update.</li>
-    </ul>
+    <div class="snippet">Dow Jones: 44,175.61 (+206.97 / +0.47%)</div>
+    <div class="snippet">NASDAQ: 21,450.02 (+207.33 / +0.98%)</div>
+    <div class="snippet">Stock Symbol: Enter ticker (e.g. AAPL)</div>
+    <div class="snippet">Dollar-cost averaging</div>
+    <div class="snippet">Compound interest</div>
+    <div class="snippet">ETF basics</div>
+    <div class="snippet">Diversification</div>
+    <div class="snippet">Roth IRA</div>
+    <div class="snippet">P/E Ratio</div>
+    <div class="snippet">Risk reminder</div>
   </div>
 </div>
-
 
   </div>
 </div>
@@ -632,25 +621,6 @@ need more
       <div class="snippet"><a href="https://www.twitter.com" target="_blank">X</a></div>
     </div>
   </div>
-<script>
-<script>
-  function lockLocation() {
-    const zip = document.getElementById("zipInput").value.trim();
-    const lang = document.getElementById("langSelect").value;
-
-    if (zip.length === 5 && /^\d+$/.test(zip)) {
-      localStorage.setItem("userZip", zip);
-    }
-
-    if (lang !== "") {
-      localStorage.setItem("userLang", lang);
-    }
-
-    location.reload();
-  }
-
-
-</script>
 
 </div>
 
@@ -702,10 +672,7 @@ need more
     };
     const formatted = new Intl.DateTimeFormat('en-US', options).format(now);
 
-   const timestampEl = document.querySelector(".timestamp");
-timestampEl.textContent = formatted;
-timestampEl.classList.add("visible");
-
+    document.querySelector(".timestamp").textContent = formatted;
   }
 
   window.onload = function() {
@@ -752,31 +719,7 @@ timestampEl.classList.add("visible");
     loadWeatherBlock();
   };
 </script>
- <div class="quiet-settings-box" style="margin: 2em 1.5em;">
-  <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
-  <div style="margin-top:8px;">
-    <label for="zipInput">Zip:</label>
-    <input type="text" id="zipInput" maxlength="5" style="width:60px; margin-right:12px;">
-    
-    <label for="langSelect">Lang:</label>
-    <select id="langSelect" style="width:80px;">
-      <option value="">—</option>
-      <option value="en">EN</option>
-      <option value="es">ES</option>
-      <option value="fr">FR</option>
-      <option value="de">DE</option>
-      <option value="zh">ZH</option>
-      <option value="ja">JA</option>
-      <option value="ru">RU</option>
-    </select>
-    
-    <div style="margin-top:10px;">
-      <button onclick="lockLocation()">Set</button>
-      <button onclick="location.reload()" style="margin-left:12px;">Ref</button>
-    </div>
-  </div>
-</div>
-
+ 
 <footer class="footer-container" style="display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
   <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
   <span>© Digging For Clarity 2025. All rights reserved.</span>
@@ -787,34 +730,6 @@ timestampEl.classList.add("visible");
 
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
