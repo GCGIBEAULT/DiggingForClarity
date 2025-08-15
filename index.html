@@ -717,6 +717,57 @@ need more
     updateTimestamp();
   };
 </script>
+  <script>
+window.onload = function() {
+  updateTimestamp();
+  loadWeatherBlock();
+};
+</script>
+
+<script>
+function loadTrafficLink() {
+  const zip = localStorage.getItem("userZip") || "";
+  const localTrafficLinks = {
+    "84604": "https://commuterlink.utah.gov/",
+    "80203": "https://dtdapps.coloradodot.info/otis",
+    "33101": "https://www.fl511.com/"
+    // Add more ZIPs manually if desired
+  };
+
+  const localLink = localTrafficLinks[zip];
+  const fallbackLink = "https://www.google.com/maps/@?hl=en&tbm=map";
+
+  const trafficSections = document.querySelectorAll("h3");
+  trafficSections.forEach(h3 => {
+    if (h3.textContent.includes("Traffic Update")) {
+      const section = h3.parentElement;
+
+      // Always show Google Maps
+      const mapsDiv = document.createElement("div");
+      mapsDiv.className = "snippet";
+      mapsDiv.style.marginTop = "0.75em";
+      mapsDiv.innerHTML = `<a href="${fallbackLink}" target="_blank" style="color: #3366cc; text-decoration: underline;">Google Maps Traffic</a>`;
+      section.appendChild(mapsDiv);
+
+      // Only show local commuter link if ZIP matches
+      if (localLink) {
+        const localDiv = document.createElement("div");
+        localDiv.className = "snippet";
+        localDiv.style.marginTop = "0.25em";
+        localDiv.innerHTML = `<a href="${localLink}" target="_blank" style="color: #3366cc; text-decoration: underline;">Local Commuter Traffic</a>`;
+        section.appendChild(localDiv);
+      }
+    }
+  });
+}
+
+window.onload = function() {
+  updateTimestamp();
+  loadWeatherBlock();
+  loadTrafficLink();
+};
+</script>
+
  <script>
   function loadWeatherBlock() {
     const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
@@ -768,6 +819,7 @@ need more
 
 
 </html>
+
 
 
 
