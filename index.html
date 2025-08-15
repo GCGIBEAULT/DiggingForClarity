@@ -336,7 +336,29 @@ need more
   </section>
 <div class="quiet-settings-box">
   <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
+  <div style="display: flex; flex-wrap: wrap; gap: 0.5em; align-items: center;">
+    <input type="text" id="zipInput" placeholder="ZIP Code" style="padding: 6px; font-size: 0.9em; width: 100px;">
+    <select id="languageSelect" style="padding: 6px; font-size: 0.9em;">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="fr">Français</option>
+      <option value="ja">日本語</option>
+    </select>
+    <button onclick="setPreferences()" style="padding: 6px 10px; font-size: 0.9em;">Set</button>
+    <button onclick="location.reload()" style="padding: 6px 10px; font-size: 0.9em;">Refresh</button>
+  </div>
 </div>
+<script>
+  function setPreferences() {
+    const zip = document.getElementById("zipInput").value;
+    const lang = document.getElementById("languageSelect").value;
+    if (zip) localStorage.setItem("userZip", zip);
+    if (lang) localStorage.setItem("userLang", lang);
+    alert("Preferences saved. Click Refresh to apply.");
+  }
+</script>
+   
+
 
 
 
@@ -826,6 +848,7 @@ window.onload = function() {
 
 
 </html>
+
 
 
 
