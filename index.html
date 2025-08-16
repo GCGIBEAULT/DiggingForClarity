@@ -551,6 +551,7 @@ need more
 
   <!-- Market Watch Block -->
 <!-- Market Watch Block -->
+<!-- Market Watch Block -->
 <div class="grid">
   <div class="section" style="grid-column: span 2;">
     <h3>Market Watch</h3>
@@ -571,9 +572,25 @@ need more
         </a>: 23,712.07 <span style="color: red;">−120.37 (−0.51%)</span>
       </li>
     </ul>
-    
+
+    <!-- Stock Lookup Prompt -->
+    <div style="margin-top: 1em;">
+      <label for="stockSearch" style="font-weight: bold;">🔍 Look up a stock, ETF, or mutual fund:</label><br>
+      <input type="text" id="stockSearch" placeholder="Enter ticker symbol (e.g., AAPL)" style="padding: 6px; font-size: 0.9em; width: 220px;">
+      <button onclick="lookupStock()" style="padding: 6px 10px; font-size: 0.9em;">Go</button>
+    </div>
   </div>
 </div>
+
+<script>
+  function lookupStock() {
+    const symbol = document.getElementById("stockSearch").value.trim().toUpperCase();
+    if (symbol) {
+      window.open(`https://finance.yahoo.com/quote/${symbol}`, "_blank");
+    }
+  }
+</script>
+
 
 
 
@@ -910,6 +927,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
