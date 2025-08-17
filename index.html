@@ -279,6 +279,15 @@ need more
   .grid {
     grid-template-columns: 1fr;
   }
+.qr-code-block {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .qr-code-block {
+    display: none;
+  }
+}
 
   .section {
     margin: 0.5em 0;
@@ -992,6 +1001,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
