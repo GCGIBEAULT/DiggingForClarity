@@ -373,12 +373,19 @@ need more
   <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
   <div style="display: flex; flex-wrap: wrap; gap: 0.5em; align-items: center;">
     <input type="text" id="zipInput" placeholder="ZIP Code" style="padding: 6px; font-size: 0.9em; width: 100px;">
-    <select id="languageSelect" style="padding: 6px; font-size: 0.9em;">
-      <option value="en">English</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
-      <option value="ja">日本語</option>
-    </select>
+   <select id="languageSelect" style="padding: 6px; font-size: 0.9em;">
+  <option value="en">English</option>
+  <option value="es">Español</option>
+  <option value="fr">Français</option>
+  <option value="ja">日本語</option>
+  <option value="zh">中文</option>
+  <option value="de">Deutsch</option>
+  <option value="ru">Русский</option>
+  <option value="ar">العربية</option>
+  <option value="pt">Português</option>
+  <option value="hi">हिन्दी</option>
+</select>
+
     <button onclick="setPreferences()" style="padding: 6px 10px; font-size: 0.9em;">Set</button>
     <button onclick="location.reload()" style="padding: 6px 10px; font-size: 0.9em;">Refresh</button>
   </div>
@@ -985,6 +992,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
