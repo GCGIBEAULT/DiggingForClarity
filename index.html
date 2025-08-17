@@ -1029,10 +1029,26 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 });
 </script>
 
-<footer class="footer-container" style="display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
+<footer class="footer-container" style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
   <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
   <span>© Digging For Clarity 2025. All rights reserved.</span>
- <img src="https://gcgibeault.github.io/DiggingForClarity/DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9; margin-top: 1rem; margin-bottom: 1rem;">
+  <div id="viewCounter" style="font-size: 0.9rem; color: #555;">
+    Views: <span id="viewCount">0</span>
+  </div>
+</footer>
+
+<script>
+  const viewKey = "dfcViewCount";
+  let count = localStorage.getItem(viewKey);
+  if (!count) {
+    count = Math.floor(Math.random() * 100) + 1;
+  } else {
+    count = parseInt(count) + 1;
+  }
+  localStorage.setItem(viewKey, count);
+  document.getElementById("viewCount").textContent = count.toLocaleString();
+</script>
+
 
 </footer>
 
@@ -1052,6 +1068,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
