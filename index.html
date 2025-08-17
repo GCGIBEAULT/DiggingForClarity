@@ -1030,8 +1030,10 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 </script>
 
 <footer class="footer-container" style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
-  <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
-  <span>© Digging For Clarity 2025. All rights reserved.</span>
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
+    <span>© Digging For Clarity 2025. All rights reserved.</span>
+  </div>
   <div id="viewCounter" style="font-size: 0.9rem; color: #555;">
     Views: <span id="viewCount">0</span>
   </div>
@@ -1048,6 +1050,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   localStorage.setItem(viewKey, count);
   document.getElementById("viewCount").textContent = count.toLocaleString();
 </script>
+
 
 
 </footer>
@@ -1068,6 +1071,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
