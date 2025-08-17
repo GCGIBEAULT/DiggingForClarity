@@ -1,0 +1,35 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  margin-top: 2em;
+}
+
+.section {
+  flex: 1 1 300px;
+  padding: 1em;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.snippet {
+  margin-bottom: 0.5em;
+  font-size: 0.95rem;
+}
+
+.snippet a {
+  color: #3366cc;
+  text-decoration: underline;
+}
+
+.more-news-prompt {
+  margin-top: 1em;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.prompt-link {
+  color: #3366cc;
+  text-decoration: none;
+  margin-left: 0.5em;
+}
