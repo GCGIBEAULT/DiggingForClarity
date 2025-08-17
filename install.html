@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Install Digging For Clarity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: sans-serif;
+      padding: 2em;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    .instructions {
+      margin-top: 1em;
+      padding: 1em;
+      border: 1px solid #444;
+      background-color: #222;
+    }
+  </style>
+</head>
+<body>
+  <h1>Install Digging For Clarity</h1>
+  <p>Get instant access from your home screen—no tracking, no drama.</p>
+
+  <div id="deviceInstructions" class="instructions">
+    <p>Detecting your device...</p>
+  </div>
+
+  <script>
+    function showInstructions() {
+      const ua = navigator.userAgent;
+      let html = "";
+
+      if (/Android/i.test(ua)) {
+        html = "<strong>Android (Chrome or Edge):</strong><br>Tap the ⋮ menu → 'Add to Home Screen'.";
+      } else if (/iPhone|iPad/i.test(ua)) {
+        html = "<strong>iPhone or iPad (Safari):</strong><br>Tap the Share icon → 'Add to Home Screen'.";
+      } else if (/Windows|Macintosh/i.test(ua)) {
+        html = "<strong>Laptop/Desktop (Chrome or Edge):</strong><br>Click the install icon in the address bar.";
+      } else {
+        html = "<strong>Device not recognized:</strong><br>Try using Chrome or Safari and look for 'Add to Home Screen'.";
+      }
+
+      document.getElementById("deviceInstructions").innerHTML = html;
+    }
+
+    showInstructions();
+  </script>
+</body>
+</html>
