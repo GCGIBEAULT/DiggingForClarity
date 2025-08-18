@@ -490,8 +490,26 @@ async function setPreferences() {
 <!-- Unified Grid Block -->
 <div class="section">
   <h3>Local Weather</h3>
-  <div class="local-weather-container" style="padding: 10px 0;"></div>
-</div>
+<div class="local-weather-container" style="padding: 10px 0;"></div>
+
+<script>
+function loadWeatherBlock() {
+  const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+  const weatherPath = `blocks/${location}/Weather.html`;
+  fetch(weatherPath)
+    .then(response => response.text())
+    .then(html => {
+      document.querySelector(".local-weather-container").innerHTML = html;
+    })
+    .catch(() => {
+      document.querySelector(".local-weather-container").innerHTML = `
+        <div class="snippet">Weather block not available for ZIP.</div>
+        <div class="snippet">Defaulting to Denver forecast.</div>
+      `;
+    });
+}
+loadWeatherBlock();
+</script>
 
 
 
@@ -1060,6 +1078,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
