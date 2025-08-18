@@ -33,3 +33,10 @@
   text-decoration: none;
   margin-left: 0.5em;
 }
+.smoke-watermark {
+  background-image: url('assets/weather-smoke.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 100px;
+  opacity: 0.08;
+}
