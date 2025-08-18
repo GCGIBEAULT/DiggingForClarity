@@ -993,6 +993,14 @@ window.onload = function() {
   function loadWeatherBlock() {
     const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
     const weatherPath = `blocks/${location}/Weather.html`;
+const zip = localStorage.getItem("userZip");
+let location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+
+if (zip === "42001") {
+  location = "paducah";
+}
+
+const weatherPath = `blocks/${location}/Weather.html`;
 
     fetch(weatherPath)
       .then(response => {
@@ -1078,6 +1086,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
