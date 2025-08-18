@@ -488,56 +488,27 @@ async function setPreferences() {
  
 <!-- Unified Grid Block -->
 <!-- Unified Grid Block -->
-<div class="section">
-  <h3>Local Weather</h3>
-<div class="local-weather-container" style="padding: 10px 0;"></div>
+<div id="local-info" style="display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; gap: 2em; margin-left: 0;">
+  <div id="weather-block" style="flex: 1;">
+    <h3>Local Weather</h3>
+    <p><strong>Now:</strong> 87°F — Sunny with light breeze</p>
+    <p><strong>Humidity:</strong> 62% | Wind: 6 mph SW</p>
+    <p><strong>Air Quality:</strong> 48 (Good)</p>
+    <p><strong>UV Index:</strong> 6 (Moderate)</p>
+    <p><strong>Forecast:</strong> Clear skies with patchy clouds</p>
+    <p><strong>Tip:</strong> Light layers and hydration recommended</p>
+  </div>
 
-<script>
-function loadWeatherBlock() {
-  const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
-  const weatherPath = `blocks/${location}/Weather.html`;
-  fetch(weatherPath)
-    .then(response => response.text())
-    .then(html => {
-      document.querySelector(".local-weather-container").innerHTML = html;
-    })
-    .catch(() => {
-      document.querySelector(".local-weather-container").innerHTML = `
-        <div class="snippet">Weather block not available for ZIP.</div>
-        <div class="snippet">Defaulting to Denver forecast.</div>
-      `;
-    });
-}
-loadWeatherBlock();
-</script>
-
-
-
-    </a>
+  <div id="traffic-block" style="flex: 1;">
+    <h3>Traffic Update</h3>
+    <p><strong>I-15 southbound:</strong> 8 min delay near University Parkway</p>
+    <p><strong>Center Street:</strong> lane closures through Thursday</p>
+    <p><strong>UVX bus:</strong> delays near BYU campus</p>
+    <p><strong>State Street & 500 West:</strong> signal timing adjustments</p>
+    <p><strong>FrontRunner:</strong> on schedule</p>
   </div>
 </div>
 
-
-  <div class="section">
-    <h3>Traffic Update</h3>
-    <p>I-15 southbound: 8 min delay near University Parkway.</p>
-    <p>Center Street: lane closures for utility work through Thursday.</p>
-    <p>UVX bus: expect delays due to road resurfacing near BYU campus.</p>
-    <p>State Street & 500 West: signal timing adjustments in progress.</p>
-    <p>FrontRunner: on schedule, no reported delays.</p>
-    <div class="snippet" style="margin-top: 0.75em;">
-  <a href="https://commuterlink.utah.gov/" target="_blank" style="color: #3366cc; text-decoration: underline;">
-    Utah CommuterLink
-   <div class="snippet" style="margin-top: 0.25em;">
-  <a href="https://www.google.com/maps/@?hl=en&tbm=map" target="_blank" style="color: #3366cc; text-decoration: underline;">
-    Google Maps Traffic
-
-
-
-
-
-  </a>
-</div>
  
   </a>
 </div>
@@ -1105,6 +1076,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
