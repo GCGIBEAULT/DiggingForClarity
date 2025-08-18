@@ -623,20 +623,10 @@ async function setPreferences() {
 </div> <!-- Close grid -->
 
 <div class="grid">
-  <div class="section">
-    <h3>National News</h3>
-    <div class="snippet">• FEMA deploys emergency teams to Maui as wildfires displace thousands.</div>
-    <div class="snippet">• Amtrak announces new high-speed route connecting Dallas and Houston.</div>
-    <div class="snippet">• CDC reports uptick in RSV cases across southern states; urges early precautions.</div>
-    <div class="snippet">• UPS and Teamsters finalize labor deal, averting nationwide strike.</div>
-    <div class="snippet">• NOAA revises hurricane forecast: above-average activity expected through October.</div>
-    <div class="snippet">• U.S. Postal Service pilots electric delivery vans in five major cities.</div>
-    <div class="snippet">• National Park Service warns of overcrowding at Yellowstone and Yosemite.</div>
-    <p class="more-news-prompt">
-      <em>Want more stories in this section?</em>
-      <a href="#more-news" class="prompt-link">Request more</a>
-    </p>
-  </div>
+<div class="section national-news-container">
+  <!-- National News will load here -->
+</div>
+
 
   <div class="section">
     <h3>Federal News</h3>
@@ -1084,9 +1074,36 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
  
 </span>
+<script>
+  function loadNationalNewsBlock() {
+    const zip = localStorage.getItem("userZip");
+    let newsPath;
+
+    if (zip === "42001") {
+      newsPath = "blocks/paducah/National.html";
+    } else {
+      newsPath = "blocks/national/National.html";
+    }
+
+    fetch(newsPath)
+      .then(response => response.text())
+      .then(html => {
+        const container = document.querySelector(".national-news-container");
+        if (container) container.innerHTML = html;
+      });
+  }
+
+  window.onload = function() {
+    updateTimestamp();
+    loadWeatherBlock();
+    loadTrafficLink();
+    loadNationalNewsBlock(); // ← This activates the refresh
+  };
+</script>
 
 
 </html>
+
 
 
 
