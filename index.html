@@ -1075,23 +1075,28 @@ document.querySelectorAll('.prompt-link').forEach(link => {
  
 </span>
 <script>
-  function loadNationalNewsBlock() {
-    const zip = localStorage.getItem("userZip");
-    let newsPath;
-
-    if (zip === "42001") {
-      newsPath = "blocks/paducah/National.html";
-    } else {
-      newsPath = "blocks/national/National.html";
-    }
-
-    fetch(newsPath)
+  function loadUniversalBlock(containerClass, blockPath) {
+    fetch(blockPath)
       .then(response => response.text())
       .then(html => {
-        const container = document.querySelector(".national-news-container");
+        const container = document.querySelector(containerClass);
         if (container) container.innerHTML = html;
       });
   }
+
+  window.onload = function() {
+    updateTimestamp();
+    loadWeatherBlock();
+    loadTrafficLink();
+    loadUniversalBlock(".national-news-container", "blocks/national/National.html");
+    loadUniversalBlock(".federal-news-container", "blocks/universal/Federal.html");
+    loadUniversalBlock(".world-news-container", "blocks/universal/World.html");
+    loadUniversalBlock(".market-watch-container", "blocks/universal/Market.html");
+    loadUniversalBlock(".sports-news-container", "blocks/universal/Sports.html");
+    loadUniversalBlock(".ai-news-container", "blocks/universal/AI.html");
+  };
+</script>
+
 
   window.onload = function() {
     updateTimestamp();
@@ -1103,6 +1108,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
