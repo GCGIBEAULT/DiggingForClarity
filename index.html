@@ -991,16 +991,29 @@ window.onload = function() {
 
  <script>
   function loadWeatherBlock() {
-    const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
-    const weatherPath = `blocks/${location}/Weather.html`;
-const zip = localStorage.getItem("userZip");
-let location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+   function loadWeatherBlock() {
+  const zip = localStorage.getItem("userZip");
+  let weatherPath;
 
-if (zip === "42001") {
-  weatherPath = "paducah/Weather.html";
-} else {
-  const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
-  weatherPath = `blocks/${location}/Weather.html`;
+  if (zip === "42001") {
+    weatherPath = "paducah/Weather.html";
+  } else {
+    const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+    weatherPath = `blocks/${location}/Weather.html`;
+  }
+
+  fetch(weatherPath)
+    .then(response => {
+      if (!response.ok) throw new Error("Weather block not found");
+      return response.text();
+    })
+    .then(html => {
+      const container = document.querySelector(".weather-container");
+      if (container) container.innerHTML = html;
+    })
+    .catch(error => {
+      console.error("Failed to load weather block:", error);
+    });
 }
 
 
@@ -1090,6 +1103,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
