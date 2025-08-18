@@ -1159,8 +1159,28 @@ loadUniversalBlock(".national-news-container", "blocks/universal/National.html")
   text-decoration: underline;
   color: #0044cc;
 }
+<script>
+  async function resolveCityFromZip(userInput) {
+    const response = await fetch("data/cityzip.json");
+    const zipGroups = await response.json();
+
+    const zipToCity = {};
+    for (const city in zipGroups) {
+      zipGroups[city].forEach(zip => {
+        zipToCity[zip] = city;
+      });
+    }
+
+    const input = userInput.trim();
+    const normalized = input.toLowerCase().replace(/ /g, "");
+    const city = zipToCity[normalized] || normalized;
+
+    loadBlock(`blocks/${city}/Weather.html`);
+  }
+</script>
 
 </html>
+
 
 
 
