@@ -488,27 +488,27 @@ async function setPreferences() {
  
 <!-- Unified Grid Block -->
 <!-- Unified Grid Block -->
-<div class="section">
-  <div id="local-info" style="display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; gap: 2em; margin-left: 0;">
-    <div id="weather-block" style="flex: 1;">
-      <h3>Local Weather</h3>
-      <p><strong>Now:</strong> 87°F — Sunny with light breeze</p>
-      <p><strong>Humidity:</strong> 62% | Wind: 6 mph SW</p>
-      <p><strong>Air Quality:</strong> 48 (Good)</p>
-      <p><strong>UV Index:</strong> 6 (Moderate)</p>
-      <p><strong>Forecast:</strong> Clear skies with patchy clouds</p>
-      <p><strong>Tip:</strong> Light layers and hydration recommended</p>
-    </div>
-
-    <div id="traffic-block" style="flex: 1;">
-      <h3>Traffic Update</h3>
-      <p><strong>I-15 southbound:</strong> 8 min delay near University Parkway</p>
-      <p><strong>Center Street:</strong> lane closures through Thursday</p>
-      <p><strong>UVX bus:</strong> delays near BYU campus</p>
-      <p><strong>State Street & 500 West:</strong> signal timing adjustments</p>
-      <p><strong>FrontRunner:</strong> on schedule</p>
-    </div>
+<div class="section" style="display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; gap: 2em; margin-left: 0;">
+  <div id="weather-block" style="flex: 1; background-color: #fcfcfc; padding: 1em; border-right: 1px solid #ddd;">
+    <h3>Local Weather</h3>
+    <p><strong>Now:</strong> 87°F — Sunny with light breeze</p>
+    <p><strong>Humidity:</strong> 62% | Wind: 6 mph SW</p>
+    <p><strong>Air Quality:</strong> 48 (Good)</p>
+    <p><strong>UV Index:</strong> 6 (Moderate)</p>
+    <p><strong>Forecast:</strong> Clear skies with patchy clouds</p>
+    <p><strong>Tip:</strong> Light layers and hydration recommended</p>
   </div>
+
+  <div id="traffic-block" style="flex: 1; background-color: #fcfcfc; padding: 1em;">
+    <h3>Traffic Update</h3>
+    <p><strong>I-15 southbound:</strong> 8 min delay near University Parkway</p>
+    <p><strong>Center Street:</strong> lane closures through Thursday</p>
+    <p><strong>UVX bus:</strong> delays near BYU campus</p>
+    <p><strong>State Street & 500 West:</strong> signal timing adjustments</p>
+    <p><strong>FrontRunner:</strong> on schedule</p>
+  </div>
+</div>
+
 </div>
 
 
@@ -1080,6 +1080,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
