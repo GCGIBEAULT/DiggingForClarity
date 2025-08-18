@@ -488,24 +488,8 @@ async function setPreferences() {
  
 <!-- Unified Grid Block -->
 <!-- Unified Grid Block -->
-<div class="grid">
-<div class="section">
-  <h3>Local Weather</h3>
-  <div class="snippet">Now: 72°F — Light rain</div>
-  <div class="snippet">Humidity: 88% | Wind: 6 mph NE</div>
-  <div class="snippet">Air Quality: 55 (Moderate)</div>
-  <div class="snippet">
-    Sunrise: 6:18 AM | Sunset: 8:04 PM<br><br>
-    Forecast: Light rain through afternoon, clearing by evening
-  </div>
-  <div class="snippet" style="margin-top: 1em;">Impact: Wet roads and reduced visibility in foothills</div>
-  <div class="snippet" style="margin-top: 1em;">Tip: Bring an umbrella and wear light layers</div>
-  <div class="snippet" style="margin-top: 0.75em;">
-    <a href="https://weather.com/" target="_blank" style="color: #3366cc; text-decoration: underline;">
-      The Weather Channel
-      <div class="snippet" style="margin-top: 0.25em;">
-  <a href="https://weather.com/weather/radar" target="_blank" style="color: #3366cc; text-decoration: underline;">Live Radar</a>
-</div>
+<div class="local-weather-container"></div>
+
 
     </a>
   </div>
@@ -1072,6 +1056,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
