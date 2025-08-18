@@ -488,26 +488,27 @@ async function setPreferences() {
  
 <!-- Unified Grid Block -->
 <!-- Unified Grid Block -->
-<div class="section" style="display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; gap: 2em; background-color: #f9f9f9; border: 1px solid #ccc; border-radius: 6px; padding: 1.25em; margin: 1em;">
-  <div id="weather-block" style="flex: 1; padding-right: 1em; border-right: 1px solid #ddd;">
-    <h3>Local Weather</h3>
-    <div class="snippet"><strong>Now:</strong> 87°F — Sunny with light breeze</div>
-    <div class="snippet">Humidity: 62% | Wind: 6 mph SW</div>
-    <div class="snippet">Air Quality: 48 (Good)</div>
-    <div class="snippet">UV Index: 6 (Moderate)</div>
-    <div class="snippet">Forecast: Clear skies with patchy clouds</div>
-    <div class="snippet">Tip: Light layers and hydration recommended</div>
-  </div>
-
-  <div id="traffic-block" style="flex: 1; padding-left: 1em;">
-    <h3>Traffic Update</h3>
-    <div class="snippet">I-15 southbound: 8 min delay near University Parkway</div>
-    <div class="snippet">Center Street: lane closures through Thursday</div>
-    <div class="snippet">UVX bus: delays near BYU campus</div>
-    <div class="snippet">State Street & 500 West: signal timing adjustments</div>
-    <div class="snippet">FrontRunner: on schedule</div>
+<div class="section">
+  <h3>Paducah Weather</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em;">
+    <div>
+      <div class="snippet"><strong>Now:</strong> 87°F — Sunny with light breeze</div>
+      <div class="snippet">Humidity: 62% | Wind: 6 mph SW</div>
+      <div class="snippet">Air Quality: 48 (Good)</div>
+      <div class="snippet">UV Index: 6 (Moderate)</div>
+      <div class="snippet">Forecast: Clear skies with patchy clouds</div>
+      <div class="snippet">Tip: Light layers and hydration recommended</div>
+    </div>
+    <div>
+      <div class="snippet"><strong>I-24 westbound:</strong> 6 min delay near Exit 4</div>
+      <div class="snippet">Broadway Street: lane closures through Thursday</div>
+      <div class="snippet">Transit: Paducah Area Transit buses running on time</div>
+      <div class="snippet">Jefferson & 28th: signal timing adjustments</div>
+      <div class="snippet">Rail: No disruptions reported</div>
+    </div>
   </div>
 </div>
+
 
 </div>
 
@@ -1080,6 +1081,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
