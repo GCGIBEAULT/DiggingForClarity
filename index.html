@@ -623,10 +623,30 @@ async function setPreferences() {
 </div> <!-- Close grid -->
 
 <div class="grid">
-<div class="section national-news-container">
+<div class="section national-news-container" id="national-news">
   <h3>National News</h3>
-  <!-- National News will load here -->
+  <div class="snippet">• Senate committee advances bill to expand VA mental health services</div>
+  <div class="snippet">• IRS launches taxpayer assistance centers in rural counties</div>
+  <div class="snippet">• White House proposes new cybersecurity standards for federal contractors</div>
+  <div class="snippet">• Federal Reserve signals cautious approach to future rate hikes</div>
+  <div class="snippet">• Department of Energy funds clean hydrogen pilot projects in 12 states</div>
+  <div class="snippet">• Supreme Court to hear case on digital privacy and geofence warrants</div>
+  <div class="snippet">• National Archives digitizes 10 million historical records for public access</div>
+  <button onclick="refreshNationalNews()" style="margin-top:1em;">Refresh Snippets</button>
 </div>
+
+<script>
+function refreshNationalNews() {
+  fetch("blocks/universal/National.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("national-news").innerHTML = `
+        <h3>National News</h3>` + html +
+        `<button onclick="refreshNationalNews()" style="margin-top:1em;">Refresh Snippets</button>`;
+    });
+}
+</script>
+
 
 
 
@@ -1106,6 +1126,7 @@ loadUniversalBlock(".national-news-container", "blocks/universal/National.html")
 
 i've fallen and i can't get up
 </html>
+
 
 
 
