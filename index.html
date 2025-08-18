@@ -397,7 +397,8 @@ need more
 <div class="quiet-settings-box">
   <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
   <div style="display: flex; flex-wrap: wrap; gap: 0.5em; align-items: center;">
-    <input type="text" id="zipInput" placeholder="ZIP Code" style="padding: 6px; font-size: 0.9em; width: 100px;">
+   <input type="text" id="locationInput" placeholder="Denver or 80203" style="padding: 6px; font-size: 0.9em; width: 140px;">
+
    <select id="languageSelect" style="padding: 6px; font-size: 0.9em;">
   <option value="en">English</option>
   <option value="es">Español</option>
@@ -416,24 +417,26 @@ need more
   </div>
 </div>
 <script>
-async function setPreferences() {
-  const zip = document.getElementById("zipInput").value;
-  const lang = document.getElementById("languageSelect").value;
+  async function setPreferences() {
+    const input = document.getElementById("locationInput").value.toLowerCase().replace(/ /g, "");
+    const lang = document.getElementById("languageSelect").value;
+    if (lang) localStorage.setItem("userLang", lang);
 
-  if (zip) localStorage.setItem("userZip", zip);
-  if (lang) localStorage.setItem("userLang", lang);
+    let city = input;
 
-  try {
-    const response = await fetch(`https://api.zippopotam.us/us/${zip}`);
-    const data = await response.json();
-    const city = data.places[0]["place name"].toLowerCase().replace(/ /g, "");
+    if (/^\d{5}$/.test(input)) {
+      try {
+        const response = await fetch(`https://api.zippopotam.us/us/${input}`);
+        const data = await response.json();
+        city = data.places[0]["place name"].toLowerCase().replace(/ /g, "");
+      } catch {
+        city = "denver";
+      }
+    }
+
     localStorage.setItem("userLocation", city);
-  } catch (error) {
-    localStorage.setItem("userLocation", "denver"); // fallback
+    alert("Preferences saved. Click Refresh to apply.");
   }
-
-  alert("Preferences saved. Click Refresh to apply.");
-}
 </script>
 
    
@@ -1158,6 +1161,7 @@ loadUniversalBlock(".national-news-container", "blocks/universal/National.html")
 }
 
 </html>
+
 
 
 
