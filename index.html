@@ -997,8 +997,12 @@ const zip = localStorage.getItem("userZip");
 let location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
 
 if (zip === "42001") {
-  location = "paducah";
+  weatherPath = "paducah/Weather.html";
+} else {
+  const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+  weatherPath = `blocks/${location}/Weather.html`;
 }
+
 
 const weatherPath = `blocks/${location}/Weather.html`;
 
@@ -1086,6 +1090,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
