@@ -623,6 +623,10 @@ async function setPreferences() {
 </div> <!-- Close grid -->
 
 <div class="grid">
+<div class="section national-news-container">
+  <h3>National News</h3>
+  <!-- National News will load here -->
+</div>
 
 
 
@@ -1086,6 +1090,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     updateTimestamp();
     loadWeatherBlock();
     loadTrafficLink();
+loadUniversalBlock(".national-news-container", "blocks/universal/National.html");
 
     loadUniversalBlock(".federal-news-container", "blocks/universal/Federal.html");
     loadUniversalBlock(".world-news-container", "blocks/universal/World.html");
@@ -1101,6 +1106,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 i've fallen and i can't get up
 </html>
+
 
 
 
