@@ -759,13 +759,17 @@ need more
     <p style="margin-top: 1em;"><a href="#qe-history" style="font-weight: bold; text-decoration: underline; color: #3366cc;">QE History</a></p>
     <div class="section" style="margin-top: 1em;">
   <h3>This I Hold</h3>
-  <p id="current-reflection" style="margin-top: 0.5em; font-size: 1rem; line-height: 1.6;">
-    I believe I'm a conservative—not because of party loyalty, but because of how I see responsibility, community, and clarity. The tribal assumption that conservatives love Trump and liberals hate him misses the nuance. This space is where I’ll explore that.
+  <p id="reflection-preview" style="margin-top: 0.5em; font-size: 1rem; line-height: 1.6;">
+    I believe I'm a conservative—not because of party loyalty, but because of how I see responsibility, community, and clarity. The tribal assumption that conservatives love Trump and liberals hate him misses the nuance...
   </p>
-</div>
-
+  <button onclick="toggleReflection()" style="margin-top: 0.5em; font-size: 0.9em;">Read More</button>
+  <div id="reflection-full" class="hidden" style="margin-top: 1em; font-size: 1rem; line-height: 1.6;">
+    <p>
+      This space is where I’ll explore that. I want to reflect on how identity gets flattened into party lines, and how editorial clarity can restore the complexity we’ve lost. Every few days, I’ll rotate this reflection—sometimes mine, sometimes someone else’s—and archive the previous one in QE History.
+    </p>
   </div>
 </div>
+
 
 
 
@@ -996,6 +1000,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
