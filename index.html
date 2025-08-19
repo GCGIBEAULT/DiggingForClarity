@@ -57,6 +57,18 @@
   ],
   "description": "Drama-free news, weather, and community updates with editorial clarity and modular trust."
 }
+function toggleReflection() {
+  const full = document.getElementById("reflection-full");
+  const button = event.target;
+  if (full.classList.contains("hidden")) {
+    full.classList.remove("hidden");
+    button.textContent = "Show Less";
+  } else {
+    full.classList.add("hidden");
+    button.textContent = "Read More";
+  }
+}
+  
 </script>
 
 <html lang="en">
@@ -1000,6 +1012,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
