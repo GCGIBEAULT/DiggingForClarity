@@ -1224,10 +1224,27 @@ loadUniversalBlock(".national-news-container", "blocks/universal/National.html")
     const city = zipToCity[normalized] || normalized;
 
     loadBlock(`blocks/${city}/Weather.html`);
+ const input = userInput.trim();
+const normalized = input.toLowerCase().replace(/ /g, "");
+
+// alias override for shorthand inputs
+const aliasMap = {
+  "abile": "abilene",
+  "abln": "abilene"
+};
+if (aliasMap[normalized]) {
+  normalized = aliasMap[normalized];
+}
+
+const city = zipToCity[normalized] || normalized;
+loadBlock(`blocks/${city}/Weather.html`);
+
+</script>
   }
 </script>
 
 </html>
+
 
 
 
