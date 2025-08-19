@@ -1134,9 +1134,36 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   window.onload = function() {
     updateTimestamp();
-    loadWeatherBlock();
-    loadTrafficLink();
+   updateTimestamp();
+
+// ZIP-aware weather block loader
+(async function() {
+  const zip = localStorage.getItem("userZip");
+  let location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+
+  if (zip) {
+    const response = await fetch("data/cityzip.json");
+    const zipGroups = await response.json();
+
+    const zipToCity = {};
+    for (const city in zipGroups) {
+      zipGroups[city].forEach(z => {
+        zipToCity[z] = city;
+      });
+    }
+
+    if (zipToCity[zip]) {
+      location = zipToCity[zip];
+    }
+  }
+
+  const weatherPath = `blocks/${location}/Weather.html`;
+  loadBlock(weatherPath);
+})();
+
+loadTrafficLink();
 loadUniversalBlock(".national-news-container", "blocks/universal/National.html");
+
 
     loadUniversalBlock(".federal-news-container", "blocks/universal/Federal.html");
     loadUniversalBlock(".world-news-container", "blocks/universal/World.html");
@@ -1180,6 +1207,7 @@ loadUniversalBlock(".national-news-container", "blocks/universal/National.html")
 </script>
 
 </html>
+
 
 
 
