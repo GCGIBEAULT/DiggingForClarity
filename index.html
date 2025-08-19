@@ -1187,6 +1187,13 @@ loadUniversalBlock(".national-news-container", "blocks/universal/National.html")
   color: #0044cc;
 }
 <script>
+  </script>
+
+<script>
+  async function resolveCityFromZip(userInput) {
+    const response = await fetch("data/cityzip.json");
+    ...
+
   async function resolveCityFromZip(userInput) {
     const response = await fetch("data/cityzip.json");
     const zipGroups = await response.json();
@@ -1197,6 +1204,20 @@ loadUniversalBlock(".national-news-container", "blocks/universal/National.html")
         zipToCity[zip] = city;
       });
     }
+<script>
+  let zipToCity = {};
+
+  async function initializeZipAliases() {
+    const response = await fetch("data/cityzip.json");
+    const zipGroups = await response.json();
+
+    for (const city in zipGroups) {
+      zipGroups[city].forEach(zip => {
+        zipToCity[zip] = city.toLowerCase(); // Normalize casing
+      });
+    }
+  }
+</script>
 
     const input = userInput.trim();
     const normalized = input.toLowerCase().replace(/ /g, "");
@@ -1207,6 +1228,7 @@ loadUniversalBlock(".national-news-container", "blocks/universal/National.html")
 </script>
 
 </html>
+
 
 
 
