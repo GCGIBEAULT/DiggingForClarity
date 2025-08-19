@@ -1,4 +1,8 @@
 import os
+import os
+print("Running from:", os.getcwd())  # ← Debug line goes here
+import json
+
 import json
 
 # Load cityzip.json
