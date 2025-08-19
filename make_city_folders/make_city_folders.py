@@ -4,8 +4,8 @@ import json
 print("Running from:", os.getcwd())  # Optional debug
 
 # Load cityzip.json
-with open("data/cityzip.json", "r", encoding="utf-8") as f:
-    cityzip = json.load(f)  # ← This is the key line you need
+with open("../data/cityzip.json", "r", encoding="utf-8") as f:
+    cityzip = json.load(f)  # ← This is the missing piece
 
 # Loop through each city name
 for city in cityzip:
@@ -13,3 +13,4 @@ for city in cityzip:
     os.makedirs(folder_path, exist_ok=True)
     with open(os.path.join(folder_path, 'index.html'), 'w') as placeholder:
         placeholder.write(f'<!-- Placeholder for {city} -->')
+
