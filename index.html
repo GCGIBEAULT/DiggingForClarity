@@ -15,10 +15,6 @@
 
 
 
-
-
-
-
 <!DOCTYPE html>
 <!-- === CSS INDEX ===
 1. Header Container
@@ -283,15 +279,6 @@ need more
   .grid {
     grid-template-columns: 1fr;
   }
-.qr-code-block {
-  display: block;
-}
-
-@media (max-width: 600px) {
-  .qr-code-block {
-    display: none;
-  }
-}
 
   .section {
     margin: 0.5em 0;
@@ -379,66 +366,32 @@ need more
 
 <p class="timestamp">Friday • August 15 • 2:05 PM • Denver</p>
 
-<style>
-.snippet-details {
-  display: none;
-}
-.snippet-details:target {
-  display: block;
-  background-color: #ffffcc;
-  border: 1px solid #999;
-  padding: 1em;
-  margin-top: 1em;
-}
-</style>
 
 
   </section>
 <div class="quiet-settings-box">
   <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
   <div style="display: flex; flex-wrap: wrap; gap: 0.5em; align-items: center;">
-   <input type="text" id="locationInput" placeholder="Denver or 80203" style="padding: 6px; font-size: 0.9em; width: 140px;">
-
-   <select id="languageSelect" style="padding: 6px; font-size: 0.9em;">
-  <option value="en">English</option>
-  <option value="es">Español</option>
-  <option value="fr">Français</option>
-  <option value="ja">日本語</option>
-  <option value="zh">中文</option>
-  <option value="de">Deutsch</option>
-  <option value="ru">Русский</option>
-  <option value="ar">العربية</option>
-  <option value="pt">Português</option>
-  <option value="hi">हिन्दी</option>
-</select>
-
+    <input type="text" id="zipInput" placeholder="ZIP Code" style="padding: 6px; font-size: 0.9em; width: 100px;">
+    <select id="languageSelect" style="padding: 6px; font-size: 0.9em;">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="fr">Français</option>
+      <option value="ja">日本語</option>
+    </select>
     <button onclick="setPreferences()" style="padding: 6px 10px; font-size: 0.9em;">Set</button>
     <button onclick="location.reload()" style="padding: 6px 10px; font-size: 0.9em;">Refresh</button>
   </div>
 </div>
 <script>
-  async function setPreferences() {
-    const input = document.getElementById("locationInput").value.toLowerCase().replace(/ /g, "");
+  function setPreferences() {
+    const zip = document.getElementById("zipInput").value;
     const lang = document.getElementById("languageSelect").value;
+    if (zip) localStorage.setItem("userZip", zip);
     if (lang) localStorage.setItem("userLang", lang);
-
-    let city = input;
-
-    if (/^\d{5}$/.test(input)) {
-      try {
-        const response = await fetch(`https://api.zippopotam.us/us/${input}`);
-        const data = await response.json();
-        city = data.places[0]["place name"].toLowerCase().replace(/ /g, "");
-      } catch {
-        city = "denver";
-      }
-    }
-
-    localStorage.setItem("userLocation", city);
     alert("Preferences saved. Click Refresh to apply.");
   }
 </script>
-
    
 
 
@@ -504,37 +457,49 @@ need more
 <!-- Unified Grid Block -->
 <!-- Unified Grid Block -->
 <div class="grid">
-  <div class="section">
-    <h3>Local Weather</h3>
-    <div class="snippet"><strong>Now:</strong> 87°F — Sunny with light breeze</div>
-    <div class="snippet">Humidity: 62% | Wind: 6 mph SW</div>
-    <div class="snippet">Air Quality: 48 (Good)</div>
-    <div class="snippet">UV Index: 6 (Moderate)</div>
-    <div class="snippet">Forecast: Clear skies with patchy clouds</div>
-    <div class="snippet">Tip: Light layers and hydration recommended</div>
+<div class="section">
+  <h3>Local Weather</h3>
+  <div class="snippet">Now: 72°F — Light rain</div>
+  <div class="snippet">Humidity: 88% | Wind: 6 mph NE</div>
+  <div class="snippet">Air Quality: 55 (Moderate)</div>
+  <div class="snippet">
+    Sunrise: 6:18 AM | Sunset: 8:04 PM<br><br>
+    Forecast: Light rain through afternoon, clearing by evening
   </div>
+  <div class="snippet" style="margin-top: 1em;">Impact: Wet roads and reduced visibility in foothills</div>
+  <div class="snippet" style="margin-top: 1em;">Tip: Bring an umbrella and wear light layers</div>
+  <div class="snippet" style="margin-top: 0.75em;">
+    <a href="https://weather.com/" target="_blank" style="color: #3366cc; text-decoration: underline;">
+      The Weather Channel
+      <div class="snippet" style="margin-top: 0.25em;">
+  <a href="https://weather.com/weather/radar" target="_blank" style="color: #3366cc; text-decoration: underline;">Live Radar</a>
+</div>
+
+    </a>
+  </div>
+</div>
+
 
   <div class="section">
     <h3>Traffic Update</h3>
-    <div class="snippet"><strong>I-24 westbound:</strong> 6 min delay near Exit 4</div>
-    <div class="snippet">Broadway Street: lane closures through Thursday</div>
-    <div class="snippet">Transit: Paducah Area Transit buses running on time</div>
-    <div class="snippet">Jefferson & 28th: signal timing adjustments</div>
-    <div class="snippet">Rail: No disruptions reported</div>
-  </div>
+    <p>I-15 southbound: 8 min delay near University Parkway.</p>
+    <p>Center Street: lane closures for utility work through Thursday.</p>
+    <p>UVX bus: expect delays due to road resurfacing near BYU campus.</p>
+    <p>State Street & 500 West: signal timing adjustments in progress.</p>
+    <p>FrontRunner: on schedule, no reported delays.</p>
+    <div class="snippet" style="margin-top: 0.75em;">
+  <a href="https://commuterlink.utah.gov/" target="_blank" style="color: #3366cc; text-decoration: underline;">
+    Utah CommuterLink
+   <div class="snippet" style="margin-top: 0.25em;">
+  <a href="https://www.google.com/maps/@?hl=en&tbm=map" target="_blank" style="color: #3366cc; text-decoration: underline;">
+    Google Maps Traffic
+
+
+
+
+
+  </a>
 </div>
-
-
-
-
-
-</div>
-
-
-</div>
-
-
-
  
   </a>
 </div>
@@ -564,127 +529,39 @@ need more
     <div class="snippet">• Colorado Springs airport sees record passenger traffic in July.</div>
     <div class="snippet">• Fort Collins pilot program tests electric snowplows ahead of winter season.</div>
     <div class="snippet">• Western Slope farmers report crop damage from unexpected August hailstorm.</div>
-    <div class="snippet">• Aurora expands mental health crisis response teams citywide.</div>
-<div style="margin-top: 0.5em;"></div>
-<p class="more-news-prompt"><em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a></p>
-
-                                                                                      
+    <div class="snippet">• Aurora expands mental health crisis response teams citywide.</div
   <br>
     <br>
     <br>
     </div> <!-- Close Colorado section -->
 </div> <!-- Close Colorado grid -->
+
+
 <div class="grid">
   <div class="section">
-    <h3>Community Events</h3>
-    <div class="snippet">• Civic Center EATS food truck rally runs Tuesdays and Thursdays through August.</div>
-    <div class="snippet">• Denver Street Fairs: Midsummer Arts Festival returns August 2–3 with local vendors and live music.</div>
-    <div class="snippet">• 17th Annual Backpack Giveaway and Resource Fair at Sloan’s Lake Park on August 2.</div>
-    <div class="snippet">• Ophelia's Basement Sessions: Yoga & Chill with Gruvi on August 10 at 5:30 PM.</div>
-    <div class="snippet">• Ecchi Expo anime and cosplay event at Hyatt Regency Aurora on August 10.</div>
-    <div class="snippet">• POP-UP at Zeppelin Station features local makers and DJs on August 2.</div>
-    <div class="snippet">• National Night Out community gatherings across Denver parks on August 6.</div>
-    <p class="more-news-prompt"><em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a></p>
-
+    <h3>National News</h3>
+    <div class="snippet">• FEMA deploys emergency teams to Maui as wildfires displace thousands.</div>
+    <div class="snippet">• Amtrak announces new high-speed route connecting Dallas and Houston.</div>
+    <div class="snippet">• CDC reports uptick in RSV cases across southern states; urges early precautions.</div>
+    <div class="snippet">• UPS and Teamsters finalize labor deal, averting nationwide strike.</div>
+    <div class="snippet">• NOAA revises hurricane forecast: above-average activity expected through October.</div>
+    <div class="snippet">• U.S. Postal Service pilots electric delivery vans in five major cities.</div>
+    <div class="snippet">• National Park Service warns of overcrowding at Yellowstone and Yosemite.</div>
+    <p class="more-news-prompt">
+      <em>Want more stories in this section?</em>
+      <a href="#more-news" class="prompt-link">Request more</a>
+    </p>
   </div>
-
-  <div class="section">
-    <h3>Food & Culture</h3>
-    <div class="snippet">• Denver Food + Wine Festival returns Sept. 12–14 with tastings, chef demos, and live music.</div>
-    <div class="snippet">• Summer Scream at Lakeside Amusement Park (Aug. 21): vintage rides, adult drinks, and neon nostalgia.</div>
-    <div class="snippet">• Chroma Denver Collective grand opening Aug. 16: local art, crafts, and handmade goods.</div>
-    <div class="snippet">• Levitt Pavilion hosts Fiesta Colorado with Mariachi Sol de mi Tierra on Aug. 22.</div>
-    <div class="snippet">• Palisade Peach season peaks—grilled peaches + vanilla ice cream recommended.</div>
-    <div class="snippet">• Tablón Coffee’s dirty iced chai and Hearth Bakery’s chocolate tahini cookie trending on social.</div>
-    <div class="snippet">• POP-UP at Zeppelin Station features local makers, DJs, and food trucks on Aug. 2.</div>
-   <p class="more-news-prompt"><em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a></p>
- 
-  </div>
-</div>
-
-
-<div class="grid">
- <div class="section">
-  <h3>Health & Safety</h3>
-  <div class="snippet">• Air Quality Index: 45 (Good) — wildfire risk elevated in foothills due to dry air.</div>
-  <div class="snippet">• NSC Safety Congress & Expo comes to Denver Sept. 12–18: workplace safety, tech, and training.</div>
-  <div class="snippet">• Denver Health expands mobile vaccination clinics for underserved neighborhoods.</div>
-  <div class="snippet">• Emergency readiness plans updated for Denver schools and city buildings.</div>
-  <div class="snippet">• Mental health crisis response teams now active citywide in Aurora.</div>
-  <div class="snippet">• Free CPR and first aid workshops offered at local rec centers this month.</div>
-  <div class="snippet">• Denver Fire Department reminds residents to check smoke alarms and wildfire kits.</div>
-   <p class="more-news-prompt">
-  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
-</p>
-
-</div>
-
-<div class="section">
-  <h3>School & Family Briefs</h3>
-  <div class="snippet">• DPS students return to class starting August 5; staggered start dates by grade level.</div>
-  <div class="snippet">• Denver’s Back to School Fest (Aug. 2): free backpacks, breakfast, haircuts, and health clinics.</div>
-  <div class="snippet">• School board debates new funding model for mental health support in classrooms.</div>
-  <div class="snippet">• Free tutoring and homework help resumes at Denver Public Library branches.</div>
-  <div class="snippet">• DPS expands free lunch program to include breakfast at 40+ schools.</div>
-  <div class="snippet">• Petting zoo and family games featured at Back to School Fest at National Western Center.</div>
-  <div class="snippet">• New parent portal launches for tracking grades, attendance, and school events.</div>
- <p class="more-news-prompt">
-  <em>Want more stories in this section?</em>
-  <a href="#more-news" class="prompt-link">Request more</a>
-</p>
-
-<!-- Close School & Family Briefs -->
-</div> <!-- Close right section -->
-</div> <!-- Close grid -->
-
-<div class="grid">
-<div class="section national-news-container" id="national-news">
-  <h3>National News</h3>
-  <div class="snippet">• Senate committee advances bill to expand VA mental health services</div>
-  <div class="snippet">• IRS launches taxpayer assistance centers in rural counties</div>
-  <div class="snippet">• White House proposes new cybersecurity standards for federal contractors</div>
-  <div class="snippet">• Federal Reserve signals cautious approach to future rate hikes</div>
-  <div class="snippet">• Department of Energy funds clean hydrogen pilot projects in 12 states</div>
-  <div class="snippet">• Supreme Court to hear case on digital privacy and geofence warrants</div>
-  <div class="snippet">• National Archives digitizes 10 million historical records for public access</div>
- <p class="more-news-prompt">
-  <em>Want more stories in this section?</em>
-  <a href="#more-news" class="prompt-link">Request more</a>
-</p>
-
-</div>
-
-<script>
-function refreshNationalNews() {
-  fetch("blocks/universal/National.html")
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById("national-news").innerHTML = `
-        <h3>National News</h3>` + html +
-        `<button onclick="refreshNationalNews()" style="margin-top:1em;">Refresh Snippets</button>`;
-    });
-}
-</script>
-
-
-
 
   <div class="section">
     <h3>Federal News</h3>
-   <div class="snippet">
-  • <a href="#va-mental-health-details">Senate committee advances bill to expand VA mental health services</a>
-</div>
-
+    <div class="snippet">• Senate committee advances bill to expand VA mental health services.</div>
     <div class="snippet">• IRS launches taxpayer assistance centers in rural counties.</div>
     <div class="snippet">• White House proposes new cybersecurity standards for federal contractors.</div>
     <div class="snippet">• Federal Reserve signals cautious approach to future rate hikes.</div>
     <div class="snippet">• Department of Energy funds clean hydrogen pilot projects in 12 states.</div>
     <div class="snippet">• Supreme Court to hear case on digital privacy and geofence warrants.</div>
     <div class="snippet">• National Archives digitizes 10 million historical records for public access.</div>
-    <div id="va-mental-health-details" class="snippet-details" style="margin-top:1em;">
-  <p><strong>Full Story:</strong> The Senate Veterans Affairs Committee advanced a bipartisan bill aimed at expanding mental health services for veterans, including telehealth access and suicide prevention funding. The bill passed 14–1 and now moves to the full Senate for debate.</p>
-</div>
-
     <p class="more-news-prompt">
       <em>Want more stories in this section?</em>
       <a href="#more-news" class="prompt-link">Request more</a>
@@ -802,10 +679,72 @@ function refreshNationalNews() {
   </div>
   <hr />
 <div class="grid">
- 
+  <div class="section">
+    <h3>Community Events</h3>
+    <div class="snippet">• Civic Center EATS food truck rally runs Tuesdays and Thursdays through August.</div>
+    <div class="snippet">• Denver Street Fairs: Midsummer Arts Festival returns August 2–3 with local vendors and live music.</div>
+    <div class="snippet">• 17th Annual Backpack Giveaway and Resource Fair at Sloan’s Lake Park on August 2.</div>
+    <div class="snippet">• Ophelia's Basement Sessions: Yoga & Chill with Gruvi on August 10 at 5:30 PM.</div>
+    <div class="snippet">• Ecchi Expo anime and cosplay event at Hyatt Regency Aurora on August 10.</div>
+    <div class="snippet">• POP-UP at Zeppelin Station features local makers and DJs on August 2.</div>
+    <div class="snippet">• National Night Out community gatherings across Denver parks on August 6.</div>
+    <p class="more-news-prompt">
+  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
+</p>
 
-<!-- Quiet Edit Block -->
-<!-- Quiet Edit Block -->
+  </div>
+
+ <div class="section">
+  <h3>Food & Culture</h3>
+  <div class="snippet">• Denver Food + Wine Festival returns Sept. 12–14 with tastings, chef demos, and live music.</div>
+  <div class="snippet">• Summer Scream at Lakeside Amusement Park (Aug. 21): vintage rides, adult drinks, and neon nostalgia.</div>
+  <div class="snippet">• Chroma Denver Collective grand opening Aug. 16: local art, crafts, and handmade goods.</div>
+  <div class="snippet">• Levitt Pavilion hosts Fiesta Colorado with Mariachi Sol de mi Tierra on Aug. 22.</div>
+  <div class="snippet">• Palisade Peach season peaks—grilled peaches + vanilla ice cream recommended.</div>
+  <div class="snippet">• Tablón Coffee’s dirty iced chai and Hearth Bakery’s chocolate tahini cookie trending on social.</div>
+  <div class="snippet">• POP-UP at Zeppelin Station features local makers, DJs, and food trucks on Aug. 2.</div>
+   <p class="more-news-prompt">
+  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
+</p>
+
+</div>
+
+</div>
+
+<div class="grid">
+ <div class="section">
+  <h3>Health & Safety</h3>
+  <div class="snippet">• Air Quality Index: 45 (Good) — wildfire risk elevated in foothills due to dry air.</div>
+  <div class="snippet">• NSC Safety Congress & Expo comes to Denver Sept. 12–18: workplace safety, tech, and training.</div>
+  <div class="snippet">• Denver Health expands mobile vaccination clinics for underserved neighborhoods.</div>
+  <div class="snippet">• Emergency readiness plans updated for Denver schools and city buildings.</div>
+  <div class="snippet">• Mental health crisis response teams now active citywide in Aurora.</div>
+  <div class="snippet">• Free CPR and first aid workshops offered at local rec centers this month.</div>
+  <div class="snippet">• Denver Fire Department reminds residents to check smoke alarms and wildfire kits.</div>
+   <p class="more-news-prompt">
+  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
+</p>
+
+</div>
+
+<div class="section">
+  <h3>School & Family Briefs</h3>
+  <div class="snippet">• DPS students return to class starting August 5; staggered start dates by grade level.</div>
+  <div class="snippet">• Denver’s Back to School Fest (Aug. 2): free backpacks, breakfast, haircuts, and health clinics.</div>
+  <div class="snippet">• School board debates new funding model for mental health support in classrooms.</div>
+  <div class="snippet">• Free tutoring and homework help resumes at Denver Public Library branches.</div>
+  <div class="snippet">• DPS expands free lunch program to include breakfast at 40+ schools.</div>
+  <div class="snippet">• Petting zoo and family games featured at Back to School Fest at National Western Center.</div>
+  <div class="snippet">• New parent portal launches for tracking grades, attendance, and school events.</div>
+ <p class="more-news-prompt">
+  <em>Want more stories in this section?</em>
+  <a href="#more-news" class="prompt-link">Request more</a>
+</p>
+
+<!-- Close School & Family Briefs -->
+</div> <!-- Close right section -->
+</div> <!-- Close grid -->
+
 <!-- Quiet Edit Block -->
 <!-- Quiet Edit Block -->
 <!-- Quiet Edit Block -->
@@ -816,46 +755,8 @@ function refreshNationalNews() {
     <p>If you'd like to share, send it to <a href="mailto:diggingforclarity@gmail.com">diggingforclarity@gmail.com</a>.</p>
     <p>Your comments are always welcome.</p>
     <p style="margin-top: 1em;"><a href="#qe-history" style="font-weight: bold; text-decoration: underline; color: #3366cc;">QE History</a></p>
-    <p style="margin-top: 0.5em;">
-   <p id="qe-history">
-  <a href="#" onclick="document.getElementById('qeDispatch').classList.toggle('hidden'); return false;" style="font-weight: bold; text-decoration: underline; color: #3366cc;">
-    Read August 17, 2025 DISPATCH
-  <div id="qeDispatch" class="section hidden" style="margin-top: 1em;">
-
-
-  </a>
-</p>
-
-  
-      Before I started Digging For Clarity, I asked myself what conservative values I actually hold. There weren’t many—and that surprised me.
-
-I do not support abortion, but I support a woman’s right to have one. This should be decided at the state level, and I shouldn’t have to pay taxes to support it. That belief is personal, not up for debate, and I don’t dwell on it.
-
-I want our borders—north, south, east, and west—secured as tightly as Supermax in Colorado. I want my state and federal government to pursue and deport criminals who’ve entered the U.S. illegally. That belief is also non-negotiable.
-
-I want police to be able to do their job. I don’t want a single federal judge making decisions for all of America. That doesn’t mean I blindly support law enforcement, and it doesn’t mean I disrespect judges. It means I want everyone to stay in their lane. I stay in mine.
-
-I voted against legalizing marijuana in my state because I didn’t trust the government to use the tax revenue as promised. Have I ever checked? No.
-
-As for the death penalty: it needs reform, but not because I think the guilty don’t deserve it. If I could write the law, I’d allow five years of appeals. After that, no execution—but you stay in your death row cell until you meet your maker. No general population.
-
-President Trump promised most of these things. Kamala Harris did not. So Trump got my vote. I’m a conservative, and I can live with that—but I’ll never get the tattoo. That, too, is non-negotiable.
-
-There are probably a few other reasons, but thinking about it too much makes my head hurt. These four or five values are strong enough to sway my vote. That’s all.
-
-My plea to you is this: ask yourself how you define your beliefs. What causes you to think the way you do? That kind of introspection changed my life for the better. A lot less noise. A lot more clarity.
-
-We can all get along. And we should. I don’t have a single person in my life who’s there because of what they think about the big, fat beautiful bill. I slipped once—and I apologize. I only hope I caught myself in time.
-   </div>
-
-
-       
-      </a>
-    </p>
-   
   </div>
 </div>
-
 
 
 
@@ -868,8 +769,7 @@ We can all get along. And we should. I don’t have a single person in my life w
     <p style="font-style: italic; font-size: 0.85rem; color: #666;">In case you must</p>
    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.3em; max-width: 800px; margin: 1em auto;">
 
-   <div class="snippet"><a href="https://copilot.microsoft.com/" target="_blank" style="color: #0057b7; font-weight: bold;">🤖 Copilot</a></div>
-
+   <div class="snippet"><a href="https://copilot.microsoft.com/" target="_blank" style="color: #0057b7; font-weight: bold;">🤖 Ask Copilot</a></div>
 
       <div class="snippet"><a href="https://chat.openai.com/" target="_blank" style="color: #0057b7; font-weight: bold;">💬 ChatGPT</a></div>
     <!-- Top row: AI tools -->
@@ -1011,35 +911,8 @@ window.onload = function() {
 
  <script>
   function loadWeatherBlock() {
-   function loadWeatherBlock() {
-  const zip = localStorage.getItem("userZip");
-  let weatherPath;
-
-  if (zip === "42001") {
-  blocks/paducah/Weather.html
-
-
-  } else {
     const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
-    weatherPath = `blocks/${location}/Weather.html`;
-  }
-
-  fetch(weatherPath)
-    .then(response => {
-      if (!response.ok) throw new Error("Weather block not found");
-      return response.text();
-    })
-    .then(html => {
-      const container = document.querySelector(".weather-container");
-      if (container) container.innerHTML = html;
-    })
-    .catch(error => {
-      console.error("Failed to load weather block:", error);
-    });
-}
-
-
-const weatherPath = `blocks/${location}/Weather.html`;
+    const weatherPath = `blocks/${location}/Weather.html`;
 
     fetch(weatherPath)
       .then(response => {
@@ -1105,215 +978,11 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 </footer>
 
 
-<hr style="max-width: 100%; width: 260px; border: none; border-top: 3px solid black; margin: 1.5em auto;">
 
 
 
-
-
-<div class="qr-code-block" style="text-align: center; margin-top: 2em;">
-  <p style="font-size: 0.9rem; color: #444;">Open your camera and point it at the QR code. Install on cell, laptop or tablet.</p>
-  <img src="qrcode.png" alt="Install Digging For Clarity" style="width: 100px; height: 100px; margin-top: 0.5em;">
-</div>
-
-<!-- LOCKED: Views counter — manual reset with ceiling -->
-<!-- LOCKED: Views counter — manual reset -->
-<span style="font-weight: bold; color: #444;">Views: 0</span>
-
- 
-</span>
-<script>
-  function loadUniversalBlock(containerClass, blockPath) {
-    fetch(blockPath)
-      .then(response => response.text())
-      .then(html => {
-        const container = document.querySelector(containerClass);
-        if (container) container.innerHTML = html;
-      });
-  }
-
-  window.onload = function() {
-    updateTimestamp();
-   updateTimestamp();
-
-// ZIP-aware weather block loader
-(async function() {
-  const zip = localStorage.getItem("userZip");
-  let location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
-
-  if (zip) {
-    const response = await fetch("data/cityzip.json");
-    const zipGroups = await response.json();
-
-    const zipToCity = {};
-    for (const city in zipGroups) {
-      zipGroups[city].forEach(z => {
-        zipToCity[z] = city;
-      });
-    }
-
-    if (zipToCity[zip]) {
-      location = zipToCity[zip];
-    }
-  }
-
-  const weatherPath = `blocks/${location}/Weather.html`;
-  loadBlock(weatherPath);
-})();
-
-loadTrafficLink();
-loadUniversalBlock(".national-news-container", "blocks/universal/National.html");
-
-
-    loadUniversalBlock(".federal-news-container", "blocks/universal/Federal.html");
-    loadUniversalBlock(".world-news-container", "blocks/universal/World.html");
-    loadUniversalBlock(".market-watch-container", "blocks/universal/Market.html");
-    loadUniversalBlock(".sports-news-container", "blocks/universal/Sports.html");
-    loadUniversalBlock(".ai-news-container", "blocks/universal/AI.html");
-  };
-</script>
-
-
-
-</script>
-
-.more-news-prompt {
-  margin-top: 1em;
-  font-size: 0.95em;
-  display: block;
-}
-.prompt-link {
-  text-decoration: underline;
-  color: #0044cc;
-}
-<script>
-  </script>
-
-<script>
-  async function resolveCityFromZip(userInput) {
-    const response = await fetch("data/cityzip.json");
-    ...
-
-  async function resolveCityFromZip(userInput) {
-    const response = await fetch("data/cityzip.json");
-    const zipGroups = await response.json();
-
-    const zipToCity = {};
-    for (const city in zipGroups) {
-      zipGroups[city].forEach(zip => {
-        zipToCity[zip] = city;
-      });
-    }
-<script>
-  let zipToCity = {};
-
-  async function initializeZipAliases() {
-    const response = await fetch("data/cityzip.json");
-    const zipGroups = await response.json();
-
-    for (const city in zipGroups) {
-      zipGroups[city].forEach(zip => {
-        zipToCity[zip] = city.toLowerCase(); // Normalize casing
-      });
-    }
-  }
-</script>
-
-    const input = userInput.trim();
-    const normalized = input.toLowerCase().replace(/ /g, "");
-    const city = zipToCity[normalized] || normalized;
-
-    loadBlock(`blocks/${city}/Weather.html`);
- const input = userInput.trim();
-const normalized = input.toLowerCase().replace(/ /g, "");
-
-// alias override for shorthand inputs
-const aliasMap = {
-  "abile": "abilene",
-  "abln": "abilene"
-};
-if (aliasMap[normalized]) {
-  normalized = aliasMap[normalized];
-}
-
-const city = zipToCity[normalized] || normalized;
-loadBlock(`blocks/${city}/Weather.html`);
-
-</script>
-  }
-</script>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
