@@ -1,14 +1,11 @@
 import os
-import os
-print("Running from:", os.getcwd())  # ← Debug line goes here
 import json
 
-import json
+print("Running from:", os.getcwd())  # Optional debug
 
 # Load cityzip.json
-with open("../data/cityzip.json", "r", encoding="utf-8") as f:
-    cityzip = json.load(f)  # ← This line is essential
-
+with open("data/cityzip.json", "r", encoding="utf-8") as f:
+    cityzip = json.load(f)  # ← This is the key line you need
 
 # Loop through each city name
 for city in cityzip:
