@@ -2,7 +2,7 @@ import os
 import json
 
 # Load cityzip.json
-with open("../data/cityzip.json", "r", encoding="utf-8") as f:
+with open("data/cityzip.json", "r", encoding="utf-8") as f:
 
 # Loop through each city name
 for city in cityzip:
