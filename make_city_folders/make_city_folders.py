@@ -4,7 +4,8 @@ import json
 print("Running from:", os.getcwd())  # Optional debug
 
 # Load cityzip.json
-with open("../data/cityzip.json", "r", encoding="utf-8") as f:
+with open("cityzip.json", "r") as f:
+
     cityzip = json.load(f)  # ← This line must be committed
 print("Loaded type:", type(cityzip))
 print("First few keys:", list(cityzip.keys())[:5])
