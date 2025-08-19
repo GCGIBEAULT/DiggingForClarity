@@ -841,7 +841,8 @@ need more
   };
 
   function updateTimestamp() {
-    const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+    const location = localStorage.getItem("userLocation")?.toLowerCase() || "abilene";
+
     const timezone = cityTimezones[location] || "America/Denver";
 
     const now = new Date();
@@ -984,6 +985,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
