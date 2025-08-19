@@ -5,7 +5,8 @@ print("Running from:", os.getcwd())  # Optional debug
 
 # Load cityzip.json
 with open("../data/cityzip.json", "r", encoding="utf-8") as f:
-    cityzip = json.load(f)  # ← This line is missing in your current script
+   cityzip = json.load(f)
+
 
 # Loop through each city name
 for city in cityzip:
