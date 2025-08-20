@@ -803,12 +803,16 @@ need more
     <div class="snippet"><a href="https://copilot.microsoft.com/" target="_blank">🤖 Ask Copilot</a></div>
     <div class="snippet"><a href="https://chat.openai.com/" target="_blank">💬 ChatGPT</a></div>
     <!-- ... other links ... -->
-    <div class="snippet"><a href="https://www.twitter.com" target="_blank">X</a></div>
-  </div> <!-- end of grid -->
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); ...">
+  <!-- All your snippet links -->
+  <div class="snippet"><a href="https://www.twitter.com" target="_blank">X</a></div>
+</div> <!-- end of grid -->
 
-  <!-- Footer cue now free to float -->
-  <p style="margin-top: 2em; font-size: 0.85rem; font-weight: bold; color: #444; text-align: center;">
-    Favorite missing? Email <a href="mailto:diggingforclarity@gmail.com" style="color: #222; text-decoration: underline;">diggingforclarity@gmail.com</a>
+<!-- Footer cue now free to float and center -->
+<p style="margin-top: 2em; font-size: 0.85rem; font-weight: bold; color: #444; text-align: center;">
+  Favorite missing? Email <a href="mailto:diggingforclarity@gmail.com" style="color: #222; text-decoration: underline;">diggingforclarity@gmail.com</a>
+</p>
+
   </p>
 </div> <!-- end of Favorites block -->
 
@@ -999,6 +1003,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
+
 
 
 
