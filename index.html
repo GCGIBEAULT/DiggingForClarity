@@ -15,6 +15,7 @@
 
 
 
+
 <!DOCTYPE html>
 <!-- === CSS INDEX ===
 1. Header Container
@@ -300,13 +301,11 @@ need more
     border-radius: 6px;
   }
 
- h2 {
-  font-size: 1.25em;
-  font-weight: 600;
-  margin-bottom: 0.5em;
-  color: #333;
-}
-
+  .snippet {
+    font-size: 0.95rem;
+    margin-bottom: 0.75em;
+    color: #333;
+  }
 }
  
 
@@ -479,32 +478,26 @@ need more
 <!-- Unified Grid Block -->
 <!-- Unified Grid Block -->
 <div class="grid">
-<div class="weather-traffic-grid">
-  <div class="local-weather">
-    <h3>Local Weather</h3>
-    <p>Now: 72°F — Light rain<br>
-    Humidity: 88% | Wind: 6 mph NE<br>
-    Air Quality: 55 (Moderate)<br>
-    Sunrise: 6:18 AM | Sunset: 8:04 PM<br>
-    Forecast: Light rain through afternoon, clearing by evening<br>
-    Impact: Wet roads and reduced visibility in foothills<br>
-    Tip: Bring an umbrella and wear light layers</p>
+<div class="section">
+  <h3>Local Weather</h3>
+  <div class="snippet">Now: 72°F — Light rain</div>
+  <div class="snippet">Humidity: 88% | Wind: 6 mph NE</div>
+  <div class="snippet">Air Quality: 55 (Moderate)</div>
+  <div class="snippet">
+    Sunrise: 6:18 AM | Sunset: 8:04 PM<br><br>
+    Forecast: Light rain through afternoon, clearing by evening
   </div>
-
-  <div class="traffic-update">
-    <h3>Traffic Update</h3>
-    <p>I-15 southbound: 8 min delay near University Parkway.<br>
-    Center Street: lane closures for utility work through Thursday.<br>
-    UVX bus: expect delays due to road resurfacing near BYU campus.<br>
-    State Street & 500 West: signal timing adjustments in progress.<br>
-    FrontRunner: on schedule, no reported delays.</p>
-  </div>
+  <div class="snippet" style="margin-top: 1em;">Impact: Wet roads and reduced visibility in foothills</div>
+  <div class="snippet" style="margin-top: 1em;">Tip: Bring an umbrella and wear light layers</div>
+ <div class="snippet" style="margin-top: 0.75em;">
+  <a href="https://weather.com/" target="_blank" style="color: #3366cc; text-decoration: underline;">
+    The Weather Channel
+  </a>
 </div>
 
-<!-- Outside the grid -->
-<p class="weather-source">The Weather Channel</p>
-<p class="live-radar">Live Radar – Abilene</p>
-
+<div class="snippet" style="margin-top: 0.25em;">
+  <a href="https://weather.com/weather/radar/interactive/l/32.4465,-99.7331" target="_blank" style="color: #3366cc; text-decoration: underline;">
+    Live Radar – Abilene
   </a>
 </div>
 
@@ -532,8 +525,7 @@ need more
 <!-- Regional News Grid -->
 <div class="grid">
   <div class="section">
-  <h2>Local News</h2>
-
+    <h3>Denver News</h3>
     <div class="snippet">• BNSF rail worker loses leg after train derailment; NTSB investigation underway.</div>
     <div class="snippet">• City employees to receive layoff notices starting August 18 amid $50M budget deficit.</div>
     <div class="snippet">• Four injured in separate overnight shootings; police seek public tips.</div>
@@ -1045,11 +1037,6 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 </html>
-
-
-
-
-
 
 
 
