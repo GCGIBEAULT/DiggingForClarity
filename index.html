@@ -1185,19 +1185,53 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 </script>
 
   <!-- …existing footer/logo/etc. here… -->
-<!-- updater definition -->
-<script>
-  async function updateCityData(cityZip) {
-    /* your fetch, header update, and iframe injection code */
-  }
-</script>
+  <!-- updater definition -->
+  <script>
+    async function updateCityData(cityZip) {
+      const zip = encodeURIComponent(cityZip.trim());
+      document.getElementById("locationHeader").textContent =
+        `Local Weather and Traffic for ${cityZip}`;
 
-<!-- Auto-update city block on page load -->
-<script>
-  (function() {
-    /* … */
-  })();
-</script>
+      // 1. Fetch live weather
+      const weatherKey = "YOUR_OPENWEATHERMAP_API_KEY";
+      try {
+        const res = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&units=imperial&appid=${weatherKey}`
+        );
+        const data = await res.json();
+        document.getElementById("local-weather").innerHTML = `
+          <strong>Now:</strong> ${Math.round(data.main.temp)}°F — ${data.weather[0].description}<br>
+          <strong>Humidity:</strong> ${data.main.humidity}% | <strong>Wind:</strong> ${data.wind.speed} mph
+        `;
+      } catch {
+        document.getElementById("local-weather").innerHTML =
+          `<p>Weather data unavailable.</p>`;
+      }
+
+      // 2. Inject live traffic map
+      const mapsKey = "YOUR_GOOGLE_MAPS_API_KEY";
+      document.getElementById("local-traffic").innerHTML = `
+        <iframe
+          src="https://www.google.com/maps/embed/v1/traffic?key=${mapsKey}&q=${zip}"
+          width="100%" height="300" style="border:none;" loading="lazy">
+        </iframe>
+      `;
+    }
+  </script>
+
+  <!-- Auto-update city block on page load -->
+  <script>
+    (function() {
+      const zip = localStorage.getItem("userZip");
+      if (!zip) return;
+      document.getElementById("zipInput").value = zip;
+      updateCityData(zip);
+    })();
+  </script>
+</body>
+</html>
+
+
 
   <!-- Auto-update city block on page load -->
   <script>
@@ -1247,9 +1281,10 @@ document.querySelectorAll('.prompt-link').forEach(link => {
       </iframe>
     `;
   }
-</script>
+
 
 </html>
+
 
 
 
