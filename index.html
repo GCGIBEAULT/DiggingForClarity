@@ -1254,40 +1254,10 @@ async function updateCityData(cityZip) {
 </html>
 
 
-    // 1. Update the header
-    const header = document.getElementById("locationHeader");
-    if (header) {
-      header.textContent = `Local Weather and Traffic for ${cityZip}`;
-    }
-
-    // 2. Fetch live weather
-    const weatherKey = "YOUR_OPENWEATHERMAP_API_KEY";
-    try {
-      const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&units=imperial&appid=${weatherKey}`
-      );
-      const data = await res.json();
-      document.getElementById("local-weather").innerHTML = `
-        <strong>Now:</strong> ${Math.round(data.main.temp)}°F — ${data.weather[0].description}<br>
-        <strong>Humidity:</strong> ${data.main.humidity}% | <strong>Wind:</strong> ${data.wind.speed} mph
-      `;
-    } catch {
-      document.getElementById("local-weather").innerHTML =
-        `<p>Weather data unavailable.</p>`;
-    }
-
-    // 3. Inject live traffic map
-    const mapsKey = "YOUR_GOOGLE_MAPS_API_KEY";
-    document.getElementById("local-traffic").innerHTML = `
-      <iframe
-        src="https://www.google.com/maps/embed/v1/traffic?key=${mapsKey}&q=${zip}"
-        width="100%" height="300" style="border:none;" loading="lazy">
-      </iframe>
-    `;
-  }
-
+  
 
 </html>
+
 
 
 
