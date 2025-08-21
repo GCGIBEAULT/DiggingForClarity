@@ -487,6 +487,8 @@ function setPreferences() {
 <div class="grid">
 <div class="section">
   <h3>Local Weather</h3>
+  <h2 id="locationHeader">Local Weather and Traffic</h2>
+
   <div id="local-traffic">
   <p>Loading traffic conditions...</p>
 </div>
@@ -522,6 +524,7 @@ function setPreferences() {
 
   <div class="section">
     <h3>Traffic Update</h3>
+    
    <div id="local-traffic">
 
 </div>
@@ -1254,8 +1257,26 @@ async function updateCityData(cityZip) {
   }
 </script>
 
+  <!-- …existing footer/logo/etc. here… -->
+
+  <!-- Auto-update city block on page load -->
+  <script>
+    (function() {
+      const zip = localStorage.getItem("userZip");
+      if (!zip) return;
+      // populate the ZIP input
+      const input = document.getElementById("zipInput");
+      if (input) input.value = zip;
+
+      // update header, weather & traffic
+      updateCityData(zip);
+    })();
+  </script>
+</body>
+</html>
 
 </html>
+
 
 
 
