@@ -1167,24 +1167,6 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 
-<script>
-async function updateCityData(cityZip) {
-  const encodedCity = encodeURIComponent(cityZip.trim());
-
-  // Placeholder weather data
-  const weatherData = {
-    temp: "72°F",
-    condition: "Light rain",
-    humidity: "88%",
-    wind: "6 mph NE",
-    aqi: "55 (Moderate)"
-  };
-
-  document.getElementById("local-weather").innerHTML = `
-    <strong>Now:</strong> ${weatherData.temp} — ${weatherData.condition}<br>
-    <strong>Humidity:</strong> ${weatherData.humidity} | <strong>Wind:</strong> ${weatherData.wind}<br>
-    <strong>Air Quality:</strong> ${weatherData.aqi}
-  `;
 
   
 
@@ -1227,6 +1209,7 @@ async function updateCityData(cityZip) {
 </html>
 
 </html>
+
 
 
 
