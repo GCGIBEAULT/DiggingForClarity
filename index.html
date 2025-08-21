@@ -1171,13 +1171,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   
 
 
-  // 🔹 Traffic Map injection
-  const mapsKey = "YOUR_GOOGLE_MAPS_API_KEY";
-  document.getElementById("local-traffic").innerHTML = `
-    <iframe src="https://www.google.com/maps/embed/v1/traffic?key=${mapsKey}&q=${encodedCity}" width="100%" height="300" style="border:none;"></iframe>
-  `;
-}
-</script>
+  
 <script>
   // find the Refresh button by its inline reload handler
   const btn = document.querySelector('button[onclick="location.reload()"]');
@@ -1191,6 +1185,19 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 </script>
 
   <!-- …existing footer/logo/etc. here… -->
+<!-- updater definition -->
+<script>
+  async function updateCityData(cityZip) {
+    /* your fetch, header update, and iframe injection code */
+  }
+</script>
+
+<!-- Auto-update city block on page load -->
+<script>
+  (function() {
+    /* … */
+  })();
+</script>
 
   <!-- Auto-update city block on page load -->
   <script>
@@ -1207,9 +1214,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   </script>
 </body>
 </html>
-<script>
-  async function updateCityData(cityZip) {
-    const zip = encodeURIComponent(cityZip.trim());
+<
 
     // 1. Update the header
     const header = document.getElementById("locationHeader");
@@ -1245,6 +1250,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 </script>
 
 </html>
+
 
 
 
