@@ -396,7 +396,9 @@ need more
 <div class="quiet-settings-box">
   <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
   <div style="display: flex; flex-wrap: wrap; gap: 0.5em; align-items: center;">
-    <input type="text" id="zipInput" placeholder="ZIP Code" style="padding: 6px; font-size: 0.9em; width: 100px;">
+   <input id="zipInput" type="text" placeholder="Zip Code">
+<button id="setZip">Set</button>
+
     <select id="languageSelect" style="padding: 6px; font-size: 0.9em;">
       <option value="en">English</option>
       <option value="es">Español</option>
@@ -1286,6 +1288,7 @@ async function updateCityData(cityZip) {
 
 
 </html>
+
 
 
 
