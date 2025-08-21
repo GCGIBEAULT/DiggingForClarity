@@ -406,7 +406,12 @@ need more
       <option value="ja">日本語</option>
     </select>
     <button onclick="setPreferences()" style="padding: 6px 10px; font-size: 0.9em;">Set</button>
-    <button onclick="location.reload()" style="padding: 6px 10px; font-size: 0.9em;">Refresh</button>
+  <script>
+  // bind the Set button to your prefs-and-update logic
+  document.getElementById("setZip")
+    .addEventListener("click", setPreferences);
+</script>
+
   </div>
 </div>
 <script>
@@ -1164,6 +1169,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   <span>© Digging For Clarity 2025. All rights reserved.</span>
  
 </html>
+
 
 
 
