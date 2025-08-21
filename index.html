@@ -483,6 +483,10 @@ need more
 <div class="grid">
 <div class="section">
   <h3>Local Weather</h3>
+  <div id="local-weather">
+  <p>Loading current weather...</p>
+</div>
+
   <div class="snippet">Now: 72°F — Light rain</div>
   <div class="snippet">Humidity: 88% | Wind: 6 mph NE</div>
   <div class="snippet">Air Quality: 55 (Moderate)</div>
@@ -510,6 +514,10 @@ need more
 
   <div class="section">
     <h3>Traffic Update</h3>
+   <div id="local-traffic">
+  <p>Loading traffic conditions...</p>
+</div>
+ 
     <p>I-15 southbound: 8 min delay near University Parkway.</p>
     <p>Center Street: lane closures for utility work through Thursday.</p>
     <p>UVX bus: expect delays due to road resurfacing near BYU campus.</p>
@@ -1135,10 +1143,35 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
 
+<script>
+async function updateCityData(cityZip) {
+  const encodedCity = encodeURIComponent(cityZip.trim());
+
+  // Weather fetch (placeholder logic)
+  const weatherData = {
+    temp: "Loading...",
+    condition: "Fetching...",
+    humidity: "—",
+    wind: "—",
+    aqi: "—"
+  };
+
+  document.getElementById("abilene-weather").innerHTML = `
+    Now: ${weatherData.temp} — ${weatherData.condition}<br>
+    Humidity: ${weatherData.humidity} | Wind: ${weatherData.wind}<br>
+    Air Quality: ${weatherData.aqi}
+  `;
+
+  document.getElementById("abilene-traffic").innerHTML = `
+    <iframe src="https://www.google.com/maps/embed/v1/traffic?key=YOUR_API_KEY&q=${encodedCity}" width="100%" height="300" style="border:none;"></iframe>
+  `;
+}
+</script>
 
 
 
 </html>
+
 
 
 
