@@ -408,14 +408,18 @@ need more
   </div>
 </div>
 <script>
-  function setPreferences() {
-    const zip = document.getElementById("zipInput").value;
-    const lang = document.getElementById("languageSelect").value;
-    if (zip) localStorage.setItem("userZip", zip);
-    if (lang) localStorage.setItem("userLang", lang);
-    alert("Preferences saved. Click Refresh to apply.");
-  }
+function setPreferences() {
+  const zip  = document.getElementById("zipInput").value.trim();
+  const lang = document.getElementById("languageSelect").value;
+
+  if (zip)  localStorage.setItem("userZip", zip);
+  if (lang) localStorage.setItem("userLang", lang);
+
+  // live‐update weather & traffic without a full reload
+  if (zip) updateCityData(zip);
+}
 </script>
+
    
 
 
@@ -1241,6 +1245,7 @@ async function updateCityData(cityZip) {
 
 
 </html>
+
 
 
 
