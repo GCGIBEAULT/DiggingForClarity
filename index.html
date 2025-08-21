@@ -405,8 +405,18 @@ wher
       <option value="fr">Français</option>
       <option value="ja">日本語</option>
     
-  // bind the Set button to your prefs-and-update logic
-  document.getElementById("setZip")
+     <select id="languageSelect" style="padding: 6px; font-size: .9em;">
+     <option value="en">English</option>
+     <option value="es">Español</option>
+     <option value="fr">Français</option>
+     <option value="ja">日本語</option>
+   </select>
+
++  <button id="setZip">Set</button>
+ </div>
+<script>
+  document
+    .getElementById("setZip")
     .addEventListener("click", setPreferences);
 </script>
 
@@ -1167,6 +1177,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   <span>© Digging For Clarity 2025. All rights reserved.</span>
  
 </html>
+
 
 
 
