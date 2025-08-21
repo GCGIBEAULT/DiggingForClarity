@@ -1198,9 +1198,44 @@ async function updateCityData(cityZip) {
   `;
 }
 </script>
+<script>
+async function updateCityData(cityZip) {
+  const encodedCity = encodeURIComponent(cityZip.trim());
+
+  // 🔹 Weather API call
+  const weatherKey = "YOUR_OPENWEATHERMAP_API_KEY";
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodedCity}&units=imperial&appid=${weatherKey}`;
+
+  try {
+    const response = await fetch(weatherUrl);
+    const data = await response.json();
+
+    const temp = `${Math.round(data.main.temp)}°F`;
+    const condition = data.weather[0].description;
+    const humidity = `${data.main.humidity}%`;
+    const wind = `${data.wind.speed} mph`;
+    const aqi = "—"; // Optional: wire in AQI later
+
+    document.getElementById("local-weather").innerHTML = `
+      <strong>Now:</strong> ${temp} — ${condition}<br>
+      <strong>Humidity:</strong> ${humidity} | <strong>Wind:</strong> ${wind}<br>
+      <strong>Air Quality:</strong> ${aqi}
+    `;
+  } catch (error) {
+    document.getElementById("local-weather").innerHTML = `<p>Weather data unavailable.</p>`;
+  }
+
+  // 🔹 Traffic Map injection
+  const mapsKey = "YOUR_GOOGLE_MAPS_API_KEY";
+  document.getElementById("local-traffic").innerHTML = `
+    <iframe src="https://www.google.com/maps/embed/v1/traffic?key=${mapsKey}&q=${encodedCity}" width="100%" height="300" style="border:none;"></iframe>
+  `;
+}
+</script>
 
 
 </html>
+
 
 
 
