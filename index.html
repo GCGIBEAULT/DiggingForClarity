@@ -1168,9 +1168,40 @@ async function updateCityData(cityZip) {
 }
 </script>
 
+<script>
+async function updateCityData(cityZip) {
+  const encodedCity = encodeURIComponent(cityZip.trim());
+
+  // Placeholder weather data
+  const weatherData = {
+    temp: "72°F",
+    condition: "Light rain",
+    humidity: "88%",
+    wind: "6 mph NE",
+    aqi: "55 (Moderate)"
+  };
+
+  document.getElementById("local-weather").innerHTML = `
+    <strong>Now:</strong> ${weatherData.temp} — ${weatherData.condition}<br>
+    <strong>Humidity:</strong> ${weatherData.humidity} | <strong>Wind:</strong> ${weatherData.wind}<br>
+    <strong>Air Quality:</strong> ${weatherData.aqi}
+  `;
+
+  document.getElementById("local-traffic").innerHTML = `
+    <ul>
+      <li>I-15 southbound: 8 min delay near University Parkway.</li>
+      <li>Center Street: lane closures for utility work through Thursday.</li>
+      <li>UVX bus: expect delays near BYU campus.</li>
+      <li>State Street & 500 West: signal timing adjustments.</li>
+      <li>FrontRunner: on schedule.</li>
+    </ul>
+  `;
+}
+</script>
 
 
 </html>
+
 
 
 
