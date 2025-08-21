@@ -1242,9 +1242,21 @@ async function updateCityData(cityZip) {
   `;
 }
 </script>
+<script>
+  // find the Refresh button by its inline reload handler
+  const btn = document.querySelector('button[onclick="location.reload()"]');
+  if (btn) {
+    // fade it out for half a second…
+    btn.style.transition = 'opacity 0.5s ease-out';
+    btn.style.opacity = '0';
+    // …then remove it completely from the DOM
+    setTimeout(() => btn.remove(), 500);
+  }
+</script>
 
 
 </html>
+
 
 
 
