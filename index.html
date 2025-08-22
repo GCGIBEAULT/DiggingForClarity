@@ -1109,7 +1109,7 @@ window.onload = function() {
   function loadWeatherBlock() {
     const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
     const weatherPath = `blocks/${location}/Weather.html`;
-    const weatherPath = `blocks/${location}/Weather.html`;
+ 
 
 fetch(weatherPath)
   .then(resp => {
@@ -1142,6 +1142,7 @@ fetch(weatherPath)
   </html>
 
    
+
 
 
 
