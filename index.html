@@ -407,13 +407,34 @@ need more
       <option value="ja">日本語</option>
     </select>
     <button onclick="setPreferences()" style="padding: 6px 10px; font-size: 0.9em;">Set</button>
-   
-<script>
-function initializePage() {
-  updateTimestamp();
-  updateCityData(localStorage.getItem("userZip"));
-  loadWeatherBlock();
-  loadTrafficLink();
+   <script>
+  function initializePage() {
+    updateTimestamp();
+
+    const zip = localStorage.getItem("userZip");
+    if (zip) {
+      updateCityData(zip);
+      loadWeatherBlock();
+      loadTrafficLink();
+    }
+
+    document.querySelectorAll(".section").forEach(section => {
+      section.classList.remove("hidden");
+    });
+  }
+
+  function setPreferences() {
+    const zip = document.getElementById("zipInput").value.trim();
+    const lang = document.getElementById("languageSelect").value;
+
+    if (zip) localStorage.setItem("userZip", zip);
+    if (lang) localStorage.setItem("userLang", lang);
+
+    initializePage();
+  }
+</script>
+
+
 
   // Reveal all editorial sections
   document.querySelectorAll(".section").forEach(section => {
@@ -1176,6 +1197,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   <span>© Digging For Clarity 2025. All rights reserved.</span>
  
 </html>
+
 
 
 
