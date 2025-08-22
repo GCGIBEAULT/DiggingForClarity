@@ -1229,9 +1229,14 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     updateCityBlocks(this.value);
   });
 </script>
+document.querySelector('#zipSetButton').addEventListener('click', () => {
+  const zip = document.querySelector('#zipInput').value.trim();
+  updateCityBlocks(zip);
+});
   
  
 </html>
+
 
 
 
