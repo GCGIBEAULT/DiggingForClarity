@@ -409,21 +409,18 @@ need more
     <button onclick="setPreferences()" style="padding: 6px 10px; font-size: 0.9em;">Set</button>
    
 <script>
-function setPreferences() {
-  const zip = document.getElementById("zipInput").value.trim();
-  const lang = document.getElementById("languageSelect").value;
+function initializePage() {
+  updateTimestamp();
+  updateCityData(localStorage.getItem("userZip"));
+  loadWeatherBlock();
+  loadTrafficLink();
 
-  if (zip) {
-    localStorage.setItem("userZip", zip);
-  }
-
-  if (lang) {
-    localStorage.setItem("userLang", lang);
-  }
-
-  // 🔁 Rehydrate full layout
-  initializePage();
+  // Reveal all editorial sections
+  document.querySelectorAll(".section").forEach(section => {
+    section.classList.remove("hidden");
+  });
 }
+
 
     // Optional: trigger language-specific UI changes
   }
@@ -1179,6 +1176,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   <span>© Digging For Clarity 2025. All rights reserved.</span>
  
 </html>
+
 
 
 
