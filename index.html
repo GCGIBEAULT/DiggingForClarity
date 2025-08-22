@@ -1105,25 +1105,25 @@ window.onload = function() {
   loadTrafficLink();
 };
 </script>
+<script>
+  function loadWeatherBlock() {
+    const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+    const weatherPath = `blocks/${location}/Weather.html`;
+    // …other weather-loading logic…
+  }
+</script>
+<script>
+  function setPreferences() {
+    …rest of your setPreferences code…
+  }
+</script>
+</body>
+</html>
 
-
-1098  <script>
-1099    function loadWeatherBlock() {
-1100      const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
-1101      const weatherPath = `blocks/${location}/Weather.html`;
-1102      // …other weather-loading logic…
-1103    }                  ←— close the function here
-1104  </script>          ←— close the script tag here
-1105  
-1106  <script>           ←— now start a fresh script for setPreferences
-1107    function setPreferences() {
-… (rest of your setPreferences code unchanged) …
-1122    }
-1123  </script>
-1124   </body>  
 1125  </html>
 
    
+
 
 
 
