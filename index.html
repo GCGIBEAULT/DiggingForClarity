@@ -1110,184 +1110,38 @@ window.onload = function() {
     const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
     const weatherPath = `blocks/${location}/Weather.html`;
 
-    fetch(weatherPath)
-      .then(response => {
-        if (!response.ok) throw new Error("Weather block not found");
-        return response.text();
-      })
-      .then(html => {
-       document.querySelector(".section").classList.remove("hidden");
- document.querySelector(".local-weather-container").innerHTML = html;
-        
-      })
-      .catch(() => {
-        document.querySelector(".local-weather-container").innerHTML = `
-          <div class="main-weather-block">
-            <div class="snippet"><strong>Now:</strong> 85°F — Mostly cloudy skies</div>
-            <div class="snippet">Humidity: 16% | Wind: 4 mph S | Visibility: 9.9 mi</div>
-            <div class="snippet">Air Quality: 45 (Good) | UV Index: 1 (Low)</div>
-            <div class="snippet"><strong>Sunrise:</strong> 6:12 AM</div>
-            <div class="snippet"><strong>Sunset:</strong> 8:12 PM</div>
-            <div class="snippet"><strong>Tip:</strong> Light layers recommended; stay hydrated</div>
-          </div>
-          <div class="right-weather-box">
-            <div class="snippet"><strong>Local Forecast:</strong> Mostly cloudy skies, light southern breeze.</div>
-            <div class="snippet"><strong>Live Radar:</strong> <a href="https://weather.com/weather/radar" target="_blank">Track conditions in real time</a></div>
-            <div class="snippet"><strong>Local Impact:</strong> Dry air and low humidity raise wildfire risk in foothills.</div>
-            <div class="snippet"><strong>More Weather Tools:</strong> <a href="https://weather.com/" target="_blank">The Weather Channel</a></div>
-          </div>
-        `;
+   
+ <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const zipInput    = document.getElementById('zipInput');
+    const langSelect  = document.getElementById('languageSelect');
+    const setButton   = document.getElementById('setZip');
+
+    // Ensure no old inline handler remains
+    setButton.removeAttribute('onclick');
+
+    setButton.addEventListener('click', () => {
+      const raw       = zipInput.value.trim().toLowerCase();
+      const lang      = langSelect.value;
+      const cityInput = raw.replace(/\D/g, '') || raw; 
+      console.log('🔴 Set clicked:', { cityInput, lang });
+
+      // Save preferences
+      if (raw)   localStorage.setItem('userZip', raw);
+      if (lang)  localStorage.setItem('userLang', lang);
+
+      // Filter all stories tagged with data-city
+      document.querySelectorAll('[data-city]').forEach(item => {
+        const tag = item.getAttribute('data-city').toLowerCase();
+        const show = tag === cityInput;
+        item.style.display = show ? 'block' : 'none';
       });
-  }
-
-<script>
-document.querySelectorAll('.prompt-link').forEach(link => {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    const section = this.closest('.section');
-    const pool = section.dataset.extraStories?.split('|') || [];
-    const maxToLoad = 7;
-    const toLoad = pool.splice(0, maxToLoad);
-
-    toLoad.forEach(text => {
-      const div = document.createElement('div');
-      div.className = 'snippet';
-      div.textContent = text;
-      section.insertBefore(div, section.querySelector('.more-news-prompt'));
     });
-
-    section.dataset.extraStories = pool.join('|');
-
-    if (pool.length === 0) {
-      this.remove();
-      window.location.href = '#top';
-    }
-  });
-});
-</script>
-
-<footer class="footer-container" style="display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
-  <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
-  <span>© Digging For Clarity 2025. All rights reserved.</span>
-<script>
-  function updateCityBlocks(city) {
-    const normalizedCity = city.trim().toLowerCase();
-    const abileneZips = ["79601", "79602", "79603", "79605", "79606"];
-
-    // Only activate if city is Abilene or one of its ZIPs
-    if (normalizedCity === "abilene" || abileneZips.includes(normalizedCity)) {
-      document.querySelectorAll('[data-city]').forEach(item => {
-        const itemCity = item.getAttribute('data-city').toLowerCase();
-       item.style.display = itemCity === "abilene" ? 'block' : 'none';
-
-      });
-
-      document.querySelectorAll('.section-header').forEach(header => {
-        header.textContent = "Filtered for Abilene";
-      });
-    } else {
-      // Reset all blocks if city is not Abilene
-      document.querySelectorAll('[data-city]').forEach(item => {
-       item.style.display = 'block';
-
-      });
-
-      document.querySelectorAll('.section-header').forEach(header => {
-        header.textContent = "National Coverage";
-      });
-    }
-  }
-
-  document.getElementById('city-input').addEventListener('change', function() {
-    updateCityBlocks(this.value);
   });
 </script>
-<script>
-  function updateCityBlocks(city) {
-    const normalizedCity = city.trim().toLowerCase();
-    const abileneZips = ["79601", "79602", "79603", "79605", "79606"];
 
-    if (normalizedCity === "abilene" || abileneZips.includes(normalizedCity)) {
-      document.querySelectorAll('[data-city]').forEach(item => {
-        const itemCity = item.getAttribute('data-city').toLowerCase();
-        item.style.display = itemCity === "abilene" ? 'list-item' : 'none';
-      });
-
-      document.querySelectorAll('.section-header').forEach(header => {
-        header.textContent = "Filtered for Abilene";
-      });
-    } else {
-      document.querySelectorAll('[data-city]').forEach(item => {
-        item.style.display = 'list-item';
-      });
-
-      document.querySelectorAll('.section-header').forEach(header => {
-        header.textContent = "National Coverage";
-      });
-    }
-  }
-
-  document.getElementById('city-input').addEventListener('change', function() {
-    updateCityBlocks(this.value);
-  });
-</script>
-document.querySelector('#zipSetButton').addEventListener('click', () => {
-  const zip = document.querySelector('#zipInput').value.trim();
-  updateCityBlocks(zip);
-});
-<script>
-  document.querySelector('#zipSetButton').addEventListener('click', () => {
-    const zip = document.querySelector('#zipInput').value.trim();
-    updateCityBlocks(zip);
-  });
-</script>
- function setPreferences() {
-  const zip = document.getElementById("zipInput").value.trim();
-  const lang = document.getElementById("languageSelect").value;
-  if (zip) {
-    localStorage.setItem("userZip", zip);
-    updateCityBlocks(zip); // 🔥 This triggers the filter
-  }
-  if (lang) localStorage.setItem("userLang", lang);
-}
-<script>
-  function updateCityBlocks(city) {
-    const normalizedCity = city.trim().toLowerCase();
-    const abileneZips = ["79601", "79602", "79603", "79605", "79606"];
-    if (normalizedCity === "abilene" || abileneZips.includes(normalizedCity)) {
-      document.querySelectorAll('[data-city]').forEach(item => {
-        const itemCity = item.getAttribute('data-city').toLowerCase();
-        item.style.display = itemCity === "abilene" ? 'list-item' : 'none';
-      });
-      document.querySelectorAll('.section-header').forEach(header => {
-        header.textContent = "Filtered for Abilene";
-      });
-    } else {
-      document.querySelectorAll('[data-city]').forEach(item => {
-        item.style.display = 'list-item';
-      });
-      document.querySelectorAll('.section-header').forEach(header => {
-        header.textContent = "National Coverage";
-      });
-    }
-  }
-
-  function setPreferences() {
-    const zip = document.getElementById("zipInput").value.trim();
-    const lang = document.getElementById("languageSelect").value;
-    if (zip) {
-      localStorage.setItem("userZip", zip);
-      updateCityBlocks(zip); // ✅ This triggers the filter
-    }
-    if (lang) localStorage.setItem("userLang", lang);
-  }
-
-  // ✅ Attach listener to the actual button
-  document.getElementById("setZip").addEventListener("click", setPreferences);
-</script>
- 
- 
 </html>
+
 
 
 
