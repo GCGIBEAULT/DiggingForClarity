@@ -1197,8 +1197,39 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     updateCityBlocks(this.value);
   });
 </script>
+<script>
+  function updateCityBlocks(city) {
+    const normalizedCity = city.trim().toLowerCase();
+    const abileneZips = ["79601", "79602", "79603", "79605", "79606"];
+
+    if (normalizedCity === "abilene" || abileneZips.includes(normalizedCity)) {
+      document.querySelectorAll('[data-city]').forEach(item => {
+        const itemCity = item.getAttribute('data-city').toLowerCase();
+        item.style.display = itemCity === "abilene" ? 'list-item' : 'none';
+      });
+
+      document.querySelectorAll('.section-header').forEach(header => {
+        header.textContent = "Filtered for Abilene";
+      });
+    } else {
+      document.querySelectorAll('[data-city]').forEach(item => {
+        item.style.display = 'list-item';
+      });
+
+      document.querySelectorAll('.section-header').forEach(header => {
+        header.textContent = "National Coverage";
+      });
+    }
+  }
+
+  document.getElementById('city-input').addEventListener('change', function() {
+    updateCityBlocks(this.value);
+  });
+</script>
+  
  
 </html>
+
 
 
 
