@@ -1105,26 +1105,21 @@ window.onload = function() {
 </script>
 
 
- <script>
-  function loadWeatherBlock() {
-    const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
-    const weatherPath = `blocks/${location}/Weather.html`;
-
-   
-<script>
-  function setPreferences() {
-    const zipField = document.getElementById("zipInput");
-    const zip      = zipField.value.trim().toLowerCase();
-    const lang     = document.getElementById("languageSelect").value;
-
-    if (zip) {
-      localStorage.setItem("userZip", zip);
-      updateCityData(zip);
-      document.querySelectorAll("[data-city]").forEach(el => {
-        const tag = el.getAttribute("data-city").toLowerCase();
-        el.style.display = (tag === zip) ? "block" : "none";
-      });
-    }
+1098  <script>
+1099    function loadWeatherBlock() {
+1100      const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+1101      const weatherPath = `blocks/${location}/Weather.html`;
+1102      // …other weather-loading logic…
+1103    }                  ←— close the function here
+1104  </script>          ←— close the script tag here
+1105  
+1106  <script>           ←— now start a fresh script for setPreferences
+1107    function setPreferences() {
+… (rest of your setPreferences code unchanged) …
+1122    }
+1123  </script>
+1124  
+1125  </html>
 
     if (lang) {
       localStorage.setItem("userLang", lang);
@@ -1135,6 +1130,7 @@ window.onload = function() {
 
 
 </html>
+
 
 
 
