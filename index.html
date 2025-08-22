@@ -1239,9 +1239,19 @@ document.querySelector('#zipSetButton').addEventListener('click', () => {
     updateCityBlocks(zip);
   });
 </script>
-  
+ function setPreferences() {
+  const zip = document.getElementById("zipInput").value.trim();
+  const lang = document.getElementById("languageSelect").value;
+  if (zip) {
+    localStorage.setItem("userZip", zip);
+    updateCityBlocks(zip); // 🔥 This triggers the filter
+  }
+  if (lang) localStorage.setItem("userLang", lang);
+}
+ 
  
 </html>
+
 
 
 
