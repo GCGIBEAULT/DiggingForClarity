@@ -406,8 +406,22 @@ need more
       <option value="fr">Français</option>
       <option value="ja">日本語</option>
     </select>
-  
+    <button onclick="setPreferences()" style="padding: 6px 10px; font-size: 0.9em;">Set</button>
+    <button onclick="location.reload()" style="padding: 6px 10px; font-size: 0.9em;">Refresh</button>
+  </div>
 </div>
+<script>
+function setPreferences() {
+  const zip  = document.getElementById("zipInput").value.trim();
+  const lang = document.getElementById("languageSelect").value;
+
+  if (zip)  localStorage.setItem("userZip", zip);
+  if (lang) localStorage.setItem("userLang", lang);
+
+  // live‐update weather & traffic without a full reload
+  if (zip) updateCityData(zip);
+}
+</script>
 
    
 
@@ -415,7 +429,7 @@ need more
 
 
 
-
+</section>
 
   </div>
 <!-- Centered new logo -->
@@ -1145,18 +1159,12 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   });
 });
 </script>
-<!-- Trigger rebuild: August 21 -->
 
 <footer class="footer-container" style="display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
   <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
   <span>© Digging For Clarity 2025. All rights reserved.</span>
-
-
+ 
 </html>
-
-
-
-
 
 
 
