@@ -1112,26 +1112,30 @@ window.onload = function() {
 
    
 <script>
-  // ensure this runs after the DOM is fully parsed
-  document.addEventListener('DOMContentLoaded', () => {
-    const zipField  = document.getElementById('zipInput');
-    const setBtn    = document.getElementById('setZip');
-    const stories   = document.querySelectorAll('[data-city]');
+  function setPreferences() {
+    const zipField = document.getElementById("zipInput");
+    const zip      = zipField.value.trim().toLowerCase();
+    const lang     = document.getElementById("languageSelect").value;
 
-    setBtn.addEventListener('click', () => {
-      const cityKey = zipField.value.trim().toLowerCase();
-      console.log('Set clicked →', cityKey);
-
-      stories.forEach(el => {
-        const tag = el.getAttribute('data-city').toLowerCase();
-        el.style.display = (tag === cityKey) ? 'block' : 'none';
+    if (zip) {
+      localStorage.setItem("userZip", zip);
+      updateCityData(zip);
+      document.querySelectorAll("[data-city]").forEach(el => {
+        const tag = el.getAttribute("data-city").toLowerCase();
+        el.style.display = (tag === zip) ? "block" : "none";
       });
-    });
-  });
+    }
+
+    if (lang) {
+      localStorage.setItem("userLang", lang);
+    }
+  }
 </script>
 
 
+
 </html>
+
 
 
 
