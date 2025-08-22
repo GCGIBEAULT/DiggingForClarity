@@ -380,20 +380,23 @@ need more
   
 
 <body>
-  <div class="header-container">
- <div class="editorial-box">
-  <section class="editorial-header">
-<h1 class="site-title">Digging For Clarity</h1>
-<p class="header-tagline" style="font-size: 1.6rem; font-weight: 600; font-family: 'Merriweather', serif; text-align: center; color: #222; margin: 1em 0 0.5em 0;">
-  Just The News Please. Hold The Drama.
-</p>
-<hr style="border: none; border-top: 1px solid #999; margin: 0.5em auto; width: 80%;">
+<header class="clarity-header">
+  <div class="site-identity">
+    <h1>Digging For Clarity</h1>
+    <p class="tagline">Just the news, please. Hold the drama.</p>
+  </div>
 
-<p class="timestamp">Friday • August 15 • 2:05 PM • Denver</p>
+  <div class="timestamp-block">
+    <p id="timestamp">Loading timestamp…</p>
+  </div>
 
+  <div class="location-block">
+    <label for="zipInput">ZIP:</label>
+    <input type="text" id="zipInput" placeholder="Enter ZIP" />
+    <button onclick="setPreferences()">Set</button>
+  </div>
+</header>
 
-
-  </section>
 <div class="quiet-settings-box">
   <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
   <div style="display: flex; flex-wrap: wrap; gap: 0.5em; align-items: center;">
@@ -1288,6 +1291,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 </script>
  
 </html>
+
 
 
 
