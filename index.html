@@ -1178,7 +1178,8 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     if (normalizedCity === "abilene" || abileneZips.includes(normalizedCity)) {
       document.querySelectorAll('[data-city]').forEach(item => {
         const itemCity = item.getAttribute('data-city').toLowerCase();
-        item.style.display = itemCity === "abilene" ? 'list-item' : 'none';
+       item.style.display = itemCity === "abilene" ? 'block' : 'none';
+
       });
 
       document.querySelectorAll('.section-header').forEach(header => {
@@ -1187,7 +1188,8 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     } else {
       // Reset all blocks if city is not Abilene
       document.querySelectorAll('[data-city]').forEach(item => {
-        item.style.display = 'list-item';
+       item.style.display = 'block';
+
       });
 
       document.querySelectorAll('.section-header').forEach(header => {
@@ -1286,6 +1288,7 @@ document.querySelector('#zipSetButton').addEventListener('click', () => {
  
  
 </html>
+
 
 
 
