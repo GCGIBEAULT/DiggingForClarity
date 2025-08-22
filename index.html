@@ -1045,13 +1045,13 @@ const formatted = `${day} • ${date} • ${time} • ${location.charAt(0).toUpp
   window.onload = function() {
     updateTimestamp();
   };
-</script>
+<script>
   <script>
 window.onload = function() {
   updateTimestamp();
   loadWeatherBlock();
 };
-</script>
+<script>
 
 <script>
 function loadTrafficLink() {
@@ -1102,7 +1102,7 @@ window.onload = function() {
   loadWeatherBlock();
   loadTrafficLink();
 };
-</script>
+<script>
 <script>
   function loadWeatherBlock() {
     const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
@@ -1124,18 +1124,18 @@ fetch(weatherPath)
 
     // …other weather-loading logic…
   }
-</script>
+<script>
 <script>
   function setPreferences() {
     …rest of your setPreferences code…
   }
-</script>
+<script>
 </body>
 </html>
 <script>
   // fire your loader once the window’s done rendering
   window.addEventListener("load", loadWeatherBlock);
-</script>
+<script>
 <script>
   function loadWeatherBlock() {
     const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
@@ -1157,11 +1157,12 @@ fetch(weatherPath)
 
  window.addEventListener("load", loadWeatherBlock);
 
-</script>
+<script>
 
   </html>
 
    
+
 
 
 
