@@ -1111,37 +1111,28 @@ window.onload = function() {
     const weatherPath = `blocks/${location}/Weather.html`;
 
    
- <script>
- document.querySelector('#setZip')
+<script>
+  // ensure this runs after the DOM is fully parsed
+  document.addEventListener('DOMContentLoaded', () => {
+    const zipField  = document.getElementById('zipInput');
+    const setBtn    = document.getElementById('setZip');
+    const stories   = document.querySelectorAll('[data-city]');
 
-    const zipInput    = document.getElementById('zipInput');
-    const langSelect  = document.getElementById('languageSelect');
-    const setButton   = document.getElementById('setZip');
+    setBtn.addEventListener('click', () => {
+      const cityKey = zipField.value.trim().toLowerCase();
+      console.log('Set clicked →', cityKey);
 
-    // Ensure no old inline handler remains
-    setButton.removeAttribute('onclick');
-
-    setButton.addEventListener('click', () => {
-      const raw       = zipInput.value.trim().toLowerCase();
-      const lang      = langSelect.value;
-      const cityInput = raw.replace(/\D/g, '') || raw; 
-      console.log('🔴 Set clicked:', { cityInput, lang });
-
-      // Save preferences
-      if (raw)   localStorage.setItem('userZip', raw);
-      if (lang)  localStorage.setItem('userLang', lang);
-
-      // Filter all stories tagged with data-city
-      document.querySelectorAll('[data-city]').forEach(item => {
-        const tag = item.getAttribute('data-city').toLowerCase();
-        const show = tag === cityInput;
-        item.style.display = show ? 'block' : 'none';
+      stories.forEach(el => {
+        const tag = el.getAttribute('data-city').toLowerCase();
+        el.style.display = (tag === cityKey) ? 'block' : 'none';
       });
     });
   });
 </script>
 
+
 </html>
+
 
 
 
