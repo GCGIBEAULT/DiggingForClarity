@@ -380,23 +380,20 @@ need more
   
 
 <body>
-<header class="clarity-header">
-  <div class="site-identity">
-    <h1>Digging For Clarity</h1>
-    <p class="tagline">Just the news, please. Hold the drama.</p>
-  </div>
+  <div class="header-container">
+ <div class="editorial-box">
+  <section class="editorial-header">
+<h1 class="site-title">Digging For Clarity</h1>
+<p class="header-tagline" style="font-size: 1.6rem; font-weight: 600; font-family: 'Merriweather', serif; text-align: center; color: #222; margin: 1em 0 0.5em 0;">
+  Just The News Please. Hold The Drama.
+</p>
+<hr style="border: none; border-top: 1px solid #999; margin: 0.5em auto; width: 80%;">
 
-  <div class="timestamp-block">
-    <p id="timestamp">Loading timestamp…</p>
-  </div>
+<p class="timestamp">Friday • August 15 • 2:05 PM • Denver</p>
 
-  <div class="location-block">
-    <label for="zipInput">ZIP:</label>
-    <input type="text" id="zipInput" placeholder="Enter ZIP" />
-    <button onclick="setPreferences()">Set</button>
-  </div>
-</header>
 
+
+  </section>
 <div class="quiet-settings-box">
   <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
   <div style="display: flex; flex-wrap: wrap; gap: 0.5em; align-items: center;">
@@ -410,53 +407,21 @@ need more
       <option value="ja">日本語</option>
     </select>
     <button onclick="setPreferences()" style="padding: 6px 10px; font-size: 0.9em;">Set</button>
-   <script>
- window.onload = function() { updateTimestamp(); };
-window.onload = function() { updateTimestamp(); loadWeatherBlock(); };
-window.onload = function() {
-  updateTimestamp();
-  const savedZip = localStorage.getItem("userZip");
-  if (savedZip) updateCityData(savedZip);
-  loadWeatherBlock();
-  loadTrafficLink();
-};
+    <button onclick="location.reload()" style="padding: 6px 10px; font-size: 0.9em;">Refresh</button>
+  </div>
+</div>
+<script>
+function setPreferences() {
+  const zip  = document.getElementById("zipInput").value.trim();
+  const lang = document.getElementById("languageSelect").value;
 
-    document.querySelectorAll(".section").forEach(section => {
-      section.classList.remove("hidden");
-    });
-  }
+  if (zip)  localStorage.setItem("userZip", zip);
+  if (lang) localStorage.setItem("userLang", lang);
 
-  function setPreferences() {
-    const zip = document.getElementById("zipInput").value.trim();
-    const lang = document.getElementById("languageSelect").value;
-
-    if (zip) localStorage.setItem("userZip", zip);
-    if (lang) localStorage.setItem("userLang", lang);
-
-    initializePage();
-  }
+  // live‐update weather & traffic without a full reload
+  if (zip) updateCityData(zip);
+}
 </script>
-
-
-
-  // Reveal all editorial sections
-  document.querySelectorAll(".section").forEach(section => {
-    section.classList.remove("hidden");
-  });
-}
-
-
-    // Optional: trigger language-specific UI changes
-  }
-
-  updateTimestamp();           // ⏱ Update header timestamp
-  restoreEditorialBlocks();    // 🧱 Rebuild all static sections
-}
-
-
-  loadWeatherBlock(); // 🌦 Reload weather block
-  loadTrafficLink();  // 🚦 Reload traffic block
-}
 
    
 
@@ -468,28 +433,6 @@ window.onload = function() {
 
   </div>
 <!-- Centered new logo -->
-<header class="clarity-header">
-  <h1>Digging For Clarity</h1>
-  <p class="tagline">Just the news, please. Hold the drama.</p>
-  <p class="timestamp" id="timestamp">Loading timestamp...</p>
-
-  <div class="preferences">
-    <label for="zipInput">Zip Code:</label>
-    <input type="text" id="zipInput" placeholder="Enter ZIP" />
-
-    <label for="languageSelect">Language:</label>
-    <select id="languageSelect">
-      <option value="en">English</option>
-      <option value="es">Spanish</option>
-    </select>
-
-    <button onclick="setPreferences()">Set</button>
-  </div>
-</header>
-
-
-</header>
-
 <div class="logo-wrapper" style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
  <img src="https://gcgibeault.github.io/DiggingForClarity/new_logo.png" alt="Digging For Clarity logo" style="height: 280px; max-width: 100%; object-fit: contain; image-rendering: crisp-edges; -webkit-optimize-contrast: true; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
 <img src="https://gcgibeault.github.io/DiggingForClarity/dfc-inverted.png" alt="Inverted DFC Logo" style="height: 280px; max-width: 100%; object-fit: contain; image-rendering: crisp-edges; -webkit-optimize-contrast: true; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
@@ -1220,90 +1163,8 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 <footer class="footer-container" style="display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
   <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
   <span>© Digging For Clarity 2025. All rights reserved.</span>
-  <script>
-  function restoreEditorialBlocks() {
-    document.querySelectorAll(".section").forEach(section => {
-      section.classList.remove("hidden");
-    });
-  }
-
-  function initializePage() {
-    updateTimestamp();
-
-    const zip = localStorage.getItem("userZip");
-    if (zip) {
-      updateCityData(zip);
-      loadWeatherBlock();
-      loadTrafficLink();
-    }
-
-    restoreEditorialBlocks();
-  }
-
-  function setPreferences() {
-    const zip = document.getElementById("zipInput").value.trim();
-    const lang = document.getElementById("languageSelect").value;
-
-    if (zip) localStorage.setItem("userZip", zip);
-    if (lang) localStorage.setItem("userLang", lang);
-
-    initializePage();
-  }
-
-  window.onload = function() {
-    initializePage();
-  };
-</script>
-
-<script>
-  function restoreEditorialBlocks() {
-    document.querySelectorAll(".section").forEach(section => {
-      section.classList.remove("hidden");
-    });
-  }
-
-  function initializePage() {
-    updateTimestamp();
-
-    const zip = localStorage.getItem("userZip");
-    if (zip) {
-      updateCityData(zip);
-      loadWeatherBlock();
-      loadTrafficLink();
-    }
-
-    restoreEditorialBlocks(); // 🔁 Reveal all editorial zones
-  }
-
-  function setPreferences() {
-    const zip = document.getElementById("zipInput").value.trim();
-    const lang = document.getElementById("languageSelect").value;
-
-    if (zip) localStorage.setItem("userZip", zip);
-    if (lang) localStorage.setItem("userLang", lang);
-
-    initializePage(); // 🔁 Rehydrate layout after Set
-  }
-
-  window.onload = function() {
-    initializePage(); // 🔁 Rehydrate layout on page load
-  };
-</script>
  
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
