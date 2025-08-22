@@ -1165,8 +1165,39 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 <footer class="footer-container" style="display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
   <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
   <span>© Digging For Clarity 2025. All rights reserved.</span>
+ function updateCityData(city) {
+  city = city.toLowerCase().trim();
+  loadWeatherBlock(city);
+  loadTrafficLink(city);
+}
+
+function loadWeatherBlock(city) {
+  const weatherPath = `/${city}/weather.html`;
+  fetch(weatherPath)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("weather-block").innerHTML = html;
+    })
+    .catch(() => {
+      document.getElementById("weather-block").innerHTML = "<p>Weather data not available.</p>";
+    });
+}
+
+function loadTrafficLink(city) {
+  const trafficPath = `/${city}/traffic.html`;
+  fetch(trafficPath)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("traffic-block").innerHTML = html;
+    })
+    .catch(() => {
+      document.getElementById("traffic-block").innerHTML = "<p>Traffic data not available.</p>";
+    });
+}
+ 
  
 </html>
+
 
 
 
