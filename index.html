@@ -21,6 +21,7 @@
 
 
 
+
 <!DOCTYPE html>
 <!-- === CSS INDEX ===
 1. Header Container
@@ -1005,24 +1006,6 @@ function setPreferences() {
 </div>
 
 </div>
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<script>
-  // Your JS logic here
-</script>
-</body>
-</html>
-
 <script>
   const cityTimezones = {
     "denver": "America/Denver",
@@ -1183,107 +1166,8 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 <footer class="footer-container" style="display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
   <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
   <span>© Digging For Clarity 2025. All rights reserved.</span>
- function updateCityData(city) {
-  city = city.toLowerCase().trim();
-  loadWeatherBlock(city);
-  loadTrafficLink(city);
-}
-
-function loadWeatherBlock(city) {
-  const weatherPath = `/${city}/weather.html`;
-  fetch(weatherPath)
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById("weather-block").innerHTML = html;
-    })
-    .catch(() => {
-      document.getElementById("weather-block").innerHTML = "<p>Weather data not available.</p>";
-    });
-}
-
-function loadTrafficLink(city) {
-  const trafficPath = `/${city}/traffic.html`;
-  fetch(trafficPath)
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById("traffic-block").innerHTML = html;
-    })
-    .catch(() => {
-      document.getElementById("traffic-block").innerHTML = "<p>Traffic data not available.</p>";
-    });
-}
- 
-<script>
-const abileneZips = ["79601", "79602", "79603", "79605", "79606"];
-
-function resolveCity(input) {
-  input = input.toLowerCase().trim();
-  if (input === "abilene" || abileneZips.includes(input)) {
-    return "abilene";
-  }
-  return "abilene"; // default fallback until other cities are built
-}
-
-function updateCityData(input) {
-  const city = resolveCity(input);
-  localStorage.setItem("userLocation", city);
-  updateTimestamp();
-  loadWeatherBlock(city);
-  loadTrafficLink(city);
-}
-
-function updateTimestamp() {
-  const location = localStorage.getItem("userLocation") || "abilene";
-  const timezone = {
-    abilene: "America/Chicago",
-    denver: "America/Denver",
-    nyc: "America/New_York"
-    // Add more cities as needed
-  }[location] || "America/Chicago";
-
-  const now = new Date();
-  const day = now.toLocaleDateString("en-US", { weekday: "long", timeZone: timezone });
-  const date = now.toLocaleDateString("en-US", { month: "long", day: "numeric", timeZone: timezone });
-  const time = now.toLocaleTimeString("en-US", { hour: "numeric", minute: "numeric", timeZone: timezone });
-  const formatted = `${day} • ${date} • ${time} • ${location.charAt(0).toUpperCase() + location.slice(1)}`;
-  document.querySelector(".timestamp").textContent = formatted;
-}
-
-function loadWeatherBlock(city) {
-  fetch(`/${city}/weather.html`)
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("local-weather").innerHTML = html;
-    })
-    .catch(() => {
-      document.getElementById("local-weather").innerHTML = "<p>Weather data not available.</p>";
-    });
-}
-
-function loadTrafficLink(city) {
-  fetch(`/${city}/traffic.html`)
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("local-traffic").innerHTML = html;
-    })
-    .catch(() => {
-      document.getElementById("local-traffic").innerHTML = "<p>Traffic data not available.</p>";
-    });
-}
-
-document.getElementById("setZip").addEventListener("click", () => {
-  const input = document.getElementById("zipInput").value.trim();
-  if (input) {
-    localStorage.setItem("userZip", input);
-    updateCityData(input);
-  }
-});
-</script>
  
 </html>
-
-
-
 
 
 
