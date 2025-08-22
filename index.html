@@ -408,15 +408,15 @@ need more
     </select>
     <button onclick="setPreferences()" style="padding: 6px 10px; font-size: 0.9em;">Set</button>
    <script>
-  function initializePage() {
-    updateTimestamp();
-
-    const zip = localStorage.getItem("userZip");
-    if (zip) {
-      updateCityData(zip);
-      loadWeatherBlock();
-      loadTrafficLink();
-    }
+ window.onload = function() { updateTimestamp(); };
+window.onload = function() { updateTimestamp(); loadWeatherBlock(); };
+window.onload = function() {
+  updateTimestamp();
+  const savedZip = localStorage.getItem("userZip");
+  if (savedZip) updateCityData(savedZip);
+  loadWeatherBlock();
+  loadTrafficLink();
+};
 
     document.querySelectorAll(".section").forEach(section => {
       section.classList.remove("hidden");
@@ -1197,6 +1197,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   <span>© Digging For Clarity 2025. All rights reserved.</span>
  
 </html>
+
 
 
 
