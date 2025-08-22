@@ -1109,6 +1109,21 @@ window.onload = function() {
   function loadWeatherBlock() {
     const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
     const weatherPath = `blocks/${location}/Weather.html`;
+    const weatherPath = `blocks/${location}/Weather.html`;
+
+fetch(weatherPath)
+  .then(resp => {
+    if (!resp.ok) throw new Error("not found");
+    return resp.text();
+  })
+  .then(html => {
+    document.getElementById("local-weather").innerHTML = html;
+  })
+  .catch(() => {
+    document.getElementById("local-weather").innerHTML =
+      "<p>Weather unavailable</p>";
+  });
+
     // …other weather-loading logic…
   }
 </script>
@@ -1123,6 +1138,7 @@ window.onload = function() {
 1125  </html>
 
    
+
 
 
 
