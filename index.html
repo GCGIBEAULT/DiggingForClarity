@@ -1213,8 +1213,75 @@ function loadTrafficLink(city) {
     });
 }
  
+<script>
+const abileneZips = ["79601", "79602", "79603", "79605", "79606"];
+
+function resolveCity(input) {
+  input = input.toLowerCase().trim();
+  if (input === "abilene" || abileneZips.includes(input)) {
+    return "abilene";
+  }
+  return "abilene"; // default fallback until other cities are built
+}
+
+function updateCityData(input) {
+  const city = resolveCity(input);
+  localStorage.setItem("userLocation", city);
+  updateTimestamp();
+  loadWeatherBlock(city);
+  loadTrafficLink(city);
+}
+
+function updateTimestamp() {
+  const location = localStorage.getItem("userLocation") || "abilene";
+  const timezone = {
+    abilene: "America/Chicago",
+    denver: "America/Denver",
+    nyc: "America/New_York"
+    // Add more cities as needed
+  }[location] || "America/Chicago";
+
+  const now = new Date();
+  const day = now.toLocaleDateString("en-US", { weekday: "long", timeZone: timezone });
+  const date = now.toLocaleDateString("en-US", { month: "long", day: "numeric", timeZone: timezone });
+  const time = now.toLocaleTimeString("en-US", { hour: "numeric", minute: "numeric", timeZone: timezone });
+  const formatted = `${day} • ${date} • ${time} • ${location.charAt(0).toUpperCase() + location.slice(1)}`;
+  document.querySelector(".timestamp").textContent = formatted;
+}
+
+function loadWeatherBlock(city) {
+  fetch(`/${city}/weather.html`)
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("local-weather").innerHTML = html;
+    })
+    .catch(() => {
+      document.getElementById("local-weather").innerHTML = "<p>Weather data not available.</p>";
+    });
+}
+
+function loadTrafficLink(city) {
+  fetch(`/${city}/traffic.html`)
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("local-traffic").innerHTML = html;
+    })
+    .catch(() => {
+      document.getElementById("local-traffic").innerHTML = "<p>Traffic data not available.</p>";
+    });
+}
+
+document.getElementById("setZip").addEventListener("click", () => {
+  const input = document.getElementById("zipInput").value.trim();
+  if (input) {
+    localStorage.setItem("userZip", input);
+    updateCityData(input);
+  }
+});
+</script>
  
 </html>
+
 
 
 
