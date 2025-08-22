@@ -407,21 +407,26 @@ need more
       <option value="ja">日本語</option>
     </select>
     <button onclick="setPreferences()" style="padding: 6px 10px; font-size: 0.9em;">Set</button>
-    <button onclick="location.reload()" style="padding: 6px 10px; font-size: 0.9em;">Refresh</button>
-  </div>
-</div>
+   
 <script>
 function setPreferences() {
-  const zip  = document.getElementById("zipInput").value.trim();
+  const zip = document.getElementById("zipInput").value.trim();
   const lang = document.getElementById("languageSelect").value;
 
-  if (zip)  localStorage.setItem("userZip", zip);
-  if (lang) localStorage.setItem("userLang", lang);
+  if (zip) {
+    localStorage.setItem("userZip", zip);
+    updateCityData(zip); // 🔥 Live weather + traffic update
+  }
 
-  // live‐update weather & traffic without a full reload
-  if (zip) updateCityData(zip);
+  if (lang) {
+    localStorage.setItem("userLang", lang);
+    // Optional: trigger language-specific UI changes here
+  }
+
+  updateTimestamp(); // ⏱ Refresh timestamp to reflect new location
+  loadWeatherBlock(); // 🌦 Reload weather block
+  loadTrafficLink();  // 🚦 Reload traffic block
 }
-</script>
 
    
 
@@ -1165,6 +1170,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   <span>© Digging For Clarity 2025. All rights reserved.</span>
  
 </html>
+
 
 
 
