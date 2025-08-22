@@ -465,6 +465,25 @@ window.onload = function() {
 
   </div>
 <!-- Centered new logo -->
+  <header class="clarity-header">
+  <h1>Digging For Clarity</h1>
+  <p class="tagline">Just the news, please. Hold the drama.</p>
+  <p class="timestamp" id="timestamp">Loading timestamp...</p>
+
+  <div class="preferences">
+    <label for="zipInput">Zip Code:</label>
+    <input type="text" id="zipInput" placeholder="Enter ZIP" />
+
+    <label for="languageSelect">Language:</label>
+    <select id="languageSelect">
+      <option value="en">English</option>
+      <option value="es">Spanish</option>
+    </select>
+
+    <button onclick="setPreferences()">Set</button>
+  </div>
+</header>
+
 <div class="logo-wrapper" style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
  <img src="https://gcgibeault.github.io/DiggingForClarity/new_logo.png" alt="Digging For Clarity logo" style="height: 280px; max-width: 100%; object-fit: contain; image-rendering: crisp-edges; -webkit-optimize-contrast: true; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
 <img src="https://gcgibeault.github.io/DiggingForClarity/dfc-inverted.png" alt="Inverted DFC Logo" style="height: 280px; max-width: 100%; object-fit: contain; image-rendering: crisp-edges; -webkit-optimize-contrast: true; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
@@ -1266,6 +1285,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 </script>
  
 </html>
+
 
 
 
