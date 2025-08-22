@@ -1248,9 +1248,45 @@ document.querySelector('#zipSetButton').addEventListener('click', () => {
   }
   if (lang) localStorage.setItem("userLang", lang);
 }
+<script>
+  function updateCityBlocks(city) {
+    const normalizedCity = city.trim().toLowerCase();
+    const abileneZips = ["79601", "79602", "79603", "79605", "79606"];
+    if (normalizedCity === "abilene" || abileneZips.includes(normalizedCity)) {
+      document.querySelectorAll('[data-city]').forEach(item => {
+        const itemCity = item.getAttribute('data-city').toLowerCase();
+        item.style.display = itemCity === "abilene" ? 'list-item' : 'none';
+      });
+      document.querySelectorAll('.section-header').forEach(header => {
+        header.textContent = "Filtered for Abilene";
+      });
+    } else {
+      document.querySelectorAll('[data-city]').forEach(item => {
+        item.style.display = 'list-item';
+      });
+      document.querySelectorAll('.section-header').forEach(header => {
+        header.textContent = "National Coverage";
+      });
+    }
+  }
+
+  function setPreferences() {
+    const zip = document.getElementById("zipInput").value.trim();
+    const lang = document.getElementById("languageSelect").value;
+    if (zip) {
+      localStorage.setItem("userZip", zip);
+      updateCityBlocks(zip); // ✅ This triggers the filter
+    }
+    if (lang) localStorage.setItem("userLang", lang);
+  }
+
+  // ✅ Attach listener to the actual button
+  document.getElementById("setZip").addEventListener("click", setPreferences);
+</script>
  
  
 </html>
+
 
 
 
