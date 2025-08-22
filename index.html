@@ -415,13 +415,16 @@ function setPreferences() {
 
   if (zip) {
     localStorage.setItem("userZip", zip);
-    updateCityData(zip);       // 🔥 Fetch new weather + traffic
-    loadWeatherBlock();        // 🌦 Rebuild weather block
-    loadTrafficLink();         // 🚦 Rebuild traffic links
   }
 
   if (lang) {
     localStorage.setItem("userLang", lang);
+  }
+
+  // 🔁 Rehydrate full layout
+  initializePage();
+}
+
     // Optional: trigger language-specific UI changes
   }
 
@@ -1176,6 +1179,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   <span>© Digging For Clarity 2025. All rights reserved.</span>
  
 </html>
+
 
 
 
