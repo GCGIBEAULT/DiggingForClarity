@@ -1230,8 +1230,43 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   };
 </script>
 
+<script>
+  function restoreEditorialBlocks() {
+    document.querySelectorAll(".section").forEach(section => {
+      section.classList.remove("hidden");
+    });
+  }
+
+  function initializePage() {
+    updateTimestamp();
+
+    const zip = localStorage.getItem("userZip");
+    if (zip) {
+      updateCityData(zip);
+      loadWeatherBlock();
+      loadTrafficLink();
+    }
+
+    restoreEditorialBlocks(); // 🔁 Reveal all editorial zones
+  }
+
+  function setPreferences() {
+    const zip = document.getElementById("zipInput").value.trim();
+    const lang = document.getElementById("languageSelect").value;
+
+    if (zip) localStorage.setItem("userZip", zip);
+    if (lang) localStorage.setItem("userLang", lang);
+
+    initializePage(); // 🔁 Rehydrate layout after Set
+  }
+
+  window.onload = function() {
+    initializePage(); // 🔁 Rehydrate layout on page load
+  };
+</script>
  
 </html>
+
 
 
 
