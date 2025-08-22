@@ -1138,10 +1138,32 @@ fetch(weatherPath)
   // fire your loader once the window’s done rendering
   window.addEventListener("load", loadWeatherBlock);
 </script>
+<script>
+  function loadWeatherBlock() {
+    const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+    const weatherPath = `blocks/${location}/Weather.html`;
+
+    fetch(weatherPath)
+      .then(resp => {
+        if (!resp.ok) throw new Error("not found");
+        return resp.text();
+      })
+      .then(html => {
+        document.getElementById("local-weather").innerHTML = html;
+      })
+      .catch(() => {
+        document.getElementById("local-weather").innerHTML =
+          "<p>Weather unavailable</p>";
+      });
+  }
+
+  window.addEventListener("load", loadWeatherBlock);
+</script>
 
   </html>
 
    
+
 
 
 
