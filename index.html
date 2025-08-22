@@ -415,9 +415,9 @@ function setPreferences() {
 
   if (zip) {
     localStorage.setItem("userZip", zip);
-    updateCityData(zip);       // 🔥 Fetch new data
+    updateCityData(zip);       // 🔥 Fetch new weather + traffic
     loadWeatherBlock();        // 🌦 Rebuild weather block
-    loadTrafficLink();         // 🚦 Rebuild traffic block
+    loadTrafficLink();         // 🚦 Rebuild traffic links
   }
 
   if (lang) {
@@ -426,8 +426,9 @@ function setPreferences() {
   }
 
   updateTimestamp();           // ⏱ Update header timestamp
-  restoreEditorialBlocks();    // 🧱 Rebuild static editorial zones
+  restoreEditorialBlocks();    // 🧱 Rebuild all static sections
 }
+
 
   loadWeatherBlock(); // 🌦 Reload weather block
   loadTrafficLink();  // 🚦 Reload traffic block
@@ -1175,6 +1176,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   <span>© Digging For Clarity 2025. All rights reserved.</span>
  
 </html>
+
 
 
 
