@@ -22,6 +22,7 @@
 
 
 
+
 <!DOCTYPE html>
 <!-- === CSS INDEX ===
 1. Header Container
@@ -200,10 +201,8 @@ need more
   flex-direction: column;
   text-align: left;
   max-width: 640px;
-  margin: 0 auto;
-  padding: 16px;
+ 
 }
-
 
 
 .editorial-cue {
@@ -389,13 +388,9 @@ need more
   flex-direction: column;
   justify-content: center;
   max-width: 640px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 1px solid #999;
+  text-align: left;
+  margin: 0;
 }
-
 
 .timestamp {
   font-size: 1.4rem;
@@ -478,24 +473,12 @@ right h
   
 
 <!-- Editorial Header Block -->
-<div class="editorial-row">
-  <div class="editorial-column">
-    <div class="editorial-box">
-      <h1 class="site-title">Digging For Clarity</h1>
-      <p class="header-tagline">Just The News Please. Hold The Drama.</p>
-      <p class="timestamp">Saturday • August 23 • 3:13 PM • Abilene</p>
-    </div>
-    <div class="zip-language">
-      <!-- ZIP code and language selector go here -->
-    </div>
-  </div>
-  <div class="logo-column">
-    <img src="new_logo.png" alt="Logo 1" style="height: 48px;">
-    <img src="newjustask.png" alt="Logo 2" style="height: 48px;">
-  </div>
-</div>
-
-
+<div class="header-container">
+  <div class="editorial-box">
+    <h1 class="site-title">Digging For Clarity</h1>
+    <p class="header-tagline">Just The News Please. Hold The Drama.</p>
+ 
+   <p class="timestamp">Saturday • August 23 • 3:13 PM • Abilene</p>
 
 <div class="quiet-settings-box">
   <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
@@ -1273,10 +1256,6 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   <span>© Digging For Clarity 2025. All rights reserved.</span>
  
 </html>
-
-
-
-
 
 
 
