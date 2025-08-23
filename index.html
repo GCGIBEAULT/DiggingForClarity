@@ -1199,12 +1199,9 @@ fetch(weatherPath)
   document.getElementById('zipSetButton')
           .addEventListener('click', setPreferences);
 </script>
-</body>
-</html>
-</script>
 
 <script>
-  // your ZIP listener and preferences logic
+  window.addEventListener("load", loadWeatherBlock);
 </script>
 
 <footer class="footer-container" style="display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
@@ -1214,6 +1211,8 @@ fetch(weatherPath)
 
 </body>
 </html>
+
+
 
 
 
