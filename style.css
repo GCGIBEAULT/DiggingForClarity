@@ -74,3 +74,9 @@
   align-items: flex-end;
   gap: 8px;
 }
+.footer-logo {
+  display: block;
+  margin: 32px auto 0;
+  height: 48px;
+  opacity: 0.9;
+}
