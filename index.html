@@ -1225,8 +1225,15 @@ fetch(weatherPath)
 <script>
   function updateCityData(zip) {
     console.log("updateCityData called with ZIP:", zip);
-    // Future logic goes here
+
+    // Inject ZIP into location header
+    const header = document.getElementById('locationHeader');
+    if (header && zip) {
+      header.textContent = `Now Showing: ${zip}`;
+    }
   }
+</script>
+
 </script>
 
 <!-- Weather loader: fires on window load to populate Local Weather block -->
@@ -1242,6 +1249,7 @@ is t
 
 </body>
 </html>
+
 
 
 
