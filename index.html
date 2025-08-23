@@ -1266,9 +1266,39 @@ fetch(weatherPath)
 
 is t
 </footer>
+const zipToCity = {
+  "79601": "abilene",
+  "79602": "abilene",
+  "79603": "abilene",
+  "79605": "abilene",
+  "79606": "abilene"
+  // Future: Add more ZIPs here
+};
+
+function loadCityContent(zip) {
+  const city = zipToCity[zip];
+  if (!city) return;
+
+  fetch(`data/${city}/index.html`)
+    .then(response => response.text())
+    .then(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+
+      // Update all clocks except exempt blocks
+      const exemptIds = ["weather", "traffic", "ai", "favorites"];
+      document.querySelectorAll(".clock-block").forEach(block => {
+        if (!exemptIds.includes(block.id)) {
+          const newBlock = doc.getElementById(block.id);
+          if (newBlock) block.innerHTML = newBlock.innerHTML;
+        }
+      });
+    });
+}
 
 </body>
 </html>
+
 
 
 
