@@ -104,12 +104,6 @@
 }
 
 
-.footer-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40px;
-}
 
 .footer-logo {
   height: 48px;
@@ -153,7 +147,7 @@
   color: #333;
   margin: 0; /* Prevent vertical drift */
 }
-.footer-container {
+
 
 
 
