@@ -1200,11 +1200,31 @@ fetch(weatherPath)
           .addEventListener('click', setPreferences);
 </script>
 <script>
-  function updateCityData(zip) {
-    console.log("updateCityData called with ZIP:", zip);
-    // Future logic goes here
+  function updateCityData(input) {
+    console.log("updateCityData called with input:", input);
+
+    let zip = input;
+
+    // Normalize city name to ZIP if needed
+    if (isNaN(input)) {
+      // Assume input is a city name; lookup ZIP
+      zip = cityToZipLookup(input.trim().toLowerCase());
+      if (!zip) {
+        console.warn("City not found:", input);
+        return;
+      }
+    }
+
+    // Inject resolved ZIP into header
+    const header = document.getElementById('locationHeader');
+    if (header && zip) {
+      header.textContent = `Now Showing: ${zip}`;
+    }
+
+    // Optional: trigger weather/traffic refresh here
   }
 </script>
+
 
 <script>
   function setPreferences() {
@@ -1249,6 +1269,7 @@ is t
 
 </body>
 </html>
+
 
 
 
