@@ -135,6 +135,27 @@ need more
       margin: 0;
       padding: 0;
     }
+   .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #f4f1ec;
+  border-bottom: 2px solid #333;
+}
+
+.logo-pair {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.top-logo {
+  height: 160px;
+  max-width: 240px;
+  object-fit: contain;
+}
+ 
 .local-weather-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -421,19 +442,18 @@ need more
   </style>
   
 
-<body>
 <div class="header-container">
   <div class="editorial-box">
     <h1 class="site-title">Digging For Clarity</h1>
     <p class="header-tagline">Just The News Please. Hold The Drama.</p>
-    <p class="timestamp">Saturday • August 23 • 10:42 AM • Denver</p>
+    <p class="timestamp">Saturday • August 23 • 11:49 AM • Abilene</p>
   </div>
-
   <div class="logo-pair">
-    <img src="new_logo.png" alt="Digging For Clarity logo" class="top-logo">
-    <img src="newjustask.png" alt="Ask logo" class="top-logo">
+    <img src="new_logo.png" alt="Main logo" class="top-logo" />
+    <img src="newjustask.png" alt="Ask logo" class="top-logo" />
   </div>
 </div>
+
 
 
 
@@ -1219,6 +1239,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   <span>© Digging For Clarity 2025. All rights reserved.</span>
  
 </html>
+
 
 
 
