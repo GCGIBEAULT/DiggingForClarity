@@ -226,4 +226,11 @@
   margin: 0;
   text-align: center;
 }
+.footer-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+}
 
