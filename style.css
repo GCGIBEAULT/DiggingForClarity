@@ -248,4 +248,19 @@
   width: 100%;
   max-width: 800px;
 }
+.footer-container {
+  display: flex;
+  justify-content: center;
+  background-color: #f9f9f9;
+  padding: 20px 0;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  max-width: 800px;
+  width: 100%;
+}
 
