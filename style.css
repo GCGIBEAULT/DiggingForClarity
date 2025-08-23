@@ -172,4 +172,31 @@
   color: #333;
   margin: 0; /* Prevent vertical drift */
 }
+.footer-container {
+  padding: 20px 0;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 800px; /* Optional: constrains layout for better rhythm */
+}
+
+.footer-logo {
+  height: 48px;
+  opacity: 0.9;
+}
+
+.footer-text {
+  font-size: 14px;
+  color: #333;
+  margin-top: 8px; /* This nudges the text down */
+  text-align: center;
+}
 
