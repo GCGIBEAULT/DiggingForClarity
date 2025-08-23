@@ -422,12 +422,19 @@ need more
   flex-wrap: wrap;
   max-width: 100%;
 }
-  .logo-center {
+ .logo-center-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  margin-top: 1em;
+}
+
+.logo-center {
   height: 264px !important;
   width: auto;
   display: block;
-  margin: 0 auto 0.5em auto;
 }
+
   
 @media (max-width: 600px) {
   .logo-wrapper {
@@ -1244,6 +1251,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   <span>© Digging For Clarity 2025. All rights reserved.</span>
  
 </html>
+
 
 
 
