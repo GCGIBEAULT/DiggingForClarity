@@ -1,5 +1,4 @@
 
-
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -104,17 +103,8 @@
   color: #333;
   text-align: center;
 }
-.footer-container {
-  padding: 20px 0;
-  background-color: #f9f9f9;
-}
 
-.footer-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40px;
-}
+
 
 .footer-logo {
   height: 48px;
@@ -127,17 +117,9 @@
   font-size: 14px;
   color: #333;
 }
-.footer-container {
-  padding: 20px 0;
-  background-color: #f9f9f9;
-}
 
-.footer-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40px;
-}
+
+
 
 .footer-logo {
   height: 48px;
@@ -150,17 +132,9 @@
   font-size: 14px;
   color: #333;
 }
-.footer-container {
-  padding: 20px 0;
-  background-color: #f9f9f9;
-}
 
-.footer-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40px;
-}
+
+
 
 .footer-logo {
   height: 48px;
@@ -174,21 +148,9 @@
   color: #333;
   margin: 0; /* Prevent vertical drift */
 }
-.footer-container {
-  padding: 20px 0;
-  background-color: #f9f9f9;
-  display: flex;
-  justify-content: center;
-}
 
-.footer-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  width: 100%;
-  max-width: 800px; /* Optional: constrains layout for better rhythm */
-}
+
+
 
 .footer-logo {
   height: 48px;
@@ -201,12 +163,7 @@
   margin-top: 8px; /* This nudges the text down */
   text-align: center;
 }
-.footer-container {
-  padding: 20px 0;
-  background-color: #f9f9f9;
-  display: flex;
-  justify-content: center;
-}
+
 
 
 
@@ -221,32 +178,17 @@
   margin: 0;
   text-align: center;
 }
-.footer-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+footer p {
   text-align: center;
-  gap: 24px;
-}
-.footer-container {
-  display: flex;
-  justify-content: center;
-  background-color: #f9f9f9;
-  padding: 20px 0;
-}
-
-
-.footer-container {
-  display: flex;
-  justify-content: center;
-  background-color: #f9f9f9;
-  padding: 20px 0;
-}
-.footer-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  max-width: 800px;
   margin: 0 auto;
+  max-width: 100%;
+}
+footer {
+  text-align: center;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
