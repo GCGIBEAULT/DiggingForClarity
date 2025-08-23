@@ -1264,8 +1264,10 @@ fetch(weatherPath)
 
 </script>
 
-is t
 </footer>
+</footer>
+
+<script>
 const zipToCity = {
   "79601": "abilene",
   "79602": "abilene",
@@ -1285,9 +1287,8 @@ function loadCityContent(zip) {
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, "text/html");
 
-      // Update all clocks except exempt blocks
       const exemptIds = ["weather", "traffic", "ai", "favorites"];
-      document.querySelectorAll(".clock-block").forEach(block => {
+      document.querySelectorAll(".clock-block, #locationLabel").forEach(block => {
         if (!exemptIds.includes(block.id)) {
           const newBlock = doc.getElementById(block.id);
           if (newBlock) block.innerHTML = newBlock.innerHTML;
@@ -1296,8 +1297,21 @@ function loadCityContent(zip) {
     });
 }
 
+document.getElementById("zipButton").addEventListener("click", () => {
+  const zip = document.getElementById("zipInput").value.trim();
+  if (zipToCity[zip]) {
+    loadCityContent(zip);
+  } else {
+    console.warn("ZIP not recognized:", zip);
+  }
+});
+</script>
+
+</body>
+
 </body>
 </html>
+
 
 
 
