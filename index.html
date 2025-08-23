@@ -22,6 +22,7 @@
 
 
 
+
 <!DOCTYPE html>
 <!-- === CSS INDEX ===
 1. Header Container
@@ -270,21 +271,6 @@ need more
 
 
       <style>
-.top-logo-row {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1.2rem;
-  padding: 1rem 1.5rem;
-  background-color: #fff;
-}
-
-.top-logo {
-  height: 64px;
-  max-width: 140px;
-  object-fit: contain;
-  opacity: 0.95;
-}
 
 
  
@@ -397,59 +383,7 @@ need more
   
 
 <body>
-<footer class="footer-timestamp-only">
-  <p class="footer-timestamp">Saturday • August 23 • 10:16 AM • Denver</p>
-</footer>
-
-
-
- 
-  
-
-    
-
-
-<div class="top-logo-row">
-  <img src="new_logo.png" alt="Digging For Clarity logo" class="top-logo">
-  <img src="newjustask.png" alt="Ask logo" class="top-logo">
-</div>
-
-  </section>
-<div class="quiet-settings-box">
-  <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
-  <div style="display: flex; flex-wrap: wrap; gap: 0.5em; align-items: center;">
-   <input id="zipInput" type="text" placeholder="Zip Code">
-<button id="setZip" onclick="setPreferences()">Set</button>
-
-
-     
-    <select id="languageSelect" style="padding: 6px; font-size: 0.9em;">
-      <option value="en">English</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
-      <option value="ja">日本語</option>
-    </select>
-
-    <div id="locationLabel" style="font-size: 1rem; margin-top: 0.5em; color: #444;">
-      Abilene
-    </div>
-  </div>
-</div>
-
-    
-  <script>
-function setPreferences() {
-  const zip  = document.getElementById("zipInput").value.trim();
-  const lang = document.getElementById("languageSelect").value;
-
-  if (zip)  localStorage.setItem("userZip", zip);
-  if (lang) localStorage.setItem("userLang", lang);
-
-  // live‐update weather & traffic without a full reload
-  if (zip) updateCityData(zip);
-}
-</script>
- <div class="header-container">
+  <div class="header-container">
  <div class="editorial-box">
   <section class="editorial-header">
 <h1 class="site-title">Digging For Clarity</h1>
@@ -458,7 +392,8 @@ function setPreferences() {
 </p>
 <hr style="border: none; border-top: 1px solid #999; margin: 0.5em auto; width: 80%;">
 
-<p class="timestamp">Friday • August 15 • 2:05 PM • Denver</p>
+<p class="timestamp"></p>
+
 
 
 
@@ -466,26 +401,23 @@ function setPreferences() {
 <div class="quiet-settings-box">
   <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
   <div style="display: flex; flex-wrap: wrap; gap: 0.5em; align-items: center;">
-   <input id="zipInput" type="text" placeholder="Zip Code">
-<button id="setZip" onclick="setPreferences()">Set</button>
+  <input id="zipInput" type="text" placeholder="Enter ZIP">
+       <button id="zipSetButton">Set</button>
+ 
 
 
-     
+
     <select id="languageSelect" style="padding: 6px; font-size: 0.9em;">
       <option value="en">English</option>
       <option value="es">Español</option>
       <option value="fr">Français</option>
       <option value="ja">日本語</option>
     </select>
-
-    <div id="locationLabel" style="font-size: 1rem; margin-top: 0.5em; color: #444;">
-      Abilene
-    </div>
+   
+    
   </div>
 </div>
-
-    
-  <script>
+<script>
 function setPreferences() {
   const zip  = document.getElementById("zipInput").value.trim();
   const lang = document.getElementById("languageSelect").value;
@@ -504,19 +436,17 @@ function setPreferences() {
 
 
 
+</section>
+
+  </div>
 <!-- Centered new logo -->
 <div class="logo-wrapper" style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
+  <div id="locationLabel" style="text-align: center; font-size: 1.2rem; font-weight: 500; margin-top: 0.5rem;">
+ Abilene
+</div>
+
  <img src="https://gcgibeault.github.io/DiggingForClarity/new_logo.png" alt="Digging For Clarity logo" style="height: 280px; max-width: 100%; object-fit: contain; image-rendering: crisp-edges; -webkit-optimize-contrast: true; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
 <img src="https://gcgibeault.github.io/DiggingForClarity/dfc-inverted.png" alt="Inverted DFC Logo" style="height: 280px; max-width: 100%; object-fit: contain; image-rendering: crisp-edges; -webkit-optimize-contrast: true; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
-
-
-   
-
-
-
-
-
-
 
 
 
@@ -636,17 +566,20 @@ function setPreferences() {
 <!-- Regional News Grid -->
 <div class="grid">
   <div class="section">
-   <h3>Local News</h3>
+  <h3>Local News</h3>
+  <div class="snippet" data-city="abilene">• BNSF rail worker loses leg after train derailment; NTSB investigation underway.</div>
+  <div class="snippet" data-city="abilene">• City employees to receive layoff notices starting August 18 amid $50M budget deficit.</div>
+  <div class="snippet" data-city="abilene">• Four injured in separate overnight shootings; police seek public tips.</div>
+  <div class="snippet" data-city="abilene">• Savannah Bananas bring viral baseball chaos to Coors Field this weekend.</div>
+  <div class="snippet" data-city="abilene">• Toro Co.’s R&D site north of Denver sells for $11.4M; Owl Offroad remains tenant.</div>
+  <div class="snippet" data-city="abilene">• RiNo Art District turns to pop-up shops to fill storefronts and support local artists.</div>
+  <div class="snippet" data-city="abilene">• Mayor Johnston defends bond proposal while layoffs loom; voters to decide in November.</div>
+  <p class="more-news-prompt">
+    <em>Want more stories in this section?</em>
+    <a href="#more-news" class="prompt-link">Request more</a>
+  </p>
+</div>
 
-    <div class="snippet">• BNSF rail worker loses leg after train derailment; NTSB investigation underway.</div>
-    <div class="snippet">• City employees to receive layoff notices starting August 18 amid $50M budget deficit.</div>
-    <div class="snippet">• Four injured in separate overnight shootings; police seek public tips.</div>
-    <div class="snippet">• Savannah Bananas bring viral baseball chaos to Coors Field this weekend.</div>
-    <div class="snippet">• Toro Co.’s R&D site north of Denver sells for $11.4M; Owl Offroad remains tenant.</div>
-    <div class="snippet">• RiNo Art District turns to pop-up shops to fill storefronts and support local artists.</div>
-    <div class="snippet">• Mayor Johnston defends bond proposal while layoffs loom; voters to decide in November.</div>
-    <p class="more-news-prompt"><em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a></p>
-  </div>
 
 <div class="section">
   <h3>State News</h3>
@@ -1120,13 +1053,13 @@ const formatted = `${day} • ${date} • ${time} • ${location.charAt(0).toUpp
   window.onload = function() {
     updateTimestamp();
   };
-</script>
+<script>
   <script>
 window.onload = function() {
   updateTimestamp();
   loadWeatherBlock();
 };
-</script>
+<script>
 
 <script>
 function loadTrafficLink() {
@@ -1162,90 +1095,275 @@ function loadTrafficLink() {
         section.appendChild(localDiv);
       }
     }
-  });
-}
 
-<script>
 window.onload = function() {
   updateTimestamp();
 
   const savedZip = localStorage.getItem("userZip");
   if (savedZip) {
+  });
+}
+
     updateCityData(savedZip); // 🔥 This triggers live weather + traffic
   }
 
   loadWeatherBlock();
   loadTrafficLink();
 };
-</script>
-
-
- <script>
+<script>
+<script>
   function loadWeatherBlock() {
     const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
     const weatherPath = `blocks/${location}/Weather.html`;
+ 
 
-    fetch(weatherPath)
-      .then(response => {
-        if (!response.ok) throw new Error("Weather block not found");
-        return response.text();
-      })
-      .then(html => {
-       document.querySelector(".section").classList.remove("hidden");
- document.querySelector(".local-weather-container").innerHTML = html;
-        
-      })
-      .catch(() => {
-        document.querySelector(".local-weather-container").innerHTML = `
-          <div class="main-weather-block">
-            <div class="snippet"><strong>Now:</strong> 85°F — Mostly cloudy skies</div>
-            <div class="snippet">Humidity: 16% | Wind: 4 mph S | Visibility: 9.9 mi</div>
-            <div class="snippet">Air Quality: 45 (Good) | UV Index: 1 (Low)</div>
-            <div class="snippet"><strong>Sunrise:</strong> 6:12 AM</div>
-            <div class="snippet"><strong>Sunset:</strong> 8:12 PM</div>
-            <div class="snippet"><strong>Tip:</strong> Light layers recommended; stay hydrated</div>
-          </div>
-          <div class="right-weather-box">
-            <div class="snippet"><strong>Local Forecast:</strong> Mostly cloudy skies, light southern breeze.</div>
-            <div class="snippet"><strong>Live Radar:</strong> <a href="https://weather.com/weather/radar" target="_blank">Track conditions in real time</a></div>
-            <div class="snippet"><strong>Local Impact:</strong> Dry air and low humidity raise wildfire risk in foothills.</div>
-            <div class="snippet"><strong>More Weather Tools:</strong> <a href="https://weather.com/" target="_blank">The Weather Channel</a></div>
-          </div>
-        `;
-      });
+fetch(weatherPath)
+  .then(resp => {
+    if (!resp.ok) throw new Error("not found");
+    return resp.text();
+  })
+  .then(html => {
+    document.getElementById("local-weather").innerHTML = html;
+  })
+  .catch(() => {
+    document.getElementById("local-weather").innerHTML =
+      "<p>Weather unavailable</p>";
+  });
+
+    // …other weather-loading logic…
   }
+<script>
+<script>
+  function setPreferences() {
+    …rest of your setPreferences code…
+  }
+<script>
+</body>
+</html>
+<script>
+  // fire your loader once the window’s done rendering
+  window.addEventListener("load", loadWeatherBlock);
+<script>
+- <script>
+-   function loadWeatherBlock() {
+-     const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+-     const weatherPath = `blocks/${location}/Weather.html`;
+-
+-     fetch(weatherPath)
+-       .then(…)
+-       .catch(…);
+-   }
+-
+-   window.addEventListener("load", loadWeatherBlock);
+-
+- <script>
++ <script>
++   function loadWeatherBlock() {
+  localStorage.setItem("userZip", "79601");
+localStorage.setItem("userLocation", "abilene");
+
++     const location = localStorage.getItem("userLocation")?.toLowerCase() || "abilene";
++     const weatherPath = `blocks/${location}/Weather.html`;
++
++     fetch(weatherPath)
++       .then(resp => {
++         if (!resp.ok) throw new Error("not found");
++         return resp.text();
++       })
++       .then(html => {
++         document.getElementById("local-weather").innerHTML = html;
++       })
++       .catch(() => {
++         document.getElementById("local-weather").innerHTML = "<p>Weather unavailable</p>";
++       });
++   }
++
++   window.addEventListener("load", loadWeatherBlock);
++ </script>
 
 <script>
-document.querySelectorAll('.prompt-link').forEach(link => {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    const section = this.closest('.section');
-    const pool = section.dataset.extraStories?.split('|') || [];
-    const maxToLoad = 7;
-    const toLoad = pool.splice(0, maxToLoad);
+  function setPreferences() {
+    const zip  = document.getElementById('zipInput').value.trim();
+    const lang = document.getElementById('languageSelect').value;
 
-    toLoad.forEach(text => {
-      const div = document.createElement('div');
-      div.className = 'snippet';
-      div.textContent = text;
-      section.insertBefore(div, section.querySelector('.more-news-prompt'));
-    });
+    if (zip)  localStorage.setItem('userZip',  zip);
+    if (lang) localStorage.setItem('userLang', lang);
+    if (zip)  updateCityData(zip);
+  }
 
-    section.dataset.extraStories = pool.join('|');
+  document.getElementById('zipSetButton')
+          .addEventListener('click', setPreferences);
+</script>
 
-    if (pool.length === 0) {
-      this.remove();
-      window.location.href = '#top';
+
+<script>
+  function setPreferences() {
+    const zip  = document.getElementById('zipInput').value.trim();
+    const lang = document.getElementById('languageSelect').value;
+    if (zip)  localStorage.setItem('userZip',  zip);
+    if (lang) localStorage.setItem('userLang', lang);
+    if (zip)  updateCityData(zip);
+  }
+
+  document.getElementById('zipSetButton')
+          .addEventListener('click', setPreferences);
+</script>
+<script>
+  function updateCityData(input) {
+    console.log("updateCityData called with input:", input);
+
+    let zip = input;
+
+    // Normalize city name to ZIP if needed
+    if (isNaN(input)) {
+      // Assume input is a city name; lookup ZIP
+      zip = cityToZipLookup(input.trim().toLowerCase());
+      if (!zip) {
+        console.warn("City not found:", input);
+        return;
+      }
     }
-  });
+
+    // Inject resolved ZIP into header
+    const header = document.getElementById('locationHeader');
+    if (header && zip) {
+      header.textContent = `Now Showing: ${zip}`;
+    }
+
+    // Optional: trigger weather/traffic refresh here
+  }
+</script>
+
+
+<script>
+  function setPreferences() {
+    const zip  = document.getElementById('zipInput').value.trim();
+    const lang = document.getElementById('languageSelect').value;
+
+    if (zip)  localStorage.setItem('userZip', zip);
+    if (lang) localStorage.setItem('userLang', lang);
+    if (zip)  updateCityData(zip);
+
+    console.log("ZIP Set button clicked. ZIP:", zip, "Lang:", lang);
+  }
+
+  document.getElementById('zipSetButton')
+          .addEventListener('click', setPreferences);
+</script>
+
+<script>
+  function updateCityData(zip) {
+    console.log("updateCityData called with ZIP:", zip);
+
+    // Inject ZIP into location header
+    const header = document.getElementById('locationHeader');
+    if (header && zip) {
+      header.textContent = `Now Showing: ${zip}`;
+    }
+  }
+</script>
+
+</script>
+
+<!-- Weather loader: fires on window load to populate Local Weather block -->
+<script>
+  window.addEventListener("load", loadWeatherBlock);
+</script>
+
+
+</script>
+
+</footer>
+</footer>
+
+<script>
+const zipToCity = {
+  "79601": "abilene",
+  "79602": "abilene",
+  "79603": "abilene",
+  "79605": "abilene",
+  "79606": "abilene"
+  // Future: Add more ZIPs here
+};
+
+function loadCityContent(zip) {
+  const city = zipToCity[zip];
+  if (!city) return;
+
+  fetch(`data/${city}/index.html`)
+    .then(response => response.text())
+    .then(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+
+      const exemptIds = ["weather", "traffic", "ai", "favorites"];
+      document.querySelectorAll(".clock-block, #locationLabel").forEach(block => {
+        if (!exemptIds.includes(block.id)) {
+          const newBlock = doc.getElementById(block.id);
+          if (newBlock) block.innerHTML = newBlock.innerHTML;
+        }
+      });
+    });
+}
+
+document.getElementById("zipButton").addEventListener("click", () => {
+  const zip = document.getElementById("zipInput").value.trim();
+  if (zipToCity[zip]) {
+    loadCityContent(zip);
+  } else {
+    console.warn("ZIP not recognized:", zip);
+  }
 });
 </script>
 
-<footer class="footer-container" style="display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
-  <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
-  <span>© Digging For Clarity 2025. All rights reserved.</span>
- 
+</body>
+
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
