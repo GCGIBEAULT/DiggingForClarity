@@ -400,23 +400,26 @@ need more
 <div class="quiet-settings-box">
   <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
   <div style="display: flex; flex-wrap: wrap; gap: 0.5em; align-items: center;">
-  <input id="zipInput" type="text" placeholder="Enter ZIP">
-       <button id="zipSetButton">Set</button>
- 
+   <input id="zipInput" type="text" placeholder="Zip Code">
+<button id="setZip" onclick="setPreferences()">Set</button>
 
 
-
+     
     <select id="languageSelect" style="padding: 6px; font-size: 0.9em;">
       <option value="en">English</option>
       <option value="es">Español</option>
       <option value="fr">Français</option>
       <option value="ja">日本語</option>
     </select>
-   
-    
+
+    <div id="locationLabel" style="font-size: 1rem; margin-top: 0.5em; color: #444;">
+      Abilene
+    </div>
   </div>
 </div>
-<script>
+
+    
+  <script>
 function setPreferences() {
   const zip  = document.getElementById("zipInput").value.trim();
   const lang = document.getElementById("languageSelect").value;
@@ -435,17 +438,11 @@ function setPreferences() {
 
 
 
-</section>
-
-  </div>
 <!-- Centered new logo -->
 <div class="logo-wrapper" style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
-  <div id="locationLabel" style="text-align: center; font-size: 1.2rem; font-weight: 500; margin-top: 0.5rem;">
- Abilene
-</div>
-
  <img src="https://gcgibeault.github.io/DiggingForClarity/new_logo.png" alt="Digging For Clarity logo" style="height: 280px; max-width: 100%; object-fit: contain; image-rendering: crisp-edges; -webkit-optimize-contrast: true; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
 <img src="https://gcgibeault.github.io/DiggingForClarity/dfc-inverted.png" alt="Inverted DFC Logo" style="height: 280px; max-width: 100%; object-fit: contain; image-rendering: crisp-edges; -webkit-optimize-contrast: true; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
+optimize-contrast: true; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
 
 
 
@@ -1319,6 +1316,7 @@ document.getElementById("zipButton").addEventListener("click", () => {
 
 </body>
 </html>
+
 
 
 
