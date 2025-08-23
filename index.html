@@ -1199,6 +1199,12 @@ fetch(weatherPath)
   document.getElementById('zipSetButton')
           .addEventListener('click', setPreferences);
 </script>
+<script>
+  function updateCityData(zip) {
+    console.log("updateCityData called with ZIP:", zip);
+    // Future logic goes here
+  }
+</script>
 
 <!-- Weather loader: fires on window load to populate Local Weather block -->
 <script>
@@ -1226,6 +1232,7 @@ is t
 
 </body>
 </html>
+
 
 
 
