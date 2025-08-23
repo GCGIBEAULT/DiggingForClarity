@@ -403,17 +403,22 @@ need more
 <button id="setZip" onclick="setPreferences()">Set</button>
 
 
+     
     <select id="languageSelect" style="padding: 6px; font-size: 0.9em;">
       <option value="en">English</option>
       <option value="es">Español</option>
       <option value="fr">Français</option>
       <option value="ja">日本語</option>
     </select>
-   
-    
+
+    <div id="locationLabel" style="font-size: 1rem; margin-top: 0.5em; color: #444;">
+      Abilene
+    </div>
   </div>
 </div>
-<script>
+
+    
+  <script>
 function setPreferences() {
   const zip  = document.getElementById("zipInput").value.trim();
   const lang = document.getElementById("languageSelect").value;
@@ -432,9 +437,6 @@ function setPreferences() {
 
 
 
-</section>
-
-  </div>
 <!-- Centered new logo -->
 <div class="logo-wrapper" style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
  <img src="https://gcgibeault.github.io/DiggingForClarity/new_logo.png" alt="Digging For Clarity logo" style="height: 280px; max-width: 100%; object-fit: contain; image-rendering: crisp-edges; -webkit-optimize-contrast: true; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
