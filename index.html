@@ -271,6 +271,41 @@ need more
 
       <style>
 
+.notepad-block {
+  margin: 1.5rem 1rem;
+  padding: 1rem;
+  background-color: #fdfdfd;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.notepad-block textarea {
+  width: 100%;
+  height: 120px;
+  padding: 0.75em;
+  font-size: 1rem;
+  font-family: 'Merriweather', serif;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.notepad-block button {
+  margin-top: 0.5em;
+  padding: 0.5em 1em;
+  font-size: 0.9rem;
+  background-color: #eee;
+  border: 1px solid #999;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#saveStatus {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5em;
+}
 
  
 
@@ -402,6 +437,8 @@ need more
    <input id="zipInput" type="text" placeholder="Zip Code">
 <button id="setZip" onclick="setPreferences()">Set</button>
 
+    
+
 
      
     <select id="languageSelect" style="padding: 6px; font-size: 0.9em;">
@@ -410,7 +447,12 @@ need more
       <option value="fr">Français</option>
       <option value="ja">日本語</option>
     </select>
-
+<section class="notepad-block">
+  <h3 style="margin-bottom: 0.5em;">Quiet Notes</h3>
+  <textarea id="quietNotes" placeholder="Type your notes here..." style="width: 100%; height: 120px; padding: 0.75em; font-size: 1rem;"></textarea>
+  <button onclick="saveNotes()" style="margin-top: 0.5em;">Save</button>
+  <p id="saveStatus" style="font-size: 0.9rem; color: #555; margin-top: 0.5em;"></p>
+</section>
     <div id="locationLabel" style="font-size: 1rem; margin-top: 0.5em; color: #444;">
       Abilene
     </div>
@@ -1170,6 +1212,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   <span>© Digging For Clarity 2025. All rights reserved.</span>
  
 </html>
+
 
 
 
