@@ -449,6 +449,66 @@ function setPreferences() {
   if (zip) updateCityData(zip);
 }
 </script>
+ <div class="header-container">
+ <div class="editorial-box">
+  <section class="editorial-header">
+<h1 class="site-title">Digging For Clarity</h1>
+<p class="header-tagline" style="font-size: 1.6rem; font-weight: 600; font-family: 'Merriweather', serif; text-align: center; color: #222; margin: 1em 0 0.5em 0;">
+  Just The News Please. Hold The Drama.
+</p>
+<hr style="border: none; border-top: 1px solid #999; margin: 0.5em auto; width: 80%;">
+
+<p class="timestamp">Friday • August 15 • 2:05 PM • Denver</p>
+
+
+
+  </section>
+<div class="quiet-settings-box">
+  <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
+  <div style="display: flex; flex-wrap: wrap; gap: 0.5em; align-items: center;">
+   <input id="zipInput" type="text" placeholder="Zip Code">
+<button id="setZip" onclick="setPreferences()">Set</button>
+
+
+     
+    <select id="languageSelect" style="padding: 6px; font-size: 0.9em;">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="fr">Français</option>
+      <option value="ja">日本語</option>
+    </select>
+
+    <div id="locationLabel" style="font-size: 1rem; margin-top: 0.5em; color: #444;">
+      Abilene
+    </div>
+  </div>
+</div>
+
+    
+  <script>
+function setPreferences() {
+  const zip  = document.getElementById("zipInput").value.trim();
+  const lang = document.getElementById("languageSelect").value;
+
+  if (zip)  localStorage.setItem("userZip", zip);
+  if (lang) localStorage.setItem("userLang", lang);
+
+  // live‐update weather & traffic without a full reload
+  if (zip) updateCityData(zip);
+}
+</script>
+
+   
+
+
+
+
+
+<!-- Centered new logo -->
+<div class="logo-wrapper" style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
+ <img src="https://gcgibeault.github.io/DiggingForClarity/new_logo.png" alt="Digging For Clarity logo" style="height: 280px; max-width: 100%; object-fit: contain; image-rendering: crisp-edges; -webkit-optimize-contrast: true; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
+<img src="https://gcgibeault.github.io/DiggingForClarity/dfc-inverted.png" alt="Inverted DFC Logo" style="height: 280px; max-width: 100%; object-fit: contain; image-rendering: crisp-edges; -webkit-optimize-contrast: true; border-radius: 4px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">
+
 
    
 
@@ -1186,6 +1246,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   <span>© Digging For Clarity 2025. All rights reserved.</span>
  
 </html>
+
 
 
 
