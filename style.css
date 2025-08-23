@@ -40,3 +40,37 @@
   background-size: 100px;
   opacity: 0.08;
 }
+.editorial-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.editorial-column {
+  display: flex;
+  flex-direction: column;
+  max-width: 640px;
+}
+
+.editorial-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #999;
+  margin-bottom: 12px;
+}
+
+.zip-language {
+  padding-left: 4px;
+}
+
+.logo-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
