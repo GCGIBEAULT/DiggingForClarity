@@ -1185,12 +1185,31 @@ fetch(weatherPath)
   document.getElementById('zipSetButton')
           .addEventListener('click', setPreferences);
 </script>
+<footer style="text-align: center; font-size: 0.9em; color: #555; margin-top: 2em;">
+  <p>© Digging For Clarity 2025. All rights reserved.</p>
+  <p id="logBlock">Last updated: August 22, 2025 • ZIP listener restored</p>
+</footer>
 
+<script>
+  function setPreferences() {
+    const zip  = document.getElementById('zipInput').value.trim();
+    const lang = document.getElementById('languageSelect').value;
+    if (zip)  localStorage.setItem('userZip',  zip);
+    if (lang) localStorage.setItem('userLang', lang);
+    if (zip)  updateCityData(zip);
+  }
+
+  document.getElementById('zipSetButton')
+          .addEventListener('click', setPreferences);
+</script>
+</body>
+</html>
 
 
   </html>
 
    
+
 
 
 
