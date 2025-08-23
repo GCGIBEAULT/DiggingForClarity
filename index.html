@@ -1157,7 +1157,10 @@ fetch(weatherPath)
 - <script>
 + <script>
 +   function loadWeatherBlock() {
-+     const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+  localStorage.setItem("userZip", "79601");
+localStorage.setItem("userLocation", "abilene");
+
++     const location = localStorage.getItem("userLocation")?.toLowerCase() || "abilene";
 +     const weatherPath = `blocks/${location}/Weather.html`;
 +
 +     fetch(weatherPath)
@@ -1315,6 +1318,7 @@ document.getElementById("zipButton").addEventListener("click", () => {
 
 </body>
 </html>
+
 
 
 
