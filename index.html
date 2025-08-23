@@ -1206,24 +1206,34 @@ fetch(weatherPath)
   }
 </script>
 
-<!-- Weather loader: fires on window load to populate Local Weather block -->
 <script>
-  window.addEventListener("load", loadWeatherBlock);
-  <script>
   function setPreferences() {
     const zip  = document.getElementById('zipInput').value.trim();
     const lang = document.getElementById('languageSelect').value;
 
-    if (zip)  localStorage.setItem('userZip',  zip);
+    if (zip)  localStorage.setItem('userZip', zip);
     if (lang) localStorage.setItem('userLang', lang);
     if (zip)  updateCityData(zip);
+
+    console.log("ZIP Set button clicked. ZIP:", zip, "Lang:", lang);
   }
 
   document.getElementById('zipSetButton')
           .addEventListener('click', setPreferences);
-
-  console.log("ZIP Set button clicked. ZIP:", zip, "Lang:", lang);
 </script>
+
+<script>
+  function updateCityData(zip) {
+    console.log("updateCityData called with ZIP:", zip);
+    // Future logic goes here
+  }
+</script>
+
+<!-- Weather loader: fires on window load to populate Local Weather block -->
+<script>
+  window.addEventListener("load", loadWeatherBlock);
+</script>
+
 
 </script>
 
@@ -1232,6 +1242,7 @@ is t
 
 </body>
 </html>
+
 
 
 
