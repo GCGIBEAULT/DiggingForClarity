@@ -1172,12 +1172,26 @@ fetch(weatherPath)
 +   window.addEventListener("load", loadWeatherBlock);
 + </script>
 
+<script>
+  function setPreferences() {
+    const zip  = document.getElementById('zipInput').value.trim();
+    const lang = document.getElementById('languageSelect').value;
+
+    if (zip)  localStorage.setItem('userZip',  zip);
+    if (lang) localStorage.setItem('userLang', lang);
+    if (zip)  updateCityData(zip);
+  }
+
+  document.getElementById('zipSetButton')
+          .addEventListener('click', setPreferences);
+</script>
 
 
 
   </html>
 
    
+
 
 
 
