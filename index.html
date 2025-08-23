@@ -385,13 +385,35 @@ need more
   <div class="header-container">
  <div class="editorial-box">
   <section class="editorial-header">
+  <div class="header-flex">
+  <img src="DFC.png" alt="Digging Logo" class="logo">
+  <img src="new_logo.png" alt="Secondary Logo" class="logo">
+  <span class="editorial-tagline">Just The News Please. Hold The Drama.</span>
+</div>
+  
 <h1 class="site-title">Digging For Clarity</h1>
-<p class="header-tagline" style="font-size: 1.6rem; font-weight: 600; font-family: 'Merriweather', serif; text-align: center; color: #222; margin: 1em 0 0.5em 0;">
-  Just The News Please. Hold The Drama.
-</p>
+
 <hr style="border: none; border-top: 1px solid #999; margin: 0.5em auto; width: 80%;">
 
 <p class="timestamp">Friday • August 15 • 2:05 PM • Denver</p>
+.header-flex {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.logo {
+  height: 40px;
+}
+
+.editorial-tagline {
+  font-size: 1.2em;
+  font-weight: 500;
+  font-family: 'Merriweather', serif;
+  color: #222;
+}
+    
 
 
 
@@ -1171,6 +1193,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   <span>© Digging For Clarity 2025. All rights reserved.</span>
  
 </html>
+
 
 
 
