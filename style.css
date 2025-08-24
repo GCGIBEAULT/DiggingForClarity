@@ -235,6 +235,15 @@ footer.footer-container {
   position: relative;
   z-index: 2;
 }
+.this-i-hold {
+  background-image: url("linen-texture.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #fdfdfd;
+  padding: 2em;
+  font-family: Georgia, serif;
+  color: #333;
+}
 
 
 
