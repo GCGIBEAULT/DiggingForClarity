@@ -167,3 +167,8 @@ header {
 footer.footer-container {
   padding: 1em 0; 
 }
+footer.footer-container {
+  border-top: 2px solid transparent;
+  border-image-source: linear-gradient(to right, #444444, #bbbbbb);
+  border-image-slice: 1;
+}
