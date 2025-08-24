@@ -74,3 +74,17 @@
     flex-wrap: wrap !important;
   }
 }
+@media (max-width: 600px) {
+  /* target the inline grid wrapper that holds both panels */
+  div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* reset each panel (.section and the quiet-edit container) */
+  .section,
+  #quiet-edit {
+    grid-column: auto !important;
+    width: 100% !important;
+    margin-bottom: 1.5em !important;
+  }
+}
