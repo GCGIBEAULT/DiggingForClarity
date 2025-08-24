@@ -93,3 +93,19 @@
     text-align: center !important;
   }
 }
+/* Footer—center logos and text on desktop */
+footer {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 1em;                     /* space between logos and text */
+  padding: 1.5em 0;             /* adjust vertical padding as needed */
+}
+
+footer img {
+  flex: 0 0 auto;              /* prevent logos from stretching */
+}
+
+footer p {
+  margin: 0;                    /* remove extra margins around the text */
+}
