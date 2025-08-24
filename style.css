@@ -147,3 +147,13 @@ footer p + img {
 .footer-credits img {
   display: block;
 }
+.footer-container {
+  text-align: center;
+}
+
+.footer-row {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
