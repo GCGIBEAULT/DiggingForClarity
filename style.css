@@ -57,3 +57,13 @@
     margin: 0 auto 20px !important;
   }
 }
+@media (max-width: 600px) {
+  /* force both modules to span full width and stack */
+  #quiet-edit,
+  #favorites {
+    display: block !important;
+    width: 100% !important;
+    grid-column: 1 / -1 !important;
+    margin: 0 0 20px !important;
+  }
+}
