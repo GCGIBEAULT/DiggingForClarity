@@ -173,13 +173,7 @@ footer.footer-container {
   border-image-slice: 1;
 }
 
-#reflection-preview {
-  background-color: #111 !important; /* dark fallback */
-  background-image: url('weather-smoke.png') !important;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
+
 
 
 
