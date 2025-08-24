@@ -172,15 +172,7 @@ footer.footer-container {
   border-image-source: linear-gradient(to right, #444444, #bbbbbb);
   border-image-slice: 1;
 }
-/* Replace .this-i-hold with your actual selector */
-.this-i-hold {
-  position: relative;
-  background-color: rgba(230, 245, 255, 0.5); /* light blue fallback */
-  background-image: url('weather-smoke.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
+
 /* Replace .this-i-hold with your actual selector */
 .this-i-hold {
   position: relative;
