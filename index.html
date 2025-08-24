@@ -1134,17 +1134,14 @@ function loadTrafficLink() {
   };
 
   const localLink = localTrafficLinks[zip];
-  const fallbackLink = "https://www.google.com/maps/@?hl=en&tbm=map";
+ 
 
   const trafficSections = document.querySelectorAll("h3");
   trafficSections.forEach(h3 => {
     if (h3.textContent.includes("Traffic Update")) {
       const section = h3.parentElement;
 
-      // Always show Google Maps
-      const mapsDiv = document.createElement("div");
-      mapsDiv.className = "snippet";
-      mapsDiv.style.marginTop = "0.75em";
+    
      
 
       // Only show local commuter link if ZIP matches
@@ -1250,6 +1247,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
