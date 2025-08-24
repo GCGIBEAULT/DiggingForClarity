@@ -109,3 +109,19 @@ footer img {
 footer p {
   margin: 0;                    /* remove extra margins around the text */
 }
+/* Desktop—center logos and copyright as a single unit */
+footer {
+  text-align: center !important;
+}
+
+footer img,
+footer p {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin: 0 !important;
+}
+
+footer img + p,
+footer p + img {
+  margin-left: 0.5em !important;  /* space between items */
+}
