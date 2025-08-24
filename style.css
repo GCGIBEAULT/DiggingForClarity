@@ -1,88 +1,6 @@
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5em;
-  margin-top: 2em;
-}
-
-.section {
-  flex: 1 1 300px;
-  padding: 1em;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-}
-
-.snippet {
-  margin-bottom: 0.5em;
-  font-size: 0.95rem;
-}
-
-.snippet a {
-  color: #3366cc;
-  text-decoration: underline;
-}
-
-.more-news-prompt {
-  margin-top: 1em;
-  font-style: italic;
-  font-size: 0.9rem;
-}
-
-.prompt-link {
-  color: #3366cc;
-  text-decoration: none;
-  margin-left: 0.5em;
-}
-.smoke-watermark {
-  background-image: url('assets/weather-smoke.png');
-  background-repeat: no-repeat;
-  background-position: top left;
-  background-size: 100px;
-  opacity: 0.08;
-}
-.editorial-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 16px;
-}
-
-.editorial-column {
-  display: flex;
-  flex-direction: column;
-  max-width: 640px;
-}
-
-.editorial-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  padding: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 1px solid #999;
-  margin-bottom: 12px;
-}
-
-.zip-language {
-  padding-left: 4px;
-}
-
-.logo-column {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
-}
-.footer-logo {
-  display: block;
-  margin: 32px auto 0;
-  height: 48px;
-  opacity: 0.9;
-}
 .footer-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 800px;
@@ -91,12 +9,11 @@
   background-color: #f9f9f9;
 }
 
-
 .footer-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px; /* Adjust spacing between logos and text */
+  gap: 40px;  /* Adjust spacing between logos and text */
 }
 
 .footer-logo {
@@ -109,94 +26,3 @@
   color: #333;
   text-align: center;
 }
-
-
-
-.footer-logo {
-  height: 48px;
-  opacity: 0.9;
-}
-
-
-
-
-
-
-.footer-logo {
-  height: 48px;
-  opacity: 0.9;
-}
-
-.footer-text {
-  flex: 1;
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-}
-
-
-
-
-.footer-logo {
-  height: 48px;
-  opacity: 0.9;
-}
-
-.footer-text {
-  flex: 1;
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-  margin: 0; /* Prevent vertical drift */
-}
-
-
-
-
-.footer-logo {
-  height: 48px;
-  opacity: 0.9;
-}
-
-.footer-text {
-  font-size: 14px;
-  color: #333;
-  margin-top: 8px; /* This nudges the text down */
-  text-align: center;
-}
-
-
-
-
-.footer-logo {
-  height: 48px;
-  opacity: 0.9;
-}
-
-.footer-text {
-  font-size: 14px;
-  color: #333;
-  margin: 0;
-  text-align: center;
-}
-footer p {
-  text-align: center;
-  margin: 0 auto;
-  max-width: 100%;
-}
-footer {
-  text-align: center;
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-
-
-
-
-
