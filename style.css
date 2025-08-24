@@ -26,3 +26,25 @@
   color: #333;
   text-align: center;
 }
+/* on screens 600px and below, stack The Quiet Edit + Favorites,
+   hide footer logos, and keep © centered */
+@media (max-width: 600px) {
+  /* stack the two modules vertically */
+  #quiet-edit,
+  #favorites {
+    display: block !important;
+    width: 100%;
+    margin: 0 auto 20px;
+  }
+
+  /* hide both logos on phone */
+  .footer-logo {
+    display: none;
+  }
+
+  /* ensure the © text centers in its container */
+  .footer-text {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
