@@ -1,9 +1,5 @@
 .footer-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 800px;
   margin: 0 auto;
   padding: 20px 0;
   background-color: #f9f9f9;
@@ -156,4 +152,9 @@ footer p + img {
   justify-content: center;
   align-items: center;
   gap: 1em;
+}
+header {
+  border-bottom: 4px solid transparent;
+  border-image-source: linear-gradient(to right, #444444, #bbbbbb);
+  border-image-slice: 1;
 }
