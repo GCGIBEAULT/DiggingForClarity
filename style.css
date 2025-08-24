@@ -67,3 +67,10 @@
     margin: 0 0 20px !important;
   }
 }
+@media (max-width: 600px) {
+  /* replace .PARENT-SELECTOR with the selector of the element that wraps both quiet-edit and favorites */
+  .PARENT-SELECTOR {
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+  }
+}
