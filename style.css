@@ -181,23 +181,17 @@ footer.footer-container {
   background-position: center;
   background-size: cover;
 }
-#reflection-container {
+/* Apply to both reflection containers and the preview block */
+.reflection-container,
+#reflection-preview {
   position: relative;
-  background-color: rgba(230, 245, 255, 0.5);
-  background-image: url('weather-smoke.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding: 1em; /* optional breathing room */
-}
-#reflection-container {
-  position: relative;
-  background-color: rgba(230, 245, 255, 0.3);  /* lighter wash */
+  background-color: rgba(230, 245, 255, 0.1);
   padding: 1em;
   overflow: hidden;
 }
 
-#reflection-container::before {
+.reflection-container::before,
+#reflection-preview::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -205,9 +199,18 @@ footer.footer-container {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  opacity: 0.05;         /* very subtle smoke */
+  opacity: 0.03;
   pointer-events: none;
   z-index: -1;
+}
+
+.reflection-container h1,
+.reflection-container h2,
+.reflection-container p,
+#reflection-preview h1,
+#reflection-preview h2,
+#reflection-preview p {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 
