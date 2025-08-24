@@ -174,13 +174,13 @@ footer.footer-container {
 }
 
 #reflection-preview {
-  position: relative;
-  background-color: transparent !important;
+  background-color: #111 !important; /* dark fallback */
   background-image: url('weather-smoke.png') !important;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
+
 
 /* Apply to both reflection containers and the preview block */
 .reflection-container,
