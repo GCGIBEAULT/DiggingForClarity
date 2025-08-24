@@ -125,6 +125,13 @@ footer p {
     text-align: center !important;
   }
 }
+/* Style the Local News heading */
+#local-news h2 {
+  display: block !important;
+  font-size: 1.5em !important;
+  margin-bottom: 0.75em !important;
+  color: #333 !important;
+}
 
 footer img + p,
 footer p + img {
