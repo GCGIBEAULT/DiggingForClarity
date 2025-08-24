@@ -137,3 +137,13 @@ footer img + p,
 footer p + img {
   margin-left: 0.5em !important;  /* space between items */
 }
+.footer-credits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.footer-credits img {
+  display: block;
+}
