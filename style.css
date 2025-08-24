@@ -48,3 +48,12 @@
     text-align: center;
   }
 }
+@media (max-width: 600px) {
+  /* stack The Quiet Edit + Favorites vertically */
+  #quiet-edit,
+  #favorites {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 auto 20px !important;
+  }
+}
