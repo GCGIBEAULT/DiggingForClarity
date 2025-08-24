@@ -199,7 +199,7 @@ footer.footer-container {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  opacity: 0.01;
+  opacity: 0.005;
   pointer-events: none;
   z-index: -1;
 }
