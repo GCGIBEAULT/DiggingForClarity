@@ -181,5 +181,14 @@ footer.footer-container {
   background-position: center;
   background-size: cover;
 }
+#reflection-container {
+  position: relative;
+  background-color: rgba(230, 245, 255, 0.5);
+  background-image: url('weather-smoke.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 1em; /* optional breathing room */
+}
 
 
