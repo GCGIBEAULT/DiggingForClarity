@@ -173,15 +173,15 @@ footer.footer-container {
   border-image-slice: 1;
 }
 
-/* Replace .this-i-hold with your actual selector */
-.this-i-hold {
+#reflection-preview {
   position: relative;
-  background-color: rgba(230, 245, 255, 0.5); /* light blue fallback */
-  background-image: url('weather-smoke.png');
+  background-color: rgba(230, 245, 255, 0.5);
+  background-image: url('/weather-smoke.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
+
 /* TEST: see if this lights up the “This I Hold” box */
 .this-i-hold {
   background-color: rgba(255, 0, 0, 0.3) !important;
