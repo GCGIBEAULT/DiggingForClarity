@@ -88,3 +88,8 @@
     margin-bottom: 1.5em !important;
   }
 }
+@media (max-width: 600px) {
+  footer {
+    text-align: center !important;
+  }
+}
