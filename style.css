@@ -182,8 +182,3 @@ footer.footer-container {
   background-size: cover;
 }
 
-/* TEST: see if this lights up the “This I Hold” box */
-.this-i-hold {
-  background-color: rgba(255, 0, 0, 0.3) !important;
-  outline: 2px dashed red !important;
-}
