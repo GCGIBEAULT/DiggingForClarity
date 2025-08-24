@@ -158,3 +158,9 @@ header {
   border-image-source: linear-gradient(to right, #444444, #bbbbbb);
   border-image-slice: 1;
 }
+.header-container {
+  /* override any old border syntax */
+  border-bottom-width: 4px !important;
+  border-bottom-style: solid !important;
+  border-image: linear-gradient(to right, #444444, #bbbbbb) 1 !important;
+}
