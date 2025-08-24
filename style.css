@@ -120,6 +120,11 @@ footer p {
   vertical-align: middle !important;
   margin: 0 !important;
 }
+@media (max-width: 600px) {
+  footer {
+    text-align: center !important;
+  }
+}
 
 footer img + p,
 footer p + img {
