@@ -215,10 +215,11 @@ footer.footer-container {
 }
 .weather-block {
   position: relative;
+  background-color: #111; /* fallback to match overlay */
   background-image: url("weather-smoke.png");
   background-size: cover;
   background-position: center;
-  color: #fff; /* optional: ensures text stays readable */
+  color: #fff;
 }
 
 .weather-block::before {
