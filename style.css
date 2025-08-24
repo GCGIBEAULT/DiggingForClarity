@@ -164,3 +164,6 @@ header {
   border-bottom-style: solid !important;
   border-image: linear-gradient(to right, #444444, #bbbbbb) 1 !important;
 }
+footer.footer-container {
+  padding: 1em 0; 
+}
