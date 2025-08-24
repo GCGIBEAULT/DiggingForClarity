@@ -190,5 +190,24 @@ footer.footer-container {
   background-size: cover;
   padding: 1em; /* optional breathing room */
 }
+#reflection-container {
+  position: relative;
+  background-color: rgba(230, 245, 255, 0.3);  /* lighter wash */
+  padding: 1em;
+  overflow: hidden;
+}
+
+#reflection-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('weather-smoke.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.05;         /* very subtle smoke */
+  pointer-events: none;
+  z-index: -1;
+}
 
 
