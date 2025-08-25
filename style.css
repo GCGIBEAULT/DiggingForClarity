@@ -24,6 +24,17 @@
 }
 /* on screens 600px and below, stack The Quiet Edit + Favorites,
    hide footer logos, and keep © centered */
+.grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.grid .section {
+  flex: 1 1 48%;
+  box-sizing: border-box;
+}
+
 @media (max-width: 600px) {
   /* stack the two modules vertically */
   #quiet-edit,
