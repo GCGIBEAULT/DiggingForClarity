@@ -959,6 +959,24 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     handleUserLocation(e.target.value);
   });
 </script>
+function loadNationalNews(city) {
+  const blockPath = `blocks/${city}/NationalNews.html`;
+  fetch(blockPath)
+    .then(res => {
+      if (!res.ok) throw new Error("Editorial block not found");
+      return res.text();
+    })
+    .then(html => {
+      const target = document.querySelector("h3:contains('National News')")?.parentElement;
+      if (target) target.innerHTML += html;
+    })
+    .catch(() => {
+      const fallback = document.querySelector("h3:contains('National News')")?.parentElement;
+      if (fallback) {
+        fallback.innerHTML += `<div class="snippet">National coverage unavailable for ${city}. Editorial fallback not assigned.</div>`;
+      }
+    });
+}
 
 </body>
 </html>
@@ -970,6 +988,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
