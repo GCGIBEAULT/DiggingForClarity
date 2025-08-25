@@ -35,6 +35,7 @@
   box-sizing: border-box;
 }
 
+
 @media (max-width: 600px) {
   /* stack the two modules vertically */
   #quiet-edit,
