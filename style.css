@@ -189,6 +189,11 @@ footer.footer-container {
 #StateNews {
   margin-right: 0;
 }
+.grid {
+  display: flex;
+  gap: 1rem; /* Adjust spacing between blocks as needed */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
 
 
 
