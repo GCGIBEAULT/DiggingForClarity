@@ -173,6 +173,22 @@ footer.footer-container {
   border-image-slice: 1;
 }
 
+#LocalNews,
+#StateNews {
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  width: 48%;
+  padding: 0.5rem;
+}
+
+#LocalNews {
+  margin-right: 4%;
+}
+
+#StateNews {
+  margin-right: 0;
+}
 
 
 
