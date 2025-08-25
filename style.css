@@ -207,6 +207,24 @@ footer.footer-container {
 #StateNews {
   margin-right: 0;
 }
+/* Local Weather + Traffic Update layout */
+.local-weather-container {
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  width: 48%;
+  padding: 0.5rem;
+  margin-right: 4%;
+}
+
+#local-traffic {
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  width: 48%;
+  padding: 0.5rem;
+  margin-right: 0;
+}
 
 
 
