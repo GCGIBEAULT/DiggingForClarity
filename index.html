@@ -905,6 +905,61 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
   </div>
 </footer>
+  <script>
+  async function loadCityZipData() {
+    const res = await fetch("data/cityzip.json");
+    return await res.json();
+  }
+
+  async function loadFallbackZipMap() {
+    const res = await fetch("data/fallbackZipMap.json");
+    return await res.json();
+  }
+
+  function resolveLocation(input, cityZipData, fallbackZipMap) {
+    input = input.trim().toLowerCase();
+
+    if (/^\d{5}$/.test(input)) {
+      for (const city in cityZipData) {
+        if (cityZipData[city].includes(input)) {
+          return { zip: input, city };
+        }
+      }
+      if (fallbackZipMap[input]) {
+        return { zip: input, city: fallbackZipMap[input] };
+      }
+    }
+
+    if (cityZipData[input]) {
+      return { city: input, zip: cityZipData[input][0] };
+    }
+    if (fallbackZipMap[input]) {
+      return { city: fallbackZipMap[input], zip: cityZipData[fallbackZipMap[input]][0] };
+    }
+
+    return null;
+  }
+
+  async function handleUserLocation(input) {
+    const cityZipData = await loadCityZipData();
+    const fallbackZipMap = await loadFallbackZipMap();
+    const location = resolveLocation(input, cityZipData, fallbackZipMap);
+
+    if (location) {
+      localStorage.setItem("userCity", location.city);
+      localStorage.setItem("userZip", location.zip);
+      loadNationalNews(location.city); // Trigger your editorial block
+    } else {
+      document.getElementById("news-block").innerHTML =
+        "We couldn’t find your location. Editorial zone not assigned.";
+    }
+  }
+
+  document.getElementById("zip-input").addEventListener("change", (e) => {
+    handleUserLocation(e.target.value);
+  });
+</script>
+
 </body>
 </html>
 
@@ -915,6 +970,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
