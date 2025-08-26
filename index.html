@@ -980,12 +980,7 @@ function loadNationalNews(city) {
       const target = document.querySelector("h3:contains('National News')")?.parentElement;
       if (target) target.innerHTML += html;
     })
-    .catch(() => {
-      const fallback = document.querySelector("h3:contains('National News')")?.parentElement;
-      if (fallback) {
-        fallback.innerHTML += `<div class="snippet">National coverage unavailable for ${city}. Editorial fallback not assigned.</div>`;
-      }
-    });
+   
 }
 function loadWeatherBlock(city) {
   const weatherPath = `blocks/${city}/Weather.html`;
@@ -1040,6 +1035,7 @@ window.onload = function() {
 
   
  
+
 
 
 
