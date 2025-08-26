@@ -36,6 +36,22 @@
     "30324", "30326", "30327", "30328", "30329", "30331", "30332", "30334", "30336", "30337", "30338", "30339", "30340", "30341", "30342", "30344",
     "30345", "30346", "30349", "30350", "30354", "30360", "30363"
   ],
+  "tuscaloosa": [
+  "36925"  // York, AL rerouted for population < 5K
+],
+"alexandria": [
+  "71486"  // Zwolle, LA rerouted for population < 5K
+],
+"jonesboro": [
+  "72395"  // Wilson, AR rerouted for population < 5K
+],
+"vidalia": [
+  "30410"  // Ailey, GA rerouted for population < 5K
+],
+"monroe": [
+  "71368"  // Sicily Island, LA rerouted for population < 5K
+]
+
   "auburn": ["36830", "36832", "36849"],
   "augusta": ["30901", "30904", "30906", "30907", "30909"]
 
