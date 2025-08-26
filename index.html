@@ -941,10 +941,14 @@ function loadNationalNews(city) {
       return res.text();
     })
     .then(html => {
-      const target = document.querySelector("h3:contains('National News')")?.parentElement;
-      if (target) target.innerHTML += html;
+      const target = document.getElementById("national-news-target");
+      if (target) target.innerHTML = html;
+    })
+    .catch(error => {
+      console.error("Injection error:", error);
     });
 }
+
 
 function loadWeatherBlock(city) {
   const weatherPath = `blocks/${city}/Weather.html`;
@@ -1073,6 +1077,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   
  
+
 
 
 
