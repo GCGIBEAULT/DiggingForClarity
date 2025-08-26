@@ -1013,6 +1013,38 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+<script>
+  document.getElementById("zip-input").addEventListener("change", function () {
+    const zipOrCity = this.value.trim();
+    const fallbackZipMap = {
+      // You can inline a few key mappings here or load from external JSON
+      "71422": "alexandria",
+      "30306": "atlanta",
+      "60604": "chicago",
+      "10004": "new_york",
+      "90004": "los_angeles",
+      "98104": "seattle",
+      "96799": "miami",
+      "80102": "denver"
+      // ...or dynamically load full fallbackZipMap.json if preferred
+    };
+
+    const resolvedCity = fallbackZipMap[zipOrCity] || zipOrCity.toLowerCase();
+
+    fetch(`news/${resolvedCity}.html`)
+      .then(response => {
+        if (!response.ok) throw new Error("Editorial block not found");
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById("news-block").innerHTML = html;
+      })
+      .catch(error => {
+        document.getElementById("news-block").innerHTML = `<p>No editorial block available for ${resolvedCity}.</p>`;
+        console.error("Injection error:", error);
+      });
+  });
+</script>
 
 
   
@@ -1027,6 +1059,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   
  
+
 
 
 
