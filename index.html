@@ -951,7 +951,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     handleUserLocation(e.target.value);
      
   });
-</script>
+<script>
 function loadNationalNews(city) {
   const blockPath = `blocks/${city}/NationalNews.html`;
   fetch(blockPath)
@@ -962,24 +962,23 @@ function loadNationalNews(city) {
     .then(html => {
       const target = document.querySelector("h3:contains('National News')")?.parentElement;
       if (target) target.innerHTML += html;
-    })
-   
+    });
 }
+
 function loadWeatherBlock(city) {
   const weatherPath = `blocks/${city}/Weather.html`;
   fetch(weatherPath)
     .then(res => {
       if (!res.ok) throw new Error("Weather block not found");
-      return res.text()
-  
+      return res.text();
     })
     .then(html => {
       const container = document.querySelector(".local-weather-container");
       if (container) container.innerHTML = html;
-    })
- 
+    });
 }
-<script>
+</script>
+
 window.onload = function() {
   updateTimestamp();
 
@@ -1018,6 +1017,7 @@ window.onload = function() {
 
   
  
+
 
 
 
