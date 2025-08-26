@@ -983,35 +983,48 @@ document.addEventListener("DOMContentLoaded", function () {
   const button = document.getElementById("zip-check");
   const inputField = document.getElementById("zip");
 
-  button.addEventListener("click", async function () {
-    const input = inputField.value.trim().toLowerCase();
-    if (!input) return;
+ button.addEventListener("click", async function () {
+  const input = inputField.value.trim().toLowerCase();
+  if (!input) return;
 
-    const cityZipData = await fetch("data/cityzip.json").then(res => res.json());
-    const fallbackZipMap = await fetch("data/fallbackZipMap.json").then(res => res.json());
+  const cityZipData = await fetch("data/cityzip.json").then(res => res.json());
+  const fallbackZipMap = await fetch("data/fallbackZipMap.json").then(res => res.json());
 
-    function resolveLocation(input) {
-      if (/^\d{5}$/.test(input)) {
-        for (const city in cityZipData) {
-          if (cityZipData[city].includes(input)) return { zip: input, city };
-        }
-        if (fallbackZipMap[input]) return { zip: input, city: fallbackZipMap[input] };
+  function resolveLocation(input) {
+    if (/^\d{5}$/.test(input)) {
+      for (const city in cityZipData) {
+        if (cityZipData[city].includes(input)) return { zip: input, city };
       }
-      if (cityZipData[input]) return { city: input, zip: cityZipData[input][0] };
-      if (fallbackZipMap[input]) return { city: fallbackZipMap[input], zip: cityZipData[fallbackZipMap[input]][0] };
-      return null;
+      if (fallbackZipMap[input]) return { zip: input, city: fallbackZipMap[input] };
     }
+    if (cityZipData[input]) return { city: input, zip: cityZipData[input][0] };
+    if (fallbackZipMap[input]) return { city: fallbackZipMap[input], zip: cityZipData[fallbackZipMap[input]][0] };
+    return null;
+  }
 
-    const location = resolveLocation(input);
-    if (location) {
-      localStorage.setItem("userCity", location.city);
-      localStorage.setItem("userZip", location.zip);
-      location.reload(); // triggers timestamp + editorial blocks
-    } else {
-      alert("We're expanding coverage. Your location will be supported soon.");
-    }
-  });
+  const location = resolveLocation(input);
+  if (location) {
+    localStorage.setItem("userCity", location.city);
+    localStorage.setItem("userZip", location.zip);
+
+    // 🔥 Inject editorial block directly
+    fetch(`blocks/${location.city}/NationalNews.html`)
+      .then(res => {
+        if (!res.ok) throw new Error("Editorial block not found");
+        return res.text();
+      })
+      .then(html => {
+        document.getElementById("national-news-target").innerHTML = html;
+      })
+      .catch(error => {
+        document.getElementById("national-news-target").innerHTML = `<p>No editorial block available for ${location.city}.</p>`;
+        console.error("Injection error:", error);
+      });
+  } else {
+    alert("We're expanding coverage. Your location will be supported soon.");
+  }
 });
+
 </script>
 <script>
   document.getElementById("zip-input").addEventListener("change", function () {
@@ -1060,6 +1073,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   
  
+
 
 
 
