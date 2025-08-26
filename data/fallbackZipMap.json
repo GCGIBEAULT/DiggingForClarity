@@ -11,6 +11,17 @@
   "30306": "atlanta",
   "98104": "seattle",
   "90004": "los_angeles"
+  "81401": "denver",       // Montrose, CO
+  "81611": "denver",       // Aspen, CO
+  "59001": "denver",       // Absarokee, MT
+  "59701": "denver",       // Butte, MT
+  "82901": "denver",       // Rock Springs, WY
+  "84501": "denver",       // Price, UT
+  "83401": "denver",       // Idaho Falls, ID
+  "89301": "denver",       // Ely, NV
+  "87501": "denver",       // Santa Fe, NM
+  "86001": "denver"        // Flagstaff, AZ
 }
+
 
 
