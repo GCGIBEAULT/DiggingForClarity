@@ -963,6 +963,25 @@ function loadWeatherBlock(city) {
       const container = document.querySelector(".local-weather-container");
       if (container) container.innerHTML = html;
     });
+  document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("zip-checker");
+  const result = document.getElementById("zip-result");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const input = document.getElementById("zip").value.trim().toLowerCase();
+
+    const knownZips = ["10001", "90210", "30301"]; // Add more as needed
+    const knownCities = ["abilene", "denver", "atlanta"]; // Normalize to lowercase
+
+    if (knownZips.includes(input) || knownCities.includes(input)) {
+      result.textContent = "✅ Coverage confirmed. Your area is part of our clarity network.";
+    } else {
+      result.textContent = "🛠️ We're working on coverage for your area. Thanks for your patience.";
+    }
+  });
+});
+
 }
 
 
@@ -982,6 +1001,7 @@ function loadWeatherBlock(city) {
 
   
  
+
 
 
 
