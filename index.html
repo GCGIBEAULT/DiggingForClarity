@@ -1036,6 +1036,28 @@ function loadEditorialBlocks(city) {
   loadWeatherBlock(city);
   loadTrafficLink(city); // optional
 }
+<script>
+  window.onload = function () {
+    updateTimestamp();
+    const savedZip = localStorage.getItem("userZip");
+    if (savedZip) {
+      handleUserLocation(savedZip); // Triggers editorial + weather blocks
+    }
+    loadTrafficLink(); // Optional: if you're using traffic injection
+  };
+</script>
+
+<footer class="footer-container">
+  <div class="footer-row" style="display:flex;justify-content:center;align-items:center;gap:1em;">
+    <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
+    <p class="footer-text" style="margin:0;">© Digging For Clarity 2025. All rights reserved.</p>
+    <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
+  </div>
+</footer>
+
+<!-- Footer locked. No editorial reflections or external links below this line. -->
+</body>
+</html>
 
 </body>
 </html>
@@ -1047,6 +1069,7 @@ function loadEditorialBlocks(city) {
 
   
  
+
 
 
 
