@@ -977,19 +977,6 @@ function loadWeatherBlock(city) {
       if (container) container.innerHTML = html;
     });
 }
-</script>
-
-window.onload = function() {
-  updateTimestamp();
-
-  const savedZip = localStorage.getItem("userZip");
-  if (savedZip) {
-    handleUserLocation(savedZip); // Triggers editorial + weather blocks
-  }
-
-  loadTrafficLink(); // Optional: if you're using traffic injection
-};
-</script>
 
 
 
@@ -1008,6 +995,7 @@ window.onload = function() {
 
   
  
+
 
 
 
