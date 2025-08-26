@@ -493,15 +493,27 @@ right h
   <img src="new_logo.png" alt="Digging For Clarity logo" class="logo-center">
   <img src="dfc-inverted.png" alt="Inverted Digging For Clarity logo" class="logo-center">
 </div>
+</div> <!-- closes editorial-box -->
 
+<!-- CityZip Coverage Block -->
+<section id="cityzip-coverage" class="clarity-block">
+  <h2>CityZip Coverage</h2>
+  <p>We’re expanding clarity nationwide. If your city or ZIP isn’t showing up, we’re working on it. This block ensures fallback logic for edge-case locations.</p>
+  <form id="zip-checker">
+    <label for="zip">Enter your ZIP or city:</label>
+    <input type="text" id="zip" name="zip" maxlength="50" required>
+    <button type="submit">Check Coverage</button>
+  </form>
+  <div id="zip-result" aria-live="polite"></div>
+</section>
 
-
-   
-  
-
-
-  </div>
-</div>
+<!-- Fallback Clarity Block -->
+<section id="fallback-clarity" class="clarity-block">
+  <h2>Editorial Zone Not Assigned</h2>
+  <div class="snippet"><strong>We couldn’t find your location.</strong></div>
+  <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
+  <div class="snippet">In the meantime, explore our national headlines or enter a nearby ZIP.</div>
+</section>
 
 
 
@@ -1001,6 +1013,7 @@ function loadWeatherBlock(city) {
 
   
  
+
 
 
 
