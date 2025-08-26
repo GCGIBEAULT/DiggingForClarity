@@ -589,6 +589,16 @@
   "10027", "10028", "10029", "10030", "10031", "10032", "10033", "10034", "10035", "10036", "10037", "10038",
   "10039", "10040", "10044", "10065", "10069", "10075", "10128", "10280", "10282"
 ],
+ "manhattan": [
+  "10004"  // Bowling Green, NY rerouted for population < 5K
+],
+"barre": [
+  "05669"  // Roxbury, VT rerouted for population < 5K
+],
+"brattleboro": [
+  "05101"  // Bellows Falls, VT rerouted for population < 5K
+]
+ 
 "niagaraFalls": ["14301", "14303", "14304", "14305"],
 "niles": ["60714"],
 "norfolk": [
