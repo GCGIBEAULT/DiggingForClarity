@@ -1114,6 +1114,57 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+  <!-- ⚙️ Alexandria News Mapping & Fetch Logic ⚙️ -->
+  <script>
+    // 1. Define the mapping for alexandria + fallback
+    window.paths = {
+      "alexandria": [
+        "blocks/alexandria/NationalNews.html"
+      ],
+      "default": [
+        "blocks/default/NationalNews.html",
+        "blocks/default/MarketWatch.html"
+      ]
+    };
+  </script>
+
+  <script>
+    // 2. Wait for the DOM so elements exist
+    document.addEventListener("DOMContentLoaded", () => {
+      // 3. Verify mapping loaded
+      console.log("paths:", window.paths);
+
+      // 4. Hook the button click
+      document.getElementById("showNews").addEventListener("click", async () => {
+        const slug = document
+          .getElementById("cityInput")
+          .value
+          .trim()
+          .toLowerCase();
+
+        const list = window.paths[slug] || window.paths.default;
+        const container = document.getElementById("newsContainer");
+        container.innerHTML = "";
+
+        for (const url of list) {
+          try {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(res.status);
+            const html = await res.text();
+            container.insertAdjacentHTML("beforeend", html);
+          } catch {
+            container.insertAdjacentHTML(
+              "beforeend",
+              `<p style="color:red">
+                 Could not load <strong>${url}</strong>
+               </p>`
+            );
+          }
+        }
+      });
+    });
+  </script>
+</body>
   
 
 </body>
@@ -1126,6 +1177,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   
  
+
 
 
 
