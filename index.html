@@ -1024,6 +1024,61 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 });
 </script>
 
+<script>
+async function loadCityZipData() {
+  const res = await fetch("data/cityzip.json");
+  return await res.json();
+}
+
+async function loadFallbackZipMap() {
+  const res = await fetch("data/fallbackZipMap.json");
+  return await res.json();
+}
+
+function resolveLocation(input, cityZipData, fallbackZipMap) {
+  input = input.trim().toLowerCase();
+  if (/^\d{5}$/.test(input)) {
+    for (const city in cityZipData) {
+      if (cityZipData[city].includes(input)) {
+        return { zip: input, city };
+      }
+    }
+    if (fallbackZipMap[input]) {
+      return { zip: input, city: fallbackZipMap[input] };
+    }
+  }
+  if (cityZipData[input]) {
+    return { city: input, zip: cityZipData[input][0] };
+  }
+  if (fallbackZipMap[input]) {
+    return { city: fallbackZipMap[input], zip: cityZipData[fallbackZipMap[input]][0] };
+  }
+  return null;
+}
+
+document.getElementById("zip-check").addEventListener("click", async () => {
+  const input = document.getElementById("zip").value.trim().toLowerCase();
+  const cityZipData = await loadCityZipData();
+  const fallbackZipMap = await loadFallbackZipMap();
+  const location = resolveLocation(input, cityZipData, fallbackZipMap);
+
+  if (location) {
+    localStorage.setItem("userZip", location.zip);
+    localStorage.setItem("userLocation", location.city);
+    loadNationalNews(location.city);
+    loadWeatherBlock(location.city);
+  } else {
+    document.getElementById("national-news-target").innerHTML = `
+      <div class="main-news-block">
+        <h3>Editorial Zone Not Assigned</h3>
+        <div class="snippet"><strong>We couldn’t find your location.</strong></div>
+        <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
+        <div class="snippet">In the meantime, explore our national headlines or enter a nearby ZIP.</div>
+      </div>
+    `;
+  }
+});
+</script>
 
 
  
@@ -1043,6 +1098,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
