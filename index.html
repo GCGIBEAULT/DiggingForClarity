@@ -908,14 +908,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     return null;
   }
 
-  async function handleUserLocation(input) {
-    const cityZipData = await loadCityZipData();
-    const fallbackZipMap = await loadFallbackZipMap();
-    const location = resolveLocation(input, cityZipData, fallbackZipMap);
 
-    if (location) {
-      localStorage.setItem("userCity", location.city);
-      localStorage.setItem("userZip", location.zip);
       loadNationalNews(location.city); // Trigger your editorial block
     } else {
      document.getElementById("news-block").innerHTML = `
@@ -1052,6 +1045,7 @@ async function loadCityBlock(input) {
 
   
  
+
 
 
 
