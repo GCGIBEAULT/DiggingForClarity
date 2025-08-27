@@ -955,6 +955,34 @@ function loadNationalNews(city) {
 
 loadNationalNews("alexandria");
 
+function loadNationalNews(city) {
+  fetch(`/${city}/NationalNews.html`)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("national-news-target").innerHTML = html;
+    })
+    .catch(error => {
+      console.error("Failed to load National News:", error);
+    });
+}
+
+document.getElementById("zip-input").addEventListener("change", function () {
+  const zip = this.value.trim();
+
+  fetch("/fallbackZipMap.json")
+    .then(response => response.json())
+    .then(map => {
+      const fallbackCity = map[zip];
+      if (fallbackCity) {
+        loadNationalNews(fallbackCity);
+      } else {
+        console.warn("No fallback city found for ZIP:", zip);
+      }
+    })
+    .catch(error => {
+      console.error("Failed to load fallback map:", error);
+    });
+});
 
   
 
@@ -970,6 +998,7 @@ loadNationalNews("alexandria");
 
   
  
+
 
 
 
