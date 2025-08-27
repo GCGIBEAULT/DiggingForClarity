@@ -485,7 +485,12 @@ right h
     <p class="header-tagline">Just The News Please. Hold The Drama.</p>
  
    <p class="timestamp">Saturday • August 23 • 3:13 PM • Abilene</p>
-<p>Enter your ZIP or city: <input type="text" id="zip" maxlength="50"> <button id="zip-check">Check Coverage</button></p>
+<form id="zip-checker">
+  <label for="zip">Enter your ZIP or city:</label>
+  <input type="text" id="zip" maxlength="50">
+  <button type="submit" id="zip-check">Check Coverage</button>
+  <div id="zip-result"></div>
+</form>
 
 
  
@@ -1050,6 +1055,7 @@ function loadWeatherBlock(city) {
 
   
  
+
 
 
 
