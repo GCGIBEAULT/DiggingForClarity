@@ -998,6 +998,22 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 }
 </script>
 
+if (!city) {
+  alert("🛠️ We're working on coverage for: " + input);
+  return;
+}
+
+const html = await fetch(`blocks/${city}/NationalNews.html`).then(r => r.text());
+const target = Array.from(document.querySelectorAll(".section h3"))
+  .find(h3 => h3.textContent.trim() === "National News")
+  ?.parentElement;
+
+if (target) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "injected-block";
+  wrapper.innerHTML = `<!-- Injected via loadCityBlock() for: ${city} -->\n` + html;
+  target.appendChild(wrapper);
+}
 
  
 
@@ -1016,6 +1032,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
