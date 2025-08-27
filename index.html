@@ -1010,25 +1010,7 @@ function loadWeatherBlock(city) {
   });
 </script>
 
-<script>
-  document.getElementById("zip-check").addEventListener("click", function () {
-    const zip = document.getElementById("zip").value.trim();
-    const newsTarget = document.getElementById("national-news-target");
 
-    const alexandriaZips = ["22314", "22301", "22305", "22311"];
-
-    if (alexandriaZips.includes(zip)) {
-      newsTarget.innerHTML = `
-        <div class="snippet"><strong>NSF Headquarters Relocation:</strong> The federal government is seeking a smaller home for the National Science Foundation in Alexandria’s Eisenhower East submarket.</div>
-        <div class="snippet"><strong>Rabies Alert:</strong> A fox tested positive for rabies in the Del Ray and Rosemont area. Residents are urged to report unusual animal behavior.</div>
-        <div class="snippet"><strong>National Dog Day:</strong> The Animal Welfare League of Alexandria highlights adoptable pets like Della, a laid-back pup looking for a forever home.</div>
-        <div class="snippet"><strong>Plea Deal Expected:</strong> A man accused of attempted abduction and sexual assault in Alexandria is working on a plea agreement with prosecutors.</div>
-      `;
-    } else {
-      newsTarget.innerHTML = "";
-    }
-  });
-</script>
 
 
   
@@ -1045,6 +1027,7 @@ function loadWeatherBlock(city) {
 
   
  
+
 
 
 
