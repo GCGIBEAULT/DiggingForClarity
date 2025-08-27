@@ -979,6 +979,49 @@ function loadWeatherBlock(city) {
 
 }
 
+<script>
+  // 1) Wire the button to call handleUserLocation  
+  document.getElementById('zip-check').addEventListener('click', async () => {
+    const input = document.getElementById('zip').value.trim().toLowerCase();
+    await handleUserLocation(input);
+  });
+
+  // 2) Fetch & inject the NationalNews.html for the resolved city  
+  async function handleUserLocation(input) {
+    // special-case city input (no JSON edits needed for testing “alexandria”)
+    if (input === 'alexandria') {
+      return loadNationalNews('alexandria');
+    }
+
+    // fallback to your existing logic:
+    const cityZipData   = await loadCityZipData();
+    const fallbackMap   = await loadFallbackZipMap();
+    const location      = resolveLocation(input, cityZipData, fallbackMap);
+
+    if (location && location.city) {
+      loadNationalNews(location.city);
+    } else {
+      document.getElementById('national-news-target').innerHTML =
+        '<p class="snippet">⚠️ Couldn’t find your location. Try another ZIP or city.</p>';
+    }
+  }
+
+  function loadNationalNews(city) {
+    const target = document.getElementById('national-news-target');
+    fetch(`blocks/${city}/NationalNews.html`)
+      .then(res => {
+        if (!res.ok) throw new Error('Block not found');
+        return res.text();
+      })
+      .then(html => {
+        target.innerHTML = html;
+      })
+      .catch(() => {
+        target.innerHTML =
+          '<p class="snippet">🚧 National news for ' + city + ' is not available yet.</p>';
+      });
+  }
+</script>
 
 
   
@@ -986,8 +1029,7 @@ function loadWeatherBlock(city) {
 </body>
 </html>
 
-</body>
-</html>
+
 
 
 
@@ -996,6 +1038,7 @@ function loadWeatherBlock(city) {
 
   
  
+
 
 
 
