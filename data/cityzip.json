@@ -15,13 +15,12 @@
     "80223", "80230", "80238", "80239", "80249"
   ],
   "billings": [
-  "59001"  // Absarokee, MT rerouted for population < 5K
-],
+  "59001"  
 "iron_mountain": [
-  "49831"  // Felch, MI rerouted for population < 5K
+  "49831"  
 ],
 "gaylord": [
-  "49709"  // Atlanta, MI rerouted for population < 5K
+  "49709"  
 ]
 
   "aberdeen": ["57401", "28315", "98520", ],
@@ -47,20 +46,19 @@
     "30345", "30346", "30349", "30350", "30354", "30360", "30363", 49709",
   ],
   "tuscaloosa": [
-  "36925"  // York, AL rerouted for population < 5K
+  "36925"  
 ],
 "alexandria": [
-  "71486"  // Zwolle, LA rerouted for population < 5K
+  "71486"
 ],
 "jonesboro": [
-  "72395"  // Wilson, AR rerouted for population < 5K
+  "72395"  
 ],
 "vidalia": [
-  "30410"  // Ailey, GA rerouted for population < 5K
+  "30410"  
 ],
 "monroe": [
-  "71368"  // Sicily Island, LA rerouted for population < 5K
-]
+  "71368" 
 
   "auburn": ["36830", "36832", "36849"],
   "augusta": ["30901", "30904", "30906", "30907", "30909"]
@@ -145,13 +143,13 @@
   "60653", "60654", "60655", "60656", "60657", "60659", "60660", "60661"
 ],
 "rockford": [
-  "61046"  // Lanark, IL rerouted for population < 5K
+  "61046"  
 ],
 "terre_haute": [
-  "47512"  // Bicknell, IN rerouted for population < 5K
+  "47512" 
 ],
 "canton": [
-  "44695"  // Bowerston, OH rerouted for population < 5K
+  "44695" 
 ]
   
 "cincinnati": [
@@ -590,13 +588,14 @@
   "10039", "10040", "10044", "10065", "10069", "10075", "10128", "10280", "10282"
 ],
  "manhattan": [
-  "10004"  // Bowling Green, NY rerouted for population < 5K
+  "10004" 
+  
 ],
 "barre": [
-  "05669"  // Roxbury, VT rerouted for population < 5K
+  "05669"  
 ],
 "brattleboro": [
-  "05101"  // Bellows Falls, VT rerouted for population < 5K
+  "05101" 
 ]
  
 "niagaraFalls": ["14301", "14303", "14304", "14305"],
