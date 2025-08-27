@@ -735,49 +735,7 @@ right h
 </div>
 
 </div>
-<script>
-  const cityTimezones = {
-    "denver": "America/Denver",
-    "provo": "America/Denver",
-    "miami": "America/New_York",
-    "san diego": "America/Los_Angeles",
-    "abilene": "America/Chicago",
 
-    "new york": "America/New_York",
-    "chicago": "America/Chicago",
-    "tokyo": "Asia/Tokyo",
-    "paris": "Europe/Paris",
-    "cairo": "Africa/Cairo",
-    "london": "Europe/London"
-    // Add more cities as needed
-  };
-
-  function updateTimestamp() {
-    const location = localStorage.getItem("userLocation")?.toLowerCase() || "abilene";
-
-    const timezone = cityTimezones[location] || "America/Denver";
-
-    const now = new Date();
-   const day = now.toLocaleDateString('en-US', { weekday: 'long', timeZone: timezone });
-const date = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', timeZone: timezone });
-const time = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', timeZone: timezone });
-const formatted = `${day} • ${date} • ${time} • ${location.charAt(0).toUpperCase() + location.slice(1)}`;
-
-
-
-    document.querySelector(".timestamp").textContent = formatted;
-  }
-
-window.onload = function() {
-  updateTimestamp();
-  const savedZip = localStorage.getItem("userZip");
-  if (savedZip) {
-    handleUserLocation(savedZip); // triggers editorial + weather
-  }
-  loadTrafficLink(); // if you're using this
-};
-
-</script>
 
 <script>
 function loadTrafficLink() {
@@ -821,7 +779,8 @@ window.onload = function() {
     updateCityData(savedZip); // 🔥 This triggers live weather + traffic
   }
 
-  loadWeatherBlock();
+
+  
   loadTrafficLink();
 };
 </script>
@@ -1097,6 +1056,7 @@ function loadWeatherBlock(city) {
 
   
  
+
 
 
 
