@@ -996,7 +996,34 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
  
 }
+<script>
+document.getElementById("zip-check").addEventListener("click", async () => {
+  const input = document.getElementById("zip").value.trim().toLowerCase();
+  const alexZips = ["22314", "22301", "22302", "22305", "22311", "22312"];
+
+  if (input === "alexandria" || alexZips.includes(input)) {
+    try {
+      const html = await fetch("blocks/alexandria/NationalNews.html").then(r => r.text());
+      const target = Array.from(document.querySelectorAll(".section h3"))
+        .find(h3 => h3.textContent.trim() === "National News")
+        ?.parentElement;
+      if (target) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "injected-block";
+        wrapper.innerHTML = `<!-- Injected for Alexandria -->\n` + html;
+        target.appendChild(wrapper);
+      }
+    } catch (err) {
+      console.error("Injection failed:", err);
+      alert("⚠️ Alexandria block failed to load. Please try again.");
+    }
+    return;
+  }
+
+  alert("🛠️ We're working on coverage for: " + input);
+});
 </script>
+
 
 
  
@@ -1016,6 +1043,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
