@@ -1022,6 +1022,16 @@ function loadWeatherBlock(city) {
   });
 </script>
 
+<!-- REMOVE every other <script>…</script> at the bottom of your page
+     and PASTE this single consolidated block instead -->
+
+<script>
+  // 1. Your fallback map for edge-case ZIPs
+  const fallbackZipMap = {
+    "10002": "newyork",
+    "30302": "atlanta",
+    // …add more mappings as needed…
+ 
 
  
 
@@ -1040,6 +1050,7 @@ function loadWeatherBlock(city) {
 
   
  
+
 
 
 
