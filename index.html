@@ -1035,28 +1035,54 @@ function resolveLocation(input, cityZipData, fallbackZipMap) {
   return null;
 }
 
-document.getElementById("zip-check").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
-  const cityZipData = await loadCityZipData();
-  const fallbackZipMap = await loadFallbackZipMap();
-  const location = resolveLocation(input, cityZipData, fallbackZipMap);
 
-  if (location) {
-    localStorage.setItem("userZip", location.zip);
-    localStorage.setItem("userLocation", location.city);
-    loadNationalNews(location.city);
-    loadWeatherBlock(location.city);
-  } else {
-    document.getElementById("national-news-target").innerHTML = `
-      <div class="main-news-block">
-        <h3>Editorial Zone Not Assigned</h3>
-        <div class="snippet"><strong>We couldn’t find your location.</strong></div>
-        <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
-        <div class="snippet">In the meantime, explore our national headlines or enter a nearby ZIP.</div>
-      </div>
-    `;
-  }
-});
+    const location = resolveLocation(input, cityZipData, fallbackZipMap);
+
+    const target = document.getElementById('national-news-target');
+    target.innerHTML = ''; // clear any previous block
+
+    if (location) {
+      // 2. persist
+      localStorage.setItem('userZip', location.zip);
+      localStorage.setItem('userLocation', location.city);
+
+      try {
+        // 3. fetch + inject
+        const html = await fetch(`blocks/${location.city}/NationalNews.html`)
+                               .then(res => res.text());
+        const wrapper = document.createElement('div');
+        wrapper.className = 'main-news-block';
+        wrapper.innerHTML = html;
+        target.appendChild(wrapper);
+
+      } catch (e) {
+        // fallback UI if block missing
+        target.innerHTML = `
+          <div class="main-news-block">
+            <h3>Editorial Zone Not Assigned</h3>
+            <div class="snippet">
+              <strong>We couldn’t find your location’s editorial block.</strong>
+            </div>
+            <div class="snippet">
+              We’re expanding national coverage. Your ZIP will be supported soon.
+            </div>
+          </div>`;
+      }
+
+    } else {
+      // input not recognized at all
+      target.innerHTML = `
+        <div class="main-news-block">
+          <h3>Editorial Zone Not Assigned</h3>
+          <div class="snippet">
+            <strong>We couldn’t resolve your ZIP or city.</strong>
+          </div>
+          <div class="snippet">
+            Please enter a nearby city or valid 5-digit ZIP.
+          </div>
+        </div>`;
+    }
+  });
 </script>
 
 
@@ -1077,6 +1103,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
