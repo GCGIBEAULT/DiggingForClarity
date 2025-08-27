@@ -923,6 +923,18 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     <div class="snippet">In the meantime, explore our national headlines or enter a nearby ZIP.</div>
   </div>
 
+<script>
+  function loadNationalNews(city) {
+    const path = `blocks/${city}/NationalNews.html`;
+    fetch(path)
+      .then(res => res.ok ? res.text() : "")
+      .then(html => {
+        const target = document.getElementById("national-news-target");
+        if (target) target.innerHTML = html;
+      });
+  }
+</script>
+</body>
 
 
 
@@ -940,6 +952,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
