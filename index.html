@@ -975,70 +975,7 @@ function loadWeatherBlock(city) {
 
 <script>
 <script>
-<script>
-document.getElementById("zip-check").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
-  const alexZips = ["22314", "22301", "22302", "22305", "22311", "22312"];
-  const isAlexandria = input === "alexandria" || alexZips.includes(input);
 
-  if (isAlexandria) {
-    const target = document.getElementById("national-news-target");
-    const alreadyInjected = target?.querySelector(".main-news-block");
-
-    if (!alreadyInjected) {
-      const html = await fetch("blocks/alexandria/NationalNews.html").then(r => r.text());
-      const wrapper = document.createElement("div");
-      wrapper.className = "main-news-block";
-      wrapper.innerHTML = html;
-      target.appendChild(wrapper);
-    }
-
-    return;
-  }
-
-  alert("🛠️ We're working on coverage for: " + input);
-});
-
-
-
-</script>
-
-<script>
-async function loadCityZipData() {
-  const res = await fetch("data/cityzip.json");
-  return await res.json();
-}
-
-async function loadFallbackZipMap() {
-  const res = await fetch("data/fallbackZipMap.json");
-  return await res.json();
-}
-
-function resolveLocation(input, cityZipData, fallbackZipMap) {
-  input = input.trim().toLowerCase();
-  if (/^\d{5}$/.test(input)) {
-    for (const city in cityZipData) {
-      if (cityZipData[city].includes(input)) {
-        return { zip: input, city };
-      }
-    }
-    if (fallbackZipMap[input]) {
-      return { zip: input, city: fallbackZipMap[input] };
-    }
-  }
-  if (cityZipData[input]) {
-    return { city: input, zip: cityZipData[input][0] };
-  }
-  if (fallbackZipMap[input]) {
-    return { city: fallbackZipMap[input], zip: cityZipData[fallbackZipMap[input]][0] };
-  }
-  return null;
-}
-
-
-    const location = resolveLocation(input, cityZipData, fallbackZipMap);
-
-    const target = document.getElementById('national-news-target');
     target.innerHTML = ''; // clear any previous block
 
     if (location) {
@@ -1103,6 +1040,7 @@ function resolveLocation(input, cityZipData, fallbackZipMap) {
 
   
  
+
 
 
 
