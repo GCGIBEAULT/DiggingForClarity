@@ -736,8 +736,6 @@ right h
     "miami": "America/New_York",
     "san diego": "America/Los_Angeles",
     "abilene": "America/Chicago",
-    "alexandria": "America/Chicago",
-
 
     "new york": "America/New_York",
     "chicago": "America/Chicago",
@@ -817,7 +815,10 @@ window.onload = function() {
     updateCityData(savedZip); // 🔥 This triggers live weather + traffic
   }
 
-
+  loadWeatherBlock();
+  loadTrafficLink();
+};
+</script>
 
 
  <script>
@@ -912,83 +913,79 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     const fallbackZipMap = await loadFallbackZipMap();
     const location = resolveLocation(input, cityZipData, fallbackZipMap);
 
-if (location) {
-  localStorage.setItem("userCity", location.city);
-  localStorage.setItem("userZip", location.zip);
-  localStorage.setItem("userLocation", location.city); // ✅ Enables correct timestamp
-  loadNationalNews(location.city); // ✅ Trigger editorial block
-} else {
-  document.getElementById("news-block").innerHTML = `
-    <div class="main-news-block">
-      <h3>Editorial Zone Not Assigned</h3>
-      <div class="snippet"><strong>We couldn’t find your location.</strong></div>
-      <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
-      <div class="snippet">In the meantime, explore our national headlines or enter a nearby ZIP.</div>
-    </div>
-  `;
-}
+    if (location) {
+      localStorage.setItem("userCity", location.city);
+      localStorage.setItem("userZip", location.zip);
+      loadNationalNews(location.city); // Trigger your editorial block
+    } else {
+     document.getElementById("news-block").innerHTML = `
+  <div class="main-news-block">
+    <h3>Editorial Zone Not Assigned</h3>
+    <div class="snippet"><strong>We couldn’t find your location.</strong></div>
+    <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
+    <div class="snippet">In the meantime, explore our national headlines or enter a nearby ZIP.</div>
+  </div>
+`;
 
-
-<script>
-  function loadNationalNews(city) {
-    const path = `blocks/${city}/NationalNews.html`;
-    fetch(path)
-      .then(res => res.ok ? res.text() : "")
-      .then(html => {
-        const target = document.getElementById("national-news-target");
-        if (target) target.innerHTML = html;
-      });
+    }
   }
-</script>
-</body>
 
+
+     
+  });
+<script>
 function loadNationalNews(city) {
-  fetch(`/${city}/NationalNews.html`)
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById("national-news-target").innerHTML = html;
+  const blockPath = `blocks/${city}/NationalNews.html`;
+  fetch(blockPath)
+    .then(res => {
+      if (!res.ok) throw new Error("Editorial block not found");
+      return res.text();
     })
-    .catch(error => {
-      console.error("Failed to load National News:", error);
+    .then(html => {
+      const target = document.querySelector("h3:contains('National News')")?.parentElement;
+      if (target) target.innerHTML += html;
     });
 }
 
-loadNationalNews("alexandria");
-
-function loadNationalNews(city) {
-  fetch(`/${city}/NationalNews.html`)
-    .then(response => response.text())
+function loadWeatherBlock(city) {
+  const weatherPath = `blocks/${city}/Weather.html`;
+  fetch(weatherPath)
+    .then(res => {
+      if (!res.ok) throw new Error("Weather block not found");
+      return res.text();
+    })
     .then(html => {
-      const target = document.getElementById("national-news-target");
-      if (target) target.innerHTML = html;
-    })
-    .catch(error => {
-      console.error("Failed to load National News:", error);
+      const container = document.querySelector(".local-weather-container");
+      if (container) container.innerHTML = html;
     });
-}
+  document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("zip-checker");
+  const result = document.getElementById("zip-result");
 
-document.getElementById("zip").addEventListener("change", function () {
-  const zip = this.value.trim();
-  fetch("/fallbackZipMap.json")
-    .then(response => response.json())
-    .then(map => {
-      const fallbackCity = map[zip];
-      if (fallbackCity) {
-        loadNationalNews(fallbackCity);
-      } else {
-        console.warn("No fallback city found for ZIP:", zip);
-      }
-    })
-    .catch(error => {
-      console.error("Failed to load fallback map:", error);
-    });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const input = document.getElementById("zip").value.trim().toLowerCase();
+
+    const knownZips = ["10001", "90210", "30301"]; // Add more as needed
+    const knownCities = ["abilene", "denver", "atlanta"]; // Normalize to lowercase
+
+    if (knownZips.includes(input) || knownCities.includes(input)) {
+      result.textContent = "✅ Coverage confirmed. Your area is part of our clarity network.";
+    } else {
+      result.textContent = "🛠️ We're working on coverage for your area. Thanks for your patience.";
+    }
+  });
 });
+
+}
+
 
 
   
-<!-- Flush rogue JS: forcing GitHub Pages to recompile -->
 
-</script>
+</body>
+</html>
+
 </body>
 </html>
 
@@ -997,34 +994,8 @@ document.getElementById("zip").addEventListener("change", function () {
 
 
 
-
-
-
   
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
