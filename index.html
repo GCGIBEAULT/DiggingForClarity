@@ -942,6 +942,18 @@ if (location) {
 </script>
 </body>
 
+function loadNationalNews(city) {
+  fetch(`/${city}/NationalNews.html`)
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("national-news-target").innerHTML = html;
+    })
+    .catch(error => {
+      console.error("Failed to load National News:", error);
+    });
+}
+
+loadNationalNews("alexandria");
 
 
   
@@ -958,6 +970,7 @@ if (location) {
 
   
  
+
 
 
 
