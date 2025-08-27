@@ -1165,6 +1165,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   </script>
 </body>
+  <!-- Alexandria quick-fix mapping -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const inputEl  = document.getElementById("zip");        // your text box
+      const buttonEl = document.getElementById("zip-check");  // your Check Coverage button
+      const targetEl = document.getElementById("national-news-target"); // where National News lives
+
+      // Only handle "alexandria" specially
+      buttonEl.addEventListener("click", async () => {
+        const v = inputEl.value.trim().toLowerCase();
+        if (v !== "alexandria") return;  // let your normal ZIP logic run otherwise
+
+        // Clear out anything already there
+        targetEl.innerHTML = "";
+
+        // Fetch and render Alexandria's NationalNews.html
+        try {
+          const res  = await fetch("blocks/alexandria/NationalNews.html");
+          if (!res.ok) throw new Error(res.status);
+          const html = await res.text();
+          targetEl.innerHTML = html;
+        } catch (err) {
+          console.error("Alexandria fetch failed:", err);
+          targetEl.innerHTML = "<p style='color:red'>Could not load Alexandria news.</p>";
+        }
+      });
+    });
+  </script>
   
 
 </body>
@@ -1177,6 +1205,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   
  
+
 
 
 
