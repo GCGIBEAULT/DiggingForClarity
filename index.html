@@ -994,11 +994,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 </script>
 
 
-  const html = await fetch(`blocks/${city}/NationalNews.html`).then(r => r.text());
-  const target = Array.from(document.querySelectorAll(".section h3"))
-    .find(h3 => h3.textContent.trim() === "National News")
-    ?.parentElement;
-  if (target) target.innerHTML += html;
+ 
 }
 </script>
 
@@ -1025,6 +1021,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
