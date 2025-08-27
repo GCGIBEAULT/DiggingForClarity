@@ -979,28 +979,29 @@ function loadWeatherBlock(city) {
 
 }
 
+<script>
 document.getElementById("zip-check").addEventListener("click", async () => {
   const input = document.getElementById("zip").value.trim().toLowerCase();
   const alexZips = ["22314","22301","22302","22305","22311","22312"];
 
   if (input === "alexandria" || alexZips.includes(input)) {
-    try {
-      const html = await fetch("blocks/alexandria/NationalNews.html").then(r => r.text());
-      const target = Array.from(document.querySelectorAll(".section h3"))
-        .find(h3 => h3.textContent.trim() === "National News")
-        ?.parentElement;
-      if (target) target.innerHTML += html;
-    } catch (e) {
-      console.error("Alexandria news load failed:", e);
-    }
+    const html = await fetch("blocks/alexandria/NationalNews.html").then(r => r.text());
+    const target = Array.from(document.querySelectorAll(".section h3"))
+      .find(h3 => h3.textContent.trim() === "National News")
+      ?.parentElement;
+    if (target) target.innerHTML += html;
+  } else {
+    alert("No coverage for: " + input);
   }
 });
+</script>
+</body>
+</html>
+
 
 
   
 
-</body>
-</html>
 
 
 
@@ -1010,6 +1011,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
