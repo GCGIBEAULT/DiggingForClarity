@@ -910,20 +910,22 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     const fallbackZipMap = await loadFallbackZipMap();
     const location = resolveLocation(input, cityZipData, fallbackZipMap);
 
-    if (location) {
-      localStorage.setItem("userCity", location.city);
-      localStorage.setItem("userZip", location.zip);
-      loadNationalNews(location.city);
+if (location) {
+  localStorage.setItem("userCity", location.city);
+  localStorage.setItem("userZip", location.zip);
+  localStorage.setItem("userLocation", location.city); // ✅ Enables correct timestamp
+  loadNationalNews(location.city); // ✅ Trigger editorial block
+} else {
+  document.getElementById("news-block").innerHTML = `
+    <div class="main-news-block">
+      <h3>Editorial Zone Not Assigned</h3>
+      <div class="snippet"><strong>We couldn’t find your location.</strong></div>
+      <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
+      <div class="snippet">In the meantime, explore our national headlines or enter a nearby ZIP.</div>
+    </div>
+  `;
+}
 
-      loadNationalNews(location.city); // Trigger your editorial block
-    } else {
-     document.getElementById("news-block").innerHTML = `
-  <div class="main-news-block">
-    <h3>Editorial Zone Not Assigned</h3>
-    <div class="snippet"><strong>We couldn’t find your location.</strong></div>
-    <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
-    <div class="snippet">In the meantime, explore our national headlines or enter a nearby ZIP.</div>
-  </div>
 
 <script>
   function loadNationalNews(city) {
@@ -954,6 +956,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
