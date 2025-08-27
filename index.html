@@ -990,9 +990,9 @@ document.getElementById("zip-check").addEventListener("click", async () => {
       .find(h3 => h3.textContent.trim() === "National News")
       ?.parentElement;
     if (target) target.innerHTML += html;
-  } else {
-    alert("No coverage for: " + input);
-  }
+ // Future fallback logic will go here
+alert("🛠️ We're working on coverage for: " + input);
+
 });
 </script>
 </body>
@@ -1011,6 +1011,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
