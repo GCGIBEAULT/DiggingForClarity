@@ -1079,6 +1079,30 @@ function loadWeatherBlock(city) {
   });
 </script>
 
+<script>
+  document.getElementById("zip-check").addEventListener("click", function () {
+    const input = document.getElementById("zip").value.trim().toLowerCase();
+    const newsTarget = document.getElementById("national-news-target");
+
+    const match = ["alexandria", "alex", "22314", "22301", "22305", "22311"];
+
+    if (match.includes(input)) {
+      fetch("blocks/alexandria/NationalNews.html")
+        .then(response => {
+          if (!response.ok) throw new Error("Fetch failed");
+          return response.text();
+        })
+        .then(html => {
+          newsTarget.innerHTML = html;
+        })
+        .catch(() => {
+          newsTarget.innerHTML = "<div class='snippet'>Alexandria news is temporarily unavailable.</div>";
+        });
+    } else {
+      newsTarget.innerHTML = "";
+    }
+  });
+</script>
   
 
 </body>
@@ -1093,6 +1117,7 @@ function loadWeatherBlock(city) {
 
   
  
+
 
 
 
