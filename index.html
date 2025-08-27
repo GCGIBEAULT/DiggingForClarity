@@ -913,6 +913,8 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     if (location) {
       localStorage.setItem("userCity", location.city);
       localStorage.setItem("userZip", location.zip);
+      loadNationalNews(location.city);
+
       loadNationalNews(location.city); // Trigger your editorial block
     } else {
      document.getElementById("news-block").innerHTML = `
@@ -952,6 +954,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
