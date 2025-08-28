@@ -764,7 +764,9 @@ const formatted = `${day} • ${date} • ${time} • ${location.charAt(0).toUpp
   }
 
 window.onload = async function() {
-  await updateTimestamp("80203", "Denver");
+ localStorage.setItem("userLocation", "Denver");
+updateTimestamp();
+
 
   const savedZip = localStorage.getItem("userZip");
   if (savedZip) {
@@ -1175,6 +1177,7 @@ async function updateTimestampByZip(zip, city) {
 
   
  
+
 
 
 
