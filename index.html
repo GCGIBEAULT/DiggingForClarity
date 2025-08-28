@@ -1071,7 +1071,7 @@ function resolveLocation(input, cityZipData, fallbackZipMap) {
   if (location) {
     localStorage.setItem("userZip", location.zip);
     localStorage.setItem("userLocation", location.city);
-    loadNationalNews(location.city);
+  
     loadWeatherBlock(location.city);
   } else {
     document.getElementById("national-news-target").innerHTML = `
@@ -1141,6 +1141,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
