@@ -760,11 +760,12 @@ const formatted = `${day} • ${date} • ${time} • ${location.charAt(0).toUpp
   }
 
 window.onload = function() {
-  updateTimestamp();
+ 
   const savedZip = localStorage.getItem("userZip");
   if (savedZip) {
     handleUserLocation(savedZip); // triggers editorial + weather
   }
+   updateTimestamp();
   loadTrafficLink(); // if you're using this
 };
 
@@ -1110,6 +1111,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
