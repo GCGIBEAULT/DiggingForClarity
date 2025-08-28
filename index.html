@@ -1134,7 +1134,7 @@ async function getTimezone(zip) {
   return map[zip] || "America/Denver"; // fallback to MDT
 }
 
-async function updateTimestamp(zip, city) {
+async function updateTimestampByZip(zip, city) {
   const timezone = await getTimezone(zip);
   const now = new Date();
   const formatter = new Intl.DateTimeFormat("en-US", {
@@ -1149,10 +1149,12 @@ async function updateTimestamp(zip, city) {
   const formatted = formatter.format(now);
   document.getElementById("timestamp").textContent = `${formatted} • ${city}`;
 }
+
 </script>
 <script>
-  updateTimestamp("80203", "Denver");
+  updateTimestampByZip("80203", "Denver");
 </script>
+
 
 
 
@@ -1170,6 +1172,7 @@ async function updateTimestamp(zip, city) {
 
   
  
+
 
 
 
