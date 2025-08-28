@@ -897,6 +897,64 @@ document.querySelectorAll('.prompt-link').forEach(link => {
         loadNationalNews(saved);
       }
     });
+  </footer>
+  <script>
+    console.log("🚀 NationalNews script loaded");
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("📥 DOMContentLoaded fired");
+
+      const form   = document.getElementById("zip-checker");
+      const input  = document.getElementById("zip");
+      const result = document.getElementById("zip-result");
+      const target = document.getElementById("national-news-target");
+
+      const cityZipData = {
+        "alexandria": ["22314","22301","22302","22304","22305","22311"]
+      };
+      const fallbackZipMap = {};
+
+      function resolveLocation(raw) {
+        const val = raw.trim().toLowerCase();
+        if (/^\d{5}$/.test(val)) {
+          if (fallbackZipMap[val]) return { city: fallbackZipMap[val], zip: val };
+          for (const city in cityZipData) {
+            if (cityZipData[city].includes(val)) return { city, zip: val };
+          }
+        }
+        if (cityZipData[val]) return { city: val, zip: cityZipData[val][0] };
+        return null;
+      }
+
+      async function loadNationalNews(city) {
+        try {
+          const res = await fetch(`blocks/${city}/NationalNews.html`);
+          if (!res.ok) throw new Error();
+          target.innerHTML = await res.text();
+          console.log(`✅ News injected for ${city}`);
+        } catch {
+          target.innerHTML = `<div class="snippet">No coverage for “${city}.”</div>`;
+        }
+      }
+
+      form.addEventListener("submit", async e => {
+        e.preventDefault();
+        const loc = resolveLocation(input.value);
+        if (loc) {
+          localStorage.setItem("userLocation", loc.city);
+          await loadNationalNews(loc.city);
+          result.textContent = "✅ Coverage confirmed.";
+        } else {
+          result.textContent = "📢 Coverage coming soon.";
+          target.innerHTML = "";
+        }
+      });
+
+      const saved = localStorage.getItem("userLocation");
+      if (saved) {
+        input.value = saved;
+        loadNationalNews(saved);
+      }
+    });
   </script>
 </body>
 </html>
@@ -918,6 +976,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
