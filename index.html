@@ -927,16 +927,22 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 <script>
 function loadNationalNews(city) {
   const blockPath = `blocks/${city}/NationalNews.html`;
-  fetch(blockPath)
-    .then(res => {
-      if (!res.ok) throw new Error("Editorial block not found");
-      return res.text();
-    })
-    .then(html => {
-      const target = document.querySelector("h3:contains('National News')")?.parentElement;
-      if (target) target.innerHTML += html;
-    });
+  const target = document.querySelector("h3:contains('National News')")?.parentElement;
+  if (target && !target.querySelector(".injected-block")) {
+    fetch(blockPath)
+      .then(res => {
+        if (!res.ok) throw new Error("Editorial block not found");
+        return res.text();
+      })
+      .then(html => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "injected-block";
+        wrapper.innerHTML = `<!-- Injected for ${city} -->\n` + html;
+        target.appendChild(wrapper);
+      });
+  }
 }
+
 
 function loadWeatherBlock(city) {
   const weatherPath = `blocks/${city}/Weather.html`;
@@ -1135,6 +1141,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
