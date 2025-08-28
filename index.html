@@ -1,16 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digging For Clarity</title>
+  <meta name="description" content="Drama-free news, weather, and community updates with editorial clarity and modular trust.">
+  <meta name="author" content="Gregg Gibeault">
+  <link rel="icon" href="new_logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    .site-title {
+      font-size: 3.5rem;
+      font-weight: 900;
+      font-family: 'Merriweather', serif;
+      color: #111;
+      margin-bottom: 0.4em;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background-color: #f4f1ec;
+      border-bottom: 2px solid #333;
+    }
+    .editorial-box {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      max-width: 640px;
+    }
+    .header-tagline {
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: 'Merriweather', serif;
+      color: #222;
+      margin-top: 0.6em;
+    }
+    .timestamp {
+      font-size: 1.4rem;
+      font-family: 'Merriweather', serif;
+      color: #555;
+      margin-top: 1em;
+    }
+    .logo-center-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 1.5em;
+      margin-top: 1em;
+    }
+    .logo-center {
+      height: 220px;
+      width: auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin: 1em;
+    }
+    .section {
+      background-color: #f4f1ec;
+      padding: 1.25em;
+      margin: 1em;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .footer-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+      margin: 2em 1.5em;
+      font-size: 0.9em;
+      color: #666;
+    }
+    .footer-logo {
+      height: 48px;
+      width: auto;
+      opacity: 0.8;
+    }
+    .footer-text {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
 <!-- === Editorial Header Block === -->
 <div class="header-container">
   <div class="editorial-box">
     <h1 class="site-title">Digging For Clarity</h1>
     <p class="header-tagline">Just The News Please. Hold The Drama.</p>
-    <p class="timestamp">Wednesday • August 27 • 10:43 PM • Abilene</p>
+    <p class="timestamp">Loading timestamp...</p>
     <p>Enter your ZIP or city:
       <input type="text" id="zip" maxlength="50">
       <button id="zip-check">Check Coverage</button>
     </p>
   </div>
-
-  <!-- Centered Logo Pair Block -->
   <div class="logo-center-wrapper">
     <img src="new_logo.png" alt="Digging For Clarity logo" class="logo-center">
     <img src="dfc-inverted.png" alt="Inverted Digging For Clarity logo" class="logo-center">
@@ -19,77 +115,45 @@
 
 <!-- === Main Content Grid === -->
 <section class="grid">
-  <div id="LocalWeather" class="section">
-    <h3>Local Weather</h3>
-  </div>
-  <div class="section">
-    <h3>Traffic Update</h3>
-  </div>
+  <div id="LocalWeather" class="section"><h3>Local Weather</h3></div>
+  <div class="section"><h3>Traffic Update</h3></div>
 </section>
 
 <section class="grid">
-  <div id="local-news" class="section">
-    <h3>Local News</h3>
-  </div>
-  <div id="state-news" class="section">
-    <h3>State News</h3>
-  </div>
+  <div id="local-news" class="section"><h3>Local News</h3></div>
+  <div id="state-news" class="section"><h3>State News</h3></div>
 </section>
 
 <section class="grid">
-  <div class="section">
-    <h3>Community Events</h3>
-  </div>
-  <div class="section">
-    <h3>Food & Culture</h3>
-  </div>
+  <div class="section"><h3>Community Events</h3></div>
+  <div class="section"><h3>Food & Culture</h3></div>
 </section>
 
 <section class="grid">
-  <div class="section">
-    <h3>Health & Safety</h3>
-  </div>
-  <div class="section">
-    <h3>School & Family Briefs</h3>
-  </div>
+  <div class="section"><h3>Health & Safety</h3></div>
+  <div class="section"><h3>School & Family Briefs</h3></div>
 </section>
 
 <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 1em;">
-  <div class="section" style="grid-column: span 2;">
-    <h3>National News</h3>
-    <div id="national-news-target"></div>
-  </div>
-  <div class="section" style="grid-column: span 2;">
-    <h3>Federal News</h3>
-  </div>
+  <div class="section" style="grid-column: span 2;"><h3>National News</h3><div id="national-news-target"></div></div>
+  <div class="section" style="grid-column: span 2;"><h3>Federal News</h3></div>
 </div>
 
 <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 1em;">
-  <div class="section" style="grid-column: span 2;">
-    <h3>World News</h3>
-  </div>
-  <div class="section" style="grid-column: span 2;">
-    <h3>Market Watch</h3>
-    <!-- Financial snippets go here -->
-  </div>
+  <div class="section" style="grid-column: span 2;"><h3>World News</h3></div>
+  <div class="section" style="grid-column: span 2;"><h3>Market Watch</h3></div>
 </div>
 
 <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 1em;">
-  <div class="section" style="grid-column: span 2;">
-    <h3>Sports</h3>
-  </div>
-  <div class="section" style="grid-column: span 2;">
-    <h3>AI</h3>
-  </div>
+  <div class="section" style="grid-column: span 2;"><h3>Sports</h3></div>
+  <div class="section" style="grid-column: span 2;"><h3>AI</h3></div>
 </div>
 
 <!-- === Footer === -->
 <footer class="footer-container">
-  <div class="footer-row" style="display:flex;justify-content:center;align-items:center;gap:1em;">
-    <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
-    <p class="footer-text" style="margin:0;">© Digging For Clarity 2025. All rights reserved.</p>
-    <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
-  </div>
+  <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
+  <p class="footer-text">© Digging For Clarity 2025. All rights reserved.</p>
+  <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
 </footer>
 
 <!-- === Scripts === -->
