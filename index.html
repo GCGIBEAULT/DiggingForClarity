@@ -770,18 +770,16 @@ function loadTrafficLink() {
   });
 }
 
-<script>
-window.onload = function() {
-  updateTimestamp();
-
-  const savedZip = localStorage.getItem("userZip");
-  if (savedZip) {
-    updateCityData(savedZip); // 🔥 This triggers live weather + traffic
+window.onload = function () {
+  const savedCity = localStorage.getItem('userLocation');
+  if (savedCity) {
+    loadNationalNews(savedCity); // 🔥 auto-inject editorial block
+    document.getElementById('zip').value = savedCity; // optional: prefill input
   }
-
+};
 
   
-  loadTrafficLink();
+ 
 };
 </script>
 
@@ -1056,6 +1054,7 @@ function loadWeatherBlock(city) {
 
   
  
+
 
 
 
