@@ -837,8 +837,14 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   </div>
   </footer>
   <script>
+    </footer>
+  <script>
     // National News loader
+    console.log("🚀 NationalNews script loaded");
+
     document.addEventListener("DOMContentLoaded", () => {
+      console.log("📥 DOMContentLoaded fired");
+
       const form   = document.getElementById("zip-checker");
       const input  = document.getElementById("zip");
       const result = document.getElementById("zip-result");
@@ -864,8 +870,9 @@ document.querySelectorAll('.prompt-link').forEach(link => {
       async function loadNationalNews(city) {
         try {
           const res = await fetch(`blocks/${city}/NationalNews.html`);
-          if (!res.ok) throw "";
+          if (!res.ok) throw new Error("Block not found");
           target.innerHTML = await res.text();
+          console.log(`✅ News injected for ${city}`);
         } catch {
           target.innerHTML = `<div class="snippet">No coverage for “${city}.”</div>`;
         }
@@ -894,8 +901,8 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 </body>
 </html>
 
-</body>
-</html>
+
+ 
   
 
 
@@ -911,6 +918,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
