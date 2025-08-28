@@ -804,17 +804,15 @@ function loadTrafficLink() {
 }
 
 <script>
-window.onload = function() {
-  updateTimestamp();
-
+window.onload = async function() {
   const savedZip = localStorage.getItem("userZip");
   if (savedZip) {
-    updateCityData(savedZip); // 🔥 This triggers live weather + traffic
+    await handleUserLocation(savedZip); // ensures userLocation is set
   }
-
-  loadWeatherBlock();
+  updateTimestamp(); // now runs with correct location
   loadTrafficLink();
 };
+
 </script>
 
 
@@ -1112,6 +1110,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
