@@ -1021,40 +1021,35 @@ function loadWeatherBlock(city) {
   }
 
   // 2. One‐and‐only listener on your “Check Coverage” button
-  document.addEventListener("DOMContentLoaded", () => {
-    const btn    = document.getElementById("zip-check");
-    const input  = document.getElementById("zip");
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const form = document.getElementById("zip-checker");
+  const input = document.getElementById("zip");
+  const result = document.getElementById("zip-result");
+  const target = document.getElementById("national-news-target");
 
-    btn.addEventListener("click", e => {
-      e.preventDefault();
-      const raw = input.value.trim().toLowerCase();
-      if (!raw) return;
+  const cityZipData = await fetch("data/cityzip.json").then(res => res.json());
+  const fallbackZipMap = await fetch("data/fallbackZipMap.json").then(res => res.json());
 
-      // if input looks like a ZIP, use it directly; otherwise assume it’s a city name
-      const city = /^\d{5}$/.test(raw) ? raw : raw.replace(/\s+/g, "");
-      loadNationalNews(city);
-    });
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const raw = input.value.trim().toLowerCase();
+    const location = resolveLocation(raw, cityZipData, fallbackZipMap);
+
+    if (location) {
+      localStorage.setItem("userZip", location.zip);
+      localStorage.setItem("userLocation", location.city);
+      const html = await fetch(`blocks/${location.city}/NationalNews.html`).then(res => res.text());
+      target.innerHTML = html;
+      result.textContent = "✅ Coverage confirmed.";
+    } else {
+      target.innerHTML = `<div class="snippet"><strong>Editorial Zone Not Assigned</strong><br>We couldn’t resolve your ZIP or city.</div>`;
+      result.textContent = "🛠️ We're working on coverage for your area.";
+    }
   });
+});
 </script>
 
- 
-function loadNationalNews(city) {
-  fetch(`blocks/${city}/NationalNews.html`)
-    .then(response => {
-      if (!response.ok) {
-        console.error(`Failed to load NationalNews for ${city}:`, response.status);
-        return Promise.reject(response);
-      }
-      return response.text();
-    })
-    .then(html => {
-      document.querySelector('#national-news-target').innerHTML = html;
-      console.log(`NationalNews injected for ${city}`);
-    })
-    .catch(err => {
-      console.error(`Error loading NationalNews for ${city}:`, err);
-    });
-}
 
 
 </body>
@@ -1071,6 +1066,7 @@ function loadNationalNews(city) {
 
   
  
+
 
 
 
