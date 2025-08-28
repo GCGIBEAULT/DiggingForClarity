@@ -1075,11 +1075,11 @@ function resolveLocation(input, cityZipData, fallbackZipMap) {
 
 
   const input = document.getElementById("zip").value.trim().toLowerCase();
-  const cityZipData = await loadCityZipData();
-  const fallbackZipMap = await loadFallbackZipMap();
-  const location = resolveLocation(input, cityZipData, fallbackZipMap);
+const cityZipData = await loadCityZipData();
+const fallbackZipMap = await loadFallbackZipMap();
+const location = resolveLocation(input, cityZipData, fallbackZipMap);
 
- } else {
+if (!location) {
   alert(`🛠️ We're working on coverage for: ${input}`);
   document.getElementById("national-news-target").innerHTML = `
     <div class="main-news-block">
@@ -1089,9 +1089,14 @@ function resolveLocation(input, cityZipData, fallbackZipMap) {
       <div class="snippet">In the meantime, explore our national headlines or enter a nearby ZIP.</div>
     </div>
   `;
+  return;
 }
 
-});
+localStorage.setItem("userZip", location.zip);
+localStorage.setItem("userLocation", location.city);
+loadNationalNews(location.city);
+loadWeatherBlock(location.city);
+
 </script>
 
 
@@ -1112,6 +1117,7 @@ function resolveLocation(input, cityZipData, fallbackZipMap) {
 
   
  
+
 
 
 
