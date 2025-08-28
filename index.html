@@ -939,6 +939,8 @@ function loadNationalNews(city) {
         wrapper.className = "injected-block";
         wrapper.innerHTML = `<!-- Injected for ${city} -->\n` + html;
         target.appendChild(wrapper);
+        updateTimestamp(null, city);
+
       });
   }
 }
@@ -1120,7 +1122,30 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
 
 </script>
-const res = await fetch("data/zipTimezones.json");
+<script>
+async function getTimezone(zip) {
+  const res = await fetch("data/zipTimezones.json");
+  const map = await res.json();
+  return map[zip] || "America/Denver"; // fallback to MDT
+}
+
+async function updateTimestamp(zip, city) {
+  const timezone = await getTimezone(zip);
+  const now = new Date();
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    timeZone: timezone,
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true
+  });
+  const formatted = formatter.format(now);
+  document.getElementById("timestamp").textContent = `${formatted} • ${city}`;
+}
+</script>
+
 
 
 </body>
@@ -1137,6 +1162,7 @@ const res = await fetch("data/zipTimezones.json");
 
   
  
+
 
 
 
