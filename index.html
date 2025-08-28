@@ -28,6 +28,7 @@
 
 
 
+
 <!DOCTYPE html>
 <!-- === CSS INDEX ===
 1. Header Container
@@ -120,6 +121,16 @@ function toggleReflection() {
   font-family: 'Merriweather', serif;
   color: #111;
   margin-bottom: 0.4em;
+}
+need more 
+
+
+
+
+
+}
+
+ 
 }
 
 .right-weather-box .snippet {
@@ -327,16 +338,13 @@ function toggleReflection() {
  
 
 
- <head>
+  <head>
   <style>
     /* === Editorial Header === */
     .editorial-header {
       text-align: center;
       margin: 2.5em 0 1.5em 0;
     }
-  </style>
-
-
    .quiet-settings-box {
   font-size: 0.9em;
   padding: 10px 14px;
@@ -442,7 +450,8 @@ function toggleReflection() {
   }
 }
 
-
+right h
+}
 
 .editorial-box,
 .local-weather-container {
@@ -452,7 +461,27 @@ function toggleReflection() {
 @media (max-width: 1200px) {
   .logo-wrapper img {
     height: 200px !important;
-  }}
+  }
+}
+.editorial-box,
+.local-weather-container {
+  background-color: #f4f1ec;
+}
+.header-container {
+  background-color: #f4f1ec;
+  border-bottom: 2px solid #333;
+}
+
+  </style>
+  
+
+<!-- Editorial Header Block -->
+<div class="header-container">
+  <div class="editorial-box">
+    <h1 class="site-title">Digging For Clarity</h1>
+    <p class="header-tagline">Just The News Please. Hold The Drama.</p>
+ 
+   <p class="timestamp">Saturday • August 23 • 3:13 PM • Abilene</p>
 <p>Enter your ZIP or city: <input type="text" id="zip" maxlength="50"> <button id="zip-check">Check Coverage</button></p>
 
 
@@ -944,34 +973,23 @@ function loadWeatherBlock(city) {
 <script>
 <script>
 <script>
-  document.getElementById("zip-check").addEventListener("click", async () => {
-    const input = document.getElementById("zip").value.trim().toLowerCase();
+document.getElementById("zip-check").addEventListener("click", async () => {
+  const input = document.getElementById("zip").value.trim().toLowerCase();
+  const alexZips = ["22314", "22301", "22302", "22305", "22311", "22312"];
 
-    try {
-      const response = await fetch("cityzip.json");
-      const cityZipData = await response.json();
+  if (input === "alexandria" || alexZips.includes(input)) {
+    const html = await fetch("blocks/alexandria/NationalNews.html").then(r => r.text());
+    const target = Array.from(document.querySelectorAll(".section h3"))
+      .find(h3 => h3.textContent.trim() === "National News")
+      ?.parentElement;
+    if (target) target.innerHTML += html;
+    return; // Exit early if Alexandria matched
+  }
 
-      const city = Object.entries(cityZipData).find(([city, zips]) =>
-        zips.includes(input)
-      )?.[0] || "alexandria";
-
-      const html = await fetch(`blocks/${city}/NationalNews.html`).then(r => r.text());
-      const target = Array.from(document.querySelectorAll(".section h3"))
-        .find(h3 => h3.textContent.trim() === "National News")
-        ?.parentElement;
-
-      if (target) target.innerHTML += html;
-
-      if (city === "alexandria" && !cityZipData.alexandria.includes(input)) {
-        alert("🛠️ We're working on coverage for: " + input);
-      }
-    } catch (err) {
-      console.error("ZIP routing error:", err);
-      alert("⚠️ ZIP lookup failed. Please try again.");
-    }
-  });
+  // Fallback logic only runs if Alexandria didn't match
+  alert("🛠️ We're working on coverage for: " + input);
+});
 </script>
-
 
 
  
@@ -979,15 +997,95 @@ function loadWeatherBlock(city) {
 <script>
 document.getElementById("zip-check").addEventListener("click", async () => {
   const input = document.getElementById("zip").value.trim().toLowerCase();
- function resolveCityFromZip(zip, cityZipData) {
-  for (const city in cityZipData) {
-    if (cityZipData[city].includes(zip)) {
-      return city; // ✅ Found match
-    }
-  }
-  return "alexandria"; // 🛠️ Fallback
+  const alexZips = ["22314", "22301", "22302", "22305", "22311", "22312"];
+
+  if (input === "alexandria" || alexZips.includes(input)) {
+    try {
+      const html = await fetch("blocks/alexandria/NationalNews.html").then(r => r.text());
+      const target = Array.from(document.querySelectorAll(".section h3"))
+        .find(h3 => h3.textContent.trim() === "National News")
+        ?.parentElement;
+     if (target && !target.querySelector(".injected-block")) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "injected-block";
+  wrapper.innerHTML = `<!-- Injected for Alexandria -->\n` + html;
+  target.appendChild(wrapper);
 }
 
+    } catch (err) {
+      console.error("Injection failed:", err);
+      alert("⚠️ Alexandria block failed to load. Please try again.");
+    }
+    return;
+  }
+
+  alert("🛠️ We're working on coverage for: " + input);
+});
+</script>
+
+<script>
+async function loadCityZipData() {
+  const res = await fetch("data/cityzip.json");
+  return await res.json();
+}
+
+async function loadFallbackZipMap() {
+  const res = await fetch("data/fallbackZipMap.json");
+  return await res.json();
+}
+
+function resolveLocation(input, cityZipData, fallbackZipMap) {
+  input = input.trim().toLowerCase();
+  if (/^\d{5}$/.test(input)) {
+    for (const city in cityZipData) {
+      if (cityZipData[city].includes(input)) {
+        return { zip: input, city };
+      }
+    }
+    if (fallbackZipMap[input]) {
+      return { zip: input, city: fallbackZipMap[input] };
+    }
+  }
+  if (cityZipData[input]) {
+    return { city: input, zip: cityZipData[input][0] };
+  }
+  if (fallbackZipMap[input]) {
+    return { city: fallbackZipMap[input], zip: cityZipData[fallbackZipMap[input]][0] };
+  }
+  return null;
+}
+
+
+
+  const input = document.getElementById("zip").value.trim().toLowerCase();
+  const cityZipData = await loadCityZipData();
+  const fallbackZipMap = await loadFallbackZipMap();
+  const location = resolveLocation(input, cityZipData, fallbackZipMap);
+
+  if (location) {
+    localStorage.setItem("userZip", location.zip);
+    localStorage.setItem("userLocation", location.city);
+    loadNationalNews(location.city);
+    loadWeatherBlock(location.city);
+  } else {
+    document.getElementById("national-news-target").innerHTML = `
+      <div class="main-news-block">
+        <h3>Editorial Zone Not Assigned</h3>
+        <div class="snippet"><strong>We couldn’t find your location.</strong></div>
+        <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
+        <div class="snippet">In the meantime, explore our national headlines or enter a nearby ZIP.</div>
+      </div>
+    `;
+  }
+});
+</script>
+
+
+ 
+
+
+</body>
+</html>
 
   
 
@@ -1000,12 +1098,6 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
-
-
-
-
-
-
 
 
 
