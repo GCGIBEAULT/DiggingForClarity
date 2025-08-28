@@ -1053,27 +1053,7 @@ function resolveLocation(input, cityZipData, fallbackZipMap) {
   return null;
 }
 
-document.getElementById("zip-check").addEventListener("click", async () => {
-  function resolveLocation(zip, cityZipData, fallbackZipMap) {
-  for (const city in cityZipData) {
-    if (cityZipData[city].includes(zip)) {
-      return { zip, city };
-    }
-  }
-  if (fallbackZipMap[zip]) {
-    return { zip, city: fallbackZipMap[zip] };
-  }
-  if (cityZipData[zip]) {
-    return { city: zip, zip: cityZipData[zip][0] };
-  }
-  if (fallbackZipMap[zip]) {
-    return {
-      city: fallbackZipMap[zip],
-      zip: cityZipData[fallbackZipMap[zip]][0]
-    };
-  }
-  return null;
-}
+
 
   const input = document.getElementById("zip").value.trim().toLowerCase();
   const cityZipData = await loadCityZipData();
@@ -1116,6 +1096,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
