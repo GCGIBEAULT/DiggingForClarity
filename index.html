@@ -981,51 +981,50 @@ function loadWeatherBlock(city) {
 <script>
 document.getElementById("zip-check").addEventListener("click", async () => {
   const input = document.getElementById("zip").value.trim().toLowerCase();
-  const alexZips = ["22314", "22301", "22302", "22305", "22311", "22312"];
+  const fallbackZipMap = {
+    "alexandria": "alexandria",
+    "22314": "alexandria",
+    "22301": "alexandria",
+    "22302": "alexandria",
+    "22305": "alexandria",
+    "22311": "alexandria",
+    "22312": "alexandria",
+    "99999": "fallback"
+    // Add more ZIPs or cities as needed
+  };
 
-  if (input === "alexandria" || alexZips.includes(input)) {
-    const html = await fetch("blocks/alexandria/NationalNews.html").then(r => r.text());
+  const zone = fallbackZipMap[input] || "fallback";
+  const blockPath = `blocks/${zone}/NationalNews.html`;
+
+  try {
+    const html = await fetch(blockPath).then(r => r.text());
     const target = Array.from(document.querySelectorAll(".section h3"))
-      .find(h3 => h3.textContent.trim() === "National News")
-      ?.parentElement;
-    if (target) target.innerHTML += html;
-    return; // Exit early if Alexandria matched
-  }
+      .find(h3 => h3.textContent.trim() === "National News")?.parentElement;
 
-  // Fallback logic only runs if Alexandria didn't match
-  alert("🛠️ We're working on coverage for: " + input);
-});
-</script>
-
-
- 
-}
-<script>
-document.getElementById("zip-check").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
-  const alexZips = ["22314", "22301", "22302", "22305", "22311", "22312"];
-
-  if (input === "alexandria" || alexZips.includes(input)) {
-    try {
-      const html = await fetch("blocks/alexandria/NationalNews.html").then(r => r.text());
-      const target = Array.from(document.querySelectorAll(".section h3"))
-        .find(h3 => h3.textContent.trim() === "National News")
-        ?.parentElement;
-     if (target && !target.querySelector(".injected-block")) {
-  const wrapper = document.createElement("div");
-  wrapper.className = "injected-block";
-  wrapper.innerHTML = `<!-- Injected for Alexandria -->\n` + html;
-  target.appendChild(wrapper);
-}
-
-    } catch (err) {
-      console.error("Injection failed:", err);
-      alert("⚠️ Alexandria block failed to load. Please try again.");
+    if (target && !target.querySelector(".injected-block")) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "injected-block";
+      wrapper.innerHTML = `<!-- Injected for ${zone} -->\n` + html;
+      target.appendChild(wrapper);
     }
-    return;
+  } catch (err) {
+    console.error("Injection failed:", err);
+    const target = document.getElementById("national-news-target");
+    if (target && !target.querySelector(".fallback-block")) {
+      const fallback = document.createElement("div");
+      fallback.className = "fallback-block";
+      fallback.innerHTML = `
+        <!-- Fallback Editorial Block -->
+        <div class="main-news-block">
+          <h3>Editorial Zone Not Assigned</h3>
+          <div class="snippet"><strong>We couldn’t find your location.</strong></div>
+          <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
+          <div class="snippet">In the meantime, explore our national headlines or enter a nearby ZIP.</div>
+        </div>
+      `;
+      target.appendChild(fallback);
+    }
   }
-
-  alert("🛠️ We're working on coverage for: " + input);
 });
 </script>
 
@@ -1137,6 +1136,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
