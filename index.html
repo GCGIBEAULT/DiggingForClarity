@@ -746,7 +746,9 @@ right h
   };
 
   function updateTimestamp() {
-    const location = localStorage.getItem("userLocation")?.toLowerCase() || "abilene";
+   const location = localStorage.getItem("userLocation")?.toLowerCase();
+if (!location) return; // suppress injection if location is missing
+
 
     const timezone = cityTimezones[location] || "America/Denver";
 
@@ -1173,6 +1175,7 @@ async function updateTimestampByZip(zip, city) {
 
   
  
+
 
 
 
