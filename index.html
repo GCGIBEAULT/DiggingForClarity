@@ -1074,70 +1074,7 @@ function resolveLocation(input, cityZipData, fallbackZipMap) {
         <div class="snippet"><strong>We couldn’t find your location.</strong></div>
         <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
         <div class="snippet">In the meantime, explore our national headlines or enter a nearby ZIP.</div>
-      </div>
-    `;
-  }
-});
-</script>
-
-
-<script>
-<script>
-document.getElementById("zip-check").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
-  const cityZipData = await fetch("data/cityzip.json").then(r => r.json());
-  const alexZips = cityZipData["alexandria"] || [];
-
-  if (input === "alexandria" || alexZips.includes(input)) {
-    try {
-      const target = Array.from(document.querySelectorAll(".section h3"))
-        .find(h3 => h3.textContent.trim() === "National News")?.parentElement;
-
-      if (target && !target.querySelector(".injected-block")) {
-        const html = await fetch("blocks/NationalNews.html").then(r => r.text());
-        const wrapper = document.createElement("div");
-        wrapper.className = "injected-block";
-        wrapper.innerHTML = `<!-- Injected for Alexandria -->\n ` + html;
-        target.appendChild(wrapper);
-      }
-    } catch (err) {
-      console.error("Injection failed:", err);
-      alert("⚠️ Alexandria block failed to load. Please try again.");
-    }
-    return;
-  }
-
-  alert("🛠️ We're working on coverage for: " + input);
-});
-</script>
-
-document.getElementById("zip-check").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
-  const cityZipData = await fetch("data/cityzip.json").then(r => r.json());
-  const alexZips = cityZipData["alexandria"] || [];
-
-  if (input === "alexandria" || alexZips.includes(input)) {
-    try {
-      const target = Array.from(document.querySelectorAll(".section h3"))
-        .find(h3 => h3.textContent.trim() === "National News")?.parentElement;
-
-      if (target && !target.querySelector(".injected-block")) {
-        const html = await fetch("blocks/NationalNews.html").then(r => r.text());
-        const wrapper = document.createElement("div");
-        wrapper.className = "injected-block";
-        wrapper.innerHTML = `<!-- Injected for Alexandria -->\n ` + html;
-        target.appendChild(wrapper);
-      }
-    } catch (err) {
-      console.error("Injection failed:", err);
-      alert("⚠️ Alexandria block failed to load. Please try again.");
-    }
-    return;
-  }
-
-  alert("🛠️ We're working on coverage for: " + input);
-});
-</script>
+     
 
  
 
@@ -1156,6 +1093,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
