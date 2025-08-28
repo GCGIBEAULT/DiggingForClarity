@@ -1101,7 +1101,22 @@ document.getElementById("zip-check").addEventListener("click", async () => {
     return;
   }
 
-  alert("🛠️ We're working on coverage for: " + input);
+  // 🔻 Fallback block goes here
+  const target = document.getElementById("national-news-target");
+  if (target && !target.querySelector(".fallback-block")) {
+    const fallback = document.createElement("div");
+    fallback.className = "fallback-block";
+    fallback.innerHTML = `
+      <!-- Fallback Editorial Block -->
+      <div class="main-news-block">
+        <h3>Editorial Zone Not Assigned</h3>
+        <div class="snippet"><strong>We couldn’t find your location.</strong></div>
+        <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
+        <div class="snippet">In the meantime, explore our national headlines or enter a nearby ZIP.</div>
+      </div>
+    `;
+    target.appendChild(fallback);
+  }
 });
 </script>
 
@@ -1120,6 +1135,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
