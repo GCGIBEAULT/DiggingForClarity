@@ -1038,6 +1038,23 @@ function loadWeatherBlock(city) {
 </script>
 
  
+function loadNationalNews(city) {
+  fetch(`blocks/${city}/NationalNews.html`)
+    .then(response => {
+      if (!response.ok) {
+        console.error(`Failed to load NationalNews for ${city}:`, response.status);
+        return Promise.reject(response);
+      }
+      return response.text();
+    })
+    .then(html => {
+      document.querySelector('#national-news-target').innerHTML = html;
+      console.log(`NationalNews injected for ${city}`);
+    })
+    .catch(err => {
+      console.error(`Error loading NationalNews for ${city}:`, err);
+    });
+}
 
 
 </body>
@@ -1054,6 +1071,7 @@ function loadWeatherBlock(city) {
 
   
  
+
 
 
 
