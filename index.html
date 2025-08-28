@@ -1028,28 +1028,55 @@ document.addEventListener("DOMContentLoaded", async () => {
   const result = document.getElementById("zip-result");
   const target = document.getElementById("national-news-target");
 
-  const cityZipData = await fetch("data/cityzip.json").then(res => res.json());
-  const fallbackZipMap = await fetch("data/fallbackZipMap.json").then(res => res.json());
+  const cityZipData = {
+    "alexandria": ["22314"]
+  };
+  const fallbackZipMap = {};
+
+  function resolveLocation(raw) {
+    raw = raw.trim().toLowerCase();
+    if (/^\d{5}$/.test(raw)) {
+      for (const city in cityZipData) {
+        if (cityZipData[city].includes(raw)) return { zip: raw, city };
+      }
+      if (fallbackZipMap[raw]) return { zip: raw, city: fallbackZipMap[raw] };
+    }
+    if (cityZipData[raw]) return { city: raw, zip: cityZipData[raw][0] };
+    return null;
+  }
+
+  async function loadNationalNews(city) {
+    try {
+      const html = await fetch(`blocks/${city}/NationalNews.html`).then(res => res.text());
+      target.innerHTML = html;
+      console.log(`✅ NationalNews injected for ${city}`);
+    } catch (err) {
+      console.warn(`🛠️ Failed to load NationalNews for ${city}`, err);
+      target.innerHTML = `<div class="snippet"><strong>Editorial Zone Not Assigned</strong><br>We’re expanding coverage for “${city}.”</div>`;
+    }
+  }
 
   form.addEventListener("submit", async e => {
     e.preventDefault();
-    const raw = input.value.trim().toLowerCase();
-    const location = resolveLocation(raw, cityZipData, fallbackZipMap);
-
+    const raw = input.value;
+    const location = resolveLocation(raw);
     if (location) {
       localStorage.setItem("userZip", location.zip);
       localStorage.setItem("userLocation", location.city);
-      const html = await fetch(`blocks/${location.city}/NationalNews.html`).then(res => res.text());
-      target.innerHTML = html;
+      await loadNationalNews(location.city);
       result.textContent = "✅ Coverage confirmed.";
     } else {
-      target.innerHTML = `<div class="snippet"><strong>Editorial Zone Not Assigned</strong><br>We couldn’t resolve your ZIP or city.</div>`;
       result.textContent = "🛠️ We're working on coverage for your area.";
     }
   });
+
+  const savedCity = localStorage.getItem("userLocation");
+  if (savedCity) {
+    input.value = savedCity;
+    await loadNationalNews(savedCity);
+  }
 });
 </script>
-
 
 
 </body>
@@ -1066,6 +1093,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   
  
+
 
 
 
