@@ -972,23 +972,34 @@ function loadWeatherBlock(city) {
 <script>
 <script>
 <script>
-document.getElementById("zip-check").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
-  const alexZips = ["22314", "22301", "22302", "22305", "22311", "22312"];
+  document.getElementById("zip-check").addEventListener("click", async () => {
+    const input = document.getElementById("zip").value.trim().toLowerCase();
 
-  if (input === "alexandria" || alexZips.includes(input)) {
-    const html = await fetch("blocks/alexandria/NationalNews.html").then(r => r.text());
-    const target = Array.from(document.querySelectorAll(".section h3"))
-      .find(h3 => h3.textContent.trim() === "National News")
-      ?.parentElement;
-    if (target) target.innerHTML += html;
-    return; // Exit early if Alexandria matched
-  }
+    try {
+      const response = await fetch("cityzip.json");
+      const cityZipData = await response.json();
 
-  // Fallback logic only runs if Alexandria didn't match
-  alert("🛠️ We're working on coverage for: " + input);
-});
+      const city = Object.entries(cityZipData).find(([city, zips]) =>
+        zips.includes(input)
+      )?.[0] || "alexandria";
+
+      const html = await fetch(`blocks/${city}/NationalNews.html`).then(r => r.text());
+      const target = Array.from(document.querySelectorAll(".section h3"))
+        .find(h3 => h3.textContent.trim() === "National News")
+        ?.parentElement;
+
+      if (target) target.innerHTML += html;
+
+      if (city === "alexandria" && !cityZipData.alexandria.includes(input)) {
+        alert("🛠️ We're working on coverage for: " + input);
+      }
+    } catch (err) {
+      console.error("ZIP routing error:", err);
+      alert("⚠️ ZIP lookup failed. Please try again.");
+    }
+  });
 </script>
+
 
 
  
@@ -996,7 +1007,14 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 <script>
 document.getElementById("zip-check").addEventListener("click", async () => {
   const input = document.getElementById("zip").value.trim().toLowerCase();
-  const alexZips = ["22314", "22301", "22302", "22305", "22311", "22312"];
+ function resolveCityFromZip(zip, cityZipData) {
+  for (const city in cityZipData) {
+    if (cityZipData[city].includes(zip)) {
+      return city; // ✅ Found match
+    }
+  }
+  return "alexandria"; // 🛠️ Fallback
+}
 
   if (input === "alexandria" || alexZips.includes(input)) {
     try {
@@ -1097,6 +1115,7 @@ function resolveLocation(input, cityZipData, fallbackZipMap) {
 
   
  
+
 
 
 
