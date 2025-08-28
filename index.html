@@ -805,8 +805,11 @@ function loadTrafficLink() {
 }
 
 <script>
-window.onload = function() {
-  updateTimestamp();
+window.onload = async function() {
+  await updateTimestamp("80203", "Denver");
+};
+</script>
+
 
   const savedZip = localStorage.getItem("userZip");
   if (savedZip) {
@@ -1165,6 +1168,7 @@ async function updateTimestamp(zip, city) {
 
   
  
+
 
 
 
