@@ -994,31 +994,7 @@ function loadWeatherBlock(city) {
     "30302": "atlanta",
     // …add more mappings as needed…
  
-<script>
-  // 1. Helper: inject a city’s NationalNews.html into your page
-  function loadNationalNews(city) {
-    const target = document.getElementById("national-news-target");
-    if (!target) return;
 
-    // clear previous content
-    target.innerHTML = "";
-
-    fetch(`blocks/${city}/NationalNews.html`)
-      .then(res => {
-        if (!res.ok) throw new Error(`No editorial block for ${city}`);
-        return res.text();
-      })
-      .then(html => {
-        target.innerHTML = html;
-      })
-      .catch(err => {
-        console.warn(err);
-        target.innerHTML = `<div class="snippet">
-          <strong>Editorial Zone Not Assigned</strong><br>
-          We're expanding coverage for “${city}.” Thanks for your patience.
-        </div>`;
-      });
-  }
 
   // 2. One‐and‐only listener on your “Check Coverage” button
 <script>
@@ -1093,6 +1069,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   
  
+
 
 
 
