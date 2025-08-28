@@ -1089,7 +1089,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
   const alexZips = cityZipData["alexandria"] || [];
   if (input === "alexandria" || alexZips.includes(input)) {
     try {
-      const html = await fetch("blocks/alexandria/NationalNews.html").then(r => r.text());
+    
       const target = Array.from(document.querySelectorAll(".section h3"))
         .find(h3 => h3.textContent.trim() === "National News")?.parentElement;
 
@@ -1154,6 +1154,7 @@ document.getElementById("zip-check").addEventListener("click", async () => {
 
   
  
+
 
 
 
