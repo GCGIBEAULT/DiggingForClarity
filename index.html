@@ -1283,6 +1283,24 @@ window.onload = function() {
     }
   }
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const savedWeatherURL = localStorage.getItem("userWeatherURL");
+    const twcLink = document.getElementById("twc-link");
+
+    if (savedWeatherURL && twcLink) {
+      twcLink.href = savedWeatherURL;
+      twcLink.textContent = "The Weather Channel →";
+      twcLink.style.fontWeight = "bold";
+      twcLink.style.textDecoration = "none";
+      twcLink.style.color = "#111";
+      twcLink.setAttribute("target", "_blank");
+    } else if (twcLink) {
+      twcLink.textContent = "The Weather Channel";
+      twcLink.removeAttribute("href");
+    }
+  });
+</script>
 
 
 </body>
@@ -1299,6 +1317,7 @@ window.onload = function() {
 
   
  
+
 
 
 
