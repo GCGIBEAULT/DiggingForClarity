@@ -1303,8 +1303,9 @@ window.onload = function() {
     const url = document.getElementById("weatherURL").value;
     if (url) {
       localStorage.setItem("userWeatherURL", url);
-      document.getElementById("twc-anchor").innerHTML =
-        `<a href="${url}" target="_blank" style="color: #111; text-decoration: none; font-weight: bold;">View Forecast</a>`;
+     document.getElementById("twc-anchor").innerHTML =
+  `<a href="${url}" target="_blank" style="color: #0077cc; text-decoration: underline; font-weight: bold;">View Forecast</a>`;
+
     }
   }
 
@@ -1334,6 +1335,7 @@ window.onload = function() {
 
   
  
+
 
 
 
