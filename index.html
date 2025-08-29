@@ -1243,6 +1243,50 @@ window.onload = function() {
 
 </script>
 
+<script>
+  window.onload = async function () {
+    updateTimestamp();
+    loadWeatherBlock();
+    loadTrafficLink();
+  };
+
+  function updateTimestamp() {
+    const now = new Date();
+    const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' };
+    const formatted = now.toLocaleString('en-US', options);
+    const timestamp = document.querySelector('.timestamp');
+    if (timestamp) timestamp.textContent = formatted;
+  }
+
+  function loadWeatherBlock() {
+    const container = document.querySelector('.local-weather-container');
+    if (!container) return;
+
+    const savedURL = localStorage.getItem("userWeatherURL");
+    if (savedURL) {
+      container.innerHTML = `
+        <p><strong>The Weather Channel</strong></p>
+        <p>Just the weather, please.</p>
+        <p><a href="${savedURL}" target="_blank">${savedURL}</a></p>
+      `;
+    }
+  }
+
+  function loadTrafficLink() {
+    const traffic = document.querySelector('.traffic-link');
+    if (traffic) {
+      traffic.innerHTML = `<a href="https://www.google.com/maps" target="_blank">Google Maps</a>`;
+    }
+  }
+
+  function saveWeatherURL() {
+    const url = document.getElementById("weatherURL").value;
+    if (url) {
+      localStorage.setItem("userWeatherURL", url);
+      loadWeatherBlock();
+    }
+  }
+</script>
 
 
 </body>
@@ -1259,6 +1303,7 @@ window.onload = function() {
 
   
  
+
 
 
 
