@@ -502,17 +502,27 @@ right h
 
 <section id="LocalConditions" class="section" style="background-color: #f4f1ec;">
   <h3 style="text-align: center;">Local Conditions</h3>
-  <div class="main-weather-block" style="max-width: 600px; margin: 0 auto;">
-    <p><strong>Just the weather, please.</strong> Paste your link once—we’ll show it every day.</p>
-    <input type="text" id="weather-url" placeholder="https://weather.com/weather/today/l/80203" style="width: 100%; max-width: 400px;">
-    <button onclick="saveWeatherURL()">Save</button>
-    <div id="weather-link" style="margin-top: 1em;"></div>
+  <div class="main-weather-block" style="display: flex; align-items: center; gap: 1.5em; max-width: 600px; margin: 0 auto;">
+    
+    <!-- TWC Logo on the Left -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Weather_Channel_logo_2005.svg/320px-Weather_Channel_logo_2005.svg.png" 
+         alt="The Weather Channel logo" 
+         style="height: 64px; width: auto; flex-shrink: 0;">
+
+    <!-- Weather Input Block -->
+    <div style="flex: 1;">
+      <p><strong>Just the weather, please.</strong> Paste your link once—we’ll show it every day.</p>
+      <input type="text" id="weather-url" placeholder="https://weather.com/weather/today/l/80203" style="width: 100%; max-width: 400px;">
+      <button onclick="saveWeatherURL()">Save</button>
+      <div id="weather-link" style="margin-top: 1em;"></div>
+    </div>
   </div>
 </section>
 
 
 
-</section>
+
+
 
 
 
@@ -1199,6 +1209,7 @@ window.onload = function() {
 
   
  
+
 
 
 
