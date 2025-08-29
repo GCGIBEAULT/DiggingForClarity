@@ -1321,14 +1321,25 @@ window.onload = function() {
     }
   }
 
+ <script>
   window.addEventListener("DOMContentLoaded", () => {
     const savedURL = localStorage.getItem("userWeatherURL");
-    if (savedURL) {
-      document.getElementById("twc-anchor").innerHTML =
-        `<a href="${savedURL}" target="_blank" style="color: #111; text-decoration: none; font-weight: bold;">View Forecast</a>`;
+    const anchorDiv = document.getElementById("twc-anchor");
+    if (savedURL && anchorDiv) {
+      anchorDiv.innerHTML = `
+        <a
+          href="${savedURL}"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="color: #3366cc; text-decoration: underline; cursor: pointer; font-weight: bold;"
+        >
+          View Forecast
+        </a>
+      `;
     }
   });
 </script>
+
 
 
 <script>
@@ -1347,6 +1358,7 @@ window.onload = function() {
 
   
  
+
 
 
 
