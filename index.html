@@ -505,18 +505,21 @@ right h
 
   <div style="display: grid; grid-template-columns: 150px 1fr 150px; align-items: center; max-width: 900px; margin: 0 auto; padding: 0.5em 0;">
     
- <!-- Left Anchor: Synced Weather Link -->
+<!-- Left Anchor: Synced Weather Link -->
 <div id="twc-anchor" style="text-align: left; font-weight: bold; color: #111;"></div>
 
 <script>
-  const savedWeatherURL = localStorage.getItem("userWeatherURL");
-  const anchorDiv = document.getElementById("twc-anchor");
-  if (savedWeatherURL) {
-    anchorDiv.innerHTML = `<a href="${savedWeatherURL}" target="_blank" style="color: #111; text-decoration: none; font-weight: bold;">The Weather Channel</a>`;
-  } else {
-    anchorDiv.textContent = "The Weather Channel";
-  }
+  document.addEventListener("DOMContentLoaded", function () {
+    const savedWeatherURL = localStorage.getItem("userWeatherURL");
+    const anchorDiv = document.getElementById("twc-anchor");
+    if (savedWeatherURL && anchorDiv) {
+      anchorDiv.innerHTML = `<a href="${savedWeatherURL}" target="_blank" style="color: #111; text-decoration: none; font-weight: bold;">The Weather Channel</a>`;
+    } else if (anchorDiv) {
+      anchorDiv.textContent = "The Weather Channel";
+    }
+  });
 </script>
+
 
 
 
@@ -1228,6 +1231,7 @@ window.onload = function() {
 
   
  
+
 
 
 
