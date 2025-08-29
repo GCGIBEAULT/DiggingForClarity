@@ -1309,6 +1309,13 @@ window.onload = function() {
     }
   });
 </script>
+document.getElementById("saveLinkButton").addEventListener("click", function() {
+  const link = document.getElementById("weatherLinkInput").value;
+  localStorage.setItem("weatherLink", link);
+  document.getElementById("weatherAnchor").href = link;
+  document.getElementById("weatherAnchor").textContent = "View Forecast";
+  alert("Weather link saved!");
+});
 
 </body>
 </html>
@@ -1324,6 +1331,7 @@ window.onload = function() {
 
   
  
+
 
 
 
