@@ -1283,58 +1283,7 @@ window.onload = function() {
     }
   }
 </script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const savedWeatherURL = localStorage.getItem("userWeatherURL");
-    const twcLink = document.getElementById("twc-link");
 
-    if (savedWeatherURL && twcLink) {
-      twcLink.href = savedWeatherURL;
-      twcLink.textContent = "The Weather Channel →";
-      twcLink.style.fontWeight = "bold";
-      twcLink.style.textDecoration = "none";
-      twcLink.style.color = "#111";
-      twcLink.setAttribute("target", "_blank");
-    } else if (twcLink) {
-      twcLink.textContent = "The Weather Channel";
-      twcLink.removeAttribute("href");
-    }
-  });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const savedURL = localStorage.getItem("userWeatherURL");
-    const twcLink = document.getElementById("twc-link");
-
-    if (savedURL && twcLink) {
-      twcLink.href = savedURL;
-      twcLink.textContent = "The Weather Channel →";
-      twcLink.style.fontWeight = "bold";
-      twcLink.style.textDecoration = "none";
-      twcLink.style.color = "#111";
-      twcLink.setAttribute("target", "_blank");
-    } else if (twcLink) {
-      twcLink.textContent = "The Weather Channel";
-      twcLink.removeAttribute("href");
-    }
-  });
-
-  function saveWeatherURL() {
-    const input = document.getElementById("weatherURL");
-    const url = input?.value.trim();
-    if (url) {
-      localStorage.setItem("userWeatherURL", url);
-      const twcLink = document.getElementById("twc-link");
-      if (twcLink) {
-        twcLink.href = url;
-        twcLink.textContent = "The Weather Channel →";
-        twcLink.style.fontWeight = "bold";
-        twcLink.style.textDecoration = "none";
-        twcLink.style.color = "#111";
-        twcLink.setAttribute("target", "_blank");
-      }
-    }
-  }
 </script>
 
 
@@ -1352,6 +1301,7 @@ window.onload = function() {
 
   
  
+
 
 
 
