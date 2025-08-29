@@ -1052,15 +1052,7 @@ function loadWeatherBlock(city) {
   });
 });
 
-document.getElementById("saveLinkButton").addEventListener("click", function () {
-  const link = document.getElementById("weatherURL").value;
-  localStorage.setItem("userWeatherURL", link);
-  document.getElementById("twc-anchor").innerHTML = `<a href="${link}" target="_blank" style="color: #111; text-decoration: none; font-weight: bold;">View Forecast</a>`;
-  alert("Weather link saved!");
-});
 
-
-<script>
 <script>
 <script>
 document.getElementById("zip-check").addEventListener("click", async () => {
@@ -1324,7 +1316,15 @@ window.onload = function() {
     }
   });
 </script>
+document.getElementById("saveLinkButton").addEventListener("click", function () {
+  const link = document.getElementById("weatherURL").value;
+  localStorage.setItem("userWeatherURL", link);
+  document.getElementById("twc-anchor").innerHTML = `<a href="${link}" target="_blank" style="color: #111; text-decoration: none; font-weight: bold;">View Forecast</a>`;
+  alert("Weather link saved!");
+});
 
+
+<script>
 
 </body>
 </html>
@@ -1340,6 +1340,7 @@ window.onload = function() {
 
   
  
+
 
 
 
