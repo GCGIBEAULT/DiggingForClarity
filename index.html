@@ -502,20 +502,14 @@ right h
 
 <section id="LocalConditions" class="section" style="background-color: #f4f1ec;">
   <h3 style="text-align: center;">Local Conditions</h3>
-  <div class="local-weather-container" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2em; align-items: start;">
-    <div class="main-weather-block">
-      <p><strong>Just the weather, please.</strong></p>
-      <input type="text" id="weather-url" placeholder="https://weather.com/weather/today/l/80203" style="width: 100%; max-width: 400px;">
-      <button onclick="saveWeatherURL()">Save</button>
-      <div id="weather-link" style="margin-top: 1em;"></div>
-    </div>
-    <div class="right-weather-box">
-      <p><strong>Traffic Tools</strong></p>
-      <a href="https://www.google.com/maps" target="_blank" style="color: #3366cc;">Google Maps</a><br>
-      <a href="https://www.waze.com" target="_blank" style="color: #3366cc;">Waze</a>
-    </div>
+  <div class="main-weather-block" style="max-width: 600px; margin: 0 auto;">
+    <p><strong>Just the weather, please.</strong> Paste your link once—we’ll show it every day.</p>
+    <input type="text" id="weather-url" placeholder="https://weather.com/weather/today/l/80203" style="width: 100%; max-width: 400px;">
+    <button onclick="saveWeatherURL()">Save</button>
+    <div id="weather-link" style="margin-top: 1em;"></div>
   </div>
 </section>
+
 
 
 </section>
@@ -1205,6 +1199,7 @@ window.onload = function() {
 
   
  
+
 
 
 
