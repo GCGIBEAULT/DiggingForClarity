@@ -82,6 +82,13 @@
     flex-wrap: wrap !important;
   }
 }
+.site-title,
+.header-tagline,
+.timestamp {
+  color: #111;
+  font-weight: 700;
+}
+
 @media (max-width: 600px) {
   /* target the inline grid wrapper that holds both panels */
   div[style*="grid-template-columns"] {
