@@ -502,10 +502,10 @@ right h
 
 <section id="LocalConditions" class="section" style="text-align: center; background-color: #f4f1ec;">
   <h3>Local Conditions</h3>
-  <div class="local-conditions-flex">
-    <div id="weather-block"></div>
-    <div id="traffic-block"></div>
-  </div>
+  <p><strong>Just the weather, please.</strong> Paste your link once—we’ll show it every day.</p>
+  <input type="text" id="weather-url" placeholder="https://weather.com/weather/today/l/80203" style="width: 80%; max-width: 500px;">
+  <button onclick="saveWeatherURL()">Save</button>
+  <div id="weather-link" style="margin-top: 1em;"></div>
 </section>
 
 
@@ -1159,6 +1159,28 @@ async function updateTimestampByZip(zip, city) {
   updateTimestampByZip("80203", "Denver");
 </script>
 
+<script>
+function saveWeatherURL() {
+  const url = document.getElementById("weather-url").value.trim();
+  if (url) {
+    localStorage.setItem("userWeatherURL", url);
+    renderWeatherLink();
+  }
+}
+
+function renderWeatherLink() {
+  const savedURL = localStorage.getItem("userWeatherURL");
+  const container = document.getElementById("weather-link");
+  if (savedURL) {
+    container.innerHTML = `<a href="${savedURL}" target="_blank" style="color: #3366cc; text-decoration: underline;">🌤️ Your Weather</a>`;
+  }
+}
+
+window.onload = function() {
+  updateTimestamp();
+  renderWeatherLink();
+};
+</script>
 
 
 
@@ -1176,6 +1198,7 @@ async function updateTimestampByZip(zip, city) {
 
   
  
+
 
 
 
