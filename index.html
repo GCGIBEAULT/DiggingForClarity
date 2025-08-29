@@ -507,18 +507,16 @@ right h
     
 <!-- Left Anchor: Synced Weather Link -->
 <div id="twc-anchor" style="text-align: left; font-weight: bold; color: #111;"></div>
-
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const savedWeatherURL = localStorage.getItem("userWeatherURL");
-    const anchorDiv = document.getElementById("twc-anchor");
-    if (savedWeatherURL && anchorDiv) {
-      anchorDiv.innerHTML = `<a href="${savedWeatherURL}" target="_blank" style="color: #111; text-decoration: none; font-weight: bold;">The Weather Channel</a>`;
-    } else if (anchorDiv) {
-      anchorDiv.textContent = "The Weather Channel";
-    }
-  });
+  const savedWeatherURL = localStorage.getItem("userWeatherURL");
+  const anchorDiv = document.getElementById("twc-anchor");
+  if (savedWeatherURL) {
+    anchorDiv.innerHTML = `<a href="${savedWeatherURL}" target="_blank" style="color: #111; text-decoration: none; font-weight: bold;">The Weather Channel</a>`;
+  } else {
+    anchorDiv.textContent = "The Weather Channel";
+  }
 </script>
+
 
 
 <script>
@@ -1244,6 +1242,7 @@ window.onload = function() {
 
   
  
+
 
 
 
