@@ -521,6 +521,19 @@ right h
 </script>
 
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const savedWeatherURL = localStorage.getItem("userWeatherURL");
+    const anchorDiv = document.getElementById("twc-anchor");
+    if (savedWeatherURL && anchorDiv) {
+      anchorDiv.innerHTML = `<a href="${savedWeatherURL}" target="_blank" style="color: #111; text-decoration: none; font-weight: bold;">The Weather Channel</a>`;
+    } else if (anchorDiv) {
+      anchorDiv.textContent = "The Weather Channel";
+    }
+  });
+</script>
+
+
 
 
     <!-- Center Block: Editorial Line + Input -->
@@ -1231,6 +1244,7 @@ window.onload = function() {
 
   
  
+
 
 
 
