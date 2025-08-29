@@ -1291,6 +1291,24 @@ window.onload = function() {
 
 </script>
 
+<script>
+  function saveWeatherURL() {
+    const url = document.getElementById("weatherURL").value;
+    if (url) {
+      localStorage.setItem("userWeatherURL", url);
+      document.getElementById("twc-anchor").innerHTML =
+        `<a href="${url}" target="_blank" style="color: #111; text-decoration: none; font-weight: bold;">View Forecast</a>`;
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedURL = localStorage.getItem("userWeatherURL");
+    if (savedURL) {
+      document.getElementById("twc-anchor").innerHTML =
+        `<a href="${savedURL}" target="_blank" style="color: #111; text-decoration: none; font-weight: bold;">View Forecast</a>`;
+    }
+  });
+</script>
 
 </body>
 </html>
@@ -1306,6 +1324,7 @@ window.onload = function() {
 
   
  
+
 
 
 
