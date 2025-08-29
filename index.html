@@ -1325,20 +1325,29 @@ window.onload = function() {
   window.addEventListener("DOMContentLoaded", () => {
     const savedURL = localStorage.getItem("userWeatherURL");
     const anchorDiv = document.getElementById("twc-anchor");
-    if (savedURL && anchorDiv) {
+
+    if (!anchorDiv) return;
+
+    if (savedURL) {
       anchorDiv.innerHTML = `
         <a
           href="${savedURL}"
           target="_blank"
           rel="noopener noreferrer"
-          style="color: #3366cc; text-decoration: underline; cursor: pointer; font-weight: bold;"
+          style="color: #3366cc;
+                 text-decoration: underline;
+                 cursor: pointer;
+                 font-weight: bold;"
         >
           View Forecast
         </a>
       `;
+    } else {
+      anchorDiv.textContent = "";
     }
   });
 </script>
+
 
 
 
@@ -1358,6 +1367,7 @@ window.onload = function() {
 
   
  
+
 
 
 
