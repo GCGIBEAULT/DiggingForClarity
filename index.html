@@ -556,8 +556,22 @@ right h
     </div>
   <input type="text" id="weatherURL" placeholder="Paste your weather link" style="width: 80%; padding: 0.3em;">
 
-    <button onclick="saveWeatherURL()" style="margin-top: 0.5em;">Save Link</button>
-    <div id="twc-anchor" class="snippet" style="margin-top: 0.75em;"></div>
+  <button onclick="saveWeatherURL()" style="margin-top: 0.5em;">Save Link</button>
+<div id="twc-anchor" class="snippet" style="margin-top: 0.75em;">
+  <span style="color: black;">Local Weather</span>
+  &nbsp;•&nbsp;
+  <a href="https://weather.com" class="view-forecast" target="_blank">View Forecast</a>
+</div>
+
+<style>
+  a.view-forecast {
+    color: #0077cc;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>
+
   </div>
 </section>
 
@@ -1335,6 +1349,7 @@ window.onload = function() {
 
   
  
+
 
 
 
