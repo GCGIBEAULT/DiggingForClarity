@@ -1180,18 +1180,13 @@ function saveWeatherURL() {
   }
 }
 
-function renderWeatherLink() {
-  const savedURL = localStorage.getItem("userWeatherURL");
-  const container = document.getElementById("weather-link");
-  if (savedURL) {
-    container.innerHTML = `<a href="${savedURL}" target="_blank" style="color: #3366cc; text-decoration: underline;">🌤️ Your Weather</a>`;
-  }
-}
+
 
 window.onload = function() {
   updateTimestamp();
-  renderWeatherLink();
+  renderWeatherLink(); // ✅ This ensures the saved TWC URL appears
 };
+
 </script>
 
 
@@ -1210,6 +1205,7 @@ window.onload = function() {
 
   
  
+
 
 
 
