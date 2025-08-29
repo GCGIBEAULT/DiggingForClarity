@@ -1316,13 +1316,6 @@ window.onload = function() {
     }
   });
 </script>
-document.getElementById("saveLinkButton").addEventListener("click", function () {
-  const link = document.getElementById("weatherURL").value;
-  localStorage.setItem("userWeatherURL", link);
-  document.getElementById("twc-anchor").innerHTML = `<a href="${link}" target="_blank" style="color: #0077cc; text-decoration: underline; font-weight: bold;"
-">View Forecast</a>`;
-  alert("Weather link saved!");
-});
 
 
 <script>
@@ -1341,6 +1334,7 @@ document.getElementById("saveLinkButton").addEventListener("click", function () 
 
   
  
+
 
 
 
