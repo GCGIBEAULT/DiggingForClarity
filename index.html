@@ -507,11 +507,15 @@ right h
    
 
     <!-- Center: Editorial Prompt -->
-  <div style="text-align: left;">
-  <p><strong>Just the weather, please.</strong> Paste your link once—we’ll show it every day.</p>
-  <input type="text" id="weatherURL" placeholder="Paste your Weather Channel link" style="width: 80%; padding: 0.3em;">
-  <button onclick="saveWeatherURL()" style="margin-top: 0.5em;">Save Link</button>
+ <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; margin-top: 20px;">
+  <div style="max-width: 400px; text-align: center;">
+    <p><strong>Just the weather, please.</strong></p>
+    <p>Paste your link once—we’ll show it every day.</p>
+    <input type="text" id="weatherURL" placeholder="Paste your Weather Channel link" style="width: 100%; padding: 0.3em; margin-bottom: 10px;">
+    <button onclick="saveWeatherURL()">Save Link</button>
+  </div>
 </div>
+
 
 
 
@@ -1301,6 +1305,7 @@ window.onload = function() {
 
   
  
+
 
 
 
