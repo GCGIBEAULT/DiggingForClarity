@@ -539,7 +539,8 @@ right h
     if (savedWeatherURL && anchorDiv) {
      anchorDiv.innerHTML = `<a href="${savedWeatherURL}" target="_blank" style="color: #111; text-decoration: none; font-weight: bold;">The Weather Channel</a>`;
     } else if (anchorDiv) {
-      anchorDiv.textContent = "The Weather Channel";
+    anchorDiv.textContent = "Weather Link";
+
     }
   });
 </script>
@@ -550,7 +551,8 @@ right h
     <h3>Local Weather</h3>
     <div class="snippet">
       <strong>Just the weather, please.</strong><br>
-      Paste your Weather Channel link once—we’ll show it every day.
+      Paste your weather link once—we’ll show it every day.
+
     </div>
     <input type="text" id="weatherURL" placeholder="Paste your Weather Channel link" style="width: 80%; padding: 0.3em;">
     <button onclick="saveWeatherURL()" style="margin-top: 0.5em;">Save Link</button>
@@ -1303,6 +1305,7 @@ window.onload = function() {
 
   
  
+
 
 
 
