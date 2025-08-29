@@ -502,31 +502,43 @@ right h
 
 <section id="LocalConditions" class="section" style="background-color: #f4f1ec;">
   <h3 style="text-align: center;">Local Conditions</h3>
-  <div style="display: grid; grid-template-columns: 150px 1fr 150px; align-items: center; max-width: 900px; margin: 0 auto; padding: 0.5em 0;">
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; max-width: 900px; margin: 0 auto; padding: 0.5em 0;">
     
-    <!-- Left Anchor: Synced Weather Link -->
-    <div id="twc-anchor" style="text-align: left; font-weight: bold; color: #111;"></div>
-    <script>
-      const savedWeatherURL = localStorage.getItem("userWeatherURL");
-      const anchorDiv = document.getElementById("twc-anchor");
-      if (savedWeatherURL) {
-        anchorDiv.innerHTML = `<a href="${savedWeatherURL}" target="_blank" style="color: #111; text-decoration: none; font-weight: bold;">The Weather Channel</a>`;
-      } else {
-        anchorDiv.textContent = "The Weather Channel";
-      }
-    </script>
+    <!-- Left: Weather Channel Link -->
+    <div style="text-align: left; font-weight: bold; color: #111;">
+      <a id="twc-link" href="#" target="_blank" style="color: #111; text-decoration: none;">The Weather Channel</a>
+    </div>
 
-    <!-- Center Block: Editorial Line + Input -->
-    <div style="text-align: center; padding: 0 1em;">
+    <!-- Center: Editorial Prompt -->
+    <div style="text-align: center;">
       <p style="margin: 0;"><strong>Just the weather, please.</strong> Paste your link once—we’ll show it every day.</p>
-     
+      <input type="text" id="weatherURL" placeholder="Paste your Weather Channel link" style="width: 80%; padding: 0.3em;">
+      <button onclick="saveWeatherURL()" style="margin-top: 0.5em;">Save Link</button>
+    </div>
 
-    <!-- Right Anchor: Google Maps -->
+    <!-- Right: Google Maps -->
     <div style="text-align: right;">
       <a href="https://www.google.com/maps" target="_blank" style="color: #3366cc; font-weight: bold;">Google Maps</a>
     </div>
   </div>
 </section>
+
+<script>
+  function saveWeatherURL() {
+    const url = document.getElementById("weatherURL").value;
+    if (url) {
+      localStorage.setItem("userWeatherURL", url);
+      document.getElementById("twc-link").href = url;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const savedURL = localStorage.getItem("userWeatherURL");
+    if (savedURL) {
+      document.getElementById("twc-link").href = savedURL;
+    }
+  });
+</script>
 
 
 
@@ -1247,6 +1259,7 @@ window.onload = function() {
 
   
  
+
 
 
 
