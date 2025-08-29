@@ -83,11 +83,16 @@
   }
 }
 .site-title,
-.header-tagline,
 .timestamp {
   color: #111;
   font-weight: 700;
 }
+
+.header-tagline {
+  color: #555;
+  font-weight: 400;
+}
+
 
 @media (max-width: 600px) {
   /* target the inline grid wrapper that holds both panels */
