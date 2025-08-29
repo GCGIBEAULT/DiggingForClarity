@@ -1358,6 +1358,35 @@ window.onload = function() {
 
 
 <script>
+    <!-- …everything above stays exactly as is… -->
+
+    <!-- 1. Paste your weather‐link override here: -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const anchorDiv = document.getElementById("twc-anchor");
+        if (!anchorDiv) return;
+        const savedURL = localStorage.getItem("userWeatherURL");
+        anchorDiv.innerHTML = savedURL
+          ? `<a
+               href="${savedURL}"
+               target="_blank"
+               rel="noopener noreferrer"
+               style="
+                 color: #0077cc;
+                 text-decoration: underline;
+                 cursor: pointer;
+                 font-weight: bold;
+               "
+             >
+               View Forecast
+             </a>`
+          : "";
+      });
+    </script>
+
+    <!-- 2. Then the existing closing tags: -->
+  </body>
+</html>
 
 </body>
 </html>
@@ -1373,6 +1402,7 @@ window.onload = function() {
 
   
  
+
 
 
 
