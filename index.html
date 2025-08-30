@@ -568,15 +568,19 @@ right h
   }
 
   function updateWeatherLink(link) {
-    const anchorDiv = document.getElementById("twc-anchor");
-    anchorDiv.innerHTML = `
-      <div style="margin-top: 8px;">
-        <a href="${link}" target="_blank"
-           style="color: #0645AD; text-decoration: underline;">
-          View Forecast
-        </a>
-      </div>`;
-  }
+  const anchorDiv = document.getElementById("twc-anchor");
+  anchorDiv.innerHTML = `
+    <div style="margin-top: 8px;">
+      <a
+        href="${link}"
+        target="_blank"
+        style="color: #0645AD; text-decoration: underline;"
+      >
+        Click to see Forecast
+      </a>
+    </div>`;
+}
+
 
   document.addEventListener("DOMContentLoaded", () => {
     const saved = localStorage.getItem("userWeatherURL");
@@ -1396,6 +1400,7 @@ window.onload = function() {
 
   
  
+
 
 
 
