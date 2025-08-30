@@ -590,15 +590,17 @@ right h
   </div>
 
   <!-- New Traffic Mapping container -->
-  <div id="traffic-mapping" class="section">
-    <h3>Traffic Mapping</h3>
-    <div
-      class="snippet"
-      id="traffic-mapping-snippet"
-      style="margin-top: 0.5em;"
-    >
-      <!-- loadTrafficLink() will inject the commuter link here -->
-    </div>
+<div id="traffic-mapping" class="section">
+  <h3>Traffic Mapping</h3>
+  <div class="snippet">
+    <strong>Just the traffic, please.</strong><br>
+    Paste your traffic link once—we’ll show it every day.
+  </div>
+  <input type="text" id="trafficURL" placeholder="Paste your traffic link" style="width: 80%; padding: 0.3em;">
+  <button onclick="saveTrafficURL()" style="margin-top: 0.5em;">Save Link</button>
+  <div id="traffic-anchor" class="snippet" style="margin-top: 0.75em;"></div>
+</div>
+
   </div>
 </section>
 
@@ -1363,6 +1365,7 @@ window.onload = function() {
 
   
  
+
 
 
 
