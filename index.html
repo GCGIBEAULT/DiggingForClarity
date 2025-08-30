@@ -482,7 +482,8 @@ right h
     <h1 class="site-title">Digging For Clarity</h1>
     <p class="header-tagline">Just The News Please. Hold The Drama.</p>
  
-   <p id="timestamp" class="timestamp"></p>
+<p id="timestamp" class="timestamp" style="color: #111; font-weight: 900; font-family: 'Merriweather', serif; font-size: 1.6rem;"></p>
+
 
 <p>Enter your ZIP or city: <input type="text" id="zip" maxlength="50"> <button id="zip-check">Check Coverage</button></p>
 
@@ -500,12 +501,75 @@ right h
 
 
 
-<section class="grid">
-  <div id="LocalConditions" class="section" style="text-align: center; background-color: #f4f1ec;">
-    <h3>Local Conditions</h3>
-    <!-- Your updated content here -->
+<section id="LocalConditions" class="section" style="background-color: #f4f1ec;">
+  <h3 style="text-align: center;">Local Conditions</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; max-width: 900px; margin: 0 auto; padding: 0.5em 0;">
+    
+   
+
+    <!-- Center: Editorial Prompt -->
+    <div style="text-align: center;">
+      <p style="margin: 0;"><strong>Just the weather, please.</strong> Paste your link once—we’ll show it every day.</p>
+      <input type="text" id="weatherURL" placeholder="Paste your Weather Channel link" style="width: 80%; padding: 0.3em;">
+      <button onclick="saveWeatherURL()" style="margin-top: 0.5em;">Save Link</button>
+    </div>
+
+    <!-- Right: Google Maps -->
+    <div style="text-align: right;">
+      <a href="https://www.google.com/maps" target="_blank" style="color: #3366cc; font-weight: bold;">Google Maps</a>
+    </div>
   </div>
 </section>
+
+<script>
+  function saveWeatherURL() {
+    const url = document.getElementById("weatherURL").value;
+    if (url) {
+      localStorage.setItem("userWeatherURL", url);
+      document.getElementById("twc-link").href = url;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const savedURL = localStorage.getItem("userWeatherURL");
+    if (savedURL) {
+      document.getElementById("twc-link").href = savedURL;
+    }
+  });
+</script>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const savedWeatherURL = localStorage.getItem("userWeatherURL");
+    const anchorDiv = document.getElementById("twc-anchor");
+    if (savedWeatherURL && anchorDiv) {
+     anchorDiv.innerHTML = `<a href="${savedWeatherURL}" target="_blank" style="color: #111; text-decoration: none; font-weight: bold;">The Weather Channel</a>`;
+    } else if (anchorDiv) {
+      anchorDiv.textContent = "The Weather Channel";
+    }
+  });
+</script>
+
+
+
+
+   
+     
+
+   
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
 
 
  
@@ -680,8 +744,7 @@ right h
       <div class="snippet"><a href="https://www.facebook.com" target="_blank">Facebook</a></div>
       <div class="snippet"><a href="https://www.whatsapp.com" target="_blank">WhatsApp</a></div>
       <div class="snippet"><a href="https://www.youtube.com" target="_blank">YouTube</a></div>
-      <div class="snippet"><a href="https://www.instagram.com" target="_blank">Instagram</a></div>
-      <div class="snippet"><a href="https://www.twitter.com" target="_blank">X</a></div>
+        <div class="snippet"><a href="https://www.twitter.com" target="_blank">X</a></div>
     </div>
 
     <div style="height: 2.5em;"></div>
@@ -1156,7 +1219,70 @@ async function updateTimestampByZip(zip, city) {
   updateTimestampByZip("80203", "Denver");
 </script>
 
+<script>
+function saveWeatherURL() {
+  const url = document.getElementById("weather-url").value.trim();
+  if (url) {
+    localStorage.setItem("userWeatherURL", url);
+    renderWeatherLink();
+  }
+}
 
+
+
+window.onload = function() {
+  updateTimestamp();
+  renderWeatherLink(); // ✅ This ensures the saved TWC URL appears
+};
+
+</script>
+
+<script>
+  window.onload = async function () {
+    updateTimestamp();
+    loadWeatherBlock();
+    loadTrafficLink();
+  };
+
+  function updateTimestamp() {
+    const now = new Date();
+    const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' };
+    const formatted = now.toLocaleString('en-US', options);
+    const timestamp = document.querySelector('.timestamp');
+    if (timestamp) timestamp.textContent = formatted;
+  }
+
+  function loadWeatherBlock() {
+    const container = document.querySelector('.local-weather-container');
+    if (!container) return;
+
+    const savedURL = localStorage.getItem("userWeatherURL");
+    if (savedURL) {
+      container.innerHTML = `
+        <p><strong>The Weather Channel</strong></p>
+        <p>Just the weather, please.</p>
+        <p><a href="${savedURL}" target="_blank">${savedURL}</a></p>
+      `;
+    }
+  }
+
+  function loadTrafficLink() {
+    const traffic = document.querySelector('.traffic-link');
+    if (traffic) {
+      traffic.innerHTML = `<a href="https://www.google.com/maps" target="_blank">Google Maps</a>`;
+    }
+  }
+
+  function saveWeatherURL() {
+    const url = document.getElementById("weatherURL").value;
+    if (url) {
+      localStorage.setItem("userWeatherURL", url);
+      loadWeatherBlock();
+    }
+  }
+</script>
+
+</script>
 
 
 </body>
@@ -1173,6 +1299,37 @@ async function updateTimestampByZip(zip, city) {
 
   
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
