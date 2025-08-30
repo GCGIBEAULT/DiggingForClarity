@@ -508,11 +508,12 @@ right h
 
 
 
-<p>Enter your ZIP or city: 
-  <input type="text" id="zip" maxlength="50">
-  <button id="zip-check">Check Coverage</button>
-  <button id="set-location">Set</button>
-</p>
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.5em; margin-top: 0.5em;">
+  <label for="zip" style="font-weight: bold;">Enter your ZIP or city:</label>
+  <input type="text" id="zip" maxlength="50" style="padding: 0.4em; width: 240px;">
+  <button id="zip-check" style="padding: 0.4em 0.8em;">Check Coverage</button>
+  <button id="set-location" style="padding: 0.4em 0.8em;">Set</button>
+</div>
 
 
  
@@ -1448,6 +1449,7 @@ window.onload = function() {
 
   
  
+
 
 
 
