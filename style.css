@@ -324,20 +324,14 @@ label[for="zip"] {
   font-weight: 600;
   margin-bottom: 0.25em;
 }
-/* Editorial lock for ZIP input block */
-.zip-input-block input,
-.zip-input-block button {
+#zip,
+#zip-check,
+#zip-set {
   font-size: 0.85rem !important;
   padding: 0.25em 0.5em !important;
   height: auto !important;
   width: 200px !important;
-  box-sizing: border-box;
-}
-
-.zip-input-block label {
-  font-size: 0.85rem !important;
-  font-weight: 600;
-  margin-bottom: 0.25em;
+  box-sizing: border-box !important;
 }
 
 
