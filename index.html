@@ -529,13 +529,7 @@ right h
 
 </section>
 
-<script>
-  function saveWeatherURL() {
-    const url = document.getElementById("weatherURL").value;
-    if (url) {
-      localStorage.setItem("userWeatherURL", url);
-      document.getElementById("twc-link").href = url;
-    }
+
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -559,13 +553,7 @@ right h
 
     }
   });
-<script>
-  function saveWeatherURL() {
-    const url = document.getElementById("weatherURL").value.trim();
-    if (!url) return;
-    localStorage.setItem("userWeatherURL", url);
-    updateWeatherLink(url);
-  }
+
 
   function updateWeatherLink(link) {
   const anchorDiv = document.getElementById("twc-anchor");
@@ -604,12 +592,8 @@ right h
         placeholder="Paste your weather link"
         style="flex: 1; padding: 0.3em;"
       >
-      <button onclick="saveWeatherURL()" style="padding: 0.4em 0.8em;">
-        Save Link
-      </button>
-    </div>
-    <div id="twc-anchor" class="snippet"></div>
-  </div>
+     
+      
 
   <!-- Traffic Mapping block -->
   <div id="traffic-mapping" class="section">
@@ -1298,14 +1282,7 @@ async function updateTimestampByZip(zip, city) {
   updateTimestampByZip("80203", "Denver");
 </script>
 
-<script>
-function saveWeatherURL() {
-  const url = document.getElementById("weather-url").value.trim();
-  if (url) {
-    localStorage.setItem("userWeatherURL", url);
-    renderWeatherLink();
-  }
-}
+
 
 
 
@@ -1352,27 +1329,11 @@ window.onload = function() {
     }
   }
 
-  function saveWeatherURL() {
-    const url = document.getElementById("weatherURL").value;
-    if (url) {
-      localStorage.setItem("userWeatherURL", url);
-      loadWeatherBlock();
-    }
-  }
-</script>
+  
 
 </script>
 
-<script>
-  function saveWeatherURL() {
-    const url = document.getElementById("weatherURL").value;
-    if (url) {
-      localStorage.setItem("userWeatherURL", url);
-     document.getElementById("twc-anchor").innerHTML =
-  `<a href="${url}" target="_blank" style="color: #0077cc; text-decoration: underline; font-weight: bold;">View Forecast</a>`;
 
-    }
-  }
 
   window.addEventListener("DOMContentLoaded", () => {
     const savedURL = localStorage.getItem("userWeatherURL");
@@ -1400,6 +1361,7 @@ window.onload = function() {
 
   
  
+
 
 
 
