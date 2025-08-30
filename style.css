@@ -277,6 +277,39 @@ label[for="zip"] {
 }
 
 
+/* === ZIP Input Editorial Fix === */
+.zip-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+label[for="zip"] {
+  display: inline-block;
+  width: auto;
+  max-width: 160px;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+#zip {
+  height: 2em;
+  padding: 0.3em 0.5em;
+  font-size: 1rem;
+  line-height: 1.2;
+  border: 1px solid #999;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+#zip-check,
+#zip-set {
+  height: 2em;
+  padding: 0.3em 0.8em;
+  font-size: 1rem;
+  vertical-align: middle;
+}
 
 
 
