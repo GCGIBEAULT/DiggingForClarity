@@ -293,23 +293,7 @@ label[for="zip"] {
   vertical-align: middle;
 }
 
-#zip {
-  height: 2em;
-  padding: 0.3em 0.5em;
-  font-size: 1rem;
-  line-height: 1.2;
-  border: 1px solid #999;
-  border-radius: 4px;
-  vertical-align: middle;
-}
 
-#zip-check,
-#zip-set {
-  height: 2em;
-  padding: 0.3em 0.8em;
-  font-size: 1rem;
-  vertical-align: middle;
-}
 .zip-input-block input,
 .zip-input-block button {
   font-size: 0.95rem;
