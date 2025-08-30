@@ -248,6 +248,11 @@ footer.footer-container {
   box-sizing: border-box;
 }
 
+label[for="zip"] {
+  display: inline-block;
+  min-width: 180px; /* Locks editorial rhythm */
+  margin-right: 0.5em;
+}
 
 
 
