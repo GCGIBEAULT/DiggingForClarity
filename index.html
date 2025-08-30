@@ -504,17 +504,19 @@ right h
     <p class="header-tagline">Just The News Please. Hold The Drama.</p>
 
     <!-- Timestamp Block -->
-    <div class="timestamp" id="timestamp"
-         style="font-family: 'Merriweather', serif;
-                font-size: 1.6rem;
-                font-weight: 900;
-                color: #111;
-                margin-top: 0.5rem;">
-      <!-- Time will be injected here -->
+   <div class="header-container">
+  <div class="editorial-box">
+    <h1 class="site-title">Digging For Clarity</h1>
+    <p class="header-tagline">Just The News Please. Hold The Drama.</p>
+
+    <div class="timestamp" id="timestamp" style="font-family: 'Merriweather', serif; font-size: 1.6rem; font-weight: 900; color: #111; margin-top: 0.5rem;">
+      Friday, August 29 at 8:16 PM — Denver
     </div>
 
-    <!-- ZIP Input -->
-    <p>Enter your ZIP or city:
+    <p>Enter your ZIP or city: <input type="text" id="zip" maxlength="50"> <button id="zip-check">Check Coverage</button></p>
+  </div>
+</div>
+
       <input type="text" id="zip" maxlength="50" style="padding: 0.3em;">
       <button id="zip-check" style="padding: 0.4em 0.8em;">Check Coverage</button>
     </p>
@@ -1487,6 +1489,7 @@ window.onload = function() {
 
   
  
+
 
 
 
