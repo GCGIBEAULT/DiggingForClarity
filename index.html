@@ -512,6 +512,7 @@ right h
 
 
 
+
 <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.5em; margin-top: 0.5em; max-width: 320px;">
   <label for="zip" style="font-weight: bold;">Enter your ZIP or city:</label>
   <input type="text" id="zip" maxlength="50" style="padding: 0.4em; width: 100%;">
@@ -1472,6 +1473,18 @@ window.onload = function() {
   const storedLocation = localStorage.getItem("userLocation");
   updateTimestampByZip(storedLocation, storedLocation);
 </script>
+<script>
+  function updateTimestampByZip(zip, city) {
+    const now = new Date();
+    const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' };
+    const formatted = now.toLocaleString('en-US', options);
+    const location = city || zip || "Denver";
+    document.getElementById("timestamp").textContent = `${formatted} — ${location}`;
+  }
+
+  const storedLocation = localStorage.getItem("userLocation");
+  updateTimestampByZip(storedLocation, storedLocation);
+</script>
 
 </body>
 </html>
@@ -1487,6 +1500,7 @@ window.onload = function() {
 
   
  
+
 
 
 
