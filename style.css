@@ -310,6 +310,20 @@ label[for="zip"] {
   font-size: 1rem;
   vertical-align: middle;
 }
+.zip-input-block input,
+.zip-input-block button {
+  font-size: 0.95rem;
+  padding: 0.3em 0.6em;
+  width: 220px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.zip-input-block label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.25em;
+}
 
 
 
