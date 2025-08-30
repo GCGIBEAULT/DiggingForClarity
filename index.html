@@ -497,14 +497,22 @@ right h
   
 
 <!-- Editorial Header Block -->
-<div class="header-container">
-  <div class="editorial-box">
-    <h1 class="site-title">Digging For Clarity</h1>
-    <p class="header-tagline">Just The News Please. Hold The Drama.</p>
- 
-<div class="timestamp" id="timestamp" style="font-family: 'Merriweather', serif; font-size: 1.6rem; font-weight: 900; color: #111; margin-top: 0.5rem;">
-  <!-- Timestamp will be injected here -->
+<div class="editorial-wrapper" style="display: grid; grid-template-columns: 1fr; gap: 1em; max-width: 640px; margin: 0 auto; padding: 1em;">
+  <h1 class="site-title">Digging For Clarity</h1>
+  <p class="header-tagline">Just The News Please. Hold The Drama.</p>
+
+  <p id="timestamp" class="timestamp" style="font-family: 'Merriweather', serif; font-size: 1.6rem; font-weight: 900; color: #111;">
+    <!-- Timestamp will be injected here -->
+  </p>
+
+  <div class="zip-input-block" style="display: flex; flex-direction: column; gap: 0.5em;">
+    <label for="zip" style="font-weight: bold;">Enter your ZIP or city:</label>
+    <input type="text" id="zip" maxlength="50" style="padding: 0.4em; width: 240px;">
+    <button id="zip-check" style="padding: 0.4em 0.8em;">Check Coverage</button>
+    <button id="set-location" style="padding: 0.4em 0.8em;">Set</button>
+  </div>
 </div>
+
 
 
 
@@ -1434,6 +1442,28 @@ window.onload = function() {
     }
   });
 </script>
+<script>
+  function updateTimestampByZip(zip, city) {
+    const now = new Date();
+    const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' };
+    const formatted = now.toLocaleString('en-US', options);
+    const location = city || zip || "Denver";
+    document.getElementById("timestamp").textContent = `${formatted} — ${location}`;
+  }
+
+  const storedLocation = localStorage.getItem("userLocation");
+  updateTimestampByZip(storedLocation, storedLocation);
+
+  document.getElementById("set-location").addEventListener("click", () => {
+    const input = document.getElementById("zip").value.trim().toLowerCase();
+    if (input) {
+      localStorage.setItem("userLocation", input);
+      updateTimestampByZip(input, input);
+      loadWeatherBlock();
+      loadTrafficLink();
+    }
+  });
+</script>
 
 </body>
 </html>
@@ -1449,6 +1479,7 @@ window.onload = function() {
 
   
  
+
 
 
 
