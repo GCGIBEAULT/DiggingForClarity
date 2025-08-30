@@ -509,11 +509,16 @@ right h
 
 
 <div class="zip-input-wrapper">
-  <label for="zip">Enter your ZIP or city:</label>
-  <button id="zip-set">Set</button>
-  <input type="text" id="zip" maxlength="50">
-  <button id="zip-check">Check Coverage</button>
+  <div style="display: flex; align-items: center; gap: 0.5em;">
+    <label for="zip">Enter your ZIP or city:</label>
+    <button id="zip-set">Set</button>
+  </div>
+  <div style="display: flex; align-items: center; gap: 0.5em; margin-top: 0.5em;">
+    <input type="text" id="zip" maxlength="50">
+    <button id="zip-check">Check Coverage</button>
+  </div>
 </div>
+
 
  
     <!-- Zip Code block stays here -->
@@ -1437,6 +1442,7 @@ window.onload = function() {
 
   
  
+
 
 
 
