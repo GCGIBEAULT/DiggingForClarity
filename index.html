@@ -497,18 +497,72 @@ right h
   
 
 <!-- Editorial Header Block -->
+<!-- Header Block with ZIP-aware Timestamp -->
 <div class="header-container">
   <div class="editorial-box">
     <h1 class="site-title">Digging For Clarity</h1>
     <p class="header-tagline">Just The News Please. Hold The Drama.</p>
- 
-<div class="timestamp" id="timestamp" style="font-family: 'Merriweather', serif; font-size: 1.6rem; font-weight: 900; color: #111; margin-top: 0.5rem;">
-  <!-- Timestamp will be injected here -->
+
+    <!-- Timestamp Block -->
+    <div class="timestamp" id="timestamp"
+         style="font-family: 'Merriweather', serif;
+                font-size: 1.6rem;
+                font-weight: 900;
+                color: #111;
+                margin-top: 0.5rem;">
+      <!-- Time will be injected here -->
+    </div>
+
+    <!-- ZIP Input -->
+    <p>Enter your ZIP or city:
+      <input type="text" id="zip" maxlength="50" style="padding: 0.3em;">
+      <button id="zip-check" style="padding: 0.4em 0.8em;">Check Coverage</button>
+    </p>
+  </div>
 </div>
 
+<!-- Timestamp Script -->
+<script>
+  async function getTimezone(zip) {
+    try {
+      const res = await fetch('data/zipTimezones.json');
+      const map = await res.json();
+      return map[zip] || 'America/Denver';
+    } catch {
+      return 'America/Denver';
+    }
+  }
 
+  async function updateTimestamp(zip, city) {
+    const tz = await getTimezone(zip);
+    const now = new Date();
+    const formatted = new Intl.DateTimeFormat('en-US', {
+      timeZone: tz,
+      weekday: 'long',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+      timeZoneName: 'short'
+    }).format(now);
+    document.getElementById('timestamp').textContent = `${formatted} • ${city}`;
+  }
 
-<p>Enter your ZIP or city: <input type="text" id="zip" maxlength="50"> <button id="zip-check">Check Coverage</button></p>
+  document.addEventListener('DOMContentLoaded', () => {
+    const zipInput = document.getElementById('zip');
+    const zipButton = document.getElementById('zip-check');
+
+    // Default to Denver on load
+    updateTimestamp('80203', 'Denver');
+
+    // Update timestamp when ZIP is entered
+    zipButton?.addEventListener('click', () => {
+      const zip = zipInput.value.trim();
+      if (zip) updateTimestamp(zip, 'Your City');
+    });
+  });
+</script>
 
 
  
@@ -1433,6 +1487,7 @@ window.onload = function() {
 
   
  
+
 
 
 
