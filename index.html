@@ -508,7 +508,11 @@ right h
 
 
 
-<p>Enter your ZIP or city: <input type="text" id="zip" maxlength="50"> <button id="zip-check">Check Coverage</button></p>
+<p>Enter your ZIP or city: 
+  <input type="text" id="zip" maxlength="50">
+  <button id="zip-check">Check Coverage</button>
+  <button id="set-location">Set</button>
+</p>
 
 
  
@@ -1418,6 +1422,17 @@ window.onload = function() {
 
 
 <script>
+<script>
+  document.getElementById("set-location").addEventListener("click", () => {
+    const input = document.getElementById("zip").value.trim().toLowerCase();
+    if (input) {
+      localStorage.setItem("userLocation", input);
+      updateTimestampByZip(input, input); // or use updateTimestamp(input) if preferred
+      loadWeatherBlock();
+      loadTrafficLink();
+    }
+  });
+</script>
 
 </body>
 </html>
@@ -1433,6 +1448,7 @@ window.onload = function() {
 
   
  
+
 
 
 
