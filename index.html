@@ -1346,6 +1346,21 @@ window.onload = function() {
 
 
 <script>
+<script>
+  function saveWeatherURL() {
+    const location = document.getElementById("twc-location").value;
+    if (!location) return;
+    const url =
+      "https://forecast.weather.gov/MapClick.php?textField1=" +
+      encodeURIComponent(location);
+    document.getElementById("twc-anchor").innerHTML =
+      '<a href="' +
+      url +
+      '" target="_blank" style="color:blue; text-decoration:underline;">Click to see Forecast</a>';
+  }
+
+  document.addEventListener("DOMContentLoaded", saveWeatherURL);
+</script>
 
 </body>
 </html>
@@ -1361,6 +1376,7 @@ window.onload = function() {
 
   
  
+
 
 
 
