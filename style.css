@@ -253,7 +253,20 @@ label[for="zip"] {
   min-width: 180px; /* Locks editorial rhythm */
   margin-right: 0.5em;
 }
-<link rel="stylesheet" href="style.css">
+
+/* === ZIP Input Editorial Fix === */
+.zip-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap; /* Optional: allows graceful stacking on mobile */
+}
+
+label[for="zip"] {
+  display: inline-block;
+  min-width: 180px;
+  margin-right: 0.5em;
+}
 
 
 
