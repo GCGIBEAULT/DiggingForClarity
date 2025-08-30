@@ -496,16 +496,47 @@ right h
   
 
 <!-- Editorial Header Block -->
--   <div class="timestamp" id="timestamp" style="…">
--     <!-- Timestamp will be injected here -->
--   </div>
-+   <div class="timestamp" id="timestamp"
-+        style="font-family: 'Merriweather', serif;
-+               font-size: 1.6rem;
-+               font-weight: 900;
-+               color: #111;
-+               margin-top: 0.5rem;">
-+     <!-- injected by script -->
+<!-- Timestamp Block (drop into your header, replacing the old timestamp div) -->
+<div class="timestamp" id="timestamp"
+     style="font-family: 'Merriweather', serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #111;
+            margin-top: 0.5rem;">
+  <!-- injected by script -->
+</div>
+
+<!-- Timestamp Script (place just before </body>) -->
+<script>
+  // Fetch timezone for a ZIP (fallbacks to Denver)
+  async function getTimezone(zip) {
+    const res = await fetch('data/zipTimezones.json');
+    const map = await res.json();
+    return map[zip] || 'America/Denver';
+  }
+
+  // Format and inject MT time • city
+  async function updateTimestampByZip(zip, city) {
+    const timezone = await getTimezone(zip);
+    const now = new Date();
+    const formatted = new Intl.DateTimeFormat('en-US', {
+      timeZone: timezone,
+      weekday: 'long',
+      month:   'long',
+      day:     'numeric',
+      hour:    'numeric',
+      minute:  'numeric',
+      hour12:  true
+    }).format(now);
+    document.getElementById('timestamp').textContent = `${formatted} • ${city}`;
+  }
+
+  // On DOM ready, inject Denver MT by default
+  document.addEventListener('DOMContentLoaded', () => {
+    updateTimestampByZip('80203', 'Denver');
+  });
+</script>
+
 +   </div>
 
 
@@ -1436,6 +1467,7 @@ window.onload = function() {
 
   
  
+
 
 
 
