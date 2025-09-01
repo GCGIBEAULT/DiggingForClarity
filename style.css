@@ -318,6 +318,10 @@ label[for="zip"] {
   box-sizing: border-box !important;
 }
 
+.logo-center {
+  height: 264px;
+  width: auto;
+}
 
 
 
