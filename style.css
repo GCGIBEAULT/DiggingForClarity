@@ -336,8 +336,10 @@ label[for="zip"] {
   box-sizing: border-box !important;
 }
 .logo-center {
-  margin-bottom: 0.5em; /* Or tighter: 0.25em */
+  height: 77px; /* 20% larger than assumed 64px default */
+  margin-bottom: 0.25em; /* Tightens spacing beneath logos */
 }
+
 
 .header-divider {
   width: calc(100% - 192px); /* 96px inset from each side */
