@@ -396,25 +396,23 @@ label[for="zip"] {
 }
 
 
+/* editorial-polish-pass — 2025-09-01 */
 .editorial-wrapper {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1em;
   max-width: 640px;
-  margin: 0 auto;
-  padding: 1em;
+  margin: 0 auto 0.25em auto; /* 👈 Tight bottom margin */
+  padding: 1.5em;
   text-align: center;
-  background-color: #e2dfda;
+  font-family: Georgia, serif;
+  letter-spacing: 0.3px;
+  background: linear-gradient(to bottom, #e2dfda, #d6d3cd); /* 👈 Gradient replaces flat color */
+  border-top: 3px solid #222; /* 👈 Editorial accent */
   border: 2px solid #444;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
-  padding: 1.25em;
-  max-width: 640px;
-  margin: 0 auto 0.25em auto; /* 👈 Tight bottom margin */
-  text-align: center;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1em;
 }
+
 
 
 .masthead-wrapper {
