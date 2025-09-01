@@ -341,12 +341,14 @@ label[for="zip"] {
   width: auto;
 }
 .header-divider {
-  width: 192px;                /* Editorial width—matches your masthead logic */
-  height: 1px;                 /* Thin, quiet line */
-  background-color: #333;      /* Lighter than pure black, no boldness */
-  opacity: 0.6;                /* Softens the tone, avoids visual aggression */
-  margin: 0.5em auto;          /* Centers the line and adds breathing room */
+  width: calc(100% - 192px); /* 96px inset from each side */
+  height: 4px;
+  background-color: #111;
+  opacity: 1;
+  margin: 1.25em auto;
+  border: none;
 }
+
 .editorial-wrapper {
   display: grid;
   grid-template-columns: 1fr;
