@@ -349,6 +349,51 @@ label[for="zip"] {
   margin: 0.25em auto 1.25em auto; /* 👈 Tight top margin */
   border: none;
 }
+/* editorial-polish-pass + masthead-refinement-v1 — 2025-09-01 */
+.editorial-block {
+  background: linear-gradient(to bottom, #e2dfda, #d6d3cd);
+  border-top: 3px solid #222;
+  padding: 1.5em;
+  font-family: Georgia, serif;
+  letter-spacing: 0.3px;
+  margin: 2em auto;
+  max-width: 800px;
+}
+
+.header-tagline {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+}
+
+.editorial-signature {
+  font-style: italic;
+  color: #555;
+  margin-top: 1em;
+  text-align: right;
+}
+
+/* existing wrapper block below */
+.editorial-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1em;
+  text-align: center;
+  background-color: #e2dfda;
+  border: 2px solid #444;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  padding: 1.25em;
+  max-width: 640px;
+  margin: 0 auto 0.25em auto; /* 👈 Tight bottom margin */
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+}
 
 
 .editorial-wrapper {
