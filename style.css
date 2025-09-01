@@ -335,11 +335,10 @@ label[for="zip"] {
   width: 200px !important;
   box-sizing: border-box !important;
 }
-
 .logo-center {
-  height: 264px;
-  width: auto;
+  margin-bottom: 0.5em; /* Or tighter: 0.25em */
 }
+
 .header-divider {
   width: calc(100% - 192px); /* 96px inset from each side */
   height: 4px;
