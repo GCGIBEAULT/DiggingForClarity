@@ -333,6 +333,12 @@ label[for="zip"] {
   height: 264px;
   width: auto;
 }
+.header-divider {
+  width: 100%;
+  height: 2px;
+  background-color: #111;
+  margin: 0.5em 0;
+}
 
 
 
