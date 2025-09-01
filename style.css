@@ -360,6 +360,12 @@ label[for="zip"] {
   box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
   border-radius: 6px;
 }
+.masthead-wrapper {
+  display: grid;
+  gap: 3em; /* ⬅️ This locks spacing between editorial and logos */
+  justify-content: center;
+  margin-bottom: 2em; /* Optional: spacing before ZIP input */
+}
 
 
 
