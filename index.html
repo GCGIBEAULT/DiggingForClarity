@@ -537,11 +537,33 @@ right h
   <img src="dfc-inverted.png" alt="Inverted Digging For Clarity logo" class="logo-center">
 </div>
 
-<!-- Spacer line -->
-<div style="height: 0.5em;"></div>
+<!-- Spacer lines ABOVE ZIP block -->
+<div style="height: 1.5em;"></div>
+<div style="height: 1.5em;"></div>
 
+<!-- ZIP Prompt Block (centered) -->
+<div style="display: flex; justify-content: center;">
+  <div class="zip-input-grid" style="display: grid; grid-template-columns: auto 1fr; gap: 1em; align-items: start; max-width: 640px;">
+    <div style="display: flex; flex-direction: column; gap: 0.5em;">
+      <label for="zip" style="font-weight: bold;">Enter your ZIP or city:</label>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 0.5em;">
+      <input type="text" id="zip" maxlength="50" style="font-size: 0.85rem; padding: 0.25em 0.5em; width: 220px;">
+      <button id="zip-check">Set/Check Coverage</button>
+    </div>
+  </div>
+</div>
 
-<!-- ZIP Prompt Block -->
+<!-- Spacer lines BELOW ZIP block -->
+<div style="height: 1.5em;"></div>
+<div style="height: 1.5em;"></div>
+
+<!-- Local Weather + Traffic Mapping Block -->
+<section class="grid" style="margin-top: 3em;">
+  <!-- Local Weather block -->
+  ...
+</section>
+
 
 
 
@@ -1545,6 +1567,7 @@ window.onload = function() {
 
   
  
+
 
 
 
