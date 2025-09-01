@@ -513,14 +513,41 @@ lik
   </div>
 
 <!-- Logo Pair -->
-<!-- Logo Pair Block -->
-<div class="logo-center-wrapper">
-  <img src="new_logo.png" alt="Digging For Clarity logo" class="logo-center">
-  <img src="dfc-inverted.png" alt="Inverted Digging For Clarity logo" class="logo-center">
+<!-- Logo Pair -->
+<div class="logo-row">
+  <img src="logo-left.png" alt="Left Logo" class="logo-center">
+  <img src="logo-right.png" alt="Right Logo" class="logo-center">
 </div>
-<div style="height: 2.5em;"></div>
-<hr style="margin: 0 auto; width: 60%; border: none; border-top: 4px solid #333;" />
-<div style="height: 2.5em;"></div>
+
+<!-- Editorial Divider -->
+<hr class="divider">
+
+<!-- ZIP Input Block -->
+<div class="zip-input-wrapper">
+  <label for="zip">Enter ZIP or city</label>
+  <input type="text" id="zip" name="zip">
+  <button id="zip-set">Set Local Coverage</button>
+</div>
+
+<!-- Local Weather Block -->
+<div class="local-weather-container">
+  <h2>Local Weather</h2>
+  <p>Just the weather, please.</p>
+  <label for="weather-link">Paste your weather link once—we’ll show it every day.</label>
+  <input type="text" id="weather-link">
+  <button id="weather-save">Save Link</button>
+  <button id="weather-view">View Forecast</button>
+</div>
+
+<!-- Traffic Mapping Block -->
+<div id="local-traffic">
+  <h2>Traffic Mapping</h2>
+  <label for="traffic-link">Paste your traffic link once—we’ll show it every day.</label>
+  <input type="text" id="traffic-link">
+  <button id="traffic-save">Save Link</button>
+  <button id="traffic-view">View Traffic</button>
+</div>
+
 
 
 <!-- Spacer lines ABOVE ZIP -->
@@ -1520,6 +1547,7 @@ window.onload = function() {
 
   
  
+
 
 
 
