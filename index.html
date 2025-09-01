@@ -50,6 +50,7 @@
 
 
 
+
 <!DOCTYPE html>
 <!-- === CSS INDEX ===
 1. Header Container
@@ -545,26 +546,14 @@ right h
 <div style="display: flex; justify-content: center;">
   <div class="zip-input-grid" style="display: grid; grid-template-columns: auto 1fr; gap: 1em; align-items: start; max-width: 640px;">
     <div style="display: flex; flex-direction: column; gap: 0.5em;">
-      <input
-  type="text"
-  id="zip"
-  maxlength="50"
-  placeholder="Enter your ZIP or city"
-  style="font-size: 0.85rem; padding: 0.25em 0.5em; width: 220px; text-align: center;"
->
-<div style="display: flex; justify-content: center;">
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75em;">
-    <input
-      type="text"
-      id="zip"
-      maxlength="50"
-      placeholder="Enter your ZIP or city"
-      style="font-size: 0.85rem; padding: 0.4em 0.6em; width: 220px; text-align: center;"
-    >
-    <button id="zip-check" style="padding: 0.4em 0.8em;">Set/Check Coverage</button>
+      <label for="zip" style="font-weight: bold;">Enter your ZIP or city:</label>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 0.5em;">
+      <input type="text" id="zip" maxlength="50" style="font-size: 0.85rem; padding: 0.25em 0.5em; width: 220px;">
+      <button id="zip-check">Set/Check Coverage</button>
+    </div>
   </div>
 </div>
-
 
 <!-- Spacer lines BELOW ZIP block -->
 <div style="height: 1.5em;"></div>
@@ -1579,8 +1568,6 @@ window.onload = function() {
 
   
  
-
-
 
 
 
