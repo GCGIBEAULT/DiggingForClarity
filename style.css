@@ -374,26 +374,6 @@ label[for="zip"] {
   text-align: right;
 }
 
-/* existing wrapper block below */
-.editorial-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1em;
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 1em;
-  text-align: center;
-  background-color: #e2dfda;
-  border: 2px solid #444;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
-  padding: 1.25em;
-  max-width: 640px;
-  margin: 0 auto 0.25em auto; /* 👈 Tight bottom margin */
-  text-align: center;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1em;
-}
 
 
 /* editorial-polish-pass — 2025-09-01 */
