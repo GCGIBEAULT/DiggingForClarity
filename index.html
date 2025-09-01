@@ -514,24 +514,7 @@ right h
 
 
 
-<div class="zip-input-grid" style="display: grid; grid-template-columns: auto 1fr; gap: 1em; align-items: start; max-width: 640px; margin: 1em auto;">
-  <div style="display: flex; flex-direction: column; gap: 0.5em;">
-    <label for="zip" style="font-weight: bold;">Enter your ZIP or city:</label>
 
-  </div>
-
- <div style="display: flex; justify-content: flex-start; margin-left: 1.5em;">
-  <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.75em;">
-    <input
-      type="text"
-      id="zip"
-      maxlength="50"
-      placeholder="Enter your ZIP or city"
-      style="font-size: 0.85rem; padding: 0.4em 0.6em; width: 220px; text-align: left; color: #444;"
-    >
-    <button id="zip-check" style="padding: 0.4em 0.8em;">Set/Check Coverage</button>
-  </div>
-</div>
 
 
  
@@ -1201,34 +1184,7 @@ function loadWeatherBlock(city) {
 
 <script>
 <script>
-document.getElementById("zip-check").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
-  const fallbackZipMap = {
-    "alexandria": "alexandria",
-    "22314": "alexandria",
-    "22301": "alexandria",
-    "22302": "alexandria",
-    "22305": "alexandria",
-    "22311": "alexandria",
-    "22312": "alexandria",
-    "99999": "fallback"
-    // Add more ZIPs or cities as needed
-  };
 
-  const zone = fallbackZipMap[input] || "fallback";
-  const blockPath = `blocks/${zone}/NationalNews.html`;
-
-  try {
-    const html = await fetch(blockPath).then(r => r.text());
-    const target = Array.from(document.querySelectorAll(".section h3"))
-      .find(h3 => h3.textContent.trim() === "National News")?.parentElement;
-
-    if (target && !target.querySelector(".injected-block")) {
-      const wrapper = document.createElement("div");
-      wrapper.className = "injected-block";
-      wrapper.innerHTML = `<!-- Injected for ${zone} -->\n` + html;
-      target.appendChild(wrapper);
-    }
   } catch (err) {
     console.error("Injection failed:", err);
     const target = document.getElementById("national-news-target");
@@ -1552,6 +1508,35 @@ window.onload = function() {
     // Insert your actual coverage logic here
   }
 </script>
+document.getElementById("zip-set").addEventListener("click", async () => {
+  const input = document.getElementById("zip-new").value.trim().toLowerCase();
+  const cityZipData = await loadCityZipData();
+  const fallbackZipMap = await loadFallbackZipMap();
+
+  const location = resolveLocation(input, cityZipData, fallbackZipMap);
+  if (location) {
+    localStorage.setItem("userZip", location.zip);
+    localStorage.setItem("userLocation", location.city);
+    loadWeatherBlock(location.city);
+    loadTrafficLink();
+  } else {
+    const target = document.getElementById("national-news-target");
+    if (target && !target.querySelector(".fallback-block")) {
+      const fallback = document.createElement("div");
+      fallback.className = "fallback-block";
+      fallback.innerHTML = `
+        <!-- Fallback Editorial Block -->
+        <div class="main-news-block">
+          <h3>Editorial Zone Not Assigned</h3>
+          <div class="snippet"><strong>We couldn’t find your location.</strong></div>
+          <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
+          <div class="snippet">In the meantime, explore our national headlines or enter a nearby ZIP.</div>
+        </div>
+      `;
+      target.appendChild(fallback);
+    }
+  }
+});
 
 </body>
 </html>
@@ -1567,6 +1552,7 @@ window.onload = function() {
 
   
  
+
 
 
 
