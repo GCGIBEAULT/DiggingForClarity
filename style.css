@@ -82,11 +82,22 @@
     flex-wrap: wrap !important;
   }
 }
-.site-title,
+.site-title {
+  font-size: 3.8rem;
+  font-weight: 900;
+  font-family: 'Merriweather', serif;
+  color: #111;
+  padding-left: 96px;
+  padding-right: 96px;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.4em;
+}
+
 .timestamp {
   color: #111;
   font-weight: 700;
 }
+
 
 .header-tagline {
   color: #555;
