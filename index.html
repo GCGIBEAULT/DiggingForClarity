@@ -1514,18 +1514,7 @@ window.onload = function() {
     // Insert your actual coverage logic here
   }
 </script>
-document.getElementById("zip-set").addEventListener("click", async () => {
-  const input = document.getElementById("zip-new").value.trim().toLowerCase();
-  const cityZipData = await loadCityZipData();
-  const fallbackZipMap = await loadFallbackZipMap();
 
-  const location = resolveLocation(input, cityZipData, fallbackZipMap);
-  if (location) {
-    localStorage.setItem("userZip", location.zip);
-    localStorage.setItem("userLocation", location.city);
-    loadWeatherBlock(location.city);
-    loadTrafficLink();
-  } else {
    
 
 </body>
@@ -1542,6 +1531,7 @@ document.getElementById("zip-set").addEventListener("click", async () => {
 
   
  
+
 
 
 
