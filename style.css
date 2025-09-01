@@ -277,7 +277,7 @@ label[for="zip"] {
   justify-content: center;
   gap: 1.5em;
   margin-top: 1em;
-  margin-bottom: 2em; /* 👈 Locks spacing below logos */
+  margin-bottom: 3em; /* ⬅️ Increased from 2em to 3em */
 }
 
 label[for="zip"] {
