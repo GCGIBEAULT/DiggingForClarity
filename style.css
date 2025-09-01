@@ -344,9 +344,10 @@ label[for="zip"] {
   height: 4px;
   background-color: #111;
   opacity: 1;
-  margin: 1.25em auto;
+  margin: 0.25em auto 1.25em auto; /* 👈 Tight top margin */
   border: none;
 }
+
 
 .editorial-wrapper {
   display: grid;
