@@ -1594,7 +1594,13 @@ window.onload = function() {
 })();
 </script>
 
-   
+ <script>
+document.getElementById('setCoverageBtn').addEventListener('click', () => {
+  const input = document.getElementById('zip')?.value.trim();
+  console.log('Set Local Coverage clicked:', input);
+});
+</script>
+  
 
 </body>
 </html>
@@ -1610,6 +1616,7 @@ window.onload = function() {
 
   
  
+
 
 
 
