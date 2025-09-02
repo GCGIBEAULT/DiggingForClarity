@@ -1,4 +1,4 @@
-it nee
+
 
 
 
@@ -536,14 +536,12 @@ right h
 
 
 <!-- ZIP Prompt Block -->
-<!-- ZIP Prompt Block styled for clarity -->
+<!-- ZIP Prompt Block inserted 2025-09-01 -->
 <div style="width: 100%; text-align: center; margin: 1em 0;">
- <div style="height: 0.25em;"></div>
+  <div style="height: 0.5em;"></div>
   <div style="display: inline-flex; justify-content: center; align-items: center; gap: 0.5em;">
-    <input type="text" id="zip" maxlength="50" placeholder="Enter ZIP or city"
-      style="padding: 0.4em; width: 180px; background-color: #fff; border: 1px solid #000; border-radius: 4px;">
-    <button id="zip-set"
-      style="background-color: #fff; border: 1px solid #000; border-radius: 4px; padding: 0.4em 0.8em;">Set Local Coverage</button>
+    <input type="text" id="zip" maxlength="50" placeholder="Enter ZIP or city" style="padding: 0.4em; width: 180px; background-color: #fff; border: 1px solid #000;">
+    <button id="zip-set" style="background-color: #fff; border: 1px solid #000;">Set Local Coverage</button>
   </div>
   <div style="height: 0.5em;"></div>
 </div>
@@ -551,13 +549,8 @@ right h
 
 
 
-
-
 <!-- Local Weather + Traffic Mapping -->
-<section class="grid" style="margin-top: 2.25em;">
-  <!-- your Local Weather and Traffic Mapping modules go here -->
-</section>
-
+<section class="grid" style="margin-top: 0.75em;">
 
 
 
@@ -642,17 +635,14 @@ right h
 </script>
 
 <!-- Replace your existing weather + traffic blocks with this single grid section -->
-
+<div style="display: flex; justify-content: center; align-items: center; gap: 0.5em; margin-bottom: 1em;">
+  <input type="text" id="zip" maxlength="50" placeholder="Enter ZIP or city" style="padding: 0.4em; width: 180px;">
+ <button id="zip-set">Set Local Coverage</button>
 
 </div>
 
 
-<!-- Local Modules Container with editorial spacing -->
-<section class="grid" style="margin-top: -288px;">
-
-
-
-
+<section class="grid" style="margin-top: 3em;">
   <!-- Local Weather block -->
   <div id="weather-news" class="section">
     <h3>Local Weather</h3>
@@ -671,7 +661,6 @@ right h
     </div>
     <div id="twc-anchor" class="snippet"></div>
   </div>
-
 
   <!-- Traffic Mapping block -->
   <div id="traffic-mapping" class="section">
@@ -1550,14 +1539,6 @@ window.onload = function() {
 
   
  
-
-
-
-
-
-
-
-
 
 
 
