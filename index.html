@@ -1530,6 +1530,45 @@ window.onload = function() {
     // Insert your actual coverage logic here
   }
 </script>
+<script>
+async function loadCityZipData() {
+  const res = await fetch("data/cityzip.json");
+  return await res.json();
+}
+
+async function loadFallbackZipMap() {
+  const res = await fetch("data/fallbackZipMap.json");
+  return await res.json();
+}
+
+document.getElementById("zip-set").addEventListener("click", async () => {
+  const input = document.getElementById("zip").value.trim().toLowerCase();
+  const cityZipData = await loadCityZipData();
+  const fallbackZipMap = await loadFallbackZipMap();
+
+  const location = resolveLocation(input, cityZipData, fallbackZipMap);
+  if (location) {
+    localStorage.setItem("userZip", location.zip);
+    localStorage.setItem("userLocation", location.city);
+    loadWeatherBlock(location.city);
+    loadTrafficLink(location.zip);
+  } else {
+    alert("ZIP or city not recognized. Try a nearby location.");
+  }
+});
+
+function resolveLocation(input, cityZipData, fallbackZipMap) {
+  if (/^\d{5}$/.test(input)) {
+    for (const city in cityZipData) {
+      if (cityZipData[city].includes(input)) return { zip: input, city };
+    }
+    if (fallbackZipMap[input]) return { zip: input, city: fallbackZipMap[input] };
+  }
+  if (cityZipData[input]) return { city: input, zip: cityZipData[input][0] };
+  if (fallbackZipMap[input]) return { city: fallbackZipMap[input], zip: cityZipData[fallbackZipMap[input]][0] };
+  return null;
+}
+</script>
 
    
 
@@ -1547,6 +1586,7 @@ window.onload = function() {
 
   
  
+
 
 
 
