@@ -1535,6 +1535,7 @@ window.onload = function() {
 <script>
 <!-- 🧼 ZIP/City Routing Logic — Clean Insert -->
 <script>
+<script>
 (async function () {
   // Load city ZIP data
   async function loadCityZipData() {
@@ -1564,7 +1565,31 @@ window.onload = function() {
 
   // Bind button click
   document.getElementById("zip-set").addEventListener("click", async () => {
-    const input = document.getElement
+    const input = document.getElementById("zip").value.trim();
+    const cityZipData = await loadCityZipData();
+    const fallbackZipMap = await loadFallbackZipMap();
+    const location = resolveLocation(input, cityZipData, fallbackZipMap);
+
+    if (location) {
+      localStorage.setItem("userZip", location.zip);
+      localStorage.setItem("userLocation", location.city);
+      loadWeatherBlock(location.city);
+      loadTrafficLink(location.zip);
+      updateTimestampByZip(location.zip, location.city);
+      loadNationalNews(location.city);
+    } else {
+      alert("ZIP or city not recognized. Try a nearby location.");
+    }
+  });
+
+  // Final load trigger
+  window.onload = function () {
+    updateTimestamp();
+    loadWeatherBlock();
+    loadTrafficLink();
+  };
+})();
+</script>
 
    
 
@@ -1582,6 +1607,7 @@ window.onload = function() {
 
   
  
+
 
 
 
