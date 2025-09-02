@@ -550,6 +550,36 @@ right h
   </div>
   <div style="height: 0.5em;"></div>
 </div>
+  </div>
+  <div style="height: 0.5em;"></div>
+</div>
+<!-- ZIP Prompt Block ends here. Drop the click-handler script below: -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('setCoverageBtn');
+  const input = document.getElementById('zip');
+  if (!btn || !input) return;
+
+  const alexZips = new Set(['22301','22302','22304','22305','22311','22312','22314','22315']);
+
+  btn.addEventListener('click', () => {
+    const v = (input.value || '').trim().toLowerCase();
+    if (v === 'alexandria' || (v.match(/^\d{5}$/) && alexZips.has(v))) {
+      localStorage.setItem('userLocation', 'alexandria');
+      localStorage.setItem('userZip', alexZips.has(v) ? v : '22314');
+      btn.disabled = true;
+      btn.textContent = 'Setting Alexandria…';
+      setTimeout(() => location.reload(), 100);
+    } else {
+      alert('Enter "alexandria" or one of its ZIPs (22301,22302,22304,22305,22311,22312,22314,22315).');
+    }
+  });
+});
+</script>
+<!-- Now your Local Weather + Traffic Mapping section -->
+<section class="grid" style="margin-top: 2.25em;">
+  <!-- … -->
+</section>
 
 
 
@@ -1643,6 +1673,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
  
+
 
 
 
