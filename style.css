@@ -376,22 +376,7 @@ label[for="zip"] {
 
 
 
-/* editorial-polish-pass — 2025-09-01 */
-.editorial-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1em;
-  max-width: 640px;
-  margin: 0 auto 0.25em auto; /* 👈 Tight bottom margin */
-  padding: 1.5em;
-  text-align: center;
-  font-family: Georgia, serif;
-  letter-spacing: 0.3px;
-  background: linear-gradient(to bottom, #e2dfda, #d6d3cd); /* 👈 Gradient replaces flat color */
-  border-top: 3px solid #222; /* 👈 Editorial accent */
-  border: 2px solid #444;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
-}
+am 
 
 
 
@@ -404,15 +389,13 @@ label[for="zip"] {
 
 /* ⬇️ Editorial spacing: ZIP input → Weather + Traffic */
 .zip-input-wrapper {
-  margin-bottom: 96px; /* Tight vertical rhythm */
+  margin-bottom : 150px; /* ⬅️ Increased spacing */
 }
-
 .local-weather-container {
-  margin-top: 0; /* No excess spacing above */
+  margin-top : 0;
 }
-
 #local-traffic {
-  margin-top: 0; /* Aligns cleanly with weather */
+  margin-top : 0;
 }
 
 
