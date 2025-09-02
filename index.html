@@ -1531,6 +1531,7 @@ window.onload = function() {
   }
 </script>
 <script>
+<script>
 async function loadCityZipData() {
   const res = await fetch("data/cityzip.json");
   return await res.json();
@@ -1541,34 +1542,45 @@ async function loadFallbackZipMap() {
   return await res.json();
 }
 
+function resolveLocation(input, cityZipData, fallbackZipMap) {
+  input = input.trim().toLowerCase();
+  if (/^\d{5}$/.test(input)) {
+    for (const city in cityZipData) {
+      if (cityZipData[city].includes(input)) {
+        return { zip: input, city };
+      }
+    }
+    if (fallbackZipMap[input]) {
+      return { zip: input, city: fallbackZipMap[input] };
+    }
+  }
+  if (cityZipData[input]) {
+    return { city: input, zip: cityZipData[input][0] };
+  }
+  if (fallbackZipMap[input]) {
+    return { city: fallbackZipMap[input], zip: cityZipData[fallbackZipMap[input]][0] };
+  }
+  return null;
+}
+
 document.getElementById("zip-set").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
+  const input = document.getElementById("zip").value.trim();
   const cityZipData = await loadCityZipData();
   const fallbackZipMap = await loadFallbackZipMap();
-
   const location = resolveLocation(input, cityZipData, fallbackZipMap);
+
   if (location) {
     localStorage.setItem("userZip", location.zip);
     localStorage.setItem("userLocation", location.city);
     loadWeatherBlock(location.city);
     loadTrafficLink(location.zip);
+    updateTimestampByZip(location.zip, location.city);
   } else {
     alert("ZIP or city not recognized. Try a nearby location.");
   }
 });
-
-function resolveLocation(input, cityZipData, fallbackZipMap) {
-  if (/^\d{5}$/.test(input)) {
-    for (const city in cityZipData) {
-      if (cityZipData[city].includes(input)) return { zip: input, city };
-    }
-    if (fallbackZipMap[input]) return { zip: input, city: fallbackZipMap[input] };
-  }
-  if (cityZipData[input]) return { city: input, zip: cityZipData[input][0] };
-  if (fallbackZipMap[input]) return { city: fallbackZipMap[input], zip: cityZipData[fallbackZipMap[input]][0] };
-  return null;
-}
 </script>
+
 
    
 
@@ -1586,6 +1598,7 @@ function resolveLocation(input, cityZipData, fallbackZipMap) {
 
   
  
+
 
 
 
