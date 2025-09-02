@@ -533,10 +533,25 @@ right h
 
 
 <!-- Spacer lines ABOVE ZIP -->
-
+<div style="height: 1em;"></div>
 
 <!-- ZIP Prompt Block -->
+<div class="quiet-settings-box">
+  <div style="display:inline-flex; align-items:center; gap:0.5em;">
+    <input
+      id="zip"
+      type="text"
+      placeholder="Enter city (e.g. alexandria) or ZIP (e.g. 22314)"
+      style="padding:0.3em;"
+    />
+    <button
+      id="setCoverageBtn"
+      style="padding:0.4em 0.8em;"
+    >Set Local Coverage</button>
+  </div>
+</div>
 <!-- ZIP Prompt Block ends here. Drop the click-handler script below: -->
+
 <script>
 (function() {
   const btn   = document.getElementById('setCoverageBtn');
@@ -1661,6 +1676,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
  
+
 
 
 
