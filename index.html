@@ -1599,6 +1599,26 @@ document.getElementById('setCoverageBtn').addEventListener('click', () => {
   console.log('Set Local Coverage clicked:', input);
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('setCoverageBtn').addEventListener('click', async () => {
+    const input = document.getElementById('zip').value.trim();
+    const cityZipData = await loadCityZipData();
+    const fallbackZipMap = await loadFallbackZipMap();
+    const location = resolveLocation(input, cityZipData, fallbackZipMap);
+    if (location) {
+      localStorage.setItem('userZip', location.zip);
+      localStorage.setItem('userLocation', location.city);
+      loadWeatherBlock(location.city);
+      loadTrafficLink(location.zip);
+      updateTimestampByZip(location.zip, location.city);
+      loadNationalNews(location.city);
+    } else {
+      alert('ZIP or city not recognized. Try a nearby location.');
+    }
+  });
+});
+</script>
   
 
 </body>
@@ -1615,6 +1635,7 @@ document.getElementById('setCoverageBtn').addEventListener('click', () => {
 
   
  
+
 
 
 
