@@ -1,0 +1,28 @@
+WAR RULES by Papa and Brennen
+
+1.  top of dice is how many you can kill
+    inside of the dice is how many steps you can move toward the enemy.
+
+2.  To kill a large weapon you have roll a 5 (count both dice).  You can get the weapon back if you roll doubles.
+
+3.  To use airplane or tank you have to roll eleven.
+
+4.  To kill an airplane or tank you have to roll an eleven.  Once dead you can't get it back.
+
+5.  To kill soldiers you can roll any combination of dice.  The outside number is the kills.  Inside number move you can make.
+
+6.  You can use a turn to build a wall.
+
+7.  Snake eyes means you lose your turn.
+
+8.  Roll double sixes you can capture the General.  Roll double sixes to get him back.  
+
+9.  Double 5's can kill a troop carrier or a 50 Caliber.  Double 2's get it back.
+
+10. Roll any combination - not doubles or eleven - and you kill the outside dice and move the inside dice.  
+
+11. You can't kill soldiers in the smoking pit.
+
+12. Roll a 3 and you can launch your big plane into the enemy or use the turn to kill 2 and move 1.  
+
+13. The war is over when the other side waves the white flag or all of them are dead.  

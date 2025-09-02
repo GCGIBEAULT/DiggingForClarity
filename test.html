@@ -1,0 +1,880 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<!-- === CSS INDEX ===
+1. Header Container
+2. Editorial Cue
+3. Logo Wrapper
+4. Weather Grid
+5. Forecast Icons
+=================== -->
+<title>Digging For Clarity</title>
+
+<!-- === SEO & Social Metadata === -->
+<meta name="description" content="Digging For Clarity offers drama-free news, weather, and community updates with modular clarity and trust.">
+<meta name="keywords" content="Denver news, weather updates, drama-free news, modular editorial, clarity, local events">
+<meta name="author" content="Gregg Gibeault">
+
+<!-- Open Graph (Facebook, LinkedIn, etc.) -->
+<meta property="og:title" content="Digging For Clarity">
+<meta property="og:description" content="Just The News Please. Hold The Drama.">
+<meta property="og:image" content="https://gcgibeault.github.io/DiggingForClarity/new_logo.png">
+<meta property="og:url" content="https://gcgibeault.github.io/DiggingForClarity/">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Digging For Clarity">
+<meta name="twitter:description" content="Drama-free news and weather, built for trust and clarity.">
+<meta name="twitter:image" content="https://gcgibeault.github.io/DiggingForClarity/new_logo.png">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsMediaOrganization",
+  "name": "Digging For Clarity",
+  "url": "https://gcgibeault.github.io/DiggingForClarity/",
+  "logo": "https://gcgibeault.github.io/DiggingForClarity/new_logo.png",
+  "sameAs": [
+    "https://twitter.com",
+    "https://facebook.com"
+  ],
+  "description": "Drama-free news, weather, and community updates with editorial clarity and modular trust."
+}
+</script>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digging For Clarity</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+<div class="local-weather-container">
+  <div class="main-weather-block">
+   
+  </div>
+  <div class="right-weather-box">
+    
+  </div>
+</div>
+.site-title {
+  font-size: 3.5rem; /* 75% increase from ~2rem */
+  font-weight: 900;
+  font-family: 'Merriweather', serif;
+  color: #111;
+  margin-bottom: 0.4em;
+}
+need more 
+
+
+
+
+
+}
+
+ 
+}
+
+.right-weather-box .snippet {
+  margin-bottom: 0.75em;
+  line-height: 1.4;
+}
+ 
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+.local-weather-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1em;
+  align-items: start;
+  max-width: 800px;
+  margin-left: 0;
+}
+.grid.forecast-icons {
+  display: flex;
+  overflow-x: auto;
+  gap: 1em;
+  padding-bottom: 0.5em;
+  margin-left: 150px;
+}
+
+.grid.forecast-icons .snippet {
+  text-align: center;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+
+
+
+
+
+ 
+    
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: #fff;
+  border-bottom: 2px solid #333;
+  gap: 1rem;
+}
+
+.editorial-box {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+
+.editorial-cue {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 0.5em;
+}
+
+.logo-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-center {
+  height: 220px;
+  width: auto;
+  margin-top: 0.5em;
+}
+
+
+
+.logo {
+  height: 160px;
+  max-width: 240px;
+  object-fit: contain;
+}
+.logo-dfc-footer {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 0.5em;
+}
+
+.logo-small {
+  height: 48px;
+  width: auto;
+  opacity: 0.8;
+}
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+  font-size: 0.9em;
+  color: #666;
+  margin: 2em 1.5em;
+}
+
+.footer-logo img {
+  height: 48px;
+  width: auto;
+  opacity: 0.8;
+}
+
+.footer-text {
+  flex: 1;
+}
+
+    .section {
+      background-color: #f9f9f9;
+      padding: 1em;
+      margin: 1em;
+      border-radius: 4px;
+    }
+    hr {
+      border: none;
+      border-top: 2px solid #333;
+      margin: 1.5em 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      margin: 1em;
+    }
+    .snippet {
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<head>
+  <style>
+    /* === Editorial Cue === */
+ <p class="header-tagline">Just The News Please. Hold The Drama.</p>
+
+
+      <style>
+
+
+ 
+
+
+  <head>
+  <style>
+    /* === Editorial Header === */
+    .editorial-header {
+      text-align: center;
+      margin: 2.5em 0 1.5em 0;
+    }
+   .quiet-settings-box {
+  font-size: 0.9em;
+  padding: 10px 14px;
+  margin: 12px 0;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ccc;
+}
+.quiet-settings-box h3 {
+  font-size: 1em;
+  margin: 0;
+  color: #333;
+}
+ 
+
+    .site-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      font-family: 'Merriweather', serif;
+      color: #111;
+      margin-bottom: 0.4em;
+    }
+    .editorial-box {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+
+    .timestamp {
+      font-size: 1.4rem;
+      font-weight: 500;
+      font-family: 'Open Sans', sans-serif;
+      color: #444;
+      margin-bottom: 0.6em;
+    }
+
+    .editorial-cue {
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: 'Merriweather', serif;
+      color: #222;
+      margin-top: 0.6em;
+    }
+ .hidden {
+  display: none;
+}
+  
+}
+
+  </style>
+  
+
+<body>
+  <div class="header-container">
+ <div class="editorial-box">
+  <section class="editorial-header">
+    <h1 class="site-title">Digging For Clarity</h1>
+  <p class="timestamp">Loading local time…</p>
+
+    <p class="header-tagline" style="font-size: 1.6rem; font-weight: 600; font-family: 'Merriweather', serif; text-align: center; color: #222; margin: 1em 0 0.5em 0;">Just The News Please. Hold The Drama.</p>
+  </section>
+<div class="quiet-settings-box">
+  <h3 style="margin-bottom: 6px;">Zip Code and Language</h3>
+</div>
+
+
+
+
+</section>
+
+  </div>
+<!-- Centered new logo -->
+<div class="logo-wrapper" style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
+  <img src="new_logo.png" alt="Digging For Clarity logo" style="height: 240px;">
+  <img src="dfc-inverted.png" alt="Inverted DFC Logo" style="height: 240px;">
+</div>
+
+
+
+
+
+ 
+</div>
+
+<div class="section hidden">
+  <h2>Local Weather</h2>
+  <div class="local-weather-container"></div>
+
+</div>
+
+     
+
+     
+
+  
+  </div>
+</div>
+
+    
+
+</div>    
+      
+      
+        <!-- Keep your hourly forecast snippets here -->
+      </div>
+    </div>
+   
+  </div>
+</div>
+
+
+
+ 
+
+
+</div>
+
+
+
+  <hr />
+
+  <div class="grid">
+    <div class="section">
+      <h3>Denver News</h3>
+      <div class="snippet">• BNSF rail worker loses leg after train derailment; NTSB investigation underway.</div>
+      <div class="snippet">• City employees to receive layoff notices starting August 18 amid $50M budget deficit.</div>
+      <div class="snippet">• Four injured in separate overnight shootings; police seek public tips.</div>
+      <div class="snippet">• Savannah Bananas bring viral baseball chaos to Coors Field this weekend.</div>
+      <div class="snippet">• Toro Co.’s R&D site north of Denver sells for $11.4M; Owl Offroad remains tenant.</div>
+      <div class="snippet">• RiNo Art District turns to pop-up shops to fill storefronts and support local artists.</div>
+      <div class="snippet">• Mayor Johnston defends bond proposal while layoffs loom; voters to decide in November.</div>
+      <p class="more-news-prompt">
+  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
+</p>
+
+    </div>
+    <div class="section">
+  <h3>Colorado News</h3>
+  <div class="snippet">• Colorado Parks & Wildlife confirms mountain lion sighting near Golden; trail advisories issued.</div>
+  <div class="snippet">• Denver Water launches drought resilience initiative with $20M infrastructure upgrade.</div>
+  <div class="snippet">• State legislature debates new wildfire insurance fund for high-risk zones.</div>
+  <div class="snippet">• Colorado Springs airport sees record passenger traffic in July.</div>
+  <div class="snippet">• Fort Collins pilot program tests electric snowplows ahead of winter season.</div>
+  <div class="snippet">• Western Slope farmers report crop damage from unexpected August hailstorm.</div>
+  <div class="snippet">• Aurora expands mental health crisis response teams citywide.</div>
+      <p class="more-news-prompt">
+  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
+</p>
+
+</div>
+
+  </div>
+
+  <hr />
+
+  <div class="grid">
+   <div class="section">
+  <h3>National News</h3>
+  <div class="snippet">• Tropical Storm Kendra strengthens off Gulf Coast.</div>
+  <div class="snippet">• Senate passes bipartisan wildfire relief bill.</div>
+  <div class="snippet">• NASA confirms Artemis III lunar cargo launch.</div>
+  <div class="snippet">• FTC investigates major grocery merger.</div>
+  <div class="snippet">• IRS expands free e-file pilot to 13 states.</div>
+  <div class="snippet">• DOJ investigates AI bias in hiring tools.</div>
+  <div class="snippet">• Social Security COLA forecast revised to 3.2%.</div>
+  <p class="more-news-prompt">
+  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
+</p>
+   
+</div>
+
+   <div class="section">
+  <h3>Federal News</h3>
+  <div class="snippet">• IRS expands free e-file pilot to 13 states.</div>
+  <div class="snippet">• DOJ investigates AI bias in hiring tools.</div>
+  <div class="snippet">• Social Security COLA forecast revised to 3.2%.</div>
+  <div class="snippet">• Senate committee advances privacy legislation.</div>
+  <div class="snippet">• FTC investigates major grocery merger.</div>
+  <div class="snippet">• Senate passes bipartisan wildfire relief bill.</div>
+  <div class="snippet">• NASA confirms Artemis III lunar cargo launch.</div>
+     <p class="more-news-prompt">
+  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
+</p>
+
+</div>
+
+  </div>
+
+  <hr />
+
+  <div class="grid">
+   <div class="section">
+  <h3>World News</h3>
+  <div class="snippet">• Ukraine war enters 3rd year as peace talks stall.</div>
+  <div class="snippet">• Gaza ceasefire collapses amid renewed clashes.</div>
+  <div class="snippet">• UN calls emergency session over Sudan conflict.</div>
+  <div class="snippet">• Japan commemorates Hiroshima anniversary.</div>
+  <div class="snippet">• EU proposes new AI transparency regulations.</div>
+  <div class="snippet">• Global heatwave triggers emergency alerts across Europe and Asia.</div>
+  <div class="snippet">• WHO monitors new respiratory virus clusters in Southeast Asia.</div>
+     <p class="more-news-prompt">
+  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
+</p>
+
+</div>
+
+<div class="section">
+  <h3>Market Watch</h3>
+  <div class="snippet">Dow Jones: 44,175.61 (+206.97 / +0.47%)</div>
+  <div class="snippet">NASDAQ: 21,450.02 (+207.33 / +0.98%)</div>
+  <div class="snippet">&nbsp;</div>
+  <div class="snippet prompt">Stock Symbol: <input type="text" placeholder="Enter ticker (e.g. AAPL)" /></div>
+  <div class="snippet">&nbsp;</div>
+
+  <!-- Split Investor Insights -->
+  <div class="grid">
+    <div>
+      <div class="snippet"><a href="#">Dollar-cost averaging</a></div>
+      <div class="snippet"><a href="#">Compound interest</a></div>
+      <div class="snippet"><a href="#">ETF basics</a></div>
+      <div class="snippet"><a href="#">Diversification</a></div>
+    </div>
+    <div>
+      <div class="snippet"><a href="#">Roth IRA</a></div>
+      <div class="snippet"><a href="#">P/E Ratio</a></div>
+      <div class="snippet"><a href="#">Risk reminder</a></div>
+      <p class="more-news-prompt">
+  <em>Want more financial updates?</em> <a href="#more-market" class="prompt-link">Request more</a>
+</p>
+
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+
+
+  </div>
+
+  <hr />
+
+  <div class="grid">
+    <div class="section">
+  <h3>Sports</h3>
+  <div class="snippet">• Broncos training camp highlights: rookie QB impresses.</div>
+  <div class="snippet">• Nuggets sign veteran forward to one-year deal.</div>
+  <div class="snippet">• Rockies face Diamondbacks in weekend series.</div>
+  <div class="snippet">• CU Buffs prepare for season opener vs. TCU.</div>
+  <div class="snippet">• Savannah Bananas bring viral baseball chaos to Coors Field this weekend.</div>
+  <div class="snippet">• U.S. Open tennis qualifiers begin Monday with record entries.</div>
+  <div class="snippet">• Team USA basketball finalizes Olympic roster ahead of Paris Games.</div>
+     <p class="more-news-prompt">
+  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
+</p>
+ 
+</div>
+
+    <div class="section">
+      <h3>AI Advancement</h3>
+      <div class="snippet">• OpenAI releases GPT-5 with multimodal capabilities.</div>
+      <div class="snippet">• Microsoft expands Copilot integration across Office suite.</div>
+      <div class="snippet">• Google DeepMind unveils new protein-folding breakthrough.</div>
+      <div class="snippet">• AI-generated art wins international design award.</div>
+      <div class="snippet">• EU proposes new AI transparency regulations.</div>
+      <div class="snippet">• Meta launches open-source LLM for researchers.</div>
+      <div class="snippet">• AI tutors now available in 12 languages.</div>
+      <p class="more-news-prompt">
+  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
+</p>
+
+    </div>
+
+</div>
+ 
+  </div>
+  <hr />
+<div class="grid">
+  <div class="section">
+    <h3>Community Events</h3>
+    <div class="snippet">• Civic Center EATS food truck rally runs Tuesdays and Thursdays through August.</div>
+    <div class="snippet">• Denver Street Fairs: Midsummer Arts Festival returns August 2–3 with local vendors and live music.</div>
+    <div class="snippet">• 17th Annual Backpack Giveaway and Resource Fair at Sloan’s Lake Park on August 2.</div>
+    <div class="snippet">• Ophelia's Basement Sessions: Yoga & Chill with Gruvi on August 10 at 5:30 PM.</div>
+    <div class="snippet">• Ecchi Expo anime and cosplay event at Hyatt Regency Aurora on August 10.</div>
+    <div class="snippet">• POP-UP at Zeppelin Station features local makers and DJs on August 2.</div>
+    <div class="snippet">• National Night Out community gatherings across Denver parks on August 6.</div>
+    <p class="more-news-prompt">
+  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
+</p>
+
+  </div>
+
+ <div class="section">
+  <h3>Food & Culture</h3>
+  <div class="snippet">• Denver Food + Wine Festival returns Sept. 12–14 with tastings, chef demos, and live music.</div>
+  <div class="snippet">• Summer Scream at Lakeside Amusement Park (Aug. 21): vintage rides, adult drinks, and neon nostalgia.</div>
+  <div class="snippet">• Chroma Denver Collective grand opening Aug. 16: local art, crafts, and handmade goods.</div>
+  <div class="snippet">• Levitt Pavilion hosts Fiesta Colorado with Mariachi Sol de mi Tierra on Aug. 22.</div>
+  <div class="snippet">• Palisade Peach season peaks—grilled peaches + vanilla ice cream recommended.</div>
+  <div class="snippet">• Tablón Coffee’s dirty iced chai and Hearth Bakery’s chocolate tahini cookie trending on social.</div>
+  <div class="snippet">• POP-UP at Zeppelin Station features local makers, DJs, and food trucks on Aug. 2.</div>
+   <p class="more-news-prompt">
+  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
+</p>
+
+</div>
+
+</div>
+
+<div class="grid">
+ <div class="section">
+  <h3>Health & Safety</h3>
+  <div class="snippet">• Air Quality Index: 45 (Good) — wildfire risk elevated in foothills due to dry air.</div>
+  <div class="snippet">• NSC Safety Congress & Expo comes to Denver Sept. 12–18: workplace safety, tech, and training.</div>
+  <div class="snippet">• Denver Health expands mobile vaccination clinics for underserved neighborhoods.</div>
+  <div class="snippet">• Emergency readiness plans updated for Denver schools and city buildings.</div>
+  <div class="snippet">• Mental health crisis response teams now active citywide in Aurora.</div>
+  <div class="snippet">• Free CPR and first aid workshops offered at local rec centers this month.</div>
+  <div class="snippet">• Denver Fire Department reminds residents to check smoke alarms and wildfire kits.</div>
+   <p class="more-news-prompt">
+  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
+</p>
+
+</div>
+
+<div class="section">
+  <h3>School & Family Briefs</h3>
+  <div class="snippet">• DPS students return to class starting August 5; staggered start dates by grade level.</div>
+  <div class="snippet">• Denver’s Back to School Fest (Aug. 2): free backpacks, breakfast, haircuts, and health clinics.</div>
+  <div class="snippet">• School board debates new funding model for mental health support in classrooms.</div>
+  <div class="snippet">• Free tutoring and homework help resumes at Denver Public Library branches.</div>
+  <div class="snippet">• DPS expands free lunch program to include breakfast at 40+ schools.</div>
+  <div class="snippet">• Petting zoo and family games featured at Back to School Fest at National Western Center.</div>
+  <div class="snippet">• New parent portal launches for tracking grades, attendance, and school events.</div>
+ <p class="more-news-prompt">
+  <em>Want more stories in this section?</em> <a href="#more-news" class="prompt-link">Request more</a>
+</p>
+ 
+</div>
+
+</div>
+
+  <!-- The Quiet Edit Block -->
+  <div class="section" style="flex: 1; min-width: 300px; border: 1px solid #ccc; padding: 1em; border-radius: 6px; background-color: #f9f9f9;">
+    <h3>The Quiet Edit</h3>
+    <p style="font-style: italic; font-size: 0.9rem; color: #555;">
+      To offer a sanctuary for clarity—whether political, personal, or poetic. This space welcomes stories written with care and purpose.
+    </p>
+    <p style="font-style: normal; font-size: 0.85rem; color: #666;">
+      If you’ve written something worth sharing, send it to <a href="mailto:diggingforclarity@gmail.com" style="color: #666;">diggingforclarity@gmail.com</a>.
+      <br>
+<p style="font-style: italic; font-size: 0.95rem; color: #666;">
+  Your comments are always welcome.
+</p>
+<p style="font-style: italic; font-size: 0.95rem; color: #666;">
+  QE History
+</p>
+
+ 
+</p>
+
+    </p>
+  </div>
+
+  <!-- Favorites Block -->
+  <div class="section" style="flex: 1; min-width: 300px; border: 1px solid #ccc; padding: 1em; border-radius: 6px; background-color: #f9f9f9;">
+    <h3 style="margin-bottom: 0.5em;">Favorites</h3>
+    <p style="font-style: italic; font-size: 0.85rem; color: #666;">In case you must</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5em; margin-top: 1em;">
+      <div class="snippet"><a href="https://www.foxnews.com" target="_blank">Fox News</a></div>
+      <div class="snippet"><a href="https://www.amazon.com" target="_blank">Amazon</a></div>
+      <div class="snippet"><a href="https://www.cnn.com" target="_blank">CNN</a></div>
+      <div class="snippet"><a href="https://www.reddit.com" target="_blank">Reddit</a></div>
+      <div class="snippet"><a href="https://www.msnbc.com/live" target="_blank">MSNBC Live</a></div>
+      <div class="snippet"><a href="https://www.facebook.com" target="_blank">Facebook</a></div>
+      <div class="snippet"><a href="https://www.whatsapp.com" target="_blank">WhatsApp</a></div>
+      <div class="snippet"><a href="https://www.youtube.com" target="_blank">YouTube</a></div>
+      <div class="snippet"><a href="https://www.instagram.com" target="_blank">Instagram</a></div>
+      <div class="snippet"><a href="https://www.twitter.com" target="_blank">X</a></div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+  </div>
+</div>
+
+</div>
+
+
+ 
+</div>
+
+</div>
+
+</div>
+
+</div>
+<script>
+  const cityTimezones = {
+    "denver": "America/Denver",
+    "provo": "America/Denver",
+    "miami": "America/New_York",
+    "san diego": "America/Los_Angeles",
+    "new york": "America/New_York",
+    "chicago": "America/Chicago",
+    "tokyo": "Asia/Tokyo",
+    "paris": "Europe/Paris",
+    "cairo": "Africa/Cairo",
+    "london": "Europe/London"
+    // Add more cities as needed
+  };
+
+  function updateTimestamp() {
+    const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+    const timezone = cityTimezones[location] || "America/Denver";
+
+    const now = new Date();
+    const options = {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', timeZone: timezone, timeZoneName: 'short'
+    };
+    const formatted = new Intl.DateTimeFormat('en-US', options).format(now);
+
+    document.querySelector(".timestamp").textContent = formatted;
+  }
+
+  window.onload = function() {
+    updateTimestamp();
+  };
+</script>
+ <script>
+  function loadWeatherBlock() {
+    const location = localStorage.getItem("userLocation")?.toLowerCase() || "denver";
+    const weatherPath = `blocks/${location}/Weather.html`;
+
+    fetch(weatherPath)
+      .then(response => {
+        if (!response.ok) throw new Error("Weather block not found");
+        return response.text();
+      })
+      .then(html => {
+       document.querySelector(".section").classList.remove("hidden");
+ document.querySelector(".local-weather-container").innerHTML = html;
+        
+      })
+      .catch(() => {
+        document.querySelector(".local-weather-container").innerHTML = `
+          <div class="main-weather-block">
+            <div class="snippet"><strong>Now:</strong> 85°F — Mostly cloudy skies</div>
+            <div class="snippet">Humidity: 16% | Wind: 4 mph S | Visibility: 9.9 mi</div>
+            <div class="snippet">Air Quality: 45 (Good) | UV Index: 1 (Low)</div>
+            <div class="snippet"><strong>Sunrise:</strong> 6:12 AM</div>
+            <div class="snippet"><strong>Sunset:</strong> 8:12 PM</div>
+            <div class="snippet"><strong>Tip:</strong> Light layers recommended; stay hydrated</div>
+          </div>
+          <div class="right-weather-box">
+            <div class="snippet"><strong>Local Forecast:</strong> Mostly cloudy skies, light southern breeze.</div>
+            <div class="snippet"><strong>Live Radar:</strong> <a href="https://weather.com/weather/radar" target="_blank">Track conditions in real time</a></div>
+            <div class="snippet"><strong>Local Impact:</strong> Dry air and low humidity raise wildfire risk in foothills.</div>
+            <div class="snippet"><strong>More Weather Tools:</strong> <a href="https://weather.com/" target="_blank">The Weather Channel</a></div>
+          </div>
+        `;
+      });
+  }
+
+  window.onload = function() {
+    updateTimestamp();
+    loadWeatherBlock();
+  };
+</script>
+ 
+<footer class="footer-container" style="display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 1.5rem; font-size: 1em; color: #555;">
+  <img src="DFC.png" alt="Digging For Clarity logo" style="height: 48px; opacity: 0.9;">
+  <span>© Digging For Clarity 2025. All rights reserved.</span>
+</footer>
+
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

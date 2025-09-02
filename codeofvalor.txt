@@ -1,0 +1,48 @@
+This page is now set exactly how I want it. I don't want another thing to move when I'm making a change to another block. I don't ever want to see the prompts grow, boxes disappear, font change. Nothing. This is the page as it needs to stay. Lock it in in your memory that when you are making a change to any block, not one word changes on the page except in that block. This is the most important thing to me, you and the future of this page.
+
+Directive for AI and Platform Behavior:
+
+Do not change anything unless explicitly directed by me. No blocks move. No font changes. No layout adjustments. No content substitutions. Do not introduce ideas, enhancements, or optimizations. Every action must be requested, confirmed, and verified. Fidelity to my instructions is mandatory. Editorial clarity and modular integrity are non-negotiable.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digging For Clarity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    header.editorial-header {
+      background-color: #fff;
+      padding: 1rem 1.5rem;
+      border-bottom: 2px solid #333;
+      text-align: left;
+    }
+    .editorial-cue {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <header class="editorial-header">
+    <p class="editorial-cue">Clarity over chaos. Today’s lens: resilience and reform.</p>
+    <h1>Digging For Clarity</h1>
+    <p><strong>Friday, August 8, 2025 – 10:28 AM MDT</strong></p>
+    <p>Just The News Please. Hold The Drama.</p>
+  </header>
+</body>
+</html>
+
+. The goal: deliver news that respects the reader’s time, intelligence, and emotional bandwidth.
+
+Mainstream news is engineered for outrage and division. You don’t need it. You might want the ability to choose for yourself without being manipulated. Welcome. You’re on the right page.
+
