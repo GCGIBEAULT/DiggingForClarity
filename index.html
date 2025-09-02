@@ -57,7 +57,7 @@
 <!DOCTYPE html>
 <!-- === CSS INDEX ===
 1. Header Container
-2. Editorial Cue
+2.  Cue
 3. Logo Wrapper
 4. Weather Grid
 5. Forecast Icons
@@ -66,7 +66,7 @@
 
 <!-- === SEO & Social Metadata === -->
 <meta name="description" content="Digging For Clarity offers drama-free news, weather, and community updates with modular clarity and trust.">
-<meta name="keywords" content="Denver news, weather updates, drama-free news, modular editorial, clarity, local events">
+<meta name="keywords" content="Denver news, weather updates, drama-free news, modular , clarity, local events">
 <meta name="author" content="Gregg Gibeault">
 
 <!-- Open Graph (Facebook, LinkedIn, etc.) -->
@@ -94,7 +94,7 @@
     "https://twitter.com",
     "https://facebook.com"
   ],
-  "description": "Drama-free news, weather, and community updates with editorial clarity and modular trust."
+  "description": "Drama-free news, weather, and community updates with  clarity and modular trust."
 }
 function toggleReflection() {
   const full = document.getElementById("reflection-full");
@@ -230,7 +230,7 @@ need more
   gap: 1rem;
 }
 
-.editorial-box {
+.-box {
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -239,7 +239,7 @@ need more
 }
 
 
-.editorial-cue {
+.-cue {
   font-style: italic;
   color: #555;
   margin-bottom: 0.5em;
@@ -365,8 +365,8 @@ need more
 
   <head>
   <style>
-    /* === Editorial Header === */
-    .editorial-header {
+    /* ===  Header === */
+    .-header {
       text-align: center;
       margin: 2.5em 0 1.5em 0;
     }
@@ -411,7 +411,7 @@ need more
   margin-bottom: 0.4em;
 }
 
-.editorial-box {
+.-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -478,7 +478,7 @@ need more
 right h
 }
 
-.editorial-box,
+.-box,
 .local-weather-container {
   background-color: #f4f1ec;
 }
@@ -488,7 +488,7 @@ right h
     height: 200px !important;
   }
 }
-.editorial-box,
+.-box,
 .local-weather-container {
   background-color: #f4f1ec;
 }
@@ -500,37 +500,6 @@ right h
   </style>
   
 
-<!-- Editorial Block Start -->
-<section class="section editorial-box">
-  <div class="masthead-wrapper">
-    <div class="editorial-wrapper">
-      <h1 class="site-title">Digging For Clarity</h1>
-      <hr class="header-divider">
-      <p class="header-tagline">Just The News Please. Hold The Drama.</p>
-      <hr class="header-divider">
-      <p id="timestamp" class="timestamp"></p>
-      <p class="editorial-signature">—Digging For Clarity</p>
-    </div>
-
-    <div class="logo-center-wrapper">
-      <img src="new_logo.png" alt="Digging For Clarity logo" class="logo-center">
-      <img src="dfc-inverted.png" alt="Inverted Digging For Clarity logo" class="logo-center">
-    </div>
-
-    <div style="width: 100%; text-align: center;">
-      <hr class="header-divider">
-    </div>
-
-    <!-- editorial-bridge inserted 2025-09-01 -->
-    <div class="editorial-wrapper" style="text-align: center;">
-      <p class="section-intro">
-        “<em>You don’t read the news for pleasure.<br>
-        You read it to stay informed—without pressure, without noise.</em>”
-      </p>
-    </div>
-  </div>
-</section>
-<!-- Editorial Block End -->
 
 
 
@@ -1544,6 +1513,7 @@ window.onload = function() {
 
   
  
+
 
 
 
