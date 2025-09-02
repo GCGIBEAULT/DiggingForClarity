@@ -402,6 +402,18 @@ label[for="zip"] {
   margin-bottom: 2em; /* Optional: spacing before ZIP input */
 }
 
+/* ⬇️ Editorial spacing: ZIP input → Weather + Traffic */
+.zip-input-wrapper {
+  margin-bottom: 96px; /* Tight vertical rhythm */
+}
+
+.local-weather-container {
+  margin-top: 0; /* No excess spacing above */
+}
+
+#local-traffic {
+  margin-top: 0; /* Aligns cleanly with weather */
+}
 
 
 
