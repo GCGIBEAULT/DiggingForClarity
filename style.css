@@ -420,6 +420,26 @@ label[for="zip"] {
     0 8px 16px rgba(0, 0, 0, 0.7),
     0 4px 8px  rgba(0, 0, 0, 0.5);
 }
+.quote-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 640px;
+  margin: 2em auto;
+  padding: 1.5em;
+  text-align: center;
+  background: linear-gradient(to bottom, #e2dfda, #d6d3cd);
+  border: 3px solid #222;
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.7),
+    0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.quote-box p {
+  margin: 0;
+  font-style: italic;
+}
 
 
 
