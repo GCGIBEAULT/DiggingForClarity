@@ -1,4 +1,5 @@
 
+it nee
 
 
 
@@ -532,61 +533,21 @@ right h
 
 
 
-<!-- half-em spacer above ZIP -->
-<div style="height: 0.5em;"></div>
+<!-- Spacer lines ABOVE ZIP -->
+
 
 <!-- ZIP Prompt Block -->
-<div class="quiet-settings-box" style="margin: 0;">
-  <div style="display:inline-flex; align-items:center; gap:0.5em;">
-    <input
-      id="zip"
-      type="text"
-      placeholder="Enter city (e.g. alexandria) or ZIP (e.g. 22314)"
-      style="padding:0.3em;"
-    />
-    <button
-      id="setCoverageBtn"
-      style="padding:0.4em 0.8em;"
-    >Set Local Coverage</button>
+<!-- ZIP Prompt Block styled for clarity -->
+<div style="width: 100%; text-align: center; margin: 1em 0;">
+ <div style="height: 0.25em;"></div>
+  <div style="display: inline-flex; justify-content: center; align-items: center; gap: 0.5em;">
+    <input type="text" id="zip" maxlength="50" placeholder="Enter ZIP or city"
+      style="padding: 0.4em; width: 180px; background-color: #fff; border: 1px solid #000; border-radius: 4px;">
+    <button id="zip-set"
+      style="background-color: #fff; border: 1px solid #000; border-radius: 4px; padding: 0.4em 0.8em;">Set Local Coverage</button>
   </div>
+  <div style="height: 0.5em;"></div>
 </div>
-
-<!-- half-em spacer below ZIP -->
-<div style="height: 0.5em;"></div>
-
-<script>
-(function() {
-  const btn   = document.getElementById('setCoverageBtn');
-  const input = document.getElementById('zip');
-  if (!btn || !input) return;
-
-  const alexZips = ['22301','22302','22304','22305','22311','22312','22314','22315'];
-
-  btn.addEventListener('click', () => {
-    const v = input.value.trim().toLowerCase();
-    if (v === 'alexandria' || alexZips.includes(v)) {
-      localStorage.setItem('userLocation', 'alexandria');
-      localStorage.setItem('userZip', alexZips.includes(v) ? v : '22314');
-      btn.disabled    = true;
-      btn.textContent = 'Setting Alexandria…';
-      setTimeout(() => location.reload(), 100);
-    } else {
-      alert(
-        'Enter "alexandria" or one of its ZIPs (' +
-        alexZips.join(',') +
-        ').'
-      );
-    }
-  });
-})();
-</script>
-
-
-
-<!-- Now your Local Weather + Traffic Mapping section -->
-<section class="grid" style="margin-top: 2.25em;">
-  <!-- … -->
-</section>
 
 
 
@@ -688,7 +649,10 @@ right h
 
 
 <!-- Local Modules Container with editorial spacing -->
-<section class="grid" style="margin-top: -96px;">
+<section class="grid" style="margin-top: -288px;">
+
+
+
 
   <!-- Local Weather block -->
   <div id="weather-news" class="section">
@@ -1570,101 +1534,8 @@ window.onload = function() {
     // Insert your actual coverage logic here
   }
 </script>
-<script>
-<script>
-<script>
-<!-- 🧼 ZIP/City Routing Logic — Clean Insert -->
-<script>
-<script>
-(async function () {
-  // Load city ZIP data
-  async function loadCityZipData() {
-    const res = await fetch("data/cityzip.json");
-    return await res.json();
-  }
 
-  // Load fallback ZIP map
-  async function loadFallbackZipMap() {
-    const res = await fetch("data/fallbackZipMap.json");
-    return await res.json();
-  }
-
-  // Resolve input to ZIP and city
-  function resolveLocation(input, cityZipData, fallbackZipMap) {
-    input = input.trim().toLowerCase();
-    if (/^\d{5}$/.test(input)) {
-      for (const city in cityZipData) {
-        if (cityZipData[city].includes(input)) return { zip: input, city };
-      }
-      if (fallbackZipMap[input]) return { zip: input, city: fallbackZipMap[input] };
-    }
-    if (cityZipData[input]) return { city: input, zip: cityZipData[input][0] };
-    if (fallbackZipMap[input]) return { city: fallbackZipMap[input], zip: cityZipData[fallbackZipMap[input]][0] };
-    return null;
-  }
-
-  // Bind button click
- document.getElementById('setCoverageBtn').addEventListener('click', async () => {
-  const input = document.getElementById('zip').value.trim();
-  const cityZipData = await loadCityZipData();
-  const fallbackZipMap = await loadFallbackZipMap();
-  const location = resolveLocation(input, cityZipData, fallbackZipMap);
-  if (location) {
-    localStorage.setItem('userZip', location.zip);
-    localStorage.setItem('userLocation', location.city);
-    loadWeatherBlock(location.city);
-    loadTrafficLink(location.zip);
-    updateTimestampByZip(location.zip, location.city);
-    loadNationalNews(location.city);
-  } else {
-    alert('ZIP or city not recognized. Try a nearby location.');
-  }
-});
-
-  // Final load trigger
-  window.onload = function () {
-    updateTimestamp();
-    loadWeatherBlock();
-    loadTrafficLink();
-  };
-})();
-</script>
-
- <script>
-document.getElementById('setCoverageBtn').addEventListener('click', () => {
-  const input = document.getElementById('zip')?.value.trim();
-  console.log('Set Local Coverage clicked:', input);
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('setCoverageBtn');
-  const input = document.getElementById('zip');
-  if (!btn || !input) return;
-
-  btn.addEventListener('click', async () => {
-    const value = input.value.trim();
-    console.log('Set Local Coverage clicked:', value);
-
-    const cityZipData = await loadCityZipData();
-    const fallbackZipMap = await loadFallbackZipMap();
-    const location = resolveLocation(value, cityZipData, fallbackZipMap);
-
-    if (location) {
-      localStorage.setItem('userZip', location.zip);
-      localStorage.setItem('userLocation', location.city);
-      loadWeatherBlock(location.city);
-      loadTrafficLink(location.zip);
-      updateTimestampByZip(location.zip, location.city);
-      loadNationalNews(location.city);
-    } else {
-      alert('ZIP or city not recognized. Try a nearby location.');
-    }
-  });
-});
-</script>
-
-  
+   
 
 </body>
 </html>
@@ -1680,25 +1551,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
