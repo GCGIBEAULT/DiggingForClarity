@@ -1544,6 +1544,18 @@ window.onload = function() {
   }
 </script>
 
+<script>
+  const now = new Date();
+  const options = {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    timeZone: 'America/Denver'
+  };
+  document.getElementById("timestamp").textContent = now.toLocaleString('en-US', options);
+</script>
    
 
 </body>
@@ -1560,6 +1572,7 @@ window.onload = function() {
 
   
  
+
 
 
 
