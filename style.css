@@ -389,8 +389,9 @@ am
 
 /* ⬇️ Editorial spacing: ZIP input → Weather + Traffic */
 .zip-input-wrapper {
-  margin-bottom : 150px; /* ⬅️ Increased spacing */
+  margin-bottom: 174px; /* ⬅️ 150px + 24px drift */
 }
+
 .local-weather-container {
   margin-top : 0;
 }
