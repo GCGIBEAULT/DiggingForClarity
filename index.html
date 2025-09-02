@@ -1,7 +1,7 @@
 
 
 
-<!-- Trigger rebuild: freeze editorial block -->
+
 
 
 
@@ -1330,23 +1330,7 @@ async function getTimezone(zip) {
   return map[zip] || "America/Denver"; // fallback to MDT
 }
 
-async function updateTimestampByZip(zip, city) {
-  const timezone = await getTimezone(zip);
-  const now = new Date();
-  const formatter = new Intl.DateTimeFormat("en-US", {
-    timeZone: timezone,
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true
-  });
-  const formatted = formatter.format(now);
-  document.getElementById("timestamp").textContent = `${formatted} • ${city}`;
-}
 
-</script>
 <div id="timestamp" style="font-weight: bold; margin-bottom: 0.5em;">
   Monday, September 1, 2025 • Denver
 </div>
@@ -1439,63 +1423,7 @@ window.onload = function() {
 
 
 <script>
-<script>
-  document.getElementById("set-location").addEventListener("click", () => {
-    const input = document.getElementById("zip").value.trim().toLowerCase();
-    if (input) {
-      localStorage.setItem("userLocation", input);
-      updateTimestampByZip(input, input); // or use updateTimestamp(input) if preferred
-      loadWeatherBlock();
-      loadTrafficLink();
-    }
-  });
-</script>
-<script>
-  function updateTimestampByZip(zip, city) {
-    const now = new Date();
-    const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' };
-    const formatted = now.toLocaleString('en-US', options);
-    const location = city || zip || "Denver";
-    document.getElementById("timestamp").textContent = `${formatted} — ${location}`;
-  }
 
-  const storedLocation = localStorage.getItem("userLocation");
-  updateTimestampByZip(storedLocation, storedLocation);
-
-  document.getElementById("set-location").addEventListener("click", () => {
-    const input = document.getElementById("zip").value.trim().toLowerCase();
-    if (input) {
-      localStorage.setItem("userLocation", input);
-      updateTimestampByZip(input, input);
-      loadWeatherBlock();
-      loadTrafficLink();
-    }
-  });
-</script>
-<script>
-  function updateTimestampByZip(zip, city) {
-    const now = new Date();
-    const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' };
-    const formatted = now.toLocaleString('en-US', options);
-    const location = city || zip || "Denver";
-    document.getElementById("timestamp").textContent = `${formatted} — ${location}`;
-  }
-
-  const storedLocation = localStorage.getItem("userLocation");
-  updateTimestampByZip(storedLocation, storedLocation);
-</script>
-<script>
-  function updateTimestampByZip(zip, city) {
-    const now = new Date();
-    const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' };
-    const formatted = now.toLocaleString('en-US', options);
-    const location = city || zip || "Denver";
-    document.getElementById("timestamp").textContent = `${formatted} — ${location}`;
-  }
-
-  const storedLocation = localStorage.getItem("userLocation");
-  updateTimestampByZip(storedLocation, storedLocation);
-</script>
 <script>
   document.getElementById("checkCoverageBtn").addEventListener("click", function () {
     const zipInput = document.getElementById("zipInput").value.trim();
@@ -1542,6 +1470,7 @@ window.onload = function() {
 
   
  
+
 
 
 
