@@ -376,7 +376,7 @@ label[for="zip"] {
 
 
 
-am 
+
 
 
 
@@ -399,6 +399,19 @@ am
   margin-top : 0;
 }
 
+/* editorial-box centering logic — 2025-09-02 */
+.editorial-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(to bottom, #e2dfda, #d6d3cd);
+  padding: 1.5em;
+  border-top: 3px solid #222;
+}
 
 
 
