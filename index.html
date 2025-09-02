@@ -1551,7 +1551,7 @@ window.onload = function() {
   // Resolve input to ZIP and city
   function resolveLocation(input, cityZipData, fallbackZipMap) {
     input = input.trim().toLowerCase();
-    if (/^\\d{5}$/.test(input)) {
+    if (/^\d{5}$/.test(input)) {
       for (const city in cityZipData) {
         if (cityZipData[city].includes(input)) return { zip: input, city };
       }
@@ -1564,31 +1564,7 @@ window.onload = function() {
 
   // Bind button click
   document.getElementById("zip-set").addEventListener("click", async () => {
-    const input = document.getElementById("zip").value.trim();
-    const cityZipData = await loadCityZipData();
-    const fallbackZipMap = await loadFallbackZipMap();
-    const location = resolveLocation(input, cityZipData, fallbackZipMap);
-
-    if (location) {
-      localStorage.setItem("userZip", location.zip);
-      localStorage.setItem("userLocation", location.city);
-      loadWeatherBlock(location.city);
-      loadTrafficLink(location.zip);
-      updateTimestampByZip(location.zip, location.city);
-    } else {
-      alert("ZIP or city not recognized. Try a nearby location.");
-    }
-  });
-
-  // Final load trigger
-  window.onload = function () {
-    updateTimestamp();
-    loadWeatherBlock();
-    loadTrafficLink();
-  };
-})();
-</script>
-
+    const input = document.getElement
 
    
 
@@ -1606,6 +1582,7 @@ window.onload = function() {
 
   
  
+
 
 
 
