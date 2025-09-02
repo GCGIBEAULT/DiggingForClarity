@@ -532,11 +532,11 @@ right h
 
 
 
-<!-- Spacer lines ABOVE ZIP -->
-<div style="height: 1em;"></div>
+<!-- half-em spacer above ZIP -->
+<div style="height: 0.5em;"></div>
 
 <!-- ZIP Prompt Block -->
-<div class="quiet-settings-box">
+<div class="quiet-settings-box" style="margin: 0;">
   <div style="display:inline-flex; align-items:center; gap:0.5em;">
     <input
       id="zip"
@@ -550,8 +550,11 @@ right h
     >Set Local Coverage</button>
   </div>
 </div>
-<!-- ZIP Prompt Block ends here. Drop the click-handler script below: -->
 
+<!-- half-em spacer below ZIP -->
+<div style="height: 0.5em;"></div>
+
+<!-- click-handler script — unchanged -->
 <script>
 (function() {
   const btn   = document.getElementById('setCoverageBtn');
@@ -578,6 +581,7 @@ right h
   });
 })();
 </script>
+
 
 <!-- Now your Local Weather + Traffic Mapping section -->
 <section class="grid" style="margin-top: 2.25em;">
@@ -1676,6 +1680,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
  
+
 
 
 
