@@ -1601,11 +1601,18 @@ document.getElementById('setCoverageBtn').addEventListener('click', () => {
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('setCoverageBtn').addEventListener('click', async () => {
-    const input = document.getElementById('zip').value.trim();
+  const btn = document.getElementById('setCoverageBtn');
+  const input = document.getElementById('zip');
+  if (!btn || !input) return;
+
+  btn.addEventListener('click', async () => {
+    const value = input.value.trim();
+    console.log('Set Local Coverage clicked:', value);
+
     const cityZipData = await loadCityZipData();
     const fallbackZipMap = await loadFallbackZipMap();
-    const location = resolveLocation(input, cityZipData, fallbackZipMap);
+    const location = resolveLocation(value, cityZipData, fallbackZipMap);
+
     if (location) {
       localStorage.setItem('userZip', location.zip);
       localStorage.setItem('userLocation', location.city);
@@ -1619,6 +1626,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
   
 
 </body>
@@ -1635,6 +1643,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
  
+
 
 
 
