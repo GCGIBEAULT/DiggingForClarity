@@ -1532,6 +1532,7 @@ window.onload = function() {
 </script>
 <script>
 <script>
+<script>
 async function loadCityZipData() {
   const res = await fetch("data/cityzip.json");
   return await res.json();
@@ -1546,20 +1547,12 @@ function resolveLocation(input, cityZipData, fallbackZipMap) {
   input = input.trim().toLowerCase();
   if (/^\d{5}$/.test(input)) {
     for (const city in cityZipData) {
-      if (cityZipData[city].includes(input)) {
-        return { zip: input, city };
-      }
+      if (cityZipData[city].includes(input)) return { zip: input, city };
     }
-    if (fallbackZipMap[input]) {
-      return { zip: input, city: fallbackZipMap[input] };
-    }
+    if (fallbackZipMap[input]) return { zip: input, city: fallbackZipMap[input] };
   }
-  if (cityZipData[input]) {
-    return { city: input, zip: cityZipData[input][0] };
-  }
-  if (fallbackZipMap[input]) {
-    return { city: fallbackZipMap[input], zip: cityZipData[fallbackZipMap[input]][0] };
-  }
+  if (cityZipData[input]) return { city: input, zip: cityZipData[input][0] };
+  if (fallbackZipMap[input]) return { city: fallbackZipMap[input], zip: cityZipData[fallbackZipMap[input]][0] };
   return null;
 }
 
@@ -1598,6 +1591,7 @@ document.getElementById("zip-set").addEventListener("click", async () => {
 
   
  
+
 
 
 
