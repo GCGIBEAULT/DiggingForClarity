@@ -1218,7 +1218,7 @@ async function loadCityZipData() {
   return await res.json();
 }
 
-async function loadFallbackZipMap() {
+async function () {
   const res = await fetch("data/fallbackZipMap.json");
   return await res.json();
 }
@@ -1230,7 +1230,7 @@ async function loadCityZipData() {
   return await res.json();
 }
 
-async function loadFallbackZipMap() {
+async function () {
   const res = await fetch("data/fallbackZipMap.json");
   return await res.json();
 }
@@ -1499,6 +1499,41 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
+<!-- ——— City/ZIP Init ——— -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const zipForm =
+      document.querySelector("#city-zip-form")
+      || document.querySelector("#local-weather #city-zip-form");
+
+    if (!zipForm) {
+      console.error("city-zip-form not found in DOM");
+      return;
+    }
+
+    zipForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const inputEl = document.getElementById("city-zip-input");
+      const raw = (inputEl.value || "").trim().toLowerCase();
+
+      const [cityZipData, fallbackZipMap] = await Promise.all([
+        fetch("data/cityZipData.json").then(r => r.json()),
+        fetch("data/fallbackZipMap.json").then(r => r.json()),
+      ]);
+
+      const resolved = resolveLocation(raw, cityZipData, fallbackZipMap);
+      if (!resolved) {
+        return alert("Sorry, we couldn’t locate that ZIP or city.");
+      }
+
+      localStorage.setItem("userZip", resolved.zip);
+      localStorage.setItem("userCity", resolved.city);
+
+      loadNationalNews(resolved.city);
+      updateTimestampByZip(resolved.zip, resolved.city);
+    });
+  });
+</script>
 
 
 
@@ -1518,6 +1553,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
  
+
 
 
 
