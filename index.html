@@ -1568,8 +1568,38 @@ function loadReutersNews() {
   if (!btn) {
     console.error("❗️ zip-set button not found");
   } else {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", async () => {
       console.log("🔍 zip-set clicked");
+
+      // 1. Grab and normalize user input
+      const input = document.getElementById("zip").value.trim().toLowerCase();
+
+      // 2. Resolve ZIP → city using your JSON maps
+      const cityZipData   = await loadCityZipData();
+      const fallbackZipMap = await loadFallbackZipMap();
+      const location      = resolveLocation(input, cityZipData, fallbackZipMap);
+      console.log("→ resolved:", location);
+
+      // 3. Inject or show fallback
+      const target = document.getElementById("national-news-target");
+      if (location && target) {
+        localStorage.setItem("userZip", location.zip);
+        localStorage.setItem("userLocation", location.city);
+
+        // Inject National News block
+        loadNationalNews(location.city);
+        // Layer Reuters fallback
+        loadReutersNews();
+        // Update your timestamp
+        updateTimestampByZip(location.zip, location.city);
+      } else if (target) {
+        target.innerHTML = `
+          <div class="main-news-block">
+            <h3>Editorial Zone Not Assigned</h3>
+            <div class="snippet"><strong>We couldn’t find your location.</strong></div>
+            <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
+          </div>`;
+      }
     });
   }
 </script>
@@ -1591,6 +1621,7 @@ function loadReutersNews() {
 
   
  
+
 
 
 
