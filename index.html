@@ -643,10 +643,27 @@ right h
 
 <section class="grid" style="margin-top: 1em;">
  <div id="weather-news" class="section">
-  <div style="display: inline-flex; justify-content: center; align-items: center; gap: 0.5em; margin-bottom: 1em;">
-    <input type="text" id="zip" maxlength="50" placeholder="Enter ZIP or city" style="padding: 0.4em; width: 180px; background-color: #fff; border: 1px solid #000; border-radius: 4px;">
-    <button id="zip-set" style="background-color: #fff; border: 1px solid #000; border-radius: 4px; padding: 0.4em 0.8em;">Set Local Coverage</button>
+  <div id="zip-prompt" class="snippet" style="margin-bottom: 1em;">
+    <label for="zip" style="font-weight: bold;">Set Local Coverage:</label><br>
+    <div style="display: inline-flex; justify-content: center; align-items: center; gap: 0.5em; margin-top: 0.5em;">
+      <input type="text" id="zip" maxlength="50" placeholder="Enter ZIP or city" style="padding: 0.4em; width: 180px; background-color: #fff; border: 1px solid #000; border-radius: 4px;">
+      <button id="zip-set" style="background-color: #fff; border: 1px solid #000; border-radius: 4px; padding: 0.4em 0.8em;">Set</button>
+    </div>
   </div>
+
+  <hr style="margin: 1em 0; border-top: 1px solid #999;">
+
+  <h3>Local Weather</h3>
+  <div class="snippet">
+    <strong>Just the weather, please.</strong><br>
+    Paste your weather link once—we’ll show it every day.
+  </div>
+  <div style="display: flex; gap: 0.5em; align-items: center; margin: 0.75em 0;">
+    <input type="text" id="weatherURL" placeholder="Paste your weather link" style="flex: 1; padding: 0.3em;">
+    <button id="saveWeather" style="padding: 0.4em 0.8em;">Save Link</button>
+  </div>
+  <div id="twc-anchor" class="snippet"></div>
+</div>
 
   <h3>Local Weather</h3>
   <div class="snippet">
@@ -1638,6 +1655,7 @@ document.getElementById("zip-set").addEventListener("click", async () => {
 
   
  
+
 
 
 
