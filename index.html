@@ -1439,35 +1439,6 @@ window.onload = function() {
   const storedLocation = localStorage.getItem("userLocation");
   updateTimestampByZip(storedLocation, storedLocation);
 </script>
-<script>
-  document.getElementById("checkCoverageBtn").addEventListener("click", function () {
-    const zipInput = document.getElementById("zipInput").value.trim();
-
-    if (zipInput) {
-      // Store ZIP in localStorage
-      localStorage.setItem("userZIP", zipInput);
-
-      // Trigger coverage logic (replace with your actual function)
-      checkCoverage(zipInput);
-    } else {
-      alert("Please enter a ZIP code.");
-    }
-  });
-
-  // Optional: preload stored ZIP on page load
-  window.addEventListener("DOMContentLoaded", function () {
-    const savedZIP = localStorage.getItem("userZIP");
-    if (savedZIP) {
-      document.getElementById("zipInput").value = savedZIP;
-    }
-  });
-
-  // Placeholder coverage logic
-  function checkCoverage(zip) {
-    console.log("Checking coverage for ZIP:", zip);
-    // Insert your actual coverage logic here
-  }
-</script>
 
 
    <script>
@@ -1501,6 +1472,7 @@ function loadReutersNews() {
 
   
  
+
 
 
 
