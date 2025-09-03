@@ -1503,83 +1503,83 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 diff --git a/index.html b/index.html
-index abc1234..def5678 100644
+index abc1234..xyz9876 100644
 --- a/index.html
 +++ b/index.html
-@@ -200,6 +200,14 @@
-   <div id="local-weather">
-     <!-- existing Local Weather widgets… -->
+@@ -1490,60 +1490,12 @@
+   <!-- existing scripts… -->
 
-+    <!-- City/ZIP Form -->
-+    <div id="city-zip-block">
-+      <form id="city-zip-form">
-+        <label for="city-zip-input">Enter ZIP or city name</label>
-+        <input
-+          type="text"
-+          id="city-zip-input"
-+          name="cityZip"
-+          placeholder="e.g., 80202 or denver"
-+          required
-+        />
-+        <button type="submit" id="city-zip-submit">Set Local</button>
-+      </form>
-+    </div>
-   </div>
- 
-   <!-- other page markup… -->
-@@ -950,12 +958,47 @@
-   <!-- other closing tags… -->
- 
 -  <!-- ——— City/ZIP Init ——— -->
 -  <script>
 -    document.addEventListener("DOMContentLoaded", () => {
--      // …old zipForm binding…
+-      const zipForm =
+-        document.querySelector("#city-zip-form")
+-        || document.querySelector("#local-weather #city-zip-form");
+-
+-      if (!zipForm) {
+-        console.error("city-zip-form not found in DOM");
+-        return;
+-      }
+-
+-      zipForm.addEventListener("submit", async (e) => {
+-        e.preventDefault();
+-        const inputEl = document.getElementById("city-zip-input");
+-        const raw = (inputEl.value || "").trim().toLowerCase();
+-
+-        const [cityZipData, fallbackZipMap] = await Promise.all([
+-          fetch("data/cityZipData.json").then(r => r.json()),
+-          fetch("data/fallbackZipMap.json").then(r => r.json())
+-        ]);
+-
+-        const resolved = resolveLocation(raw, cityZipData, fallbackZipMap);
+-        if (!resolved) {
+-          return alert("Sorry, we couldn’t locate that ZIP or city.");
+-        }
+-
+-        localStorage.setItem("userZip", resolved.zip);
+-        localStorage.setItem("userCity", resolved.city);
+-
+-        loadNationalNews(resolved.city);
+-        updateTimestampByZip(resolved.zip, resolved.city);
+-      });
 -    });
 -  </script>
-+  <!-- ——— City/ZIP Init ——— -->
+-  <!-- ——— City/ZIP Init ——— -->
++  <!-- Consolidated ZIP/City Init — single source of truth -->
 +  <script>
 +    document.addEventListener("DOMContentLoaded", () => {
-+      // try direct, then inside #local-weather
-+      const zipForm =
-+        document.querySelector("#city-zip-form")
-+        || document.querySelector("#local-weather #city-zip-form");
++      const inputIds = ["city-zip-input", "zip"];
++      const buttonIds = ["city-zip-submit", "zip-set"];
 +
-+      if (!zipForm) {
-+        console.error("city-zip-form not found in DOM");
-+        return;
-+      }
++      const inputs = inputIds.map(id => document.getElementById(id)).filter(Boolean);
++      const buttons = buttonIds.map(id => document.getElementById(id)).filter(Boolean);
 +
-+      zipForm.addEventListener("submit", async (e) => {
-+        e.preventDefault();
++      buttons.forEach(btn => {
++        btn.addEventListener("click", async e => {
++          e.preventDefault();
++          const raw = inputs.map(i => i.value.trim().toLowerCase()).find(v => v);
++          if (!raw) return;
 +
-+        const inputEl = document.getElementById("city-zip-input");
-+        const raw = (inputEl.value || "").trim().toLowerCase();
++          const [cityZipData, fallbackZipMap] = await Promise.all([
++            fetch("data/cityZipData.json").then(r => r.json()),
++            fetch("data/fallbackZipMap.json").then(r => r.json())
++          ]);
 +
-+        // load your data maps
-+        const [cityZipData, fallbackZipMap] = await Promise.all([
-+          fetch("data/cityZipData.json").then(r => r.json()),
-+          fetch("data/fallbackZipMap.json").then(r => r.json())
-+        ]);
++          const resolved = resolveLocation(raw, cityZipData, fallbackZipMap);
++          if (!resolved) {
++            return alert("Sorry, we couldn’t locate that ZIP or city.");
++          }
 +
-+        const resolved = resolveLocation(raw, cityZipData, fallbackZipMap);
-+        if (!resolved) {
-+          return alert("Sorry, we couldn’t locate that ZIP or city.");
-+        }
-+
-+        localStorage.setItem("userZip", resolved.zip);
-+        localStorage.setItem("userCity", resolved.city);
-+
-+        // refresh blocks
-+        loadNationalNews(resolved.city);
-+        updateTimestampByZip(resolved.zip, resolved.city);
++          localStorage.setItem("userZip", resolved.zip);
++          localStorage.setItem("userCity", resolved.city);
++          loadNationalNews(resolved.city);
++          updateTimestampByZip(resolved.zip, resolved.city);
++        });
 +      });
 +    });
 +  </script>
-   <!-- ——— end City/ZIP Init ——— -->
- 
--  <!-- other scripts… -->
-   </body>
- </html>
+ </body>
+</html>
 
 
 
@@ -1597,6 +1597,7 @@ index abc1234..def5678 100644
 
   
  
+
 
 
 
