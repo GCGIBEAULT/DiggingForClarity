@@ -563,7 +563,8 @@ right h
   <div style="display: inline-flex; justify-content: center; align-items: center; gap: 0.5em;">
     <input type="text" id="zip" maxlength="50" placeholder="Enter ZIP or city"
       style="padding: 0.4em; width: 180px; background-color: #fff; border: 1px solid #000; border-radius: 4px;">
-    <button id="zip-set"
+   <button id = " zip-set ">Set Local Coverage</button>
+
       style="background-color: #fff; border: 1px solid #000; border-radius: 4px; padding: 0.4em 0.8em;">Set Local Coverage</button>
   </div>
   <div style="height: 0.5em;"></div>
@@ -1549,54 +1550,6 @@ window.onload = function() {
   }
 </script>
 
-<script>
-document.getElementById("zip-set").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
-  const cityZipData = await loadCityZipData();
-  const fallbackZipMap = await loadFallbackZipMap();
-  const location = resolveLocation(input, cityZipData, fallbackZipMap);
-
-  if (location) {
-    localStorage.setItem("userZip", location.zip);
-    localStorage.setItem("userLocation", location.city);
-    loadNationalNews(location.city); // 🔥 Inject Alexandria block
-    updateTimestampByZip(location.zip, location.city);
-  } else {
-    document.getElementById("national-news-target").innerHTML = `
-      <div class="main-news-block">
-        <h3>Editorial Zone Not Assigned</h3>
-        <div class="snippet"><strong>We couldn’t find your location.</strong></div>
-        <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
-      </div>`;
-  }
-});
-</script>
-<script>
-document.getElementById("zip-set").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
-  const cityZipData = await loadCityZipData();
-  const fallbackZipMap = await loadFallbackZipMap();
-  const location = resolveLocation(input, cityZipData, fallbackZipMap);
-
-  if (location) {
-    localStorage.setItem("userZip", location.zip);
-    localStorage.setItem("userLocation", location.city);
-
-    // Inject Alexandria's National News block
-    loadNationalNews(location.city);
-
-    // Update timestamp using ZIP-based timezone
-    updateTimestampByZip(location.zip, location.city);
-  } else {
-    document.getElementById("national-news-target").innerHTML = `
-      <div class="main-news-block">
-        <h3>Editorial Zone Not Assigned</h3>
-        <div class="snippet"><strong>We couldn’t find your location.</strong></div>
-        <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
-      </div>`;
-  }
-});
-</script>
 
    <script>
 function loadReutersNews() {
@@ -1608,69 +1561,8 @@ function loadReutersNews() {
     });
 }
 </script>
-<script>
-document.getElementById("zip-set").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
-  const cityZipData = await loadCityZipData();
-  const fallbackZipMap = await loadFallbackZipMap();
-  const location = resolveLocation(input, cityZipData, fallbackZipMap);
 
-  if (location) {
-    localStorage.setItem("userZip", location.zip);
-    localStorage.setItem("userLocation", location.city);
 
-    loadNationalNews(location.city);     // Inject Alexandria block
-    loadReutersNews();                   // Layer Reuters fallback
-    updateTimestampByZip(location.zip, location.city);
-  } else {
-    document.getElementById("national-news-target").innerHTML = `
-      <div class="main-news-block">
-        <h3>Editorial Zone Not Assigned</h3>
-        <div class="snippet"><strong>We couldn’t find your location.</strong></div>
-        <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
-      </div>`;
-  }
-});
-</script>
-
-<script>
-document.getElementById("zip-set").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
-  const cityZipData = await loadCityZipData();
-  const fallbackZipMap = await loadFallbackZipMap();
-  const location = resolveLocation(input, cityZipData, fallbackZipMap);
-
-  if (location) {
-    localStorage.setItem("userZip", location.zip);
-    localStorage.setItem("userLocation", location.city);
-
-    const target = document.getElementById("national-news-target");
-    if (target && !target.querySelector(".injected-block")) {
-      fetch(`blocks/${location.city}/NationalNews.html`)
-        .then(res => res.text())
-        .then(html => {
-          const wrapper = document.createElement("div");
-          wrapper.className = "injected-block";
-          wrapper.innerHTML = `<!-- Injected for ${location.city} -->\n` + html;
-          target.appendChild(wrapper);
-          updateTimestampByZip(location.zip, location.city);
-        })
-        .catch(err => {
-          console.error("Injection failed:", err);
-        });
-    }
-
-    loadReutersNews();
-  } else {
-    document.getElementById("national-news-target").innerHTML = `
-      <div class="main-news-block">
-        <h3>Editorial Zone Not Assigned</h3>
-        <div class="snippet"><strong>We couldn’t find your location.</strong></div>
-        <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
-      </div>`;
-  }
-});
-</script>
 
 </body>
 </html>
@@ -1686,6 +1578,7 @@ document.getElementById("zip-set").addEventListener("click", async () => {
 
   
  
+
 
 
 
