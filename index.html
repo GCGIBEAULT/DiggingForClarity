@@ -785,6 +785,23 @@ right h
     <h3>World News</h3>
     <!-- Content intentionally blank. Awaiting clarity. -->
   </div>
+<div class="section" style="grid-column: span 2;">
+  <h3>Global Headlines</h3>
+  <div id="global-news"></div>
+</div>
+
+<div class="section" style="grid-column: span 2;">
+  <h3>U.S. Regional News</h3>
+  <div id="us-news"></div>
+</div>
+
+<div class="section" style="grid-column: span 2;">
+  <h3>Market Watch</h3>
+  <ul>
+    <li><a href="https://www.ft.com/markets" target="_blank">Financial Times</a></li>
+    <li><a href="https://www.reuters.com/markets/" target="_blank">Reuters Markets</a></li>
+  </ul>
+</div>
 
   <div class="section" style="grid-column: span 2; border: 1px solid #ccc; padding: 1em; border-radius: 6px; background-color: #f4f1ec;">
     <h3 style="margin-bottom: 0.5em;">Market Watch</h3>
@@ -1596,6 +1613,36 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("userLocation", location.city);
 
     const target = document.getElementById("
+    // === Global Headlines (Reuters) ===
+fetch('https://www.reutersagency.com/feed/?best-topics=top-news&post_type=best')
+  .then(response => response.text())
+  .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+  .then(data => {
+    const items = data.querySelectorAll("item");
+    let html = "";
+    for (let i = 0; i < 5; i++) {
+      let title = items[i].querySelector("title").textContent;
+      let link = items[i].querySelector("link").textContent;
+      html += `<li><a href="${link}" target="_blank">${title}</a></li>`;
+    }
+    document.getElementById("global-news").innerHTML = `<ul>${html}</ul>`;
+  });
+
+// === U.S. Regional News (AP) ===
+fetch('https://apnews.com/rss')
+  .then(response => response.text())
+  .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+  .then(data => {
+    const items = data.querySelectorAll("item");
+    let html = "";
+    for (let i = 0; i < 5; i++) {
+      let title = items[i].querySelector("title").textContent;
+      let link = items[i].querySelector("link").textContent;
+      html += `<li><a href="${link}" target="_blank">${title}</a></li>`;
+    }
+    document.getElementById("us-news").innerHTML = `<ul>${html}</ul>`;
+  });
+                                       
  </body>
 </html>
 
@@ -1613,6 +1660,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
  
+
 
 
 
