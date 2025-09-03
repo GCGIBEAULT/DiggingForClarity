@@ -1589,6 +1589,39 @@ index abc1234..xyz9876 100644
     }
   });
 </script>
+<!-- Consolidated ZIP/City Init — single source of truth -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const inputIds = ["city-zip-input", "zip"];
+    const buttonIds = ["city-zip-submit", "zip-set"];
+
+    const inputs = inputIds.map(id => document.getElementById(id)).filter(Boolean);
+    const buttons = buttonIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", async e => {
+        e.preventDefault();
+        const raw = inputs.map(i => i.value.trim().toLowerCase()).find(v => v);
+        if (!raw) return;
+
+        const [cityZipData, fallbackZipMap] = await Promise.all([
+          fetch("data/cityZipData.json").then(r => r.json()),
+          fetch("data/fallbackZipMap.json").then(r => r.json())
+        ]);
+
+        const resolved = resolveLocation(raw, cityZipData, fallbackZipMap);
+        if (!resolved) {
+          return alert("Sorry, we couldn’t locate that ZIP or city.");
+        }
+
+        localStorage.setItem("userZip", resolved.zip);
+        localStorage.setItem("userCity", resolved.city);
+        loadNationalNews(resolved.city);
+        updateTimestampByZip(resolved.zip, resolved.city);
+      });
+    });
+  });
+</script>
 
  </body>
 </html>
@@ -1607,6 +1640,7 @@ index abc1234..xyz9876 100644
 
   
  
+
 
 
 
