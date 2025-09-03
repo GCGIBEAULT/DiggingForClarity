@@ -1563,6 +1563,15 @@ function loadReutersNews() {
 }
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("zip-set");
+  console.assert(btn, "❗️ zip-set button not found");
+  btn.addEventListener("click", () => {
+    console.log("🔍 zip-set clicked");
+  });
+});
+</script>
 
 
 </body>
@@ -1579,6 +1588,7 @@ function loadReutersNews() {
 
   
  
+
 
 
 
