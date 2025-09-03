@@ -1597,7 +1597,17 @@ loadWeatherBlock(location.city);
 loadTrafficLink(location.zip);
 loadLocalNews(location.city);
 loadStateNews("virginia");
-   
+   <script>
+function loadReutersNews() {
+  fetch("blocks/ReutersNews.html")
+    .then(response => response.text())
+    .then(html => {
+      const target = document.getElementById("national-news-target");
+      target.insertAdjacentHTML("beforeend", html);
+    });
+}
+</script>
+
 
 </body>
 </html>
@@ -1613,6 +1623,7 @@ loadStateNews("virginia");
 
   
  
+
 
 
 
