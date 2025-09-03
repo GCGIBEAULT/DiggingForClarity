@@ -1530,39 +1530,6 @@ function loadReutersNews() {
     });
 }
 </script>
-<script>
-  const btn = document.getElementById("zip-set");
-  if (!btn) {
-    console.error("❗️ zip-set button not found");
-  } else {
-    btn.addEventListener("click", async () => {
-      console.log("🔍 zip-set clicked");
-
-      const input = document.getElementById("zip").value.trim().toLowerCase();
-      const cityZipData = await loadCityZipData();
-      const fallbackZipMap = await loadFallbackZipMap();
-      const location = resolveLocation(input, cityZipData, fallbackZipMap);
-      console.log("→ resolved:", location);
-
-      const target = document.getElementById("national-news-target");
-      if (location && target) {
-        localStorage.setItem("userZip", location.zip);
-        localStorage.setItem("userLocation", location.city);
-
-        loadNationalNews(location.city);
-        loadReutersNews();
-        updateTimestampByZip(location.zip, location.city);
-      } else if (target) {
-        target.innerHTML = `
-          <div class="main-news-block">
-            <h3>Editorial Zone Not Assigned</h3>
-            <div class="snippet"><strong>We couldn’t find your location.</strong></div>
-            <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
-          </div>`;
-      }
-    });
-  }
-</script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -1682,6 +1649,7 @@ document.getElementById("zip-set").addEventListener("click", async () => {
 
   
  
+
 
 
 
