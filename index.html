@@ -1304,33 +1304,35 @@ document.getElementById("zip-check").addEventListener("click", async () => {
   if (input === "alexandria" || alexZips.includes(input)) {
     try {
       
-      const target = Array.from(document.querySelectorAll(".section h3"))
-        .find(h3 => h3.textContent.trim() === "National News")?.parentElement;
-
-      if (target && !target.querySelector(".injected-block")) {
-        const wrapper = document.createElement("div");
-        wrapper.className = "injected-block";
-        wrapper.innerHTML = `<!-- Injected for Alexandria -->\n` + html;
-        target.appendChild(wrapper);
+    const target = document.getElementById("national-news-target");
+if (target && !target.querySelector(".injected-block")) {
+  fetch("blocks/alexandria/NationalNews.html")
+    .then(res => res.text())
+    .then(html => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "injected-block";
+      wrapper.innerHTML = `<!-- Injected for Alexandria -->\n` + html;
+      target.appendChild(wrapper);
+      updateTimestampByZip(null, "alexandria");
+    })
+    .catch(err => {
+      console.error("Injection failed:", err);
+      if (!target.querySelector(".fallback-block")) {
+        const fallback = document.createElement("div");
+        fallback.className = "fallback-block";
+        fallback.innerHTML = `
+          <!-- Alexandria Fallback Block -->
+          <div class="main-news-block">
+            <h3>Alexandria Coverage Unavailable</h3>
+            <div class="snippet"><strong>We hit a snag loading your editorial zone.</strong></div>
+            <div class="snippet">Our team is resolving it—please check back shortly.</div>
+            <div class="snippet">Meanwhile, national headlines are still live below.</div>
+          </div>`;
+        target.appendChild(fallback);
       }
-   } catch (err) {
-  console.error("Injection failed:", err);
-  const target = document.getElementById("national-news-target");
-  if (target && !target.querySelector(".fallback-block")) {
-    const fallback = document.createElement("div");
-    fallback.className = "fallback-block";
-    fallback.innerHTML = `
-      <!-- Alexandria Fallback Block -->
-      <div class="main-news-block">
-        <h3>Alexandria Coverage Unavailable</h3>
-        <div class="snippet"><strong>We hit a snag loading your editorial zone.</strong></div>
-        <div class="snippet">Our team is resolving it—please check back shortly.</div>
-        <div class="snippet">Meanwhile, national headlines are still live below.</div>
-      </div>
-    `;
-    target.appendChild(fallback);
-  }
+    });
 }
+
 document.getElementById("saveLinkButton").addEventListener("click", function () {
   const link = document.getElementById("weatherURL").value;
   localStorage.setItem("userWeatherURL", link);
@@ -1644,6 +1646,7 @@ document.getElementById("zip-set").addEventListener("click", async () => {
 
   
  
+
 
 
 
