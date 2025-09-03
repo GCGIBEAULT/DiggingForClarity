@@ -54,6 +54,7 @@
 
 
 
+
 <!DOCTYPE html>
 <!-- === CSS INDEX ===
 1. Header Container
@@ -512,10 +513,8 @@ right h
     <h1 class="site-title">Digging For Clarity</h1>
     <p class="header-tagline">Just The News Please. Hold The Drama.</p>
     <p id="timestamp" class="timestamp"></p>
-   <p class="editorial-signature" style="text-align: right; font-style: italic; margin-top: 1em;">
-  —Digging For Clarity
-</p>
-
+    <p class="editorial-signature">—Digging For Clarity</p>
+  </div>
   <!-- removed empty editorial-wrapper here -->
 </div>
 
@@ -1546,41 +1545,7 @@ window.onload = function() {
   }
 </script>
 
-<script>
-  const now = new Date();
-  const options = {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
-    timeZone: 'America/Denver'
-  };
-  document.getElementById("timestamp").textContent = now.toLocaleString('en-US', options);
-</script>
-  <script>
-document.getElementById("zip-set").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
-  const cityZipData = await loadCityZipData();
-  const fallbackZipMap = await loadFallbackZipMap();
-  const location = resolveLocation(input, cityZipData, fallbackZipMap);
-
-  if (location) {
-    localStorage.setItem("userZip", location.zip);
-    localStorage.setItem("userLocation", location.city);
-    loadNationalNews(location.city); // 🔥 Inject Alexandria block
-    updateTimestampByZip(location.zip, location.city);
-  } else {
-    document.getElementById("national-news-target").innerHTML = `
-      <div class="main-news-block">
-        <h3>Editorial Zone Not Assigned</h3>
-        <div class="snippet"><strong>We couldn’t find your location.</strong></div>
-        <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
-      </div>`;
-  }
-});
-</script>
- 
+   
 
 </body>
 </html>
@@ -1596,8 +1561,6 @@ document.getElementById("zip-set").addEventListener("click", async () => {
 
   
  
-
-
 
 
 
