@@ -1629,7 +1629,73 @@ fetch('https://apnews.com/rss')
     }
     document.getElementById("us-news").innerHTML = `<ul>${html}</ul>`;
   });
-                                       
+  <script>
+function loadUSNews(city) {
+  const blockPath = `blocks/${city}/USNews.html`;
+  const target = document.getElementById("us-news");
+
+  if (target && !target.querySelector(".injected-block")) {
+    fetch(blockPath)
+      .then(res => res.text())
+      .then(html => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "injected-block";
+        wrapper.innerHTML = `<!-- Injected for ${city} -->\n` + html;
+        target.appendChild(wrapper);
+        updateTimestampByZip(localStorage.getItem("userZip"), city);
+      })
+      .catch(() => {
+        target.innerHTML = `
+          <div class="main-news-block fallback-block">
+            <h3>U.S. News Not Found</h3>
+            <div class="snippet"><strong>We couldn’t find your location.</strong></div>
+            <div class="snippet">We’re expanding U.S. coverage. Your ZIP will be supported soon.</div>
+          </div>`;
+      });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const zipInput = document.getElementById("zip");
+  if (!zipInput) return;
+
+  async function resolveAndInject() {
+    const raw = zipInput.value.trim().toLowerCase();
+    if (!raw) return;
+
+    const [cityZipData, fallbackZipMap] = await Promise.all([
+      fetch("data/cityzip.json").then(r => r.json()),
+      fetch("data/fallbackZipMap.json").then(r => r.json())
+    ]);
+
+    const location = resolveLocation(raw, cityZipData, fallbackZipMap);
+    if (location) {
+      localStorage.setItem("userZip", location.zip);
+      localStorage.setItem("userLocation", location.city);
+      loadUSNews(location.city);
+    } else {
+      const target = document.getElementById("us-news");
+      if (target) {
+        target.innerHTML = `
+          <div class="main-news-block fallback-block">
+            <h3>U.S. News Not Found</h3>
+            <div class="snippet"><strong>We couldn’t find your location.</strong></div>
+            <div class="snippet">We’re expanding U.S. coverage. Your ZIP will be supported soon.</div>
+          </div>`;
+      }
+    }
+  }
+
+  zipInput.addEventListener("blur", resolveAndInject);
+  zipInput.addEventListener("keypress", e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      resolveAndInject();
+    }
+  });
+});
+</script>
+                                     
  </body>
 </html>
 
@@ -1647,6 +1713,7 @@ fetch('https://apnews.com/rss')
 
   
  
+
 
 
 
