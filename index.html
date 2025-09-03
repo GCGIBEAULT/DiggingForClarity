@@ -1591,6 +1591,48 @@ index abc1234..xyz9876 100644
     });
   });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("zip");
+  if (!input) return;
+
+  async function handleInput() {
+    const raw = input.value.trim().toLowerCase();
+    if (!raw) return;
+
+    const [cityZipData, fallbackZipMap] = await Promise.all([
+      fetch("data/cityzip.json").then(r => r.json()),
+      fetch("data/fallbackZipMap.json").then(r => r.json())
+    ]);
+
+    const location = resolveLocation(raw, cityZipData, fallbackZipMap);
+    if (location) {
+      localStorage.setItem("userZip", location.zip);
+      localStorage.setItem("userLocation", location.city);
+      loadNationalNews(location.city);
+      updateTimestampByZip(location.zip, location.city);
+    } else {
+      const target = document.getElementById("national-news-target");
+      if (target) {
+        target.innerHTML = `
+          <div class="main-news-block fallback-block">
+            <h3>Editorial Zone Not Assigned</h3>
+            <div class="snippet"><strong>We couldn’t find your location.</strong></div>
+            <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
+          </div>`;
+      }
+    }
+  }
+
+  input.addEventListener("blur", handleInput);
+  input.addEventListener("keypress", e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleInput();
+    }
+  });
+});
+</script>
 
  </body>
 </html>
@@ -1609,6 +1651,7 @@ index abc1234..xyz9876 100644
 
   
  
+
 
 
 
