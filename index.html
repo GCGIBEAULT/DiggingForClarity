@@ -681,7 +681,26 @@ right h
 
 </div>
 
-
+<section class="section" style="margin: 1em auto; text-align: center;">
+  <div style="height: 0.5em;"></div>
+  <div style="display: inline-flex; justify-content: center; align-items: center; gap: 0.5em;">
+    <input
+      type="text"
+      id="zip"
+      maxlength="50"
+      placeholder="Enter ZIP or city"
+      style="padding: 0.4em; width: 180px; background-color: #fff; border: 1px solid #000; border-radius: 4px;"
+    />
+    <button
+      id="zip-set"
+      style="background-color: #fff; border: 1px solid #000; border-radius: 4px; padding: 0.4em 0.8em;"
+    >
+      Set Local Coverage
+    </button>
+  </div>
+  <div style="height: 0.5em;"></div>
+</section>
+do 
 <section class="grid" style="margin-top: 3em;">
   <!-- Local Weather block -->
   <div id="weather-news" class="section">
@@ -1687,6 +1706,7 @@ document.getElementById("zip-set").addEventListener("click", async () => {
 
   
  
+
 
 
 
