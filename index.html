@@ -1575,7 +1575,27 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const zipInput = document.getElementById("zip");
+  if (!zipInput) return;
 
+  async function resolveAndInject() {
+    const raw = zipInput.value.trim().toLowerCase();
+    if (!raw) return;
+
+    const [cityZipData, fallbackZipMap] = await Promise.all([
+      fetch("data/cityzip.json").then(r => r.json()),
+      fetch("data/fallbackZipMap.json").then(r => r.json())
+    ]);
+
+    const location = resolveLocation(raw, cityZipData, fallbackZipMap);
+    if (!location || location.city !== "alexandria") return;
+
+    localStorage.setItem("userZip", location.zip);
+    localStorage.setItem("userLocation", location.city);
+
+    const target = document.getElementById("
  </body>
 </html>
 
@@ -1593,6 +1613,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
  
+
 
 
 
