@@ -1266,57 +1266,7 @@ function resolveLocation(input, cityZipData, fallbackZipMap) {
      
 
  
-<script>
-document.getElementById("zip-check").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
-  const alexZips = ["22314", "22301", "22302", "22305", "22311", "22312"];
 
-  if (input === "alexandria" || alexZips.includes(input)) {
-    try {
-      
-   const target = document.getElementById("national-news-target");
-if (target && !target.querySelector(".injected-block")) {
-  fetch("blocks/alexandria/NationalNews.html")
-    .then(res => res.text())
-    .then(html => {
-      const wrapper = document.createElement("div");
-      wrapper.className = "injected-block";
-      wrapper.innerHTML = `<!-- Injected for Alexandria -->\n` + html;
-      target.appendChild(wrapper);
-    })
-    .catch(err => {
-      console.error("Injection failed:", err);
-    });
-}
-
-      if (!target.querySelector(".fallback-block")) {
-        const fallback = document.createElement("div");
-        fallback.className = "fallback-block";
-        fallback.innerHTML = `
-          <!-- Alexandria Fallback Block -->
-          <div class="main-news-block">
-            <h3>Alexandria Coverage Unavailable</h3>
-            <div class="snippet"><strong>We hit a snag loading your editorial zone.</strong></div>
-            <div class="snippet">Our team is resolving it—please check back shortly.</div>
-            <div class="snippet">Meanwhile, national headlines are still live below.</div>
-          </div>`;
-        target.appendChild(fallback);
-      }
-    });
-}
-
-document.getElementById("saveLinkButton").addEventListener("click", function () {
-  const link = document.getElementById("weatherURL").value;
-  localStorage.setItem("userWeatherURL", link);
-  document.getElementById("twc-anchor").innerHTML = `
-    <a href="${link}" target="_blank" style="color: #0077cc; text-decoration: underline; font-weight: bold;">
-      View Forecast
-    </a>`;
-  alert("Weather link saved!");
-});
-
-
-</script>
 <script>
 async function getTimezone(zip) {
   const res = await fetch("data/zipTimezones.json");
@@ -1551,6 +1501,7 @@ function loadReutersNews() {
 
   
  
+
 
 
 
