@@ -1564,35 +1564,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-</script>
 
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("zip-set");
-    if (!btn) return;
-
-    btn.addEventListener("click", async () => {
-      const input = document.getElementById("zip").value.trim().toLowerCase();
-      if (!input) return;
-
-      const [cityZipData, fallbackZipMap] = await Promise.all([
-        fetch("data/cityzip.json").then(r => r.json()),
-        fetch("data/fallbackZipMap.json").then(r => r.json())
-      ]);
-
-      const location = resolveLocation(input, cityZipData, fallbackZipMap);
-      if (!location) {
-        alert("Sorry, we couldn’t locate that ZIP or city.");
-        return;
-      }
-
-      localStorage.setItem("userZip", location.zip);
-      localStorage.setItem("userLocation", location.city);
-      loadNationalNews(location.city);
-      updateTimestampByZip(location.zip, location.city);
-    });
-  });
-</script>
                                    
  </body>
 </html>
@@ -1611,6 +1583,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
  
+
 
 
 
