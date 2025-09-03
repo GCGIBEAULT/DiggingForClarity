@@ -555,21 +555,37 @@ right h
 <!-- Spacer lines ABOVE ZIP -->
 
 
-<!-- ZIP Prompt Block -->
-<!-- ZIP Prompt Block styled for clarity -->
-<div style="width: 100%; text-align: center; margin-top: 50px; margin-bottom: 1em;">
 
+<!-- ZIP Prompt Block styled for clarity -->
+<div
+  style="
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 1em;
+    position: relative;
+    z-index: 1000;
+  "
+>
   <div style="height: 0.5em;"></div>
   <div style="display: inline-flex; justify-content: center; align-items: center; gap: 0.5em;">
-    <input type="text" id="zip" maxlength="50" placeholder="Enter ZIP or city"
-      style="padding: 0.4em; width: 180px; background-color: #fff; border: 1px solid #000; border-radius: 4px;">
- <button id="zip-set" style="background-color:#fff;border:1px solid #000;border-radius:4px;padding:0.4em 0.8em;">
-  Set Local Coverage
-</button>
-
+    <input
+      type="text"
+      id="zip"
+      maxlength="50"
+      placeholder="Enter ZIP or city"
+      style="padding: 0.4em; width: 180px; background-color: #fff; border: 1px solid #000; border-radius: 4px;"
+    />
+    <button
+      id="zip-set"
+      style="background-color: #fff; border: 1px solid #000; border-radius: 4px; padding: 0.4em 0.8em;"
+    >
+      Set Local Coverage
+    </button>
   </div>
   <div style="height: 0.5em;"></div>
 </div>
+
 
 
 
@@ -1621,6 +1637,7 @@ function loadReutersNews() {
 
   
  
+
 
 
 
