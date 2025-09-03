@@ -1567,6 +1567,32 @@ document.getElementById("zip-set").addEventListener("click", async () => {
   }
 });
 </script>
+<script>
+document.getElementById("zip-set").addEventListener("click", async () => {
+  const input = document.getElementById("zip").value.trim().toLowerCase();
+  const cityZipData = await loadCityZipData();
+  const fallbackZipMap = await loadFallbackZipMap();
+  const location = resolveLocation(input, cityZipData, fallbackZipMap);
+
+  if (location) {
+    localStorage.setItem("userZip", location.zip);
+    localStorage.setItem("userLocation", location.city);
+
+    // Inject Alexandria's National News block
+    loadNationalNews(location.city);
+
+    // Update timestamp using ZIP-based timezone
+    updateTimestampByZip(location.zip, location.city);
+  } else {
+    document.getElementById("national-news-target").innerHTML = `
+      <div class="main-news-block">
+        <h3>Editorial Zone Not Assigned</h3>
+        <div class="snippet"><strong>We couldn’t find your location.</strong></div>
+        <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
+      </div>`;
+  }
+});
+</script>
    
 
 </body>
@@ -1583,6 +1609,7 @@ document.getElementById("zip-set").addEventListener("click", async () => {
 
   
  
+
 
 
 
