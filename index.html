@@ -1601,8 +1601,8 @@ function injectUSNewsBlock(location) {
   fetch(blockPath)
     .then(res => {
       if (!res.ok) {
-        console.warn(`Fallback triggered: ZIP ${location.zip} not found in cityZip.json. Routed to ${location.city}.`);
-        return Promise.reject("Block not found");
+        console.warn(`🩺 Fallback triggered: ZIP ${location.zip} not found in cityZip.json. Routed to ${location.city}.`);
+        throw new Error("Block not found");
       }
       return res.text();
     })
@@ -1610,9 +1610,15 @@ function injectUSNewsBlock(location) {
       target.innerHTML = html;
     })
     .catch(() => {
-      target.innerHTML = `<div class="fallback-block">U.S. News Not Found for ZIP ${location.zip}</div>`;
+      target.innerHTML = `
+        <div class="fallback-block">
+          <h3>U.S. News Not Found</h3>
+          <div class="snippet"><strong>ZIP ${location.zip} not supported.</strong></div>
+          <div class="snippet">Fallback routed to ${location.city}. Editorial block unavailable.</div>
+        </div>`;
     });
 }
+
                                    
  </body>
 </html>
@@ -1631,6 +1637,7 @@ function injectUSNewsBlock(location) {
 
   
  
+
 
 
 
