@@ -1442,9 +1442,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const btn = document.getElementById("zip-set");
   if (btn) {
-    btn.addEventListener("click", async () => {
-      const input = document.getElementById("zip").value.trim().toLowerCase();
-      if (!input) return;
+  btn.addEventListener("click", () => {
+  const input = document.getElementById("zip").value;
+  resolveAndInjectZIP(input);
+});
 
       const cityZipData = await loadCityZipData();
       const fallbackZipMap = await loadFallbackZipMap();
@@ -1504,10 +1505,11 @@ document.addEventListener("DOMContentLoaded", () => {
 -        return;
 -      }
 -
--      zipForm.addEventListener("submit", async (e) => {
--        e.preventDefault();
--        const inputEl = document.getElementById("city-zip-input");
--        const raw = (inputEl.value || "").trim().toLowerCase();
+-    zipForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const inputEl = document.getElementById("city-zip-input");
+  resolveAndInjectZIP(inputEl.value);
+});
 -
 -        const [cityZipData, fallbackZipMap] = await Promise.all([
 -          fetch("data/cityZipData.json").then(r => r.json()),
@@ -1604,15 +1606,13 @@ async function resolveAndInjectZIP(rawZip, options = {}) {
   if (options.injectNationalNews !== false) loadNationalNews(location.city);
   if (options.updateTimestamp !== false) updateTimestampByZip(location.zip, location.city);
 }
-  zipInput.addEventListener("blur", resolveAndInject);
-  zipInput.addEventListener("keypress", e => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      resolveAndInject();
-    }
-  });
+ zipInput.addEventListener("blur", () => resolveAndInjectZIP(zipInput.value));
+zipInput.addEventListener("keypress", e => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    resolveAndInjectZIP(zipInput.value);
+  }
 });
-
 document.getElementById("zip-set").addEventListener("click", async () => {
   const input = document.getElementById("zip").value.trim().toLowerCase();
   if (!/^\d{5}$/.test(input)) return; // Step 1: Validate ZIP format
@@ -1680,6 +1680,7 @@ const blockPath = `blocks/${location.city}/USNews.html`;
 
   
  
+
 
 
 
