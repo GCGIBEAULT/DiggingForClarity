@@ -1447,26 +1447,7 @@ document.addEventListener("DOMContentLoaded", () => {
   resolveAndInjectZIP(input);
 });
 
-      const cityZipData = await loadCityZipData();
-      const fallbackZipMap = await loadFallbackZipMap();
-      const location = resolveLocation(input, cityZipData, fallbackZipMap);
-
-      if (location) {
-        localStorage.setItem("userZip", location.zip);
-        localStorage.setItem("userLocation", location.city);
-        loadNationalNews(location.city);
-      } else {
-        const target = document.getElementById("national-news-target");
-        if (target) {
-          target.innerHTML = `
-            <div class="main-news-block fallback-block">
-              <h3>Editorial Zone Not Assigned</h3>
-              <div class="snippet"><strong>We couldn’t find your location.</strong></div>
-              <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
-            </div>`;
-        }
-      }
-    });
+      
   }
 
   document.getElementById("saveWeather").addEventListener("click", () => {
@@ -1680,6 +1661,7 @@ const blockPath = `blocks/${location.city}/USNews.html`;
 
   
  
+
 
 
 
