@@ -1414,14 +1414,12 @@ function loadNationalNews(city) {
         target.appendChild(wrapper);
         updateTimestampByZip(localStorage.getItem("userZip"), city);
       })
-      .catch(() => {
-        target.innerHTML = `
-          <div class="main-news-block fallback-block">
-            <h3>Editorial Zone Not Assigned</h3>
-            <div class="snippet"><strong>We couldn’t find your location.</strong></div>
-            <div class="snippet">We’re expanding national coverage. Your ZIP will be supported soon.</div>
-          </div>`;
-      });
+      const btn = document.getElementById("zip-set");
+  if (btn) {
+  btn.addEventListener("click", () => {
+  const input = document.getElementById("zip").value;
+  resolveAndInjectZIP(input);
+});
   }
 }
 
@@ -1618,6 +1616,7 @@ const blockPath = `blocks/${location.city}/USNews.html`;
 
   
  
+
 
 
 
