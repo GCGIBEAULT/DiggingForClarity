@@ -1596,7 +1596,8 @@ function injectUSNewsBlock(location) {
   const target = document.getElementById("us-news");
   if (!target || !location || !location.city) return;
 
-  const blockPath = `blocks/${location.city}/USNews.html`;
+const blockPath = `blocks/${location.city}/USNews.html`;
+
 
   fetch(blockPath)
     .then(res => {
@@ -1637,6 +1638,7 @@ function injectUSNewsBlock(location) {
 
   
  
+
 
 
 
