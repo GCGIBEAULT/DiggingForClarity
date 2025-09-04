@@ -621,7 +621,7 @@ async function resolveAndInjectZIP(rawZip, options = {}) {
     fetch("data/fallbackZipMap.json").then(r => r.json())
   ]);
 
-  const location = resolveLocation(zip, cityZipData, fallbackZipMap);
+ 
   if (!location) {
     injectFallbackBlock(zip);
     return;
@@ -1136,7 +1136,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     return await res.json();
   }
 
-  function resolveLocation(input, cityZipData, fallbackZipMap) {
+ 
   
     input = input.trim().toLowerCase();
 
@@ -1232,7 +1232,7 @@ async function () {
   return await res.json();
 }
 
-function resolveLocation(input, cityZipData, fallbackZipMap) {
+
   input = input.trim().toLowerCase();
   if (/^\d{5}$/.test(input)) {
     for (const city in cityZipData) {
@@ -1342,7 +1342,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const cityZipData = await loadCityZipData();
       const fallbackZipMap = await loadFallbackZipMap();
-      const location = resolveLocation(input, cityZipData, fallbackZipMap);
+     
 
       if (location) {
         localStorage.setItem("userZip", location.zip);
@@ -1386,7 +1386,7 @@ async function loadFallbackZipMap() {
   return await res.json();
 }
 
-function resolveLocation(input, cityZipData, fallbackZipMap) {
+
   input = input.trim().toLowerCase();
   if (/^\d{5}$/.test(input)) {
     for (const city in cityZipData) {
@@ -1502,7 +1502,7 @@ document.addEventListener("DOMContentLoaded", () => {
 -          fetch("data/fallbackZipMap.json").then(r => r.json())
 -        ]);
 -
--        const resolved = resolveLocation(raw, cityZipData, fallbackZipMap);
+-       
 -        if (!resolved) {
 -          return alert("Sorry, we couldn’t locate that ZIP or city.");
 -        }
@@ -1531,7 +1531,7 @@ async function resolveAndInjectZIP(rawZip, options = {}) {
     fetch("data/fallbackZipMap.json").then(r => r.json())
   ]);
 
-  const location = resolveLocation(zip, cityZipData, fallbackZipMap);
+  
   if (!location) {
     injectFallbackBlock(zip);
     return;
@@ -1571,7 +1571,15 @@ function injectEditorialBlock(city, type) {
     });
 }
 
-
+function resolveLocation(source, zip) {
+  const locationData = {
+    type: 'zip',
+    value: zip,
+    source: source
+  };
+  console.log('Resolved location:', locationData);
+  // Add your city lookup or routing logic here
+}
 
                                    
  </body>
@@ -1591,6 +1599,7 @@ function injectEditorialBlock(city, type) {
 
   
  
+
 
 
 
