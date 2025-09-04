@@ -1582,7 +1582,28 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+async function resolveAndInjectZIP(rawZip, options = {}) {
+  const zip = (rawZip || "").trim().toLowerCase();
+  if (!/^\d{5}$/.test(zip)) return;
 
+  const [cityZipData, fallbackZipMap] = await Promise.all([
+    fetch("data/cityZipData.json").then(r => r.json()),
+    fetch("data/fallbackZipMap.json").then(r => r.json())
+  ]);
+
+  const location = resolveLocation(zip, cityZipData, fallbackZipMap);
+  if (!location) {
+    injectFallbackBlock(zip);
+    return;
+  }
+
+  localStorage.setItem("userZip", location.zip);
+  localStorage.setItem("userLocation", location.city);
+
+  if (options.injectUSNews !== false) injectUSNewsBlock(location);
+  if (options.injectNationalNews !== false) loadNationalNews(location.city);
+  if (options.updateTimestamp !== false) updateTimestampByZip(location.zip, location.city);
+}
   zipInput.addEventListener("blur", resolveAndInject);
   zipInput.addEventListener("keypress", e => {
     if (e.key === "Enter") {
@@ -1659,6 +1680,7 @@ const blockPath = `blocks/${location.city}/USNews.html`;
 
   
  
+
 
 
 
