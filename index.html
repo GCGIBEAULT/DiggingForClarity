@@ -1590,6 +1590,27 @@ document.getElementById("zip-set").addEventListener("click", async () => {
     }
   }
 });
+function injectUSNewsBlock(location) {
+  const target = document.getElementById("us-news");
+  if (!target || !location || !location.city) return;
+
+  const blockPath = `blocks/${location.city}/USNews.html`;
+
+  fetch(blockPath)
+    .then(res => {
+      if (!res.ok) {
+        console.warn(`Fallback triggered: ZIP ${location.zip} not found in cityZip.json. Routed to ${location.city}.`);
+        return Promise.reject("Block not found");
+      }
+      return res.text();
+    })
+    .then(html => {
+      target.innerHTML = html;
+    })
+    .catch(() => {
+      target.innerHTML = `<div class="fallback-block">U.S. News Not Found for ZIP ${location.zip}</div>`;
+    });
+}
                                    
  </body>
 </html>
@@ -1608,6 +1629,7 @@ document.getElementById("zip-set").addEventListener("click", async () => {
 
   
  
+
 
 
 
