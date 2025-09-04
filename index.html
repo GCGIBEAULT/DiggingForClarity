@@ -1569,9 +1569,7 @@ zipInput.addEventListener("keypress", e => {
     resolveAndInjectZIP(zipInput.value);
   }
 });
-document.getElementById("zip-set").addEventListener("click", async () => {
-  const input = document.getElementById("zip").value.trim().toLowerCase();
-  if (!/^\d{5}$/.test(input)) return; // Step 1: Validate ZIP format
+
 
 
 function injectUSNewsBlock(location) {
@@ -1620,6 +1618,7 @@ const blockPath = `blocks/${location.city}/USNews.html`;
 
   
  
+
 
 
 
