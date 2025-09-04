@@ -640,38 +640,7 @@ async function resolveAndInjectZIP(rawZip, options = {}) {
       document.getElementById("twc-link").href = savedURL;
     }
   });
-</script>
-function injectFallbackBlock(zip, city = "Unknown") {
-  const target =
-    document.getElementById("us-news") ||
-    document.getElementById("national-news-target");
 
-  if (!target) return;
-
-  target.innerHTML = `
-    <div class="fallback-block">
-      <h3>U.S. News Not Found</h3>
-      <div class="snippet"><strong>ZIP ${zip} not supported.</strong></div>
-      <div class="snippet">Fallback routed to ${city}. Editorial block unavailable.</div>
-    </div>`;
-
-  // 🧠 Log unsupported ZIP with weekday
-  const now = new Date();
-  const weekday = now.toLocaleDateString("en-US", { weekday: "long" });
-  const fallbackLog = JSON.parse(localStorage.getItem("fallbackZipLog") || "[]");
-
-  fallbackLog.push({
-    zip,
-    city,
-    weekday,
-    timestamp: now.toISOString()
-  });
-
-  localStorage.setItem("fallbackZipLog", JSON.stringify(fallbackLog));
-}
-
-
-<script>
   document.addEventListener("DOMContentLoaded", function () {
     const savedWeatherURL = localStorage.getItem("userWeatherURL");
     const anchorDiv = document.getElementById("twc-anchor");
@@ -1168,6 +1137,38 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   }
 
   function resolveLocation(input, cityZipData, fallbackZipMap) {
+   </script>
+function injectFallbackBlock(zip, city = "Unknown") {
+  const target =
+    document.getElementById("us-news") ||
+    document.getElementById("national-news-target");
+
+  if (!target) return;
+
+  target.innerHTML = `
+    <div class="fallback-block">
+      <h3>U.S. News Not Found</h3>
+      <div class="snippet"><strong>ZIP ${zip} not supported.</strong></div>
+      <div class="snippet">Fallback routed to ${city}. Editorial block unavailable.</div>
+    </div>`;
+
+  // 🧠 Log unsupported ZIP with weekday
+  const now = new Date();
+  const weekday = now.toLocaleDateString("en-US", { weekday: "long" });
+  const fallbackLog = JSON.parse(localStorage.getItem("fallbackZipLog") || "[]");
+
+  fallbackLog.push({
+    zip,
+    city,
+    weekday,
+    timestamp: now.toISOString()
+  });
+
+  localStorage.setItem("fallbackZipLog", JSON.stringify(fallbackLog));
+}
+
+
+<script> 
     input = input.trim().toLowerCase();
 
     if (/^\d{5}$/.test(input)) {
@@ -1590,6 +1591,7 @@ function injectEditorialBlock(city, type) {
 
   
  
+
 
 
 
