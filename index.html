@@ -1401,25 +1401,7 @@ async function updateTimestampByZip(zip, city) {
   document.getElementById("timestamp").textContent = `${formatted} • ${city}`;
 }
 
-function loadNationalNews(city) {
-  const blockPath = `blocks/${city}/NationalNews.html`;
-  const target = document.getElementById("national-news-target");
 
-  if (target && !target.querySelector(".injected-block")) {
-    fetch(blockPath)
-      .then(res => res.text())
-      .then(html => {
-        const wrapper = document.createElement("div");
-        wrapper.className = "injected-block";
-       wrapper.innerHTML = `<!-- Injected for ${city} -->\n` + html;
-        target.appendChild(wrapper);
-        updateTimestampByZip(localStorage.getItem("userZip"), city);
-      })
-      .catch(() => {
-        injectFallbackBlock(localStorage.getItem("userZip"), city);
-      });
-  }
-}
 // === Weather + Traffic Link Save/Render ===
 document.addEventListener("DOMContentLoaded", () => {
   const savedWeather = localStorage.getItem("userWeatherURL");
@@ -1505,7 +1487,7 @@ document.addEventListener("DOMContentLoaded", () => {
 -      });
 -    });
 - <script>
-injectEditorialBlock(city, "USNews");
+
   const blockPath = `blocks/${city}/USNews.html`;
   const target = document.getElementById("us-news");
 
@@ -1585,33 +1567,6 @@ function injectEditorialBlock(city, type) {
 }
 
 
-function injectUSNewsBlock(location) {
-  const target = document.getElementById("us-news");
-  if (!target || !location || !location.city) return;
-
-const blockPath = `blocks/${location.city}/USNews.html`;
-
-
-  fetch(blockPath)
-    .then(res => {
-      if (!res.ok) {
-        console.warn(`🩺 Fallback triggered: ZIP ${location.zip} not found in cityZip.json. Routed to ${location.city}.`);
-        throw new Error("Block not found");
-      }
-      return res.text();
-    })
-    .then(html => {
-      target.innerHTML = html;
-    })
-    .catch(() => {
-      target.innerHTML = `
-        <div class="fallback-block">
-          <h3>U.S. News Not Found</h3>
-          <div class="snippet"><strong>ZIP ${location.zip} not supported.</strong></div>
-          <div class="snippet">Fallback routed to ${location.city}. Editorial block unavailable.</div>
-        </div>`;
-    });
-}
 
                                    
  </body>
@@ -1631,6 +1586,7 @@ const blockPath = `blocks/${location.city}/USNews.html`;
 
   
  
+
 
 
 
