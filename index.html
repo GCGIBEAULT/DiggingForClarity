@@ -1240,17 +1240,7 @@ async function () {
         return { zip: input, city };
       }
     }
-     </script>
-function injectFallbackBlock(zip, city = "Unknown") {
-  const target =
-    document.getElementById("us-news") ||
-    document.getElementById("national-news-target");
-
-  if (!target) return;
-
-
-
-<script> 
+    
     if (fallbackZipMap[input]) {
       return { zip: input, city: fallbackZipMap[input] };
     }
@@ -1578,6 +1568,7 @@ function resolveLocation(source, zip) {
 
   
  
+
 
 
 
