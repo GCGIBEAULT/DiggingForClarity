@@ -33,3 +33,34 @@ for city in all_cities:
 
 print(f"✅ Created {len(all_cities)} folders with placeholder editorial blocks.")
 
+/* --- STRAY CODE HOLDING ZONE ---
+   Cut from live site below copyright
+   Fired twice on ZIP input
+   Might trigger civic overlay injection
+
+// resolveLocation(zip);
+// document.getElementById('zip').addEventListener('input', ...);
+// injectFallbackBlock(zip);
+*/
+ target.innerHTML = `
+    <div class="fallback-block">
+      <h3>U.S. News Not Found</h3>
+      <div class="snippet"><strong>ZIP ${zip} not supported.</strong></div>
+      <div class="snippet">Fallback routed to ${city}. Editorial block unavailable.</div>
+    </div>`;
+
+  // 🧠 Log unsupported ZIP with weekday
+  const now = new Date();
+  const weekday = now.toLocaleDateString("en-US", { weekday: "long" });
+  const fallbackLog = JSON.parse(localStorage.getItem("fallbackZipLog") || "[]");
+
+  fallbackLog.push({
+    zip,
+    city,
+    weekday,
+    timestamp: now.toISOString()
+  });
+
+  localStorage.setItem("fallbackZipLog", JSON.stringify(fallbackLog));
+}
+
