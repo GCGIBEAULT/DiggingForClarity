@@ -1564,7 +1564,25 @@ zipInput.addEventListener("keypress", e => {
     resolveAndInjectZIP(zipInput.value);
   }
 });
+function injectEditorialBlock(city, type) {
+  const blockPath = `blocks/${city}/${type}.html`;
+  const targetId = type === "USNews" ? "us-news" : "national-news-target";
+  const target = document.getElementById(targetId);
+  if (!target || target.querySelector(".injected-block")) return;
 
+  fetch(blockPath)
+    .then(res => res.text())
+    .then(html => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "injected-block";
+      wrapper.innerHTML = `<!-- Injected for ${city} (${type}) -->\n` + html;
+      target.appendChild(wrapper);
+      updateTimestampByZip(localStorage.getItem("userZip"), city);
+    })
+    .catch(() => {
+      injectFallbackBlock(localStorage.getItem("userZip"), city);
+    });
+}
 
 
 function injectUSNewsBlock(location) {
@@ -1613,6 +1631,7 @@ const blockPath = `blocks/${location.city}/USNews.html`;
 
   
  
+
 
 
 
