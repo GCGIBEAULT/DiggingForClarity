@@ -1411,7 +1411,7 @@ function loadNationalNews(city) {
       .then(html => {
         const wrapper = document.createElement("div");
         wrapper.className = "injected-block";
-        wrapper.innerHTML = <!-- Injected for ${city} -->\n + html;
+       wrapper.innerHTML = `<!-- Injected for ${city} -->\n` + html;
         target.appendChild(wrapper);
         updateTimestampByZip(localStorage.getItem("userZip"), city);
       })
@@ -1613,6 +1613,7 @@ const blockPath = `blocks/${location.city}/USNews.html`;
 
   
  
+
 
 
 
