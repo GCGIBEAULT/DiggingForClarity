@@ -1402,27 +1402,24 @@ async function updateTimestampByZip(zip, city) {
 }
 
 function loadNationalNews(city) {
-  const blockPath = `blocks/${city}/NationalNews.html`;
+  const blockPath = blocks/${city}/NationalNews.html;
   const target = document.getElementById("national-news-target");
+
   if (target && !target.querySelector(".injected-block")) {
     fetch(blockPath)
       .then(res => res.text())
       .then(html => {
         const wrapper = document.createElement("div");
         wrapper.className = "injected-block";
-        wrapper.innerHTML = `<!-- Injected for ${city} -->\n` + html;
+        wrapper.innerHTML = <!-- Injected for ${city} -->\n + html;
         target.appendChild(wrapper);
         updateTimestampByZip(localStorage.getItem("userZip"), city);
       })
-      const btn = document.getElementById("zip-set");
-  if (btn) {
-  btn.addEventListener("click", () => {
-  const input = document.getElementById("zip").value;
-  resolveAndInjectZIP(input);
-});
+      .catch(() => {
+        injectFallbackBlock(localStorage.getItem("userZip"), city);
+      });
   }
 }
-
 // === Weather + Traffic Link Save/Render ===
 document.addEventListener("DOMContentLoaded", () => {
   const savedWeather = localStorage.getItem("userWeatherURL");
@@ -1616,6 +1613,7 @@ const blockPath = `blocks/${location.city}/USNews.html`;
 
   
  
+
 
 
 
