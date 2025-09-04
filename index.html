@@ -1573,23 +1573,7 @@ document.getElementById("zip-set").addEventListener("click", async () => {
   const input = document.getElementById("zip").value.trim().toLowerCase();
   if (!/^\d{5}$/.test(input)) return; // Step 1: Validate ZIP format
 
-  const cityZipData = await loadCityZipData();       // Step 2: Load cityZip.json
-  const fallbackZipMap = await loadFallbackZipMap(); // Step 3: Load fallback map
 
-  const location = resolveLocation(input, cityZipData, fallbackZipMap); // Step 3: Route ZIP
-
-  if (location) {
-    localStorage.setItem("userZip", location.zip);   // Step 4: Store resolved ZIP
-    localStorage.setItem("userLocation", location.city);
-    updateTimestampByZip(location.zip, location.city); // Optional: timestamp update
-    injectUSNewsBlock(location);
-
-    // Optional: inject editorial block if target exists
-    if (document.getElementById("national-news-target")) {
-      loadNationalNews(location.city);
-    }
-  }
-});
 function injectUSNewsBlock(location) {
   const target = document.getElementById("us-news");
   if (!target || !location || !location.city) return;
@@ -1636,6 +1620,7 @@ const blockPath = `blocks/${location.city}/USNews.html`;
 
   
  
+
 
 
 
