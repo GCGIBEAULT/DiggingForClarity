@@ -649,24 +649,7 @@ function injectFallbackBlock(zip, city = "Unknown") {
 
   if (!target) return;
 
-  target.innerHTML = `
-    <div class="fallback-block">
-      <h3>U.S. News Not Found</h3>
-      <div class="snippet"><strong>ZIP ${zip} not supported.</strong></div>
-      <div class="snippet">Fallback routed to ${city}. Editorial block unavailable.</div>
-    </div>`;
-
-  // 🧠 Log unsupported ZIP with weekday
-  const now = new Date();
-  const weekday = now.toLocaleDateString("en-US", { weekday: "long" });
-  const fallbackLog = JSON.parse(localStorage.getItem("fallbackZipLog") || "[]");
-
-  fallbackLog.push({
-    zip,
-    city,
-    weekday,
-    timestamp: now.toISOString()
-  });
+ 
 
   localStorage.setItem("fallbackZipLog", JSON.stringify(fallbackLog));
 }
@@ -1569,6 +1552,25 @@ function injectEditorialBlock(city, type) {
     .catch(() => {
       injectFallbackBlock(localStorage.getItem("userZip"), city);
     });
+
+   target.innerHTML = `
+    <div class="fallback-block">
+      <h3>U.S. News Not Found</h3>
+      <div class="snippet"><strong>ZIP ${zip} not supported.</strong></div>
+      <div class="snippet">Fallback routed to ${city}. Editorial block unavailable.</div>
+    </div>`;
+
+  // 🧠 Log unsupported ZIP with weekday
+  const now = new Date();
+  const weekday = now.toLocaleDateString("en-US", { weekday: "long" });
+  const fallbackLog = JSON.parse(localStorage.getItem("fallbackZipLog") || "[]");
+
+  fallbackLog.push({
+    zip,
+    city,
+    weekday,
+    timestamp: now.toISOString()
+  });
 }
 
 
@@ -1591,6 +1593,7 @@ function injectEditorialBlock(city, type) {
 
   
  
+
 
 
 
