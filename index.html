@@ -632,7 +632,8 @@ async function resolveAndInjectZIP(rawZip, options = {}) {
   localStorage.setItem("userLocation", location.city);
 
   if (options.injectUSNews !== false) injectUSNewsBlock(location);
-  if (options.injectNationalNews !== false) loadNationalNews(location.city);
+  if (options.injectNationalNews !== false) loadUSNews(location.city);
+
   if (options.updateTimestamp !== false) updateTimestampByZip(location.zip, location.city);
 }
   document.addEventListener("DOMContentLoaded", function () {
@@ -1607,6 +1608,7 @@ function injectEditorialBlock(city, type) {
 
   
  
+
 
 
 
