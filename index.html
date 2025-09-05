@@ -1503,25 +1503,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const zipInput = document.getElementById("zip");
   if (!zipInput) return;
-   target.innerHTML = `
-    <div class="fallback-block">
-      <h3>U.S. News Not Found</h3>
-      <div class="snippet"><strong>ZIP ${zip} not supported.</strong></div>
-      <div class="snippet">Fallback routed to ${city}. Editorial block unavailable.</div>
-    </div>`;
-
-  // 🧠 Log unsupported ZIP with weekday
-  const now = new Date();
-  const weekday = now.toLocaleDateString("en-US", { weekday: "long" });
-  const fallbackLog = JSON.parse(localStorage.getItem("fallbackZipLog") || "[]");
-
-  fallbackLog.push({
-    zip,
-    city,
-    weekday,
-    timestamp: now.toISOString()
-  });
-}
+ 
   
 async function resolveAndInjectZIP(rawZip, options = {}) {
   const zip = (rawZip || "").trim().toLowerCase();
@@ -1552,6 +1534,48 @@ zipInput.addEventListener("keypress", e => {
     resolveAndInjectZIP(zipInput.value);
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const zipInput = document.getElementById("zip");
+  if (!zipInput) return;
+
+  async function resolveAndInjectZIP(rawZip, options = {}) {
+    const zip = (rawZip || "").trim().toLowerCase();
+    if (!/^\d{5}$/.test(zip)) return;
+
+    const [cityZipData, fallbackZipMap] = await Promise.all([
+      fetch("data/cityZipData.json").then(r => r.json()),
+      fetch("data/fallbackZipMap.json").then(r => r.json())
+    ]);
+
+    const location = resolveLocation(zip, cityZipData, fallbackZipMap);
+    if (!location) {
+      injectFallbackBlock(zip, "unknown");
+      return;
+    }
+
+    localStorage.setItem("userZip", location.zip);
+    localStorage.setItem("userLocation", location.city);
+
+    if (options.injectUSNews !== false) injectUSNewsBlock(location);
+    if (options.updateTimestamp !== false) updateTimestampByZip(location.zip, location.city);
+  }
+
+  zipInput.addEventListener("blur", () => resolveAndInjectZIP(zipInput.value));
+  zipInput.addEventListener("keypress", e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      resolveAndInjectZIP(zipInput.value);
+    }
+  });
+
+  const zipSetButton = document.getElementById("zip-set");
+  if (zipSetButton) {
+    zipSetButton.addEventListener("click", () => {
+      resolveAndInjectZIP(zipInput.value);
+    });
+  }
+});
+  
 function injectEditorialBlock(city, type) {
   const blockPath = `blocks/${city}/${type}.html`;
   const targetId = type === "USNews" ? "us-news" : "national-news-target";
@@ -1593,6 +1617,7 @@ function injectEditorialBlock(city, type) {
 
   
  
+
 
 
 
