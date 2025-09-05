@@ -631,8 +631,8 @@ async function resolveAndInjectZIP(rawZip, options = {}) {
   localStorage.setItem("userZip", location.zip);
   localStorage.setItem("userLocation", location.city);
 
-  if (options.injectUSNews !== false) injectUSNewsBlock(location);
-  if (options.injectNationalNews !== false) loadUSNews(location.city);
+ 
+ 
 
   if (options.updateTimestamp !== false) updateTimestampByZip(location.zip, location.city);
 }
@@ -1178,27 +1178,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
 
      
-    } else {
-     document.getElementById("news-block").innerHTML = `
-  <div class="main-news-block">
-   <h3>U.S. News Not Found</h3>
-<div class="snippet"><strong>We couldn’t find your location.</strong></div>
-<div class="snippet">We’re expanding U.S. coverage. Your ZIP will be supported soon.</div>
-
-  </div>
-`;
-
-    }
-  }
-
-
-     
-  });
-
-  }
-}
-
-
+   
 
 
 <script>
@@ -1331,7 +1311,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (location) {
         localStorage.setItem("userZip", location.zip);
         localStorage.setItem("userLocation", location.city);
-        loadNationalNews(location.city);
+     
+
       } else {
         injectFallbackBlock(zip, "unknown");
 
@@ -1608,6 +1589,7 @@ function injectEditorialBlock(city, type) {
 
   
  
+
 
 
 
