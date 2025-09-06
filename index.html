@@ -111,7 +111,7 @@ function toggleReflection() {
   }
 }
   
-</script>
+
 
 
   <meta charset="UTF-8" />
@@ -558,12 +558,6 @@ right h
 
 
 
-<!-- ZIP Prompt Block styled for clarity -->
-<input id="zip" type="text" placeholder="Enter ZIP or city" />
-<button id="zip-set">Set ZIP</button>
-<div id="us-news" class="section" style="margin-top: 1.5em;">
-  <!-- U.S. News block will be injected here -->
-</div>
 
 
 
@@ -574,20 +568,7 @@ right h
 
 
 
-<!-- Local Weather + Traffic Mapping -->
-<section class="grid" style="margin-top: 50px;">
 
-
-
-
-
-
-
-
-
-
-
-</div> <!-- closes editorial-box -->
 
 
 
@@ -613,47 +594,7 @@ right h
       document.getElementById("twc-link").href = url;
     }
   }
-async function resolveAndInjectZIP(rawZip, options = {}) {
-  const zip = (rawZip || "").trim().toLowerCase();
-  if (!/^\d{5}$/.test(zip)) return;
 
-  const [cityZipData, fallbackZipMap] = await Promise.all([
-    fetch("data/cityZipData.json").then(r => r.json()),
-    fetch("data/fallbackZipMap.json").then(r => r.json())
-  ]);
-
-  const location = resolveLocation(zip, cityZipData, fallbackZipMap);
-  if (!location) {
-   
-    return;
-  }
-
-  localStorage.setItem("userZip", location.zip);
-  localStorage.setItem("userLocation", location.city);
-
- 
- 
-
-  if (options.updateTimestamp !== false) updateTimestampByZip(location.zip, location.city);
-}
-  document.addEventListener("DOMContentLoaded", function () {
-    const savedURL = localStorage.getItem("userWeatherURL");
-    if (savedURL) {
-      document.getElementById("twc-link").href = savedURL;
-    }
-  });
-</script>
-
-  const target =
-    document.getElementById("us-news") ||
-    document.getElementById("national-news-target");
-
-  if (!target) return;
-
- 
-
-  localStorage.setItem("fallbackZipLog", JSON.stringify(fallbackLog));
-}
 
 
 <script>
@@ -1041,6 +982,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
