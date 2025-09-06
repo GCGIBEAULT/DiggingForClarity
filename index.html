@@ -624,7 +624,7 @@ async function resolveAndInjectZIP(rawZip, options = {}) {
 
   const location = resolveLocation(zip, cityZipData, fallbackZipMap);
   if (!location) {
-    injectFallbackBlock(zip);
+   
     return;
   }
 
@@ -643,7 +643,7 @@ async function resolveAndInjectZIP(rawZip, options = {}) {
     }
   });
 </script>
-function injectFallbackBlock(zip, city = "Unknown") {
+
   const target =
     document.getElementById("us-news") ||
     document.getElementById("national-news-target");
@@ -701,7 +701,6 @@ function injectFallbackBlock(zip, city = "Unknown") {
 <section class="grid" style="margin-top: 1em;">
  <div id="weather-news" class="section">
  <div style="display: flex; justify-content: center; margin-bottom: 1em;">
-  <input type="text" id="zip" maxlength="50" placeholder="Enter ZIP or city"
     style="padding: 0.4em; width: 180px; background-color: #fff; border: 1px solid #000; border-radius: 4px;">
 </div>
 
@@ -1314,8 +1313,7 @@ document.addEventListener("DOMContentLoaded", () => {
      
 
       } else {
-        injectFallbackBlock(zip, "unknown");
-
+    
 
   document.getElementById("saveWeather").addEventListener("click", () => {
     const url = document.getElementById("weatherURL").value.trim();
@@ -1488,7 +1486,7 @@ async function resolveAndInjectZIP(rawZip, options = {}) {
 
   const location = resolveLocation(zip, cityZipData, fallbackZipMap);
   if (!location) {
-    injectFallbackBlock(zip);
+   
     return;
   }
 
@@ -1521,7 +1519,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const location = resolveLocation(zip, cityZipData, fallbackZipMap);
     if (!location) {
-      injectFallbackBlock(zip, "unknown");
+   
       return;
     }
 
@@ -1564,7 +1562,7 @@ function injectEditorialBlock(city, type) {
       updateTimestampByZip(localStorage.getItem("userZip"), city);
     })
     .catch(() => {
-      injectFallbackBlock(localStorage.getItem("userZip"), city);
+     
     });
 
 
@@ -1589,6 +1587,7 @@ function injectEditorialBlock(city, type) {
 
   
  
+
 
 
 
