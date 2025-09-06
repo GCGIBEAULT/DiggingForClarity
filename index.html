@@ -654,49 +654,48 @@ right h
   });
 </script>
 
-<!-- Replace your existing weather + traffic blocks with this single grid section -->
 
-
-</div>
-
-
-
--  </div>
+<!-- Local Weather + Traffic Mapping -->
 <section class="grid" style="margin-top: 1em;">
-  <div style="display: flex; gap: 2em; justify-content: space-between; flex-wrap: wrap;">
-
-    <!-- Local Weather -->
-    <div id="weather-news" class="section" style="flex: 1 1 45%; min-width: 300px;">
-      <h3>Local Weather</h3>
-      <div class="snippet">
-        <strong>Just the weather, please.</strong><br>
-        Paste your weather link once—we’ll show it every day.
-      </div>
-      <div style="display: flex; gap: 0.5em; align-items: center; margin: 0.75em 0;">
-        <input type="text" id="weatherURL" placeholder="Paste your weather link" style="flex: 1; padding: 0.3em;">
-        <button id="saveWeather" style="padding: 0.4em 0.8em;">Save Link</button>
-      </div>
-      <div id="twc-anchor" class="snippet"></div>
+  <!-- Local Weather -->
+  <div id="weather-news" class="section" style="margin: 0;">
+    <h3>Local Weather</h3>
+    <div class="snippet">
+      <strong>Just the weather, please.</strong><br>
+      Paste your weather link once—we’ll show it every day.
     </div>
-
-    <!-- Traffic Mapping -->
-    <div id="traffic-news" class="section" style="flex: 1 1 45%; min-width: 300px;">
-      <h3>Traffic Mapping</h3>
-      <div class="snippet">
-        <strong>Just the traffic, please.</strong><br>
-        Paste your traffic link once—we’ll show it every day.
-      </div>
-      <div style="display: flex; gap: 0.5em; align-items: center; margin: 0.75em 0;">
-        <input type="text" id="trafficURL" placeholder="Paste your traffic link" style="flex: 1; padding: 0.3em;">
-        <button id="saveTraffic" style="padding: 0.4em 0.8em;">Save Link</button>
-      </div>
-      <div id="traffic-anchor" class="snippet"></div>
+    <div style="display: flex; gap: 0.5em; align-items: center; margin: 0.75em 0;">
+      <input
+        type="text"
+        id="weatherURL"
+        placeholder="Paste your weather link"
+        style="flex: 1; padding: 0.3em;"
+      >
+      <button id="saveWeather" style="padding: 0.4em 0.8em;">Save Link</button>
     </div>
+    <div id="twc-anchor" class="snippet"></div>
+  </div>
 
+  <!-- Traffic Mapping -->
+  <div id="traffic-news" class="section" style="margin: 0;">
+    <h3>Traffic Mapping</h3>
+    <div class="snippet">
+      <strong>Just the traffic, please.</strong><br>
+      Paste your traffic link once—we’ll show it every day.
+    </div>
+    <div style="display: flex; gap: 0.5em; align-items: center; margin: 0.75em 0;">
+      <input
+        type="text"
+        id="trafficURL"
+        placeholder="Paste your traffic link"
+        style="flex: 1; padding: 0.3em;"
+      >
+      <button id="saveTraffic" style="padding: 0.4em 0.8em;">Save Link</button>
+    </div>
+    <div id="traffic-anchor" class="snippet"></div>
   </div>
 </section>
 
-+  </section>
 
 
 
@@ -4325,6 +4324,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
