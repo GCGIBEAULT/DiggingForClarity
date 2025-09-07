@@ -383,23 +383,30 @@ label[for="zip"] {
 
 
 
-/* style.css — Header containment override */
 .masthead-wrapper {
-  display: block;
-  padding: 1.5em 1em;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2em 1em;
+  min-height: 200px; /* Adjust to match original block size */
+  box-sizing: border-box;
+  overflow: visible;
 }
 
-.editorial-signature,
+.editorial-signature {
+  margin-top: auto;
+  font-size: 0.9em;
+  color: #666;
+}
+
 #zip-input-wrapper {
-  display: block;
-  margin: 0.5em 0;
-}
-
-
-/* ⬇️ Editorial spacing: ZIP input → Weather + Traffic */
-.zip-input-wrapper {
-  margin-bottom: 174px; /* ⬅️ 150px + 24px drift */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1em;
+  width: 100%;
+  max-width: 300px;
 }
 
 .local-weather-container {
