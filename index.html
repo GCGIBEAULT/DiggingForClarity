@@ -1094,7 +1094,12 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     });
   })();
 </script>
-                                      
+ if (input.includes("ZIP") || input.includes("city")) {
+  triggerCivicOverlay(input);
+  fetchDistrictConsequences(input);
+  suppressFluff();
+  surfaceLocalTension(input);
+}                                     
  </body>
 </html>
 
@@ -4462,6 +4467,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
