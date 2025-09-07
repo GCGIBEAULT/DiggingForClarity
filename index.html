@@ -514,7 +514,13 @@ right h
   <div class="editorial-box">
     <h1 class="site-title">Digging For Clarity</h1>
     <p class="header-tagline">Just The News Please. Hold The Drama.</p>
- <div id="zip-input-block" style="margin: 1em 0;">
+  </div>
+  <p id="timestamp" class="timestamp"></p>
+  <p class="editorial-signature">—Digging For Clarity</p>
+</div>
+
+<!-- ZIP input block placed outside masthead -->
+<div id="zip-input-wrapper" style="margin: 1em 0;">
   <label for="zipInput" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Enter City/Zip:</label>
   <div style="display: flex; justify-content: start; align-items: center;">
     <input type="text" id="zipInput" name="zipInput" maxlength="5" placeholder="e.g. 80203"
@@ -522,15 +528,6 @@ right h
     <button id="saveZIP" style="width: 80px; height: 30px; padding: 0.3em;">Save</button>
   </div>
   <p id="zipStatus" style="margin-top: 0.5em; font-size: 0.9rem; color: #555;"></p>
-</div>
-
-
-
-  </div>
-    <p id="timestamp" class="timestamp"></p>
-    <p class="editorial-signature">—Digging For Clarity</p>
-  </div>
-  <!-- removed empty editorial-wrapper here -->
 </div>
 
 
@@ -4358,6 +4355,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
