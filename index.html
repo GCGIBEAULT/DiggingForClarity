@@ -964,6 +964,22 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   });
 });
 </script> 
+<script>
+  document.getElementById("saveZIP").addEventListener("click", function () {
+    const zip = document.getElementById("userZIP").value.trim();
+    const zipStatus = document.getElementById("zipStatus");
+
+    if (/^\d{5}$/.test(zip)) {
+      localStorage.setItem("userZIP", zip);
+      zipStatus.textContent = `ZIP saved: ${zip}`;
+      zipStatus.style.color = "#0645AD";
+      // Ready for Step 2: map ZIP to hub city
+    } else {
+      zipStatus.textContent = "Invalid ZIP. Please enter a 5-digit U.S. ZIP code.";
+      zipStatus.style.color = "red";
+    }
+  });
+</script>
                                        
  </body>
 </html>
@@ -4332,6 +4348,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
