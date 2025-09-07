@@ -1033,7 +1033,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     const zipToEntry  = new Map();
     const cityToEntry = new Map();
     try {
-      const resp = await fetch('/cityzip.json');
+      const resp = await fetch('/data/cityzip.json');
       const list = await resp.json();
       list.forEach(item => {
         zipToEntry.set(item.zip,    item);
@@ -4488,6 +4488,7 @@ if (!entry) {
 
   
  
+
 
 
 
