@@ -1052,7 +1052,35 @@ document.querySelectorAll('.prompt-link').forEach(link => {
       }
       return cityToEntry.get(val) || null;
     }
+`js
+const testInput = "02118"; // Replace with dynamic input later
 
+if (testInput.includes("ZIP") || testInput.includes("city") || /^\d{5}$/.test(testInput)) {
+  triggerCivicOverlay(testInput);
+  fetchDistrictConsequences(testInput);
+  suppressFluff();
+  surfaceLocalTension(testInput);
+}
+
+function triggerCivicOverlay(input) {
+  console.log("Overlay triggered for:", input);
+  // Add overlay logic here
+}
+
+function fetchDistrictConsequences(input) {
+  console.log("Fetching consequences for:", input);
+  // Add fetch logic here
+}
+
+function suppressFluff() {
+  console.log("Suppressing fluff");
+  // Add suppression logic here
+}
+
+function surfaceLocalTension(input) {
+  console.log("Surfacing tension for:", input);
+  // Add tension logic here
+}
     // 3. Wire the UI
     const zipInput  = document.getElementById('zipInput');
     const saveBtn   = document.getElementById('saveZIP');
@@ -4467,6 +4495,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
