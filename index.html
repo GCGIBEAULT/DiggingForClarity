@@ -57,6 +57,7 @@
 
 
 
+
 <!DOCTYPE html>
 <!-- === CSS INDEX ===
 1. Header Container
@@ -514,20 +515,10 @@ right h
   <div class="editorial-box">
     <h1 class="site-title">Digging For Clarity</h1>
     <p class="header-tagline">Just The News Please. Hold The Drama.</p>
+    <p id="timestamp" class="timestamp"></p>
+    <p class="editorial-signature">—Digging For Clarity</p>
   </div>
-  <p id="timestamp" class="timestamp"></p>
-  <p class="editorial-signature">—Digging For Clarity</p>
-</div>
-
-<!-- ZIP input block placed outside masthead -->
-<div id="zip-input-wrapper" style="margin: 1em 0;">
-  <label for="zipInput" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Enter City/Zip:</label>
-  <div style="display: flex; justify-content: start; align-items: center;">
-    <input type="text" id="zipInput" name="zipInput" maxlength="5" placeholder="e.g. 80203"
-           style="width: 80px; height: 30px; margin-right: 10px; padding: 0.3em;">
-    <button id="saveZIP" style="width: 80px; height: 30px; padding: 0.3em;">Save</button>
-  </div>
-  <p id="zipStatus" style="margin-top: 0.5em; font-size: 0.9rem; color: #555;"></p>
+  <!-- removed empty editorial-wrapper here -->
 </div>
 
 
@@ -632,19 +623,20 @@ right h
       >
       <button id="saveWeather" style="padding: 0.4em 0.8em;">Save Link</button>
     </div>
-<div id="twc-anchor" class="snippet" style="margin-left: 96px;">
-  <div style="display: flex; flex-wrap: wrap; gap: 0.75em;">
-    <a href="https://weather.com/weather/today/l/Denver+CO" target="_blank"
-       style="color: #0645AD; text-decoration: underline; font-weight: bold;">
-      View Forecast
-    </a>
-    <a href="https://weather.com" target="_blank"
-       style="color: #0645AD; text-decoration: underline; font-weight: bold;">
-      The Weather Channel
-    </a>
-  </div>
+<div id="twc-anchor" class="snippet" style="text-align: left; margin-top: 0.5em; margin-left: 1em;">
+  <a href="https://weather.com/weather/today/l/Denver+CO" target="_blank"
+     style="color: #0645AD; text-decoration: underline; font-weight: bold;">
+    View Forecast
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://weather.com" target="_blank"
+     style="color: #0645AD; text-decoration: underline; font-weight: bold;">
+    The Weather Channel
+  </a>
 </div>
 
+
+</div>
 
 
 
@@ -677,19 +669,21 @@ right h
     </div>
   <div id="traffic-anchor" class="snippet"></div>
 
-<div id="traffic-links" class="snippet" style="margin-left: 96px;">
-  <div style="display: flex; flex-wrap: wrap; gap: 0.75em;">
-    <a href="https://maps.google.com" target="_blank"
-       style="color: #0645AD; text-decoration: underline; font-weight: bold;">
-      Google Maps
-    </a>
-    <a href="https://waze.com" target="_blank"
-       style="color: #0645AD; text-decoration: underline; font-weight: bold;">
-      Waze
-    </a>
-  </div>
+<!-- Traffic Mapping links: Google Maps + Waze (blue & underlined) -->
+<div class="snippet">
+  <a href="https://www.google.com/maps" 
+     target="_blank" 
+     style="color: #0645AD; text-decoration: underline; font-weight: bold;">
+    Google Maps
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://www.waze.com" 
+     target="_blank" 
+     style="color: #0645AD; text-decoration: underline; font-weight: bold;">
+    Waze
+  </a>
 </div>
-
+</div> <!-- end of #traffic-news -->
 
 
 
@@ -748,20 +742,16 @@ right h
 
 
 <!-- Local + State News side by side -->
-<section class="grid" style="display: flex; flex-wrap: wrap; gap: 2em; align-items: flex-start; margin-top: 1em;">
+<section class="grid">
   <div id="local-news" class="section">
     <h3>Local News</h3>
-    <!-- Local News snippets -->
   </div>
-
- 
 
   <div id="state-news" class="section">
     <h3>State News</h3>
-    <!-- State News snippets -->
+    <!-- …copy in all your existing State News <div class="snippet"> items here… -->
   </div>
 </section>
-
 
 
   
@@ -971,22 +961,6 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   });
 });
 </script> 
-<script>
-  document.getElementById("saveZIP").addEventListener("click", function () {
-    const zip = document.getElementById("userZIP").value.trim();
-    const zipStatus = document.getElementById("zipStatus");
-
-    if (/^\d{5}$/.test(zip)) {
-      localStorage.setItem("userZIP", zip);
-      zipStatus.textContent = `ZIP saved: ${zip}`;
-      zipStatus.style.color = "#0645AD";
-      // Ready for Step 2: map ZIP to hub city
-    } else {
-      zipStatus.textContent = "Invalid ZIP. Please enter a 5-digit U.S. ZIP code.";
-      zipStatus.style.color = "red";
-    }
-  });
-</script>
                                        
  </body>
 </html>
@@ -4355,18 +4329,6 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
