@@ -514,6 +514,13 @@ right h
   <div class="editorial-box">
     <h1 class="site-title">Digging For Clarity</h1>
     <p class="header-tagline">Just The News Please. Hold The Drama.</p>
+     <div id="zip-input-block" class="snippet">
+    <label for="userZIP" style="font-weight: bold;">Enter your ZIP code:</label><br>
+    <input type="text" id="userZIP" placeholder="e.g. 80203" maxlength="5"
+           style="padding: 0.4em; margin-top: 0.5em; width: 120px;">
+    <button id="saveZIP" style="padding: 0.4em 0.8em; margin-left: 0.5em;">Save ZIP</button>
+    <p id="zipStatus" style="margin-top: 0.5em; font-size: 0.9rem; color: #555;"></p>
+  </div>
     <p id="timestamp" class="timestamp"></p>
     <p class="editorial-signature">—Digging For Clarity</p>
   </div>
@@ -744,13 +751,7 @@ right h
     <!-- Local News snippets -->
   </div>
 
-  <div id="zip-input-block" class="snippet">
-    <label for="userZIP" style="font-weight: bold;">Enter your ZIP code:</label><br>
-    <input type="text" id="userZIP" placeholder="e.g. 80203" maxlength="5"
-           style="padding: 0.4em; margin-top: 0.5em; width: 120px;">
-    <button id="saveZIP" style="padding: 0.4em 0.8em; margin-left: 0.5em;">Save ZIP</button>
-    <p id="zipStatus" style="margin-top: 0.5em; font-size: 0.9rem; color: #555;"></p>
-  </div>
+ 
 
   <div id="state-news" class="section">
     <h3>State News</h3>
@@ -4351,6 +4352,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
