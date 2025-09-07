@@ -622,20 +622,19 @@ right h
       >
       <button id="saveWeather" style="padding: 0.4em 0.8em;">Save Link</button>
     </div>
-<div id="twc-anchor" class="snippet" style="text-align: left; margin-top: 0.5em; margin-left: 1em;">
-  <a href="https://weather.com/weather/today/l/Denver+CO" target="_blank"
-     style="color: #0645AD; text-decoration: underline; font-weight: bold;">
-    View Forecast
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://weather.com" target="_blank"
-     style="color: #0645AD; text-decoration: underline; font-weight: bold;">
-    The Weather Channel
-  </a>
+<div id="twc-anchor" class="snippet" style="margin-left: 96px;">
+  <div style="display: flex; flex-wrap: wrap; gap: 0.75em;">
+    <a href="https://weather.com/weather/today/l/Denver+CO" target="_blank"
+       style="color: #0645AD; text-decoration: underline; font-weight: bold;">
+      View Forecast
+    </a>
+    <a href="https://weather.com" target="_blank"
+       style="color: #0645AD; text-decoration: underline; font-weight: bold;">
+      The Weather Channel
+    </a>
+  </div>
 </div>
 
-
-</div>
 
 
 
@@ -668,21 +667,19 @@ right h
     </div>
   <div id="traffic-anchor" class="snippet"></div>
 
-<!-- Traffic Mapping links: Google Maps + Waze (blue & underlined) -->
-<div class="snippet">
-  <a href="https://www.google.com/maps" 
-     target="_blank" 
-     style="color: #0645AD; text-decoration: underline; font-weight: bold;">
-    Google Maps
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://www.waze.com" 
-     target="_blank" 
-     style="color: #0645AD; text-decoration: underline; font-weight: bold;">
-    Waze
-  </a>
+<div id="traffic-links" class="snippet" style="margin-left: 96px;">
+  <div style="display: flex; flex-wrap: wrap; gap: 0.75em;">
+    <a href="https://maps.google.com" target="_blank"
+       style="color: #0645AD; text-decoration: underline; font-weight: bold;">
+      Google Maps
+    </a>
+    <a href="https://waze.com" target="_blank"
+       style="color: #0645AD; text-decoration: underline; font-weight: bold;">
+      Waze
+    </a>
+  </div>
 </div>
-</div> <!-- end of #traffic-news -->
+
 
 
 
@@ -4328,6 +4325,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
