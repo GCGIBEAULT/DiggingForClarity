@@ -1025,7 +1025,74 @@ document.querySelectorAll('.prompt-link').forEach(link => {
   });
 });
 </script> 
-                                       
+ <script>
+  (async function(){
+    // 1. Load the ZIP⇄City map once
+    const zipToEntry  = new Map();
+    const cityToEntry = new Map();
+    try {
+      const resp = await fetch('/cityzip.json');
+      const list = await resp.json();
+      list.forEach(item => {
+        zipToEntry.set(item.zip,    item);
+        cityToEntry.set(item.city.toLowerCase(), item);
+      });
+    } catch(err) {
+      console.error('Failed to load cityzip.json', err);
+      return;
+    }
+
+    // 2. Helper to find the mapping by ZIP or city name
+    function lookupEntry(input) {
+      const val = input.trim().toLowerCase();
+      if (/^\d{5}$/.test(val)) {
+        return zipToEntry.get(val) || null;
+      }
+      return cityToEntry.get(val) || null;
+    }
+
+    // 3. Wire the UI
+    const zipInput  = document.getElementById('zipInput');
+    const saveBtn   = document.getElementById('saveZIP');
+    const status    = document.getElementById('zipStatus');
+    const newsList  = document.getElementById('local-news-list');
+
+    saveBtn.addEventListener('click', async () => {
+      status.textContent = '';
+      newsList.innerHTML = '';
+
+      const entry = lookupEntry(zipInput.value);
+      if (!entry) {
+        status.textContent = 'ZIP or city not found';
+        return;
+      }
+      status.textContent = `Showing news for ${entry.city}, ${entry.state}`;
+
+      // 4. Fetch and render up to 7 local-news snippets
+      try {
+        const resp2    = await fetch(`/data/localnews/${entry.city.toLowerCase()}.json`);
+        const stories  = await resp2.json();
+        stories.slice(0, 7).forEach(item => {
+          const li = document.createElement('li');
+          li.style.marginBottom = '1.5em';
+          li.innerHTML = `
+            <a href="${item.url}" target="_blank"
+               style="font-size:1.1rem;font-weight:bold;color:#111;text-decoration:none;">
+              ${item.title}
+            </a>
+            <p style="margin:0.3em 0;font-size:0.9rem;color:#333;">
+              ${item.snippet}
+            </p>`;
+          newsList.appendChild(li);
+        });
+      } catch(err) {
+        console.error(err);
+        status.textContent = 'Error loading local news';
+      }
+    });
+  })();
+</script>
+                                      
  </body>
 </html>
 
@@ -4393,6 +4460,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
