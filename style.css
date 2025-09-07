@@ -383,12 +383,19 @@ label[for="zip"] {
 
 
 
+/* style.css — Header containment override */
 .masthead-wrapper {
-  display: grid;
-  gap: 3em; /* ⬅️ This locks spacing between editorial and logos */
-  justify-content: center;
-  margin-bottom: 2em; /* Optional: spacing before ZIP input */
+  display: block;
+  padding: 1.5em 1em;
+  overflow: hidden;
 }
+
+.editorial-signature,
+#zip-input-wrapper {
+  display: block;
+  margin: 0.5em 0;
+}
+
 
 /* ⬇️ Editorial spacing: ZIP input → Weather + Traffic */
 .zip-input-wrapper {
