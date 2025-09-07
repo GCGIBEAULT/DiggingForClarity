@@ -388,11 +388,16 @@ label[for="zip"] {
   flex-direction: column;
   align-items: flex-start;
   padding: 2em 1em;
-  min-height: 200px; /* Adjust to match original block size */
+  min-height: 200px;              /* matches original block size */
   box-sizing: border-box;
   overflow: visible;
- #zip-input-wrapper { margin-top: 1em; } 
+  border-bottom: 4px solid #333;  /* thick, centred divider */
+  margin-bottom: 96px;            /* pushes content below down 96 px */
+  max-width: 960px;               /* prevents full-bleed */
+  margin-left: auto;
+  margin-right: auto;
 }
+
 
 .editorial-signature {
   margin-top: auto;
