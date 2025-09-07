@@ -702,12 +702,16 @@ right h
       `<a href="${url}" target="_blank" style="color:#111; text-decoration:none; font-weight:bold;">View Forecast</a>`;
   });
   document.addEventListener("DOMContentLoaded", function() {
-    const saved = localStorage.getItem("userWeatherURL");
-    if (saved) {
-      document.getElementById("twc-anchor").innerHTML =
-        `<a href="${saved}" target="_blank" style="color:#111; text-decoration:none; font-weight:bold;">View Forecast</a>`;
-    }
-  });
+  const saved = localStorage.getItem("userWeatherURL");
+  if (saved) {
+    document.getElementById("twc-anchor").innerHTML = `
+      <a href="${saved}" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">View Forecast</a>
+      &nbsp;&nbsp;
+      <a href="https://weather.com" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">The Weather Channel</a>
+    `;
+  }
+});
+
 
   // Traffic link save + render
   document.getElementById("saveTraffic").addEventListener("click", function() {
@@ -4324,6 +4328,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
