@@ -445,6 +445,12 @@ label[for="zip"] {
   text-decoration: underline !important;
   font-weight: bold;
 }
+@media screen and (max-width: 600px) {
+  #twc-anchor {
+    margin-left: 1em !important;
+    text-align: center;
+  }
+}
 
 
 
