@@ -471,6 +471,18 @@ label[for="zip"] {
     text-align: center;
   }
 }
+.masthead-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2em 1em 96px;      /* top/right/bottom: pushes divider down 96px */
+  box-sizing: border-box;
+  min-height: 200px;          /* preserves original height */
+  max-width: 960px;           /* keeps it from spanning full-width */
+  margin: 0 auto 2em;         /* centers and adds a bit of space after header */
+  border-bottom: 4px solid #333; /* your thick, “centred” divider */
+  overflow: visible;
+}
 
 
 
