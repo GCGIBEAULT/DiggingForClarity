@@ -514,13 +514,16 @@ right h
   <div class="editorial-box">
     <h1 class="site-title">Digging For Clarity</h1>
     <p class="header-tagline">Just The News Please. Hold The Drama.</p>
-    <div id="zip-input-block" style="margin: 1em 0; display: flex; flex-direction: column; align-items: flex-start;">
+   <div id="zip-input-block" style="margin: 1em 0;">
   <label for="zipInput" style="display: block; font-weight: bold; margin-bottom: 0.5em;">Enter City/Zip:</label>
-  <input type="text" id="zipInput" name="zipInput" maxlength="5" placeholder="e.g. 80203"
-         style="display: block; padding: 0.4em; width: 120px; margin-bottom: 0.5em;">
-  <button id="saveZIP" style="display: block; padding: 0.4em 0.8em;">Save</button>
+  <div style="display: flex; flex-direction: row; align-items: center;">
+    <input type="text" id="zipInput" name="zipInput" maxlength="5" placeholder="e.g. 80203"
+           style="width: 250px; height: 35px; margin-right: 10px; padding: 0.4em;">
+    <button id="saveZIP" style="height: 35px; padding: 0.4em 0.8em;">Save</button>
+  </div>
   <p id="zipStatus" style="margin-top: 0.5em; font-size: 0.9rem; color: #555;"></p>
 </div>
+
 
   </div>
     <p id="timestamp" class="timestamp"></p>
@@ -4354,6 +4357,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
