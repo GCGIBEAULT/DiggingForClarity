@@ -391,6 +391,7 @@ label[for="zip"] {
   min-height: 200px; /* Adjust to match original block size */
   box-sizing: border-box;
   overflow: visible;
+ #zip-input-wrapper { margin-top: 1em; } 
 }
 
 .editorial-signature {
