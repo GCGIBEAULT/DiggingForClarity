@@ -1089,11 +1089,12 @@ document.querySelectorAll('.prompt-link').forEach(link => {
       status.textContent = '';
       newsList.innerHTML = '';
 
-      const entry = lookupEntry(zipInput.value);
-      if (!entry) {
-        status.textContent = 'ZIP or city not found';
-        return;
-      }
+    const input = zipInput.value;
+const entry = lookupEntry(input);
+if (!entry) {
+  status.textContent = 'ZIP or city not found';
+  return;
+}
       status.textContent = `Showing news for ${entry.city}, ${entry.state}`;
 
       // 4. Fetch and render up to 7 local-news snippets
@@ -4487,6 +4488,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
 
   
  
+
 
 
 
