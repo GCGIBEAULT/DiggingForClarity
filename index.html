@@ -1048,6 +1048,100 @@ right h
     }
   });
 });
+</script>
+<script>
+  // prompt-link logic in one well-formed tag
+  document.querySelectorAll('prompt-link').forEach(link => {
+    const section = link.closest('section');
+    const cards   = section.querySelectorAll('.story-card-title a');
+    const pool    = Array.from(cards).map(a => a.textContent.trim());
+    const div     = document.createElement('div');
+    div.className = 'more-news-prompt';
+    div.textContent = 'See more local stories';
+    div.addEventListener('click', () => {
+      if (pool.length) {
+        section.dataset.extraStories = pool.join('|');
+      } else {
+        div.remove();
+        window.location.href = '#top';
+      }
+    });
+    section.insertBefore(div, section.querySelector('.more-news-prompt'));
+    section.dataset.extraStories = pool.join('|');
+  });
+</script>
+
+<script>
+  // Local News IIFE (its own tag, now properly nested)
+  (async function(){
+    console.log('🔍 Local News IIFE loaded');
+
+    // 1. Load ZIP⇄City map
+    const zipToEntry  = new Map();
+    const cityToEntry = new Map();
+    try {
+      const resp = await fetch('cityzip.json');
+      const list = await resp.json();
+      list.forEach(item => {
+        zipToEntry.set(item.zip, item);
+        cityToEntry.set(item.city.toLowerCase(), item);
+      });
+    } catch (err) {
+      console.error('Failed to load cityzip.json', err);
+      return;
+    }
+
+    // 2. Lookup helper
+    function lookupEntry(input) {
+      const val = input.trim().toLowerCase();
+      if (/^\d{5}$/.test(val)) {
+        return zipToEntry.get(val) || null;
+      }
+      return cityToEntry.get(val) || null;
+    }
+
+    // 3. Wire UI elements
+    const zipInput = document.getElementById('zipInput');
+    const saveBtn  = document.getElementById('saveZIP');
+    const status   = document.getElementById('zipStatus');
+    const newsList = document.getElementById('local-news-list');
+
+    saveBtn.addEventListener('click', async () => {
+      console.log('▶️ Save clicked, ZIP:', zipInput.value);
+      status.textContent = '';
+      newsList.innerHTML = '';
+
+      const entry = lookupEntry(zipInput.value);
+      if (!entry) {
+        status.textContent = 'ZIP or city not found';
+        return;
+      }
+      status.textContent = `Showing news for ${entry.city}, ${entry.state}`;
+
+      // 4. Fetch & render up to 7 stories
+      try {
+        const resp2   = await fetch(`/${entry.city.toLowerCase()}.json`);
+        const stories = await resp2.json();
+        stories.slice(0, 7).forEach(item => {
+          const li = document.createElement('li');
+          li.style.marginBottom = '1.5em';
+          li.innerHTML = `
+            <a href="${item.url}" target="_blank"
+               style="font-size:1.1rem;font-weight:bold;color:#111;text-decoration:none;">
+              ${item.title}
+            </a>
+            <p style="margin:0.3em 0;font-size:0.9rem;color:#333;">
+              ${item.snippet}
+            </p>`;
+          newsList.appendChild(li);
+        });
+      } catch (err) {
+        console.error('Failed to fetch local news', err);
+        status.textContent = 'Error loading local news';
+      }
+    });
+  })();
+</script>
 
  </body>
 </html>
@@ -4416,6 +4510,7 @@ right h
 
   
  
+
 
 
 
