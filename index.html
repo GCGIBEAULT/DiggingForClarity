@@ -1101,7 +1101,8 @@ if (!entry) {
 
       // 4. Fetch and render up to 7 local-news snippets
       try {
-        const resp2    = await fetch(`/data/localnews/${entry.city.toLowerCase()}.json`);
+       const resp2 = await fetch(`/${entry.city.toLowerCase()}.json`);
+
         const stories  = await resp2.json();
         stories.slice(0, 7).forEach(item => {
           const li = document.createElement('li');
@@ -4490,6 +4491,7 @@ if (!entry) {
 
   
  
+
 
 
 
