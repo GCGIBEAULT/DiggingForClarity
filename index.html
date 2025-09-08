@@ -1097,28 +1097,7 @@ right h
 
       // 4. Fetch & render up to 7 stories
       try {
-        const resp2   = await fetch(`/${entry.city.toLowerCase()}.json`);
-        const stories = await resp2.json();
-        stories.slice(0, 7).forEach(item => {
-          const li = document.createElement('li');
-          li.style.marginBottom = '1.5em';
-          li.innerHTML = `
-            <a href="${item.url}" target="_blank"
-               style="font-size:1.1rem;font-weight:bold;color:#111;text-decoration:none;">
-              ${item.title}
-            </a>
-            <p style="margin:0.3em 0;font-size:0.9rem;color:#333;">
-              ${item.snippet}
-            </p>`;
-          newsList.appendChild(li);
-        });
-      } catch (err) {
-        console.error('Failed to fetch local news', err);
-        status.textContent = 'Error loading local news';
-      }
-    });
-  })();
-</script>
+        
 <script>
 <script>
 (async function(){
@@ -1158,7 +1137,38 @@ right h
     status.textContent = `Showing news for ${entry.city}, ${entry.state}`;
 
     try {
-      const stories = await (await fetch(`/${entry.city.toLowerCase()}.json`)).json();
+    const city = entry.city.toLowerCase();
+const rssURL = `https://news.google.com/rss/search?q=${city}+local+news`;
+const apiURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssURL)}`;
+
+try {
+  const resp = await fetch(apiURL);
+  const data = await resp.json();
+  const stories = data.items.slice(0, 7); // Limit to 7 stories
+
+  if (stories.length === 0) {
+    status.textContent = 'No local news found';
+    return;
+  }
+
+  stories.forEach(item => {
+    const li = document.createElement('li');
+    li.style.marginBottom = '1.5em';
+    li.innerHTML = `
+      <a href="${item.link}" target="_blank"
+         style="font-size:1.1rem;font-weight:bold;color:#111;text-decoration:none;">
+        ${item.title}
+      </a>
+      <p style="margin:0.3em 0;font-size:0.9rem;color:#333;">
+        ${item.description}
+      </p>`;
+    newsList.appendChild(li);
+  });
+} catch (err) {
+  console.error('Failed to fetch live news', err);
+  status.textContent = 'Error loading local news';
+}
+
       stories.slice(0, 7).forEach(item => {
         const li = document.createElement('li');
         li.style.marginBottom = '1.5em';
@@ -4548,6 +4558,7 @@ right h
 
   
  
+
 
 
 
