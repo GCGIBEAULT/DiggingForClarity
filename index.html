@@ -1113,6 +1113,7 @@ document.querySelectorAll('.prompt-link').forEach(link => {
     const newsList  = document.getElementById('local-news-list');
 
     saveBtn.addEventListener('click', async () => {
+     console.log('▶️ Save clicked, ZIP:', zipInput.value); 
       status.textContent = '';
       newsList.innerHTML = '';
 
@@ -4516,6 +4517,7 @@ if (!entry) {
 
   
  
+
 
 
 
