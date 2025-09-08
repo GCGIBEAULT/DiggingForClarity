@@ -1120,6 +1120,7 @@ right h
   })();
 </script>
 <script>
+<script>
 (async function(){
   console.log('🔍 Local News IIFE loaded');
   const zipToEntry = new Map(), cityToEntry = new Map();
@@ -1170,6 +1171,7 @@ right h
             ${item.snippet}
           </p>`;
         newsList.appendChild(li);
+      });
       });
     } catch (err) {
       console.error('local news fetch failed', err);
@@ -4546,6 +4548,7 @@ right h
 
   
  
+
 
 
 
