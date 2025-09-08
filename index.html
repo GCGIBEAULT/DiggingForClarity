@@ -1119,6 +1119,65 @@ right h
     });
   })();
 </script>
+<script>
+(async function(){
+  console.log('🔍 Local News IIFE loaded');
+  const zipToEntry = new Map(), cityToEntry = new Map();
+  try {
+    const data = await (await fetch('cityzip.json')).json();
+    data.forEach(o => {
+      zipToEntry.set(o.zip, o);
+      cityToEntry.set(o.city.toLowerCase(), o);
+    });
+  } catch (e) {
+    console.error('cityzip.json load failed', e);
+    return;
+  }
+
+  function lookup(input) {
+    const v = input.trim().toLowerCase();
+    return (/^\d{5}$/.test(v) ? zipToEntry.get(v) : cityToEntry.get(v)) || null;
+  }
+
+  const zipInput = document.getElementById('zipInput');
+  const saveBtn  = document.getElementById('saveZIP');
+  const status   = document.getElementById('zipStatus');
+  const newsList = document.getElementById('local-news-list');
+
+  saveBtn.addEventListener('click', async () => {
+    console.log('▶️ Save clicked, ZIP:', zipInput.value);
+    status.textContent = '';
+    newsList.innerHTML = '';
+
+    const entry = lookup(zipInput.value);
+    if (!entry) {
+      status.textContent = 'ZIP or city not found';
+      return;
+    }
+    status.textContent = `Showing news for ${entry.city}, ${entry.state}`;
+
+    try {
+      const stories = await (await fetch(`/${entry.city.toLowerCase()}.json`)).json();
+      stories.slice(0, 7).forEach(item => {
+        const li = document.createElement('li');
+        li.style.marginBottom = '1.5em';
+        li.innerHTML = `
+          <a href="${item.url}" target="_blank"
+             style="font-size:1.1rem;font-weight:bold;color:#111;text-decoration:none;">
+            ${item.title}
+          </a>
+          <p style="margin:0.3em 0;font-size:0.9rem;color:#333;">
+            ${item.snippet}
+          </p>`;
+        newsList.appendChild(li);
+      });
+    } catch (err) {
+      console.error('local news fetch failed', err);
+      status.textContent = 'Error loading local news';
+    }
+  });
+})();
+</script>
 
  </body>
 </html>
@@ -4487,6 +4546,7 @@ right h
 
   
  
+
 
 
 
