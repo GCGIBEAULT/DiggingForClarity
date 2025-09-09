@@ -1082,6 +1082,41 @@ right h
     });
   })();
 </script>
+<script>
+  async function fetchLocalNews() {
+    const input = document.querySelector('#locationInput');
+    const location = input?.value?.trim();
+    const newsContainer = document.querySelector('#newsResults');
+
+    if (!location) {
+      newsContainer.innerHTML = "<p>Please enter a city or ZIP code.</p>";
+      return;
+    }
+
+    newsContainer.innerHTML = `<p>Loading news for ${location}...</p>`;
+
+    try {
+      const response = await fetch(`https://api.currentsapi.services/v1/search?keywords=${location}&apiKey=YOUR_API_KEY`);
+      const data = await response.json();
+
+      if (data.news?.length) {
+        newsContainer.innerHTML = data.news.map(article => `
+          <div class="news-article">
+            <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
+            <p>${article.description}</p>
+          </div>
+        `).join('');
+      } else {
+        newsContainer.innerHTML = `<p>No news found for ${location}.</p>`;
+      }
+    } catch (err) {
+      newsContainer.innerHTML = "<p>Error loading news. Try again later.</p>";
+      console.error(err);
+    }
+  }
+
+  document.querySelector('button').addEventListener('click', fetchLocalNews);
+</script>
   
 </body>
 </html>
@@ -4454,6 +4489,7 @@ right h
 
   
  
+
 
 
 
