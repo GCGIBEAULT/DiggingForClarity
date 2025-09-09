@@ -741,17 +741,17 @@ right h
   });
 </script>
 <section class="grid-two">
-  <div class="section">
+ <div class="section">
   <h3>Local News</h3>
 
-  <!-- Manual City Input -->
+  <!-- Refresh Button FIRST -->
+  <button id="refreshLocalNews" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 1em;">🔄 Refresh Local News</button>
+
+  <!-- Manual City Input BELOW -->
   <div style="margin-bottom: 1em;">
     <input type="text" id="manualCity" placeholder="Enter a city (e.g. Rutland, VT)" style="padding: 0.4em; width: 70%;">
     <button id="submitCity" style="padding: 0.4em 1em;">🔍 Load City News</button>
   </div>
-
-  <!-- Refresh Button -->
-  <button id="refreshLocalNews" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 1em;">🔄 Refresh Local News</button>
 
   <!-- News List -->
   <ul id="local-news" style="line-height: 1.6;">
@@ -1033,6 +1033,7 @@ right h
  
 </body>
 </html>
+
 
 
 
