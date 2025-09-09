@@ -967,6 +967,31 @@ right h
     <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
   </div>
 </footer>
+<script>
+document.getElementById("getLocalNews").addEventListener("click", () => {
+  const newsList = document.getElementById("local-news-list");
+  newsList.innerHTML = '';
+
+  // Simulate Copilot response (replace with actual integration if needed)
+  const snippets = [
+    "🚇 SF transit agencies seek $750M emergency loan",
+    "🧑‍⚖️ Recall election heats up in District 4",
+    "🏈 49ers prep for season opener",
+    "🌉 Golden Gate Bridge toll hike proposed",
+    "🎭 SF Fringe Festival kicks off this weekend",
+    "🌧️ Rain expected Thursday—first in 3 weeks",
+    "🏘️ Sunset District housing debate intensifies"
+  ];
+
+  snippets.forEach(text => {
+    const li = document.createElement("li");
+    li.textContent = text;
+    li.style.marginBottom = "1em";
+    li.style.fontSize = "1rem";
+    newsList.appendChild(li);
+  });
+});
+</script>
 
 
 
@@ -4344,6 +4369,7 @@ right h
 
   
  
+
 
 
 
