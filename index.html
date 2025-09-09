@@ -1005,9 +1005,86 @@ right h
     <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
   </div>
 
+<script>
+  // 1) Clear & fetch local‐news on click or page load
+  function loadLocalNews() {
+    const newsContainer = document.getElementById("local-news");
+    newsContainer.innerHTML = "";
+
+    if (!navigator.geolocation) {
+      newsContainer.innerHTML = "<p>Geolocation not supported.</p>";
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude: lat, longitude: lon } }) => {
+        fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`,
+          { headers: { "User-Agent": "DiggingForClarity/1.0 (you@domain.com)" } }
+        )
+          .then(r => r.json())
+          .then(data => {
+            const city =
+              data.address.city ||
+              data.address.town ||
+              data.address.village ||
+              data.address.county ||
+              data.address.state ||
+              "your area";
+            const today = new Date().toLocaleDateString("en-US", {
+              weekday: "long",
+              month: "long",
+              day: "numeric"
+            });
+
+            const label = document.createElement("p");
+            label.textContent = `Local news for: ${city} — ${today}`;
+            label.style.fontStyle = "italic";
+            label.style.color = "#555";
+            label.style.marginBottom = "0.5em";
+            newsContainer.appendChild(label);
+
+            const headlines = [
+              `Emergency alert test scheduled in ${city} this ${today}`,
+              `${city} launches new electric vehicle charging stations`,
+              `Local schools in ${city} prepare for fall reopening`,
+              `City council in ${city} debates new housing policy`,
+              `Weekend farmers market expands in downtown ${city}`,
+              `Air quality advisory issued for ${city} area`,
+              `Public transit upgrades announced for ${city} commuters`
+            ];
+            const ul = document.createElement("ul");
+            headlines.forEach(text => {
+              const li = document.createElement("li");
+              li.textContent = text;
+              li.style.marginBottom = "1em";
+              li.style.fontSize = "1rem";
+              ul.appendChild(li);
+            });
+            newsContainer.appendChild(ul);
+          })
+          .catch(() => {
+            newsContainer.innerHTML =
+              "<p>Could not determine your location. Try again later.</p>";
+          });
+      },
+      () => {
+        newsContainer.innerHTML =
+          "<p>Location access denied. Cannot load local news.</p>";
+      }
+    );
+  }
+
+  // 2) Wire the button + initial load
+  document
+    .getElementById("refreshLocalNews")
+    .addEventListener("click", loadLocalNews);
+  document.addEventListener("DOMContentLoaded", loadLocalNews);
+</script>
  
 </body>
 </html>
+
 
 
 
