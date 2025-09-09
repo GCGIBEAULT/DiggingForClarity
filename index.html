@@ -979,20 +979,21 @@ right h
     container.appendChild(ul);
   }
 
-  async function loadLocalNews() {
-    const location = await getUserLocation();
-    const cityKey = `${location.city}, ${location.state}`;
-    const county = cityToCounty[cityKey];
-
-    let headlines = await fetchNewsForCity(location.city, location.state);
-
-    if (headlines.length < 3 && county) {
-      headlines = await fetchNewsForCounty(county, location.state);
-      renderHeadlines(headlines, `Showing news from ${county} due to limited results for ${location.city}.`);
+ async function getUserLocation() {
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+      resolve({ city: "Denver", state: "CO" }); // fallback default
     } else {
-      renderHeadlines(headlines);
+      navigator.geolocation.getCurrentPosition(async position => {
+        const { latitude, longitude } = position.coords;
+        const location = await reverseGeocode(latitude, longitude);
+        resolve(location);
+      }, () => {
+        resolve({ city: "Denver", state: "CO" }); // fallback on error
+      });
     }
-  }
+  });
+}
 
   document.addEventListener("DOMContentLoaded", function () {
     loadLocalNews();
@@ -1004,6 +1005,7 @@ right h
  
 </body>
 </html>
+
 
 
 
