@@ -741,17 +741,30 @@ right h
   });
 </script>
 <section class="grid-two">
- <div class="section">
+<div class="section">
   <h3>Local News</h3>
 
-  <!-- Refresh Button FIRST -->
-  <button id="refreshLocalNews" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 1em;">🔄 Refresh Local News</button>
+  <!-- Refresh Button -->
+  <button id="refreshLocalNews" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh Local News</button>
 
-  <!-- Manual City Input BELOW -->
-  <<div style="margin: 0.5em 0; display: flex; gap: 0.5em; align-items: center;">
-  <input type="text" id="manualCity" placeholder="Check another city (e.g. Rutland, VT)" style="padding: 0.4em; flex: 1;">
-  <button id="submitCity" style="padding: 0.4em 1em;">🔍 Load City News</button>
+  <!-- Manual City Input -->
+  <div style="display: flex; align-items: center; gap: 0.5em; margin-bottom: 1em;">
+    <input type="text" id="manualCity" placeholder="Check another city (e.g. Rutland, VT)" style="padding: 0.4em; width: 65%;">
+    <button id="submitCity" style="padding: 0.4em 1em;">🔍 Load City News</button>
+  </div>
+
+  <!-- News List -->
+  <ul id="local-news" style="line-height: 1.6;">
+    <li>Denver launches new electric bus fleet across downtown</li>
+    <li>City Council approves affordable housing expansion in Five Points</li>
+    <li>Denver Public Schools announce mental health initiative for teens</li>
+    <li>Cherry Creek Trail to undergo major resurfacing this fall</li>
+    <li>Local artists transform RiNo alleyways into open-air galleries</li>
+    <li>Denver police pilot community-based safety program</li>
+    <li>Union Station to host fall farmers market every Saturday</li>
+  </ul>
 </div>
+
 
   <!-- News List -->
   <ul id="local-news" style="line-height: 1.6;">
@@ -1033,6 +1046,7 @@ right h
  
 </body>
 </html>
+
 
 
 
