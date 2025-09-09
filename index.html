@@ -1186,7 +1186,30 @@ document.getElementById('saveLocation').addEventListener('click', function () {
     });
 });
 </script>
-  
+  <script>
+const location = localStorage.getItem('userLocation') || 'San Francisco, CA'; // fallback
+
+const apiKey = 'YOUR_BING_NEWS_API_KEY'; // ← Replace with your actual key
+const endpoint = `https://api.bing.microsoft.com/v7.0/news/search?q=${encodeURIComponent(location)}&count=7&mkt=en-US`;
+
+fetch(endpoint, {
+  headers: { 'Ocp-Apim-Subscription-Key': apiKey }
+})
+.then(res => res.json())
+.then(data => {
+  const articles = data.value.map(item => `
+    <div style="margin-bottom:1em;">
+      <a href="${item.url}" target="_blank" style="font-weight:bold;">${item.name}</a>
+      <p>${item.description}</p>
+    </div>
+  `).join('');
+  document.getElementById('newsResults').innerHTML = articles;
+})
+.catch(err => {
+  document.getElementById('newsResults').innerHTML = "<p>Local news is quiet today.</p>";
+});
+</script>
+
 </body>
 </html>
 
@@ -4558,6 +4581,7 @@ document.getElementById('saveLocation').addEventListener('click', function () {
 
   
  
+
 
 
 
