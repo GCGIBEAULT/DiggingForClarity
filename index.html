@@ -1047,12 +1047,6 @@ try {
   return;
 }
 
-function lookup(val) {
-  const v = val.trim().toLowerCase();
-  return /^\d{5}$/.test(v)
-    ? zipMap.get(v) || null
-    : cityMap.get(v) || null;
-}
 
     // On click: fetch & render
     saveBtn.addEventListener('click', async () => {
@@ -4471,6 +4465,7 @@ function lookup(val) {
 
   
  
+
 
 
 
