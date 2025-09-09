@@ -932,18 +932,19 @@ right h
     return { city: "Edgewater", state: "FL" };
   }
 
-  async function fetchNewsForCity(city, state) {
-    // Simulated news fetch (replace with real API)
-    if (city === "Edgewater") return [];
-    return [
-      `${city} launches new community garden initiative`,
-      `City Council in ${city} approves downtown revitalization`,
-      `${city} library expands weekend hours`,
-      `Local artists showcase work in ${city} town square`,
-      `New bike lanes added across ${city}`,
-      `${city} hosts annual fall festival`,
-      `Fire department in ${city} receives new equipment`
-    ];
+ async function fetchNewsForCity(city, state) {
+  // Simulate dynamic generation
+  return [
+    `${city} launches new community garden initiative`,
+    `City Council in ${city} approves downtown revitalization`,
+    `${city} library expands weekend hours`,
+    `Local artists showcase work in ${city} town square`,
+    `New bike lanes added across ${city}`,
+    `${city} hosts annual fall festival`,
+    `Fire department in ${city} receives new equipment`
+  ];
+}
+
   }
 
   async function fetchNewsForCounty(county, state) {
@@ -1032,6 +1033,7 @@ right h
  
 </body>
 </html>
+
 
 
 
