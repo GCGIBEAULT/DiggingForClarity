@@ -1001,7 +1001,6 @@ right h
 </footer>
 
 <script>
-  // Local News IIFE
   (async function(){
     // Build ZIP↔City lookup
     const zipToEntry  = new Map();
@@ -1015,10 +1014,11 @@ right h
       });
     } catch (err) {
       console.error('Failed to load cityzip.json', err);
+      document.getElementById('zipStatus').textContent = 'Error loading location data';
       return;
     }
 
-    // Helper: find entry by ZIP or city
+    // Unified lookup function
     function lookup(input) {
       const v = input.trim().toLowerCase();
       return /^\d{5}$/.test(v)
@@ -1026,29 +1026,13 @@ right h
         : cityToEntry.get(v) || null;
     }
 
-    // UI refs
+    // UI references
     const zipInput = document.getElementById('zipInput');
     const saveBtn  = document.getElementById('saveZIP');
     const status   = document.getElementById('zipStatus');
     const newsList = document.getElementById('local-news-list');
-const zipMap = new Map();
-const cityMap = new Map();
 
-try {
-  const res = await fetch('cityzip.json');
-  const data = await res.json();
-  data.forEach(item => {
-    zipMap.set(item.zip, item);
-    cityMap.set(item.city.toLowerCase(), item);
-  });
-} catch (err) {
-  console.error('Failed to load cityzip.json', err);
-  status.textContent = 'Error loading location data';
-  return;
-}
-
-
-    // On click: fetch & render
+    // On click: fetch & render local news
     saveBtn.addEventListener('click', async () => {
       status.textContent = '';
       newsList.innerHTML = '';
@@ -1065,8 +1049,8 @@ try {
       const apiURL   = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssURL)}`;
 
       try {
-        const resp2   = await fetch(apiURL);
-        const json    = await resp2.json();
+        const resp2  = await fetch(apiURL);
+        const json   = await resp2.json();
         const stories = Array.isArray(json.items) ? json.items.slice(0, 7) : [];
 
         if (stories.length === 0) {
@@ -1079,7 +1063,7 @@ try {
           li.style.marginBottom = '1.5em';
           li.innerHTML = `
             <a href="${item.link}" target="_blank"
-               style="font-size:1.1rem;font-weight:bold;color:#111;text-decoration:none;">
+              style="font-size:1.1rem;font-weight:bold;color:#111;text-decoration:none;">
               ${item.title}
             </a>
             <p style="margin:0.3em 0;font-size:0.9rem;color:#333;">
@@ -1091,7 +1075,8 @@ try {
         console.error('Failed to fetch live news', err);
         status.textContent = 'Error loading local news';
       }
-   })();
+    });
+  })();
 </script>
   
 </body>
@@ -4465,6 +4450,7 @@ try {
 
   
  
+
 
 
 
