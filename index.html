@@ -1006,84 +1006,7 @@ right h
   </div>
 </footer>
 
-<script>f
-  (async function(){
-    // Build ZIP↔City lookup
-    const zipToEntry  = new Map();
-    const cityToEntry = new Map();
-    try {
-      const resp = await fetch('cityzip.json');
-      const list = await resp.json();
-      list.forEach(item => {
-        zipToEntry.set(item.zip, item);
-        cityToEntry.set(item.city.toLowerCase(), item);
-      });
-    } catch (err) {
-      console.error('Failed to load cityzip.json', err);
-      document.getElementById('zipStatus').textContent = 'Error loading location data';
-      return;
-    }
 
-    // Unified lookup function
-    function lookup(input) {
-      const v = input.trim().toLowerCase();
-      return /^\d{5}$/.test(v)
-        ? zipToEntry.get(v) || null
-        : cityToEntry.get(v) || null;
-    }
-
-    // UI references
-    const zipInput = document.getElementById('zipInput');
-    const saveBtn  = document.getElementById('saveZIP');
-    const status   = document.getElementById('zipStatus');
-    const newsList = document.getElementById('local-news-list');
-
-    // On click: fetch & render local news
-    saveBtn.addEventListener('click', async () => {
-      status.textContent = '';
-      newsList.innerHTML = '';
-
-      const entry = lookup(zipInput.value);
-      if (!entry) {
-        status.textContent = 'ZIP or city not found';
-        return;
-      }
-
-      status.textContent = `Showing news for ${entry.city}, ${entry.state}`;
-      const cityName = entry.city.toLowerCase();
-      const rssURL   = `https://news.google.com/rss/search?q=${encodeURIComponent(cityName)}+local+news`;
-      const apiURL   = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssURL)}`;
-
-      try {
-        const resp2  = await fetch(apiURL);
-        const json   = await resp2.json();
-        const stories = Array.isArray(json.items) ? json.items.slice(0, 7) : [];
-
-        if (stories.length === 0) {
-          status.textContent = 'No local news found';
-          return;
-        }
-
-        stories.forEach(item => {
-          const li = document.createElement('li');
-          li.style.marginBottom = '1.5em';
-          li.innerHTML = `
-            <a href="${item.link}" target="_blank"
-              style="font-size:1.1rem;font-weight:bold;color:#111;text-decoration:none;">
-              ${item.title}
-            </a>
-            <p style="margin:0.3em 0;font-size:0.9rem;color:#333;">
-              ${item.description}
-            </p>`;
-          newsList.appendChild(li);
-        });
-      } catch (err) {
-        console.error('Failed to fetch live news', err);
-        status.textContent = 'Error loading local news';
-      }
-    });
-  })();
-</script>
 <script>
   async function fetchLocalNews() {
     const input = document.querySelector('#locationInput');
@@ -4583,6 +4506,7 @@ document.getElementById('newsResults').innerHTML = articles;
 
   
  
+
 
 
 
