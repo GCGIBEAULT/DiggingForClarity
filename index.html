@@ -871,38 +871,38 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
       )
         .then(res => res.json())
         .then(data => {
-          // Fallback chain for city name
-          const city =
-            data.address.city ||
-            data.address.town ||
-            data.address.village ||
-            data.address.county ||
-            data.address.state ||
-            "your area";
+         // Fallback chain for region name (preferring county for small towns)
+const region = 
+  data.address.county ||
+  data.address.city ||
+  data.address.town ||
+  data.address.village ||
+  data.address.state ||
+  "your area";
 
-          // Display city label and date
-          const today = new Date().toLocaleDateString("en-US", {
-            weekday: "long",
-            month: "long",
-            day: "numeric"
-          });
-          const label = document.createElement("p");
-          label.textContent = `Local news for: ${city} — ${today}`;
-          label.style.fontStyle = "italic";
-          label.style.color = "#555";
-          label.style.marginBottom = "0.5em";
-          newsContainer.appendChild(label);
+// Display region label and date
+const today = new Date().toLocaleDateString("en-US", {
+  weekday: "long",
+  month: "long",
+  day: "numeric"
+});
+const label = document.createElement("p");
+label.textContent = `Local news for: ${region} — ${today}`;
+label.style.fontStyle = "italic";
+label.style.color = "#555";
+label.style.marginBottom = "0.5em";
+newsContainer.appendChild(label);
 
-          // Generate 7 headlines
-          const headlines = [
-            `Emergency alert test scheduled in ${city} this ${today}`,
-            `${city} launches new electric vehicle charging stations`,
-            `Local schools in ${city} prepare for fall reopening`,
-            `City council in ${city} debates new housing policy`,
-            `Weekend farmers market expands in downtown ${city}`,
-            `Air quality advisory issued for ${city} area`,
-            `Public transit upgrades announced for ${city} commuters`
-          ];
+// Generate 7 headlines using region
+const headlines = [
+  `Emergency alert test scheduled in ${region} this ${today}`,
+  `${region} launches new electric vehicle charging stations`,
+  `Local schools in ${region} prepare for fall reopening`,
+  `City council in ${region} debates new housing policy`,
+  `Weekend farmers market expands in downtown ${region}`,
+  `Air quality advisory issued for ${region} area`,
+  `Public transit upgrades announced for ${region} commuters`
+];
 
           const ul = document.createElement("ul");
           headlines.forEach(text => {
@@ -4483,6 +4483,7 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
 
   
  
+
 
 
 
