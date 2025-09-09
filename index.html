@@ -808,9 +808,13 @@ right h
 
 <!-- Local + State News side by side -->
 <section class="grid">
-  <div id="local-news" class="section">
-    <h3>Local News</h3>
-  <ul id="local-news-list"></ul>
+<div id="local-news-section">
+  <h2>Local News</h2>
+  <input type="text" id="locationInput" placeholder="Enter City or ZIP">
+  <button onclick="loadLocalNews()">Get News</button>
+  <div id="newsResults"></div>
+</div>
+
 
   </div>
   <div id="state-news" class="section">
@@ -4450,6 +4454,7 @@ right h
 
   
  
+
 
 
 
