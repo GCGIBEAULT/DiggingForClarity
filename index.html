@@ -907,6 +907,29 @@ right h
   </div>
 </footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const newsContainer = document.getElementById("local-news");
+  const denverNews = [
+    "📱 Emergency Alert Test Today at 11 a.m. across Denver",
+    "🚛 First All-Electric Trash Truck Debuts in City Fleet",
+    "👮 Police Pay Raises Approved Amid Budget Cuts",
+    "🏈 Broncos Win Season Opener 20–12 over Titans",
+    "🏃‍♂️ Broncos Sign Ex-Cowboys RB Deuce Vaughn",
+    "🌫️ Smoky Skies Linger with Storms Expected Later This Week",
+    "🎓 CU Denver & DPS Launch Guaranteed Admission Program"
+  ];
+  const ul = document.createElement("ul");
+  denverNews.forEach(text => {
+    const li = document.createElement("li");
+    li.textContent = text;
+    li.style.marginBottom = "1em";
+    li.style.fontSize = "1rem";
+    ul.appendChild(li);
+  });
+  newsContainer.appendChild(ul);
+});
+</script>
 
 
 
@@ -4285,6 +4308,7 @@ right h
 
   
  
+
 
 
 
