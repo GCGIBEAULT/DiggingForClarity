@@ -1000,14 +1000,17 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
 document.getElementById("refreshLocalNews").addEventListener("click", () => {
   const newsContainer = document.getElementById("local-news");
 
+  // Clear previous content
   while (newsContainer.firstChild) {
     newsContainer.removeChild(newsContainer.firstChild);
   }
 
+  // Get location
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
       const { latitude, longitude } = position.coords;
 
+      // Reverse geocode to get city
       fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
         .then(res => res.json())
         .then(data => {
@@ -1022,6 +1025,7 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
             data.address.state ||
             "your area";
 
+          // Show detected city
           const locationLabel = document.createElement("p");
           locationLabel.textContent = `Local news for: ${city}`;
           locationLabel.style.fontStyle = "italic";
@@ -1029,6 +1033,7 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
           locationLabel.style.marginBottom = "0.5em";
           newsContainer.appendChild(locationLabel);
 
+          // Generate headlines
           const today = new Date().toLocaleDateString("en-US", {
             weekday: 'long',
             month: 'long',
@@ -1067,8 +1072,6 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
   }
 });
 </script>
-</body>
-</html>
 
 </body>
 </html>
@@ -1076,6 +1079,8 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
 
 
 
+
+
  
 
 
@@ -4441,6 +4446,7 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
 
   
  
+
 
 
 
