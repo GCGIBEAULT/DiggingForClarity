@@ -1206,7 +1206,8 @@ fetch(endpoint, {
   document.getElementById('newsResults').innerHTML = articles;
 })
 .catch(err => {
-  document.getElementById('newsResults').innerHTML = "<p>Local news is quiet today.</p>";
+document.getElementById('newsResults').innerHTML = articles;
+
 });
 </script>
 
@@ -4581,6 +4582,7 @@ fetch(endpoint, {
 
   
  
+
 
 
 
