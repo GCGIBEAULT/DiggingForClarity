@@ -1004,48 +1004,7 @@ right h
     <p class="footer-text" style="margin:0;">© Digging For Clarity 2025. All rights reserved.</p>
     <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
   </div>
---- a/index.html
-+++ b/index.html
-@@ -800,8 +800,25 @@
-             label.style.fontStyle = "italic";
--            Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
-+            label.style.color = "#555";
-+            label.style.marginBottom = "0.5em";
-+            newsContainer.appendChild(label);
-+
-+            // Generate 7 dynamic headlines
-+            const headlines = [
-+              `Emergency alert test scheduled in ${city} this ${today}`,
-+              `${city} launches new electric vehicle charging stations`,
-+              `Local schools in ${city} prepare for fall reopening`,
-+              `City council in ${city} debates new housing policy`,
-+              `Weekend farmers market expands in downtown ${city}`,
-+              `Air quality advisory issued for ${city} area`,
-+              `Public transit upgrades announced for ${city} commuters`
-+            ];
-+            const ul = document.createElement("ul");
-+            headlines.forEach(text => {
-+              const li = document.createElement("li");
-+              li.textContent = text;
-+              li.style.marginBottom = "1em";
-+              li.style.fontSize = "1rem";
-+              ul.appendChild(li);
-+            });
-+            newsContainer.appendChild(ul);
-+          })
-+          .catch(() => {
-+            newsContainer.innerHTML = "<p>Could not determine your location.</p>";
-+          });
-+      },
-+      () => {
-+        newsContainer.innerHTML = "<p>Location access denied. Cannot load local news.</p>";
-+      }
-+    );
-+  });
-+</script>
-+</body>
-+</html>
-<script>
+
   function loadLocalNews() {
     const newsContainer = document.getElementById("local-news");
     newsContainer.innerHTML = "";
@@ -1125,4 +1084,5 @@ right h
 </script>
 </body>
 </html>
+
 
