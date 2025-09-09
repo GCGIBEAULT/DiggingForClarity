@@ -1,5 +1,4 @@
-
-
+c
 
 
 
@@ -990,38 +989,21 @@ right h
       a quiet space for thoughtful news, even when the stories themselves are anything but quiet.  
       This page isn’t about peace—it’s about restoring editorial control,  
       so we can carry that clarity into the lives that matter most to us.
-    </p>
-  
-</script>
+</p>
+</div>
 
-<footer class="footer-container" style="margin-top: 60px; border: 1px solid #000; padding: 1em; border-radius: 6px;">
-
-
-
-  <div class="footer-row" style="display:flex;justify-content:center;align-items:center;gap:1em;">
+<footer class="footer-container" style="margin-top:2em; border:1px solid #000; padding:1em; border-radius:6px;">
+  <div class="footer-row" style="display:flex; justify-content:center; align-items:center; gap:1em;">
     <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
     <p class="footer-text" style="margin:0;">© Digging For Clarity 2025. All rights reserved.</p>
     <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
   </div>
 </footer>
- 
-   
-</script>
-<script>
-  // prompt-link logic in one well-formed tag
-  document.querySelectorAll('prompt-link').forEach(link => {
-  
-    section.insertBefore(div, section.querySelector('.more-news-prompt'));
-    section.dataset.extraStories = pool.join('|');
-  });
-</script>
 
 <script>
-  // Local News IIFE (its own tag, now properly nested)
+  // Local News IIFE
   (async function(){
-    console.log('🔍 Local News IIFE loaded');
-
-    // 1. Load ZIP⇄City map
+    // Build ZIP↔City lookup
     const zipToEntry  = new Map();
     const cityToEntry = new Map();
     try {
@@ -1036,116 +1018,73 @@ right h
       return;
     }
 
-    // 2. Lookup helper
-    function lookupEntry(input) {
-      const val = input.trim().toLowerCase();
-      if (/^\d{5}$/.test(val)) {
-        return zipToEntry.get(val) || null;
-      }
-      return cityToEntry.get(val) || null;
+    // Helper: find entry by ZIP or city
+    function lookup(input) {
+      const v = input.trim().toLowerCase();
+      return /^\d{5}$/.test(v)
+        ? zipToEntry.get(v) || null
+        : cityToEntry.get(v) || null;
     }
 
-    // 3. Wire UI elements
+    // UI refs
     const zipInput = document.getElementById('zipInput');
     const saveBtn  = document.getElementById('saveZIP');
     const status   = document.getElementById('zipStatus');
     const newsList = document.getElementById('local-news-list');
 
+    // On click: fetch & render
     saveBtn.addEventListener('click', async () => {
-      console.log('▶️ Save clicked, ZIP:', zipInput.value);
       status.textContent = '';
       newsList.innerHTML = '';
 
-      const entry = lookupEntry(zipInput.value);
+      const entry = lookup(zipInput.value);
       if (!entry) {
         status.textContent = 'ZIP or city not found';
         return;
       }
+
       status.textContent = `Showing news for ${entry.city}, ${entry.state}`;
+      const cityName = entry.city.toLowerCase();
+      const rssURL   = `https://news.google.com/rss/search?q=${encodeURIComponent(cityName)}+local+news`;
+      const apiURL   = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssURL)}`;
 
-      // 4. Fetch & render up to 7 stories
       try {
-        
-<script>
-<script>
-<script>
-(async function(){
-  console.log('🔍 Local News IIFE loaded');
-  const zipToEntry = new Map(), cityToEntry = new Map();
+        const resp2   = await fetch(apiURL);
+        const json    = await resp2.json();
+        const stories = Array.isArray(json.items) ? json.items.slice(0, 7) : [];
 
-  try {
-    const data = await (await fetch('cityzip.json')).json();
-    data.forEach(o => {
-      zipToEntry.set(o.zip, o);
-      cityToEntry.set(o.city.toLowerCase(), o);
-    });
-  } catch (e) {
-    console.error('cityzip.json load failed', e);
-    return;
-  }
+        if (stories.length === 0) {
+          status.textContent = 'No local news found';
+          return;
+        }
 
-  function lookup(input) {
-    const v = input.trim().toLowerCase();
-    return (/^\d{5}$/.test(v) ? zipToEntry.get(v) : cityToEntry.get(v)) || null;
-  }
-
-  const zipInput = document.getElementById('zipInput');
-  const saveBtn  = document.getElementById('saveZIP');
-  const status   = document.getElementById('zipStatus');
-  const newsList = document.getElementById('local-news-list');
-
-  saveBtn.addEventListener('click', async () => {
-    console.log('▶️ Save clicked, ZIP:', zipInput.value);
-    status.textContent = '';
-    newsList.innerHTML = '';
-
-    const entry = lookup(zipInput.value);
-    if (!entry) {
-      status.textContent = 'ZIP or city not found';
-      return;
-    }
-
-    status.textContent = `Showing news for ${entry.city}, ${entry.state}`;
-
-    const city = entry.city.toLowerCase();
-       const rssURL = `https://news.google.com/rss/search?q=${city}+local+news`;
-    const apiURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssURL)}`;
-
-    try {
-      const resp    = await fetch(apiURL);
-      const data    = await resp.json();
-      const stories = data.items.slice(0, 7);
-
-      if (stories.length === 0) {
-        status.textContent = 'No local news found';
-        return;
+        stories.forEach(item => {
+          const li = document.createElement('li');
+          li.style.marginBottom = '1.5em';
+          li.innerHTML = `
+            <a href="${item.link}" target="_blank"
+               style="font-size:1.1rem;font-weight:bold;color:#111;text-decoration:none;">
+              ${item.title}
+            </a>
+            <p style="margin:0.3em 0;font-size:0.9rem;color:#333;">
+              ${item.description}
+            </p>`;
+          newsList.appendChild(li);
+        });
+      } catch (err) {
+        console.error('Failed to fetch live news', err);
+        status.textContent = 'Error loading local news';
       }
-
-      stories.forEach(item => {
-        const li = document.createElement('li');
-        li.style.marginBottom = '1.5em';
-        li.innerHTML = `
-          <a href="${item.link}" target="_blank"
-             style="font-size:1.1rem;font-weight:bold;color:#111;text-decoration:none;">
-            ${item.title}
-          </a>
-          <p style="margin:0.3em 0;font-size:0.9rem;color:#333;">
-            ${item.description}
-          </p>`;
-        newsList.appendChild(li);
-      });
-    } catch (err) {
-      console.error('Failed to fetch live news', err);
-      status.textContent = 'Error loading local news';
-    }
-  });
-})();
+    });
+  })();
 </script>
+
 </body>
 </html>
 
 
 
+
  
 
 
@@ -4511,6 +4450,7 @@ right h
 
   
  
+
 
 
 
