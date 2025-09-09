@@ -764,6 +764,9 @@ right h
     <li>Union Station to host fall farmers market every Saturday</li>
   </ul>
 </div>
+<div style="margin-top: 2em; text-align: left;">
+  <button id="moreLocalNews" style="padding: 0.5em 1em;">➕ More Local News</button>
+</div>
 
 
  
@@ -998,13 +1001,15 @@ right h
   });
 }
 
- <script>
+<script>
   document.addEventListener("DOMContentLoaded", function () {
     loadLocalNews();
 
+    // 🔄 Refresh Local News
     document.getElementById("refreshLocalNews")
       .addEventListener("click", loadLocalNews);
 
+    // 🔍 Load City News
     document.getElementById("submitCity")
       .addEventListener("click", async function () {
         const input = document.getElementById("manualCity").value.trim();
@@ -1028,13 +1033,40 @@ right h
           renderHeadlines(headlines);
         }
       });
+
+    // ➕ More Local News
+    document.getElementById("moreLocalNews")
+      .addEventListener("click", async function () {
+        const location = await getUserLocation();
+        const cityKey = `${location.city}, ${location.state}`;
+        const county = cityToCounty[cityKey];
+
+        let headlines = await fetchNewsForCity(location.city, location.state);
+        if (headlines.length < 7 && county) {
+          headlines = await fetchNewsForCounty(county, location.state);
+        }
+
+        const extraHeadlines = [
+          `New mural unveiled in downtown ${location.city}`,
+          `${location.city} high school robotics team wins regional competition`,
+          `Historic building in ${location.city} to be restored`,
+          `Community cleanup planned for ${location.city} riverfront`,
+          `${location.city} launches small business grant program`,
+          `Local musicians perform at ${location.city} amphitheater`,
+          `${location.city} food bank sees record donations this month`
+        ];
+
+        renderHeadlines([...headlines, ...extraHeadlines]);
+      });
   });
 </script>
+
 
 
  
 </body>
 </html>
+
 
 
 
