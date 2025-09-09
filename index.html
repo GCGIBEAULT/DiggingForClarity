@@ -845,93 +845,17 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
 });
 </script>
 
- <!-- ↓↓↓ Replace placeholder with this full script ↓↓↓ -->
+<!--
 <script>
-document.getElementById("refreshLocalNews").addEventListener("click", () => {
-  const newsContainer = document.getElementById("local-news");
-
-  // Clear previous content
-  while (newsContainer.firstChild) {
-    newsContainer.removeChild(newsContainer.firstChild);
-  }
-
-  // Geolocation check
-  if (!navigator.geolocation) {
-    newsContainer.innerHTML = "<p>Geolocation not supported by your browser.</p>";
-    return;
-  }
-
-  navigator.geolocation.getCurrentPosition(
-    position => {
-      const { latitude, longitude } = position.coords;
-
-      // Reverse-geocode to get city
-      fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
-      )
-        .then(res => res.json())
-        .then(data => {
-         // Fallback chain for region name (preferring county for small towns)
-const region = 
-  data.address.county ||
-  data.address.city ||
-  data.address.town ||
-  data.address.village ||
-  data.address.state ||
-  "your area";
-
-// Display region label and date
-const today = new Date().toLocaleDateString("en-US", {
-  weekday: "long",
-  month: "long",
-  day: "numeric"
-});
-const label = document.createElement("p");
-label.textContent = `Local news for: ${region} — ${today}`;
-label.style.fontStyle = "italic";
-label.style.color = "#555";
-label.style.marginBottom = "0.5em";
-newsContainer.appendChild(label);
-
-// Generate 7 headlines using region
-const headlines = [
-  `Emergency alert test scheduled in ${region} this ${today}`,
-  `${region} launches new electric vehicle charging stations`,
-  `Local schools in ${region} prepare for fall reopening`,
-  `City council in ${region} debates new housing policy`,
-  `Weekend farmers market expands in downtown ${region}`,
-  `Air quality advisory issued for ${region} area`,
-  `Public transit upgrades announced for ${region} commuters`
-];
-
-          const ul = document.createElement("ul");
-          headlines.forEach(text => {
-            const li = document.createElement("li");
-            li.textContent = text;
-            li.style.marginBottom = "1em";
-            li.style.fontSize = "1rem";
-            ul.appendChild(li);
-          });
-          newsContainer.appendChild(ul);
-        })
-        .catch(() => {
-          newsContainer.innerHTML = "<p>Could not determine your location.</p>";
-        });
-    },
-    () => {
-      newsContainer.innerHTML = "<p>Location access denied. Cannot load local news.</p>";
-    }
-  );
-});
+  document.getElementById("refreshLocalNews").addEventListener("click", () => {
+    // …entire duplicated code…
+  });
 </script>
-<!-- ↑↑↑ End restored script ↑↑↑ -->
+-->
 
 
-  <div class="section">
-    <h3>U.S. News</h3>
-    <div id="us-news"></div>
-  </div>
 
+ 
 
   <div class="section">
     <h3>U.S. News</h3>
@@ -4483,6 +4407,7 @@ const headlines = [
 
   
  
+
 
 
 
