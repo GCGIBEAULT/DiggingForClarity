@@ -808,10 +808,12 @@ right h
 
 <!-- Local + State News side by side -->
 <section class="grid">
-<div id="local-news-section">
-  <h2>Local News</h2>
-
+<div id="localNewsBox" style="border:1px solid #ccc; padding:1em; margin-top:2em; background:#f9f9f9;">
+  <h2 style="margin-top:0;">Local News</h2>
+  <input type="text" id="locationInput" placeholder="Enter City or ZIP" style="width:100%; padding:0.5em; margin-bottom:1em;">
+  <div id="newsResults"></div>
 </div>
+
 
 
   </div>
@@ -4521,6 +4523,7 @@ document.getElementById('locationInput').addEventListener('change', function () 
 
   
  
+
 
 
 
