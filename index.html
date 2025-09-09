@@ -740,25 +740,7 @@ right h
     }
   });
 </script>
-<section class="grid-two">
-  <div class="section">
-    <h3>Local News</h3>
-    <div id="local-news"></div>
-  </div>
 
-  <div class="section">
-    <h3>State News</h3>
-    <div id="state-news">
-      <ul>
-        <li>Colorado expands wildfire prevention funding for 2025</li>
-        <li>New state education standards approved for K–12 schools</li>
-        <li>Governor announces rural broadband initiative rollout</li>
-        <li>State parks to offer free admission on select weekends</li>
-        <li>Colorado Department of Transportation begins I-70 upgrades</li>
-      </ul>
-    </div>
-  </div>
-</section>
 
 
 
@@ -766,6 +748,132 @@ right h
 
  
 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+<div class="section">
+  <h3>Local News</h3>
+  <button id="refreshLocalNews" style="
+    margin-bottom: 1em;
+    padding: 0.6em 1.2em;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #eee;
+    border: 1px solid #999;
+    border-radius: 6px;
+    cursor: pointer;
+  ">
+    🔄 Refresh Local News
+  </button>
+  <div id="local-news"></div>
+</div>
+  </div>
+<script>
+  function loadLocalNews() {
+    const newsContainer = document.getElementById("local-news");
+    newsContainer.innerHTML = "";
+
+    if (!navigator.geolocation) {
+      newsContainer.innerHTML = "<p>Geolocation not supported.</p>";
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude: lat, longitude: lon } }) => {
+        fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`,
+          {
+            headers: {
+              "User-Agent": "DiggingForClarity/1.0 (your.email@domain.com)"
+            }
+          }
+        )
+          .then(res => res.json())
+          .then(data => {
+            const city =
+              data.address.city ||
+              data.address.town ||
+              data.address.village ||
+              data.address.county ||
+              data.address.state ||
+              "your area";
+            const today = new Date().toLocaleDateString("en-US", {
+              weekday: "long",
+              month: "long",
+              day: "numeric"
+            });
+
+            const label = document.createElement("p");
+            label.textContent = `Local news for: ${city} — ${today}`;
+            label.style.fontStyle = "italic";
+            label.style.color = "#555";
+            label.style.marginBottom = "0.5em";
+            newsContainer.appendChild(label);
+
+            const headlines = [
+              `Emergency alert test scheduled in ${city} this ${today}`,
+              `${city} launches new electric vehicle charging stations`,
+              `Local schools in ${city} prepare for fall reopening`,
+              `City council in ${city} debates new housing policy`,
+              `Weekend farmers market expands in downtown ${city}`,
+              `Air quality advisory issued for ${city} area`,
+              `Public transit upgrades announced for ${city} commuters`
+            ];
+            const ul = document.createElement("ul");
+            headlines.forEach(text => {
+              const li = document.createElement("li");
+              li.textContent = text;
+              li.style.marginBottom = "1em";
+              li.style.fontSize = "1rem";
+              ul.appendChild(li);
+            });
+            newsContainer.appendChild(ul);
+          })
+          .catch(() => {
+            newsContainer.innerHTML =
+              "<p>Could not determine your location. Try again in a moment.</p>";
+          });
+      },
+      () => {
+        newsContainer.innerHTML =
+          "<p>Location access denied. Cannot load local news.</p>";
+      }
+    );
+  }
+
+  document
+    .getElementById("refreshLocalNews")
+    .addEventListener("click", loadLocalNews);
+  document.addEventListener("DOMContentLoaded", loadLocalNews);
+
+
+
+
+ 
+
+  <div class="section">
+    <h3>U.S. News</h3>
+    <div id="us-news"></div>
+  </div>
+</section>
+<section class="grid">
+  <div class="section">
+    <h3>TEMP</h3>
+    <div class="snippet">Content intentionally blank. Awaiting clarity.</div>
+  </div>
 
   <div class="section" style="border: 1px solid #ccc; padding: 1em; border-radius: 6px; background-color: #f4f1ec;">
     <h3 style="margin-bottom: 0.5em;">Market Watch</h3>
@@ -893,6 +1001,82 @@ right h
     <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
   </div>
 
+<script>
+  // 1) Clear & fetch local‐news on click or page load
+  function loadLocalNews() {
+    const newsContainer = document.getElementById("local-news");
+    newsContainer.innerHTML = "";
+
+    if (!navigator.geolocation) {
+      newsContainer.innerHTML = "<p>Geolocation not supported.</p>";
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude: lat, longitude: lon } }) => {
+        fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`,
+          { headers: { "User-Agent": "DiggingForClarity/1.0 (you@domain.com)" } }
+        )
+          .then(r => r.json())
+          .then(data => {
+            const city =
+              data.address.city ||
+              data.address.town ||
+              data.address.village ||
+              data.address.county ||
+              data.address.state ||
+              "your area";
+            const today = new Date().toLocaleDateString("en-US", {
+              weekday: "long",
+              month: "long",
+              day: "numeric"
+            });
+
+            const label = document.createElement("p");
+            label.textContent = `Local news for: ${city} — ${today}`;
+            label.style.fontStyle = "italic";
+            label.style.color = "#555";
+            label.style.marginBottom = "0.5em";
+            newsContainer.appendChild(label);
+
+            const headlines = [
+              `Emergency alert test scheduled in ${city} this ${today}`,
+              `${city} launches new electric vehicle charging stations`,
+              `Local schools in ${city} prepare for fall reopening`,
+              `City council in ${city} debates new housing policy`,
+              `Weekend farmers market expands in downtown ${city}`,
+              `Air quality advisory issued for ${city} area`,
+              `Public transit upgrades announced for ${city} commuters`
+            ];
+            const ul = document.createElement("ul");
+            headlines.forEach(text => {
+              const li = document.createElement("li");
+              li.textContent = text;
+              li.style.marginBottom = "1em";
+              li.style.fontSize = "1rem";
+              ul.appendChild(li);
+            });
+            newsContainer.appendChild(ul);
+          })
+          .catch(() => {
+            newsContainer.innerHTML =
+              "<p>Could not determine your location. Try again later.</p>";
+          });
+      },
+      () => {
+        newsContainer.innerHTML =
+          "<p>Location access denied. Cannot load local news.</p>";
+      }
+    );
+  }
+
+  // 2) Wire the button + initial load
+  document
+    .getElementById("refreshLocalNews")
+    .addEventListener("click", loadLocalNews);
+  document.addEventListener("DOMContentLoaded", loadLocalNews);
+</script>
  
 </body>
 </html>
