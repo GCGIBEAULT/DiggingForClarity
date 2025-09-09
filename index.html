@@ -521,60 +521,7 @@ right h
       Just The News Please. Hold The Drama.
     </p>
 
-    <!-- ZIP input block nested safely -->
- <div id="zip-input-block"
-     style="
-       margin: 1em auto 0;
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       font-family: inherit;
-       font-size: 0.875rem;
-     ">
-  <label for="zipInput"
-         style="
-           font-weight: bold;
-           margin-bottom: 0.4em;
-         ">
-    Enter City/Zip:
-  </label>
-  <div style="
-        display: flex;
-        align-items: center;
-      ">
-   <input
-  type="text"
-  id="zipInput"
-  name="zipInput"
-  placeholder="e.g. 80203 or Boulder"
-  style="
-    width: 160px;
-    height: 30px;
-    margin-right: 8px;
-    padding: 0.2em;
-    font-size: inherit;
-  "
-/>
-
-    <button
-      id="saveZIP"
-      style="
-        width: 80px;
-        height: 30px;
-        padding: 0.2em;
-        font-size: inherit;
-      ">
-      Save
-    </button>
-  </div>
-  <p id="zipStatus"
-     style="
-       margin-top: 0.4em;
-       font-size: 0.75rem;
-       color: #555;
-     ">
-  </p>
-</div>
+  
 
 
     <p id="timestamp" class="timestamp" style="font-size: 1.4rem; font-family: 'Merriweather', serif; color: #555; margin-top: 1em;">
@@ -811,62 +758,10 @@ right h
 <div class="section">
   <h3>Local News</h3>
   <ul id="local-news-list"></ul>
-  <p id="zipStatus"></p>
+
 </div>
 
-<!-- Bing News API Integration -->
-<script>
-  const zipInput = document.getElementById('zipInput');
-  const saveBtn  = document.getElementById('saveZIP');
-  const status   = document.getElementById('zipStatus');
-  const newsList = document.getElementById('local-news-list');
 
-  const apiKey = 'YOUR_BING_NEWS_API_KEY';  // ← replace with your real key
-
-  saveBtn.addEventListener('click', async () => {
-    status.textContent = '';
-    newsList.innerHTML = '';
-
-    const location = zipInput.value.trim();
-    if (!location) {
-      status.textContent = 'Please enter a city or ZIP';
-      return;
-    }
-
-    try {
-      const res = await fetch(
-        `https://api.bing.microsoft.com/v7.0/news/search`
-        + `?q=${encodeURIComponent(location)}&count=7&mkt=en-US`,
-        { headers: { 'Ocp-Apim-Subscription-Key': apiKey } }
-      );
-      const { value: stories = [] } = await res.json();
-
-      if (stories.length === 0) {
-        status.textContent = 'No local news found';
-        return;
-      }
-
-      stories.forEach(item => {
-        const li = document.createElement('li');
-        li.style.marginBottom = '1.5em';
-        li.innerHTML = `
-          <a href="${item.url}" target="_blank"
-             style="font-size:1.1rem;font-weight:bold;color:#111;text-decoration:none;">
-            ${item.name}
-          </a>
-          <p style="margin:0.3em 0;font-size:0.9rem;color:#333;">
-            ${item.description}
-          </p>`;
-        newsList.appendChild(li);
-      });
-
-      status.textContent = \`Showing news for \${location}\`;
-    } catch (err) {
-      console.error('Failed to fetch Bing news', err);
-      status.textContent = 'Error loading local news';
-    }
-  });
-</script>
 
 
 
@@ -1065,62 +960,7 @@ right h
 
 
 
- <script>
-  const zipInput = document.getElementById('zipInput');
-  const saveBtn = document.getElementById('saveZIP');
-  const status = document.getElementById('zipStatus');
-  const newsList = document.getElementById('local-news-list');
 
- 
-
-  saveBtn.addEventListener('click', async () => {
-    status.textContent = '';
-    newsList.innerHTML = '';
-
-    const location = zipInput.value.trim();
-    if (!location) {
-      status.textContent = 'Please enter a city or ZIP';
-      return;
-    }
-
-    const endpoint = 
-      `https://api.bing.microsoft.com/v7.0/news/search`
-      + `?q=${encodeURIComponent(location)}&count=7&mkt=en-US`;
-
-    try {
-      const res = await fetch(endpoint, {
-        headers: { 'Ocp-Apim-Subscription-Key': apiKey }
-      });
-      const data = await res.json();
-      const stories = data.value || [];
-
-      if (stories.length === 0) {
-        status.textContent = 'No local news found';
-        return;
-      }
-
-      stories.forEach(item => {
-        const li = document.createElement('li');
-        li.style.marginBottom = '1.5em';
-        li.innerHTML = `
-          <a href="${item.url}" target="_blank"
-             style="font-size:1.1rem;font-weight:bold;
-                    color:#111;text-decoration:none;">
-            ${item.name}
-          </a>
-          <p style="margin:0.3em 0;font-size:0.9rem;color:#333;">
-            ${item.description}
-          </p>`;
-        newsList.appendChild(li);
-      });
-
-      status.textContent = `Showing news for ${location}`;
-    } catch (err) {
-      console.error('Failed to fetch Bing news', err);
-      status.textContent = 'Error loading local news';
-    }
-  });
-</script>
 
 </body>
 </html>
@@ -4493,6 +4333,7 @@ right h
 
   
  
+
 
 
 
