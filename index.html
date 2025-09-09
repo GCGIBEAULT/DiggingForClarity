@@ -1031,6 +1031,28 @@ right h
     const saveBtn  = document.getElementById('saveZIP');
     const status   = document.getElementById('zipStatus');
     const newsList = document.getElementById('local-news-list');
+const zipMap = new Map();
+const cityMap = new Map();
+
+try {
+  const res = await fetch('cityzip.json');
+  const data = await res.json();
+  data.forEach(item => {
+    zipMap.set(item.zip, item);
+    cityMap.set(item.city.toLowerCase(), item);
+  });
+} catch (err) {
+  console.error('Failed to load cityzip.json', err);
+  status.textContent = 'Error loading location data';
+  return;
+}
+
+function lookup(val) {
+  const v = val.trim().toLowerCase();
+  return /^\d{5}$/.test(v)
+    ? zipMap.get(v) || null
+    : cityMap.get(v) || null;
+}
 
     // On click: fetch & render
     saveBtn.addEventListener('click', async () => {
@@ -4449,6 +4471,7 @@ right h
 
   
  
+
 
 
 
