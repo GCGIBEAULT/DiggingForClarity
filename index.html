@@ -995,16 +995,44 @@ right h
   });
 }
 
+ <script>
   document.addEventListener("DOMContentLoaded", function () {
     loadLocalNews();
+
     document.getElementById("refreshLocalNews")
       .addEventListener("click", loadLocalNews);
+
+    document.getElementById("submitCity")
+      .addEventListener("click", async function () {
+        const input = document.getElementById("manualCity").value.trim();
+        if (!input) return;
+
+        const [city, state] = input.split(",").map(s => s.trim());
+        if (!city || !state) {
+          alert("Please enter a city and state like 'Rutland, VT'");
+          return;
+        }
+
+        const cityKey = `${city}, ${state}`;
+        const county = cityToCounty[cityKey];
+
+        let headlines = await fetchNewsForCity(city, state);
+
+        if (headlines.length < 3 && county) {
+          headlines = await fetchNewsForCounty(county, state);
+          renderHeadlines(headlines, `Showing news from ${county} due to limited results for ${city}.`);
+        } else {
+          renderHeadlines(headlines);
+        }
+      });
   });
 </script>
+
 
  
 </body>
 </html>
+
 
 
 
