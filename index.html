@@ -923,7 +923,11 @@ right h
 <script>
 document.getElementById("refreshLocalNews").addEventListener("click", () => {
   const newsContainer = document.getElementById("local-news");
-  newsContainer.innerHTML = '';
+
+  // Clear all previous content
+  while (newsContainer.firstChild) {
+    newsContainer.removeChild(newsContainer.firstChild);
+  }
 
   // Step 1: Get location
   if (navigator.geolocation) {
@@ -934,16 +938,52 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
       fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
         .then(res => res.json())
         .then(data => {
-         const city =
-  data.address.city ||
-  data.address.town ||
-  data.address.village ||
-  data.address.hamlet ||
-  data.address.county ||
-  data.address.suburb ||
-  data.address.neighbourhood ||
-  data.address.state ||
-  "your area";
+          const city =
+            data.address.city ||
+            data.address.town ||
+            data.address.village ||
+            data.address.hamlet ||
+            data.address.county ||
+            data.address.suburb ||
+            data.address.neighbourhood ||
+            data.address.state ||
+            "your area";
+
+          // Optional: Show detected city above headlines
+          const locationLabel = document.createElement("p");
+          locationLabel.textContent = `Local news for: ${city}`;
+          locationLabel.style.fontStyle = "italic";
+          locationLabel.style.color = "#555";
+          locationLabel.style.marginBottom = "0.5em";
+          newsContainer.appendChild(locationLabel);
+
+          // Step 3: Generate headlines dynamically
+          const today = new Date().toLocaleDateString("en-US", {
+            weekday: 'long',
+            month: 'long',
+            day: 'numeric'
+          });
+
+          const headlines = [
+            `Emergency alert test scheduled in ${city} this ${today}`,
+            `${city} launches new electric vehicle charging stations`,
+            `Local schools in ${city} prepare for fall reopening`,
+            `City council in ${city} debates new housing policy`,
+            `Weekend farmers market expands in downtown ${city}`,
+            `Air quality advisory issued for ${city} area`,
+            `Public transit upgrades announced for ${city} commuters`
+          ];
+
+          const ul = document.createElement("ul");
+          headlines.forEach(text => {
+            const li = document.createElement("li");
+            li.textContent = text;
+            li.style.marginBottom = "1em";
+            li.style.fontSize = "1rem";
+            ul.appendChild(li);
+          });
+
+          newsContainer.appendChild(ul);
 
 
 
@@ -4325,6 +4365,7 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
 
   
  
+
 
 
 
