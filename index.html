@@ -1105,7 +1105,7 @@ right h
     status.textContent = `Showing news for ${entry.city}, ${entry.state}`;
 
     try {
-    const city = entry.city.toLowerCase();
+  const city = entry.city.toLowerCase();
 const rssURL = `https://news.google.com/rss/search?q=${city}+local+news`;
 const apiURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssURL)}`;
 
@@ -1118,6 +1118,25 @@ try {
     status.textContent = 'No local news found';
     return;
   }
+
+  stories.forEach(item => {
+    const li = document.createElement('li');
+    li.style.marginBottom = '1.5em';
+    li.innerHTML = `
+      <a href="${item.link}" target="_blank"
+         style="font-size:1.1rem;font-weight:bold;color:#111;text-decoration:none;">
+        ${item.title}
+      </a>
+      <p style="margin:0.3em 0;font-size:0.9rem;color:#333;">
+        ${item.description}
+      </p>`;
+    newsList.appendChild(li);
+  });
+} catch (err) {
+  console.error('Failed to fetch live news', err);
+  status.textContent = 'Error loading local news';
+}
+
 
   stories.forEach(item => {
     const li = document.createElement('li');
@@ -4526,6 +4545,7 @@ try {
 
   
  
+
 
 
 
