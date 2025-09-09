@@ -921,21 +921,22 @@ right h
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+document.getElementById("refreshLocalNews").addEventListener("click", () => {
   const newsContainer = document.getElementById("local-news");
- const denverNews = [
-  "Emergency Alert Test Today at 11 a.m. across Denver",
-  "First All-Electric Trash Truck Debuts in City Fleet",
-  "Police Pay Raises Approved Amid Budget Cuts",
-  "Broncos Win Season Opener 20–12 over Titans",
-  "Broncos Sign Ex-Cowboys RB Deuce Vaughn",
-  "Smoky Skies Linger with Storms Expected Later This Week",
-  "CU Denver & DPS Launch Guaranteed Admission Program"
-];
+  newsContainer.innerHTML = '';
 
+  const updatedDenverNews = [
+    "Denver City Council debates new zoning rules for ADUs",
+    "RTD expands free weekend transit for youth riders",
+    "Broncos announce stadium upgrades ahead of home opener",
+    "New wildfire mitigation grant targets foothill neighborhoods",
+    "Denver Public Library launches AI literacy workshops",
+    "City crews repair sinkhole near Speer and Grant",
+    "Local artists open immersive gallery in RiNo district"
+  ];
 
   const ul = document.createElement("ul");
-  denverNews.forEach(text => {
+  updatedDenverNews.forEach(text => {
     const li = document.createElement("li");
     li.textContent = text;
     li.style.marginBottom = "1em";
@@ -946,6 +947,7 @@ document.addEventListener("DOMContentLoaded", () => {
   newsContainer.appendChild(ul);
 });
 </script>
+
 
 
 
@@ -4325,6 +4327,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
  
+
 
 
 
