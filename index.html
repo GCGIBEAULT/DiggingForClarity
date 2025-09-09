@@ -1084,82 +1084,6 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
 
 <!-- Your other HTML content -->
 
-<script>
-document.getElementById("refreshLocalNews").addEventListener("click", () => {
-  const newsContainer = document.getElementById("local-news");
-
-  // Clear previous content
-  while (newsContainer.firstChild) {
-    newsContainer.removeChild(newsContainer.firstChild);
-  }
-
-  // Get location
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      const { latitude, longitude } = position.coords;
-
-      // Reverse geocode to get city
-      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
-        .then(res => res.json())
-        .then(data => {
-          const city =
-            data.address.city ||
-            data.address.town ||
-            data.address.village ||
-            data.address.hamlet ||
-            data.address.county ||
-            data.address.suburb ||
-            data.address.neighbourhood ||
-            data.address.state ||
-            "your area";
-
-          // Show detected city
-          const locationLabel = document.createElement("p");
-          locationLabel.textContent = `Local news for: ${city}`;
-          locationLabel.style.fontStyle = "italic";
-          locationLabel.style.color = "#555";
-          locationLabel.style.marginBottom = "0.5em";
-          newsContainer.appendChild(locationLabel);
-
-          // Generate headlines
-          const today = new Date().toLocaleDateString("en-US", {
-            weekday: 'long',
-            month: 'long',
-            day: 'numeric'
-          });
-
-          const headlines = [
-            `Emergency alert test scheduled in ${city} this ${today}`,
-            `${city} launches new electric vehicle charging stations`,
-            `Local schools in ${city} prepare for fall reopening`,
-            `City council in ${city} debates new housing policy`,
-            `Weekend farmers market expands in downtown ${city}`,
-            `Air quality advisory issued for ${city} area`,
-            `Public transit upgrades announced for ${city} commuters`
-          ];
-
-          const ul = document.createElement("ul");
-          headlines.forEach(text => {
-            const li = document.createElement("li");
-            li.textContent = text;
-            li.style.marginBottom = "1em";
-            li.style.fontSize = "1rem";
-            ul.appendChild(li);
-          });
-
-          newsContainer.appendChild(ul);
-        })
-        .catch(() => {
-          newsContainer.innerHTML = '<p>Could not determine your location.</p>';
-        });
-    }, () => {
-      newsContainer.innerHTML = '<p>Location access denied. Cannot load local news.</p>';
-    });
-  } else {
-    newsContainer.innerHTML = '<p>Geolocation not supported by your browser.</p>';
-  }
-});
-</script>
 
 
 </body>
@@ -4535,6 +4459,7 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
 
   
  
+
 
 
 
