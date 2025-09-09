@@ -768,6 +768,9 @@ right h
 
   <div class="section">
     <h3>State News</h3>
+    <!-- Refresh State News Button -->
+<button id="refreshStateNews" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh State News</button>
+
     <ul id="state-news" style="line-height: 1.6;">
       <li>Colorado expands wildfire prevention funding for 2025</li>
       <li>New state education standards approved for K–12 schools</li>
@@ -1054,6 +1057,35 @@ right h
         renderHeadlines([...headlines, ...extraHeadlines]);
       });
   });
+  // Existing Local News logic
+document.getElementById("refreshLocalNews")
+  .addEventListener("click", loadLocalNews);
+
+// ➕ Add this just above the closing tag
+function loadStateNews() {
+  const headlines = [
+    "Colorado expands wildfire prevention funding for 2025",
+    "New state education standards approved for K–12 schools",
+    "Governor announces rural broadband initiative rollout",
+    "State parks to offer free admission on select weekends",
+    "Colorado Department of Transportation begins I-70 upgrades",
+    "Colorado launches statewide mental health hotline",
+    "New legislation boosts clean energy incentives for homeowners"
+  ];
+
+  const container = document.getElementById("state-news");
+  container.innerHTML = "";
+  headlines.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    container.appendChild(li);
+  });
+}
+
+document.getElementById("refreshStateNews")
+  .addEventListener("click", loadStateNews);
+</script>
+
 </script>
 
 
@@ -1061,6 +1093,7 @@ right h
  
 </body>
 </html>
+
 
 
 
