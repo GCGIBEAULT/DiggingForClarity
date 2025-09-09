@@ -782,14 +782,87 @@ right h
 </div>
   </div>
   
-  <!-- ↓↓↓ Add this script here ↓↓↓ -->
-  <script>
-  document.getElementById("refreshLocalNews").addEventListener("click", () => {
-    const newsContainer = document.getElementById("local-news");
-    // …your full working code from the first commit…
-  });
-  </script>
-  <!-- ↑↑↑ Script ends here ↑↑↑ -->
+ <!-- ↓↓↓ Replace placeholder with this full script ↓↓↓ -->
+<script>
+document.getElementById("refreshLocalNews").addEventListener("click", () => {
+  const newsContainer = document.getElementById("local-news");
+
+  // Clear previous content
+  while (newsContainer.firstChild) {
+    newsContainer.removeChild(newsContainer.firstChild);
+  }
+
+  // Geolocation check
+  if (!navigator.geolocation) {
+    newsContainer.innerHTML = "<p>Geolocation not supported by your browser.</p>";
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    position => {
+      const { latitude, longitude } = position.coords;
+
+      // Reverse-geocode to get city
+      fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+      )
+        .then(res => res.json())
+        .then(data => {
+          // Fallback chain for city name
+          const city =
+            data.address.city ||
+            data.address.town ||
+            data.address.village ||
+            data.address.county ||
+            data.address.state ||
+            "your area";
+
+          // Display city label and date
+          const today = new Date().toLocaleDateString("en-US", {
+            weekday: "long",
+            month: "long",
+            day: "numeric"
+          });
+          const label = document.createElement("p");
+          label.textContent = `Local news for: ${city} — ${today}`;
+          label.style.fontStyle = "italic";
+          label.style.color = "#555";
+          label.style.marginBottom = "0.5em";
+          newsContainer.appendChild(label);
+
+          // Generate 7 headlines
+          const headlines = [
+            `Emergency alert test scheduled in ${city} this ${today}`,
+            `${city} launches new electric vehicle charging stations`,
+            `Local schools in ${city} prepare for fall reopening`,
+            `City council in ${city} debates new housing policy`,
+            `Weekend farmers market expands in downtown ${city}`,
+            `Air quality advisory issued for ${city} area`,
+            `Public transit upgrades announced for ${city} commuters`
+          ];
+
+          const ul = document.createElement("ul");
+          headlines.forEach(text => {
+            const li = document.createElement("li");
+            li.textContent = text;
+            li.style.marginBottom = "1em";
+            li.style.fontSize = "1rem";
+            ul.appendChild(li);
+          });
+          newsContainer.appendChild(ul);
+        })
+        .catch(() => {
+          newsContainer.innerHTML = "<p>Could not determine your location.</p>";
+        });
+    },
+    () => {
+      newsContainer.innerHTML = "<p>Location access denied. Cannot load local news.</p>";
+    }
+  );
+});
+</script>
+<!-- ↑↑↑ End restored script ↑↑↑ -->
+
 
   <div class="section">
     <h3>U.S. News</h3>
@@ -4462,6 +4535,7 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
 
   
  
+
 
 
 
