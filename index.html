@@ -925,26 +925,52 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
   const newsContainer = document.getElementById("local-news");
   newsContainer.innerHTML = '';
 
-  const updatedDenverNews = [
-    "Denver City Council debates new zoning rules for ADUs",
-    "RTD expands free weekend transit for youth riders",
-    "Broncos announce stadium upgrades ahead of home opener",
-    "New wildfire mitigation grant targets foothill neighborhoods",
-    "Denver Public Library launches AI literacy workshops",
-    "City crews repair sinkhole near Speer and Grant",
-    "Local artists open immersive gallery in RiNo district"
-  ];
+  // Step 1: Get location
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(position => {
+      const { latitude, longitude } = position.coords;
 
-  const ul = document.createElement("ul");
-  updatedDenverNews.forEach(text => {
-    const li = document.createElement("li");
-    li.textContent = text;
-    li.style.marginBottom = "1em";
-    li.style.fontSize = "1rem";
-    ul.appendChild(li);
-  });
+      // Step 2: Reverse geocode to get city
+      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+        .then(res => res.json())
+        .then(data => {
+          const city = data.address.city || data.address.town || data.address.village || data.address.state || "your area";
 
-  newsContainer.appendChild(ul);
+          // Step 3: Generate live headlines with Copilot
+          const headlines = generateLocalNews(city); // Copilot-powered function
+          const ul = document.createElement("ul");
+          headlines.forEach(text => {
+            const li = document.createElement("li");
+            li.textContent = text;
+            li.style.marginBottom = "1em";
+            li.style.fontSize = "1rem";
+            ul.appendChild(li);
+          });
+          newsContainer.appendChild(ul);
+        })
+        .catch(() => {
+          newsContainer.innerHTML = '<p>Could not determine your location.</p>';
+        });
+    }, () => {
+      newsContainer.innerHTML = '<p>Location access denied. Cannot load local news.</p>';
+    });
+  } else {
+    newsContainer.innerHTML = '<p>Geolocation not supported by your browser.</p>';
+  }
+
+  // Simulated Copilot function (replace with real integration)
+  function generateLocalNews(city) {
+    const today = new Date().toLocaleDateString("en-US", { weekday: 'long', month: 'long', day: 'numeric' });
+    return [
+      `Emergency alert test scheduled in ${city} this ${today}`,
+      `${city} launches new electric vehicle charging stations`,
+      `Local schools in ${city} prepare for fall reopening`,
+      `City council in ${city} debates new housing policy`,
+      `Weekend farmers market expands in downtown ${city}`,
+      `Air quality advisory issued for ${city} area`,
+      `Public transit upgrades announced for ${city} commuters`
+    ];
+  }
 });
 </script>
 
@@ -4327,6 +4353,7 @@ document.getElementById("refreshLocalNews").addEventListener("click", () => {
 
   
  
+
 
 
 
