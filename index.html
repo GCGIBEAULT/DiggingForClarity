@@ -902,10 +902,98 @@ right h
     <p class="footer-text" style="margin:0;">© Digging For Clarity 2025. All rights reserved.</p>
     <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
   </div>
+<script>
+  const cityToCounty = {
+    "Edgewater, FL": "Volusia County",
+    "Palm Coast, FL": "Flagler County",
+    "Rutland, VT": "Rutland County",
+    "Montpelier, VT": "Washington County",
+    "Stowe, VT": "Lamoille County",
+    "Brattleboro, VT": "Windham County",
+    "Burlington, VT": "Chittenden County",
+    "Aurora, CO": "Arapahoe County",
+    "Boulder, CO": "Boulder County",
+    "Littleton, CO": "Jefferson County"
+  };
+
+  async function getUserLocation() {
+    // Simulated location detection (replace with real API if needed)
+    return { city: "Edgewater", state: "FL" };
+  }
+
+  async function fetchNewsForCity(city, state) {
+    // Simulated news fetch (replace with real API)
+    if (city === "Edgewater") return [];
+    return [
+      `${city} launches new community garden initiative`,
+      `City Council in ${city} approves downtown revitalization`,
+      `${city} library expands weekend hours`,
+      `Local artists showcase work in ${city} town square`,
+      `New bike lanes added across ${city}`,
+      `${city} hosts annual fall festival`,
+      `Fire department in ${city} receives new equipment`
+    ];
+  }
+
+  async function fetchNewsForCounty(county, state) {
+    // Simulated county-level news
+    return [
+      `${county} farmers market expands to three locations`,
+      `Wildfire contained in eastern ${county}`,
+      `${county} schools receive federal grant for STEM programs`,
+      `New public transit routes launched in ${county}`,
+      `Sheriff’s office in ${county} announces community outreach`,
+      `County fair returns to ${county} this October`,
+      `Flood mitigation project begins in ${county}`
+    ];
+  }
+
+  function renderHeadlines(headlines, fallbackMessage = "") {
+    const container = document.getElementById("local-news");
+    container.innerHTML = "";
+
+    if (fallbackMessage) {
+      container.innerHTML += `<div class="snippet" style="font-style: italic; color: #555;">${fallbackMessage}</div>`;
+    }
+
+    const ul = document.createElement("ul");
+    ul.style.lineHeight = "1.6";
+
+    headlines.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+
+    container.appendChild(ul);
+  }
+
+  async function loadLocalNews() {
+    const location = await getUserLocation();
+    const cityKey = `${location.city}, ${location.state}`;
+    const county = cityToCounty[cityKey];
+
+    let headlines = await fetchNewsForCity(location.city, location.state);
+
+    if (headlines.length < 3 && county) {
+      headlines = await fetchNewsForCounty(county, location.state);
+      renderHeadlines(headlines, `Showing news from ${county} due to limited results for ${location.city}.`);
+    } else {
+      renderHeadlines(headlines);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    loadLocalNews();
+    document.getElementById("refreshLocalNews")
+      .addEventListener("click", loadLocalNews);
+  });
+</script>
 
  
 </body>
 </html>
+
 
 
 
