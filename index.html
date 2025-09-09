@@ -1117,6 +1117,40 @@ right h
 
   document.querySelector('button').addEventListener('click', fetchLocalNews);
 </script>
+<script>
+document.getElementById('locationInput').addEventListener('change', function () {
+  const zip = this.value.trim();
+  if (!zip) return;
+
+  fetch('https://gcgibeault.github.io/DiggingForClarity/cityzip.json')
+    .then(res => res.json())
+    .then(data => {
+      const match = data.find(entry =>
+        entry.zip === zip || entry.city.toLowerCase() === zip.toLowerCase()
+      );
+      if (!match) {
+        document.getElementById('newsResults').innerHTML = "<p>No match found.</p>";
+        return;
+      }
+
+      const cityState = `${match.city}+${match.state}`;
+      const rssURL = `https://news.google.com/rss/search?q=${cityState}&hl=en-US&gl=US&ceid=US:en`;
+      const apiURL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssURL)}`;
+
+      fetch(apiURL)
+        .then(res => res.json())
+        .then(feed => {
+          const articles = feed.items.slice(0, 7).map(item => `
+            <div style="margin-bottom:1em;">
+              <a href="${item.link}" target="_blank" style="font-weight:bold;">${item.title}</a>
+              <p>${item.description}</p>
+            </div>
+          `).join('');
+          document.getElementById('newsResults').innerHTML = articles;
+        });
+    });
+});
+</script>
   
 </body>
 </html>
@@ -4489,6 +4523,7 @@ right h
 
   
  
+
 
 
 
