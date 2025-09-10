@@ -747,16 +747,19 @@ right h
 <section class="grid">
 
 <div class="section">
-<h3>Local News</h3>
-<button id="refreshLocalNews" style="cursor: pointer;">
-  🔄 Refresh Local News
-</button>
-<ul id="local-news">
-  <li>Denver launches new electric bus fleet across downtown</li>
-  <li>City Council approves affordable housing expansion in Five Points</li>
-  <li>…and your other six snippets…</li>
-</ul>
-
+  <h3>Local News</h3>
+  <button id="refreshLocalNews" style="cursor: pointer;">
+    🔄 Refresh Local News
+  </button>
+  <ul id="local-news">
+    <li>Denver launches new electric bus fleet across downtown</li>
+    <li>City Council approves affordable housing expansion in Five Points</li>
+    <li>Denver Public Schools announce mental health initiative for teens</li>
+    <li>Cherry Creek Trail to undergo major resurfacing this fall</li>
+    <li>Local artists transform RiNo alleyways into open-air galleries</li>
+    <li>Denver police pilot community-based safety program</li>
+    <li>Union Station to host fall farmers market every Saturday</li>
+  </ul>
 </div>
 
 
@@ -1530,11 +1533,31 @@ document.getElementById("refreshCivicLife")
       });
   });
 </script>
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("✅ Local News script loaded");
+    document
+      .getElementById("refreshLocalNews")
+      .addEventListener("click", async () => {
+        console.log("🔄 Refresh Local News clicked");
+        const ul = document.getElementById("local-news");
+        ul.innerHTML = "<li>Fetching fresh headlines…</li>";
+        try {
+          const res = await fetch("/api/copilot/news?section=local-news&count=7");
+          console.log("Fetch status:", res.status);
+          const headlines = await res.json();
+          ul.innerHTML = headlines.map(h => `<li>${h}</li>`).join("");
+        } catch (err) {
+          console.error("Error loading news:", err);
+          ul.innerHTML = "<li>Sorry, could not load news.</li>";
+        }
+      });
+  });
+</script>
+ 
 </body>
 </html>
 
-  </body>
-</html>
 
 
 
