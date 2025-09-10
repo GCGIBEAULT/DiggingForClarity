@@ -1472,67 +1472,7 @@ document.getElementById("refreshCivicLife")
  
        </section> <!-- end of your .grid -->
 
-   <script>
-  console.log("✅ Local News script loaded");
-
-  document
-    .getElementById("refreshLocalNews")
-    .addEventListener("click", async () => {
-      console.log("🔄 Refresh Local News clicked");
-      const ul = document.getElementById("local-news");
-      ul.innerHTML = "<li>Fetching fresh headlines…</li>";
-
-      try {
-        const res = await fetch("/api/copilot/news?section=local-news&count=7");
-        const headlines = await res.json();
-        ul.innerHTML = headlines.map(h => `<li>${h}</li>`).join("");
-      } catch (err) {
-        console.error("Error loading news:", err);
-        ul.innerHTML = "<li>Sorry, could not load news.</li>";
-      }
-    });
-</script>
-<script>
-  // run this after the DOM is ready
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("✅ Local News script loaded");
-
-    document
-      .getElementById("refreshLocalNews")
-      .addEventListener("click", () => {
-        console.log("🔄 Refresh Local News clicked");
-
-        fetch("/api/copilot/news?section=local-news&count=7")
-          .then(res => {
-            console.log("Status:", res.status, "Content-Type:", res.headers.get("content-type"));
-            return res.text();
-          })
-          .then(bodyText => {
-            console.log("Raw body:", bodyText);
-            let headlines;
-            try {
-              headlines = JSON.parse(bodyText);
-              console.log("Parsed JSON:", headlines);
-            } catch {
-              console.warn("Not valid JSON, defaulting to HTML snippet");
-              headlines = [];
-            }
-            // render whatever you got
-            const ul = document.getElementById("local-news");
-            if (headlines.length) {
-              ul.innerHTML = headlines.map(h => `<li>${h}</li>`).join("");
-            } else {
-              ul.innerHTML = "<li>Sorry, couldn’t load fresh news.</li>";
-            }
-          })
-          .catch(err => {
-            console.error("Fetch error:", err);
-            document.getElementById("local-news").innerHTML =
-              "<li>Network error loading news.</li>";
-          });
-      });
-  });
-</script>
+  
  <script>
   document.addEventListener("DOMContentLoaded", () => {
     console.log("✅ Local News script loaded");
@@ -1557,6 +1497,7 @@ document.getElementById("refreshCivicLife")
  
 </body>
 </html>
+
 
 
 
