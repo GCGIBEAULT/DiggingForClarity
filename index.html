@@ -741,33 +741,8 @@ right h
   });
 </script>
 
-<script>
-  // 1️⃣ Log that the Local News script loaded
-  console.log("✅ Local News script loaded");
 
-  // Local News refresh listener
-  document
-    .getElementById("refreshLocalNews")
-    .addEventListener("click", async () => {
-      // 2️⃣ Log each click
-      console.log("🔄 Refresh Local News clicked");
 
-      const ul = document.getElementById("local-news");
-      ul.innerHTML = "<li>Fetching fresh headlines…</li>";
-
-      try {
-        const res = await fetch("/api/copilot/news?section=local-news&count=7");
-        if (!res.ok) throw new Error("Network error");
-        const headlines = await res.json();
-        ul.innerHTML = headlines.map(h => `<li>${h}</li>`).join("");
-      } catch (err) {
-        console.error(err);
-        ul.innerHTML = "<li>Sorry, could not load news.</li>";
-      }
-    });
-</script>
-<section class="grid">
-  <!-- … -->
 
 <section class="grid">
 
@@ -1494,9 +1469,34 @@ async function fetchCivicLifeForCounty(county, state) {
 document.getElementById("refreshCivicLife")
   .addEventListener("click", () => loadCivicLife("Elizabeth", "Elbert", "Colorado"));  k logic here
 </script>
+<script>
+  // 1️⃣ Log that the Local News script loaded
+  console.log("✅ Local News script loaded");
 
+  // Local News refresh listener
+  document
+    .getElementById("refreshLocalNews")
+    .addEventListener("click", async () => {
+      // 2️⃣ Log each click
+      console.log("🔄 Refresh Local News clicked");
+
+      const ul = document.getElementById("local-news");
+      ul.innerHTML = "<li>Fetching fresh headlines…</li>";
+
+      try {
+        const res = await fetch("/api/copilot/news?section=local-news&count=7");
+        if (!res.ok) throw new Error("Network error");
+        const headlines = await res.json();
+        ul.innerHTML = headlines.map(h => `<li>${h}</li>`).join("");
+      } catch (err) {
+        console.error(err);
+        ul.innerHTML = "<li>Sorry, could not load news.</li>";
+      }
+    });
+</script>
 </body>
 </html>
+
 
 
 
