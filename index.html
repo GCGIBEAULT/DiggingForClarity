@@ -1500,13 +1500,13 @@ document.getElementById("refreshCivicLife")
       });
   });
 </script>
- <script>
-  document.getElementById("refresh-local-news").addEventListener("click", () => {
+<script>
+  document.getElementById("refreshLocalNews").addEventListener("click", () => {
     fetch("https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news")
       .then(response => response.json())
       .then(headlines => {
         const container = document.getElementById("local-news-container");
-        container.innerHTML = ""; // Clear old headlines
+        container.innerHTML = "";
         headlines.forEach(headline => {
           const item = document.createElement("p");
           item.textContent = headline;
@@ -1519,8 +1519,10 @@ document.getElementById("refreshCivicLife")
   });
 </script>
 
+
 </body>
 </html>
+
 
 
 
