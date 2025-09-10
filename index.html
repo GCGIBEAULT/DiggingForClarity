@@ -1479,27 +1479,24 @@ document.getElementById("refreshCivicLife")
        </section> <!-- end of your .grid -->
 
   
- <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("✅ Local News script loaded");
-    document
-      .getElementById("refreshLocalNews")
-      .addEventListener("click", async () => {
-        console.log("🔄 Refresh Local News clicked");
-        const ul = document.getElementById("local-news");
-        ul.innerHTML = "<li>Fetching fresh headlines…</li>";
-        try {
-          const res = await fetch("/api/copilot/news?section=local-news&count=7");
-          console.log("Fetch status:", res.status);
-          const headlines = await res.json();
-          ul.innerHTML = headlines.map(h => `<li>${h}</li>`).join("");
-        } catch (err) {
-          console.error("Error loading news:", err);
-          ul.innerHTML = "<li>Sorry, could not load news.</li>";
-        }
-      });
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("refreshLocalNews").addEventListener("click", async () => {
+      const location = await getUserLocation();
+      const cityKey = `${location.city}, ${location.state}`;
+      const county = cityToCounty[cityKey];
+
+      let headlines = await fetchNewsForCity(location.city, location.state);
+      if (headlines.length < 3 && county) {
+        headlines = await fetchNewsForCounty(county, location.state);
+        renderHeadlines(headlines, `Showing news from ${county} due to limited results for ${location.city}.`);
+      } else {
+        renderHeadlines(headlines);
+      }
+    });
   });
 </script>
+
 <script>
   document.getElementById("refreshLocalNews").addEventListener("click", () => {
     fetch("https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news")
@@ -1522,6 +1519,7 @@ document.getElementById("refreshCivicLife")
 
 </body>
 </html>
+
 
 
 
