@@ -27,7 +27,22 @@ Return a JSON array of strings.
 
   // 3. Return the generated list
   return {
+   exports.handler = async (event) => {
+  // … your geocoding & Copilot logic …
+
+  // before:  
+  // return {
+  //   statusCode: 200,
+  //   body: JSON.stringify(copilot)
+  // }
+
+  // after—notice the headers block added:
+  return {
     statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    },
     body: JSON.stringify(copilot)
   };
 };
+
