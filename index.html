@@ -1149,51 +1149,7 @@ document.getElementById("refreshStateNews")
 
 
 
-async function loadCivicLife(city, county, state) {
-  let headlines = await fetchCivicLifeForCity(city, state);
 
-  // Fallback to county-level if city has fewer than 3 headlines
-  if (headlines.length < 3 && county) {
-    headlines = await fetchCivicLifeForCounty(county, state);
-    displayFallbackMessage("civic-life", county);
-  }
-
-  const container = document.getElementById("civic-life");
-  container.innerHTML = "";
-  headlines.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    container.appendChild(li);
-  });
-}
-
-async function fetchCivicLifeForCity(city, state) {
-  // Simulated response
-  if (city.toLowerCase() === "elizabeth") {
-    return [
-      "Depot parking lot opens for Labor Day weekend",
-      "Mayor Vasquez meets with Main Street business owners"
-    ];
-  }
-  return [
-    "City Council to vote on new zoning proposal",
-    "Town hall meeting draws record attendance",
-    "Local activists push for pedestrian safety reforms",
-    "Public comment opens on water conservation plan"
-  ];
-}
-
-async function fetchCivicLifeForCounty(county, state) {
-  return [
-    "Elbert County commissioners propose new land-use plan",
-    "County-wide civic engagement app launches this fall",
-    "Public hearing scheduled on rural infrastructure upgrades",
-    "County board seeks volunteers for advisory roles"
-  ];
-}
-
-document.getElementById("refreshCivicLife")
-  .addEventListener("click", () => loadCivicLife("Elizabeth", "Elbert", "Colorado"));
 async function loadFamilyNews(city, county, state) {
   let headlines = await fetchFamilyNewsForCity(city, state);
 
@@ -1328,6 +1284,51 @@ async function fetchCommunityEventsForCounty(county, state) {
 
 document.getElementById("refreshCommunityEvents")
   .addEventListener("click", () => loadCommunityEvents("Elizabeth", "Elbert", "Colorado")); 
+  async function loadCivicLife(city, county, state) {
+  let headlines = await fetchCivicLifeForCity(city, state);
+
+  // Fallback to county-level if city has fewer than 3 headlines
+  if (headlines.length < 3 && county) {
+    headlines = await fetchCivicLifeForCounty(county, state);
+    displayFallbackMessage("civic-life", county);
+  }
+
+  const container = document.getElementById("civic-life");
+  container.innerHTML = "";
+  headlines.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    container.appendChild(li);
+  });
+}
+
+async function fetchCivicLifeForCity(city, state) {
+  // Simulated response
+  if (city.toLowerCase() === "elizabeth") {
+    return [
+      "Depot parking lot opens for Labor Day weekend",
+      "Mayor Vasquez meets with Main Street business owners"
+    ];
+  }
+  return [
+    "City Council to vote on new zoning proposal",
+    "Town hall meeting draws record attendance",
+    "Local activists push for pedestrian safety reforms",
+    "Public comment opens on water conservation plan"
+  ];
+}
+
+async function fetchCivicLifeForCounty(county, state) {
+  return [
+    "Elbert County commissioners propose new land-use plan",
+    "County-wide civic engagement app launches this fall",
+    "Public hearing scheduled on rural infrastructure upgrades",
+    "County board seeks volunteers for advisory roles"
+  ];
+}
+
+document.getElementById("refreshCivicLife")
+  .addEventListener("click", () => loadCivicLife("Elizabeth", "Elbert", "Colorado"));  
 </script>
 
 
@@ -1335,6 +1336,7 @@ document.getElementById("refreshCommunityEvents")
  
 </body>
 </html>
+
 
 
 
