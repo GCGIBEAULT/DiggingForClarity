@@ -89,31 +89,32 @@
 <!-- Structured Data (JSON-LD) -->
 
 
-+<script type="application/ld+json">
-+{
-+  "@context": "https://schema.org",
-+  "@type": "NewsMediaOrganization",
-+  "name": "Digging For Clarity",
-+  "url": "https://gcgibeault.github.io/DiggingForClarity/",
-+  "logo": "https://gcgibeault.github.io/DiggingForClarity/new_logo.png",
-+  "sameAs": ["https://twitter.com","https://facebook.com"],
-+  "description": "Drama-free news, weather, and community updates with clarity and modular trust."
-+}
-+</script>
-+
-+<script>
-+function toggleReflection() {
-+  const full   = document.getElementById("reflection-full");
-+  const button = event.target;
-+  if (full.classList.contains("hidden")) {
-+    full.classList.remove("hidden");
-+    button.textContent = "Show Less";
-+  } else {
-+    full.classList.add("hidden");
-+    button.textContent = "Read More";
-+  }
-+}
-+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsMediaOrganization",
+  "name": "Digging For Clarity",
+  "url": "https://gcgibeault.github.io/DiggingForClarity/",
+  "logo": "https://gcgibeault.github.io/DiggingForClarity/new_logo.png",
+  "sameAs": ["https://twitter.com", "https://facebook.com"],
+  "description": "Drama-free news, weather, and community updates with clarity and modular trust."
+}
+</script>
+
+<script>
+function toggleReflection() {
+  const full = document.getElementById("reflection-full");
+  const button = event.target;
+  if (full.classList.contains("hidden")) {
+    full.classList.remove("hidden");
+    button.textContent = "Show Less";
+  } else {
+    full.classList.add("hidden");
+    button.textContent = "Read More";
+  }
+}
+</script>
+
 
 
 
@@ -1322,6 +1323,7 @@ async function loadLocalNews() {
 
 </body>
 </html>
+
 
 
 
