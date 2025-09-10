@@ -740,11 +740,18 @@ right h
     }
   });
 </script>
+
 <script>
+  // 1️⃣ Log that the Local News script loaded
+  console.log("✅ Local News script loaded");
+
   // Local News refresh listener
   document
     .getElementById("refreshLocalNews")
     .addEventListener("click", async () => {
+      // 2️⃣ Log each click
+      console.log("🔄 Refresh Local News clicked");
+
       const ul = document.getElementById("local-news");
       ul.innerHTML = "<li>Fetching fresh headlines…</li>";
 
@@ -759,6 +766,8 @@ right h
       }
     });
 </script>
+<section class="grid">
+  <!-- … -->
 
 <section class="grid">
 
@@ -1488,6 +1497,7 @@ document.getElementById("refreshCivicLife")
 
 </body>
 </html>
+
 
 
 
