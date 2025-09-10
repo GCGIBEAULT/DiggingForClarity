@@ -930,12 +930,50 @@ right h
 <div class="section" style="margin-top: 1em;">
   <h3>NFL Standings</h3>
   <button id="refreshStandings" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh Standings</button>
-  <ul id="nfl-standings" style="line-height: 1.6;">
-    <li><strong>AFC East:</strong> Bills 1–0, Dolphins 0–1, Jets 0–1, Patriots 0–1</li>
-    <li><strong>NFC East:</strong> Eagles 1–0, Cowboys 1–0, Giants 0–1, Commanders 0–1</li>
-    <li><strong>AFC West:</strong> Chargers 1–0, Broncos 1–0, Raiders 1–0, Chiefs 0–1</li>
-    <li><strong>NFC West:</strong> 49ers 1–0, Cardinals 1–0, Rams 1–0, Seahawks 0–1</li>
-  </ul>
+
+  <!-- AFC East -->
+  <div style="margin-top: 1em;">
+    <strong>AFC East</strong>
+    <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
+      <tr><td>Bills</td><td style="text-align: right;">1–0</td></tr>
+      <tr><td>Dolphins</td><td style="text-align: right;">0–1</td></tr>
+      <tr><td>Jets</td><td style="text-align: right;">0–1</td></tr>
+      <tr><td>Patriots</td><td style="text-align: right;">0–1</td></tr>
+    </table>
+  </div>
+
+  <!-- AFC West -->
+  <div style="margin-top: 1em;">
+    <strong>AFC West</strong>
+    <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
+      <tr><td>Chargers</td><td style="text-align: right;">1–0</td></tr>
+      <tr><td>Broncos</td><td style="text-align: right;">1–0</td></tr>
+      <tr><td>Raiders</td><td style="text-align: right;">1–0</td></tr>
+      <tr><td>Chiefs</td><td style="text-align: right;">0–1</td></tr>
+    </table>
+  </div>
+
+  <!-- NFC East -->
+  <div style="margin-top: 1em;">
+    <strong>NFC East</strong>
+    <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
+      <tr><td>Eagles</td><td style="text-align: right;">1–0</td></tr>
+      <tr><td>Cowboys</td><td style="text-align: right;">1–0</td></tr>
+      <tr><td>Giants</td><td style="text-align: right;">0–1</td></tr>
+      <tr><td>Commanders</td><td style="text-align: right;">0–1</td></tr>
+    </table>
+  </div>
+
+  <!-- NFC West -->
+  <div style="margin-top: 1em;">
+    <strong>NFC West</strong>
+    <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
+      <tr><td>49ers</td><td style="text-align: right;">1–0</td></tr>
+      <tr><td>Cardinals</td><td style="text-align: right;">1–0</td></tr>
+      <tr><td>Rams</td><td style="text-align: right;">1–0</td></tr>
+      <tr><td>Seahawks</td><td style="text-align: right;">0–1</td></tr>
+    </table>
+  </div>
 </div>
 
 <!-- Game Day -->
@@ -1429,6 +1467,7 @@ document.getElementById("refreshCivicLife")
 
 </body>
 </html>
+
 
 
 
