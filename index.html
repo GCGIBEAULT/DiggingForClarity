@@ -1238,6 +1238,48 @@ async function fetchSchoolNewsForCounty(county, state) {
 
 document.getElementById("refreshSchoolNews")
   .addEventListener("click", () => loadSchoolNews("Elizabeth", "Elbert", "Colorado"));
+async function loadCommunityEvents(city, county, state) {
+  let headlines = await fetchCommunityEventsForCity(city, state);
+
+  // Fallback to county-level if city has fewer than 3 headlines
+  if (headlines.length < 3 && county) {
+    headlines = await fetchCommunityEventsForCounty(county, state);
+    displayFallbackMessage("community-events", county);
+  }
+
+  const container = document.getElementById("community-events");
+  container.innerHTML = "";
+  headlines.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    container.appendChild(li);
+  });
+}
+
+async function fetchCommunityEventsForCity(city, state) {
+  // Simulated response
+  if (city.toLowerCase() === "elizabeth") {
+    return ["Elizabeth hosts fall craft fair at town square"];
+  }
+  return [
+    "Fall festival returns to Civic Plaza this weekend",
+    "Neighborhood cleanup scheduled for Sunday morning",
+    "Local artists host open studio tour",
+    "Farmers market adds live music and food trucks"
+  ];
+}
+
+async function fetchCommunityEventsForCounty(county, state) {
+  return [
+    "Elbert County fairgrounds to host weekend flea market",
+    "County-wide volunteer day scheduled for October 5",
+    "Community theater opens new production in Kiowa",
+    "Public library offers free tech help sessions across Elbert County"
+  ];
+}
+
+document.getElementById("refreshCommunityEvents")
+  .addEventListener("click", () => loadCommunityEvents("Elizabeth", "Elbert", "Colorado"));
 
 </script>
 
@@ -1246,6 +1288,7 @@ document.getElementById("refreshSchoolNews")
  
 </body>
 </html>
+
 
 
 
