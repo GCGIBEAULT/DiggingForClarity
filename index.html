@@ -1196,6 +1196,48 @@ async function fetchFamilyNewsForCounty(county, state) {
 
 document.getElementById("refreshFamilyNews")
   .addEventListener("click", () => loadFamilyNews("Elizabeth", "Elbert", "Colorado"));
+async function loadSchoolNews(city, county, state) {
+  let headlines = await fetchSchoolNewsForCity(city, state);
+
+  // Fallback to county-level if city has fewer than 3 headlines
+  if (headlines.length < 3 && county) {
+    headlines = await fetchSchoolNewsForCounty(county, state);
+    displayFallbackMessage("school-news", county);
+  }
+
+  const container = document.getElementById("school-news");
+  container.innerHTML = "";
+  headlines.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    container.appendChild(li);
+  });
+}
+
+async function fetchSchoolNewsForCity(city, state) {
+  // Simulated response
+  if (city.toLowerCase() === "elizabeth") {
+    return ["Elizabeth High School hosts fall open house"];
+  }
+  return [
+    "District announces new mental health support program",
+    "High school robotics team wins regional competition",
+    "Elementary schools adopt new reading curriculum",
+    "School board approves funding for arts programs"
+  ];
+}
+
+async function fetchSchoolNewsForCounty(county, state) {
+  return [
+    "Elbert County schools receive federal grant for STEM programs",
+    "County-wide teacher training initiative launches this fall",
+    "New school safety protocols adopted across Elbert County",
+    "County education board expands arts funding"
+  ];
+}
+
+document.getElementById("refreshSchoolNews")
+  .addEventListener("click", () => loadSchoolNews("Elizabeth", "Elbert", "Colorado"));
 
 </script>
 
@@ -1204,6 +1246,7 @@ document.getElementById("refreshFamilyNews")
  
 </body>
 </html>
+
 
 
 
