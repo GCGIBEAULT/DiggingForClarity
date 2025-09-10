@@ -927,65 +927,64 @@ right h
   </div>
 </div>
 <!-- NFL Standings -->
-<div class="section" style="margin-top: 1em; padding: 0.5em;">
-  <h3>NFL Standings</h3>
-  <button id="refreshStandings" style="font-size: 1em; padding: 0.4em 0.8em; margin-bottom: 0.75em;">🔄 Refresh Standings</button>
+<section class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 1em;">
+  <!-- NFL Standings -->
+  <div class="section">
+    <h3>NFL Standings</h3>
+    <button id="refreshStandings" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh Standings</button>
 
-  <div style="display: grid; grid-template-columns: auto auto; column-gap: 0.25em;">
-    <!-- Left Column -->
-    <div>
-      <strong>AFC East</strong>
-      <ul style="list-style: none; padding-left: 0; margin-top: 0.5em;">
-        <li>1–0 Bills</li>
-        <li>0–1 Dolphins</li>
-        <li>0–1 Jets</li>
-        <li>0–1 Patriots</li>
-      </ul>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5em;">
+      <!-- AFC -->
+      <div>
+        <strong>AFC East</strong>
+        <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
+          <li>1–0 Bills</li>
+          <li>0–1 Dolphins</li>
+          <li>0–1 Jets</li>
+          <li>0–1 Patriots</li>
+        </ul>
+        <strong style="margin-top: 1em; display: block;">AFC West</strong>
+        <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
+          <li>1–0 Chargers</li>
+          <li>1–0 Broncos</li>
+          <li>1–0 Raiders</li>
+          <li>0–1 Chiefs</li>
+        </ul>
+      </div>
 
-      <strong style="margin-top: 1em; display: block;">AFC West</strong>
-      <ul style="list-style: none; padding-left: 0; margin-top: 0.5em;">
-        <li>1–0 Chargers</li>
-        <li>1–0 Broncos</li>
-        <li>1–0 Raiders</li>
-        <li>0–1 Chiefs</li>
-      </ul>
-    </div>
-
-    <!-- Right Column -->
-    <div>
-      <strong>NFC East</strong>
-      <ul style="list-style: none; padding-left: 0; margin-top: 0.5em;">
-        <li>1–0 Eagles</li>
-        <li>1–0 Cowboys</li>
-        <li>0–1 Giants</li>
-        <li>0–1 Commanders</li>
-      </ul>
-
-      <strong style="margin-top: 1em; display: block;">NFC West</strong>
-      <ul style="list-style: none; padding-left: 0; margin-top: 0.5em;">
-        <li>1–0 49ers</li>
-        <li>1–0 Cardinals</li>
-        <li>1–0 Rams</li>
-        <li>0–1 Seahawks</li>
-      </ul>
+      <!-- NFC -->
+      <div>
+        <strong>NFC East</strong>
+        <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
+          <li>1–0 Eagles</li>
+          <li>1–0 Cowboys</li>
+          <li>0–1 Giants</li>
+          <li>0–1 Commanders</li>
+        </ul>
+        <strong style="margin-top: 1em; display: block;">NFC West</strong>
+        <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
+          <li>1–0 49ers</li>
+          <li>1–0 Cardinals</li>
+          <li>1–0 Rams</li>
+          <li>0–1 Seahawks</li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 
-
-
-<!-- Game Day -->
-<div class="section" style="margin-top: 1em;">
-  <h3>Game Day</h3>
-  <button id="refreshGameDay" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh Game Day</button>
-  <ul id="game-day" style="line-height: 1.6;">
-    <li><strong>Thursday:</strong> Lions @ Packers – 6:20 PM MDT</li>
-    <li><strong>Sunday:</strong> Cowboys @ Jets – 11:00 AM MDT</li>
-    <li><strong>Sunday:</strong> Chiefs @ Bears – 2:25 PM MDT</li>
-    <li><strong>Sunday Night:</strong> Patriots @ Dolphins – 6:30 PM MDT</li>
-    <li><strong>Monday:</strong> Broncos @ Bills – 6:15 PM MDT</li>
-  </ul>
-</div>
+  <!-- Game Day -->
+  <div class="section">
+    <h3>Game Day</h3>
+    <button id="refreshGameDay" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh Game Day</button>
+    <ul id="game-day" style="line-height: 1.6;">
+      <li><strong>Thursday:</strong> Lions @ Packers – 6:20 PM MDT</li>
+      <li><strong>Sunday:</strong> Cowboys @ Jets – 11:00 AM MDT</li>
+      <li><strong>Sunday:</strong> Chiefs @ Bears – 2:25 PM MDT</li>
+      <li><strong>Sunday Night:</strong> Patriots @ Dolphins – 6:30 PM MDT</li>
+      <li><strong>Monday:</strong> Broncos @ Bills – 6:15 PM MDT</li>
+    </ul>
+  </div>
+</section>
 
   <div class="section" style="border: 1px solid #ccc; padding: 1em; border-radius: 6px; background-color: #f4f1ec;">
     <h3 style="margin-bottom: 0.5em;">Market Watch</h3>
@@ -1465,6 +1464,7 @@ document.getElementById("refreshCivicLife")
 
 </body>
 </html>
+
 
 
 
