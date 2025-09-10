@@ -1146,56 +1146,7 @@ function loadStateNews() {
 document.getElementById("refreshStateNews")
   .addEventListener("click", loadStateNews);
 </script>
-async function loadFamilyNews(city, county, state) {
-  let headlines = await fetchFamilyNewsForCity(city, state);
 
-  // Fallback to county-level if city has fewer than 3 headlines
-  if (headlines.length < 3 && county) {
-    headlines = await fetchFamilyNewsForCounty(county, state);
-    displayFallbackMessage("family-news", county);
-  }
-
-  const container = document.getElementById("family-news");
-  container.innerHTML = "";
-  headlines.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    container.appendChild(li);
-  });
-}
-
-function displayFallbackMessage(sectionId, county) {
-  const container = document.getElementById(sectionId);
-  const notice = document.createElement("li");
-  notice.style.fontStyle = "italic";
-  notice.textContent = `Showing news from ${county} County due to limited results for your city.`;
-  container.appendChild(notice);
-}
-
-async function fetchFamilyNewsForCity(city, state) {
-  // Simulated response
-  if (city.toLowerCase() === "elizabeth") {
-    return ["Local parenting group hosts fall picnic"];
-  }
-  return [
-    "New child care center opens near downtown",
-    "Family safety workshop scheduled for Saturday",
-    "Library launches storytime series for toddlers",
-    "Family health fair returns to community center"
-  ];
-}
-
-async function fetchFamilyNewsForCounty(county, state) {
-  return [
-    "County-wide parenting expo scheduled for next month",
-    "New family resource center opens in Elbert County",
-    "Weekend guide: kid-friendly events across the region",
-    "County health department launches child wellness campaign"
-  ];
-}
-
-document.getElementById("refreshFamilyNews")
-  .addEventListener("click", () => loadFamilyNews("Elizabeth", "Elbert", "Colorado"));
 async function loadSchoolNews(city, county, state) {
   let headlines = await fetchSchoolNewsForCity(city, state);
 
@@ -1325,7 +1276,56 @@ async function fetchCivicLifeForCounty(county, state) {
 
 document.getElementById("refreshCivicLife")
   .addEventListener("click", () => loadCivicLife("Elizabeth", "Elbert", "Colorado"));
+async function loadFamilyNews(city, county, state) {
+  let headlines = await fetchFamilyNewsForCity(city, state);
 
+  // Fallback to county-level if city has fewer than 3 headlines
+  if (headlines.length < 3 && county) {
+    headlines = await fetchFamilyNewsForCounty(county, state);
+    displayFallbackMessage("family-news", county);
+  }
+
+  const container = document.getElementById("family-news");
+  container.innerHTML = "";
+  headlines.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    container.appendChild(li);
+  });
+}
+
+function displayFallbackMessage(sectionId, county) {
+  const container = document.getElementById(sectionId);
+  const notice = document.createElement("li");
+  notice.style.fontStyle = "italic";
+  notice.textContent = `Showing news from ${county} County due to limited results for your city.`;
+  container.appendChild(notice);
+}
+
+async function fetchFamilyNewsForCity(city, state) {
+  // Simulated response
+  if (city.toLowerCase() === "elizabeth") {
+    return ["Local parenting group hosts fall picnic"];
+  }
+  return [
+    "New child care center opens near downtown",
+    "Family safety workshop scheduled for Saturday",
+    "Library launches storytime series for toddlers",
+    "Family health fair returns to community center"
+  ];
+}
+
+async function fetchFamilyNewsForCounty(county, state) {
+  return [
+    "County-wide parenting expo scheduled for next month",
+    "New family resource center opens in Elbert County",
+    "Weekend guide: kid-friendly events across the region",
+    "County health department launches child wellness campaign"
+  ];
+}
+
+document.getElementById("refreshFamilyNews")
+  .addEventListener("click", () => loadFamilyNews("Elizabeth", "Elbert", "Colorado"));
 </script>
 
 
@@ -1333,6 +1333,7 @@ document.getElementById("refreshCivicLife")
  
 </body>
 </html>
+
 
 
 
