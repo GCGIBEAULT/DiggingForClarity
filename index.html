@@ -926,51 +926,66 @@ right h
     </ul>
   </div>
 </div>
-<!-- NFL Standings -->
-<div class="section">
-  <h3>NFL Standings</h3>
-  <button id="refreshStandings" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh Standings</button>
+<section class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 1em;">
+  <!-- NFL Standings -->
+  <div class="section">
+    <h3>NFL Standings</h3>
+    <button id="refreshStandings" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh Standings</button>
 
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5em;">
-    <!-- AFC -->
-    <div>
-      <strong>AFC East</strong>
-      <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
-        <li>Bills — 1–0</li>
-        <li>Dolphins — 0–1</li>
-        <li>Jets — 0–1</li>
-        <li>Patriots — 0–1</li>
-      </ul>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5em;">
+      <!-- AFC -->
+      <div>
+        <strong>AFC East</strong>
+        <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
+          <tr><td style="padding-right: 1em;">Bills</td><td>1–0</td></tr>
+          <tr><td>Dolphins</td><td>0–1</td></tr>
+          <tr><td>Jets</td><td>0–1</td></tr>
+          <tr><td>Patriots</td><td>0–1</td></tr>
+        </table>
 
-      <strong style="margin-top: 1em; display: block;">AFC West</strong>
-      <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
-        <li>Chargers — 1–0</li>
-        <li>Broncos — 1–0</li>
-        <li>Raiders — 1–0</li>
-        <li>Chiefs — 0–1</li>
-      </ul>
-    </div>
+        <strong style="margin-top: 1em; display: block;">AFC West</strong>
+        <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
+          <tr><td style="padding-right: 1em;">Chargers</td><td>1–0</td></tr>
+          <tr><td>Broncos</td><td>1–0</td></tr>
+          <tr><td>Raiders</td><td>1–0</td></tr>
+          <tr><td>Chiefs</td><td>0–1</td></tr>
+        </table>
+      </div>
 
-    <!-- NFC -->
-    <div>
-      <strong>NFC East</strong>
-      <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
-        <li>Eagles — 1–0</li>
-        <li>Cowboys — 1–0</li>
-        <li>Giants — 0–1</li>
-        <li>Commanders — 0–1</li>
-      </ul>
+      <!-- NFC -->
+      <div>
+        <strong>NFC East</strong>
+        <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
+          <tr><td style="padding-right: 1em;">Eagles</td><td>1–0</td></tr>
+          <tr><td>Cowboys</td><td>1–0</td></tr>
+          <tr><td>Giants</td><td>0–1</td></tr>
+          <tr><td>Commanders</td><td>0–1</td></tr>
+        </table>
 
-      <strong style="margin-top: 1em; display: block;">NFC West</strong>
-      <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
-        <li>49ers — 1–0</li>
-        <li>Cardinals — 1–0</li>
-        <li>Rams — 1–0</li>
-        <li>Seahawks — 0–1</li>
-      </ul>
+        <strong style="margin-top: 1em; display: block;">NFC West</strong>
+        <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
+          <tr><td style="padding-right: 1em;">49ers</td><td>1–0</td></tr>
+          <tr><td>Cardinals</td><td>1–0</td></tr>
+          <tr><td>Rams</td><td>1–0</td></tr>
+          <tr><td>Seahawks</td><td>0–1</td></tr>
+        </table>
+      </div>
     </div>
   </div>
-</div>
+
+  <!-- Game Day -->
+  <div class="section">
+    <h3>Game Day</h3>
+    <button id="refreshGameDay" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh Game Day</button>
+    <ul id="game-day" style="line-height: 1.6;">
+      <li><strong>Thursday:</strong> Lions @ Packers – 6:20 PM MDT</li>
+      <li><strong>Sunday:</strong> Cowboys @ Jets – 11:00 AM MDT</li>
+      <li><strong>Sunday:</strong> Chiefs @ Bears – 2:25 PM MDT</li>
+      <li><strong>Sunday Night:</strong> Patriots @ Dolphins – 6:30 PM MDT</li>
+      <li><strong>Monday:</strong> Broncos @ Bills – 6:15 PM MDT</li>
+    </ul>
+  </div>
+</section>
 
 
   <!-- Game Day -->
@@ -1465,6 +1480,7 @@ document.getElementById("refreshCivicLife")
 
 </body>
 </html>
+
 
 
 
