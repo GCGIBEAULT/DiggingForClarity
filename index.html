@@ -1497,11 +1497,28 @@ document.getElementById("refreshCivicLife")
   });
 </script>
 
+const fetch = require("node-fetch");
+
+exports.handler = async (event) => {
+  const { latitude, longitude } = JSON.parse(event.body);
+
+  // Reverse geocode to get city/state
+  const location = await reverseGeocode(latitude, longitude); // You’ll need a real service here
+
+  // Fetch live news using a real API
+  const news = await fetchLiveNews(location.city, location.state); // You’ll wire this to Bing News or similar
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify(news)
+  };
+};
 
 
 
 </body>
 </html>
+
 
 
 
