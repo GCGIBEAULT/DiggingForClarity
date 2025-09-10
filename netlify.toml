@@ -1,0 +1,7 @@
+[build]
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/copilot/news"
+  to = "/.netlify/functions/local-news"
+  status = 200
