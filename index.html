@@ -931,48 +931,44 @@ right h
   <h3>NFL Standings</h3>
   <button id="refreshStandings" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh Standings</button>
 
-  <!-- AFC East -->
-  <div style="margin-top: 1em;">
-    <strong>AFC East</strong>
-    <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
-      <tr><td>Bills</td><td style="text-align: right;">1–0</td></tr>
-      <tr><td>Dolphins</td><td style="text-align: right;">0–1</td></tr>
-      <tr><td>Jets</td><td style="text-align: right;">0–1</td></tr>
-      <tr><td>Patriots</td><td style="text-align: right;">0–1</td></tr>
-    </table>
-  </div>
+  <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em;">
+    <!-- Left Column -->
+    <div>
+      <strong>AFC East</strong>
+      <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
+        <li>1–0 Bills</li>
+        <li>0–1 Dolphins</li>
+        <li>0–1 Jets</li>
+        <li>0–1 Patriots</li>
+      </ul>
 
-  <!-- AFC West -->
-  <div style="margin-top: 1em;">
-    <strong>AFC West</strong>
-    <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
-      <tr><td>Chargers</td><td style="text-align: right;">1–0</td></tr>
-      <tr><td>Broncos</td><td style="text-align: right;">1–0</td></tr>
-      <tr><td>Raiders</td><td style="text-align: right;">1–0</td></tr>
-      <tr><td>Chiefs</td><td style="text-align: right;">0–1</td></tr>
-    </table>
-  </div>
+      <strong style="margin-top: 1em; display: block;">AFC West</strong>
+      <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
+        <li>1–0 Chargers</li>
+        <li>1–0 Broncos</li>
+        <li>1–0 Raiders</li>
+        <li>0–1 Chiefs</li>
+      </ul>
+    </div>
 
-  <!-- NFC East -->
-  <div style="margin-top: 1em;">
-    <strong>NFC East</strong>
-    <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
-      <tr><td>Eagles</td><td style="text-align: right;">1–0</td></tr>
-      <tr><td>Cowboys</td><td style="text-align: right;">1–0</td></tr>
-      <tr><td>Giants</td><td style="text-align: right;">0–1</td></tr>
-      <tr><td>Commanders</td><td style="text-align: right;">0–1</td></tr>
-    </table>
-  </div>
+    <!-- Right Column -->
+    <div>
+      <strong>NFC East</strong>
+      <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
+        <li>1–0 Eagles</li>
+        <li>1–0 Cowboys</li>
+        <li>0–1 Giants</li>
+        <li>0–1 Commanders</li>
+      </ul>
 
-  <!-- NFC West -->
-  <div style="margin-top: 1em;">
-    <strong>NFC West</strong>
-    <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
-      <tr><td>49ers</td><td style="text-align: right;">1–0</td></tr>
-      <tr><td>Cardinals</td><td style="text-align: right;">1–0</td></tr>
-      <tr><td>Rams</td><td style="text-align: right;">1–0</td></tr>
-      <tr><td>Seahawks</td><td style="text-align: right;">0–1</td></tr>
-    </table>
+      <strong style="margin-top: 1em; display: block;">NFC West</strong>
+      <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
+        <li>1–0 49ers</li>
+        <li>1–0 Cardinals</li>
+        <li>1–0 Rams</li>
+        <li>0–1 Seahawks</li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -1467,6 +1463,7 @@ document.getElementById("refreshCivicLife")
 
 </body>
 </html>
+
 
 
 
