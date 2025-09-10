@@ -1469,29 +1469,30 @@ document.getElementById("refreshCivicLife")
  
        </section> <!-- end of your .grid -->
 
-    <script>
-      console.log("✅ Local News script loaded");
+   <script>
+  console.log("✅ Local News script loaded");
 
-      document
-        .getElementById("refreshLocalNews")
-        .addEventListener("click", async () => {
-          console.log("🔄 Refresh Local News clicked");
-          const ul = document.getElementById("local-news");
-          ul.innerHTML = "<li>Fetching fresh headlines…</li>";
+  document
+    .getElementById("refreshLocalNews")
+    .addEventListener("click", async () => {
+      console.log("🔄 Refresh Local News clicked");
+      const ul = document.getElementById("local-news");
+      ul.innerHTML = "<li>Fetching fresh headlines…</li>";
 
-          try {
-            const res = await fetch("/api/copilot/news?section=local-news&count=7");
-            if (!res.ok) throw new Error("Network error");
-            const headlines = await res.json();
-            ul.innerHTML = headlines.map(h => `<li>${h}</li>`).join("");
-          } catch (err) {
-            console.error(err);
-            ul.innerHTML = "<li>Sorry, could not load news.</li>";
-          }
-        });
-    </script>
+      try {
+        const res = await fetch("/api/copilot/news?section=local-news&count=7");
+        const headlines = await res.json();
+        ul.innerHTML = headlines.map(h => `<li>${h}</li>`).join("");
+      } catch (err) {
+        console.error("Error loading news:", err);
+        ul.innerHTML = "<li>Sorry, could not load news.</li>";
+      }
+    });
+</script>
+
   </body>
 </html>
+
 
 
 
