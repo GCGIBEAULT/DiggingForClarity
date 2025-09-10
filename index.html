@@ -609,7 +609,7 @@ right h
       </div>`;
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  ("DOMContentLoaded", () => {
     const saved = localStorage.getItem("userWeatherURL");
     if (saved) updateWeatherLink(saved);
   });
@@ -715,7 +715,7 @@ right h
     document.getElementById("twc-anchor").innerHTML =
       `<a href="${url}" target="_blank" style="color:#111; text-decoration:none; font-weight:bold;">View Forecast</a>`;
   });
-  document.addEventListener("DOMContentLoaded", function() {
+  ("DOMContentLoaded", function() {
   const saved = localStorage.getItem("userWeatherURL");
   if (saved) {
     document.getElementById("twc-anchor").innerHTML = `
@@ -734,7 +734,7 @@ right h
     localStorage.setItem("userTrafficURL", url);
     document.getElementById("traffic-anchor").href = url;
   });
-  document.addEventListener("DOMContentLoaded", function() {
+  ("DOMContentLoaded", function() {
     const saved = localStorage.getItem("userTrafficURL");
     if (saved) {
       document.getElementById("traffic-anchor").href = saved;
@@ -1166,7 +1166,7 @@ right h
     });
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
+  ("DOMContentLoaded", function () {
     loadLocalNews();
 
     // 🔄 Refresh Local News
@@ -1198,317 +1198,73 @@ right h
 </script>
 
 
-  document.addEventListener("DOMContentLoaded", function () {
-    loadLocalNews();
-
-    // 🔄 Refresh Local News
-    document.getElementById("refreshLocalNews")
-      .addEventListener("click", loadLocalNews);
-
-    // 🔍 Load City News
-    document.getElementById("submitCity")
-      .addEventListener("click", async function () {
-        const input = document.getElementById("manualCity").value.trim();
-        if (!input) return;
-
-        const [city, state] = input.split(",").map(s => s.trim());
-        if (!city || !state) {
-          alert("Please enter a city and state like 'Rutland, VT'");
-          return;
-        }
-
-        const cityKey = `${city}, ${state}`;
-        const county = cityToCounty[cityKey];
-
-        let headlines = await fetchNewsForCity(city, state);
-
-        if (headlines.length < 3 && county) {
-          headlines = await fetchNewsForCounty(county, state);
-          renderHeadlines(headlines, `Showing news from ${county} due to limited results for ${city}.`);
-        } else {
-          renderHeadlines(headlines);
-        }
-      });
-
-    // ➕ More Local News
-    document.getElementById("moreLocalNews")
-      .addEventListener("click", async function () {
-        const location = await getUserLocation();
-        const cityKey = `${location.city}, ${location.state}`;
-        const county = cityToCounty[cityKey];
-
-        let headlines = await fetchNewsForCity(location.city, location.state);
-        if (headlines.length < 7 && county) {
-          headlines = await fetchNewsForCounty(county, location.state);
-        }
-
-      
-  // Existing Local News logic
-document.getElementById("refreshLocalNews")
-  .addEventListener("click", loadLocalNews);
-
-// ➕ Add this just above the closing tag
-function loadStateNews() {
-  const headlines = [
-    "Colorado expands wildfire prevention funding for 2025",
-    "New state education standards approved for K–12 schools",
-    "Governor announces rural broadband initiative rollout",
-    "State parks to offer free admission on select weekends",
-    "Colorado Department of Transportation begins I-70 upgrades",
-    "Colorado launches statewide mental health hotline",
-    "New legislation boosts clean energy incentives for homeowners"
-  ];
-
-  const container = document.getElementById("state-news");
-  container.innerHTML = "";
-  headlines.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    container.appendChild(li);
-  });
-}
-
-document.getElementById("refreshStateNews")
-  .addEventListener("click", loadStateNews);
-</script>
-
-
-
-
-
-
-</script>
-
-
-
+ 
 <script>
-  // 👇 Paste all fallback logic here
-
-  function displayFallbackMessage(sectionId, county) {
-    const container = document.getElementById(sectionId);
-    const notice = document.createElement("li");
-    notice.style.fontStyle = "italic";
-    notice.textContent = `Showing news from ${county} County due to limited results for your city.`;
-    container.appendChild(notice);
+  async function getUserLocation() {
+    return new Promise((resolve, reject) => {
+      if (!navigator.geolocation) {
+        resolve({ latitude: 39.7392, longitude: -104.9903 }); // fallback: Denver
+      } else {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            resolve({
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude
+            });
+          },
+          () => {
+            resolve({ latitude: 39.7392, longitude: -104.9903 }); // fallback
+          }
+        );
+      }
+    });
   }
 
-  async function loadFamilyNews(city, county, state) {
-    let headlines = await fetchFamilyNewsForCity(city, state);
-    if (headlines.length < 3 && county) {
-      headlines = await fetchFamilyNewsForCounty(county, state);
-      displayFallbackMessage("family-news", county);
-    }
-    const container = document.getElementById("family-news");
+  async function loadLocalNews() {
+    const location = await getUserLocation();
+
+    const response = await fetch("/.netlify/functions/local-news", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(location)
+    });
+
+    const headlines = await response.json();
+    renderHeadlines(headlines);
+  }
+
+  function renderHeadlines(headlines, fallbackMessage = "") {
+    const container = document.getElementById("local-news");
     container.innerHTML = "";
+
+    if (fallbackMessage) {
+      container.innerHTML += `<div class="snippet" style="font-style: italic; color: #555;">${fallbackMessage}</div>`;
+    }
+
+    const ul = document.createElement("ul");
+    ul.style.lineHeight = "1.6";
+
     headlines.forEach(item => {
       const li = document.createElement("li");
       li.textContent = item;
-      container.appendChild(li);
+      ul.appendChild(li);
     });
+
+    container.appendChild(ul);
   }
 
-  async function fetchFamilyNewsForCity(city, state) {
-    if (city.toLowerCase() === "elizabeth") {
-      return ["Local parenting group hosts fall picnic"];
-    }
-    return [
-      "New child care center opens near downtown",
-      "Family safety workshop scheduled for Saturday",
-      "Library launches storytime series for toddlers",
-      "Family health fair returns to community center"
-    ];
-  }
-
-  async function fetchFamilyNewsForCounty(county, state) {
-    return [
-      "County-wide parenting expo scheduled for next month",
-      "New family resource center opens in Elbert County",
-      "Weekend guide: kid-friendly events across the region",
-      "County health department launches child wellness campaign"
-    ];
-  }
-
-  document.getElementById("refreshFamilyNews")
-    .addEventListener("click", () => loadFamilyNews("Elizabeth", "Elbert", "Colorado"));
-
-  // Repeat for School, Events, and Civic Life...
-
-</script>
- <script>
-  // 👇 Paste all fallbac async function loadSchoolNews(city, county, state) {
-  let headlines = await fetchSchoolNewsForCity(city, state);
-
-  // Fallback to county-level if city has fewer than 3 headlines
-  if (headlines.length < 3 && county) {
-    headlines = await fetchSchoolNewsForCounty(county, state);
-    displayFallbackMessage("school-news", county);
-  }
-
-  const container = document.getElementById("school-news");
-  container.innerHTML = "";
-  headlines.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    container.appendChild(li);
-  });
-}
-
-async function fetchSchoolNewsForCity(city, state) {
-  // Simulated response
-  if (city.toLowerCase() === "elizabeth") {
-    return ["Elizabeth High School hosts fall open house"];
-  }
-  return [
-    "District announces new mental health support program",
-    "High school robotics team wins regional competition",
-    "Elementary schools adopt new reading curriculum",
-    "School board approves funding for arts programs"
-  ];
-}
-
-async function fetchSchoolNewsForCounty(county, state) {
-  return [
-    "Elbert County schools receive federal grant for STEM programs",
-    "County-wide teacher training initiative launches this fall",
-    "New school safety protocols adopted across Elbert County",
-    "County education board expands arts funding"
-  ];
-}
-
-document.getElementById("refreshSchoolNews")
-  .addEventListener("click", () => loadSchoolNews("Elizabeth", "Elbert", "Colorado")); 
-   async function loadCommunityEvents(city, county, state) {
-  let headlines = await fetchCommunityEventsForCity(city, state);
-
-  // Fallback to county-level if city has fewer than 3 headlines
-  if (headlines.length < 3 && county) {
-    headlines = await fetchCommunityEventsForCounty(county, state);
-    displayFallbackMessage("community-events", county);
-  }
-
-  const container = document.getElementById("community-events");
-  container.innerHTML = "";
-  headlines.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    container.appendChild(li);
-  });
-}
-
-async function fetchCommunityEventsForCity(city, state) {
-  // Simulated response
-  if (city.toLowerCase() === "elizabeth") {
-    return ["Elizabeth hosts fall craft fair at town square"];
-  }
-  return [
-    "Fall festival returns to Civic Plaza this weekend",
-    "Neighborhood cleanup scheduled for Sunday morning",
-    "Local artists host open studio tour",
-    "Farmers market adds live music and food trucks"
-  ];
-}
-
-async function fetchCommunityEventsForCounty(county, state) {
-  return [
-    "Elbert County fairgrounds to host weekend flea market",
-    "County-wide volunteer day scheduled for October 5",
-    "Community theater opens new production in Kiowa",
-    "Public library offers free tech help sessions across Elbert County"
-  ];
-}
-
-document.getElementById("refreshCommunityEvents")
-  .addEventListener("click", () => loadCommunityEvents("Elizabeth", "Elbert", "Colorado")); 
-  async function loadCivicLife(city, county, state) {
-  let headlines = await fetchCivicLifeForCity(city, state);
-
-  // Fallback to county-level if city has fewer than 3 headlines
-  if (headlines.length < 3 && county) {
-    headlines = await fetchCivicLifeForCounty(county, state);
-    displayFallbackMessage("civic-life", county);
-  }
-
-  const container = document.getElementById("civic-life");
-  container.innerHTML = "";
-  headlines.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    container.appendChild(li);
-  });
-}
-
-async function fetchCivicLifeForCity(city, state) {
-  // Simulated response
-  if (city.toLowerCase() === "elizabeth") {
-    return [
-      "Depot parking lot opens for Labor Day weekend",
-      "Mayor Vasquez meets with Main Street business owners"
-    ];
-  }
-  return [
-    "City Council to vote on new zoning proposal",
-    "Town hall meeting draws record attendance",
-    "Local activists push for pedestrian safety reforms",
-    "Public comment opens on water conservation plan"
-  ];
-}
-
-async function fetchCivicLifeForCounty(county, state) {
-  return [
-    "Elbert County commissioners propose new land-use plan",
-    "County-wide civic engagement app launches this fall",
-    "Public hearing scheduled on rural infrastructure upgrades",
-    "County board seeks volunteers for advisory roles"
-  ];
-}
-
-document.getElementById("refreshCivicLife")
-  .addEventListener("click", () => loadCivicLife("Elizabeth", "Elbert", "Colorado"));  k logic here
-</script>
-<script>
- 
-       </section> <!-- end of your .grid -->
-
-  
-<script>
   document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("refreshLocalNews").addEventListener("click", async () => {
-      const location = await getUserLocation();
-      const cityKey = `${location.city}, ${location.state}`;
-      const county = cityToCounty[cityKey];
+    loadLocalNews();
 
-      let headlines = await fetchNewsForCity(location.city, location.state);
-      if (headlines.length < 3 && county) {
-        headlines = await fetchNewsForCounty(county, location.state);
-        renderHeadlines(headlines, `Showing news from ${county} due to limited results for ${location.city}.`);
-      } else {
-        renderHeadlines(headlines);
-      }
-    });
+    document.getElementById("refreshLocalNews")
+      .addEventListener("click", loadLocalNews);
   });
 </script>
-
-const fetch = require("node-fetch");
-
-exports.handler = async (event) => {
-  const { latitude, longitude } = JSON.parse(event.body);
-
-  // Reverse geocode to get city/state
-  const location = await reverseGeocode(latitude, longitude); // You’ll need a real service here
-
-  // Fetch live news using a real API
-  const news = await fetchLiveNews(location.city, location.state); // You’ll wire this to Bing News or similar
-
-  return {
-    statusCode: 200,
-    body: JSON.stringify(news)
-  };
-};
-
 
 
 </body>
 </html>
+
 
 
 
