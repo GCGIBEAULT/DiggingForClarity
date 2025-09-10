@@ -846,8 +846,10 @@ right h
 <!-- End of Civic Life grid -->
 </section>
 <section class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1em; margin-top: 1em;">
+  <!-- U.S. News -->
   <div class="section">
     <h3>U.S. News</h3>
+    <button id="refreshUSNews" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh U.S. News</button>
     <ul id="us-news" style="line-height: 1.6;">
       <li>Congress debates new federal budget proposal</li>
       <li>Supreme Court hears arguments on education funding case</li>
@@ -859,8 +861,10 @@ right h
     </ul>
   </div>
 
+  <!-- Global News -->
   <div class="section">
     <h3>Global News</h3>
+    <button id="refreshGlobalNews" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh Global News</button>
     <ul id="global-news" style="line-height: 1.6;">
       <li>UN summit focuses on climate resilience and migration</li>
       <li>Global markets react to central bank policy shifts</li>
@@ -1380,6 +1384,7 @@ document.getElementById("refreshCivicLife")
 
 </body>
 </html>
+
 
 
 
