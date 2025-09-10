@@ -1261,9 +1261,71 @@ right h
   });
 </script>
 
+<script>
+  async function getUserLocation() {
+    return new Promise((resolve) => {
+      if (!navigator.geolocation) {
+        resolve({ latitude: 39.7392, longitude: -104.9903 }); // fallback: Denver
+      } else {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            resolve({
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude
+            });
+          },
+          () => {
+            resolve({ latitude: 39.7392, longitude: -104.9903 }); // fallback
+          }
+        );
+      }
+    });
+  }
+
+  async function loadLocalNews() {
+    const location = await getUserLocation();
+
+    const response = await fetch("/.netlify/functions/local-news", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(location)
+    });
+
+    const headlines = await response.json();
+    renderHeadlines(headlines);
+  }
+
+  function renderHeadlines(headlines, fallbackMessage = "") {
+    const container = document.getElementById("local-news");
+    container.innerHTML = "";
+
+    if (fallbackMessage) {
+      container.innerHTML += `<div class="snippet" style="font-style: italic; color: #555;">${fallbackMessage}</div>`;
+    }
+
+    const ul = document.createElement("ul");
+    ul.style.lineHeight = "1.6";
+
+    headlines.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+
+    container.appendChild(ul);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    loadLocalNews();
+
+    document.getElementById("refreshLocalNews")
+      .addEventListener("click", loadLocalNews);
+  });
+</script>
 
 </body>
 </html>
+
 
 
 
