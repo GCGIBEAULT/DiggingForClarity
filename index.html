@@ -1242,19 +1242,7 @@ right h
           headlines = await fetchNewsForCounty(county, location.state);
         }
 
-        const extraHeadlines = [
-          `New mural unveiled in downtown ${location.city}`,
-          `${location.city} high school robotics team wins regional competition`,
-          `Historic building in ${location.city} to be restored`,
-          `Community cleanup planned for ${location.city} riverfront`,
-          `${location.city} launches small business grant program`,
-          `Local musicians perform at ${location.city} amphitheater`,
-          `${location.city} food bank sees record donations this month`
-        ];
-
-        renderHeadlines([...headlines, ...extraHeadlines]);
-      });
-  });
+      
   // Existing Local News logic
 document.getElementById("refreshLocalNews")
   .addEventListener("click", loadLocalNews);
@@ -1521,6 +1509,7 @@ exports.handler = async (event) => {
 
 </body>
 </html>
+
 
 
 
