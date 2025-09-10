@@ -1278,15 +1278,14 @@ right h
 async function loadLocalNews() {
   const location = await getUserLocation();
 
-  // ← absolute URL to your deployed function
-  const response = await fetch(
-    "https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news",
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(location)
-    }
-  );
+ const response = await fetch(
+  "https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news",
+  {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(location)
+  }
+);
 
   const headlines = await response.json();
   renderHeadlines(headlines);
@@ -1323,6 +1322,7 @@ async function loadLocalNews() {
 
 </body>
 </html>
+
 
 
 
