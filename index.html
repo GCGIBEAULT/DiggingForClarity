@@ -842,31 +842,64 @@ right h
       <li>Community board seeks volunteers for advisory roles</li>
     </ul>
   </div>
-</section>
-<!-- U.S. News -->
-<div class="section">
-  <h3>U.S. News</h3>
-  <button id="refreshUSNews" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh U.S. News</button>
-  <ul id="us-news" style="line-height: 1.6;">
-    <li>Congress debates new federal budget proposal</li>
-    <li>Supreme Court hears arguments on education funding case</li>
-    <li>National parks report record attendance this summer</li>
-    <li>Federal agency launches clean water initiative</li>
-    <li>New cybersecurity guidelines released for public infrastructure</li>
-  </ul>
-</div>
+<style>
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5em;
+    margin-top: 2em;
+  }
 
-<!-- Global News -->
-<div class="section">
-  <h3>Global News</h3>
-  <button id="refreshGlobalNews" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh Global News</button>
-  <ul id="global-news" style="line-height: 1.6;">
-    <li>UN summit focuses on climate resilience and migration</li>
-    <li>Global markets react to central bank policy shifts</li>
-    <li>International aid reaches flood-stricken regions in Southeast Asia</li>
-    <li>New trade agreement signed between EU and South America</li>
-    <li>Global health leaders discuss pandemic preparedness</li>
-  </ul>
+  .news-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-family: sans-serif;
+  }
+
+  .news-card h4 {
+    margin-top: 0;
+    font-size: 1.1em;
+    color: #333;
+  }
+
+  .news-card p {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.4;
+  }
+</style>
+
+<div class="news-grid">
+  <div class="news-card">
+    <h4>Congress Debates Budget</h4>
+    <p>Lawmakers clash over proposed federal spending increases for 2026.</p>
+  </div>
+  <div class="news-card">
+    <h4>UN Climate Summit</h4>
+    <p>Global leaders meet to discuss resilience strategies and carbon targets.</p>
+  </div>
+  <div class="news-card">
+    <h4>Tech Giants Merge</h4>
+    <p>Two major AI firms announce a $40B merger to accelerate innovation.</p>
+  </div>
+  <div class="news-card">
+    <h4>Education Reform</h4>
+    <p>New national standards aim to boost literacy and digital fluency in schools.</p>
+  </div>
+  <div class="news-card">
+    <h4>Flood Relief Efforts</h4>
+    <p>International aid reaches Southeast Asia after devastating monsoon floods.</p>
+  </div>
+  <div class="news-card">
+    <h4>Cybersecurity Push</h4>
+    <p>Federal agencies roll out new guidelines to protect public infrastructure.</p>
+  </div>
+  <div class="news-card">
+    <h4>SpaceX Launches Probe</h4>
+    <p>New mission aims to study asteroid composition and deep space radiation.</p>
+  </div>
 </div>
 
 
@@ -1368,6 +1401,7 @@ document.getElementById("refreshCivicLife")
 
 </body>
 </html>
+
 
 
 
