@@ -1497,28 +1497,12 @@ document.getElementById("refreshCivicLife")
   });
 </script>
 
-<script>
-  document.getElementById("refreshLocalNews").addEventListener("click", () => {
-    fetch("https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news")
-      .then(response => response.json())
-      .then(headlines => {
-        const container = document.getElementById("local-news-container");
-        container.innerHTML = "";
-        headlines.forEach(headline => {
-          const item = document.createElement("p");
-          item.textContent = headline;
-          container.appendChild(item);
-        });
-      })
-      .catch(error => {
-        console.error("Failed to fetch local news:", error);
-      });
-  });
-</script>
+
 
 
 </body>
 </html>
+
 
 
 
