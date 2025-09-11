@@ -1362,9 +1362,66 @@ async function loadLocalNews() {
       );
     });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn       = document.getElementById("refresh-local-news");
+    const container = document.getElementById("local-news-container");
+
+    btn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      container.innerHTML = "<p>Locating you…</p>";
+
+      // 1. Geolocation
+      if (!navigator.geolocation) {
+        container.innerHTML = "<p>Your browser doesn’t support geolocation.</p>";
+        return;
+      }
+
+      try {
+        const pos = await new Promise((res, rej) =>
+          navigator.geolocation.getCurrentPosition(res, rej, { timeout: 10000 })
+        );
+        const { latitude, longitude } = pos.coords;
+
+        // 2. Fetch your function 🔥
+        const resp = await fetch(
+          `/.netlify/functions/local-news?lat=${latitude}&lon=${longitude}`
+        );
+        if (!resp.ok) throw new Error(`Server error ${resp.status}`);
+
+        const news = await resp.json();
+
+        // 3. Render it
+        if (!Array.isArray(news) || news.length === 0) {
+          container.innerHTML = "<p>No local news found for your area.</p>";
+        } else {
+          container.innerHTML = news
+            .map(
+              (item) => `
+            <article class="news-item">
+              <h3><a href="${item.url}" target="_blank">${item.title}</a></h3>
+              ${item.summary ? `<p>${item.summary}</p>` : ""}
+            </article>`
+            )
+            .join("");
+        }
+      } catch (err) {
+        console.error("Local-news error:", err);
+        if (err.code === 1 /* PERMISSION_DENIED */) {
+          container.innerHTML =
+            "<p>Location access denied. Allow location to see local news.</p>";
+        } else {
+          container.innerHTML =
+            "<p>Failed to load local news. Try again later.</p>";
+        }
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
+
 
 
 
