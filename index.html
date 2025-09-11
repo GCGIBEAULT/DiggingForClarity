@@ -1307,9 +1307,65 @@ async function loadLocalNews() {
   });
 </script>
 
+<!-- Put this at the bottom of index.html or in your main.js -->
+<script>
+  document
+    .getElementById("refresh-local-news")
+    .addEventListener("click", async (e) => {
+      e.preventDefault();
+      const container = document.getElementById("local-news-container");
+      
+      // 1. Show loader
+      container.innerHTML = "<p>Locating you…</p>";
+      
+      // 2. Ask for geolocation
+      if (!navigator.geolocation) {
+        container.innerHTML = "<p>Geolocation not supported.</p>";
+        return;
+      }
+      
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          
+          // 3. Fetch local news from your Netlify function
+          try {
+            const res = await fetch(
+              `/api/local-news?lat=${latitude}&lon=${longitude}`
+            );
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const newsItems = await res.json();
+            
+            // 4. Render items
+            container.innerHTML = newsItems
+              .map(
+                (item) =>
+                  `<div class="news-item">
+                     <a href="${item.url}" target="_blank">${item.title}</a>
+                     <p>${item.summary || ""}</p>
+                   </div>`
+              )
+              .join("");
+          } catch (err) {
+            container.innerHTML =
+              "<p>Failed to load local news. Try again later.</p>";
+            console.error(err);
+          }
+        },
+        (error) => {
+          // 5. Handle permission errors or timeouts
+          container.innerHTML =
+            "<p>Location access denied. Please allow location to see local news.</p>";
+          console.warn("Geolocation error:", error);
+        },
+        { timeout: 10000 }
+      );
+    });
+</script>
 
 </body>
 </html>
+
 
 
 
