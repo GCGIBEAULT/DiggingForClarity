@@ -1195,26 +1195,7 @@ right h
 
  
 <script>
-  async function getUserLocation() {
-    return new Promise((resolve, reject) => {
-      if (!navigator.geolocation) {
-        resolve({ latitude: 39.7392, longitude: -104.9903 }); // fallback: Denver
-      } else {
-        navigator.geolocation.getCurrentPosition(
-          position => {
-            resolve({
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude
-            });
-          },
-          () => {
-            resolve({ latitude: 39.7392, longitude: -104.9903 }); // fallback
-          }
-        );
-      }
-    });
-  }
-
+ 
   async function loadLocalNews() {
     const location = await getUserLocation();
 
@@ -1329,6 +1310,7 @@ async function loadLocalNews() {
 
 </body>
 </html>
+
 
 
 
