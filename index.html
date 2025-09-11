@@ -1320,9 +1320,21 @@ async function loadLocalNews() {
       .addEventListener("click", loadLocalNews);
   });
 </script>
+<script>
+  (async () => {
+    try {
+      const res = await fetch("/.netlify/functions/local-news");
+      const data = await res.json();
+      console.log("Local news data:", data);
+    } catch (err) {
+      console.error("Fetch error:", err);
+    }
+  })();
+</script>
 
 </body>
 </html>
+
 
 
 
