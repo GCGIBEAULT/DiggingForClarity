@@ -25,4 +25,19 @@
   "neutralityTag": "neutral"
 }
 
+"austin": {
+  "feeds": ["https://www.texastribune.org/feed/"],
+  "trustScore": 9.0,
+  "neutralityTag": "neutral"
+},
+"minneapolis": {
+  "feeds": ["https://www.startribune.com/rss/"],
+  "trustScore": 8.0,
+  "neutralityTag": "mixed"
+},
+"boise": {
+  "feeds": ["https://www.idahostatesman.com/news/local/?q=local&output=rss"],
+  "trustScore": 7.5,
+  "neutralityTag": "mixed"
 }
+
