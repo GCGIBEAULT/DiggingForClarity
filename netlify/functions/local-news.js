@@ -1,3 +1,5 @@
+// netlify/functions/local-news.js
+
 const fs     = require("fs");
 const path   = require("path");
 const Parser = require("rss-parser");
@@ -23,12 +25,12 @@ function findClosestZip(lat, lon, zipMap) {
 }
 
 /**
- * Fetch, parse, sort and filter headlines for a given city.
+ * Fetch, parse, sort, and filter headlines for a given city.
  */
 async function getHeadlines(city, feedMap) {
   let feeds = feedMap[city]?.feeds || [];
 
-  // On fallback city, suppress “commercial” feeds
+  // If we’ve fallen back to “default,” suppress purely commercial feeds
   if (city === "default") {
     const suppressed = feeds.filter(url => {
       const tag = Object.values(feedMap)
@@ -39,7 +41,7 @@ async function getHeadlines(city, feedMap) {
     feeds = feeds.filter(url => !suppressed.includes(url));
   }
 
-  // Aggregate all RSS items
+  // Aggregate items from all feeds
   let allItems = [];
   for (const url of feeds) {
     try {
@@ -50,7 +52,7 @@ async function getHeadlines(city, feedMap) {
     }
   }
 
-  // Take latest 10 and shape them
+  // Keep the 10 newest items
   const topItems = allItems
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
     .slice(0, 10)
@@ -60,7 +62,7 @@ async function getHeadlines(city, feedMap) {
       snippet: item.contentSnippet || ""
     }));
 
-  // Filter out clickbait/all-caps/exclamations/very short titles
+  // Filter out clickbait, ALL-CAPS, exclamation titles, very short headlines
   const baitWords = [
     "shocking", "devastating", "furious",
     "heartbreaking", "explosive", "slams",
@@ -95,33 +97,5 @@ exports.handler = async (event) => {
   const longitude = parseFloat(lon);
 
   try {
-    // Load data files
-    const zipMapPath  = path.join(__dirname, "cityziplatlong.json");
-    const feedMapPath = path.join(__dirname, "newsFeeds.json");
-
-    const zipMap  = JSON.parse(fs.readFileSync(zipMapPath,  "utf8"));
-    const feedMap = JSON.parse(fs.readFileSync(feedMapPath, "utf8"));
-
-    // Resolve the nearest city
-    const closestZip = findClosestZip(latitude, longitude, zipMap);
-    const city       = zipMap[closestZip]?.city || "default";
-    if (city === "default") {
-      console.warn("Fallback triggered — using default feed");
-    }
-
-    // Fetch & clean headlines
-    const cleanHeadlines = await getHeadlines(city, feedMap);
-
-    return {
-      statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type":                "application/json"
-      },
-      body: JSON.stringify(cleanHeadlines)
-    };
-
-  } catch (err) {
-    console.error("Local news function error:", err.message);
-    return {
-      status
+    // Load your lookup files
+    const zipMapPath  = path.join(__dirname, "cityzipl
