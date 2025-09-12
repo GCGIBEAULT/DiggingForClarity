@@ -14,10 +14,10 @@
     "feeds": ["https://www.gainesville.com/rss"],
     "fallback": "default"
   },
-  "default": {
-    "feeds": [
-      "https://www.reutersagency.com/feed/?best-topics=top-news"
-    ],
-    "trustScore": 9.5
-  }
+"default": {
+  "feeds": ["https://feeds.bbci.co.uk/news/world/rss.xml"],
+  "trustScore": 9.0,
+  "neutralityTag": "neutral"
+}
+
 }
