@@ -1313,10 +1313,92 @@ document.addEventListener("DOMContentLoaded", () => {
   // Auto-load on page load
   loadLocalNews();
 
+<!-- 1) renderHeadlines + loadLocalNews (uses POST) -->
+<script>
+  function renderHeadlines(headlines, fallbackMessage = "") {
+    const container = document.getElementById("local-news");
+    container.innerHTML = ""; 
+    if (fallbackMessage) {
+      container.innerHTML = `<div class='snippet' style='font-style:italic;color:#555;'>${fallbackMessage}</div>`;
+    }
+    const ul = document.createElement("ul");
+    ul.style.lineHeight = "1.6";
+    headlines.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+    container.appendChild(ul);
+  }
+
+  async function loadLocalNews() {
+    const container = document.getElementById("local-news");
+    container.innerHTML = `<div class='snippet'>Locating and loading news…</div>`;
+
+    // Get coords (falls back to Denver if denied)
+    const coords = await new Promise(resolve =>
+      navigator.geolocation.getCurrentPosition(
+        pos => resolve(pos.coords),
+        () => resolve({ latitude: 39.7392, longitude: -104.9903 }),
+        { timeout: 10000 }
+      )
+    );
+
+    try {
+      const res = await fetch(
+        "https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            latitude: coords.latitude,
+            longitude: coords.longitude
+          })
+        }
+      );
+      if (!res.ok) throw new Error(res.statusText);
+
+      const headlines = await res.json();
+      if (!Array.isArray(headlines) || headlines.length === 0) {
+        renderHeadlines([], "No local news available.");
+      } else {
+        renderHeadlines(headlines);
+      }
+    } catch (err) {
+      console.error("Local news fetch failed:", err);
+      renderHeadlines([], "Local news is currently unavailable.");
+    }
+  }
+</script>
+
+<!-- 2) Wire up the “Refresh Local News” button -->
+<script>
+  document
+    .getElementById("refreshLocalNews")
+    .addEventListener("click", () => {
+      const container = document.getElementById("local-news");
+      container.innerHTML = "Locating and loading news…";
+      loadLocalNews();
+    });
+</script>
+
+<!-- 3) Auto-load on page load -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Kick off initial load
+    loadLocalNews();
+
+    // Also wire up the button again (in case DOMContentLoaded
+    // fires before your inline wiring script runs)
+    const btn = document.getElementById("refreshLocalNews");
+    if (btn) btn.addEventListener("click", loadLocalNews);
+  });
+</script>
 
 
 </body>
 </html>
+
 
 
 
