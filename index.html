@@ -1238,9 +1238,58 @@ right h
         }
       });
   });
+<script>
+  // 1. Fetch & render headlines
+  async function loadLocalNews() {
+    const container = document.getElementById("local-news");
+    container.innerHTML = "<div class='snippet'>Locating and loading news…</div>";
+
+    try {
+      const response = await fetch(
+        "https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ 
+            // geolocate call
+            latitude: (await new Promise(r=>navigator.geolocation.getCurrentPosition(p=>r(p.coords), ()=>r({latitude:39.7392,longitude:-104.9903})))) .latitude,
+            longitude: (await new Promise(r=>navigator.geolocation.getCurrentPosition(p=>r(p.coords), ()=>r({latitude:39.7392,longitude:-104.9903})))) .longitude
+          })
+        }
+      );
+      if (!response.ok) throw new Error(response.statusText);
+
+      const headlines = await response.json();
+      if (!Array.isArray(headlines) || headlines.length === 0) {
+        container.innerHTML = "<div class='snippet'>No local news available.</div>";
+        return;
+      }
+
+      const ul = document.createElement("ul");
+      ul.style.lineHeight = "1.6";
+      headlines.forEach(h => {
+        const li = document.createElement("li");
+        li.textContent = h;
+        ul.appendChild(li);
+      });
+      container.innerHTML = "";
+      container.appendChild(ul);
+    } catch (err) {
+      console.error("Local news fetch failed:", err);
+      container.innerHTML = "<div class='snippet'>Local news is currently unavailable.</div>";
+    }
+  }
+
+  // 2. Wire it up
+  document.addEventListener("DOMContentLoaded", () => {
+    loadLocalNews();
+    document.getElementById("refreshLocalNews").addEventListener("click", loadLocalNews);
+  });
+</script>
 
 </body>
 </html>
+
 
 
 
