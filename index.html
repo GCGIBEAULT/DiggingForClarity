@@ -1328,10 +1328,39 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+<script>
+async function loadLocalNews() {
+  const block = [...document.querySelectorAll("section")]
+    .find(sec => sec.textContent.includes("Local News"));
+  if (!block) return;
+
+  block.innerHTML = "<p>Loading local news...</p>";
+
+  navigator.geolocation.getCurrentPosition(async (pos) => {
+    const { latitude, longitude } = pos.coords;
+    const res = await fetch(`https://comforting-cajeta-12cd93.netlify.app/api/copilot/news?lat=${latitude}&lon=${longitude}`);
+    const headlines = await res.json();
+
+    if (!headlines.length) {
+      block.innerHTML = "<p>No local news available.</p>";
+      return;
+    }
+
+    block.innerHTML = "<ul>" + headlines.map(h =>
+      `<li><a href="${h.url}" target="_blank">${h.title}</a></li>`
+    ).join("") + "</ul>";
+  }, () => {
+    block.innerHTML = "<p>Location access denied. Cannot load local news.</p>";
+  });
+}
+
+window.addEventListener("DOMContentLoaded", loadLocalNews);
+</script>
 
 
 </body>
 </html>
+
 
 
 
