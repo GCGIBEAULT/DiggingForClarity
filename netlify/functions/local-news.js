@@ -63,6 +63,9 @@ const cleanHeadlines = headlines.filter(item => {
 });
 
 exports.handler = async (event) => {
+  exports.handler = async (event) => {
+  console.log(`Received lat: ${event.queryStringParameters?.lat}, lon: ${event.queryStringParameters?.lon}`);
+
   const { lat, lon } = event.queryStringParameters;
   if (!lat || !lon) {
     return {
