@@ -23,7 +23,7 @@ async function getHeadlines(city, feedMap, visited = new Set()) {
 
   console.log(`Trust score for ${city}: ${feedMap[city]?.trustScore || "N/A"}`);
 
-  const feeds = feedMap[city]?.feeds || [];
+let feeds = feedMap[city]?.feeds || [];
   
   const fallback = feedMap[city]?.fallback || "default";
 if (city === "default") {
