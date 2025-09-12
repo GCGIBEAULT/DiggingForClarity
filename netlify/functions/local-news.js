@@ -18,7 +18,7 @@ function findClosestZip(lat, lon, zipMap) {
 }
 
 async function getHeadlines(city, feedMap, visited = new Set()) {
-  if (visited.has(city)) return []; // prevent infinite loops
+  if (visited.has(city)) return [];
   visited.add(city);
 
   const feeds = feedMap[city]?.feeds || [];
