@@ -12,12 +12,12 @@
   "paducah": {
     "feeds": ["https://www.paducahsun.com/search/?f=rss&t=article"]
   },
- "gainesville": {
-  "feeds": ["https://rss.app/feeds/xyz123.xml"],  // Replace with actual generated feed
-  "trustScore": 7.5,
-  "neutralityTag": "mixed",
-  "fallback": "default"
+"gainesville": {
+  "feeds": ["https://feeds.bbci.co.uk/news/world/rss.xml"],
+  "trustScore": 9.0,
+  "neutralityTag": "neutral"
 }
+
 
 "default": {
   "feeds": ["https://feeds.bbci.co.uk/news/world/rss.xml"],
