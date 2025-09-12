@@ -1203,10 +1203,9 @@ right h
       try {
         // Your function expects GET with ?lat=&lon=, not a JSON POST
        const API_BASE = 'https://comforting-cajeta-12cd93.netlify.app';
-fetch(
-  `${API_BASE}/.netlify/functions/local-news?lat=${lat}&lon=${lon}`
-);
-        if (!res.ok) throw new Error(res.statusText);
+const res = await fetch(`${API_BASE}/.netlify/functions/local-news?lat=${lat}&lon=${lon}`);
+if (!res.ok) throw new Error(res.statusText);
+
 
         const headlines = await res.json();
         if (!Array.isArray(headlines) || headlines.length === 0) {
@@ -1337,6 +1336,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
