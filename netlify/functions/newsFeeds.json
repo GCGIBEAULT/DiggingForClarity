@@ -1,8 +1,10 @@
 {
- "sanfrancisco": {
-  "feeds": ["https://www.reutersagency.com/feed/?best-topics=top-news"],
-  "trustScore": 9.5
+"sanfrancisco": {
+  "feeds": ["https://www.sfgate.com/rss/"],
+  "trustScore": 8.5,
+  "neutralityTag": "mixed"
 }
+
 
   "denver": {
     "feeds": ["https://www.denverpost.com/feed/"]
@@ -10,10 +12,13 @@
   "paducah": {
     "feeds": ["https://www.paducahsun.com/search/?f=rss&t=article"]
   },
-  "gainesville": {
-    "feeds": ["https://www.gainesville.com/rss"],
-    "fallback": "default"
-  },
+ "gainesville": {
+  "feeds": ["https://rss.app/feeds/xyz123.xml"],  // Replace with actual generated feed
+  "trustScore": 7.5,
+  "neutralityTag": "mixed",
+  "fallback": "default"
+}
+
 "default": {
   "feeds": ["https://feeds.bbci.co.uk/news/world/rss.xml"],
   "trustScore": 9.0,
