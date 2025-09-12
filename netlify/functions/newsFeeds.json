@@ -12,7 +12,10 @@
     "feeds": ["https://www.gainesville.com/rss"],
     "fallback": "default"
   },
-  "default": {
-    "feeds": ["https://www.npr.org/rss/rss.php?id=1019"]
-  }
+ "default": {
+  "feeds": [
+    "https://www.reutersagency.com/feed/?best-topics=top-news"
+  ],
+  "trustScore": 9.5
 }
+
