@@ -1362,88 +1362,7 @@ right h
         const resp = await fetch(
           `/.netlify/functions/local-news?lat=${latitude}&lon=${longitude}`
         );
-        if (!resp.ok) throw new Error(`Server error ${resp.status}`);
-
-        const news = await resp.json();
-
-        // 3. Render it
-        if (!Array.isArray(news) || news.length === 0) {
-          container.innerHTML = "<p>No local news found for your area.</p>";
-        } else {
-          container.innerHTML = news
-            .map(
-              (item) => `
-            <article class="news-item">
-              <h3><a href="${item.url}" target="_blank">${item.title}</a></h3>
-              ${item.summary ? `<p>${item.summary}</p>` : ""}
-            </article>`
-            )
-            .join("");
-        }
-      } catch (err) {
-        console.error("Local-news error:", err);
-        if (err.code === 1 /* PERMISSION_DENIED */) {
-          container.innerHTML =
-            "<p>Location access denied. Allow location to see local news.</p>";
-        } else {
-          container.innerHTML =
-            "<p>Failed to load local news. Try again later.</p>";
-        }
-      }
-    });
-  });
-</script>
-<script>
-  async function getUserLocation() {
-    return new Promise((resolve) => {
-      if (!navigator.geolocation) {
-        resolve({ latitude: 39.7392, longitude: -104.9903 }); // fallback: Denver
-      } else {
-        navigator.geolocation.getCurrentPosition(
-          position => {
-            resolve({
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude
-            });
-          },
-          () => {
-            resolve({ latitude: 39.7392, longitude: -104.9903 }); // fallback
-          }
-        );
-      }
-    });
-  }
-
-  async function loadLocalNews() {
-    const location = await getUserLocation();
-    const response = await fetch("https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(location)
-    });
-
-    const headlines = await response.json();
-    const container = document.getElementById("local-news");
-    container.innerHTML = "";
-
-    if (Array.isArray(headlines) && headlines.length > 0) {
-      const ul = document.createElement("ul");
-      ul.style.lineHeight = "1.6";
-      headlines.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        ul.appendChild(li);
-      });
-      container.appendChild(ul);
-    } else {
-      container.innerHTML = "<div class='snippet' style='font-style: italic; color: #555;'>Local news is currently unavailable.</div>";
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    loadLocalNews();
-    document.getElementById("refreshLocalNews").addEventListener("click", loadLocalNews);
-  });
+      
 </script>
 <script>
   async function getUserLocation() {
@@ -1489,6 +1408,7 @@ right h
 
 </body>
 </html>
+
 
 
 
