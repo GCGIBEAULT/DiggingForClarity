@@ -1136,109 +1136,7 @@ right h
 
           try {
           <script>
-  async function getUserLocation() {
-    return new Promise((resolve) => {
-      if (!navigator.geolocation) {
-        resolve({ city: "Denver", state: "CO", county: "Denver County" });
-      } else {
-        navigator.geolocation.getCurrentPosition(async position => {
-          try {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=YOUR_API_KEY`);
-            const data = await response.json();
-            const components = data.results[0].components;
 
-            const city = components.city || components.town || components.village || "Denver";
-            const state = components.state_code || "CO";
-            const county = components.county || "Denver County";
-
-            resolve({ city, state, county });
-          } catch (error) {
-            console.error("Reverse geocoding failed:", error);
-            resolve({ city: "Denver", state: "CO", county: "Denver County" });
-          }
-        }, () => {
-          resolve({ city: "Denver", state: "CO", county: "Denver County" });
-        });
-      }
-    });
-  }
-
-  async function loadLocalNews(locationOverride = null) {
-    const location = locationOverride || await getUserLocation();
-
-    try {
-      const response = await fetch("https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(location)
-      });
-
-      if (!response.ok) throw new Error("Network response was not ok");
-      const headlines = await response.json();
-      if (!Array.isArray(headlines)) throw new Error("Invalid data format");
-
-      renderHeadlines(headlines);
-    } catch (err) {
-      console.error("Error loading local news:", err);
-      renderHeadlines([], "Local news is currently unavailable.");
-    }
-  }
-
-  function renderHeadlines(headlines, fallbackMessage = "") {
-    const container = document.getElementById("local-news");
-    container.innerHTML = "";
-
-    if (fallbackMessage) {
-      container.innerHTML += `<div class="snippet" style="font-style: italic; color: #555;">${fallbackMessage}</div>`;
-    }
-
-    if (Array.isArray(headlines) && headlines.length > 0) {
-      const ul = document.createElement("ul");
-      ul.style.lineHeight = "1.6";
-      headlines.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        ul.appendChild(li);
-      });
-      container.appendChild(ul);
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    loadLocalNews();
-
-    document.getElementById("refreshLocalNews")
-      .addEventListener("click", () => {
-        document.getElementById("local-news").innerHTML =
-          "<div class='snippet'>Locating and loading news…</div>";
-        loadLocalNews();
-      });
-
-    document.getElementById("submitCity")
-      .addEventListener("click", async () => {
-        const input = document.getElementById("manualCity").value.trim();
-        if (!input) return;
-
-        const [city, state] = input.split(",").map(s => s.trim());
-        if (!city || !state) {
-          alert("Please enter a city and state like 'Rutland, VT'");
-          return;
-        }
-
-        const location = { city, state };
-        let headlines = await fetchNewsForCity(location.city, location.state);
-
-        if (headlines.length < 3 && location.county) {
-          headlines = await fetchNewsForCounty(location.county, location.state);
-          renderHeadlines(headlines, `Showing news from ${location.county} due to limited results for ${location.city}.`);
-        } else {
-          renderHeadlines(headlines);
-        }
-      });
-  });
-<script>
   // 1. Fetch & render headlines
   async function loadLocalNews() {
     const container = document.getElementById("local-news");
@@ -1392,6 +1290,7 @@ right h
 
 </body>
 </html>
+
 
 
 
