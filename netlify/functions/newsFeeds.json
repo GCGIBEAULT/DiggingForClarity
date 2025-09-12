@@ -3,12 +3,15 @@
   "feeds": ["https://www.sfgate.com/rss/"],
   "trustScore": 8.5,
   "neutralityTag": "mixed"
-}
+},
 
 
-  "denver": {
-    "feeds": ["https://www.denverpost.com/feed/"]
-  },
+ "denver": {
+  "feeds": ["https://www.denverpost.com/feed/"],
+  "trustScore": 7.0,
+  "neutralityTag": "commercial"
+},
+`
   "paducah": {
     "feeds": ["https://www.paducahsun.com/search/?f=rss&t=article"]
   },
@@ -16,14 +19,9 @@
   "feeds": ["https://feeds.bbci.co.uk/news/world/rss.xml"],
   "trustScore": 9.0,
   "neutralityTag": "neutral"
-}
+},
 
 
-"default": {
-  "feeds": ["https://feeds.bbci.co.uk/news/world/rss.xml"],
-  "trustScore": 9.0,
-  "neutralityTag": "neutral"
-}
 
 "austin": {
   "feeds": [
@@ -43,5 +41,10 @@
   "feeds": ["https://www.idahostatesman.com/news/local/?q=local&output=rss"],
   "trustScore": 7.5,
   "neutralityTag": "mixed"
+},
+"default": {
+  "feeds": ["https://feeds.bbci.co.uk/news/world/rss.xml"],
+  "trustScore": 9.0,
+  "neutralityTag": "neutral"
 }
 
