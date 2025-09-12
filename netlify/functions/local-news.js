@@ -6,14 +6,17 @@ function findClosestCounty(lat, lon, countyMap) {
   let closest = null;
   let minDistance = Infinity;
 
-  for (const county in countyMap) {
-    const [clat, clon] = countyMap[county];
-    const distance = Math.sqrt((lat - clat) ** 2 + (lon - clon) ** 2);
-    if (distance < minDistance) {
-      minDistance = distance;
-      closest = county;
-    }
+for (const county in countyMap) {
+  const coords = countyMap[county];
+  if (!Array.isArray(coords) || coords.length !== 2) continue;
+
+  const [clat, clon] = coords;
+  const distance = Math.sqrt((lat - clat) ** 2 + (lon - clon) ** 2);
+  if (distance < minDistance) {
+    minDistance = distance;
+    closest = county;
   }
+}
 
   return closest;
 }
