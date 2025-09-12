@@ -1251,7 +1251,8 @@ right h
 
         // 3) call your function via GET (no POST body needed)
         fetch(
-          `https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news?lat=${lat}&lon=${lon}`
+        https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news?lat=37.77&lon=-122.42
+
         )
           .then(res => {
             if (!res.ok) throw new Error(res.statusText);
@@ -1341,6 +1342,7 @@ right h
 
 </body>
 </html>
+
 
 
 
