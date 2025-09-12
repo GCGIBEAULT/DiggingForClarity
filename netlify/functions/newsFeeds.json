@@ -1,7 +1,9 @@
 {
-  "sanfrancisco": {
-    "feeds": ["https://www.kqed.org/news/rss"]
-  },
+ "sanfrancisco": {
+  "feeds": ["https://www.reutersagency.com/feed/?best-topics=top-news"],
+  "trustScore": 9.5
+}
+
   "denver": {
     "feeds": ["https://www.denverpost.com/feed/"]
   },
