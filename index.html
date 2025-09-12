@@ -1357,9 +1357,39 @@ async function loadLocalNews() {
 window.addEventListener("DOMContentLoaded", loadLocalNews);
 </script>
 
+<script>
+navigator.geolocation.getCurrentPosition(async pos => {
+  const { latitude: lat, longitude: lon } = pos.coords;
+  try {
+    const API_BASE = 'https://noiselessnews.netlify.app';
+    const res = await fetch(`${API_BASE}/.netlify/functions/local-news?lat=${lat}&lon=${lon}`);
+    if (!res.ok) throw new Error(res.statusText);
+
+    const headlines = await res.json();
+    const container = document.querySelector('#local-news'); // ✅ Target the correct box
+
+    if (!Array.isArray(headlines) || headlines.length === 0) {
+      container.innerHTML = "<div class='snippet'>No local news available.</div>";
+      return;
+    }
+
+    container.innerHTML =
+      "<ul style='line-height:1.6;'>" +
+      headlines.map(h =>
+        `<li><a href="${h.url}" target="_blank">${h.title}</a><br><span class="snippet">${h.snippet}</span></li>`
+      ).join('') +
+      "</ul>";
+  } catch (err) {
+    console.error("Failed to load local news:", err);
+    const container = document.querySelector('#local-news');
+    container.innerHTML = "<div class='snippet'>Error loading local news.</div>";
+  }
+});
+</script>
 
 </body>
 </html>
+
 
 
 
