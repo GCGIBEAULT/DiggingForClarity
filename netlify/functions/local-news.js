@@ -47,9 +47,25 @@ exports.handler = async (event) => {
       };
     }
 
-    const filePath = path.join(__dirname, `${closestCounty}.json`);
-    const data = fs.readFileSync(filePath, "utf8");
-    const headlines = JSON.parse(data);
+  const headlinesMap = {
+  denver: [
+    {
+      title: "Denver expands community garden program",
+      url: "https://example.com",
+      snippet: "Local news for Denver will appear here."
+    }
+  ],
+  default: [
+    {
+      title: "National news placeholder",
+      url: "https://example.com",
+      snippet: "Fallback headlines for unsupported locations."
+    }
+  ]
+};
+
+const headlines = headlinesMap[closestCounty] || headlinesMap["default"];
+
 
     return {
       statusCode: 200,
