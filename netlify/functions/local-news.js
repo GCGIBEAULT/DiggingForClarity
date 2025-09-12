@@ -24,7 +24,16 @@ async function getHeadlines(city, feedMap, visited = new Set()) {
   console.log(`Trust score for ${city}: ${feedMap[city]?.trustScore || "N/A"}`);
 
   const feeds = feedMap[city]?.feeds || [];
+  
   const fallback = feedMap[city]?.fallback || "default";
+if (city === "default") {
+  const suppressed = feeds.filter(url => {
+    const tag = Object.values(feedMap).find(f => f.feeds?.includes(url))?.neutralityTag;
+    return tag === "commercial";
+  });
+  console.log(`🛑 Suppressed ${suppressed.length} commercial feeds during fallback`);
+  feeds = feeds.filter(url => !suppressed.includes(url));
+}
 
   let allItems = [];
   for (const url of feeds) {
