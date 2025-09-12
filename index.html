@@ -1464,9 +1464,51 @@ async function loadLocalNews() {
     document.getElementById("refreshLocalNews").addEventListener("click", loadLocalNews);
   });
 </script>
+<script>
+  async function getUserLocation() {
+    return new Promise((resolve) => {
+      if (!navigator.geolocation) {
+        resolve({ latitude: 39.7392, longitude: -104.9903 }); // fallback: Denver
+      } else {
+        navigator.geolocation.getCurrentPosition(
+          pos => resolve({
+            latitude: pos.coords.latitude,
+            longitude: pos.coords.longitude
+          }),
+          () => resolve({ latitude: 39.7392, longitude: -104.9903 }) // fallback
+        );
+      }
+    });
+  }
+
+  async function loadLocalNews() {
+    const location = await getUserLocation();
+    const response = await fetch("https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(location)
+    });
+
+    const headlines = await response.json();
+    const container = document.getElementById("local-news");
+    container.innerHTML = "";
+
+    if (Array.isArray(headlines) && headlines.length > 0) {
+      container.innerHTML = headlines.map(h => `<p class="snippet">• ${h}</p>`).join("");
+    } else {
+      container.innerHTML = "<p class='snippet' style='font-style: italic;'>Local news is currently unavailable.</p>";
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("refreshLocalNews").addEventListener("click", loadLocalNews);
+    loadLocalNews(); // auto-load on page open
+  });
+</script>
 
 </body>
 </html>
+
 
 
 
