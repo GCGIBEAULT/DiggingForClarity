@@ -56,8 +56,6 @@
 
 
 
-
-
 <!DOCTYPE html>
 <!-- === CSS INDEX ===
 1. Header Container
@@ -1216,10 +1214,13 @@ fetch(
           return;
         }
 
-        container.innerHTML =
-          "<ul style='line-height:1.6;'>" +
-          headlines.map(h => `<li>${h}</li>`).join("") +
-          "</ul>";
+container.innerHTML =
+  "<ul style='line-height:1.6;'>" +
+  headlines.map(h =>
+    `<li><a href="${h.url}" target="_blank">${h.title}</a><br><span class="snippet">${h.snippet}</span></li>`
+  ).join('') +
+  "</ul>";
+
       } catch (e) {
         console.error("Local news fetch failed:", e);
         container.innerHTML =
@@ -1343,6 +1344,7 @@ fetch(
 
 </body>
 </html>
+
 
 
 
