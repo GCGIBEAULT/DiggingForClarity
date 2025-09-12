@@ -26,10 +26,14 @@
 }
 
 "austin": {
-  "feeds": ["https://www.texastribune.org/feed/"],
-  "trustScore": 9.0,
-  "neutralityTag": "neutral"
-},
+  "feeds": [
+    "https://www.kvue.com/rss",
+    "https://www.austinchronicle.com/rss/"
+  ],
+  "trustScore": 8.0,
+  "neutralityTag": "mixed"
+}
+
 "minneapolis": {
   "feeds": ["https://www.startribune.com/rss/"],
   "trustScore": 8.0,
