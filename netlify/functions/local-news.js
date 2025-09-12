@@ -72,7 +72,7 @@ const cleanHeadlines = headlines.filter(item => {
 });
 
 exports.handler = async (event) => {
-  exports.handler = async (event) => {
+ 
   console.log(`Received lat: ${event.queryStringParameters?.lat}, lon: ${event.queryStringParameters?.lon}`);
 
   const { lat, lon } = event.queryStringParameters;
@@ -95,6 +95,9 @@ exports.handler = async (event) => {
 
     const closestZip = findClosestZip(latitude, longitude, zipMap);
     const city = zipMap[closestZip]?.city || "default";
+if (city === "default") {
+  console.log("⚠️ Fallback triggered — using default feed");
+}
 
     const cleanHeadlines = await getHeadlines(city, feedMap);
 
