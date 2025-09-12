@@ -21,6 +21,8 @@ async function getHeadlines(city, feedMap, visited = new Set()) {
   if (visited.has(city)) return [];
   visited.add(city);
 
+  console.log(`Trust score for ${city}: ${feedMap[city]?.trustScore || "N/A"}`);
+
   const feeds = feedMap[city]?.feeds || [];
   const fallback = feedMap[city]?.fallback || "default";
 
@@ -34,16 +36,28 @@ async function getHeadlines(city, feedMap, visited = new Set()) {
     }
   }
 
-  const headlines = allItems
+  let headlines = allItems
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
-    .slice(0, 5)
+    .slice(0, 10)
     .map(item => ({
       title: item.title,
       url: item.link,
       snippet: item.contentSnippet || ""
     }));
 
-  if (headlines.length >= 3 || city === "default") return headlines;
+  const baitWords = [
+    "shocking", "devastating", "furious", "heartbreaking",
+    "explosive", "slams", "rips", "chaos", "meltdown"
+  ];
+
+  const cleanHeadlines = headlines.filter(item => {
+    const text = `${item.title} ${item.snippet}`.toLowerCase();
+    return !baitWords.some(word => text.includes(word));
+  });
+
+  console.log(`Fallback path: ${Array.from(visited).join(" → ")}`);
+
+  if (cleanHeadlines.length >= 3 || city === "default") return cleanHeadlines;
 
   return await getHeadlines(fallback, feedMap, visited);
 }
@@ -70,7 +84,7 @@ exports.handler = async (event) => {
     const closestZip = findClosestZip(latitude, longitude, zipMap);
     const city = zipMap[closestZip]?.city || "default";
 
-    const headlines = await getHeadlines(city, feedMap);
+    const cleanHeadlines = await getHeadlines(city, feedMap);
 
     return {
       statusCode: 200,
@@ -78,7 +92,7 @@ exports.handler = async (event) => {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(headlines)
+      body: JSON.stringify(cleanHeadlines)
     };
   } catch (err) {
     console.error("Local news function error:", err.message);
