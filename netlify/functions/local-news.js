@@ -1,4 +1,28 @@
 // Recommit to trigger Netlify deploy
+const { lat, lon, zip } = event.queryStringParameters;
+
+let latitude = lat;
+let longitude = lon;
+
+if (zip && (!lat || !lon)) {
+  const zipData = require("./cityziplatlong.json");
+  if (zipData[zip]) {
+    latitude = zipData[zip].lat;
+    longitude = zipData[zip].lon;
+  } else {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: "Invalid ZIP code" })
+    };
+  }
+}
+
+if (!latitude || !longitude) {
+  return {
+    statusCode: 400,
+    body: JSON.stringify({ error: "Missing lat/lon" })
+  };
+}
 
 const Parser = require("rss-parser");
 const parser = new Parser();
