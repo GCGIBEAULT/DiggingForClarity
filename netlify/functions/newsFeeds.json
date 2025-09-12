@@ -1,50 +1,45 @@
 {
-"sanfrancisco": {
-  "feeds": ["https://www.sfgate.com/rss/"],
-  "trustScore": 8.5,
-  "neutralityTag": "mixed"
-},
-
-
- "denver": {
-  "feeds": ["https://www.denverpost.com/feed/"],
-  "trustScore": 7.0,
-  "neutralityTag": "commercial"
-},
-`
-  "paducah": {
-    "feeds": ["https://www.paducahsun.com/search/?f=rss&t=article"]
+  "sanfrancisco": {
+    "feeds": ["https://www.sfgate.com/rss/"],
+    "trustScore": 8.5,
+    "neutralityTag": "mixed"
   },
-"gainesville": {
-  "feeds": ["https://feeds.bbci.co.uk/news/world/rss.xml"],
-  "trustScore": 9.0,
-  "neutralityTag": "neutral"
-},
-
-
-
-"austin": {
-  "feeds": [
-    "https://www.kvue.com/rss",
-    "https://www.austinchronicle.com/rss/"
-  ],
-  "trustScore": 8.0,
-  "neutralityTag": "mixed"
+  "denver": {
+    "feeds": ["https://www.denverpost.com/feed/"],
+    "trustScore": 7.0,
+    "neutralityTag": "commercial"
+  },
+  "paducah": {
+    "feeds": ["https://www.paducahsun.com/search/?f=rss&t=article"],
+    "trustScore": 6.0,
+    "neutralityTag": "local"
+  },
+  "gainesville": {
+    "feeds": ["https://feeds.bbci.co.uk/news/world/rss.xml"],
+    "trustScore": 9.0,
+    "neutralityTag": "neutral"
+  },
+  "austin": {
+    "feeds": [
+      "https://www.kvue.com/rss",
+      "https://www.austinchronicle.com/rss/"
+    ],
+    "trustScore": 8.0,
+    "neutralityTag": "mixed"
+  },
+  "minneapolis": {
+    "feeds": ["https://www.startribune.com/rss/"],
+    "trustScore": 8.0,
+    "neutralityTag": "mixed"
+  },
+  "boise": {
+    "feeds": ["https://www.idahostatesman.com/news/local/?q=local&output=rss"],
+    "trustScore": 7.5,
+    "neutralityTag": "mixed"
+  },
+  "default": {
+    "feeds": ["https://feeds.bbci.co.uk/news/world/rss.xml"],
+    "trustScore": 9.0,
+    "neutralityTag": "neutral"
+  }
 }
-
-"minneapolis": {
-  "feeds": ["https://www.startribune.com/rss/"],
-  "trustScore": 8.0,
-  "neutralityTag": "mixed"
-},
-"boise": {
-  "feeds": ["https://www.idahostatesman.com/news/local/?q=local&output=rss"],
-  "trustScore": 7.5,
-  "neutralityTag": "mixed"
-},
-"default": {
-  "feeds": ["https://feeds.bbci.co.uk/news/world/rss.xml"],
-  "trustScore": 9.0,
-  "neutralityTag": "neutral"
-}
-
