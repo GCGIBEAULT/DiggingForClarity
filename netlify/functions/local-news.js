@@ -59,10 +59,11 @@ exports.handler = async (event) => {
       },
       body: JSON.stringify(headlines)
     };
-  } catch (err) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "Failed to load headlines" })
-    };
-  }
-};
+} catch (err) {
+  console.error("Local news function error:", err.message);
+  return {
+    statusCode: 500,
+    body: JSON.stringify({ error: "Failed to load headlines", details: err.message })
+  };
+}
+
