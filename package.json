@@ -1,0 +1,9 @@
+{
+  "name": "noiselessnews",
+  "version": "1.0.0",
+  "description": "Local news fetcher",
+  "main": "index.js",
+  "dependencies": {
+    "rss-parser": "^3.12.0"
+  }
+}
