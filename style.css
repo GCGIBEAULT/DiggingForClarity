@@ -483,6 +483,11 @@ label[for="zip"] {
   border-bottom: 4px solid #333; /* your thick, “centred” divider */
   overflow: visible;
 }
+#local-news {
+  border: 1px solid red;
+  min-height: 100px;
+  padding: 10px;
+}
 
 
 
