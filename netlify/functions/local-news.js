@@ -52,17 +52,15 @@ async function getHeadlines(city, feedMap, visited = new Set()) {
     "explosive", "slams", "rips", "chaos", "meltdown"
   ];
 
-  const cleanHeadlines = headlines.filter(item => {
-    const text = `${item.title} ${item.snippet}`.toLowerCase();
-    return !baitWords.some(word => text.includes(word));
-  });
+const cleanHeadlines = headlines.filter(item => {
+  const text = `${item.title} ${item.snippet}`.toLowerCase();
+  const isBait = baitWords.some(word => text.includes(word));
+  const isAllCaps = item.title === item.title.toUpperCase();
+  const hasExclamation = item.title.includes("!");
+  const isTooShort = item.title.trim().split(/\s+/).length < 5;
 
-  console.log(`Fallback path: ${Array.from(visited).join(" → ")}`);
-
-  if (cleanHeadlines.length >= 3 || city === "default") return cleanHeadlines;
-
-  return await getHeadlines(fallback, feedMap, visited);
-}
+  return !isBait && !isAllCaps && !hasExclamation && !isTooShort;
+});
 
 exports.handler = async (event) => {
   const { lat, lon } = event.queryStringParameters;
