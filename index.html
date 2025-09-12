@@ -1287,9 +1287,61 @@ right h
     document.getElementById('refreshLocalNews').click();
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("refreshLocalNews");
+    const container = document.getElementById("local-news");
+
+    btn.addEventListener("click", loadLocalNews);
+    loadLocalNews();
+
+    async function loadLocalNews() {
+      container.innerHTML = '<div class="snippet">Locating and loading news…</div>';
+
+      if (!navigator.geolocation) {
+        container.innerHTML = '<div class="snippet">Geolocation not supported.</div>';
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        async pos => {
+          const lat = pos.coords.latitude;
+          const lon = pos.coords.longitude;
+
+          try {
+            const res = await fetch(
+              `https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news?lat=${lat}&lon=${lon}`
+            );
+            if (!res.ok) throw new Error("Network error");
+
+            const headlines = await res.json();
+            if (!Array.isArray(headlines) || headlines.length === 0) {
+              container.innerHTML = '<div class="snippet">No local news available.</div>';
+              return;
+            }
+
+            container.innerHTML =
+              '<ul style="line-height:1.6;">' +
+              headlines.map(h => `<li>${h}</li>`).join('') +
+              '</ul>';
+          } catch (err) {
+            console.error("Fetch failed:", err);
+            container.innerHTML = '<div class="snippet">Failed to load local news.</div>';
+          }
+        },
+        err => {
+          console.error("Geolocation error:", err);
+          container.innerHTML = '<div class="snippet">Unable to get location.</div>';
+        },
+        { timeout: 10000 }
+      );
+    }
+  });
+</script>
 
 </body>
 </html>
+
 
 
 
