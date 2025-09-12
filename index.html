@@ -747,20 +747,15 @@ right h
 
 <section class="grid">
 
-<div class="section">
+<section id="local-news-section" class="section">
   <h3>Local News</h3>
-
-<button id="refreshLocalNews" style="cursor: pointer;">
-
-  🔄 Refresh Local News
-</button>
-<div id="local-news"></div>  
-
-
-
-
- 
-</div>
+  <button id="refreshLocalNews" style="cursor: pointer;">
+    🔄 Refresh Local News
+  </button>
+  <div id="local-news" style="margin-top: 1em;">
+    Local news is currently unavailable.
+  </div>
+</section>
 
 
 
@@ -1420,6 +1415,7 @@ async function loadLocalNews() {
 
 </body>
 </html>
+
 
 
 
