@@ -1286,9 +1286,57 @@ right h
     document.getElementById("refreshLocalNews").addEventListener("click", loadLocalNews);
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    loadLocalNews();
+    document.getElementById("refreshLocalNews")
+      .addEventListener("click", loadLocalNews);
+  });
+
+  async function loadLocalNews() {
+    const container = document.getElementById("local-news");
+    container.innerHTML = "<div class='snippet'>Locating and loading news…</div>";
+
+    if (!navigator.geolocation) {
+      container.innerHTML = "<div class='snippet'>Geolocation not supported.</div>";
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(async pos => {
+      const { latitude: lat, longitude: lon } = pos.coords;
+      try {
+        // Your function expects GET with ?lat=&lon=, not a JSON POST
+        const res = await fetch(
+          `https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news?lat=${lat}&lon=${lon}`
+        );
+        if (!res.ok) throw new Error(res.statusText);
+
+        const headlines = await res.json();
+        if (!Array.isArray(headlines) || headlines.length === 0) {
+          container.innerHTML = "<div class='snippet'>No local news available.</div>";
+          return;
+        }
+
+        container.innerHTML =
+          "<ul style='line-height:1.6;'>" +
+          headlines.map(h => `<li>${h}</li>`).join("") +
+          "</ul>";
+      } catch (e) {
+        console.error("Local news fetch failed:", e);
+        container.innerHTML =
+          "<div class='snippet'>Local news is currently unavailable.</div>";
+      }
+    }, err => {
+      console.error("Geolocation error:", err);
+      container.innerHTML =
+        "<div class='snippet'>Unable to get location.</div>";
+    }, { timeout: 10000 });
+  }
+</script>
 
 </body>
 </html>
+
 
 
 
