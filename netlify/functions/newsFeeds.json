@@ -12,7 +12,8 @@
   "paducah": {
     "feeds": ["https://www.paducahsun.com/search/?f=rss&t=article"],
     "trustScore": 6.0,
-    "neutralityTag": "local"
+    "neutralityTag": "local",
+    "fallback": "default"
   },
   "gainesville": {
     "feeds": ["https://feeds.bbci.co.uk/news/world/rss.xml"],
