@@ -1204,9 +1204,10 @@ right h
       const { latitude: lat, longitude: lon } = pos.coords;
       try {
         // Your function expects GET with ?lat=&lon=, not a JSON POST
-        const res = await fetch(
-          `https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news?lat=${lat}&lon=${lon}`
-        );
+       const API_BASE = 'https://comforting-cajeta-12cd93.netlify.app';
+fetch(
+  `${API_BASE}/.netlify/functions/local-news?lat=${lat}&lon=${lon}`
+);
         if (!res.ok) throw new Error(res.statusText);
 
         const headlines = await res.json();
@@ -1342,6 +1343,7 @@ right h
 
 </body>
 </html>
+
 
 
 
