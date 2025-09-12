@@ -52,4 +52,39 @@ exports.handler = async (event) => {
   const { lat, lon } = event.queryStringParameters;
   if (!lat || !lon) {
     return {
-      statusCode
+      statusCode: 400,
+      body: JSON.stringify({ error: "Missing lat/lon" })
+    };
+  }
+
+  const latitude = parseFloat(lat);
+  const longitude = parseFloat(lon);
+
+  try {
+    const zipMapPath = path.join(__dirname, "cityziplatlong.json");
+    const feedMapPath = path.join(__dirname, "newsFeeds.json");
+
+    const zipMap = JSON.parse(fs.readFileSync(zipMapPath, "utf8"));
+    const feedMap = JSON.parse(fs.readFileSync(feedMapPath, "utf8"));
+
+    const closestZip = findClosestZip(latitude, longitude, zipMap);
+    const city = zipMap[closestZip]?.city || "default";
+
+    const headlines = await getHeadlines(city, feedMap);
+
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(headlines)
+    };
+  } catch (err) {
+    console.error("Local news function error:", err.message);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Failed to load headlines", details: err.message })
+    };
+  }
+};
