@@ -1251,10 +1251,10 @@ fetch(
         console.log('Fetching local news for', lat, lon);
 
         // 3) call your function via GET (no POST body needed)
-        fetch(
-        https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news?lat=37.77&lon=-122.42
+       fetch(
+  `https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news?lat=${lat}&lon=${lon}`
+)
 
-        )
           .then(res => {
             if (!res.ok) throw new Error(res.statusText);
             return res.json();
@@ -1343,6 +1343,7 @@ fetch(
 
 </body>
 </html>
+
 
 
 
