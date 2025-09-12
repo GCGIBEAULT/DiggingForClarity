@@ -28,13 +28,15 @@ async function getHeadlines(city, feedMap, visited = new Set()) {
 
   let allItems = [];
   for (const url of feeds) {
-    try {
-      const feed = await parser.parseURL(url);
-      allItems.push(...(feed.items || []));
-    } catch (err) {
-      console.error(`Failed to fetch ${url}:`, err.message);
-    }
+  try {
+    const feed = await parser.parseURL(url);
+    console.log(`✅ Fetched ${url} — ${feed.items?.length || 0} items`);
+    allItems.push(...(feed.items || []));
+  } catch (err) {
+    console.error(`❌ Failed to fetch ${url}:`, err.message);
   }
+}
+
 
   let headlines = allItems
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
