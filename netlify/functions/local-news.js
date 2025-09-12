@@ -1,85 +1,55 @@
-
- const fs = require("fs");
+const fs = require("fs");
 const path = require("path");
+const Parser = require("rss-parser");
+const parser = new Parser();
 
-function findClosestCounty(lat, lon, countyMap) {
+function findClosestZip(lat, lon, zipMap) {
   let closest = null;
-  let minDistance = Infinity;
-
-for (const county in countyMap) {
-  const coords = countyMap[county];
-  if (!Array.isArray(coords) || coords.length !== 2) continue;
-
-  const [clat, clon] = coords;
-  const distance = Math.sqrt((lat - clat) ** 2 + (lon - clon) ** 2);
-  if (distance < minDistance) {
-    minDistance = distance;
-    closest = county;
+  let minDist = Infinity;
+  for (const zip in zipMap) {
+    const { lat: zlat, lon: zlon } = zipMap[zip];
+    const dist = Math.hypot(lat - zlat, lon - zlon);
+    if (dist < minDist) {
+      minDist = dist;
+      closest = zip;
+    }
   }
+  return closest;
 }
 
-  return closest;
+async function getHeadlines(city, feedMap, visited = new Set()) {
+  if (visited.has(city)) return []; // prevent infinite loops
+  visited.add(city);
+
+  const feeds = feedMap[city]?.feeds || [];
+  const fallback = feedMap[city]?.fallback || "default";
+
+  let allItems = [];
+  for (const url of feeds) {
+    try {
+      const feed = await parser.parseURL(url);
+      allItems.push(...(feed.items || []));
+    } catch (err) {
+      console.error(`Failed to fetch ${url}:`, err.message);
+    }
+  }
+
+  const headlines = allItems
+    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
+    .slice(0, 5)
+    .map(item => ({
+      title: item.title,
+      url: item.link,
+      snippet: item.contentSnippet || ""
+    }));
+
+  if (headlines.length >= 3 || city === "default") return headlines;
+
+  return await getHeadlines(fallback, feedMap, visited);
 }
 
 exports.handler = async (event) => {
   const { lat, lon } = event.queryStringParameters;
-
   if (!lat || !lon) {
     return {
-      statusCode: 400,
-      body: JSON.stringify({ error: "Missing lat/lon" })
-    };
-  }
-
-  const latitude = parseFloat(lat);
-  const longitude = parseFloat(lon);
-
-  try {
-    const countyMapPath = path.join(__dirname, "cityzip.json");
-    const countyMap = JSON.parse(fs.readFileSync(countyMapPath, "utf8"));
-
-    const closestCounty = findClosestCounty(latitude, longitude, countyMap);
-
-    if (!closestCounty) {
-      return {
-        statusCode: 404,
-        body: JSON.stringify({ error: "No matching county found" })
-      };
-    }
-
-  const headlinesMap = {
-  denver: [
-    {
-      title: "Denver expands community garden program",
-      url: "https://example.com",
-      snippet: "Local news for Denver will appear here."
-    }
-  ],
-  default: [
-    {
-      title: "National news placeholder",
-      url: "https://example.com",
-      snippet: "Fallback headlines for unsupported locations."
-    }
-  ]
-};
-
-const headlines = headlinesMap[closestCounty] || headlinesMap["default"];
-
-
-    return {
-      statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(headlines)
-    };
-} catch (err) {
-  console.error("Local news function error:", err.message);
-  return {
-    statusCode: 500,
-    body: JSON.stringify({ error: "Failed to load headlines", details: err.message })
-  };
-}
-
+      statusCode
