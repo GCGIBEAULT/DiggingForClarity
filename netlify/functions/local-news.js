@@ -1,27 +1,26 @@
-// Recommit to trigger Netlify deploy
-
+const Parser = require("rss-parser");
 const zipMap = require("./cityziplatlong.json");
 const feedMap = require("./newsFeeds.json");
-const Parser = require("rss-parser");
-const parser = new Parser();
 
 function findClosestZip(lat, lon, zipMap) {
-  let closest = null;
-  let minDist = Infinity;
+  let closestZip = null;
+  let minDistance = Infinity;
   for (const zip in zipMap) {
-    const { lat: zlat, lon: zlon } = zipMap[zip];
-    const dist = Math.hypot(lat - zlat, lon - zlon);
-    if (dist < minDist) {
-      minDist = dist;
-      closest = zip;
+    const { lat: zLat, lon: zLon } = zipMap[zip];
+    const distance = Math.sqrt(Math.pow(lat - zLat, 2) + Math.pow(lon - zLon, 2));
+    if (distance < minDistance) {
+      minDistance = distance;
+      closestZip = zip;
     }
   }
-  return closest;
+  return closestZip;
 }
+
 async function getHeadlinesFromFeed(city, feedMap) {
-  const Parser = require("rss-parser");
+  console.log("Calling fallback feed logic for city:", city);
   const parser = new Parser();
-  let feeds = feedMap[city]?.feeds || [];
+  const feeds = feedMap[city]?.feeds || [];
+  console.log("Feeds found for city:", feeds);
 
   let allItems = [];
   for (const url of feeds) {
@@ -33,38 +32,7 @@ async function getHeadlinesFromFeed(city, feedMap) {
     }
   }
 
-  const baitWords = ["shocking", "devastating", "furious", "heartbreaking", "explosive", "slams", "rips", "chaos", "meltdown"];
-  return allItems
-    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
-    .slice(0, 10)
-    .map(item => ({
-      title: item.title,
-      url: item.link,
-      snippet: item.contentSnippet || ""
-    }))
-    .filter(item => {
-      const txt = ` ${item.title} ${item.snippet} `.toLowerCase();
-      const isBait = baitWords.some(w => txt.includes(w));
-      const isAllCaps = item.title === item.title.toUpperCase();
-      const hasExcl = item.title.includes("!");
-      return !isBait && !isAllCaps && !hasExcl;
-    });
-}
-
-async function getHeadlinesFromFeed(city, feedMap) {
-  const Parser = require("rss-parser");
-  const parser = new Parser();
-  let feeds = feedMap[city]?.feeds || [];
-
-  let allItems = [];
-  for (const url of feeds) {
-    try {
-      const feed = await parser.parseURL(url);
-      allItems.push(...(feed.items || []));
-    } catch (err) {
-      console.error(`Failed to fetch ${url}:`, err.message);
-    }
-  }
+  console.log("Total items fetched:", allItems.length);
 
   const baitWords = ["shocking", "devastating", "furious", "heartbreaking", "explosive", "slams", "rips", "chaos", "meltdown"];
   return allItems
@@ -86,6 +54,7 @@ async function getHeadlinesFromFeed(city, feedMap) {
 
 async function getHeadlines(city, zip, lat, lon, feedMap) {
   try {
+    console.log("Calling Copilot with:", { city, zip, lat, lon });
     const response = await fetch('https://copilot-curate.netlify.app/.netlify/functions/editor', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -93,6 +62,8 @@ async function getHeadlines(city, zip, lat, lon, feedMap) {
     });
 
     const curated = await response.json();
+    console.log("Copilot response:", curated);
+
     if (curated?.snippets?.length) {
       console.log("Copilot returned curated snippets.");
       return curated.snippets;
@@ -106,19 +77,10 @@ async function getHeadlines(city, zip, lat, lon, feedMap) {
   }
 }
 
-
 exports.handler = async function(event) {
   try {
     const { lat, lon, zip } = event.queryStringParameters || {};
-   // Inside exports.handler
-console.log("Received query params:", { lat, lon, zip });
-...
-console.log("Calling Copilot with:", { city, zip, lat, lon });
-
-// Inside getHeadlines()
-const curated = await response.json();
-console.log("Copilot response:", curated);
-
+    console.log("Received query params:", { lat, lon, zip });
 
     let latitude = lat;
     let longitude = lon;
@@ -146,8 +108,7 @@ console.log("Copilot response:", curated);
     const city = zipMap[closestZip]?.city || "default";
     if (city === "default") console.warn("Fallback to default feed");
 
-   const cleanHeadlines = await getHeadlines(city, zip, latitude, longitude, feedMap);
-
+    const cleanHeadlines = await getHeadlines(city, zip, latitude, longitude, feedMap);
 
     return {
       statusCode: 200,
@@ -161,10 +122,7 @@ console.log("Copilot response:", curated);
     console.error("Function error:", err.message);
     return {
       statusCode: 500,
-      body: JSON.stringify({
-        error: "Failed to load headlines",
-        details: err.message
-      })
+      body: JSON.stringify({ error: "Failed to load headlines" })
     };
   }
 };
