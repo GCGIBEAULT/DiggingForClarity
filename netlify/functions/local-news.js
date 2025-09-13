@@ -1,5 +1,6 @@
 // Recommit to trigger Netlify deploy
 const { lat, lon, zip } = event.queryStringParameters;
+console.log("Received query params:", { lat, lon, zip });
 
 let latitude = lat;
 let longitude = lon;
