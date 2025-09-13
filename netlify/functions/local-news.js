@@ -26,18 +26,12 @@ if (!latitude || !longitude) {
 
 const Parser = require("rss-parser");
 const parser = new Parser();
-
-// Load your lookup maps
-const zipMap  = require("./cityziplatlong.json");
+const zipMap = require("./cityziplatlong.json");
 const feedMap = require("./newsFeeds.json");
 
-/**
- * Find the closest ZIP code in zipMap to the given latitude/longitude.
- */
 function findClosestZip(lat, lon, zipMap) {
   let closest = null;
   let minDist = Infinity;
-
   for (const zip in zipMap) {
     const { lat: zlat, lon: zlon } = zipMap[zip];
     const dist = Math.hypot(lat - zlat, lon - zlon);
@@ -46,17 +40,12 @@ function findClosestZip(lat, lon, zipMap) {
       closest = zip;
     }
   }
-
   return closest;
 }
 
-/**
- * Fetch, parse, sort, and filter headlines for a given city.
- */
 async function getHeadlines(city, feedMap) {
   let feeds = feedMap[city]?.feeds || [];
 
-  // If fallback to “default,” suppress commercial feeds
   if (city === "default") {
     const suppressed = feeds.filter(url => {
       const tag = Object.values(feedMap)
@@ -78,49 +67,56 @@ async function getHeadlines(city, feedMap) {
   }
 
   const baitWords = [
-    "shocking","devastating","furious",
-    "heartbreaking","explosive","slams",
-    "rips","chaos","meltdown"
+    "shocking", "devastating", "furious",
+    "heartbreaking", "explosive", "slams",
+    "rips", "chaos", "meltdown"
   ];
 
   return allItems
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
     .slice(0, 10)
     .map(item => ({
-      title:   item.title,
-      url:     item.link,
+      title: item.title,
+      url: item.link,
       snippet: item.contentSnippet || ""
     }))
     .filter(item => {
-      const txt       = `${item.title} ${item.snippet}`.toLowerCase();
-      const isBait    = baitWords.some(w => txt.includes(w));
+      const txt = `${item.title} ${item.snippet}`.toLowerCase();
+      const isBait = baitWords.some(w => txt.includes(w));
       const isAllCaps = item.title === item.title.toUpperCase();
-      const hasExcl   = item.title.includes("!");
-      const isShort   = item.title.trim().split(/\s+/).length < 5;
+      const hasExcl = item.title.includes("!");
+      const isShort = item.title.trim().split(/\s+/).length < 5;
       return !isBait && !isAllCaps && !hasExcl && !isShort;
     });
 }
 
-/**
- * Netlify Function entry point.
- */
-exports.handler = async (event) => {
-  const { lat, lon } = event.queryStringParameters || {};
-  console.log(`Received lat=${lat} lon=${lon}`);
+exports.handler = async function(event) {
+  const { lat, lon, zip } = event.queryStringParameters || {};
+  let latitude = lat;
+  let longitude = lon;
 
-  if (!lat || !lon) {
+  if (zip && (!lat || !lon)) {
+    if (zipMap[zip]) {
+      latitude = zipMap[zip].lat;
+      longitude = zipMap[zip].lon;
+    } else {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "Invalid ZIP code" })
+      };
+    }
+  }
+
+  if (!latitude || !longitude) {
     return {
       statusCode: 400,
       body: JSON.stringify({ error: "Missing lat/lon" })
     };
   }
 
-  const latitude  = parseFloat(lat);
-  const longitude = parseFloat(lon);
-
   try {
-    const closestZip = findClosestZip(latitude, longitude, zipMap);
-    const city       = zipMap[closestZip]?.city || "default";
+    const closestZip = findClosestZip(parseFloat(latitude), parseFloat(longitude), zipMap);
+    const city = zipMap[closestZip]?.city || "default";
     if (city === "default") console.warn("Fallback to default feed");
 
     const cleanHeadlines = await getHeadlines(city, feedMap);
@@ -129,10 +125,18 @@ exports.handler = async (event) => {
       statusCode: 200,
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Content-Type":                "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(cleanHeadlines)
     };
+  } catch (err) {
+    console.error("Function error:", err.message);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Failed to load headlines", details: err.message })
+    };
+  }
+};
 
   } catch (err) {
     console.error("Function error:", err.message);
