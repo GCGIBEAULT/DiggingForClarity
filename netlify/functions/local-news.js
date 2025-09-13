@@ -18,6 +18,38 @@ function findClosestZip(lat, lon, zipMap) {
   }
   return closest;
 }
+async function getHeadlinesFromFeed(city, feedMap) {
+  const Parser = require("rss-parser");
+  const parser = new Parser();
+  let feeds = feedMap[city]?.feeds || [];
+
+  let allItems = [];
+  for (const url of feeds) {
+    try {
+      const feed = await parser.parseURL(url);
+      allItems.push(...(feed.items || []));
+    } catch (err) {
+      console.error(`Failed to fetch ${url}:`, err.message);
+    }
+  }
+
+  const baitWords = ["shocking", "devastating", "furious", "heartbreaking", "explosive", "slams", "rips", "chaos", "meltdown"];
+  return allItems
+    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
+    .slice(0, 10)
+    .map(item => ({
+      title: item.title,
+      url: item.link,
+      snippet: item.contentSnippet || ""
+    }))
+    .filter(item => {
+      const txt = ` ${item.title} ${item.snippet} `.toLowerCase();
+      const isBait = baitWords.some(w => txt.includes(w));
+      const isAllCaps = item.title === item.title.toUpperCase();
+      const hasExcl = item.title.includes("!");
+      return !isBait && !isAllCaps && !hasExcl;
+    });
+}
 
 async function getHeadlines(city, zip, lat, lon, feedMap) {
   try {
