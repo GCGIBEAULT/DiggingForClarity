@@ -38,7 +38,15 @@ async function getHeadlines(city, zip, lat, lon) {
 exports.handler = async function(event) {
   try {
     const { lat, lon, zip } = event.queryStringParameters || {};
-    console.log("Received query params:", { lat, lon, zip });
+   // Inside exports.handler
+console.log("Received query params:", { lat, lon, zip });
+...
+console.log("Calling Copilot with:", { city, zip, lat, lon });
+
+// Inside getHeadlines()
+const curated = await response.json();
+console.log("Copilot response:", curated);
+
 
     let latitude = lat;
     let longitude = lon;
