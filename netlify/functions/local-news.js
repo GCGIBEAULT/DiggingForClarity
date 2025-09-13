@@ -19,7 +19,7 @@ function findClosestZip(lat, lon, zipMap) {
   return closest;
 }
 
-async function getHeadlines(city, zip, lat, lon) {
+async function getHeadlines(city, zip, lat, lon, feedMap) {
   try {
     const response = await fetch('https://copilot-curate.netlify.app/.netlify/functions/editor', {
       method: 'POST',
@@ -28,12 +28,19 @@ async function getHeadlines(city, zip, lat, lon) {
     });
 
     const curated = await response.json();
-    return curated.snippets || [];
+    if (curated?.snippets?.length) {
+      console.log("Copilot returned curated snippets.");
+      return curated.snippets;
+    } else {
+      console.warn("Copilot returned no snippets. Falling back to feed.");
+      return await getHeadlinesFromFeed(city, feedMap);
+    }
   } catch (err) {
     console.error("Copilot curation failed:", err.message);
-    return [];
+    return await getHeadlinesFromFeed(city, feedMap);
   }
 }
+
 
 exports.handler = async function(event) {
   try {
