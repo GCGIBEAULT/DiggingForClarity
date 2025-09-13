@@ -19,50 +19,20 @@ function findClosestZip(lat, lon, zipMap) {
   return closest;
 }
 
-async function getHeadlines(city, feedMap) {
-  let feeds = feedMap[city]?.feeds || [];
-
-  if (city === "default") {
-    const suppressed = feeds.filter(url => {
-      const tag = Object.values(feedMap)
-        .find(cfg => cfg.feeds?.includes(url))
-        ?.neutralityTag;
-      return tag === "commercial";
+async function getHeadlines(city, zip, lat, lon) {
+  try {
+    const response = await fetch('https://copilot-curate.netlify.app/.netlify/functions/editor', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ city, zip, lat, lon })
     });
-    feeds = feeds.filter(url => !suppressed.includes(url));
+
+    const curated = await response.json();
+    return curated.snippets || [];
+  } catch (err) {
+    console.error("Copilot curation failed:", err.message);
+    return [];
   }
-
-  let allItems = [];
-  for (const url of feeds) {
-    try {
-      const feed = await parser.parseURL(url);
-      allItems.push(...(feed.items || []));
-    } catch (err) {
-      console.error(`Failed to fetch ${url}:`, err.message);
-    }
-  }
-
-  const baitWords = [
-    "shocking", "devastating", "furious", "heartbreaking",
-    "explosive", "slams", "rips", "chaos", "meltdown"
-  ];
-
-  return allItems
-    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
-    .slice(0, 10)
-    .map(item => ({
-      title: item.title,
-      url: item.link,
-      snippet: item.contentSnippet || ""
-    }))
-    .filter(item => {
-      const txt = `${item.title} ${item.snippet}`.toLowerCase();
-      const isBait = baitWords.some(w => txt.includes(w));
-      const isAllCaps = item.title === item.title.toUpperCase();
-      const hasExcl = item.title.includes("!");
-      const isShort = item.title.trim().split(/\s+/).length < 5;
-      return !isBait && !isAllCaps && !hasExcl && !isShort;
-    });
 }
 
 exports.handler = async function(event) {
