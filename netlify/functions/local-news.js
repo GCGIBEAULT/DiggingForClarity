@@ -92,30 +92,36 @@ async function getHeadlines(city, feedMap) {
 }
 
 exports.handler = async function(event) {
-  const { lat, lon, zip } = event.queryStringParameters || {};
-  let latitude = lat;
-  let longitude = lon;
+  try {
+    const { lat, lon, zip } = event.queryStringParameters || {};
+    let latitude = lat;
+    let longitude = lon;
 
-  if (zip && (!lat || !lon)) {
-    if (zipMap[zip]) {
-      latitude = zipMap[zip].lat;
-      longitude = zipMap[zip].lon;
-    } else {
+    const zipData = require("./cityziplatlong.json");
+    const zipMap = require("./cityziplatlong.json");
+    const feedMap = require("./newsFeeds.json");
+    const Parser = require("rss-parser");
+    const parser = new Parser();
+
+    if (zip && (!lat || !lon)) {
+      if (zipData[zip]) {
+        latitude = zipData[zip].lat;
+        longitude = zipData[zip].lon;
+      } else {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({ error: "Invalid ZIP code" })
+        };
+      }
+    }
+
+    if (!latitude || !longitude) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: "Invalid ZIP code" })
+        body: JSON.stringify({ error: "Missing lat/lon" })
       };
     }
-  }
 
-  if (!latitude || !longitude) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ error: "Missing lat/lon" })
-    };
-  }
-
-  try {
     const closestZip = findClosestZip(parseFloat(latitude), parseFloat(longitude), zipMap);
     const city = zipMap[closestZip]?.city || "default";
     if (city === "default") console.warn("Fallback to default feed");
@@ -134,17 +140,8 @@ exports.handler = async function(event) {
     console.error("Function error:", err.message);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to load headlines", details: err.message })
-    };
-  }
-};
-
-  } catch (err) {
-    console.error("Function error:", err.message);
-    return {
-      statusCode: 500,
       body: JSON.stringify({
-        error:   "Failed to load headlines",
+        error: "Failed to load headlines",
         details: err.message
       })
     };
