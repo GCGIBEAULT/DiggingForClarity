@@ -146,7 +146,8 @@ console.log("Copilot response:", curated);
     const city = zipMap[closestZip]?.city || "default";
     if (city === "default") console.warn("Fallback to default feed");
 
-    const cleanHeadlines = await getHeadlines(city, feedMap);
+   const cleanHeadlines = await getHeadlines(city, zip, latitude, longitude, feedMap);
+
 
     return {
       statusCode: 200,
