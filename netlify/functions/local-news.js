@@ -1,32 +1,9 @@
 // Recommit to trigger Netlify deploy
 
-let latitude = lat;
-let longitude = lon;
-
-if (zip && (!lat || !lon)) {
-  const zipData = require("./cityziplatlong.json");
-  if (zipData[zip]) {
-    latitude = zipData[zip].lat;
-    longitude = zipData[zip].lon;
-  } else {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ error: "Invalid ZIP code" })
-    };
-  }
-}
-
-if (!latitude || !longitude) {
-  return {
-    statusCode: 400,
-    body: JSON.stringify({ error: "Missing lat/lon" })
-  };
-}
-
-const Parser = require("rss-parser");
-const parser = new Parser();
 const zipMap = require("./cityziplatlong.json");
 const feedMap = require("./newsFeeds.json");
+const Parser = require("rss-parser");
+const parser = new Parser();
 
 function findClosestZip(lat, lon, zipMap) {
   let closest = null;
@@ -66,9 +43,8 @@ async function getHeadlines(city, feedMap) {
   }
 
   const baitWords = [
-    "shocking", "devastating", "furious",
-    "heartbreaking", "explosive", "slams",
-    "rips", "chaos", "meltdown"
+    "shocking", "devastating", "furious", "heartbreaking",
+    "explosive", "slams", "rips", "chaos", "meltdown"
   ];
 
   return allItems
@@ -92,19 +68,15 @@ async function getHeadlines(city, feedMap) {
 exports.handler = async function(event) {
   try {
     const { lat, lon, zip } = event.queryStringParameters || {};
+    console.log("Received query params:", { lat, lon, zip });
+
     let latitude = lat;
     let longitude = lon;
 
-    const zipData = require("./cityziplatlong.json");
-    const zipMap = require("./cityziplatlong.json");
-    const feedMap = require("./newsFeeds.json");
-    const Parser = require("rss-parser");
-    const parser = new Parser();
-
     if (zip && (!lat || !lon)) {
-      if (zipData[zip]) {
-        latitude = zipData[zip].lat;
-        longitude = zipData[zip].lon;
+      if (zipMap[zip]) {
+        latitude = zipMap[zip].lat;
+        longitude = zipMap[zip].lon;
       } else {
         return {
           statusCode: 400,
