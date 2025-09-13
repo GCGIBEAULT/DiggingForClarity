@@ -1515,9 +1515,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const refreshBtn = document.getElementById("refreshLocalNews");
+  if (refreshBtn) {
+    refreshBtn.addEventListener("click", () => {
+      const container = document.getElementById("local-news");
+      container.innerHTML = "<div class='snippet'>Refreshing local news…</div>";
+      loadLocalNews();
+    });
+  }
+});
+</script>
 
 </body>
 </html>
+
 
 
 
