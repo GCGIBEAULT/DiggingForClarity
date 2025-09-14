@@ -56,18 +56,17 @@ exports.handler = async function (event) {
     let longitude = parseFloat(lon);
 
     const zipCode = findClosestZip(latitude, longitude, zipMap);
-    const headlines = await getHeadlines(zipCode, latitude, longitude, zipMap);
+    console.log("ZIP code selected:", zipCode); // ✅ Log ZIP
 
-    // 🔍 Add these logs right here
-    console.log("ZIP:", zipCode);
-    console.log("Headlines:", headlines);
+    const headlines = await getHeadlines(zipCode, latitude, longitude, zipMap);
+    console.log("Headlines returned:", headlines); // ✅ Log headlines
 
     return {
       statusCode: 200,
       body: JSON.stringify(headlines)
     };
   } catch (err) {
-    console.error("Handler error:", err.message);
+    console.error("Handler error:", err.message); // ✅ Log error
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "Internal server error" })
