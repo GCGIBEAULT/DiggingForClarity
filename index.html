@@ -1132,8 +1132,7 @@ right h
  
 
 const response = await fetch(
-  `https://copilot-curate.netlify.app/.netlify/functions/local-news?lat=${coords.latitude}&lon=${coords.longitude}`
-);
+  const response = await fetch(`https://copilot-curate.netlify.app/.netlify/functions/local-news?lat=${coords.latitude}&lon=${coords.longitude}`);
 
 
      
@@ -1509,6 +1508,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
