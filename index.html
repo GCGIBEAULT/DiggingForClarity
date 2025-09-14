@@ -1112,18 +1112,17 @@ right h
       container.innerHTML += `<div class="snippet" style="font-style: italic; color: #555;">${fallbackMessage}</div>`;
     }
 
- const ul = document.createElement("ul");
-ul.style.lineHeight = "1.6";
+    const ul = document.createElement("ul");
+    ul.style.lineHeight = "1.6";
 
-headlines.forEach(item => {
-  console.log("Snippet object:", item); // 🔍 Inspect actual fields
-  const li = document.createElement("li");
-  li.innerHTML = `<a href="${item.url}" target="_blank">${item.title}</a><br><span class="snippet">${item.snippet || item.text || item.body || item.summary || "No summary available."}</span>`;
-  ul.appendChild(li);
-});
+    headlines.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      ul.appendChild(li);
+    });
 
-container.innerHTML = "<h2>Local News <button id='refreshLocalNews'>🔄 Refresh</button></h2>";
-container.appendChild(ul);
+    container.appendChild(ul);
+  }
 
 
   // 1. Fetch & render headlines
@@ -1163,9 +1162,7 @@ container.appendChild(ul);
 
     headlines.forEach(item => {
       const li = document.createElement("li");
-    li.innerHTML = `<strong>${item.title}</strong><br><span class="snippet">${item.text || item.body || item.summary || "No summary available."}</span>`;
-
-
+     li.innerHTML = `<strong>${item.title}</strong><br>${item.summary || item.description || "No summary available."}`;
 
       ul.appendChild(li);
     });
@@ -1215,18 +1212,9 @@ container.appendChild(ul);
               return;
             }
             // 4) render
-          const ul = document.createElement("ul");
-ul.style.lineHeight = "1.6";
-
-headlines.forEach(item => {
-  console.log("Snippet object:", item); // 🔍 Add this line
-  const li = document.createElement("li");
-  li.innerHTML = `<a href="${item.url}" target="_blank">${item.title}</a><br><span class="snippet">${item.snippet || item.text || item.body || item.summary || "No summary available."}</span>`;
-  ul.appendChild(li);
-});
-
-container.innerHTML = "<h2>Local News <button id='refreshLocalNews'>🔄 Refresh</button></h2>";
-container.appendChild(ul);
+           newsContainer.innerHTML = '<ul style="line-height:1.6;">' + headlines.map(h =>
+  `<li><a href="${h.url}" target="_blank">${h.title}</a><br><span class="snippet">${h.snippet}</span></li>`
+).join('') + '</ul>';
 
           })
           .catch(err => {
@@ -1342,17 +1330,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (fallbackMessage) {
       container.innerHTML = `<div class='snippet' style='font-style:italic;color:#555;'>${fallbackMessage}</div>`;
     }
-   const ul = document.createElement("ul");
-ul.style.lineHeight = "1.6";
-
-headlines.forEach(item => {
-  const li = document.createElement("li");
-  li.innerHTML = `<a href="${item.url}" target="_blank">${item.title}</a><br><span class="snippet">${item.snippet}</span>`;
-  ul.appendChild(li);
-});
-
-container.appendChild(ul);
-
+    const ul = document.createElement("ul");
+    ul.style.lineHeight = "1.6";
+    headlines.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+    container.appendChild(ul);
   }
 
   async function loadLocalNews() {
@@ -1551,100 +1536,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
-<!-- Paste this just before your closing </body> tag, replacing any existing Local News script -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("local-news");
-    const btnId = "refreshLocalNews";
-
-    async function loadLocalNews() {
-      container.innerHTML = "<p>Loading local news…</p>";
-
-      try {
-        const res = await fetch("/.netlify/functions/local-news");
-        const snippets = await res.json();
-
-        container.innerHTML = `
-          <h2>
-            Local News
-            <button id="${btnId}">🔄 Refresh Local News</button>
-          </h2>
-          <ul style="line-height:1.6;">
-            ${snippets.map(item => `
-              <li>
-                <a href="${item.url}" target="_blank">${item.title}</a><br>
-                ${item.snippet}
-              </li>
-            `).join("")}
-          </ul>
-        `;
-      } catch (e) {
-        container.innerHTML = `
-          <h2>Local News</h2>
-          <p>Local news is currently unavailable.</p>
-        `;
-      }
-
-      document.getElementById(btnId).addEventListener("click", loadLocalNews);
-    }
-
-    loadLocalNews();
-  });
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("local-news");
-
-  async function loadLocalNews() {
-    container.innerHTML = "<div class='snippet'>Loading local news…</div>";
-
-    try {
-      const res = await fetch("/.netlify/functions/local-news");
-      if (!res.ok) throw new Error(res.statusText);
-
-      const headlines = await res.json();
-      console.log("Received headlines:", headlines);
-
-      if (!Array.isArray(headlines) || headlines.length === 0) {
-        container.innerHTML = "<div class='snippet'>No local news available.</div>";
-        return;
-      }
-
-      container.innerHTML = `
-        <h2>Local News</h2>
-        <ul style="line-height:1.6;">
-          ${headlines.map(h => `
-            <li>
-              <a href="${h.url}" target="_blank">${h.title}</a><br>
-              <span class="snippet">${h.snippet}</span>
-            </li>
-          `).join("")}
-        </ul>
-      `;
-    } catch (err) {
-      console.error("Local news fetch failed:", err);
-      container.innerHTML = "<div class='snippet'>Local news is currently unavailable.</div>";
-    }
-  }
-
-  loadLocalNews();
-});
-</script>
-
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
