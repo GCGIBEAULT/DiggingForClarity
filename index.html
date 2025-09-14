@@ -1342,14 +1342,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (fallbackMessage) {
       container.innerHTML = `<div class='snippet' style='font-style:italic;color:#555;'>${fallbackMessage}</div>`;
     }
-    const ul = document.createElement("ul");
-    ul.style.lineHeight = "1.6";
-    headlines.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      ul.appendChild(li);
-    });
-    container.appendChild(ul);
+   const ul = document.createElement("ul");
+ul.style.lineHeight = "1.6";
+
+headlines.forEach(item => {
+  const li = document.createElement("li");
+  li.innerHTML = `<a href="${item.url}" target="_blank">${item.title}</a><br><span class="snippet">${item.snippet}</span>`;
+  ul.appendChild(li);
+});
+
+container.appendChild(ul);
+
   }
 
   async function loadLocalNews() {
@@ -1592,6 +1595,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
