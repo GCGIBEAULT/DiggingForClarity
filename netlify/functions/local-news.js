@@ -24,9 +24,10 @@ async function fetchCopilot(location, zip, lat, lon) {
       body: JSON.stringify({ city: location, zip, lat, lon })
     });
     const result = await response.json();
-   return Array.isArray(result.snippets)
+  return Array.isArray(result.snippets)
   ? result.snippets.filter(s => s.title).slice(0, 7)
   : [];
+
 
       ? result.snippets.filter(s => s.title && s.url)
       : [];
