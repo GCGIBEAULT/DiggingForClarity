@@ -1548,9 +1548,46 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('local-news');
+
+  async function loadLocalNews() {
+    try {
+      const resp = await fetch('/.netlify/functions/local-news');
+      const snippets = await resp.json();
+
+      // build an <ul> of headlines + raw snippet field
+      container.innerHTML = `
+        <h2>Local News <button id="refreshLocalNews">🔄 Refresh</button></h2>
+        <ul style="line-height:1.6;">
+          ${snippets.map(item => `
+            <li>
+              <a href="${item.url}" target="_blank">${item.title}</a><br>
+              ${item.snippet}
+            </li>
+          `).join('')}
+        </ul>
+      `;
+    } catch (err) {
+      container.innerHTML = `
+        <h2>Local News <button id="refreshLocalNews">🔄 Refresh</button></h2>
+        <p>Local news is currently unavailable.</p>
+      `;
+    }
+
+    // re-attach refresh button
+    const btn = document.getElementById('refreshLocalNews');
+    if (btn) btn.addEventListener('click', loadLocalNews);
+  }
+
+  loadLocalNews();
+});
+</script>
 
 </body>
 </html>
+
 
 
 
