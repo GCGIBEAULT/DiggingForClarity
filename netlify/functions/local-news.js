@@ -99,6 +99,33 @@ exports.handler = async function(event) {
   }
 };
 
+    if (!latitude || !longitude) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "Missing lat/lon" })
+      };
+    }
+
+    const closestZip = findClosestZip(parseFloat(latitude), parseFloat(longitude), zipMap);
+    const cleanHeadlines = await getHeadlines(closestZip, latitude, longitude, zipMap);
+
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(cleanHeadlines)
+    };
+  } catch (err) {
+    console.error("Function error:", err.message);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Failed to load headlines" })
+    };
+  }
+};
+
 
     const closestZip = findClosestZip(parseFloat(latitude), parseFloat(longitude), zipMap);
     const city = zipMap[closestZip]?.city || "default";
