@@ -1464,9 +1464,48 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+<script>
+  async function loadLocalNews() {
+    const newsList = document.getElementById("news-list");
+    const errorDiv = document.getElementById("news-error");
+    if (newsList) newsList.innerHTML = "";
+    if (errorDiv) errorDiv.textContent = "";
+
+    try {
+      const pos = await new Promise((resolve, reject) =>
+        navigator.geolocation.getCurrentPosition(resolve, reject)
+      );
+      const { latitude: lat, longitude: lon } = pos.coords;
+
+      const res = await fetch("/.netlify/functions/local-news", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ lat, lon })
+      });
+
+      const { snippets } = await res.json();
+      if (!snippets || snippets.length === 0) {
+        if (errorDiv) errorDiv.textContent = "No local news found.";
+        return;
+      }
+
+      snippets.forEach(s => {
+        const li = document.createElement("li");
+        li.textContent = s.title;
+        newsList?.appendChild(li);
+      });
+    } catch (err) {
+      if (errorDiv) errorDiv.textContent = "Failed to load local news.";
+      console.error("Error loading news:", err);
+    }
+  }
+
+  window.addEventListener("load", loadLocalNews);
+</script>
 
 </body>
 </html>
+
 
 
 
