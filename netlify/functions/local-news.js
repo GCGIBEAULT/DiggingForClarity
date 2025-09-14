@@ -55,30 +55,21 @@ exports.handler = async function (event) {
     let latitude = parseFloat(lat);
     let longitude = parseFloat(lon);
 
- const zipCode = "94103"; // San Francisco
-
-console.log("ZIP code selected:", zipCode); // ✅ Log ZIP
-
-const headlines = await getHeadlines(zipCode, latitude, longitude, zipMap);
-console.log("Headlines returned:", headlines); // ✅ Log headlines
- 
-
-    console.log("ZIP code selected:", zipCode); // ✅ Log ZIP
+    const zipCode = "94103"; // San Francisco
+    console.log("ZIP code selected:", zipCode);
 
     const headlines = await getHeadlines(zipCode, latitude, longitude, zipMap);
-    console.log("Headlines returned:", headlines); // ✅ Log headlines
+    console.log("Headlines returned:", headlines);
 
     return {
       statusCode: 200,
       body: JSON.stringify(headlines)
     };
   } catch (err) {
-    console.error("Handler error:", err.message); // ✅ Log error
+    console.error("Handler error:", err.message);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "Internal server error" })
     };
   }
 };
-
-
