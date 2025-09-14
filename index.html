@@ -1324,42 +1324,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("refreshLocalNews")
     .addEventListener("click", () => {
-      const container = document.getElementById("local-news");
-      container.innerHTML = "Locating and loading news…";
-      loadLocalNews();
-    });
-</script>
 
-<!-- 3) Auto-load on page load -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Kick off initial load
-    loadLocalNews();
-
-    // Also wire up the button again (in case DOMContentLoaded
-    // fires before your inline wiring script runs)
-    const btn = document.getElementById("refreshLocalNews");
-    if (btn) btn.addEventListener("click", loadLocalNews);
-  });
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("local-news");
-  const refreshBtn = document.getElementById("refreshLocalNews");
-
-  async function loadLocalNews() {
-    container.innerHTML = "<div class='snippet'>Locating and loading news…</div>";
-
-    let coords = { latitude: 39.7392, longitude: -104.9903 };
-    if (navigator.geolocation) {
-      try {
-        coords = await new Promise(res =>
-          navigator.geolocation.getCurrentPosition(
-            pos => res(pos.coords),
-            () => res(coords),
-            { timeout: 10000 }
-          )
         );
       } catch (e) {
         console.error("Geolocation failed:", e);
@@ -1599,6 +1564,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
