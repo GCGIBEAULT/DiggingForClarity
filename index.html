@@ -1549,44 +1549,52 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('local-news');
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("local-news");
 
   async function loadLocalNews() {
-    try {
-      const resp = await fetch('/.netlify/functions/local-news');
-      const snippets = await resp.json();
+    // show a loading notice
+    container.innerHTML = "<div class='snippet'>Loading local news…</div>";
 
-      // build an <ul> of headlines + raw snippet field
+    try {
+      const res = await fetch("/.netlify/functions/local-news");
+      const snippets = await res.json();
+
+      // render headlines + raw snippet field
       container.innerHTML = `
-        <h2>Local News <button id="refreshLocalNews">🔄 Refresh</button></h2>
+        <h2>
+          Local News
+          <button id="refreshLocalNews">🔄 Refresh Local News</button>
+        </h2>
         <ul style="line-height:1.6;">
           ${snippets.map(item => `
             <li>
               <a href="${item.url}" target="_blank">${item.title}</a><br>
-              ${item.snippet}
+              <span class="snippet">// ${item.snippet}</span>
             </li>
-          `).join('')}
+          `).join("")}
         </ul>
       `;
     } catch (err) {
       container.innerHTML = `
-        <h2>Local News <button id="refreshLocalNews">🔄 Refresh</button></h2>
+        <h2>Local News</h2>
         <p>Local news is currently unavailable.</p>
       `;
     }
 
-    // re-attach refresh button
-    const btn = document.getElementById('refreshLocalNews');
-    if (btn) btn.addEventListener('click', loadLocalNews);
+    // re-attach the Refresh button
+    document.getElementById("refreshLocalNews")
+            .addEventListener("click", loadLocalNews);
   }
 
   loadLocalNews();
 });
 </script>
 
+
 </body>
 </html>
+
 
 
 
