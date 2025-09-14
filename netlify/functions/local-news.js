@@ -80,6 +80,12 @@ exports.handler = async function(event) {
 
     const closestZip = findClosestZip(parseFloat(latitude), parseFloat(longitude), zipMap);
     const cleanHeadlines = await getHeadlines(closestZip, latitude, longitude, zipMap);
+    // ② CURATE each item to always include a `snippet` property
+    const curated = rawSnippets.map(({ title, url, summary, description, text }) => ({
+      title,
+      url,
+      snippet: summary || description || text || ""
+    }));
 
     return {
       statusCode: 200,
