@@ -1548,19 +1548,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+<!-- Paste this just before your closing </body> tag, replacing any existing Local News script -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("local-news");
 
   async function loadLocalNews() {
-    // show a loading notice
-    container.innerHTML = "<div class='snippet'>Loading local news…</div>";
-
     try {
       const res = await fetch("/.netlify/functions/local-news");
       const snippets = await res.json();
 
-      // render headlines + raw snippet field
       container.innerHTML = `
         <h2>
           Local News
@@ -1582,9 +1579,9 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }
 
-    // re-attach the Refresh button
-    document.getElementById("refreshLocalNews")
-            .addEventListener("click", loadLocalNews);
+    document
+      .getElementById("refreshLocalNews")
+      .addEventListener("click", loadLocalNews);
   }
 
   loadLocalNews();
@@ -1594,6 +1591,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
