@@ -1162,7 +1162,8 @@ right h
 
     headlines.forEach(item => {
       const li = document.createElement("li");
-      li.innerHTML = `<strong>${item.title}</strong><br><span class="snippet">${item.snippet}</span>`;
+     li.innerHTML = `<strong>${item.title}</strong><br>${item.summary || item.description || "No summary available."}`;
+
       ul.appendChild(li);
     });
 
@@ -1538,6 +1539,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
