@@ -1283,7 +1283,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <!-- 1) renderHeadlines + loadLocalNews (uses POST) -->
 <script>
-  function renderHeadlines(headlines, fallbackMessage = "") {
+  
   
 
  try {
@@ -1349,17 +1349,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function loadLocalNews() {
     container.innerHTML = "<div class='snippet'>Locating and loading news…</div>";
 
-    let coords = { latitude: 39.7392, longitude: -104.9903 };
-    if (navigator.geolocation) {
-      try {
-        coords = await new Promise(res =>
-          navigator.geolocation.getCurrentPosition(
-            pos => res(pos.coords),
-            () => res(coords),
-            { timeout: 10000 }
-          )
-        );
-      } catch (e) {
+        } catch (e) {
         console.error("Geolocation failed:", e);
       }
     }
@@ -1538,6 +1528,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
