@@ -1032,146 +1032,15 @@ right h
 
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
- 
-  // Auto-load on page load
-  loadLocalNews();
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("local-news");
-  const refreshBtn = document.getElementById("refreshLocalNews");
 
-  async function loadLocalNews() {
-    container.innerHTML = "<div class='snippet'>Locating and loading news…</div>";
-
-        } catch (e) {
-        console.error("Geolocation failed:", e);
-      }
-    }
-
-    console.log("Fetching local news for", coords.latitude, coords.longitude);
-
-    try {
-     const url = `https://copilot-curate.netlify.app/.netlify/functions/local-news?lat=${coords.latitude}&lon=${coords.longitude}`;
-
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(res.statusText);
-
-      const headlines = await res.json();
-      console.log("Received headlines:", headlines);
-
-      if (!Array.isArray(headlines) || headlines.length === 0) {
-        container.innerHTML = "<div class='snippet'>No local news available.</div>";
-        return;
-      }
-
-      container.innerHTML =
-        "<ul style='line-height:1.6;'>" +
-        headlines
-          .map(h =>
-            `<li><a href="${h.url}" target="_blank">${h.title}</a><br><span class="snippet">${h.snippet}</span></li>`
-          )
-          .join("") +
-        "</ul>";
-    } catch (err) {
-      console.error("Local news fetch failed:", err);
-      container.innerHTML =
-        "<div class='snippet'>Local news is currently unavailable.</div>";
-    }
-  }
-
-  loadLocalNews();
-
-  if (refreshBtn) {
-    refreshBtn.addEventListener("click", loadLocalNews);
-  }
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("local-news");
-
-  async function loadLocalNews() {
-    container.innerHTML = "<div class='snippet'>Loading local news…</div>";
-
-    try {
-      const res = await fetch("/.netlify/functions/local-news");
-      if (!res.ok) throw new Error(res.statusText);
-
-      const headlines = await res.json();
-      console.log("Received headlines:", headlines);
-
-      if (!Array.isArray(headlines) || headlines.length === 0) {
-        container.innerHTML = "<div class='snippet'>No local news available.</div>";
-        return;
-      }
-
-      container.innerHTML = `
-        <h2>Local News</h2>
-        <ul style="line-height:1.6;">
-          ${headlines.map(h => `
-            <li>
-              <a href="${h.url}" target="_blank">${h.title}</a><br>
-              <span class="snippet">${h.snippet || "No summary available."}</span>
-            </li>
-          `).join("")}
-        </ul>
-      `;
-    } catch (err) {
-      console.error("Local news fetch failed:", err);
-      container.innerHTML = "<div class='snippet'>Local news is currently unavailable.</div>";
-    }
-  }
-
-  loadLocalNews();
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("local-news");
-
-  async function loadLocalNews() {
-    container.innerHTML = "<div class='snippet'>Loading local news…</div>";
-
-    try {
-      const res = await fetch("/.netlify/functions/local-news");
-      if (!res.ok) throw new Error(res.statusText);
-
-      const headlines = await res.json();
-
-      if (!Array.isArray(headlines) || headlines.length === 0) {
-        container.innerHTML = "<div class='snippet'>No local news available.</div>";
-        return;
-      }
-
-      container.innerHTML = `
-        <h2>Local News</h2>
-        <ul style="line-height:1.6;">
-          ${headlines.map(h => `
-            <li>
-              <a href="${h.url}" target="_blank">${h.title}</a><br>
-              <span class="snippet">${h.snippet || "No summary available."}</span>
-            </li>
-          `).join("")}
-        </ul>
-      `;
-    } catch (err) {
-      container.innerHTML = "<div class='snippet'>Local news is currently unavailable.</div>";
-    }
-  }
-
-  loadLocalNews();
-});
-</script>
 
 
 
 </body>
 </html>
+
 
 
 
