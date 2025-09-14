@@ -18,15 +18,24 @@ function findClosestZip(lat, lon, zipMap) {
 // Helper: Call Copilot curation endpoint
 async function fetchCopilot(location, zip, lat, lon) {
   try {
-    const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ city: location, zip, lat, lon })
-    });
+    const response = await fetch(
+      "https://copilot-curate.netlify.app/.netlify/functions/editor",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ city: location, zip, lat, lon })
+      }
+    );
     const result = await response.json();
-return Array.isArray(result.snippets)
-  ? result.snippets.filter(s => s.title).slice(0, 7)
-  : [];
+    return Array.isArray(result.snippets)
+      ? result.snippets.filter(s => s.title).slice(0, 7)
+      : [];
+  } catch (err) {
+    console.error("Copilot fetch failed:", err.message);
+    return [];
+  }
+}
+
 
 
 
