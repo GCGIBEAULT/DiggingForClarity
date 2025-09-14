@@ -1,7 +1,7 @@
 const Parser = require("rss-parser");
 const zipMap = require("./cityziplatlong.json");
-const feedMap = require("./newsFeeds.json");
 
+// Helper: Find closest ZIP based on lat/lon
 function findClosestZip(lat, lon, zipMap) {
   let closestZip = null;
   let minDistance = Infinity;
@@ -15,6 +15,8 @@ function findClosestZip(lat, lon, zipMap) {
   }
   return closestZip;
 }
+
+// Helper: Call Copilot curation endpoint
 async function fetchCopilot(location, zip, lat, lon) {
   try {
     const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
@@ -29,42 +31,7 @@ async function fetchCopilot(location, zip, lat, lon) {
   }
 }
 
-async function getHeadlinesFromFeed(city, feedMap) {
-  console.log("Calling fallback feed logic for city:", city);
-  const parser = new Parser();
-  const feeds = feedMap[city]?.feeds || [];
-  console.log("Feeds found for city:", feeds);
-
-  let allItems = [];
-  for (const url of feeds) {
-    try {
-      const feed = await parser.parseURL(url);
-      allItems.push(...(feed.items || []));
-    } catch (err) {
-      console.error(`Failed to fetch ${url}:`, err.message);
-    }
-  }
-
-  console.log("Total items fetched:", allItems.length);
-
-  const baitWords = ["shocking", "devastating", "furious", "heartbreaking", "explosive", "slams", "rips", "chaos", "meltdown"];
-  return allItems
-    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
-    .slice(0, 10)
-    .map(item => ({
-      title: item.title,
-      url: item.link,
-      snippet: item.contentSnippet || ""
-    }))
-    .filter(item => {
-      const txt = ` ${item.title} ${item.snippet} `.toLowerCase();
-      const isBait = baitWords.some(w => txt.includes(w));
-      const isAllCaps = item.title === item.title.toUpperCase();
-      const hasExcl = item.title.includes("!");
-      return !isBait && !isAllCaps && !hasExcl;
-    });
-}
-
+// Main logic: Get headlines from Copilot, fallback to county if needed
 async function getHeadlines(zip, lat, lon, zipMap) {
   const city = zipMap[zip]?.city || "default";
   const county = zipMap[zip]?.county || "default";
@@ -84,6 +51,7 @@ async function getHeadlines(zip, lat, lon, zipMap) {
   return combined;
 }
 
+// Netlify handler
 exports.handler = async function(event) {
   try {
     const { lat, lon, zip } = event.queryStringParameters || {};
@@ -110,6 +78,27 @@ exports.handler = async function(event) {
         body: JSON.stringify({ error: "Missing lat/lon" })
       };
     }
+
+    const closestZip = findClosestZip(parseFloat(latitude), parseFloat(longitude), zipMap);
+    const cleanHeadlines = await getHeadlines(closestZip, latitude, longitude, zipMap);
+
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(cleanHeadlines)
+    };
+  } catch (err) {
+    console.error("Function error:", err.message);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Failed to load headlines" })
+    };
+  }
+};
+
 
     const closestZip = findClosestZip(parseFloat(latitude), parseFloat(longitude), zipMap);
     const city = zipMap[closestZip]?.city || "default";
