@@ -55,7 +55,8 @@ exports.handler = async function (event) {
     let latitude = parseFloat(lat);
     let longitude = parseFloat(lon);
 
-    const zipCode = "94103"; // San Francisco
+    const zipCode = findClosestZip(latitude, longitude, zipMap); // ✅ Restore this
+
     console.log("ZIP code selected:", zipCode);
 
     const headlines = await getHeadlines(zipCode, latitude, longitude, zipMap);
