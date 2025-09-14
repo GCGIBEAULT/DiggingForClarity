@@ -1140,14 +1140,12 @@ right h
       )
     );
 
-   const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/local-news", {
+  const response = await fetch(
+  `https://copilot-curate.netlify.app/.netlify/functions/local-news?lat=${coords.latitude}&lon=${coords.longitude}`
+);
 
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        latitude: coords.latitude,
-        longitude: coords.longitude
-      })
+
+     
     });
 
     if (!response.ok) throw new Error(response.statusText);
@@ -1572,6 +1570,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
