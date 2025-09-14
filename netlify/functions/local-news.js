@@ -58,6 +58,10 @@ exports.handler = async function (event) {
     const zipCode = findClosestZip(latitude, longitude, zipMap);
     const headlines = await getHeadlines(zipCode, latitude, longitude, zipMap);
 
+    // 🔍 Add these logs right here
+    console.log("ZIP:", zipCode);
+    console.log("Headlines:", headlines);
+
     return {
       statusCode: 200,
       body: JSON.stringify(headlines)
