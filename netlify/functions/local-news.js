@@ -1,4 +1,3 @@
-const Parser = require("rss-parser");
 const zipMap = require("./cityziplatlong.json");
 
 // Helper: Find closest ZIP based on lat/lon
@@ -47,7 +46,7 @@ async function getHeadlines(zip, lat, lon, zipMap) {
   const countySnippets = countyResponse.snippets || [];
 
   const combined = [...localSnippets, ...countySnippets].slice(0, 7);
-  console.log(`Returning ${combined.length} snippets: ${localSnippets.length} local, ${combined.length - localSnippets.length} county`);
+  console.log(`[${new Date().toISOString()}] Returning ${combined.length} snippets: ${localSnippets.length} local, ${combined.length - localSnippets.length} county`);
   return combined;
 }
 
