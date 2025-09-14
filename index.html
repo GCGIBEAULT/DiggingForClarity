@@ -1099,75 +1099,6 @@ right h
     <p class="footer-text" style="margin:0;">© Digging For Clarity 2025. All rights reserved.</p>
     <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
   </div>
-<script>
-
-
-
-
-
- 
-
-    if (fallbackMessage) {
-      container.innerHTML += `<div class="snippet" style="font-style: italic; color: #555;">${fallbackMessage}</div>`;
-    }
-
-    const ul = document.createElement("ul");
-    ul.style.lineHeight = "1.6";
-
-    headlines.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      ul.appendChild(li);
-    });
-
-    container.appendChild(ul);
-  }
-
-
-  // 1. Fetch & render headlines
- async function loadLocalNews() {
-  const container = document.getElementById("local-news");
-  container.innerHTML = "<div class='snippet'>Locating and loading news…</div>";
-
- 
-
-const response = await fetch(
-  const response = await fetch(`https://copilot-curate.netlify.app/.netlify/functions/local-news?lat=${coords.latitude}&lon=${coords.longitude}`);
-
-
-     
-    });
-
-    if (!response.ok) throw new Error(response.statusText);
-
-    const headlines = await response.json();
-
-    if (!Array.isArray(headlines) || headlines.length === 0) {
-      container.innerHTML = "<div class='snippet'>No local news available.</div>";
-      return;
-    }
-
-    const ul = document.createElement("ul");
-    ul.style.lineHeight = "1.6";
-
-    headlines.forEach(item => {
-      const li = document.createElement("li");
-     li.innerHTML = `<strong>${item.title}</strong><br><span class="snippet">${item.snippet || "No summary available."}</span>`;
-
-
-      ul.appendChild(li);
-    });
-
-    container.innerHTML = "";
-    container.appendChild(ul);
-  } catch (err) {
-    console.error("Local news fetch failed:", err);
-    container.innerHTML = "<div class='snippet'>Local news is currently unavailable.</div>";
-  }
-}
-
- 
-</script>
 
 <script>
   // 1) wire up the button
@@ -1547,6 +1478,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
