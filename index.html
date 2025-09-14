@@ -1550,47 +1550,49 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 <!-- Paste this just before your closing </body> tag, replacing any existing Local News script -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("local-news");
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("local-news");
+    const btnId = "refreshLocalNews";
 
-  async function loadLocalNews() {
-    try {
-      const res = await fetch("/.netlify/functions/local-news");
-      const snippets = await res.json();
+    async function loadLocalNews() {
+      container.innerHTML = "<p>Loading local news…</p>";
 
-      container.innerHTML = `
-        <h2>
-          Local News
-          <button id="refreshLocalNews">🔄 Refresh Local News</button>
-        </h2>
-        <ul style="line-height:1.6;">
-          ${snippets.map(item => `
-            <li>
-              <a href="${item.url}" target="_blank">${item.title}</a><br>
-              <span class="snippet">// ${item.snippet}</span>
-            </li>
-          `).join("")}
-        </ul>
-      `;
-    } catch (err) {
-      container.innerHTML = `
-        <h2>Local News</h2>
-        <p>Local news is currently unavailable.</p>
-      `;
+      try {
+        const res = await fetch("/.netlify/functions/local-news");
+        const snippets = await res.json();
+
+        container.innerHTML = `
+          <h2>
+            Local News
+            <button id="${btnId}">🔄 Refresh Local News</button>
+          </h2>
+          <ul style="line-height:1.6;">
+            ${snippets.map(item => `
+              <li>
+                <a href="${item.url}" target="_blank">${item.title}</a><br>
+                ${item.snippet}
+              </li>
+            `).join("")}
+          </ul>
+        `;
+      } catch (e) {
+        container.innerHTML = `
+          <h2>Local News</h2>
+          <p>Local news is currently unavailable.</p>
+        `;
+      }
+
+      document.getElementById(btnId).addEventListener("click", loadLocalNews);
     }
 
-    document
-      .getElementById("refreshLocalNews")
-      .addEventListener("click", loadLocalNews);
-  }
-
-  loadLocalNews();
-});
+    loadLocalNews();
+  });
 </script>
 
 
 </body>
 </html>
+
 
 
 
