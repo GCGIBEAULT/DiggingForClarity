@@ -15,6 +15,19 @@ function findClosestZip(lat, lon, zipMap) {
   }
   return closestZip;
 }
+async function fetchCopilot(location, zip, lat, lon) {
+  try {
+    const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ city: location, zip, lat, lon })
+    });
+    return await response.json();
+  } catch (err) {
+    console.error("Copilot fetch failed:", err.message);
+    return { snippets: [] };
+  }
+}
 
 async function getHeadlinesFromFeed(city, feedMap) {
   console.log("Calling fallback feed logic for city:", city);
@@ -52,29 +65,23 @@ async function getHeadlinesFromFeed(city, feedMap) {
     });
 }
 
-async function getHeadlines(city, zip, lat, lon, feedMap) {
-  try {
-    console.log("Calling Copilot with:", { city, zip, lat, lon });
-    const response = await fetch('https://copilot-curate.netlify.app/.netlify/functions/editor', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ city, zip, lat, lon })
-    });
+async function getHeadlines(zip, lat, lon, zipMap) {
+  const city = zipMap[zip]?.city || "default";
+  const county = zipMap[zip]?.county || "default";
 
-    const curated = await response.json();
-    console.log("Copilot response:", curated);
+  const local = await fetchCopilot(city, zip, lat, lon);
+  const localSnippets = local.snippets || [];
 
-    if (curated?.snippets?.length) {
-      console.log("Copilot returned curated snippets.");
-      return curated.snippets;
-    } else {
-      console.warn("Copilot returned no snippets. Falling back to feed.");
-      return await getHeadlinesFromFeed(city, feedMap);
-    }
-  } catch (err) {
-    console.error("Copilot curation failed:", err.message);
-    return await getHeadlinesFromFeed(city, feedMap);
+  if (localSnippets.length === 7) {
+    return localSnippets;
   }
+
+  const countyResponse = await fetchCopilot(county, zip, lat, lon);
+  const countySnippets = countyResponse.snippets || [];
+
+  const combined = [...localSnippets, ...countySnippets].slice(0, 7);
+  console.log(`Returning ${combined.length} snippets: ${localSnippets.length} local, ${combined.length - localSnippets.length} county`);
+  return combined;
 }
 
 exports.handler = async function(event) {
