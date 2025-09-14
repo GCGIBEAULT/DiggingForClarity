@@ -1293,61 +1293,36 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderHeadlines(headlines, fallbackMessage = "") {
   
 
-  try {
+ try {
   const res = await fetch(
-    "https://copilot-curate.netlify.app/.netlify/functions/local-news",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        latitude: coords.latitude,
-        longitude: coords.longitude
-      })
-    }
+    `https://copilot-curate.netlify.app/.netlify/functions/local-news?lat=${coords.latitude}&lon=${coords.longitude}`
   );
 
-      if (!res.ok) throw new Error(res.statusText);
+  if (!res.ok) throw new Error(res.statusText);
 
-      const headlines = await res.json();
-      if (!Array.isArray(headlines) || headlines.length === 0) {
-        renderHeadlines([], "No local news available.");
-      } else {
-        renderHeadlines(headlines);
-      }
-    } catch (err) {
-      console.error("Local news fetch failed:", err);
-      renderHeadlines([], "Local news is currently unavailable.");
-    }
+  const headlines = await res.json();
+
+  if (!Array.isArray(headlines) || headlines.length === 0) {
+    container.innerHTML = "<div class='snippet'>No local news available.</div>";
+    return;
   }
-</script>
 
-<!-- 2) Wire up the “Refresh Local News” button -->
-<script>
-  document
-    .getElementById("refreshLocalNews")
-    .addEventListener("click", () => {
+  const ul = document.createElement("ul");
+  ul.style.lineHeight = "1.6";
 
-        );
-      } catch (e) {
-        console.error("Geolocation failed:", e);
-      }
-    }
+  headlines.forEach(item => {
+    const li = document.createElement("li");
+    li.innerHTML = `<strong>${item.title}</strong><br><span class="snippet">${item.snippet || "No summary available."}</span>`;
+    ul.appendChild(li);
+  });
 
-    console.log("Fetching local news for", coords.latitude, coords.longitude);
+  container.innerHTML = "";
+  container.appendChild(ul);
+} catch (err) {
+  console.error("Local news fetch failed:", err);
+  container.innerHTML = "<div class='snippet'>Local news is currently unavailable.</div>";
+}
 
-    try {
-      const url = `https://copilot-curate.netlify.app/.netlify/functions/local-news?lat=${coords.latitude}&lon=${coords.longitude}`;
-
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(res.statusText);
-
-      const headlines = await res.json();
-      console.log("Received headlines:", headlines);
-
-      if (!Array.isArray(headlines) || headlines.length === 0) {
-        container.innerHTML = "<div class='snippet'>No local news available.</div>";
         return;
       }
 
@@ -1570,6 +1545,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
