@@ -1112,17 +1112,18 @@ right h
       container.innerHTML += `<div class="snippet" style="font-style: italic; color: #555;">${fallbackMessage}</div>`;
     }
 
-    const ul = document.createElement("ul");
-    ul.style.lineHeight = "1.6";
+ const ul = document.createElement("ul");
+ul.style.lineHeight = "1.6";
 
-    headlines.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      ul.appendChild(li);
-    });
+headlines.forEach(item => {
+  console.log("Snippet object:", item); // 🔍 Inspect actual fields
+  const li = document.createElement("li");
+  li.innerHTML = `<a href="${item.url}" target="_blank">${item.title}</a><br><span class="snippet">${item.snippet || item.text || item.body || item.summary || "No summary available."}</span>`;
+  ul.appendChild(li);
+});
 
-    container.appendChild(ul);
-  }
+container.innerHTML = "<h2>Local News <button id='refreshLocalNews'>🔄 Refresh</button></h2>";
+container.appendChild(ul);
 
 
   // 1. Fetch & render headlines
@@ -1550,6 +1551,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
