@@ -1252,7 +1252,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     navigator.geolocation.getCurrentPosition(async pos => {
       const { latitude: lat, longitude: lon } = pos.coords;
-      const API_BASE = 'https://comforting-cajeta-12cd93.netlify.app';
+      const API_BASE = 'https://copilot-curate.netlify.app';
+
 
       try {
         const res = await fetch(`${API_BASE}/.netlify/functions/local-news?lat=${lat}&lon=${lon}`);
@@ -1294,18 +1295,21 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderHeadlines(headlines, fallbackMessage = "") {
   
 
-    try {
-      const res = await fetch(
-        "https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            latitude: coords.latitude,
-            longitude: coords.longitude
-          })
-        }
-      );
+  try {
+  const res = await fetch(
+    "https://copilot-curate.netlify.app/.netlify/functions/local-news",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        latitude: coords.latitude,
+        longitude: coords.longitude
+      })
+    }
+  );
+
       if (!res.ok) throw new Error(res.statusText);
 
       const headlines = await res.json();
@@ -1336,7 +1340,8 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Fetching local news for", coords.latitude, coords.longitude);
 
     try {
-      const url = `https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news?lat=${coords.latitude}&lon=${coords.longitude}`;
+      const url = `https://copilot-curate.netlify.app/.netlify/functions/local-news?lat=${coords.latitude}&lon=${coords.longitude}`;
+
       const res = await fetch(url);
       if (!res.ok) throw new Error(res.statusText);
 
@@ -1396,7 +1401,8 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Fetching local news for", coords.latitude, coords.longitude);
 
     try {
-      const url = `https://comforting-cajeta-12cd93.netlify.app/.netlify/functions/local-news?lat=${coords.latitude}&lon=${coords.longitude}`;
+     const url = `https://copilot-curate.netlify.app/.netlify/functions/local-news?lat=${coords.latitude}&lon=${coords.longitude}`;
+
       const res = await fetch(url);
       if (!res.ok) throw new Error(res.statusText);
 
@@ -1536,7 +1542,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     navigator.geolocation.getCurrentPosition(async pos => {
       const { latitude: lat, longitude: lon } = pos.coords;
-      const API_BASE = 'https://noiselessnews.netlify.app';
+     const API_BASE = 'https://copilot-curate.netlify.app';
 
       try {
         const res = await fetch(`${API_BASE}/.netlify/functions/local-news?lat=${lat}&lon=${lon}`);
@@ -1566,6 +1572,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
