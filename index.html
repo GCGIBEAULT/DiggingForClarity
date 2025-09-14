@@ -559,22 +559,6 @@ right h
 
 
 
-<script>
-  function saveWeatherURL() {
-    const url = document.getElementById("weatherURL").value;
-    if (url) {
-      localStorage.setItem("userWeatherURL", url);
-      document.getElementById("twc-link").href = url;
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const savedURL = localStorage.getItem("userWeatherURL");
-    if (savedURL) {
-      document.getElementById("twc-link").href = savedURL;
-    }
-  });
-</script>
 
 
 
@@ -1311,6 +1295,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
