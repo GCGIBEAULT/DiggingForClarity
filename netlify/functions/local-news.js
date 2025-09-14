@@ -49,9 +49,26 @@ async function getHeadlines(zip, lat, lon, zipMap) {
 }
 
 // Netlify handler
-exports.handler = async function(event) {
+exports.handler = async function (event) {
   try {
     const { lat, lon, zip } = event.queryStringParameters || {};
-   let latitude = parseFloat(lat);
-let longitude = parseFloat(lon);
+    let latitude = parseFloat(lat);
+    let longitude = parseFloat(lon);
+
+    const zipCode = findClosestZip(latitude, longitude, zipMap);
+    const headlines = await getHeadlines(zipCode, latitude, longitude, zipMap);
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(headlines)
+    };
+  } catch (err) {
+    console.error("Handler error:", err.message);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Internal server error" })
+    };
+  }
+};
+
 
