@@ -1591,10 +1591,50 @@ document.addEventListener("DOMContentLoaded", () => {
     loadLocalNews();
   });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("local-news");
+
+  async function loadLocalNews() {
+    container.innerHTML = "<div class='snippet'>Loading local news…</div>";
+
+    try {
+      const res = await fetch("/.netlify/functions/local-news");
+      if (!res.ok) throw new Error(res.statusText);
+
+      const headlines = await res.json();
+      console.log("Received headlines:", headlines);
+
+      if (!Array.isArray(headlines) || headlines.length === 0) {
+        container.innerHTML = "<div class='snippet'>No local news available.</div>";
+        return;
+      }
+
+      container.innerHTML = `
+        <h2>Local News</h2>
+        <ul style="line-height:1.6;">
+          ${headlines.map(h => `
+            <li>
+              <a href="${h.url}" target="_blank">${h.title}</a><br>
+              <span class="snippet">${h.snippet}</span>
+            </li>
+          `).join("")}
+        </ul>
+      `;
+    } catch (err) {
+      console.error("Local news fetch failed:", err);
+      container.innerHTML = "<div class='snippet'>Local news is currently unavailable.</div>";
+    }
+  }
+
+  loadLocalNews();
+});
+</script>
 
 
 </body>
 </html>
+
 
 
 
