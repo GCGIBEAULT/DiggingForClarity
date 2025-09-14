@@ -52,5 +52,6 @@ async function getHeadlines(zip, lat, lon, zipMap) {
 exports.handler = async function(event) {
   try {
     const { lat, lon, zip } = event.queryStringParameters || {};
-    let latitude = parseFloat(lat);
-    let longitude
+   let latitude = parseFloat(lat);
+let longitude = parseFloat(lon);
+
