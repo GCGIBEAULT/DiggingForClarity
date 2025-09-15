@@ -673,6 +673,7 @@ right h
 
 <section class="grid">
 
+<!-- ======== Local News Section ======== -->
 <section id="local-news-section" class="section">
   <h3>Local News</h3>
   <button id="refreshLocalNews" style="cursor: pointer;">🔄 Refresh Local News</button>
@@ -681,10 +682,51 @@ right h
   </div>
 </section>
 
-<script src="local-news.js" defer></script>
+<!-- ======== Inline Local-News Script ======== -->
+<script>
+  document.getElementById("refreshLocalNews").addEventListener("click", () => {
+    const container = document.getElementById("local-news");
+    container.innerHTML = "<em>Loading local news…</em>";
+
+    if (!navigator.geolocation) {
+      return container.innerHTML = "<em>Geolocation unsupported.</em>";
+    }
+
+    navigator.geolocation.getCurrentPosition(async ({ coords }) => {
+      try {
+        const resp = await fetch("/.netlify/functions/local-news", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            lat: coords.latitude,
+            lon: coords.longitude
+          })
+        });
+        const snippets = await resp.json();
+
+        if (Array.isArray(snippets) && snippets.length) {
+          container.innerHTML =
+            "<ul>" +
+            snippets
+              .map(
+                s => `<li><a href="${s.url}" target="_blank" rel="noopener">${s.title}</a></li>`
+              )
+              .join("") +
+            "</ul>";
+        } else {
+          container.innerHTML = "<em>Local news is currently unavailable.</em>";
+        }
+      } catch (e) {
+        console.error(e);
+        container.innerHTML = "<em>Error loading local news.</em>";
+      }
+    }, () => {
+      container.innerHTML = "<em>Unable to retrieve location.</em>";
+    });
+  });
+</script>
 
 
-<script src="local-news.js" defer></script>
 
 
 
@@ -1042,6 +1084,7 @@ right h
 
 </body>
 </html>
+
 
 
 
