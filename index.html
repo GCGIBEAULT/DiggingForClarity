@@ -929,38 +929,42 @@ right h
   <!-- NFL Standings -->
 <div class="section">
   <h3 style="color:#003366;">NFL Standings</h3>
-  <div class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2em; font-family: monospace;">
-    <!-- Row 1: AFC East + NFC East -->
+  <div class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2em;">
+    
+    <!-- AFC East + NFC East -->
     <div>
-      <strong>AFC East</strong><br>
-      Bills       1–1<br>
-      Dolphins    1–1<br>
-      Jets        0–2<br>
-      Patriots    0–2
-    </div>
-    <div>
-      <strong>NFC East</strong><br>
-      Eagles      2–0<br>
-      Cowboys     1–1<br>
-      Commanders  1–1<br>
-      Giants      0–2
+      <strong>AFC East</strong>
+      <div style="display: flex; justify-content: space-between;"><span>Bills</span><span>1–1</span></div>
+      <div style="display: flex; justify-content: space-between;"><span>Dolphins</span><span>1–1</span></div>
+      <div style="display: flex; justify-content: space-between;"><span>Jets</span><span>0–2</span></div>
+      <div style="display: flex; justify-content: space-between;"><span>Patriots</span><span>0–2</span></div>
     </div>
 
-    <!-- Row 2: AFC West + NFC West -->
     <div>
-      <strong>AFC West</strong><br>
-      Chargers    1–0<br>
-      Broncos     1–1<br>
-      Raiders     1–0<br>
-      Chiefs      0–2
+      <strong>NFC East</strong>
+      <div style="display: flex; justify-content: space-between;"><span>Eagles</span><span>2–0</span></div>
+      <div style="display: flex; justify-content: space-between;"><span>Cowboys</span><span>1–1</span></div>
+      <div style="display: flex; justify-content: space-between;"><span>Commanders</span><span>1–1</span></div>
+      <div style="display: flex; justify-content: space-between;"><span>Giants</span><span>0–2</span></div>
     </div>
+
+    <!-- AFC West + NFC West -->
     <div>
-      <strong>NFC West</strong><br>
-      49ers       2–0<br>
-      Rams        2–0<br>
-      Cardinals   2–0<br>
-      Seahawks    1–1
+      <strong>AFC West</strong>
+      <div style="display: flex; justify-content: space-between;"><span>Chargers</span><span>1–0</span></div>
+      <div style="display: flex; justify-content: space-between;"><span>Broncos</span><span>1–1</span></div>
+      <div style="display: flex; justify-content: space-between;"><span>Raiders</span><span>1–0</span></div>
+      <div style="display: flex; justify-content: space-between;"><span>Chiefs</span><span>0–2</span></div>
     </div>
+
+    <div>
+      <strong>NFC West</strong>
+      <div style="display: flex; justify-content: space-between;"><span>49ers</span><span>2–0</span></div>
+      <div style="display: flex; justify-content: space-between;"><span>Rams</span><span>2–0</span></div>
+      <div style="display: flex; justify-content: space-between;"><span>Cardinals</span><span>2–0</span></div>
+      <div style="display: flex; justify-content: space-between;"><span>Seahawks</span><span>1–1</span></div>
+    </div>
+
   </div>
 </div>
 
@@ -1428,6 +1432,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
