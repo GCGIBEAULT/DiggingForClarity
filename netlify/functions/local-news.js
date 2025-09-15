@@ -44,7 +44,6 @@ exports.handler = async function (event) {
       };
     }
 
-    // Force static news for now to guarantee display
     const snippets = [
       {
         title: "Mayor Daniel Lurie’s Downtown Initiative",
@@ -87,4 +86,6 @@ exports.handler = async function (event) {
       body: JSON.stringify({ error: "Internal server error" })
     };
   }
+};
+
 };
