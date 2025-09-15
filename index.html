@@ -1180,11 +1180,12 @@ right h
     }
   }
 
-  // Load saved location on page load
+  // Load saved location and auto-refresh State News
   document.addEventListener("DOMContentLoaded", () => {
     const savedLocation = localStorage.getItem("userLocation");
     if (savedLocation) {
       document.getElementById("location").value = savedLocation;
+      document.getElementById("refreshStateNews").click();
     }
   });
 
@@ -1240,19 +1241,13 @@ right h
     });
   });
 </script>
-document.addEventListener("DOMContentLoaded", () => {
-  const savedLocation = localStorage.getItem("userLocation");
-  if (savedLocation) {
-    document.getElementById("location").value = savedLocation;
-    document.getElementById("refreshStateNews").click();
-  }
-});
-
 
 <script src="local-news.js" defer></script>
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
+
 
 
 
