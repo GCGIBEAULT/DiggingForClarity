@@ -673,12 +673,11 @@ right h
 
 <section class="grid">
 
-<section id="local-news-section" class="section">
-  <h3>Local News</h3>
-  <button id="refreshLocalNews" style="cursor:pointer">🔄 Refresh Local News</button>
-  <div id="local-news" style="margin-top:1em">
-    <em>Local news is currently unavailable.</em>
-  </div>
+<div id="local-news">
+  <h2>Local News</h2>
+  <!-- News will be injected here -->
+</div>
+
 </section>
 
 
@@ -1036,6 +1035,56 @@ right h
 
 
 
+<script>
+  navigator.geolocation.getCurrentPosition(
+    async position => {
+      const { latitude, longitude } = position.coords;
+
+      try {
+        const response = await fetch("/.netlify/functions/local-news", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ lat: latitude, lon: longitude })
+        });
+
+        const news = await response.json();
+        const container = document.getElementById("local-news");
+        container.innerHTML = "<h2>Local News</h2>";
+
+        if (!news.length) {
+          container.innerHTML += "<p>No local news available.</p>";
+          return;
+        }
+
+        const ul = document.createElement("ul");
+        news.forEach(item => {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = item.url;
+          a.textContent = item.title;
+          a.target = "_blank";
+          li.appendChild(a);
+          ul.appendChild(li);
+        });
+
+        container.appendChild(ul);
+      } catch (err) {
+        console.error("Fetch error:", err);
+        document.getElementById("local-news").innerHTML = `
+          <h2>Local News</h2>
+          <p>Error loading news.</p>
+        `;
+      }
+    },
+    error => {
+      console.error("Geolocation error:", error);
+      document.getElementById("local-news").innerHTML = `
+        <h2>Local News</h2>
+        <p>Unable to get your location.</p>
+      `;
+    }
+  );
+</script>
 
 
 
@@ -1043,6 +1092,7 @@ right h
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
