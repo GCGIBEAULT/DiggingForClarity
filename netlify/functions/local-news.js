@@ -23,8 +23,6 @@ async function fetchCopilot(location, zip, lat, lon) {
     });
 
     const result = await response.json();
-
-    // No filters, just return the first 7 valid titles
     return Array.isArray(result.snippets)
       ? result.snippets.filter(s => s.title).slice(0, 7)
       : [];
@@ -44,36 +42,10 @@ exports.handler = async function (event) {
       };
     }
 
-    const snippets = [
-      {
-        title: "Mayor Daniel Lurie’s Downtown Initiative",
-        url: "https://abc7news.com/san-francisco/"
-      },
-      {
-        title: "Gang and Drug Arrests in Lake Tahoe Region",
-        url: "https://www.cbsnews.com/sanfrancisco/local-news/"
-      },
-      {
-        title: "Shooting Investigation Linked to Charlie Kirk",
-        url: "https://www.nbcbayarea.com/news/local/"
-      },
-      {
-        title: "Operation Cleanup Columbus in San Jose",
-        url: "https://abc7news.com/san-jose/"
-      },
-      {
-        title: "Empire Music Label’s Free Civic Center Concert",
-        url: "https://abc7news.com/empire-concert/"
-      },
-      {
-        title: "Deadly Stabbing on Junipero Serra Blvd",
-        url: "https://www.nbcbayarea.com/news/local/san-francisco-deadly-stabbing/"
-      },
-      {
-        title: "Valkyries Playoff Game Relocated",
-        url: "https://www.cbsnews.com/sanfrancisco/sports/"
-      }
-    ];
+    const zip = findClosestZip(lat, lon, zipMap);
+    const location = zipMap[zip]?.city || "Unknown";
+
+    const snippets = await fetchCopilot(location, zip, lat, lon);
 
     return {
       statusCode: 200,
@@ -86,6 +58,4 @@ exports.handler = async function (event) {
       body: JSON.stringify({ error: "Internal server error" })
     };
   }
-};
-
 };
