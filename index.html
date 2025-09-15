@@ -1040,8 +1040,8 @@ right h
 
 <script>
   async function fetchLocalNews(lat, lon) {
-    const zip = "99999"; // Forced test ZIP
-    const city = "Testville";
+    const zip = "80224"; // Real Denver ZIP
+    const city = "Denver";
 
     try {
       const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
@@ -1061,13 +1061,13 @@ right h
         : [];
 
       const reason = snippets.length === 0
-        ? "ZIP 99999 is not supported or has no curated news."
+        ? "No curated news returned for ZIP 80224."
         : "";
 
       renderLocalNews(snippets, reason);
     } catch (err) {
       console.error("Copilot fetch failed:", err);
-      renderLocalNews([], "Fetch failed or ZIP 99999 is invalid.");
+      renderLocalNews([], "Fetch failed or ZIP 80224 is invalid.");
     }
   }
 
@@ -1116,6 +1116,7 @@ right h
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
