@@ -674,66 +674,26 @@ right h
 <section class="grid">
 
 <!-- ======== Local News Section ======== -->
-<section id="local-news-section" class="section">
-  <h3>Local News</h3>
-  <button id="refreshLocalNews" style="cursor:pointer">🔄 Refresh Local News</button>
-  <div id="local-news" style="margin-top:1em">
-    <em>Loading local news…</em>
-  </div>
-</section>
-
-<script>
-  async function loadLocalNews() {
-    const container = document.getElementById("local-news");
-    container.innerHTML = "<em>Loading local news…</em>";
-
-    if (!navigator.geolocation) {
-      container.innerHTML = "<em>Geolocation unsupported.</em>";
-      return;
-    }
-
-    navigator.geolocation.getCurrentPosition(async ({ coords }) => {
-      try {
-        const res = await fetch("/.netlify/functions/local-news", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            lat: coords.latitude,
-            lon: coords.longitude
-          })
-        });
-        const snippets = await res.json();
-
-        if (Array.isArray(snippets) && snippets.length) {
-          container.innerHTML =
-            "<ul>" +
-            snippets
-              .map(
-                s =>
-                  `<li><a href="${s.url}" target="_blank" rel="noopener">${s.title}</a></li>`
-              )
-              .join("") +
-            "</ul>";
-        } else {
-          container.innerHTML = "<em>Local news is currently unavailable.</em>";
-        }
-      } catch (e) {
-        console.error("Local news error:", e);
-        container.innerHTML = "<em>Error loading local news.</em>";
-      }
-    }, () => {
-      container.innerHTML = "<em>Unable to retrieve location.</em>";
-    });
-  }
-
-  // auto-load on page open
-  document.addEventListener("DOMContentLoaded", loadLocalNews);
-
-  // refresh on button click
-  document
-    .getElementById("refreshLocalNews")
-    .addEventListener("click", loadLocalNews);
-</script>
+--- a/index.html
++++ b/index.html
+@@
+-  <section id = "local-news-section" class = "section">
+-  <section id = "local-news-section" class = "section">
+-  <h3> Local News </h3>
+-  <button id = "refreshLocalNews" style = " cursor : pointer ;">🔄 Refresh Local News</button> - <div id = "local-news" style = " margin-top : 1 em ;">Local news is currently unavailable.</div> + <div id = "local-news" style = " margin-top : 1 em ;">
+-    <em> Local news is currently unavailable.</em>
+-  </div>
+-  </section>
+-  <script src = "local-news.js" defer></script>
++  <section id="local-news-section" class="section">
++    <h3>Local News</h3>
++    <button id="refreshLocalNews" style="cursor:pointer">🔄 Refresh Local News</button>
++    <div id="local-news" style="margin-top:1em">
++      <em>Local news is currently unavailable.</em>
++    </div>
++  </section>
++
++  <script src="local-news.js" defer></script>
 
 
 
@@ -1094,6 +1054,7 @@ right h
 
 </body>
 </html>
+
 
 
 
