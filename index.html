@@ -1039,16 +1039,25 @@ right h
 
 
 <script>
-  async function fetchLocalNews() {
+  async function fetchLocalNewsByZip(zip) {
     try {
+      const res = await fetch("/cityziplatlong.json");
+      const zipData = await res.json();
+
+      const location = zipData[zip];
+      if (!location) {
+        console.error("ZIP not found in cityziplatlong.json");
+        renderLocalNews([], `ZIP ${zip} not found in mapping.`);
+        return;
+      }
+
+      const { city, lat, lon } = location;
+      const state = "CO"; // You can hardcode this or expand your JSON to include it
+
       const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-  city: "Denver",
-  state: "CO"
-})
-
+        body: JSON.stringify({ city, state, zip, lat, lon })
       });
 
       const result = await response.json();
@@ -1062,13 +1071,13 @@ right h
         : [];
 
       const reason = snippets.length === 0
-        ? "No curated news returned for Denver, CO."
+        ? `No curated news returned for ZIP ${zip}.`
         : "";
 
       renderLocalNews(snippets, reason);
     } catch (err) {
-      console.error("Copilot fetch failed:", err);
-      renderLocalNews([], "Fetch failed or city/state is invalid.");
+      console.error("Fetch failed:", err);
+      renderLocalNews([], "Fetch failed or ZIP is invalid.");
     }
   }
 
@@ -1098,9 +1107,10 @@ right h
     container.appendChild(ul);
   }
 
-  // Trigger fetch immediately on page load
-  fetchLocalNews();
+  // Trigger with a known ZIP
+  fetchLocalNewsByZip("80224");
 </script>
+
 
 
 
@@ -1111,6 +1121,7 @@ right h
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
