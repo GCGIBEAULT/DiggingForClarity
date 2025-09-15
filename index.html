@@ -672,6 +672,10 @@ right h
 
 
 <section class="grid">
+<div id="location-selector" style="margin: 1em 0; padding: 1em; background-color: #f9f9f9; border: 1px solid #ccc; border-radius: 6px;">
+  <label for="location" style="font-weight: bold;">Enter your city or ZIP:</label>
+  <input type="text" id="location" placeholder="e.g. Denver or 80224" style="margin-left: 0.5em; padding: 0.4em;" />
+</div>
 
 <div id="local-news">
   <h2>Local News</h2>
@@ -698,9 +702,9 @@ right h
   <div class="section">
     <h3>State News</h3>
     <!-- Refresh State News Button -->
-<button id="refreshStateNews" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh State News</button>
+<button id="refreshStateNews">🔄 Refresh State News</button>
+<ul id="state-news"></ul>
 
-    <ul id="state-news" style="line-height: 1.6;">
       <li>Colorado expands wildfire prevention funding for 2025</li>
       <li>New state education standards approved for K–12 schools</li>
       <li>Governor announces rural broadband initiative rollout</li>
@@ -1115,12 +1119,65 @@ right h
 
 
 
+<script>
+  document.getElementById("refreshStateNews").addEventListener("click", async function () {
+    const input = document.getElementById("location").value.trim().toLowerCase();
+    const res = await fetch("/cityzip.json");
+    const cityZipMap = await res.json();
+
+    let city = null;
+    let zip = null;
+
+    if (/^\d{5}$/.test(input)) {
+      zip = input;
+      city = Object.keys(cityZipMap).find(c => cityZipMap[c].includes(zip));
+    } else {
+      city = input.replace(/\s+/g, "_");
+      zip = cityZipMap[city]?.[0];
+    }
+
+    if (!city || !zip) {
+      alert("Location not found. Please enter a valid city or ZIP.");
+      return;
+    }
+
+    const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ city, state: "CO", zip })
+    });
+
+    const result = await response.json();
+    const snippets = Array.isArray(result.snippets)
+      ? result.snippets.filter(s => s.title && s.url).slice(0, 7)
+      : [];
+
+    const ul = document.getElementById("state-news");
+    ul.innerHTML = "";
+
+    if (!snippets.length) {
+      ul.innerHTML = "<li>No state news available.</li>";
+      return;
+    }
+
+    snippets.forEach(item => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = item.url;
+      a.textContent = item.title;
+      a.target = "_blank";
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+  });
+</script>
 
 
 <script src="local-news.js" defer></script>
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
