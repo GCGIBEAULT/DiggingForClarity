@@ -488,6 +488,34 @@ label[for="zip"] {
   min-height: 100px;
   padding: 10px;
 }
+.news-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.news-column {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.news-column h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.news-column ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.news-column li {
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
 
 
 
