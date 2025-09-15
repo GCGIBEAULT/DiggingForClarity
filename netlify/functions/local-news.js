@@ -14,32 +14,41 @@ function findClosestZip(lat, lon, zipMap) {
   return closestZip;
 }
 
-async function fetchCopilot(city, zip, lat, lon) {
+async function getLocalNews(lat, lon) {
   try {
-    const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
+    const response = await fetch("/.netlify/functions/local-news", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ city, zip, lat, lon })
+      body: JSON.stringify({ lat, lon })
     });
 
-    const result = await response.json();
+    const news = await response.json();
 
-    const snippets = Array.isArray(result.snippets)
-      ? result.snippets.filter(s =>
-          typeof s.title === "string" &&
-          s.title.trim() &&
-          typeof s.url === "string" &&
-          s.url.trim()
-        ).slice(0, 7)
-      : [];
+    const container = document.getElementById("local-news");
+    container.innerHTML = ""; // Clear previous content
 
-    console.log("Copilot response:", snippets);
-    return snippets;
+    if (news.length === 0) {
+      container.innerHTML = "<p>No local news available.</p>";
+      return;
+    }
+
+    const ul = document.createElement("ul");
+    news.forEach(item => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = item.url;
+      a.textContent = item.title;
+      a.target = "_blank";
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+
+    container.appendChild(ul);
   } catch (err) {
-    console.error("Copilot fetch failed:", err);
-    return [];
+    console.error("Failed to load local news:", err);
   }
 }
+
 
 exports.handler = async function (event) {
   try {
