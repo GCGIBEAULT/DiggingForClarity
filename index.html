@@ -927,50 +927,34 @@ right h
 
 <section class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 1em;">
   <!-- NFL Standings -->
-  <div class="section">
-    <h3>NFL Standings</h3>
-    <button id="refreshStandings" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh Standings</button>
+ <div class="section">
+  <h3 style="color:#003366;">NFL Standings</h3>
+  <ul style="line-height: 1.6;">
+    <li><strong>AFC East</strong><br>
+    Bills 1–1<br>
+    Dolphins 1–1<br>
+    Jets 0–2<br>
+    Patriots 0–2</li>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5em;">
-      <!-- AFC -->
-      <div>
-        <strong>AFC East</strong>
-        <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
-          <tr><td style="padding-right: 1em;">Bills</td><td>1–0</td></tr>
-          <tr><td>Dolphins</td><td>0–1</td></tr>
-          <tr><td>Jets</td><td>0–1</td></tr>
-          <tr><td>Patriots</td><td>0–1</td></tr>
-        </table>
+    <li><strong>AFC West</strong><br>
+    Chargers 1–0<br>
+    Broncos 1–1<br>
+    Raiders 1–0<br>
+    Chiefs 0–2</li>
 
-        <strong style="margin-top: 1em; display: block;">AFC West</strong>
-        <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
-          <tr><td style="padding-right: 1em;">Chargers</td><td>1–0</td></tr>
-          <tr><td>Broncos</td><td>1–0</td></tr>
-          <tr><td>Raiders</td><td>1–0</td></tr>
-          <tr><td>Chiefs</td><td>0–1</td></tr>
-        </table>
-      </div>
+    <li><strong>NFC East</strong><br>
+    Eagles 2–0<br>
+    Cowboys 1–1<br>
+    Commanders 1–1<br>
+    Giants 0–2</li>
 
-      <!-- NFC -->
-      <div>
-        <strong>NFC East</strong>
-        <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
-          <tr><td style="padding-right: 1em;">Eagles</td><td>1–0</td></tr>
-          <tr><td>Cowboys</td><td>1–0</td></tr>
-          <tr><td>Giants</td><td>0–1</td></tr>
-          <tr><td>Commanders</td><td>0–1</td></tr>
-        </table>
-
-        <strong style="margin-top: 1em; display: block;">NFC West</strong>
-        <table style="width: 100%; margin-top: 0.5em; border-collapse: collapse;">
-          <tr><td style="padding-right: 1em;">49ers</td><td>1–0</td></tr>
-          <tr><td>Cardinals</td><td>1–0</td></tr>
-          <tr><td>Rams</td><td>1–0</td></tr>
-          <tr><td>Seahawks</td><td>0–1</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
+    <li><strong>NFC West</strong><br>
+    49ers 2–0<br>
+    Rams 2–0<br>
+    Cardinals 2–0<br>
+    Seahawks 1–1</li>
+  </ul>
+</div>
 
   <!-- Game Day -->
   <div class="section">
@@ -1435,6 +1419,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
