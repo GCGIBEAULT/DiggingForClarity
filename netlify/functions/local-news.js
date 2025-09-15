@@ -25,13 +25,24 @@ async function fetchCopilot(city, zip, lat, lon) {
     const result = await response.json();
 
     // Filter out empty or malformed snippets
-    return Array.isArray(result.snippets)
-      ? result.snippets.filter(s => typeof s.title === "string" && s.title.trim() && typeof s.url === "string" && s.url.trim()).slice(0, 7)
+    const snippets = Array.isArray(result.snippets)
+      ? result.snippets.filter(s =>
+          typeof s.title === "string" &&
+          s.title.trim() &&
+          typeof s.url === "string" &&
+          s.url.trim()
+        ).slice(0, 7)
       : [];
-  } catch {
+
+    console.log("Copilot response:", snippets);  // ✅ Now inside the function scope
+    return snippets;
+  } catch (err) {
+    console.error("Copilot fetch failed:", err);
     return [];
   }
 }
+
+console.log("Copilot response:", snippets);
 
 exports.handler = async function (event) {
   try {
