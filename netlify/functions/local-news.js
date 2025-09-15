@@ -14,15 +14,17 @@ function findClosestZip(lat, lon, zipMap) {
   return closestZip;
 }
 
-async function fetchCopilot(location, zip, lat, lon) {
+async function fetchCopilot(city, zip, lat, lon) {
   try {
     const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ city: location, zip, lat, lon })
+      body: JSON.stringify({ city, zip, lat, lon })
     });
 
     const result = await response.json();
+    console.log("Copilot response:", result); // Debug log
+
     return Array.isArray(result.snippets)
       ? result.snippets.filter(s => s.title).slice(0, 7)
       : [];
@@ -43,9 +45,9 @@ exports.handler = async function (event) {
     }
 
     const zip = findClosestZip(lat, lon, zipMap);
-    const location = zipMap[zip]?.city || "Unknown";
+    const city = zipMap[zip]?.city || "Unknown";
 
-    const snippets = await fetchCopilot(location, zip, lat, lon);
+    const snippets = await fetchCopilot(city, zip, lat, lon);
 
     return {
       statusCode: 200,
