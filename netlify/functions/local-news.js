@@ -23,13 +23,12 @@ async function fetchCopilot(city, zip, lat, lon) {
     });
 
     const result = await response.json();
-    console.log("Copilot response:", result); // Debug log
 
+    // Filter out empty or malformed snippets
     return Array.isArray(result.snippets)
-      ? result.snippets.filter(s => s.title).slice(0, 7)
+      ? result.snippets.filter(s => typeof s.title === "string" && s.title.trim() && typeof s.url === "string" && s.url.trim()).slice(0, 7)
       : [];
-  } catch (err) {
-    console.error("Copilot fetch failed:", err.message);
+  } catch {
     return [];
   }
 }
@@ -53,8 +52,7 @@ exports.handler = async function (event) {
       statusCode: 200,
       body: JSON.stringify(snippets)
     };
-  } catch (err) {
-    console.error("Function error:", err);
+  } catch {
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "Internal server error" })
