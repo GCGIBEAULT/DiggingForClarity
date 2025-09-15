@@ -705,9 +705,10 @@ right h
 </section>
 
   <!-- Community Events -->
+ <section class="grid">
   <div class="section">
     <h3>Community Events</h3>
-    <button id="refreshCommunityEvents" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh Events</button>
+    <button id="refreshCommunityEvents">🔄 Refresh Events</button>
     <ul id="community-events" style="line-height: 1.6;">
       <li>Fall festival returns to Civic Plaza this weekend</li>
       <li>Neighborhood cleanup scheduled for Sunday morning</li>
@@ -719,10 +720,9 @@ right h
     </ul>
   </div>
 
-  <!-- Civic Life -->
   <div class="section">
     <h3>Civic Life</h3>
-    <button id="refreshCivicLife" style="font-size: 1em; padding: 0.5em 1em; margin-bottom: 0.75em;">🔄 Refresh Civic Life</button>
+    <button id="refreshCivicLife">🔄 Refresh Civic Life</button>
     <ul id="civic-life" style="line-height: 1.6;">
       <li>City Council to vote on new zoning proposal</li>
       <li>Town hall meeting draws record attendance</li>
@@ -733,6 +733,7 @@ right h
       <li>Community board seeks volunteers for advisory roles</li>
     </ul>
   </div>
+</section>
 
 <!-- End of Civic Life grid -->
 </section>
@@ -1367,6 +1368,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
