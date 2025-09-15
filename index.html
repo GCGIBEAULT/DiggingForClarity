@@ -101,7 +101,7 @@
 </script>
 
 <script>
-function toggleReflection() {
+function toggleReflection(event) {
   const full = document.getElementById("reflection-full");
   const button = event.target;
   if (full.classList.contains("hidden")) {
@@ -112,6 +112,7 @@ function toggleReflection() {
     button.textContent = "Read More";
   }
 }
+
 </script>
 
 
@@ -1078,20 +1079,23 @@ right h
     }
   }
 
-  function renderLocalNews(snippets, reason = "") {
-    const container = document.getElementById("local-news");
-    container.innerHTML = "<h2>Local News</h2>";
+function renderLocalNews(snippets, reason = "") {
+  console.log("Rendering Local News:", snippets, reason); // ✅ Debug output
 
-    if (!snippets.length) {
-      container.innerHTML += "<p>No local news available.</p>";
-      if (reason) {
-        container.innerHTML += `<p style="font-size: 0.9em; color: #666;"><em>Suppression reason: ${reason}</em></p>`;
-      }
-      return;
+  const container = document.getElementById("local-news");
+  container.innerHTML = "<h2>Local News</h2>";
+
+  if (!snippets.length) {
+    container.innerHTML += "<p>No local news available.</p>";
+    if (reason) {
+      container.innerHTML += `<p style="font-size: 0.9em; color: #666;"><em>Suppression reason: ${reason}</em></p>`;
     }
+    return;
+  }
 
-    const ul = document.createElement("ul");
-    snippets.forEach(item => {
+  const ul = document.createElement("ul");
+  snippets.forEach(item => {
+    if (item.title && item.url) {
       const li = document.createElement("li");
       const a = document.createElement("a");
       a.href = item.url;
@@ -1099,10 +1103,11 @@ right h
       a.target = "_blank";
       li.appendChild(a);
       ul.appendChild(li);
-    });
+    }
+  });
 
-    container.appendChild(ul);
-  }
+  container.appendChild(ul);
+}
 
   // Trigger with a known ZIP
   fetchLocalNewsByZip("80224");
@@ -1114,9 +1119,14 @@ right h
 
 <script>
   document.getElementById("refreshStateNews").addEventListener("click", async function () {
+    console.log("🔄 Refresh button clicked");
+
     const input = document.getElementById("location").value.trim().toLowerCase();
+    console.log("📍 Location input:", input);
+
     const res = await fetch("/cityzip.json");
     const cityZipMap = await res.json();
+    console.log("📦 cityZipMap loaded:", cityZipMap);
 
     let city = null;
     let zip = null;
@@ -1128,6 +1138,8 @@ right h
       city = input.replace(/\s+/g, "_");
       zip = cityZipMap[city]?.[0];
     }
+
+    console.log("🗺️ Mapped city:", city, "| ZIP:", zip);
 
     if (!city || !zip) {
       alert("Location not found. Please enter a valid city or ZIP.");
@@ -1141,9 +1153,97 @@ right h
     });
 
     const result = await response.json();
+    console.log("📰 Copilot Curate response:", result);
+
     const snippets = Array.isArray(result.snippets)
       ? result.snippets.filter(s => s.title && s.url).slice(0, 7)
       : [];
+
+    console.log("✅ Filtered snippets:", snippets);
+
+    const ul = document.getElementById("state-news");
+    ul.innerHTML = "";
+
+    if (!snippets.length) {
+      ul.innerHTML = "<li>No state news available.</li>";
+      return;
+    }
+
+    snippets.forEach(item => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = item.url;
+      a.textContent = item.title;
+      a.target = "_blank";
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+  });
+</script>
+
+<script>
+  // Save location to localStorage
+  function saveLocation() {
+    const location = document.getElementById("location").value.trim();
+    if (location) {
+      localStorage.setItem("userLocation", location);
+      console.log("📍 Location saved:", location);
+    }
+  }
+
+  // Load saved location and auto-refresh State News
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedLocation = localStorage.getItem("userLocation");
+    console.log("🗂️ Loaded saved location:", savedLocation);
+    if (savedLocation) {
+      document.getElementById("location").value = savedLocation;
+      document.getElementById("refreshStateNews").click();
+    }
+  });
+
+  // Refresh State News
+  document.getElementById("refreshStateNews").addEventListener("click", async function () {
+    console.log("🔄 Refresh button clicked");
+
+    const input = document.getElementById("location").value.trim().toLowerCase();
+    console.log("📍 Location input:", input);
+
+    const res = await fetch("/cityzip.json");
+    const cityZipMap = await res.json();
+    console.log("📦 cityZipMap loaded:", cityZipMap);
+
+    let city = null;
+    let zip = null;
+
+    if (/^\d{5}$/.test(input)) {
+      zip = input;
+      city = Object.keys(cityZipMap).find(c => cityZipMap[c].includes(zip));
+    } else {
+      city = input.replace(/\s+/g, "_");
+      zip = cityZipMap[city]?.[0];
+    }
+
+    console.log("🗺️ Mapped city:", city, "| ZIP:", zip);
+
+    if (!city || !zip) {
+      alert("Location not found. Please enter a valid city or ZIP.");
+      return;
+    }
+
+    const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ city, state: "CO", zip })
+    });
+
+    const result = await response.json();
+    console.log("📰 Copilot Curate response:", result);
+
+    const snippets = Array.isArray(result.snippets)
+      ? result.snippets.filter(s => s.title && s.url).slice(0, 7)
+      : [];
+
+    console.log("✅ Filtered snippets:", snippets);
 
     const ul = document.getElementById("state-news");
     ul.innerHTML = "";
@@ -1175,135 +1275,85 @@ right h
   }
 
   // Load saved location and auto-refresh State News
+ <script>
   document.addEventListener("DOMContentLoaded", () => {
+    // Save location to localStorage
+    function saveLocation() {
+      const location = document.getElementById("location").value.trim();
+      if (location) {
+        localStorage.setItem("userLocation", location);
+        console.log("📍 Location saved:", location);
+      }
+    }
+
+    // Load saved location and auto-refresh State News
     const savedLocation = localStorage.getItem("userLocation");
     if (savedLocation) {
       document.getElementById("location").value = savedLocation;
       document.getElementById("refreshStateNews").click();
     }
-  });
 
-  // Refresh State News
-  document.getElementById("refreshStateNews").addEventListener("click", async function () {
-    const input = document.getElementById("location").value.trim().toLowerCase();
-    const res = await fetch("/cityzip.json");
-    const cityZipMap = await res.json();
+    // Refresh State News
+    document.getElementById("refreshStateNews").addEventListener("click", async function () {
+      console.log("🔄 Refresh button clicked");
 
-    let city = null;
-    let zip = null;
+      const input = document.getElementById("location").value.trim().toLowerCase();
+      console.log("📍 Location input:", input);
 
-    if (/^\d{5}$/.test(input)) {
-      zip = input;
-      city = Object.keys(cityZipMap).find(c => cityZipMap[c].includes(zip));
-    } else {
-      city = input.replace(/\s+/g, "_");
-      zip = cityZipMap[city]?.[0];
-    }
+      const res = await fetch("/cityzip.json");
+      const cityZipMap = await res.json();
+      console.log("📦 cityZipMap loaded:", cityZipMap);
 
-    if (!city || !zip) {
-      alert("Location not found. Please enter a valid city or ZIP.");
-      return;
-    }
+      let city = null;
+      let zip = null;
 
-    const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ city, state: "CO", zip })
-    });
+      if (/^\d{5}$/.test(input)) {
+        zip = input;
+        city = Object.keys(cityZipMap).find(c => cityZipMap[c].includes(zip));
+      } else {
+        city = input.replace(/\s+/g, "_");
+        zip = cityZipMap[city]?.[0];
+      }
 
-    const result = await response.json();
-    const snippets = Array.isArray(result.snippets)
-      ? result.snippets.filter(s => s.title && s.url).slice(0, 7)
-      : [];
+      console.log("🗺️ Mapped city:", city, "| ZIP:", zip);
 
-    const ul = document.getElementById("state-news");
-    ul.innerHTML = "";
+      if (!city || !zip) {
+        alert("Location not found. Please enter a valid city or ZIP.");
+        return;
+      }
 
-    if (!snippets.length) {
-      ul.innerHTML = "<li>No state news available.</li>";
-      return;
-    }
+      const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ city, state: "CO", zip })
+      });
 
-    snippets.forEach(item => {
-      const li = document.createElement("li");
-      const a = document.createElement("a");
-      a.href = item.url;
-      a.textContent = item.title;
-      a.target = "_blank";
-      li.appendChild(a);
-      ul.appendChild(li);
-    });
-  });
-</script>
-<script>
-  // Save location to localStorage
-  function saveLocation() {
-    const location = document.getElementById("location").value.trim();
-    if (location) {
-      localStorage.setItem("userLocation", location);
-    }
-  }
+      const result = await response.json();
+      console.log("📰 Copilot Curate response:", result);
 
-  // Load saved location and auto-refresh State News
-  document.addEventListener("DOMContentLoaded", () => {
-    const savedLocation = localStorage.getItem("userLocation");
-    if (savedLocation) {
-      document.getElementById("location").value = savedLocation;
-      document.getElementById("refreshStateNews").click();
-    }
-  });
+      const snippets = Array.isArray(result.snippets)
+        ? result.snippets.filter(s => s.title && s.url).slice(0, 7)
+        : [];
 
-  // Refresh State News
-  document.getElementById("refreshStateNews").addEventListener("click", async function () {
-    const input = document.getElementById("location").value.trim().toLowerCase();
-    const res = await fetch("/cityzip.json");
-    const cityZipMap = await res.json();
+      console.log("✅ Filtered snippets:", snippets);
 
-    let city = null;
-    let zip = null;
+      const ul = document.getElementById("state-news");
+      ul.innerHTML = "";
 
-    if (/^\d{5}$/.test(input)) {
-      zip = input;
-      city = Object.keys(cityZipMap).find(c => cityZipMap[c].includes(zip));
-    } else {
-      city = input.replace(/\s+/g, "_");
-      zip = cityZipMap[city]?.[0];
-    }
+      if (!snippets.length) {
+        ul.innerHTML = "<li>No state news available.</li>";
+        return;
+      }
 
-    if (!city || !zip) {
-      alert("Location not found. Please enter a valid city or ZIP.");
-      return;
-    }
-
-    const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ city, state: "CO", zip })
-    });
-
-    const result = await response.json();
-    console.log("Returned snippets:", result.snippets); // ✅ Debug output
-
-    const snippets = Array.isArray(result.snippets)
-      ? result.snippets.filter(s => s.title && s.url).slice(0, 7)
-      : [];
-
-    const ul = document.getElementById("state-news");
-    ul.innerHTML = "";
-
-    if (!snippets.length) {
-      ul.innerHTML = "<li>No state news available.</li>";
-      return;
-    }
-
-    snippets.forEach(item => {
-      const li = document.createElement("li");
-      const a = document.createElement("a");
-      a.href = item.url;
-      a.textContent = item.title;
-      a.target = "_blank";
-      li.appendChild(a);
-      ul.appendChild(li);
+      snippets.forEach(item => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = item.url;
+        a.textContent = item.title;
+        a.target = "_blank";
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
     });
   });
 </script>
@@ -1314,10 +1364,8 @@ right h
 </body>
 </html>
 
-<script src="local-news.js" defer></script>
-<script src="/js/editor.js" defer></script>
-</body>
-</html>
+
+
 
 
 
