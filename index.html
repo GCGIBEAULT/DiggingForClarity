@@ -1040,14 +1040,17 @@ right h
 
 <script>
   async function fetchLocalNews() {
-    const city = "Denver";
-    const state = "CO";
-
     try {
       const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ city, state })
+        body: JSON.stringify({
+          city: "Denver",
+          state: "CO",
+          zip: "80224",
+          lat: 39.6933,
+          lon: -104.9136
+        })
       });
 
       const result = await response.json();
@@ -1105,10 +1108,12 @@ right h
 
 
 
+
 <script src="local-news.js" defer></script>
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
