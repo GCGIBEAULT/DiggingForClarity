@@ -927,34 +927,43 @@ right h
 
 <section class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 1em;">
   <!-- NFL Standings -->
- <div class="section">
+<div class="section">
   <h3 style="color:#003366;">NFL Standings</h3>
-  <ul style="line-height: 1.6;">
-    <li><strong>AFC East</strong><br>
-    Bills 1–1<br>
-    Dolphins 1–1<br>
-    Jets 0–2<br>
-    Patriots 0–2</li>
+  <div class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2em;">
+    <!-- Row 1: AFC East + NFC East -->
+    <div>
+      <strong>AFC East</strong><br>
+      Bills 1–1<br>
+      Dolphins 1–1<br>
+      Jets 0–2<br>
+      Patriots 0–2
+    </div>
+    <div>
+      <strong>NFC East</strong><br>
+      Eagles 2–0<br>
+      Cowboys 1–1<br>
+      Commanders 1–1<br>
+      Giants 0–2
+    </div>
 
-    <li><strong>AFC West</strong><br>
-    Chargers 1–0<br>
-    Broncos 1–1<br>
-    Raiders 1–0<br>
-    Chiefs 0–2</li>
-
-    <li><strong>NFC East</strong><br>
-    Eagles 2–0<br>
-    Cowboys 1–1<br>
-    Commanders 1–1<br>
-    Giants 0–2</li>
-
-    <li><strong>NFC West</strong><br>
-    49ers 2–0<br>
-    Rams 2–0<br>
-    Cardinals 2–0<br>
-    Seahawks 1–1</li>
-  </ul>
+    <!-- Row 2: AFC West + NFC West -->
+    <div>
+      <strong>AFC West</strong><br>
+      Chargers 1–0<br>
+      Broncos 1–1<br>
+      Raiders 1–0<br>
+      Chiefs 0–2
+    </div>
+    <div>
+      <strong>NFC West</strong><br>
+      49ers 2–0<br>
+      Rams 2–0<br>
+      Cardinals 2–0<br>
+      Seahawks 1–1
+    </div>
+  </div>
 </div>
+
 
   <!-- Game Day -->
   <div class="section">
@@ -1419,6 +1428,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
