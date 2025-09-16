@@ -638,10 +638,9 @@ right h
   </div>
 
 <!-- Local & State News -->
+<!-- Local & State News -->
 <div id="traffic-news" class="section" style="margin: 0;">
-  <h3>Local & State News</h3>
- <h3 style="color:#003366;">Local & State News</h3>
- 
+  <h3 style="color:#003366;">Local & State News</h3>
   <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
 
   <!-- Local News Input -->
@@ -654,11 +653,9 @@ right h
   <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
   <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
 
-
-
   <script>
     // Load saved links on page load
-    window.onload = function() {
+    window.onload = function () {
       document.getElementById("localNews").value = localStorage.getItem("localNews") || "";
       document.getElementById("stateNews").value = localStorage.getItem("stateNews") || "";
     };
@@ -1509,6 +1506,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
