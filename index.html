@@ -515,22 +515,47 @@ right h
 </div>
 
 <!-- 🧭 Digging For Clarity Header -->
-<div class="masthead-wrapper" style="background-color: #f4f1ec; padding: 1.5em; border-bottom: 2px solid #333;">
-  <div class="editorial-box" style="max-width: 640px; margin: 0 auto; text-align: center;">
-    <h1 class="site-title" style="font-size: 2.8rem; font-weight: 900; font-family: 'Merriweather', serif; color: #111; margin-bottom: 0.4em;">
+<!-- 🧭 Masthead + News Stream Illusion -->
+<div style="position: relative; background-color: #f4f1ec; padding: 2em 1em; border-bottom: 2px solid #333; overflow: hidden;">
+
+  <!-- News Stream Layer (positioned across masthead) -->
+  <div style="position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); pointer-events: none; z-index: 0;">
+    <div style="display: flex; flex-direction: column; gap: 0.4em; font-size: 0.9rem; font-family: Arial, sans-serif; color: #444; padding: 0 1em;">
+      <!-- Left-side entries -->
+      <div style="text-align: left; transform: translateX(-60px); white-space: nowrap;">
+        Charlie Kirk shooting suspect in custody — FBI confirms rooftop arrest
+      </div>
+      <div style="text-align: left; transform: translateX(-90px); white-space: nowrap;">
+        ICE raid ends in deadly clash outside Chicago sanctuary church
+      </div>
+      <!-- Right-side entries -->
+      <div style="text-align: right; transform: translateX(60px); white-space: nowrap;">
+        NASA discovers ancient water on Mars — reshaping planetary theories
+      </div>
+      <div style="text-align: right; transform: translateX(85px); white-space: nowrap;">
+        France prepares hospitals for wartime casualties by spring 2026
+      </div>
+    </div>
+  </div>
+
+  <!-- Masthead Content (sits above the stream) -->
+  <div style="position: relative; z-index: 1; text-align: center; max-width: 640px; margin: 0 auto;">
+    <h1 style="font-size: 2.8rem; font-weight: 900; font-family: 'Merriweather', serif; color: #111; margin-bottom: 0.4em;">
       Digging For Clarity
     </h1>
-    <p class="header-tagline" style="font-size: 1.6rem; font-weight: 700; font-family: 'Merriweather', serif; color: #222; margin-top: 0.4em;">
+    <p style="font-size: 1.6rem; font-weight: 700; font-family: 'Merriweather', serif; color: #222;">
       Just The News. Hold The Drama.
     </p>
     <h2 style="font-size: 1.2rem; font-weight: 600; color: #003366; margin-top: 1em;">
       In Memory of Charlie Kirk
     </h2>
-    <p class="editorial-signature" style="font-size: 1rem; font-style: italic; color: #444; margin-top: 0.5em;">
+    <p style="font-size: 1rem; font-style: italic; color: #444; margin-top: 0.5em;">
       —Digging For Clarity
     </p>
   </div>
+
 </div>
+
 
 
 </div>
@@ -1431,6 +1456,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
