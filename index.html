@@ -569,61 +569,31 @@ right h
 
 <!-- Local Weather + Traffic Mapping -->
 <section class="grid" style="margin-top: 1em;">
-  <!-- Local Weather -->
-  <div id="local-weather" class="section" style="margin: 0;">
-    <h3 style="color:#003366;">Local Weather</h3>
-    <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
+<!-- Local Weather Section -->
+<div id="local-weather" class="section" style="margin: 0;">
+  <h3 style="color:#003366;">Local Weather</h3>
+  <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
 
-    <!-- Weather Link -->
-    <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
-    <input type="text" id="weatherLink" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-    <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
+  <!-- Weather Link -->
+  <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
+  <input type="text" id="weatherLink" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
 
-    <!-- Your Choice Link -->
-    <label for="yourChoiceLink" style="font-weight: bold; margin-top: 1em; display: block;">Your Choice:</label>
-    <input type="text" id="yourChoiceLink" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-    <button onclick="openYourChoice()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Your Weather</button>
+  <!-- Your Choice Link -->
+  <label for="yourChoiceLink" style="font-weight: bold; margin-top: 1em; display: block;">Your Choice:</label>
+  <input type="text" id="yourChoiceLink" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openYourChoice()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Your Weather</button>
 
-    <!-- JavaScript -->
-    <script>
-      window.onload = function () {
-        const savedWeather = localStorage.getItem("weatherLink");
-        if (savedWeather) {
-          document.getElementById("weatherLink").value = savedWeather;
-        }
-
-        const savedChoice = localStorage.getItem("yourChoiceLink");
-        if (savedChoice) {
-          document.getElementById("yourChoiceLink").value = savedChoice;
-        }
-      };
-
-      function openWeather() {
-        const link = document.getElementById("weatherLink").value;
-        if (link) {
-          localStorage.setItem("weatherLink", link);
-          window.open(link, "_blank");
-        }
-      }
-
-      function openYourChoice() {
-        const link = document.getElementById("yourChoiceLink").value;
-        if (link) {
-          localStorage.setItem("yourChoiceLink", link);
-          window.open(link, "_blank");
-        }
-      }
-    </script>
-
-    <!-- Navigation Tools -->
-    <h4 style="margin-top: 2em; color:#003366;">Need Directions?</h4>
-    <p>Click below to launch your preferred traffic app:</p>
-    <div class="snippet">
-      <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Google Maps</a>
-      &nbsp;&nbsp;
-      <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Waze</a>
-    </div>
+  <!-- Navigation Tools -->
+  <h4 style="margin-top: 2em; color:#003366;">Need Directions?</h4>
+  <p>Click below to launch your preferred traffic app:</p>
+  <div class="snippet">
+    <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Google Maps</a>
+    &nbsp;&nbsp;
+    <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Waze</a>
   </div>
+</div>
+is the
 </section>
 
 
@@ -1513,6 +1483,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
