@@ -518,24 +518,22 @@ right h
 <!-- 🧭 Masthead + News Stream Illusion -->
 <div style="position: relative; background-color: #f4f1ec; padding: 2em 1em; border-bottom: 2px solid #333; overflow: hidden;">
 
-  <!-- News Stream Layer (positioned across masthead) -->
-  <div style="position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); pointer-events: none; z-index: 0;">
-    <div style="display: flex; flex-direction: column; gap: 0.4em; font-size: 0.9rem; font-family: Arial, sans-serif; color: #444; padding: 0 1em;">
-      <!-- Left-side entries -->
-      <div style="text-align: left; transform: translateX(-60px); white-space: nowrap;">
-        Charlie Kirk shooting suspect in custody — FBI confirms rooftop arrest
-      </div>
-      <div style="text-align: left; transform: translateX(-90px); white-space: nowrap;">
-        ICE raid ends in deadly clash outside Chicago sanctuary church
-      </div>
-      <!-- Right-side entries -->
-      <div style="text-align: right; transform: translateX(60px); white-space: nowrap;">
-        NASA discovers ancient water on Mars — reshaping planetary theories
-      </div>
-      <div style="text-align: right; transform: translateX(85px); white-space: nowrap;">
-        France prepares hospitals for wartime casualties by spring 2026
-      </div>
-    </div>
+ <!-- 🧭 News Stream Illusion (10 lines, offset, with fade) -->
+<div style="position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); z-index: 0; pointer-events: none; padding: 0 150px; overflow: hidden;">
+  <div style="display: flex; flex-direction: column; gap: 0.4em; font-size: 0.9rem; font-family: Arial, sans-serif; color: #444;">
+    <div style="transform: translateX(-40px); white-space: nowrap;">Charlie Kirk shooting suspect in custody — FBI confirms rooftop arrest</div>
+    <div style="transform: translateX(60px); white-space: nowrap;">NASA discovers ancient water on Mars — reshaping planetary theories</div>
+    <div style="transform: translateX(-80px); white-space: nowrap;">ICE raid ends in deadly clash outside Chicago sanctuary church</div>
+    <div style="transform: translateX(45px); white-space: nowrap;">Trump pushes NATO to sanction Russia — threatens 100% tariffs on China</div>
+    <div style="transform: translateX(-65px); white-space: nowrap;">UN backs two-state solution — Israel urged to recognize Palestine</div>
+    <div style="transform: translateX(70px); white-space: nowrap;">Global markets dip ahead of U.S. Fed decision</div>
+    <div style="transform: translateX(-50px); white-space: nowrap;">France prepares hospitals for wartime casualties by spring 2026</div>
+    <div style="transform: translateX(30px); white-space: nowrap;">Student performance hits historic lows — NAEP scores collapse</div>
+    <div style="transform: translateX(-90px); white-space: nowrap;">CDC Director refuses to step down — defends pandemic-era decisions</div>
+    <div style="transform: translateX(40px); white-space: nowrap;">Senate receives closed briefing on AI chatbot vulnerabilities</div>
+  </div>
+</div>
+
   </div>
 
   <!-- Masthead Content (sits above the stream) -->
@@ -1459,6 +1457,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
