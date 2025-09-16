@@ -633,38 +633,49 @@ right h
 
   </div>
 
-  <!-- Traffic Mapping -->
-  <div id="traffic-news" class="section" style="margin: 0;">
-    <h3>Traffic Mapping</h3>
-    <div class="snippet">
-      <strong>Just the traffic, please.</strong><br>
-      Paste your traffic link once—we’ll show it every day.
-    </div>
-    <div style="display: flex; gap: 0.5em; align-items: center; margin: 0.75em 0;">
-      <input
-        type="text"
-        id="trafficURL"
-        placeholder="Paste your traffic link"
-        style="flex: 1; padding: 0.3em;"
-      >
-      <button id="saveTraffic" style="padding: 0.4em 0.8em;">Save Link</button>
-    </div>
-  <div id="traffic-anchor" class="snippet"></div>
+<!-- Local & State News -->
+<div id="traffic-news" class="section" style="margin: 0;">
+  <h3>Local & State News</h3>
+  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
 
-<!-- Traffic Mapping links: Google Maps + Waze (blue & underlined) -->
-<div class="snippet">
-  <a href="https://www.google.com/maps" 
-     target="_blank" 
-     style="color: #0645AD; text-decoration: underline; font-weight: bold;">
-    Google Maps
-  </a>
-  &nbsp;&nbsp;
-  <a href="https://www.waze.com" 
-     target="_blank" 
-     style="color: #0645AD; text-decoration: underline; font-weight: bold;">
-    Waze
-  </a>
-</div>
+  <!-- Local News Input -->
+  <label for="localNews" style="font-weight: bold;">Local News Link:</label>
+  <input type="text" id="localNews" placeholder="Enter your local news URL" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
+
+  <!-- State News Input -->
+  <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
+  <input type="text" id="stateNews" placeholder="Enter your state news URL" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
+
+  <!-- Navigation Tools -->
+  <h4 style="margin-top: 2em; color:#003366;">Need Directions?</h4>
+  <p>Click below to launch your preferred traffic app:</p>
+  <div class="snippet">
+    <a href="https://www.google.com/maps" 
+       target="_blank" 
+       style="color: #0645AD; text-decoration: underline; font-weight: bold;">
+      Google Maps
+    </a>
+    &nbsp;&nbsp;
+    <a href="https://www.waze.com" 
+       target="_blank" 
+       style="color: #0645AD; text-decoration: underline; font-weight: bold;">
+      Waze
+    </a>
+  </div>
+
+  <script>
+    function openLocalNews() {
+      const link = document.getElementById("localNews").value;
+      if (link) window.open(link, "_blank");
+    }
+
+    function openStateNews() {
+      const link = document.getElementById("stateNews").value;
+      if (link) window.open(link, "_blank");
+    }
+  </script>
 </div> <!-- end of #traffic-news -->
 
 
@@ -1495,6 +1506,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
