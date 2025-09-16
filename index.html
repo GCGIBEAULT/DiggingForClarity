@@ -631,25 +631,7 @@ is the
   <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
 </div>
 
-    // Load saved links on page load
-    window.onload = function () {
-      document.getElementById("localNews").value = localStorage.getItem("localNews") || "";
-      document.getElementById("stateNews").value = localStorage.getItem("stateNews") || "";
-    };
-
-    function openLocalNews() {
-      const link = document.getElementById("localNews").value;
-      if (link) {
-        localStorage.setItem("localNews", link);
-        window.open(link, "_blank");
-      }
-    }
-
-    function openStateNews() {
-      const link = document.getElementById("stateNews").value;
-      if (link) {
-        localStorage.setItem("stateNews", link);
-        window.open(link, "_blank");
+   
       }
     }
   </script>
@@ -1483,6 +1465,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
