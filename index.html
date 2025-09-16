@@ -569,76 +569,48 @@ right h
 
 <!-- Local Weather + Traffic Mapping -->
 <section class="grid" style="margin-top: 1em;">
-<!-- Local Weather Section -->
-<div id="local-weather" class="section" style="margin: 0;">
-  <h3 style="color:#003366;">Local Weather</h3>
-  <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
+  <!-- Local Weather Section -->
+  <div id="local-weather" class="section" style="margin: 0;">
+    <h3 style="color:#003366;">Local Weather</h3>
+    <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
 
-  <!-- Weather Link -->
-  <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
-  <input type="text" id="weatherLink" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-  <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
+    <!-- Weather Link -->
+    <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
+    <input type="text" id="weatherLink" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+    <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
 
-  <!-- Your Choice Link -->
-  <label for="yourChoiceLink" style="font-weight: bold; margin-top: 1em; display: block;">Your Choice:</label>
-  <input type="text" id="yourChoiceLink" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-  <button onclick="openYourChoice()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Your Weather</button>
+    <!-- Your Choice Link -->
+    <label for="yourChoiceLink" style="font-weight: bold; margin-top: 1em; display: block;">Your Choice:</label>
+    <input type="text" id="yourChoiceLink" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+    <button onclick="openYourChoice()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Your Weather</button>
 
-  <!-- Navigation Tools -->
-  <h4 style="margin-top: 2em; color:#003366;">Need Directions?</h4>
-  <p>Click below to launch your preferred traffic app:</p>
-  <div class="snippet">
-    <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Google Maps</a>
-    &nbsp;&nbsp;
-    <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Waze</a>
-  </div>
-</div>
-is the
-</section>
-
-
-
-
-</div>
-
-
-
-    
-
-
-
- 
-</div>
-
-
-
+    <!-- Navigation Tools -->
+    <h4 style="margin-top: 2em; color:#003366;">Need Directions?</h4>
+    <p>Click below to launch your preferred traffic app:</p>
+    <div class="snippet">
+      <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Google Maps</a>
+      &nbsp;&nbsp;
+      <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Waze</a>
+    </div>
   </div>
 
-<!-- Local & State News -->
-<!-- Local & State News Section -->
-<div id="traffic-news" class="section" style="margin: 0;">
-  <h3 style="color:#003366;">Local & State News</h3>
-  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+  <!-- Local & State News Section -->
+  <div id="traffic-news" class="section" style="margin: 0;">
+    <h3 style="color:#003366;">Local & State News</h3>
+    <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
 
-  <!-- Local News Input -->
-  <label for="localNews" style="font-weight: bold;">Local News Link:</label>
-  <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-  <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
+    <!-- Local News Input -->
+    <label for="localNews" style="font-weight: bold;">Local News Link:</label>
+    <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+    <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
 
-  <!-- State News Input -->
-  <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
-  <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-  <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
-</div>
-
-   
-    
-  </script>
-</div>
-
-
-
+    <!-- State News Input -->
+    <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
+    <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+    <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
+  </div>
 </section>
+
 
 
 
@@ -1464,6 +1436,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
