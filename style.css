@@ -391,8 +391,7 @@ label[for="zip"] {
   min-height: 200px;              /* matches original block size */
   box-sizing: border-box;
   overflow: visible;
-  border-bottom: 4px solid #333;  /* thick, centred divider */
-  margin-bottom: 96px;            /* pushes content below down 96 px */
+   margin-bottom: 96px;            /* pushes content below down 96 px */
   max-width: 960px;               /* prevents full-bleed */
   margin-left: auto;
   margin-right: auto;
