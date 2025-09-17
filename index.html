@@ -625,36 +625,7 @@ right h
 </script>
 
 
-  function openYourChoice() {
-    const url = document.getElementById("yourChoiceLink").value;
-    if (url) {
-      localStorage.setItem("yourChoiceLink", url);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid link.");
-    }
-  }
 
-  function openLocalNews() {
-    const url = document.getElementById("localNewsLink").value;
-    if (url) {
-      localStorage.setItem("localNewsLink", url);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid local news link.");
-    }
-  }
-
-  function openStateNews() {
-    const url = document.getElementById("stateNewsLink").value;
-    if (url) {
-      localStorage.setItem("stateNewsLink", url);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid state news link.");
-    }
-  }
-</script>
 
   <!-- Local & State News Section -->
   <div id="traffic-news" class="section" style="margin: 0;">
@@ -1641,6 +1612,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
