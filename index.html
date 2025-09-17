@@ -1627,12 +1627,55 @@ function renderLocalNews(snippets, reason = "") {
     }
   }
 </script>
+<script>
+  window.onload = function () {
+    const savedWeather = localStorage.getItem("weatherLink");
+    if (savedWeather) document.getElementById("weatherLink").value = savedWeather;
+
+    const savedLocalNews = localStorage.getItem("localNews");
+    if (savedLocalNews) document.getElementById("localNews").value = savedLocalNews;
+
+    const savedStateNews = localStorage.getItem("stateNews");
+    if (savedStateNews) document.getElementById("stateNews").value = savedStateNews;
+  };
+
+  function openWeather() {
+    const url = document.getElementById("weatherLink").value;
+    if (url) {
+      localStorage.setItem("weatherLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid weather link.");
+    }
+  }
+
+  function openLocalNews() {
+    const url = document.getElementById("localNews").value;
+    if (url) {
+      localStorage.setItem("localNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid local news link.");
+    }
+  }
+
+  function openStateNews() {
+    const url = document.getElementById("stateNews").value;
+    if (url) {
+      localStorage.setItem("stateNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid state news link.");
+    }
+  }
+</script>
 
 <!-- Leave these as-is -->
 <script src="local-news.js" defer></script>
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
