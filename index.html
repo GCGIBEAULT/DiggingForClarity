@@ -1537,12 +1537,31 @@ function renderLocalNews(snippets, reason = "") {
     });
   });
 </script>
+<script>
+  window.onload = function () {
+    const savedLink = localStorage.getItem("weatherLink");
+    if (savedLink) {
+      document.getElementById("weatherLink").value = savedLink;
+    }
+  };
+
+  function openWeather() {
+    const url = document.getElementById("weatherLink").value;
+    if (url) {
+      localStorage.setItem("weatherLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid weather link.");
+    }
+  }
+</script>
 
 <!-- Leave these as-is -->
 <script src="local-news.js" defer></script>
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
