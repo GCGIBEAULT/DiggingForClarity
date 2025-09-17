@@ -577,7 +577,12 @@ right h
     <!-- Weather Link -->
     <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
     <input type="text" id="weatherLink" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-    <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
+    <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+
+<button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">
+  Open Weather
+</button>
+utton>
 
     <!-- Your Choice Link -->
     <label for="yourChoiceLink" style="font-weight: bold; margin-top: 1em; display: block;">Your Choice:</label>
@@ -1555,12 +1560,31 @@ function renderLocalNews(snippets, reason = "") {
     }
   }
 </script>
+<script>
+  window.onload = function () {
+    const savedLink = localStorage.getItem("weatherLink");
+    if (savedLink) {
+      document.getElementById("weatherLink").value = savedLink;
+    }
+  };
+
+  function openWeather() {
+    const url = document.getElementById("weatherLink").value;
+    if (url) {
+      localStorage.setItem("weatherLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid weather link.");
+    }
+  }
+</script>
 
 <!-- Leave these as-is -->
 <script src="local-news.js" defer></script>
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
