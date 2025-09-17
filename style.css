@@ -479,7 +479,7 @@ label[for="zip"] {
   min-height: 200px;          /* preserves original height */
   max-width: 960px;           /* keeps it from spanning full-width */
   margin: 0 auto 2em;         /* centers and adds a bit of space after header */
-  border-bottom: 4px solid #333; /* your thick, “centred” divider */
+ 
   overflow: visible;
 }
 #local-news {
