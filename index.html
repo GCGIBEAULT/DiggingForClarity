@@ -1456,145 +1456,19 @@ function renderLocalNews(snippets, reason = "") {
     });
   });
 </script>
-
-<script>
-  // Save location to localStorage
-  function saveLocation() {
-    const location = document.getElementById("location").value.trim();
-    if (location) {
-      localStorage.setItem("userLocation", location);
-    }
-  }
-
-  // Load saved location and auto-refresh State News
- <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Save location to localStorage
-    function saveLocation() {
-      const location = document.getElementById("location").value.trim();
-      if (location) {
-        localStorage.setItem("userLocation", location);
-        console.log("📍 Location saved:", location);
-      }
-    }
-
-    // Load saved location and auto-refresh State News
-    const savedLocation = localStorage.getItem("userLocation");
-    if (savedLocation) {
-      document.getElementById("location").value = savedLocation;
-      document.getElementById("refreshStateNews").click();
-    }
-
-    // Refresh State News
-    document.getElementById("refreshStateNews").addEventListener("click", async function () {
-      console.log("🔄 Refresh button clicked");
-
-      const input = document.getElementById("location").value.trim().toLowerCase();
-      console.log("📍 Location input:", input);
-
-      const res = await fetch("/cityzip.json");
-      const cityZipMap = await res.json();
-      console.log("📦 cityZipMap loaded:", cityZipMap);
-
-      let city = null;
-      let zip = null;
-
-      if (/^\d{5}$/.test(input)) {
-        zip = input;
-        city = Object.keys(cityZipMap).find(c => cityZipMap[c].includes(zip));
-      } else {
-        city = input.replace(/\s+/g, "_");
-        zip = cityZipMap[city]?.[0];
-      }
-
-      console.log("🗺️ Mapped city:", city, "| ZIP:", zip);
-
-      if (!city || !zip) {
-        alert("Location not found. Please enter a valid city or ZIP.");
-        return;
-      }
-
-      const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ city, state: "CO", zip })
-      });
-
-      const result = await response.json();
-      console.log("📰 Copilot Curate response:", result);
-
-      const snippets = Array.isArray(result.snippets)
-        ? result.snippets.filter(s => s.title && s.url).slice(0, 7)
-        : [];
-
-      console.log("✅ Filtered snippets:", snippets);
-
-      const ul = document.getElementById("state-news");
-      ul.innerHTML = "";
-
-      if (!snippets.length) {
-        ul.innerHTML = "<li>No state news available.</li>";
-        return;
-      }
-
-      snippets.forEach(item => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = item.url;
-        a.textContent = item.title;
-        a.target = "_blank";
-        li.appendChild(a);
-        ul.appendChild(li);
-      });
-    });
-  });
-</script>
 <script>
   window.onload = function () {
-    const savedLink = localStorage.getItem("weatherLink");
-    if (savedLink) {
-      document.getElementById("weatherLink").value = savedLink;
-    }
-  };
-
-  function openWeather() {
-    const url = document.getElementById("weatherLink").value;
-    if (url) {
-      localStorage.setItem("weatherLink", url);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid weather link.");
-    }
-  }
-</script>
-<script>
-  window.onload = function () {
-    const savedLink = localStorage.getItem("weatherLink");
-    if (savedLink) {
-      document.getElementById("weatherLink").value = savedLink;
-    }
-  };
-
-  function openWeather() {
-    const url = document.getElementById("weatherLink").value;
-    if (url) {
-      localStorage.setItem("weatherLink", url);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid weather link.");
-    }
-  }
-</script>
-<script>
-  window.onload = function () {
+    // Restore saved Weather link
     const savedWeather = localStorage.getItem("weatherLink");
-    if (savedWeather) document.getElementById("weatherLink").value = savedWeather;
+    if (savedWeather) {
+      document.getElementById("weatherLink").value = savedWeather;
+    }
 
-    const savedLocalNews = localStorage.getItem("localNewsLink");
-    if (savedLocalNews) document.getElementById("localNewsLink").value = savedLocalNews;
-
-    const savedStateNews = localStorage.getItem("stateNewsLink");
-    if (savedStateNews) document.getElementById("stateNewsLink").value = savedStateNews;
+    // Restore saved Local News link
+    const savedLocalNews = localStorage.getItem("localNews");
+    if (savedLocalNews) {
+      document.getElementById("localNews").value = savedLocalNews;
+    }
   };
 
   function openWeather() {
@@ -1608,25 +1482,17 @@ function renderLocalNews(snippets, reason = "") {
   }
 
   function openLocalNews() {
-    const url = document.getElementById("localNewsLink").value;
+    const url = document.getElementById("localNews").value;
     if (url) {
-      localStorage.setItem("localNewsLink", url);
+      localStorage.setItem("localNews", url);
       window.open(url, "_blank");
     } else {
       alert("Please enter a valid local news link.");
     }
   }
-
-  function openStateNews() {
-    const url = document.getElementById("stateNewsLink").value;
-    if (url) {
-      localStorage.setItem("stateNewsLink", url);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid state news link.");
-    }
-  }
 </script>
+
+
 <script>
   window.onload = function () {
     const savedWeather = localStorage.getItem("weatherLink");
@@ -1669,12 +1535,46 @@ function renderLocalNews(snippets, reason = "") {
     }
   }
 </script>
+<script>
+  window.onload = function () {
+    const savedLocalNews = localStorage.getItem("localNews");
+    if (savedLocalNews) {
+      document.getElementById("localNews").value = savedLocalNews;
+    }
+
+    const savedStateNews = localStorage.getItem("stateNews");
+    if (savedStateNews) {
+      document.getElementById("stateNews").value = savedStateNews;
+    }
+  };
+
+  function openLocalNews() {
+    const url = document.getElementById("localNews").value;
+    if (url) {
+      localStorage.setItem("localNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid local news link.");
+    }
+  }
+
+  function openStateNews() {
+    const url = document.getElementById("stateNews").value;
+    if (url) {
+      localStorage.setItem("stateNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid state news link.");
+    }
+  }
+</script>
 
 <!-- Leave these as-is -->
 <script src="local-news.js" defer></script>
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
