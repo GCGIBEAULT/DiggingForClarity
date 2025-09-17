@@ -578,17 +578,32 @@ right h
 <div id="local-weather" class="section" style="margin: 0;">
   <h3 style="color:#003366;">Local Weather</h3>
   <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
-
   <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
   <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
   <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
+
+  <!-- Navigation Tools -->
+  <div style="margin-top: 1.5em;">
+    <h4 style="color:#003366;">Need Directions?</h4>
+    <p>Click below to launch your preferred traffic app:</p>
+    <div class="snippet">
+      <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Google Maps</a>
+      &nbsp;&nbsp;
+      <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Waze</a>
+    </div>
+  </div>
 </div>
 
-<!-- Script Block -->
 <script>
   window.onload = function () {
     const savedWeather = localStorage.getItem("weatherLink");
-    if (savedWeather) document.getElementById("weatherLink").value = savedWeather;
+    if (savedWeather) {
+      document.getElementById("weatherLink").value = savedWeather;
+    } else {
+      const defaultLink = "https://www.msn.com/en-us/weather/today/Denver,Colorado,United-States/we-city?ocid=msedgntp&cobrand=copilot";
+      document.getElementById("weatherLink").value = defaultLink;
+      localStorage.setItem("weatherLink", defaultLink);
+    }
   };
 
   function openWeather() {
@@ -601,6 +616,7 @@ right h
     }
   }
 </script>
+
 
 
 
@@ -1575,6 +1591,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
