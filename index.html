@@ -1585,12 +1585,55 @@ function renderLocalNews(snippets, reason = "") {
     }
   }
 </script>
+<script>
+  window.onload = function () {
+    const savedWeather = localStorage.getItem("weatherLink");
+    if (savedWeather) document.getElementById("weatherLink").value = savedWeather;
+
+    const savedLocalNews = localStorage.getItem("localNewsLink");
+    if (savedLocalNews) document.getElementById("localNewsLink").value = savedLocalNews;
+
+    const savedStateNews = localStorage.getItem("stateNewsLink");
+    if (savedStateNews) document.getElementById("stateNewsLink").value = savedStateNews;
+  };
+
+  function openWeather() {
+    const url = document.getElementById("weatherLink").value;
+    if (url) {
+      localStorage.setItem("weatherLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid weather link.");
+    }
+  }
+
+  function openLocalNews() {
+    const url = document.getElementById("localNewsLink").value;
+    if (url) {
+      localStorage.setItem("localNewsLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid local news link.");
+    }
+  }
+
+  function openStateNews() {
+    const url = document.getElementById("stateNewsLink").value;
+    if (url) {
+      localStorage.setItem("stateNewsLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid state news link.");
+    }
+  }
+</script>
 
 <!-- Leave these as-is -->
 <script src="local-news.js" defer></script>
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
