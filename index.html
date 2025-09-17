@@ -572,18 +572,38 @@ right h
   <!-- Local Weather Section -->
 <!-- Local Weather Section -->
 <!-- Your Choice Section -->
+<!-- Local Weather Section -->
+<div id="local-weather" class="section" style="margin: 0;">
+  <h3 style="color:#003366;">Local Weather</h3>
+  <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
+
+  <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
+  <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
+</div>
+
+<!-- Your Choice Section -->
 <div id="your-choice" class="section" style="margin: 2em 0;">
   <h3 style="color:#003366;">Your Choice</h3>
   <p>Paste your favorite link below. It’ll stay fixed so you can open it every day with one click.</p>
 
-  <!-- Your Choice Input -->
   <label for="yourChoiceLink" style="font-weight: bold;">Your Link:</label>
   <input type="text" id="yourChoiceLink" placeholder="Paste your favorite link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openYourChoice()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Your Choice</button>
+</div>
 
-  <!-- Open Your Choice Button -->
-  <button onclick="openYourChoice()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">
-    Open Your Choice
-  </button>
+<!-- Local & State News Section -->
+<div id="traffic-news" class="section" style="margin: 2em 0;">
+  <h3 style="color:#003366;">Local & State News</h3>
+  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+
+  <label for="localNewsLink" style="font-weight: bold;">Local News Link:</label>
+  <input type="text" id="localNewsLink" placeholder="Paste your local news link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
+
+  <label for="stateNewsLink" style="font-weight: bold; margin-top: 1em;">State News Link:</label>
+  <input type="text" id="stateNewsLink" placeholder="Paste your state news link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
 </div>
 
 <!-- Maps Section -->
@@ -591,33 +611,36 @@ right h
   <h3 style="color:#003366;">Need Directions?</h3>
   <p>Click below to launch your preferred traffic app:</p>
 
-  <!-- Google Maps Button -->
-  <a href="https://www.google.com/maps" target="_blank" style="display: inline-block; margin-right: 1em; padding: 0.5em 1em; background-color: #4285F4; color: #fff; border-radius: 4px; text-decoration: none;">
-    Google Maps
-  </a>
-
-  <!-- Waze Button -->
-  <a href="https://www.waze.com" target="_blank" style="display: inline-block; padding: 0.5em 1em; background-color: #33CCFF; color: #fff; border-radius: 4px; text-decoration: none;">
-    Waze
-  </a>
+  <a href="https://www.google.com/maps" target="_blank" style="display: inline-block; margin-right: 1em; padding: 0.5em 1em; background-color: #4285F4; color: #fff; border-radius: 4px; text-decoration: none;">Google Maps</a>
+  <a href="https://www.waze.com" target="_blank" style="display: inline-block; padding: 0.5em 1em; background-color: #33CCFF; color: #fff; border-radius: 4px; text-decoration: none;">Waze</a>
 </div>
 
-<!-- Script for Your Choice -->
+<!-- Script Block -->
 <script>
-  // Load saved "Your Choice" link
   window.onload = function () {
-    const savedChoice = localStorage.getItem("yourChoiceLink");
-    if (savedChoice) {
-      document.getElementById("yourChoiceLink").value = savedChoice;
-    }
-
     const savedWeather = localStorage.getItem("weatherLink");
-    if (savedWeather) {
-      document.getElementById("weatherLink").value = savedWeather;
-    }
+    if (savedWeather) document.getElementById("weatherLink").value = savedWeather;
+
+    const savedChoice = localStorage.getItem("yourChoiceLink");
+    if (savedChoice) document.getElementById("yourChoiceLink").value = savedChoice;
+
+    const savedLocal = localStorage.getItem("localNewsLink");
+    if (savedLocal) document.getElementById("localNewsLink").value = savedLocal;
+
+    const savedState = localStorage.getItem("stateNewsLink");
+    if (savedState) document.getElementById("stateNewsLink").value = savedState;
   };
 
-  // Save and open "Your Choice" link
+  function openWeather() {
+    const url = document.getElementById("weatherLink").value;
+    if (url) {
+      localStorage.setItem("weatherLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid weather link.");
+    }
+  }
+
   function openYourChoice() {
     const url = document.getElementById("yourChoiceLink").value;
     if (url) {
@@ -628,14 +651,23 @@ right h
     }
   }
 
-  // Save and open Weather link
-  function openWeather() {
-    const url = document.getElementById("weatherLink").value;
+  function openLocalNews() {
+    const url = document.getElementById("localNewsLink").value;
     if (url) {
-      localStorage.setItem("weatherLink", url);
+      localStorage.setItem("localNewsLink", url);
       window.open(url, "_blank");
     } else {
-      alert("Please enter a valid weather link.");
+      alert("Please enter a valid local news link.");
+    }
+  }
+
+  function openStateNews() {
+    const url = document.getElementById("stateNewsLink").value;
+    if (url) {
+      localStorage.setItem("stateNewsLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid state news link.");
     }
   }
 </script>
@@ -1625,6 +1657,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
