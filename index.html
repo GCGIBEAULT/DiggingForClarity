@@ -1205,19 +1205,21 @@ function renderLocalNews(snippets, reason = "") {
     }
   }
 
-  function displayFavorite(num) {
-    const saved = localStorage.getItem(`userFavorite${num}`);
-    const display = document.getElementById(`display${num}`);
-    const inputField = document.getElementById(`favorite${num}`);
+ function displayFavorite(num) {
+  const saved = localStorage.getItem(`userFavorite${num}`);
+  const display = document.getElementById(`display${num}`);
+  const inputField = document.getElementById(`favorite${num}`);
 
-    if (saved && saved.includes(".")) {
-      display.innerHTML = `<a href="${saved}" target="_blank" style="color:#003366; text-decoration: underline;">${saved}</a>`;
-      inputField.style.display = "none";
-    } else {
-      inputField.style.display = "block";
-      display.innerHTML = "";
-    }
+  if (saved && saved.includes(".") && saved !== "undefined" && saved.trim() !== "") {
+    display.innerHTML = `<a href="${saved}" target="_blank" style="color:#003366; text-decoration: underline;">${saved}</a>`;
+    inputField.style.display = "none";
+  } else {
+    inputField.style.display = "block";
+    display.innerHTML = "";
+    localStorage.removeItem(`userFavorite${num}`); // Clean up bad data
   }
+}
+
 
   window.onload = function () {
     // Restore Weather
@@ -1292,6 +1294,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
