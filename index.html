@@ -1208,31 +1208,24 @@ function renderLocalNews(snippets, reason = "") {
   function displayFavorite(num) {
     const saved = localStorage.getItem(`userFavorite${num}`);
     const display = document.getElementById(`display${num}`);
-    if (saved) {
+    const inputField = document.getElementById(`favorite${num}`);
+
+    if (saved && saved.includes(".")) {
       display.innerHTML = `<a href="${saved}" target="_blank" style="color:#003366; text-decoration: underline;">${saved}</a>`;
-      document.getElementById(`favorite${num}`).style.display = "none";
+      inputField.style.display = "none";
+    } else {
+      inputField.style.display = "block";
+      display.innerHTML = "";
     }
   }
 
   window.onload = function () {
-    // Restore Weather
-    const savedWeather = localStorage.getItem("weatherLink");
-    if (savedWeather) document.getElementById("weatherLink").value = savedWeather;
-
-    // Restore Local News
-    const savedLocalNews = localStorage.getItem("localNews");
-    if (savedLocalNews) document.getElementById("localNews").value = savedLocalNews;
-
-    // Restore State News
-    const savedStateNews = localStorage.getItem("stateNews");
-    if (savedStateNews) document.getElementById("stateNews").value = savedStateNews;
-
-    // Restore Favorites
     displayFavorite(1);
     displayFavorite(2);
     displayFavorite(3);
   };
 </script>
+
 
 <script>
   function formatURL(input) {
@@ -1286,6 +1279,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
