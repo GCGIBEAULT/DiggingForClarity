@@ -762,23 +762,6 @@ function toggleReflection(event) {
 <div class="section" style="margin-top: 2em;">
  <h3 style="color:#003366;">Favorites</h3>
 
-<!-- Favorite #1 -->
-<label for="favorite1" style="font-weight: bold;">Favorite #1:</label>
-<input type="url" id="favorite1" placeholder="Enter a favorite URL" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-<button onclick="saveFavorite(1)" style="margin-bottom: 1em;">Save Favorite</button>
-<div id="display1" style="margin-bottom: 1em;"></div>
-
-<!-- Favorite #2 -->
-<label for="favorite2" style="font-weight: bold;">Favorite #2:</label>
-<input type="url" id="favorite2" placeholder="Enter a favorite URL" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-<button onclick="saveFavorite(2)" style="margin-bottom: 1em;">Save Favorite</button>
-<div id="display2" style="margin-bottom: 1em;"></div>
-
-<!-- Favorite #3 -->
-<label for="favorite3" style="font-weight: bold;">Favorite #3:</label>
-<input type="url" id="favorite3" placeholder="Enter a favorite URL" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-<button onclick="saveFavorite(3)" style="margin-bottom: 1em;">Save Favorite</button>
-<div id="display3" style="margin-bottom: 1em;"></div>
 
   <!-- Full Quote and Email -->
   <p style="font-style: italic; color: #666;">
@@ -1174,126 +1157,15 @@ function renderLocalNews(snippets, reason = "") {
     }
   }
 </script>
-<script>
-  function formatURL(input) {
-    input = input.trim().toLowerCase();
-    const knownSites = {
-      facebook: "https://facebook.com",
-      pinterest: "https://pinterest.com",
-      youtube: "https://youtube.com",
-      reddit: "https://reddit.com",
-      amazon: "https://amazon.com",
-      linkedin: "https://linkedin.com",
-      gmail: "https://mail.google.com",
-      yahoo: "https://mail.yahoo.com"
-    };
-    if (knownSites[input]) return knownSites[input];
-    if (!input.startsWith("http://") && !input.startsWith("https://")) {
-      input = "https://" + input;
-    }
-    return input;
-  }
+<
 
-  function saveFavorite(num) {
-    const rawInput = document.getElementById(`favorite${num}`).value;
-    const formatted = formatURL(rawInput);
-    if (formatted.includes(".")) {
-      localStorage.setItem(`userFavorite${num}`, formatted);
-      displayFavorite(num);
-    } else {
-      alert("Please enter a valid URL or known site name (e.g., facebook, pinterest, or example.com)");
-    }
-  }
-
- function displayFavorite(num) {
-  const saved = localStorage.getItem(`userFavorite${num}`);
-  const display = document.getElementById(`display${num}`);
-  const inputField = document.getElementById(`favorite${num}`);
-
-  if (saved && saved.includes(".") && saved !== "undefined" && saved.trim() !== "") {
-    display.innerHTML = `<a href="${saved}" target="_blank" style="color:#003366; text-decoration: underline;">${saved}</a>`;
-    inputField.style.display = "none";
-  } else {
-    inputField.style.display = "block";
-    display.innerHTML = "";
-    localStorage.removeItem(`userFavorite${num}`); // Clean up bad data
-  }
-}
-
-
-  window.onload = function () {
-    // Restore Weather
-    const savedWeather = localStorage.getItem("weatherLink");
-    if (savedWeather) document.getElementById("weatherLink").value = savedWeather;
-
-    // Restore Local News
-    const savedLocalNews = localStorage.getItem("localNews");
-    if (savedLocalNews) document.getElementById("localNews").value = savedLocalNews;
-
-    // Restore State News
-    const savedStateNews = localStorage.getItem("stateNews");
-    if (savedStateNews) document.getElementById("stateNews").value = savedStateNews;
-
-    // Restore Favorites
-    displayFavorite(1);
-    displayFavorite(2);
-    displayFavorite(3);
-  };
-</script>
-
-
-<script>
-  function formatURL(input) {
-    input = input.trim().toLowerCase();
-    const knownSites = {
-      facebook: "https://facebook.com",
-      pinterest: "https://pinterest.com",
-      youtube: "https://youtube.com",
-      reddit: "https://reddit.com",
-      amazon: "https://amazon.com",
-      linkedin: "https://linkedin.com",
-      gmail: "https://mail.google.com",
-      yahoo: "https://mail.yahoo.com"
-    };
-    if (knownSites[input]) return knownSites[input];
-    if (!input.startsWith("http://") && !input.startsWith("https://")) {
-      input = "https://" + input;
-    }
-    return input;
-  }
-
-  function saveFavorite(num) {
-    const rawInput = document.getElementById(`favorite${num}`).value;
-    const formatted = formatURL(rawInput);
-    if (formatted.includes(".")) {
-      localStorage.setItem(`userFavorite${num}`, formatted);
-      displayFavorite(num);
-    } else {
-      alert("Please enter a valid URL or known site name (e.g., facebook, pinterest, or example.com)");
-    }
-  }
-
-  function displayFavorite(num) {
-    const saved = localStorage.getItem(`userFavorite${num}`);
-    const display = document.getElementById(`display${num}`);
-    if (saved) {
-      display.innerHTML = `<a href="${saved}" target="_blank" style="color:#003366; text-decoration: underline;">${saved}</a>`;
-      document.getElementById(`favorite${num}`).style.display = "none";
-    }
-  }
-
-  window.onload = function () {
-    displayFavorite(1);
-    displayFavorite(2);
-    displayFavorite(3);
-  };
-</script>
 
 <!-- Leave these as-is -->
 <script src="local-news.js" defer></script>
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
