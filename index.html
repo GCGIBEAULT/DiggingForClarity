@@ -647,29 +647,54 @@ function toggleReflection(event) {
   <!-- Game Day -->
 <div class="section" style="margin-top: 2em;">
   <h3 style="color:#003366;">Game Day: Week 3</h3>
-  <ul id="gameList" style="list-style-type: none; padding-left: 0;"></ul>
+  <table style="width: 100%; border-collapse: collapse; font-family: sans-serif;">
+    <thead>
+      <tr style="text-align: left; border-bottom: 2px solid #ccc;">
+        <th style="padding: 0.5em;">Matchup</th>
+        <th style="padding: 0.5em;">Time (MDT)</th>
+        <th style="padding: 0.5em;">Network</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 0.5em;">Dolphins at Bills</td>
+        <td style="padding: 0.5em;">5:15 PM</td>
+        <td style="padding: 0.5em;">Prime Video</td>
+      </tr>
+      <tr>
+        <td style="padding: 0.5em;">Chiefs at Giants</td>
+        <td style="padding: 0.5em;">5:20 PM</td>
+        <td style="padding: 0.5em;">NBC</td>
+      </tr>
+      <tr>
+        <td style="padding: 0.5em;">Cowboys at Bears</td>
+        <td style="padding: 0.5em;">1:25 PM</td>
+        <td style="padding: 0.5em;">FOX</td>
+      </tr>
+      <tr>
+        <td style="padding: 0.5em;">Cardinals at 49ers</td>
+        <td style="padding: 0.5em;">1:25 PM</td>
+        <td style="padding: 0.5em;">FOX</td>
+      </tr>
+      <tr>
+        <td style="padding: 0.5em;">Broncos at Chargers</td>
+        <td style="padding: 0.5em;">1:05 PM</td>
+        <td style="padding: 0.5em;">CBS</td>
+      </tr>
+      <tr>
+        <td style="padding: 0.5em;">Lions at Ravens</td>
+        <td style="padding: 0.5em;">5:15 PM</td>
+        <td style="padding: 0.5em;">ESPN / ABC</td>
+      </tr>
+      <tr>
+        <td style="padding: 0.5em;">Packers at Browns</td>
+        <td style="padding: 0.5em;">6:15 PM</td>
+        <td style="padding: 0.5em;">FOX</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<script>
-  const games = [
-    { matchup: "Dolphins at Bills", time: "5:15 PM MDT", day: "Thursday" },
-    { matchup: "Chiefs at Giants", time: "5:20 PM MDT", day: "Thursday" },
-    { matchup: "Cowboys at Bears", time: "1:25 PM MDT", day: "Sunday" },
-    { matchup: "Cardinals at 49ers", time: "1:25 PM MDT", day: "Sunday" },
-    { matchup: "Broncos at Chargers", time: "1:05 PM MDT", day: "Sunday" },
-    { matchup: "Lions at Ravens", time: "5:15 PM MDT", day: "Monday" },
-    { matchup: "Packers at Browns", time: "6:15 PM MDT", day: "Monday" }
-  ];
-
-  const gameList = document.getElementById("gameList");
-
-  games.forEach(game => {
-    const item = document.createElement("li");
-    item.style.marginBottom = "0.5em";
-    item.innerHTML = `<strong>${game.matchup}</strong> — ${game.time} <span style="color:#666;">(${game.day})</span>`;
-    gameList.appendChild(item);
-  });
-</script>
 
 
 
@@ -1161,6 +1186,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
