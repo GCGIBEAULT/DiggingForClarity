@@ -1174,12 +1174,54 @@ function renderLocalNews(snippets, reason = "") {
     }
   }
 </script>
+<script>
+  function formatURL(input) {
+    // Trim and lowercase for consistency
+    input = input.trim();
+
+    // If user enters just "facebook", "youtube.com", etc.
+    if (!input.startsWith("http://") && !input.startsWith("https://")) {
+      input = "https://" + input;
+    }
+
+    return input;
+  }
+
+  function saveFavorite(num) {
+    const rawInput = document.getElementById(`favorite${num}`).value;
+    const formatted = formatURL(rawInput);
+
+    // Basic validation: must contain at least one dot (e.g., .com, .org)
+    if (formatted.includes(".")) {
+      localStorage.setItem(`userFavorite${num}`, formatted);
+      displayFavorite(num);
+    } else {
+      alert("Please enter a valid URL (e.g., facebook.com or https://example.org)");
+    }
+  }
+
+  function displayFavorite(num) {
+    const saved = localStorage.getItem(`userFavorite${num}`);
+    const display = document.getElementById(`display${num}`);
+    if (saved) {
+      display.innerHTML = `<a href="${saved}" target="_blank" style="color:#003366; text-decoration: underline;">${saved}</a>`;
+      document.getElementById(`favorite${num}`).style.display = "none";
+    }
+  }
+
+  window.onload = function () {
+    displayFavorite(1);
+    displayFavorite(2);
+    displayFavorite(3);
+  };
+</script>
 
 <!-- Leave these as-is -->
 <script src="local-news.js" defer></script>
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
