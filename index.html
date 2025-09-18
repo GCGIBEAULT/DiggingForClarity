@@ -759,40 +759,62 @@ function toggleReflection(event) {
 
 
   <!-- Favorites -->
-  <div class="section" style="border: 1px solid #ccc; padding: 1em 1em 2.5em 1em; border-radius: 6px; background-color: #f4f1ec;">
-    <h3 style="margin-bottom: 0.5em;">Favorites</h3>
-    <p style="font-style: italic; font-size: 0.85rem; color: #666;">In case you must</p>
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.3em; max-width: 800px; margin: 1em auto;">
-      <div class="snippet"><a href="https://copilot.microsoft.com/" target="_blank">🤖 Ask Copilot</a></div>
-      <div class="snippet"><a href="https://chat.openai.com/" target="_blank">💬 ChatGPT</a></div>
-      <div class="snippet"><a href="https://mail.yahoo.com" target="_blank">Yahoo Mail</a></div>
-      <div class="snippet"><a href="https://mail.google.com" target="_blank">Gmail</a></div>
-      <div class="snippet"><a href="https://www.foxnews.com" target="_blank">Fox News</a></div>
-      <div class="snippet"><a href="https://www.cnn.com" target="_blank">CNN</a></div>
-      <div class="snippet"><a href="https://www.msnbc.com/live" target="_blank">MSNBC Live</a></div>
-      <div class="snippet"><a href="https://www.snapchat.com" target="_blank">Snapchat</a></div>
-      <div class="snippet"><a href="https://www.pinterest.com" target="_blank">Pinterest</a></div>
-      <div class="snippet"><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></div>
-      <div class="snippet"><a href="https://www.amazon.com" target="_blank">Amazon</a></div>
-      <div class="snippet"><a href="https://www.reddit.com" target="_blank">Reddit</a></div>
-      <div class="snippet"><a href="https://www.wikipedia.org" target="_blank">Wikipedia</a></div>
-      <div class="snippet"><a href="https://www.facebook.com" target="_blank">Facebook</a></div>
-      <div class="snippet"><a href="https://www.whatsapp.com" target="_blank">WhatsApp</a></div>
-      <div class="snippet"><a href="https://www.youtube.com" target="_blank">YouTube</a></div>
-      <div class="snippet"><a href="https://www.twitter.com" target="_blank">X</a></div>
-    </div>
-    <div style="height: 2.5em;"></div>
-    <p style="font-size: 0.95rem; font-weight: bold; color: #444; text-align: center;">
-      Favorite Suggestion? Email 
-      <a href="mailto:diggingforclarity@gmail.com" style="font-size: 0.95rem; font-weight: bold; color: #3366cc; text-decoration: underline;">
-        diggingforclarity@gmail.com
-      </a>
-    </p>
-    <div style="height: 2em;"></div>
-    <p style="font-size: 0.95rem; color: #444; text-align: center; margin-top: 2em;">
-      Thank you for experimenting with your own clarity by participating in <em>my</em> vision—a quiet space for thoughtful news, even when the stories themselves are anything but quiet. This page isn’t about peace—it’s about restoring editorial control, so we can carry that clarity into the lives that matter most to us.
-    </p>
-  </div>
+ <div class="section" style="margin-top: 2em;">
+  <h3 style="color:#003366;">Favorites</h3>
+
+  <!-- Favorite #1 -->
+  <label for="favorite1" style="font-weight: bold;">Favorite #1:</label>
+  <input type="url" id="favorite1" placeholder="Enter a favorite URL" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="saveFavorite(1)" style="margin-bottom: 1em;">Save Favorite</button>
+  <div id="display1" style="margin-bottom: 1em;"></div>
+
+  <!-- Favorite #2 -->
+  <label for="favorite2" style="font-weight: bold;">Favorite #2:</label>
+  <input type="url" id="favorite2" placeholder="Enter a favorite URL" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="saveFavorite(2)" style="margin-bottom: 1em;">Save Favorite</button>
+  <div id="display2" style="margin-bottom: 1em;"></div>
+
+  <!-- Favorite #3 -->
+  <label for="favorite3" style="font-weight: bold;">Favorite #3:</label>
+  <input type="url" id="favorite3" placeholder="Enter a favorite URL" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="saveFavorite(3)" style="margin-bottom: 1em;">Save Favorite</button>
+  <div id="display3" style="margin-bottom: 1em;"></div>
+
+  <!-- Quote and Contact -->
+  <p style="font-style: italic; color: #666;">
+    Thank you for experimenting with your own clarity by participating in my vision—a quiet space for thoughtful news, even when the stories themselves are anything but quiet.
+  </p>
+  <p style="font-style: italic; color: #666;">
+    Email <a href="mailto:diggingforclarity@gmail.com" style="color:#003366; text-decoration: underline;">diggingforclarity@gmail.com</a>
+  </p>
+  <p style="font-size: 0.9em; color: #999;">© Digging For Clarity 2025. All rights reserved.</p>
+</div>
+
+<script>
+  function saveFavorite(num) {
+    const input = document.getElementById(`favorite${num}`).value;
+    if (input) {
+      localStorage.setItem(`userFavorite${num}`, input);
+      displayFavorite(num);
+    }
+  }
+
+  function displayFavorite(num) {
+    const saved = localStorage.getItem(`userFavorite${num}`);
+    const display = document.getElementById(`display${num}`);
+    if (saved) {
+      display.innerHTML = `<a href="${saved}" target="_blank" style="color:#003366; text-decoration: underline;">${saved}</a>`;
+      document.getElementById(`favorite${num}`).style.display = "none";
+    }
+  }
+
+  window.onload = function () {
+    displayFavorite(1);
+    displayFavorite(2);
+    displayFavorite(3);
+  };
+</script>
+
 
 </section>
 
@@ -1155,6 +1177,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
