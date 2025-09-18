@@ -1083,19 +1083,25 @@ function renderLocalNews(snippets, reason = "") {
 
 
 <script>
-  window.onload = function () {
+  document.addEventListener("DOMContentLoaded", () => {
     const savedWeather = localStorage.getItem("weatherLink");
-    if (savedWeather) document.getElementById("weatherLink").value = savedWeather;
+    if (savedWeather) {
+      document.getElementById("weatherLink").value = savedWeather;
+    }
 
     const savedLocalNews = localStorage.getItem("localNews");
-    if (savedLocalNews) document.getElementById("localNews").value = savedLocalNews;
+    if (savedLocalNews) {
+      document.getElementById("localNews").value = savedLocalNews;
+    }
 
     const savedStateNews = localStorage.getItem("stateNews");
-    if (savedStateNews) document.getElementById("stateNews").value = savedStateNews;
-  };
+    if (savedStateNews) {
+      document.getElementById("stateNews").value = savedStateNews;
+    }
+  });
 
   function openWeather() {
-    const url = document.getElementById("weatherLink").value;
+    const url = document.getElementById("weatherLink").value.trim();
     if (url) {
       localStorage.setItem("weatherLink", url);
       window.open(url, "_blank");
@@ -1105,7 +1111,7 @@ function renderLocalNews(snippets, reason = "") {
   }
 
   function openLocalNews() {
-    const url = document.getElementById("localNews").value;
+    const url = document.getElementById("localNews").value.trim();
     if (url) {
       localStorage.setItem("localNews", url);
       window.open(url, "_blank");
@@ -1115,7 +1121,7 @@ function renderLocalNews(snippets, reason = "") {
   }
 
   function openStateNews() {
-    const url = document.getElementById("stateNews").value;
+    const url = document.getElementById("stateNews").value.trim();
     if (url) {
       localStorage.setItem("stateNews", url);
       window.open(url, "_blank");
@@ -1124,6 +1130,7 @@ function renderLocalNews(snippets, reason = "") {
     }
   }
 </script>
+
 <script>
   window.onload = function () {
     const savedLocalNews = localStorage.getItem("localNews");
@@ -1165,6 +1172,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
