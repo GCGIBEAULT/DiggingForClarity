@@ -1176,27 +1176,32 @@ function renderLocalNews(snippets, reason = "") {
 </script>
 <script>
   function formatURL(input) {
-    // Trim and lowercase for consistency
-    input = input.trim();
-
-    // If user enters just "facebook", "youtube.com", etc.
+    input = input.trim().toLowerCase();
+    const knownSites = {
+      facebook: "https://facebook.com",
+      pinterest: "https://pinterest.com",
+      youtube: "https://youtube.com",
+      reddit: "https://reddit.com",
+      amazon: "https://amazon.com",
+      linkedin: "https://linkedin.com",
+      gmail: "https://mail.google.com",
+      yahoo: "https://mail.yahoo.com"
+    };
+    if (knownSites[input]) return knownSites[input];
     if (!input.startsWith("http://") && !input.startsWith("https://")) {
       input = "https://" + input;
     }
-
     return input;
   }
 
   function saveFavorite(num) {
     const rawInput = document.getElementById(`favorite${num}`).value;
     const formatted = formatURL(rawInput);
-
-    // Basic validation: must contain at least one dot (e.g., .com, .org)
     if (formatted.includes(".")) {
       localStorage.setItem(`userFavorite${num}`, formatted);
       displayFavorite(num);
     } else {
-      alert("Please enter a valid URL (e.g., facebook.com or https://example.org)");
+      alert("Please enter a valid URL or known site name (e.g., facebook, pinterest, or example.com)");
     }
   }
 
@@ -1210,11 +1215,25 @@ function renderLocalNews(snippets, reason = "") {
   }
 
   window.onload = function () {
+    // Restore Weather
+    const savedWeather = localStorage.getItem("weatherLink");
+    if (savedWeather) document.getElementById("weatherLink").value = savedWeather;
+
+    // Restore Local News
+    const savedLocalNews = localStorage.getItem("localNews");
+    if (savedLocalNews) document.getElementById("localNews").value = savedLocalNews;
+
+    // Restore State News
+    const savedStateNews = localStorage.getItem("stateNews");
+    if (savedStateNews) document.getElementById("stateNews").value = savedStateNews;
+
+    // Restore Favorites
     displayFavorite(1);
     displayFavorite(2);
     displayFavorite(3);
   };
 </script>
+
 <script>
   function formatURL(input) {
     input = input.trim().toLowerCase();
@@ -1267,6 +1286,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
