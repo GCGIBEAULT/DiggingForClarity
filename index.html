@@ -789,45 +789,51 @@ function toggleReflection(event) {
 
 
   <!-- Favorites -->
-<div class="section" style="margin-top: 2em;">
- <h3 style="color:#003366;">Favorites</h3>
+<div class="section" style="margin-top: 2em; margin-bottom: 2em;">
+  <h3 style="color:#003366;">Favorites</h3>
+  <p>Paste your favorite links below. They’ll stay fixed so you can open them every day with one click.</p>
 
+  <!-- Favorite 1 -->
+  <label for="favorite1">Favorite 1:</label>
+  <input type="text" id="favorite1" style="width: 100%; margin-bottom: 0.5em;">
+  <button onclick="openFavorite('favorite1')">View Favorite</button>
 
-  <!-- Full Quote and Email -->
-  <p style="font-style: italic; color: #666;">
-    Thank you for experimenting with your own clarity by participating in my vision—a quiet space for thoughtful news, even when the stories themselves are anything but quiet.
-  </p>
-  <p style="font-style: italic; color: #666;">
-    This page isn’t about peace—it’s about restoring editorial control, so we can carry that clarity into the lives that matter most to us.
-  </p>
-  <p style="font-style: italic; color: #666;">
-    Email <a href="mailto:diggingforclarity@gmail.com" style="color:#003366; text-decoration: underline;">diggingforclarity@gmail.com</a>
-  </p>
+  <!-- Favorite 2 -->
+  <label for="favorite2" style="margin-top: 1em;">Favorite 2:</label>
+  <input type="text" id="favorite2" style="width: 100%; margin-bottom: 0.5em;">
+  <button onclick="openFavorite('favorite2')">View Favorite</button>
+
+  <!-- Favorite 3 -->
+  <label for="favorite3" style="margin-top: 1em;">Favorite 3:</label>
+  <input type="text" id="favorite3" style="width: 100%; margin-bottom: 0.5em;">
+  <button onclick="openFavorite('favorite3')">View Favorite</button>
+
+  <!-- Your Quote and Email (Preserved) -->
+  <p style="margin-top: 2em;">Thank you for experimenting with your own clarity by participating in my vision—a quiet space for thoughtful news, even when the stories themselves are anything but quiet.</p>
+  <p>This page isn’t about peace—it’s about restoring editorial control, so we can carry that clarity into the lives that matter most to us.</p>
+  <p>Email <a href="mailto:diggingforclarity@gmail.com" style="color:#003366; text-decoration: underline;">diggingforclarity@gmail.com</a></p>
 </div>
 
 <script>
-  function saveFavorite(num) {
-    const input = document.getElementById(`favorite${num}`).value;
-    if (input) {
-      localStorage.setItem(`userFavorite${num}`, input);
-      displayFavorite(num);
+  document.addEventListener("DOMContentLoaded", () => {
+    ["favorite1", "favorite2", "favorite3"].forEach(id => {
+      const saved = localStorage.getItem(id);
+      if (saved) {
+        document.getElementById(id).value = saved;
+      }
+    });
+  });
+
+  function openFavorite(id) {
+    const input = document.getElementById(id);
+    const url = input?.value.trim();
+    if (url) {
+      localStorage.setItem(id, url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid link.");
     }
   }
-
-  function displayFavorite(num) {
-    const saved = localStorage.getItem(`userFavorite${num}`);
-    const display = document.getElementById(`display${num}`);
-    if (saved) {
-      display.innerHTML = `<a href="${saved}" target="_blank" style="color:#003366; text-decoration: underline;">${saved}</a>`;
-      document.getElementById(`favorite${num}`).style.display = "none";
-    }
-  }
-
-  window.onload = function () {
-    displayFavorite(1);
-    displayFavorite(2);
-    displayFavorite(3);
-  };
 </script>
 
 
@@ -1202,6 +1208,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
