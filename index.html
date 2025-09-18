@@ -1220,6 +1220,19 @@ function renderLocalNews(snippets, reason = "") {
   }
 
   window.onload = function () {
+    // Restore Weather
+    const savedWeather = localStorage.getItem("weatherLink");
+    if (savedWeather) document.getElementById("weatherLink").value = savedWeather;
+
+    // Restore Local News
+    const savedLocalNews = localStorage.getItem("localNews");
+    if (savedLocalNews) document.getElementById("localNews").value = savedLocalNews;
+
+    // Restore State News
+    const savedStateNews = localStorage.getItem("stateNews");
+    if (savedStateNews) document.getElementById("stateNews").value = savedStateNews;
+
+    // Restore Favorites
     displayFavorite(1);
     displayFavorite(2);
     displayFavorite(3);
@@ -1279,6 +1292,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
