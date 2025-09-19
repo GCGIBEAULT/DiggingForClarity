@@ -727,6 +727,15 @@ body {
     display: none;
   }
 }
+#mountain-time {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #000000;
+  z-index: 1000;
+}
 
 
 
