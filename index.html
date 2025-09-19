@@ -140,19 +140,38 @@ function toggleReflection(event) {
   <p style="text-align: center; font-size: 1.4em; font-weight: bold; font-style: italic; color: #000000; margin: 2em 0;">
     You don’t read the news for pleasure. You don’t need more news. You need better news.
   </p>
-</div>
-<div style="max-width: 480px; margin: 0 auto;">
- <p id="mountain-time" style="
-  font-size: 0.9em;
-  font-weight: bold;
-  color: #000000;
-  text-align: center;
-  margin-top: 1em;
-">
-</p>
 
-
+  <p id="eastern-time" style="
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    margin-top: 1em;
+  ">
+  </p>
 </div>
+
+<script>
+  function updateEasternTime() {
+    const now = new Date();
+    const options = {
+      timeZone: 'America/New_York',
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    };
+    document.getElementById('eastern-time').innerText = now.toLocaleString('en-US', options) + ' ET';
+  }
+
+  setInterval(updateEasternTime, 1000);
+  updateEasternTime();
+</script>
+
 
 
 
@@ -1311,6 +1330,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
