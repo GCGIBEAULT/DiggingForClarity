@@ -727,6 +727,35 @@ body {
     display: none;
   }
 }
+.editorial-box {
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo-center {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .site-title {
+    font-size: 2rem;
+  }
+
+  .header-tagline {
+    font-size: 1.2rem;
+  }
+
+  .editorial-signature {
+    font-size: 0.9rem;
+  }
+
+  .logo-center-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 
 
