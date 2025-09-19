@@ -328,7 +328,7 @@ function toggleReflection(event) {
 </div>
 
 <section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
-  <h3 style="color:#003366;">Global News</h3>
+ <h3 id="global-news" style="color:#003366;">Global News</h3>
   <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
     <li>
       <a href="https://www.pbs.org/newshour/show/september-18-2025-pbs-news-hour-full-episode" target="_blank" style="color: #0645AD; text-decoration: underline;">
@@ -417,7 +417,7 @@ function toggleReflection(event) {
 
 
 <div class="section" style="margin-top: 2em;">
-  <h3 style="color:#003366;">The Cost of Governance</h3>
+ <h3 id="governance" style="color:#003366;">The Cost of Governance</h3>
   <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.8;">
     <li><strong>Total Federal Outlays:</strong> $7.0 trillion — Covers everything from defense and healthcare to infrastructure and interest payments.</li>
     <li><strong>Total Revenues:</strong> $5.2 trillion — The government brings in less than it spends, creating a persistent gap that fuels long-term debt.</li>
@@ -439,7 +439,7 @@ function toggleReflection(event) {
 
 
 <div class="section" style="margin-top: 2em;">
-  <h3 style="color:#003366;">Veterans — Thank You for Your Service</h3>
+  <h3 id="veterans" style="color:#003366;">Veterans</h3>
 
   <p style="line-height: 1.6; color: #333;">
     If you’re a veteran, you are eligible to receive medical care at any VA hospital or emergency room—free of charge. This includes walk-in care, urgent care, and emergency services. You do not need a disability rating or an active claim. If you served, you’re covered.
@@ -501,7 +501,7 @@ function toggleReflection(event) {
 
   <!-- SPORTS BLOCK -->
 <div class="section" style="margin-top: 2em;">
-  <h3 style="color:#003366;">Sports</h3>
+ <h3 id="sports" style="color:#003366;">Sports</h3>
   <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
 
     <li>
@@ -577,7 +577,7 @@ function toggleReflection(event) {
 
   <!-- AI BLOCK -->
 <section class="section" style="margin-top: 2em;">
-  <h3 style="color:#003366;">AI</h3>
+ <h3 id="ai" style="color:#003366;">AI</h3>
   <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
     <li>
       <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report/science-and-medicine" target="_blank" style="color: #0645AD; text-decoration: underline;">
@@ -632,7 +632,8 @@ function toggleReflection(event) {
 <section class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 1em;">
   <!-- NFL Standings -->
 <div class="section">
-  <h3 style="color:#003366;">NFL Standings</h3>
+ <h3 id="nfl-standings" style="color:#003366;">NFL Standings</h3>
+
   <div class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2em;">
 
     <!-- AFC East -->
@@ -709,7 +710,8 @@ function toggleReflection(event) {
 
   <!-- Game Day -->
 <div class="section" style="margin-top: 2em; margin-bottom: 2em;">
-  <h3 style="color:#003366;">Game Day: Week 3</h3>
+  <h3 id="game-day" style="color:#003366;">Game Day</h3>
+
   <div style="overflow-x: auto;">
     <table style="width: 100%; border-collapse: collapse; font-family: sans-serif;">
       <thead>
@@ -762,7 +764,7 @@ function toggleReflection(event) {
 
 <section class="grid">
 <div class="section" style="margin-top: 2em;">
-  <h3 style="color:#003366;">Market Watch</h3>
+ <h3 id="market" style="color:#003366;">Market Watch</h3>
   <p style="color:#003366;">Updated: Thursday, September 18, 2025 – 10:15 PM MT</p>
   <p style="color:#003366;">Dow Jones: 46,018.00 <span style="color: green;">+0.60%</span></p>
   <p style="color:#003366;">S&P 500: 6,658.00 <span style="color: green;">+0.87%</span></p>
@@ -796,8 +798,7 @@ function toggleReflection(event) {
 
   <!-- Make Noise, Not War -->
 <div class="section">
-  <h3 style="color:#003366;">Make Noise, Not War</h3>
-
+ <h3 id="make-noise" style="color:#003366;">Make Noise, Not War</h3>
   <!-- Tribute to Charlie Kirk -->
   <div style="background-color: #f4f1ec; padding: 1.5em; border-left: 4px solid #003366; margin-bottom: 2em;">
     <h4 style="color:#003366;">Thank You, Charlie</h4>
@@ -838,7 +839,7 @@ function toggleReflection(event) {
 
   <!-- Favorites -->
 <div class="section" style="margin-top: 2em; margin-bottom: 2em;">
-  <h3 style="color:#003366;">Favorites</h3>
+<h3 id="favorites" style="color:#003366;">Favorites</h3>
   <p>Paste your favorite links below. They’ll stay fixed so you can open them every day with one click.</p>
 
   <!-- Favorite 1 -->
@@ -1302,6 +1303,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
