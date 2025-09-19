@@ -1,133 +1,1786 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Grab Your Shovel</title>
-  <style>
-    h2 {
-      border-bottom: 2px solid black;
-      padding-bottom: 4px;
-      margin-top: 40px;
-      margin-bottom: 12px;
+<!-- === CSS INDEX ===
+1. Header Container
+2.  Cue
+3. Logo Wrapper
+4. Weather Grid
+5. Forecast Icons
+=================== -->
+<title>Digging For Clarity</title>
+
+<!-- === SEO & Social Metadata === -->
+<meta name="description" content="Digging For Clarity offers drama-free news, weather, and community updates with modular clarity and trust.">
+<meta name="keywords" content="Denver news, weather updates, drama-free news, modular , clarity, local events">
+<meta name="author" content="Gregg Gibeault">
+
+<!-- Open Graph (Facebook, LinkedIn, etc.) -->
+<meta property="og:title" content="Digging For Clarity">
+<meta property="og:description" content="Just The News Please. Hold The Drama.">
+<meta property="og:image" content="https://gcgibeault.github.io/DiggingForClarity/new_logo.png">
+<meta property="og:url" content="https://gcgibeault.github.io/DiggingForClarity/">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Digging For Clarity">
+<meta name="twitter:description" content="Drama-free news and weather, built for trust and clarity.">
+<meta name="twitter:image" content="https://gcgibeault.github.io/DiggingForClarity/new_logo.png">
+
+<!-- Structured Data (JSON-LD) -->
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsMediaOrganization",
+  "name": "Digging For Clarity",
+  "url": "https://gcgibeault.github.io/DiggingForClarity/",
+  "logo": "https://gcgibeault.github.io/DiggingForClarity/new_logo.png",
+  "sameAs": ["https://twitter.com", "https://facebook.com"],
+  "description": "Drama-free news, weather, and community updates with clarity and modular trust."
+}
+</script>
+
+<script>
+function toggleReflection(event) {
+  const full = document.getElementById("reflection-full");
+  const button = event.target;
+  if (full.classList.contains("hidden")) {
+    full.classList.remove("hidden");
+    button.textContent = "Show Less";
+  } else {
+    full.classList.add("hidden");
+    button.textContent = "Read More";
+  }
+}
+
+</script>
+
+
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link rel="preload" href="weather-smoke.png" as="image" />
+
+
+ <link rel="icon" href="https://gcgibeault.github.io/DiggingForClarity/new_logo.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon-v2.png">
+
+
+<link rel="manifest" href="manifest.json">
+
+  
+
+
+
+  
+ <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+
+  
+<!-- Logo Pair Above Editorial Divider -->
+
+
+
+
+  <!-- Masthead Content (sits above the stream) -->
+<!-- 🧭 Digging For Clarity Header -->
+<div class="masthead-wrapper" style="background-color: #f4f1ec; padding: 1.5em;">
+  <div class="editorial-box" style="max-width: 640px; margin: 0 auto; text-align: center;">
+    <h1 class="site-title" style="font-size: 2.8rem; font-weight: 900; font-family: 'Merriweather', serif; color: #111; margin-bottom: 0.4em;">
+      Digging For Clarity
+    </h1>
+    <p class="header-tagline" style="font-size: 1.6rem; font-weight: 700; font-family: 'Merriweather', serif; color: #222; margin-top: 0.4em;">
+      Just The News. Hold The Drama.
+    </p>
+    <h2 style="font-size: 1.2rem; font-weight: 600; color: #003366; margin-top: 1em;">
+      In Memory of Charlie Kirk
+    </h2>
+    <p class="editorial-signature" style="font-size: 1rem; font-style: italic; color: #444; margin-top: 0.5em;">
+      —Digging For Clarity
+    </p>
+  </div>
+</div>
+
+<!-- 🖼️ Logo Block with Both Images -->
+<div class="logo-center-wrapper" style="text-align: center;">
+  <img src="new_logo.png" class="logo-center" style="margin-right: 1em;">
+  <img src="dfc-inverted.png" class="logo-center">
+</div>
+
+
+</div>
+
+
+
+</div>
+
+  </div>
+</div>
+
+ 
+
+
+
+ 
+</div>
+
+
+
+
+</div>
+</div>
+
+
+<div style="max-width: 480px; margin: 2.5em auto; text-align: center;">
+  <p style="text-align: center; font-size: 1.4em; font-weight: bold; font-style: italic; color: #000000; margin: 2em 0;">
+    You don’t read the news for pleasure. You don’t need more news. You need better news.
+  </p>
+
+  <p id="eastern-time" style="
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    margin-top: 1em;
+  ">
+  </p>
+</div>
+
+<script>
+  function updateEasternTime() {
+    const now = new Date();
+    const options = {
+      timeZone: 'America/New_York',
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    };
+    document.getElementById('eastern-time').innerText = now.toLocaleString('en-US', options) + ' ET';
+  }
+
+  setInterval(updateEasternTime, 1000);
+  updateEasternTime();
+</script>
+
+
+
+
+
+
+ 
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Local Weather + Traffic Mapping -->
+<section class="grid" style="margin-top: 1em;">
+  <!-- Local Weather Section -->
+<!-- Local Weather Section -->
+<!-- Your Choice Section -->
+<!-- Local Weather Section -->
+<!-- Local Weather Section -->
+<!-- Local Weather Section -->
+<div id="local-weather" class="section" style="margin: 0;">
+ <div style="
+  background-color: #f5f5f5;
+  padding: 1em;
+  border-radius: 6px;
+  margin-bottom: 1em;
+  font-size: 0.95em;
+  font-weight: bold;
+  text-align: center;
+">
+  Quick Jump: 
+  <a href="#ai">AI</a> |
+  <a href="#sports">Sports</a> |
+  <a href="#congress">Congress</a> |
+  <a href="#executive">Executive</a> |
+  <a href="#governance">Governance</a> |
+  <a href="#veterans">Veterans</a> |
+   <a href="#global-news">Global</a> |
+  <a href="#market">Market</a> |
+  <a href="#make-noise">Make Noise</a> |
+  <a href="#favorites">Favorites</a>
+</div>
+
+  <h3 style="color:#003366;">Local Weather</h3>
+  <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
+  <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
+  <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
+
+  <!-- Navigation Tools -->
+  <div style="margin-top: 1.5em;">
+    <h4 style="color:#003366;">Need Directions?</h4>
+    <p>Click below to launch your preferred traffic app:</p>
+    <div class="snippet">
+      <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Google Maps</a>
+      &nbsp;&nbsp;
+      <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Waze</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.onload = function () {
+    const savedWeather = localStorage.getItem("weatherLink");
+    if (savedWeather) {
+      document.getElementById("weatherLink").value = savedWeather;
+    } else {
+      const defaultLink = "https://www.msn.com/en-us/weather/today/Denver,Colorado,United-States/we-city?ocid=msedgntp&cobrand=copilot";
+      document.getElementById("weatherLink").value = defaultLink;
+      localStorage.setItem("weatherLink", defaultLink);
     }
-  </style>
-</head>
-<body>
-  <!-- Logo -->
-  <img src="new_logo.png" alt="Grab Your Shovel Logo" style="display: block; margin: 0 auto; width: 350px;">
+  };
 
-  <!-- Header -->
-  <h1 style="color: red; text-align: center;">Breaking News. Not Broken News.</h1>
+  function openWeather() {
+    const url = document.getElementById("weatherLink").value;
+    if (url) {
+      localStorage.setItem("weatherLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid weather link.");
+    }
+  }
+</script>
 
-  <!-- Timestamp directly beneath headline -->
-  <div style="text-align: center; color: gray; font-size: 14px; margin-top: 4px;">
-    <span id="headlineTimestamp"></span>
+
+
+
+
+
+  <!-- Local & State News Section -->
+  <div id="traffic-news" class="section" style="margin: 0;">
+    <h3 style="color:#003366;">Local & State News</h3>
+    <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+
+    <!-- Local News Input -->
+    <label for="localNews" style="font-weight: bold;">Local News Link:</label>
+    <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+    <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
+
+    <!-- State News Input -->
+    <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
+    <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+    <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
   </div>
-  <script>
-    const headlineNow = new Date();
-    const headlineOptions = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' };
-    document.getElementById('headlineTimestamp').textContent = headlineNow.toLocaleString('en-US', headlineOptions);
-  </script>
+</section>
 
-  <!-- News Sections -->
-  <h2>Denver News</h2>
-  Youth pantry project – Local teens launch food pantry for families in need.<br>
-  Stabbing investigation – Police release new details in downtown incident.<br>
-  City council debates zoning – New rules could reshape neighborhoods.<br>
-  Library hours extended – Weekend access restored at 5 branches.<br>
-  Denver Zoo welcomes baby giraffe – Public naming contest begins.<br>
-  Public art installation – New murals celebrate community resilience.<br>
-  Noise ordinance update – Stricter rules for nightlife venues.<br>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center; margin-top: 6px;">
-    <strong>Keep Digging</strong>
+
+<section class="section" style="margin-top: 2em;">
+<div class="section" style="margin-top: 2em;">
+  <h3 style="color:#003366;">U.S. News</h3>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+
+    <li>
+      <a href="https://portcitydaily.com/latest-news/2025/09/18/uncw-investigating-threats-including-militia-presence-after-charlie-kirk-vigil-sparks-turbulence/" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>UNCW Investigates Threats After Charlie Kirk Vigil:</strong>
+      </a>
+      Campus police are reviewing social media posts referencing a “militia” presence following unrest at a student-led memorial for Kirk.
+    </li>
+
+    <li>
+      <a href="https://www.cbsnews.com/newyork/news/luigi-mangione-ceo-shooting-trial-update/" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Judge Drops Terror Charges Against Mangione:</strong>
+      </a>
+      The man accused of killing UnitedHealthcare CEO Brian Thompson no longer faces state terrorism charges, but murder charges remain.
+    </li>
+
+    <li>
+      <a href="https://www.nbcnews.com/news/us-news/2025/09/18/amazon-warehouse-collapse-injures-14-workers" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Amazon Warehouse Collapse Injures 14:</strong>
+      </a>
+      A structural failure at a Phoenix fulfillment center sent debris crashing into a break room. OSHA is investigating.
+    </li>
+
+    <li>
+      <a href="https://www.npr.org/2025/09/18/health/heatwave-linked-to-37-deaths-in-california" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>California Heatwave Linked to 37 Deaths:</strong>
+      </a>
+      Public health officials warn of rising mortality as record temperatures strain emergency services across the state.
+    </li>
+
+    <li>
+      <a href="https://www.reuters.com/legal/us/2025/09/18/texas-judge-blocks-ban-on-bookstore-displays" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Texas Judge Blocks Ban on Bookstore Displays:</strong>
+      </a>
+      A federal judge ruled that a state law restricting “sexually explicit” book displays is unconstitutional.
+    </li>
+
+    <li>
+      <a href="https://www.nytimes.com/2025/09/18/us/ohio-train-derailment-toxic-spill.html" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Ohio Train Derailment Sparks Toxic Spill Concerns:</strong>
+      </a>
+      Residents near the site of a Norfolk Southern derailment report chemical odors and health symptoms.
+    </li>
+
+    <li>
+      <a href="https://www.apnews.com/article/2025/09/18/las-vegas-casino-robbery-suspect-arrested" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Las Vegas Casino Robbery Suspect Arrested:</strong>
+      </a>
+      Police captured a man accused of stealing $1.2 million in chips from the Bellagio using a fake security badge.
+    </li>
+
+  </ul>
+</div>
+
+<section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+ <h3 id="global-news" style="color:#003366;">Global News</h3>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+    <li>
+      <a href="https://www.pbs.org/newshour/show/september-18-2025-pbs-news-hour-full-episode" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Russia Drone Incursion Prompts NATO Emergency Session:</strong>
+      </a>
+      Poland requested a UN Security Council meeting after 19 Russian drones violated NATO airspace.
+    </li>
+    <li>
+      <a href="https://www.pbs.org/newshour/show/september-18-2025-pbs-news-hour-full-episode" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>UN Assembly Endorses Two-State Declaration:</strong>
+      </a>
+      A nonbinding resolution supporting peaceful settlement between Israel and Palestine passed 142–10.
+    </li>
+    <li>
+      <a href="https://www.pbs.org/newshour/show/september-18-2025-pbs-news-hour-full-episode" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Deadly Floods Displace 100,000 in South Sudan:</strong>
+      </a>
+      UNHCR reports widespread displacement and urgent humanitarian needs following new flooding.
+    </li>
+    <li>
+      <a href="https://www.pbs.org/newshour/show/september-18-2025-pbs-news-hour-full-episode" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>CDC Vaccine Panel Overhauled Amid Global Pressure:</strong>
+      </a>
+      A restructured U.S. vaccine committee now includes skeptics, prompting concern from WHO officials.
+    </li>
+    <li>
+      <a href="https://www.pbs.org/newshour/show/september-18-2025-pbs-news-hour-full-episode" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Global Debt Crisis Deepens as Interest Costs Surge:</strong>
+      </a>
+      IMF warns that rising interest payments are straining budgets across developing nations.
+    </li>
+    <li>
+      <a href="https://www.pbs.org/newshour/show/september-18-2025-pbs-news-hour-full-episode" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Jimmy Kimmel Ban Sparks Free Speech Debate Abroad:</strong>
+      </a>
+      International media watchdogs criticize U.S. censorship moves as a troubling global precedent.
+    </li>
+    <li>
+      <a href="https://www.pbs.org/newshour/show/september-18-2025-pbs-news-hour-full-episode" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>India and China Agree to De-escalation Talks:</strong>
+      </a>
+      Border tensions ease after both sides commit to diplomatic negotiations and troop withdrawals.
+    </li>
+  </ul>
+</section>
+
+
+
+
+</section>
+
+</section>
+<section style="margin-top: 2em;">
+  <section class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+   <h3 id="congress" style="color:#003366;">Congress Watch</h3>
+  
+
+
+    <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+      <li><a href="https://research.unc.edu/2025/09/10/september-2025-federal-and-legislative-updates/" target="_blank" style="color: #0645AD; text-decoration: underline;"><strong>House Advances $67B Education Bill:</strong></a> The Labor-HHS-Education appropriations bill moves forward with a $12B cut from FY24 levels.</li>
+      <li><a href="https://research.unc.edu/2025/09/10/september-2025-federal-and-legislative-updates/" target="_blank" style="color: #0645AD; text-decoration: underline;"><strong>Senate Approves Energy & Water Budget:</strong></a> $57B package includes a 2% boost for DOE science and a 24% cut to ARPA-E funding.</li>
+      <li><a href="https://research.unc.edu/2025/09/10/september-2025-federal-and-legislative-updates/" target="_blank" style="color: #0645AD; text-decoration: underline;"><strong>Continuing Resolution Likely as Deadline Looms:</strong></a> Lawmakers signal a short-term CR to avoid shutdown with nine bills still unresolved.</li>
+      <li><a href="https://www.congress.gov/browse" target="_blank" style="color: #0645AD; text-decoration: underline;"><strong>Congress Eyes $23.3B Financial Services Cut:</strong></a> House Appropriations Committee trims 7.9% from FY25 levels in new discretionary budget.</li>
+      <li><a href="https://www.govtrack.us/congress/bills/" target="_blank" style="color: #0645AD; text-decoration: underline;"><strong>SBIR/STTR Extension Bill Hits House Floor:</strong></a> H.R. 5100 would renew small business innovation programs through FY2026.</li>
+      <li><a href="https://www.govtrack.us/congress/bills/" target="_blank" style="color: #0645AD; text-decoration: underline;"><strong>Congress Debates Budget Blueprint Through 2034:</strong></a> H.Con.Res. 14 sets fiscal targets for the next decade, including defense and entitlement spending.</li>
+      <li><a href="https://research.unc.edu/2025/09/10/september-2025-federal-and-legislative-updates/" target="_blank" style="color: #0645AD; text-decoration: underline;"><strong>Senate Grills HHS Secretary on Vaccine Policy:</strong></a> Robert F. Kennedy Jr. faces bipartisan scrutiny over shifting CDC guidance and public trust.</li>
+    </ul>
+  </section>
+</section>
+
+<section style="margin-top: 2em;">
+  <section class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+   <h3 id="executive" style="color:#003366;">Executive Watch</h3>
+
+    <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+      <li><a href="https://www.whitehouse.gov/news/" target="_blank" style="color: #0645AD; text-decoration: underline;"><strong>President Signs Executive Order on Border Surveillance:</strong></a> The new directive expands drone monitoring and data sharing across federal agencies.</li>
+      <li><a href="https://www.whitehouse.gov/news/" target="_blank" style="color: #0645AD; text-decoration: underline;"><strong>White House Launches Federal Workforce Reform Plan:</strong></a> A sweeping initiative aims to restructure hiring and performance reviews across executive agencies.</li>
+      <li><a href="https://www.whitehouse.gov/news/" target="_blank" style="color: #0645AD; text-decoration: underline;"><strong>HUD Inspector General Replaced Amid Oversight Dispute:</strong></a> The administration removed the acting IG following internal clashes over housing audits.</li>
+      <li><a href="https://www.whitehouse.gov/news/" target="_blank" style="color: #0645AD; text-decoration: underline;"><strong>Education Department Freezes $350M in Grants:</strong></a> Secretary McMahon halts funding to minority-serving institutions over eligibility rule changes.</li>
+      <li><a href="https://www.whitehouse.gov/news/" target="_blank" style="color: #0645AD; text-decoration: underline;"><strong>Federal Protective Service Ordered to Overhaul Tracking System:</strong></a> A GAO report found major flaws in personnel monitoring across federal buildings.</li>
+      <li><a href="https://www.whitehouse.gov/news/" target="_blank" style="color: #0645AD; text-decoration: underline;"><strong>White House Plans Crackdown on Liberal NGOs:</strong></a> Senior officials outline a domestic terrorism framework targeting left-wing organizations.</li>
+      <li><a href="https://www.whitehouse.gov/news/" target="_blank" style="color: #0645AD; text-decoration: underline;"><strong>Vice President Hosts Policy Podcast from West Wing:</strong></a> JD Vance interviews senior advisers on national security and executive priorities.</li>
+    </ul>
+  </section>
+</section>
+
+
+
+<div class="section" style="margin-top: 2em;">
+ <h3 id="governance" style="color:#003366;">The Cost of Governance</h3>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.8;">
+    <li><strong>Total Federal Outlays:</strong> $7.0 trillion — Covers everything from defense and healthcare to infrastructure and interest payments.</li>
+    <li><strong>Total Revenues:</strong> $5.2 trillion — The government brings in less than it spends, creating a persistent gap that fuels long-term debt.</li>
+    <li><strong>Annual Deficit:</strong> $1.9 trillion — This shortfall adds directly to the national debt and limits future flexibility.</li>
+    <li><strong>Debt Held by the Public:</strong> $30.1 trillion — Financed by investors, banks, and foreign governments; now nearly equal to the entire U.S. economy.</li>
+    <li><strong>Total Federal Debt (including trust funds):</strong> $39.0 trillion — Includes obligations to Social Security and Medicare, which future taxpayers must cover.</li>
+    <li><strong>Debt Ceiling Raised:</strong> $41.1 trillion (July 4, 2025) — A temporary fix that allows more borrowing but signals unsustainable fiscal trends.</li>
+    <li><strong>Interest Payments (FY2025):</strong> $1.02 trillion — Interest alone is becoming one of the largest federal expenses, crowding out public investment.</li>
+  </ul>
+  <p style="font-style: italic;">
+    <a href="/governance-archive" style="color: #003366; text-decoration: underline;">Catch up any time in the Governance Series Archive.</a>
+  </p>
+</div>
+
+
+
+
+
+
+
+<div class="section" style="margin-top: 2em;">
+  <h3 id="veterans" style="color:#003366;">Veterans</h3>
+
+  <p style="line-height: 1.6; color: #333;">
+    If you’re a veteran, you are eligible to receive medical care at any VA hospital or emergency room—free of charge. This includes walk-in care, urgent care, and emergency services. You do not need a disability rating or an active claim. If you served, you’re covered.
+  </p>
+
+  <p style="line-height: 1.6; color: #333;">
+    Many veterans don’t even realize they’re eligible for benefits. Some are automatic—you don’t have to apply. These include a free pair of glasses once a year, hearing aids, and other essentials that support your quality of life. If you’ve served, you’ve earned more than you may know.
+  </p>
+
+  <p style="line-height: 1.6; color: #333;">
+    The <a href="https://www.va.gov/disability/" target="_blank" style="color: #0645AD; text-decoration: underline;">VA Disability Portal</a> is your starting point for filing a claim, checking your status, and understanding your benefits.
+  </p>
+
+  <p style="line-height: 1.6; color: #333;">
+    Need help? Organizations like the <a href="https://www.dav.org/veterans/benefits-assistance/" target="_blank" style="color: #0645AD; text-decoration: underline;">Disabled American Veterans (DAV)</a> offer free assistance from trained advocates who can walk you through every step. You can also work with accredited attorneys or VSO representatives to make sure your claim is complete, accurate, and supported.
+  </p>
+
+  <p style="line-height: 1.6; color: #333;">
+    If you’re struggling emotionally, please reach out. The <strong>Veterans Crisis Line</strong> is available 24/7 at <strong>988 (then press 1)</strong>. You can also text <strong>838255</strong> or visit <a href="https://www.veteranscrisisline.net/" target="_blank" style="color: #0645AD; text-decoration: underline;">VeteransCrisisLine.net</a>. Your life matters. Your service matters. Help is always available.
+  </p>
+</div>
+
+
+
+</section>
+
+
+ 
+</section>
+
+  <!-- Community Events -->
+ 
+<!-- End of Civic Life grid -->
+
+
+
+</section>
+
+<!-- ⬇️ Market Watch now lives here, on its own line -->
+
+
+  <!-- Details blocks follow... -->
+</div>
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<section class="grid">
+  <!-- Other blocks like Global News, Market Watch, etc. -->
+
+  <!-- SPORTS BLOCK -->
+<div class="section" style="margin-top: 2em;">
+ <h3 id="sports" style="color:#003366;">Sports</h3>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+
+    <li>
+      <a href="https://sports.yahoo.com/nfl/live/bills-dolphins-buffalo-survives-upset-scare-moves-to-3-0-after-miami-doomed-by-late-mistakes-224531691.html" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Thursday Night Football: Bills Beat Dolphins 31–21:</strong>
+      </a>
+      Josh Allen threw three touchdowns and Buffalo moved to 3–0 after holding off Miami’s late push at Highmark Stadium.
+    </li>
+
+    <li>
+      <a href="https://www.espn.com/nfl/game/_/gameId/401772920" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Thursday Night Football: Chiefs Top Giants 31–21:</strong>
+      </a>
+      Patrick Mahomes threw three touchdowns and ran for another as Kansas City earned its first win of the season, handing New York its third straight loss.
+    </li>
+
+    <li>
+      <a href="https://sports.yahoo.com/article/week-sports-trivia-september-18-101605498.html" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>MLB Playoff Picture Begins to Settle:</strong>
+      </a>
+      Cal Raleigh continues his record-setting season as Seattle clinches the first playoff spot of 2025.
+    </li>
+
+    <li>
+      <a href="https://sports.yahoo.com/article/week-sports-trivia-september-18-101605498.html" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Multiple NFL Quarterbacks Injured in Week 2:</strong>
+      </a>
+      Teams scramble to adjust as key starters go down, including injuries to Bryce Young and Justin Fields.
+    </li>
+
+    <li>
+      <a href="https://sports.yahoo.com/article/week-sports-trivia-september-18-101605498.html" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Clippers Owner Steve Ballmer Under NBA Investigation:</strong>
+      </a>
+      The league probes financial disclosures related to team operations and sponsorships.
+    </li>
+
+    <li>
+      <a href="https://sports.yahoo.com/article/week-sports-trivia-september-18-101605498.html" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>College Football AP Top 25 Shocker:</strong>
+      </a>
+      One ranked team remains winless heading into Week 4, raising questions about preseason hype.
+    </li>
+
+    <li>
+      <a href="https://sports.yahoo.com/article/week-sports-trivia-september-18-101605498.html" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>NHL Trade Rumors Swirl Around Veteran Star:</strong>
+      </a>
+      A longtime icon faces possible relocation despite public statements about staying put.
+    </li>
+
+    <li>
+      <a href="https://sports.yahoo.com/article/week-sports-trivia-september-18-101605498.html" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Robert Redford’s Passing Sparks Baseball Nostalgia:</strong>
+      </a>
+      Fans revisit “The Natural” as tributes pour in for the actor and his iconic sports legacy.
+    </li>
+
+    <li>
+      <a href="https://sports.yahoo.com/article/week-sports-trivia-september-18-101605498.html" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Champions League Kicks Off in U.S. Broadcast Blitz:</strong>
+      </a>
+      American viewership surges as CBS Sports expands coverage of European soccer’s biggest tournament.
+    </li>
+
+  </ul>
+</div>
+
+
+
+
+
+
+  <!-- AI BLOCK -->
+<section class="section" style="margin-top: 2em;">
+ <h3 id="ai" style="color:#003366;">AI</h3>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+    <li>
+      <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report/science-and-medicine" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>AI Outperforms Doctors in Diagnosing Complex Cases:</strong>
+      </a>
+      A Stanford-led study shows GPT-4 surpasses physicians in identifying high-risk patients and detecting cancer—though collaboration yields the best results.
+    </li>
+    <li>
+      <a href="https://www.nvidia.com/en-us/lp/industries/healthcare-life-sciences/ai-survey-report/" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>AI Boosts Efficiency in Hospitals and Labs:</strong>
+      </a>
+      A global survey finds healthcare workers using AI to speed up diagnostics, streamline operations, and uncover new drug compounds.
+    </li>
+    <li>
+      <a href="https://ag.purdue.edu/news/2025/09/consumers-mostly-support-ai-tools-to-improve-food-and-agriculture.html" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>AI Helps Farmers Reduce Waste and Boost Yields:</strong>
+      </a>
+      Purdue’s survey shows growing support for AI-assisted food production, from smarter crop breeding to reducing spoilage.
+    </li>
+    <li>
+      <a href="https://wmo.int/media/news/conference-charts-way-forward-potential-ai-weather-prediction" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>AI-Powered Weather Forecasting Could Save Lives:</strong>
+      </a>
+      The WMO urges global adoption of AI in early warning systems to improve disaster response and climate resilience.
+    </li>
+    <li>
+      <a href="https://finance.yahoo.com/news/alis-launches-first-ai-powered-152600342.html" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Senior Living Gets Smarter with Ask ALIS:</strong>
+      </a>
+      A new AI assistant helps caregivers manage vitals, chart care, and generate reports—lightening the load without replacing staff.
+    </li>
+    <li>
+      <a href="https://www.maersk.com/news/articles/2025/09/10/future-of-logistics-at-code-cargo-2025" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Maersk Uses AI to Optimize Global Shipping Routes:</strong>
+      </a>
+      Real-time data from 2.5 billion IoT points helps reduce fuel use and avoid cargo damage during voyages.
+    </li>
+    <li>
+      <a href="https://acceleratelearning.stanford.edu/story/the-future-is-already-here-ai-and-education-in-2025/" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Stanford Pushes AI Literacy in Classrooms Nationwide:</strong>
+      </a>
+      Educators call for a shared framework to teach students how to use, critique, and understand AI responsibly.
+    </li>
+  </ul>
+</section>
+
+
+
+</section>
+
+
+<section class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 1em;">
+  <!-- NFL Standings -->
+<div class="section">
+ <h3 id="nfl-standings" style="color:#003366;">NFL Standings</h3>
+
+  <div class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2em;">
+
+    <!-- AFC East -->
+    <div>
+      <strong>AFC East</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span style="min-width: 140px;">Buffalo Bills</span><span>2-1</span>
+        <span style="min-width: 140px;">New England Patriots</span><span>1-1</span>
+        <span style="min-width: 140px;">Miami Dolphins</span><span>1-2</span>
+        <span style="min-width: 140px;">New York Jets</span><span>0-2</span>
+      </div>
+    </div>
+
+    <!-- NFC East -->
+    <div>
+      <strong>NFC East</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span style="min-width: 140px;">Philadelphia Eagles</span><span>2-0</span>
+        <span style="min-width: 140px;">Dallas Cowboys</span><span>1-1</span>
+        <span style="min-width: 140px;">Washington Commanders</span><span>1-1</span>
+        <span style="min-width: 140px;">New York Giants</span><span>0-3</span>
+      </div>
+    </div>
+
+    <!-- AFC West -->
+    <div>
+      <strong>AFC West</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span style="min-width: 140px;">Los Angeles Chargers</span><span>2-0</span>
+        <span style="min-width: 140px;">Denver Broncos</span><span>1-1</span>
+        <span style="min-width: 140px;">Las Vegas Raiders</span><span>1-1</span>
+        <span style="min-width: 140px;">Kansas City Chiefs</span><span>1-2</span>
+      </div>
+    </div>
+
+    <!-- NFC West -->
+    <div>
+      <strong>NFC West</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span style="min-width: 140px;">San Francisco 49ers</span><span>2-0</span>
+        <span style="min-width: 140px;">Los Angeles Rams</span><span>2-0</span>
+        <span style="min-width: 140px;">Arizona Cardinals</span><span>2-0</span>
+        <span style="min-width: 140px;">Seattle Seahawks</span><span>1-1</span>
+      </div>
+    </div>
+
+    <!-- AFC South -->
+    <div>
+      <strong>AFC South</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span style="min-width: 140px;">Indianapolis Colts</span><span>1-1</span>
+        <span style="min-width: 140px;">Jacksonville Jaguars</span><span>1-1</span>
+        <span style="min-width: 140px;">Houston Texans</span><span>0-2</span>
+        <span style="min-width: 140px;">Tennessee Titans</span><span>0-2</span>
+      </div>
+    </div>
+
+    <!-- NFC North -->
+    <div>
+      <strong>NFC North</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span style="min-width: 140px;">Detroit Lions</span><span>2-0</span>
+        <span style="min-width: 140px;">Green Bay Packers</span><span>2-0</span>
+        <span style="min-width: 140px;">Minnesota Vikings</span><span>1-1</span>
+        <span style="min-width: 140px;">Chicago Bears</span><span>0-2</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+  <!-- Game Day -->
+<div class="section" style="margin-top: 2em; margin-bottom: 2em;">
+  <h3 id="game-day" style="color:#003366;">Game Day</h3>
+
+  <div style="overflow-x: auto;">
+    <table style="width: 100%; border-collapse: collapse; font-family: sans-serif;">
+      <thead>
+        
+        
+        <tr>
+          <td style="padding: 0.5em; font-weight: bold; color: #000;">Cowboys at Bears</td>
+          <td style="padding: 0.5em;">1:25 PM</td>
+          <td style="padding: 0.5em;">FOX</td>
+          <td style="padding: 0.5em;">Sunday</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.5em; font-weight: bold; color: #000;">Cardinals at 49ers</td>
+          <td style="padding: 0.5em;">1:25 PM</td>
+          <td style="padding: 0.5em;">FOX</td>
+          <td style="padding: 0.5em;">Sunday</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.5em; font-weight: bold; color: #000;">Broncos at Chargers</td>
+          <td style="padding: 0.5em;">1:05 PM</td>
+          <td style="padding: 0.5em;">CBS</td>
+          <td style="padding: 0.5em;">Sunday</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.5em; font-weight: bold; color: #000;">Lions at Ravens</td>
+          <td style="padding: 0.5em;">5:15 PM</td>
+          <td style="padding: 0.5em;">ESPN / ABC</td>
+          <td style="padding: 0.5em;">Monday</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.5em; font-weight: bold; color: #000;">Packers at Browns</td>
+          <td style="padding: 0.5em;">6:15 PM</td>
+          <td style="padding: 0.5em;">FOX</td>
+          <td style="padding: 0.5em;">Monday</td>
+
+          <p style="font-size: 0.9em; font-style: italic; color: #333;">
+  All games are televised—check local listings for your hometown game.
+</p>
+
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+<section class="grid">
+<div class="section" style="margin-top: 2em;">
+  <h3 id="market" style="color:#003366;">Market Watch</h3>
+  <p style="color:#003366;">Updated: Friday, September 19, 2025 – 11:18 AM MT</p>
+  <p style="color:#003366;">Dow Jones: 46,496.00 <span style="color: green;">+0.04%</span></p>
+  <p style="color:#003366;">S&P 500: 6,631.96 <span style="color: green;">+0.48%</span></p>
+  <p style="color:#003366;">Nasdaq: 22,470.72 <span style="color: green;">+0.94%</span></p>
+
+  <div style="font-size: 0.9em; color: #003366; margin-top: 0.5em;">
+    <p>Gain on $10K investment:</p>
+    <ul style="list-style-type: disc; padding-left: 1.5em; margin-top: 0.3em;">
+      <li>Dow Jones +0.04% → <strong>$4</strong></li>
+      <li>S&P 500 +0.48% → <strong>$48</strong></li>
+      <li>Nasdaq +0.94% → <strong>$94</strong></li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+
+
+  <div class="section">
+    <h3 style="color:#003366;">&nbsp;</h3>
+    <p style="color:#666;">This space is reserved for your next financial block—whether it’s Crypto Watch, Investor Pulse, or something else entirely.</p>
+  </div>
+</section>
+
+
+
+
+<section class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1em; margin-top: 2em;">
+
+  <!-- Make Noise, Not War -->
+<div class="section">
+ <h3 id="make-noise" style="color:#003366;">Make Noise, Not War</h3>
+  <!-- Tribute to Charlie Kirk -->
+  <div style="background-color: #f4f1ec; padding: 1.5em; border-left: 4px solid #003366; margin-bottom: 2em;">
+    <h4 style="color:#003366;">Thank You, Charlie</h4>
+    <p style="line-height: 1.6; color: #444;">
+      We lost a good man this week. Killed in cold blood because he didn’t support abortion. Shot dead in front of his wife and kids because he believed in Jesus Christ. Murdered because he didn’t support homosexuality. Sent to his grave at 31 years old because he advocated tight border control.
+    </p>
+    <p style="line-height: 1.6; color: #444;">
+      I cried when my daughter called me, crying, to tell me about Kirk’s death. Famous people die all the time. This is the first time I cried for one of them. Don’t get me wrong—I didn’t even know the guy, so it wasn’t like I was bawling like a baby. <strong>Like his wife was. Like his children were. His extended family. His friends.</strong> I saw him on TV a few times, but it was easily enough for me to appreciate what he was trying to do—for God, his family, and his country.
+    </p>
+    <p style="line-height: 1.6; color: #444;">
+      Thank you, Charlie. Because of your passing, I decided to take a closer look at my life. I thought it would be a good idea to dig in and see what I believed in as strongly as Charlie did. What makes me tick? Would somebody who barely knew me cry if I died? Turns out I’m a lot like Charlie. Scarily alike. Like twins alike. Did he have anything to do with that? Not one bit. Did he influence me so much that I changed how I think about any subject? Nope. I go about my life believing what I believe. If you ask me, I’ll tell you. If you don’t, you’ll never know. I don’t know how he felt about the death penalty. And unless you ask me, you’re not going to know how I feel.
+    </p>
+    <p style="line-height: 1.6; color: #444;">
+      Besides the things Charlie and I believed in, we also shared something else. We loved our families with every bit of our being. We loved ourselves—the good and the bad. We respected others for who they are. If every one of us were on the same page, we’d all be attending Harvard. I bet he didn’t have an ounce of hate in him. I wish I could say the same. The last twenty years have been difficult for America. We’ve taken a downturn that no one knows how to pull us out of. Charlie had an idea that he could help, and he lived and died by it.
+    </p>
+    <p style="line-height: 1.6; color: #444;">
+      Thank you, Charlie. And God bless you for daring to dream. And God bless your family and friends that you’ve left behind. And God bless the haters. They may need it the most.
+    </p>
   </div>
 
-  <h2>Colorado News</h2>
-  Water conservation bill – State legislature passes new drought response plan.<br>
-  Wildfire mitigation grants – Funding expands for rural fire prevention programs.<br>
-  State park attendance surges – Record numbers reported this summer.<br>
-  Teacher shortage worsens – Districts scramble to fill vacancies.<br>
-  Colorado River compact talks resume – Western states seek compromise.<br>
-  Electric vehicle rebates increase – New incentives for buyers.<br>
-  Mining cleanup efforts expand – EPA targets legacy sites.<br>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center; margin-top: 6px;">
-    <strong>Keep Digging</strong>
+  <!-- Original Make Noise, Not War Description -->
+  <p style="margin-top: 0.5em; color: #444;">
+    This isn’t a space for shouting. It’s a space for speaking up—with precision, with purpose.
+  </p>
+  <p style="color: #444;">
+    <strong>Make Noise, Not War</strong> is where clarity meets conviction. Whether it’s political, personal, or poetic, this block welcomes voices that refuse to be drowned out.
+  </p>
+  <p style="color: #444;">
+    If you’ve got something to say, say it here. Loud ideas. Quiet truths. Editorial control reclaimed.
+  </p>
+  <p style="margin-top: 1em;">
+    <a href="mailto:diggingforclarity@gmail.com" style="font-weight: bold; color: #3366cc; text-decoration: underline;">
+      diggingforclarity@gmail.com
+    </a>
+  </p>
+</div>
+
+
+  <!-- Favorites -->
+<div class="section" style="margin-top: 2em; margin-bottom: 2em;">
+<h3 id="favorites" style="color:#003366;">Favorites</h3>
+  <p>Paste your favorite links below. They’ll stay fixed so you can open them every day with one click.</p>
+
+  <!-- Favorite 1 -->
+  <label for="favorite1">Favorite 1:</label>
+  <input type="text" id="favorite1" style="width: 100%; margin-bottom: 0.5em;">
+  <button onclick="openFavorite('favorite1')" style="margin-bottom: 1em;">View Favorite</button>
+
+  <!-- Favorite 2 -->
+  <br>
+  <label for="favorite2" style="display: block; margin-top: 1em;">Favorite 2:</label>
+  <input type="text" id="favorite2" style="width: 100%; margin-bottom: 0.5em;">
+  <button onclick="openFavorite('favorite2')" style="margin-bottom: 1em;">View Favorite</button>
+
+  <!-- Favorite 3 -->
+  <br>
+  <label for="favorite3" style="display: block; margin-top: 1em;">Favorite 3:</label>
+  <input type="text" id="favorite3" style="width: 100%; margin-bottom: 0.5em;">
+  <button onclick="openFavorite('favorite3')" style="margin-bottom: 1em;">View Favorite</button>
+
+  <!-- Quote and Email (Preserved) -->
+  <p style="margin-top: 2em;">Thank you for experimenting with your own clarity by participating in my vision—a quiet space for thoughtful news, even when the stories themselves are anything but quiet.</p>
+  <p>This page isn’t about peace—it’s about restoring editorial control, so we can carry that clarity into the lives that matter most to us.</p>
+  <p>Email <a href="mailto:diggingforclarity@gmail.com" style="color:#003366; text-decoration: underline;">diggingforclarity@gmail.com</a></p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    ["favorite1", "favorite2", "favorite3"].forEach(id => {
+      const saved = localStorage.getItem(id);
+      if (saved) {
+        document.getElementById(id).value = saved;
+      }
+    });
+  });
+
+ function openFavorite(id) {
+  const input = document.getElementById(id);
+  let url = input?.value.trim().toLowerCase();
+
+  if (!url) {
+    alert("Please enter a valid link.");
+    return;
+  }
+
+  // Auto-detect common site names
+  const commonSites = {
+    "google": "https://www.google.com",
+    "facebook": "https://www.facebook.com",
+    "youtube": "https://www.youtube.com",
+    "yahoo": "https://www.yahoo.com",
+    "pinterest": "https://www.pinterest.com",
+    "twitter": "https://www.twitter.com",
+    "reddit": "https://www.reddit.com"
+  };
+
+  if (commonSites[url]) {
+    url = commonSites[url];
+  } else if (!/^https?:\/\//i.test(url)) {
+    url = "https://" + url;
+  }
+
+  localStorage.setItem(id, url);
+  window.open(url, "_blank");
+}
+
+</script>
+
+
+
+
+
+
+
+</section>
+
+<footer class="footer-container" style="margin-top:2em; border:1px solid #000; padding:1em; border-radius:6px;">
+  <div class="footer-row" style="display:flex; justify-content:center; align-items:center; gap:1em;">
+    <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
+    <p class="footer-text" style="margin:0;">© Digging For Clarity 2025. All rights reserved.</p>
+    <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
   </div>
 
-  <h2>National News</h2>
-  Supreme Court ruling – Major decision reshapes digital privacy rights.<br>
-  Inflation trends – Consumer prices show signs of stabilization.<br>
-  Presidential debate schedule released – First event set for September.<br>
-  Federal student loan changes – New repayment options announced.<br>
-  Heat wave grips southern states – Emergency declarations issued.<br>
-  Rail safety legislation advances – Bipartisan support grows.<br>
-  Tech antitrust hearings – CEOs testify before Congress.<br>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center; margin-top: 6px;">
-    <strong>Keep Digging</strong>
-  </div>
 
-  <h2>Federal News</h2>
-  AI regulation framework – Congress debates national standards for AI safety.<br>
-  Social Security reform – New proposals aim to stabilize long-term funding.<br>
-  Defense budget increases – Pentagon outlines strategic priorities.<br>
-  Postal service modernization – New fleet rollout begins.<br>
-  IRS audit policy changes – Focus shifts to high-income filers.<br>
-  Federal hiring freeze lifted – Agencies resume recruitment.<br>
-  Climate resilience grants – FEMA expands eligibility criteria.<br>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center; margin-top: 6px;">
-    <strong>Keep Digging</strong>
-  </div>
 
-  <h2>International News</h2>
-  Global summit convenes – Leaders gather to discuss climate and trade.<br>
-  Currency shifts in Europe – Euro sees volatility amid policy changes.<br>
-  UN peacekeeping mission extended – Security council votes unanimously.<br>
-  China launches lunar probe – Mission aims for sample return.<br>
-  Brazil election results – Reformist candidate wins runoff.<br>
-  UK labor strikes continue – Transport disruptions persist.<br>
-  India monsoon floods – Relief efforts underway in affected regions.<br>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center; margin-top: 6px;">
-    <strong>Keep Digging</strong>
-  </div>
 
-  <h2>Market Watch</h2>
-  Consumer prices show signs of stabilization.<br>
-  Congress approves $2B for infrastructure upgrades.<br>
 
-  <h2>Sports News</h2>
-  PGA Tour expands global schedule for 2026.<br>
-  Tiger Woods announces limited return to competition.<br>
-  Broncos training camp updates – Rookie QB impresses coaches.<br>
-  Olympic qualifiers begin – Track and field heats up.<br>
-  MLB trade deadline looms – Key players on the move.<br>
-  WNBA playoff picture – Top seeds battle for position.<br>
-  College football preview – Top 25 rankings released.<br>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center; margin-top: 6px;">
-    <strong>Keep Digging</strong>
-  </div>
 
-  <h2>AI in Action</h2>
-  Medical – AI Detects Lung Nodules with 94% Accuracy<br>
-  Science – AlphaFold Predicts Nearly Every Known Protein<br>
-  Education – Adaptive Learning Tools Boost Retention<br>
-  Finance – AI Flags Fraud in Real Time<br>
-  Art – Generative Models Create Museum-Worthy Pieces<br>
-  Security – AI Monitors Network Threats Proactively<br>
-  Retail – Personalized Shopping Experiences Expand<br>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center; margin-top: 6px;">
-    <strong>Keep Digging</strong>
-  </div>
 
-  <h2>What AI Can Do For You</h2>
-  Summarize complex news stories in seconds<br>
-  Spot patterns in financial data to guide investments<br>
-  Translate languages instantly for global communication<br>
-  Generate creative content — from poems to product designs<br>
-  Automate repetitive tasks to save time and energy<br>
-  Chat with businesses with you — get answers, resolve issues, and make decisions faster<br>
-  Assist with research, writing, and decision-making<br>
-  <div style="background-color: #e0f2ff; width: 150px; padding: 8px; text-align: center; margin-top: 6px;">
-    <strong>Keep Digging</strong>
-  </div>
+<script>
+  async function fetchLocalNewsByZip(zip) {
+    try {
+      const res = await fetch("/cityziplatlong.json");
+      const zipData = await res.json();
+
+      const location = zipData[zip];
+      if (!location) {
+        console.error("ZIP not found in cityziplatlong.json");
+        renderLocalNews([], `ZIP ${zip} not found in mapping.`);
+        return;
+      }
+
+      const { city, lat, lon } = location;
+      const state = "CO"; // You can hardcode this or expand your JSON to include it
+
+      const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ city, state, zip, lat, lon })
+      });
+
+      const result = await response.json();
+      const snippets = Array.isArray(result.snippets)
+        ? result.snippets.filter(s =>
+            typeof s.title === "string" &&
+            s.title.trim() &&
+            typeof s.url === "string" &&
+            s.url.trim()
+          ).slice(0, 7)
+        : [];
+
+      const reason = snippets.length === 0
+        ? `No curated news returned for ZIP ${zip}.`
+        : "";
+
+      renderLocalNews(snippets, reason);
+    } catch (err) {
+      console.error("Fetch failed:", err);
+      renderLocalNews([], "Fetch failed or ZIP is invalid.");
+    }
+  }
+
+function renderLocalNews(snippets, reason = "") {
+  console.log("Rendering Local News:", snippets, reason); // ✅ Debug output
+
+  const container = document.getElementById("local-news");
+  container.innerHTML = "<h2>Local News</h2>";
+
+  if (!snippets.length) {
+    container.innerHTML += "<p>No local news available.</p>";
+    if (reason) {
+      container.innerHTML += `<p style="font-size: 0.9em; color: #666;"><em>Suppression reason: ${reason}</em></p>`;
+    }
+    return;
+  }
+
+  const ul = document.createElement("ul");
+  snippets.forEach(item => {
+    if (item.title && item.url) {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = item.url;
+      a.textContent = item.title;
+      a.target = "_blank";
+      li.appendChild(a);
+      ul.appendChild(li);
+    }
+  });
+
+  container.appendChild(ul);
+}
+
+  // Trigger with a known ZIP
+  fetchLocalNewsByZip("80224");
+</script>
+
+
+
+
+
+<script>
+  document.getElementById("refreshStateNews").addEventListener("click", async function () {
+    console.log("🔄 Refresh button clicked");
+
+    const input = document.getElementById("location").value.trim().toLowerCase();
+    console.log("📍 Location input:", input);
+
+    const res = await fetch("/cityzip.json");
+    const cityZipMap = await res.json();
+    console.log("📦 cityZipMap loaded:", cityZipMap);
+
+    let city = null;
+    let zip = null;
+
+    if (/^\d{5}$/.test(input)) {
+      zip = input;
+      city = Object.keys(cityZipMap).find(c => cityZipMap[c].includes(zip));
+    } else {
+      city = input.replace(/\s+/g, "_");
+      zip = cityZipMap[city]?.[0];
+    }
+
+    console.log("🗺️ Mapped city:", city, "| ZIP:", zip);
+
+    if (!city || !zip) {
+      alert("Location not found. Please enter a valid city or ZIP.");
+      return;
+    }
+
+    const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ city, state: "CO", zip })
+    });
+
+    const result = await response.json();
+    console.log("📰 Copilot Curate response:", result);
+
+    const snippets = Array.isArray(result.snippets)
+      ? result.snippets.filter(s => s.title && s.url).slice(0, 7)
+      : [];
+
+    console.log("✅ Filtered snippets:", snippets);
+
+    const ul = document.getElementById("state-news");
+    ul.innerHTML = "";
+
+    if (!snippets.length) {
+      ul.innerHTML = "<li>No state news available.</li>";
+      return;
+    }
+
+    snippets.forEach(item => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = item.url;
+      a.textContent = item.title;
+      a.target = "_blank";
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+  });
+</script>
+
+<script>
+  // Save location to localStorage
+  function saveLocation() {
+    const location = document.getElementById("location").value.trim();
+    if (location) {
+      localStorage.setItem("userLocation", location);
+      console.log("📍 Location saved:", location);
+    }
+  }
+
+  // Load saved location and auto-refresh State News
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedLocation = localStorage.getItem("userLocation");
+    console.log("🗂️ Loaded saved location:", savedLocation);
+    if (savedLocation) {
+      document.getElementById("location").value = savedLocation;
+      document.getElementById("refreshStateNews").click();
+    }
+  });
+
+  // Refresh State News
+  document.getElementById("refreshStateNews").addEventListener("click", async function () {
+    console.log("🔄 Refresh button clicked");
+
+    const input = document.getElementById("location").value.trim().toLowerCase();
+    console.log("📍 Location input:", input);
+
+    const res = await fetch("/cityzip.json");
+    const cityZipMap = await res.json();
+    console.log("📦 cityZipMap loaded:", cityZipMap);
+
+    let city = null;
+    let zip = null;
+
+    if (/^\d{5}$/.test(input)) {
+      zip = input;
+      city = Object.keys(cityZipMap).find(c => cityZipMap[c].includes(zip));
+    } else {
+      city = input.replace(/\s+/g, "_");
+      zip = cityZipMap[city]?.[0];
+    }
+
+    console.log("🗺️ Mapped city:", city, "| ZIP:", zip);
+
+    if (!city || !zip) {
+      alert("Location not found. Please enter a valid city or ZIP.");
+      return;
+    }
+
+    const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ city, state: "CO", zip })
+    });
+
+    const result = await response.json();
+    console.log("📰 Copilot Curate response:", result);
+
+    const snippets = Array.isArray(result.snippets)
+      ? result.snippets.filter(s => s.title && s.url).slice(0, 7)
+      : [];
+
+    console.log("✅ Filtered snippets:", snippets);
+
+    const ul = document.getElementById("state-news");
+    ul.innerHTML = "";
+
+    if (!snippets.length) {
+      ul.innerHTML = "<li>No state news available.</li>";
+      return;
+    }
+
+    snippets.forEach(item => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = item.url;
+      a.textContent = item.title;
+      a.target = "_blank";
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+  });
+</script>
+<script>
+  window.onload = function () {
+    // Restore saved Weather link
+    const savedWeather = localStorage.getItem("weatherLink");
+    if (savedWeather) {
+      document.getElementById("weatherLink").value = savedWeather;
+    }
+
+    // Restore saved Local News link
+    const savedLocalNews = localStorage.getItem("localNews");
+    if (savedLocalNews) {
+      document.getElementById("localNews").value = savedLocalNews;
+    }
+  };
+
+  function openWeather() {
+    const url = document.getElementById("weatherLink").value;
+    if (url) {
+      localStorage.setItem("weatherLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid weather link.");
+    }
+  }
+
+  function openLocalNews() {
+    const url = document.getElementById("localNews").value;
+    if (url) {
+      localStorage.setItem("localNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid local news link.");
+    }
+  }
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedWeather = localStorage.getItem("weatherLink");
+    if (savedWeather) {
+      document.getElementById("weatherLink").value = savedWeather;
+    }
+
+    const savedLocalNews = localStorage.getItem("localNews");
+    if (savedLocalNews) {
+      document.getElementById("localNews").value = savedLocalNews;
+    }
+
+    const savedStateNews = localStorage.getItem("stateNews");
+    if (savedStateNews) {
+      document.getElementById("stateNews").value = savedStateNews;
+    }
+  });
+
+  function openWeather() {
+    const url = document.getElementById("weatherLink").value.trim();
+    if (url) {
+      localStorage.setItem("weatherLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid weather link.");
+    }
+  }
+
+  function openLocalNews() {
+    const url = document.getElementById("localNews").value.trim();
+    if (url) {
+      localStorage.setItem("localNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid local news link.");
+    }
+  }
+
+  function openStateNews() {
+    const url = document.getElementById("stateNews").value.trim();
+    if (url) {
+      localStorage.setItem("stateNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid state news link.");
+    }
+  }
+</script>
+
+<script>
+  window.onload = function () {
+    const savedLocalNews = localStorage.getItem("localNews");
+    if (savedLocalNews) {
+      document.getElementById("localNews").value = savedLocalNews;
+    }
+
+    const savedStateNews = localStorage.getItem("stateNews");
+    if (savedStateNews) {
+      document.getElementById("stateNews").value = savedStateNews;
+    }
+  };
+
+  function openLocalNews() {
+    const url = document.getElementById("localNews").value;
+    if (url) {
+      localStorage.setItem("localNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid local news link.");
+    }
+  }
+
+  function openStateNews() {
+    const url = document.getElementById("stateNews").value;
+    if (url) {
+      localStorage.setItem("stateNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid state news link.");
+    }
+  }
+</script>
+<
+<script>
+  function updateMountainTime() {
+    const now = new Date();
+    const options = {
+      timeZone: 'America/Denver',
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    };
+    document.getElementById('mountain-time').innerText = now.toLocaleString('en-US', options) + ' MT';
+  }
+
+  setInterval(updateMountainTime, 1000);
+  updateMountainTime();
+</script>
+
+
+<!-- Leave these as-is -->
+<script src="local-news.js" defer></script>
+<script src="/js/editor.js" defer></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
