@@ -727,6 +727,16 @@ body {
     display: none;
   }
 }
+#mountain-time {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+  margin-top: 1em;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 
