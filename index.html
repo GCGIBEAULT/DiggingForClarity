@@ -141,6 +141,15 @@ function toggleReflection(event) {
     You don’t read the news for pleasure. You don’t need more news. You need better news.
   </p>
 </div>
+<div style="max-width: 480px; margin: 0 auto;">
+  <p id="mountain-time" style="
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #000000;
+    text-align: left;
+    margin-top: 1em;
+  "></p>
+</div>
 
 
 
@@ -1238,6 +1247,26 @@ function renderLocalNews(snippets, reason = "") {
   }
 </script>
 <
+<script>
+  function updateMountainTime() {
+    const now = new Date();
+    const options = {
+      timeZone: 'America/Denver',
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    };
+    document.getElementById('mountain-time').innerText = now.toLocaleString('en-US', options) + ' MT';
+  }
+
+  setInterval(updateMountainTime, 1000);
+  updateMountainTime();
+</script>
 
 
 <!-- Leave these as-is -->
@@ -1245,6 +1274,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
