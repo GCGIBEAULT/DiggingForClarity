@@ -607,60 +607,76 @@ function toggleReflection(event) {
 <div class="section">
   <h3 style="color:#003366;">NFL Standings</h3>
   <div class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2em;">
-    
-    <!-- Row 1 -->
+
+    <!-- AFC East -->
     <div>
       <strong>AFC East</strong>
-      <div style="display: flex; justify-content: space-between;"><span>Bills</span><span>2–1</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Dolphins</span><span>1–2</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Jets</span><span>0–2</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Patriots</span><span>1–1</span></div>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span style="min-width: 100px;">Bills</span><span>2 1</span>
+        <span style="min-width: 100px;">Patriots</span><span>1 1</span>
+        <span style="min-width: 100px;">Dolphins</span><span>1 2</span>
+        <span style="min-width: 100px;">Jets</span><span>0 2</span>
+      </div>
     </div>
 
+    <!-- NFC East -->
     <div>
       <strong>NFC East</strong>
-      <div style="display: flex; justify-content: space-between;"><span>Eagles</span><span>2–0</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Cowboys</span><span>1–1</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Commanders</span><span>1–1</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Giants</span><span>0–3</span></div>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span style="min-width: 100px;">Eagles</span><span>2 0</span>
+        <span style="min-width: 100px;">Cowboys</span><span>1 1</span>
+        <span style="min-width: 100px;">Commanders</span><span>1 1</span>
+        <span style="min-width: 100px;">Giants</span><span>0 3</span>
+      </div>
     </div>
 
-    <!-- Row 2 -->
+    <!-- AFC West -->
     <div>
       <strong>AFC West</strong>
-      <div style="display: flex; justify-content: space-between;"><span>Chargers</span><span>2–0</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Broncos</span><span>1–1</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Raiders</span><span>1–1</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Chiefs</span><span>1–2</span></div>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span style="min-width: 100px;">Chargers</span><span>2 0</span>
+        <span style="min-width: 100px;">Broncos</span><span>1 1</span>
+        <span style="min-width: 100px;">Raiders</span><span>1 1</span>
+        <span style="min-width: 100px;">Chiefs</span><span>1 2</span>
+      </div>
     </div>
 
+    <!-- NFC West -->
     <div>
       <strong>NFC West</strong>
-      <div style="display: flex; justify-content: space-between;"><span>49ers</span><span>2–0</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Rams</span><span>2–0</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Cardinals</span><span>2–0</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Seahawks</span><span>1–1</span></div>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span style="min-width: 100px;">49ers</span><span>2 0</span>
+        <span style="min-width: 100px;">Rams</span><span>2 0</span>
+        <span style="min-width: 100px;">Cardinals</span><span>2 0</span>
+        <span style="min-width: 100px;">Seahawks</span><span>1 1</span>
+      </div>
     </div>
 
-    <!-- Row 3 -->
+    <!-- AFC South -->
     <div>
       <strong>AFC South</strong>
-      <div style="display: flex; justify-content: space-between;"><span>Colts</span><span>1–1</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Texans</span><span>0–2</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Jaguars</span><span>1–1</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Titans</span><span>0–2</span></div>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span style="min-width: 100px;">Colts</span><span>1 1</span>
+        <span style="min-width: 100px;">Jaguars</span><span>1 1</span>
+        <span style="min-width: 100px;">Texans</span><span>0 2</span>
+        <span style="min-width: 100px;">Titans</span><span>0 2</span>
+      </div>
     </div>
 
+    <!-- NFC North -->
     <div>
       <strong>NFC North</strong>
-      <div style="display: flex; justify-content: space-between;"><span>Lions</span><span>2–0</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Packers</span><span>2–0</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Vikings</span><span>1–1</span></div>
-      <div style="display: flex; justify-content: space-between;"><span>Bears</span><span>0–2</span></div>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span style="min-width: 100px;">Lions</span><span>2 0</span>
+        <span style="min-width: 100px;">Packers</span><span>2 0</span>
+        <span style="min-width: 100px;">Vikings</span><span>1 1</span>
+        <span style="min-width: 100px;">Bears</span><span>0 2</span>
+      </div>
     </div>
 
   </div>
 </div>
+
 
 
   <!-- Game Day -->
@@ -1238,6 +1254,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
