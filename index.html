@@ -918,12 +918,44 @@ function toggleReflection(event) {
 </section>
 
 
-<section style="margin-top: 2em; max-width: 1000px; margin-left: auto; margin-right: auto;">
-  <div style="display: flex; gap: 1em;">
-    <div style="flex: 1; min-height: 200px; background-color: #f9f9f9; padding: 1em;">Block A</div>
-    <div style="flex: 1; min-height: 200px; background-color: #f4f1ec; padding: 1em;">Block B</div>
-  </div>
+<!-- 🔁 DUPLICATE BLOCK: Make Noise, Not War -->
+<section class="section" style="margin-top: 2em;">
+  <h3 style="color:#003366;">Make Noise, Not War (Copy)</h3>
+  <p style="margin-top: 0.5em; color: #444;">
+    This isn’t a space for shouting. It’s a space for speaking up—with precision, with purpose.
+  </p>
+  <p style="color: #444;">
+    <strong>Make Noise, Not War</strong> is where clarity meets conviction. Whether it’s political, personal, or poetic, this block welcomes voices that refuse to be drowned out.
+  </p>
+  <p style="color: #444;">
+    If you’ve got something to say, say it here. Loud ideas. Quiet truths. Editorial control reclaimed.
+  </p>
+  <p style="margin-top: 1em;">
+    <a href="mailto:diggingforclarity@gmail.com" style="font-weight: bold; color: #3366cc; text-decoration: underline;">diggingforclarity@gmail.com</a>
+  </p>
 </section>
+
+<!-- 🔁 DUPLICATE BLOCK: Favorites -->
+<section class="section" style="margin-top: 2em; margin-bottom: 2em;">
+  <h3 style="color:#003366;">Favorites (Copy)</h3>
+  <p>Paste your favorite links below. They’ll stay fixed so you can open them every day with one click.</p>
+
+  <!-- Favorite 1 -->
+  <label for="favorite1_copy">Favorite 1:</label>
+  <input type="text" id="favorite1_copy" style="width: 100%; margin-bottom: 0.5em;">
+  <button onclick="openFavorite('favorite1_copy')" style="margin-bottom: 1em;">View Favorite</button>
+
+  <!-- Favorite 2 -->
+  <label for="favorite2_copy" style="display: block; margin-top: 1em;">Favorite 2:</label>
+  <input type="text" id="favorite2_copy" style="width: 100%; margin-bottom: 0.5em;">
+  <button onclick="openFavorite('favorite2_copy')" style="margin-bottom: 1em;">View Favorite</button>
+
+  <!-- Favorite 3 -->
+  <label for="favorite3_copy" style="display: block; margin-top: 1em;">Favorite 3:</label>
+  <input type="text" id="favorite3_copy" style="width: 100%; margin-bottom: 0.5em;">
+  <button onclick="openFavorite('favorite3_copy')" style="margin-bottom: 1em;">View Favorite</button>
+</section>
+
 
 
 
@@ -1386,6 +1418,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
