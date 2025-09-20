@@ -758,6 +758,11 @@ body {
     align-items: center;
   }
 }
+.section ul li a {
+  color: #003366;
+  text-decoration: underline;
+  font-weight: bold;
+}
 
 
 
