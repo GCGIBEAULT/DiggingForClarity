@@ -828,6 +828,27 @@ body {
   50% { opacity: 0.6; }
   100% { opacity: 1; }
 }
+@media screen and (max-width: 600px) {
+  #welcomeBanner {
+    padding: 1em;
+    height: auto;
+  }
+
+  .banner-content {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .banner-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8em;
+  }
+
+  .continue-prompt {
+    font-size: 1rem;
+    margin-top: 1.5em;
+  }
+}
 
 
 
