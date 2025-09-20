@@ -920,20 +920,21 @@ function toggleReflection(event) {
 </section>
 
 
-<!-- Two Horizontal Blocks Below Favorites -->
+<!-- Two Horizontal Blocks (Fixed Layout) -->
 <section style="margin-top: 2em; max-width: 1000px; margin-left: auto; margin-right: auto;">
-  <div style="display: flex; justify-content: space-between; gap: 1em;">
+  <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 1em;">
     <!-- Block 1 -->
-    <div style="flex: 0 0 49%; min-height: 150px; border: 2px dashed #ccc; background-color: #f9f9f9; padding: 1em;">
-      <!-- Content goes here -->
+    <div style="flex: 1; min-height: 200px; background-color: #f9f9f9; border: 2px dashed #ccc; padding: 1em;">
+      <!-- Empty block for future headline -->
     </div>
 
     <!-- Block 2 -->
-    <div style="flex: 0 0 49%; min-height: 150px; border: 2px dashed #ccc; background-color: #f4f1ec; padding: 1em;">
-      <!-- Content goes here -->
+    <div style="flex: 1; min-height: 200px; background-color: #f4f1ec; border: 2px dashed #ccc; padding: 1em;">
+      <!-- Empty block for future headline -->
     </div>
   </div>
 </section>
+
 
 
 
@@ -1394,6 +1395,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
