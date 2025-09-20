@@ -238,29 +238,32 @@ function toggleReflection(event) {
 <!-- ==== Location Section ==== -->
 <section class="location-section" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 2em; margin: 2em 0;">
 
-  <!-- Local Weather Block -->
-  <div id="local-weather" style="flex: 1; min-width: 280px;">
-    <h3 style="color:#003366;">Local Weather</h3>
-    <p style="line-height: 1.6; color: #333;">
-      Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.
-    </p>
-    <input type="text" id="weather-link" placeholder="Paste weather link here" style="padding: 0.5em; font-size: 1em; margin-bottom: 0.5em; width: 100%;">
-    <button onclick="openWeatherLink()" style="padding: 0.5em 1em; font-size: 1em; background-color: #003366; color: white; border: none; border-radius: 4px;">
-      Open Weather
-    </button>
+  <!-- Left Column: Weather + Directions -->
+  <div style="flex: 1; min-width: 280px;">
+    <!-- Local Weather Block -->
+    <div id="local-weather">
+      <h3 style="color:#003366;">Local Weather</h3>
+      <p style="line-height: 1.6; color: #333;">
+        Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.
+      </p>
+      <input type="text" id="weather-link" placeholder="Paste weather link here" style="padding: 0.5em; font-size: 1em; margin-bottom: 0.5em; width: 100%;">
+      <button onclick="openWeatherLink()" style="padding: 0.5em 1em; font-size: 1em; background-color: #003366; color: white; border: none; border-radius: 4px;">
+        Open Weather
+      </button>
+    </div>
+
+    <!-- Directions Block (stacked below weather) -->
+    <div id="directions" style="margin-top: 2em; text-align: center;">
+      <h3 style="color:#003366;">Need Directions?</h3>
+      <p style="line-height: 1.6; color: #333;">
+        Tap below to open your preferred map app:
+      </p>
+      <a href="https://www.google.com/maps" target="_blank" style="margin-right: 1em; color: #003366; text-decoration: underline;">Google Maps</a>
+      <a href="https://www.waze.com" target="_blank" style="color: #003366; text-decoration: underline;">Waze</a>
+    </div>
   </div>
 
-  <!-- Directions Block -->
-  <div id="directions" style="flex: 1; min-width: 280px; text-align: center;">
-    <h3 style="color:#003366;">Need Directions?</h3>
-    <p style="line-height: 1.6; color: #333;">
-      Tap below to open your preferred map app:
-    </p>
-    <a href="https://www.google.com/maps" target="_blank" style="margin-right: 1em; color: #003366; text-decoration: underline;">Google Maps</a>
-    <a href="https://www.waze.com" target="_blank" style="color: #003366; text-decoration: underline;">Waze</a>
-  </div>
-
-  <!-- Local & State News Block -->
+  <!-- Right Column: Local & State News -->
   <div id="traffic-news" style="flex: 1; min-width: 280px;">
     <h3 style="color:#003366;">Local & State News</h3>
     <p style="line-height: 1.6; color: #333;">
@@ -1608,6 +1611,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
