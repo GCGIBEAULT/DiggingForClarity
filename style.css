@@ -805,6 +805,29 @@ body {
   cursor: pointer;
   margin-top: 2em;
 }
+.continue-prompt {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #003366;
+  cursor: pointer;
+  margin-top: 2em;
+  transition: color 0.3s ease;
+}
+
+.continue-prompt:hover {
+  color: #0055aa;
+}
+
+.continue-prompt span {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
 
 
 
