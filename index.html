@@ -773,43 +773,76 @@ function toggleReflection(event) {
 <div class="section" style="margin-top: 2em;">
   <h3 style="color:#003366;">MLB National League Standings</h3>
   <div style="display: grid; grid-template-columns: 1fr; row-gap: 2em;">
+    
     <!-- NL East -->
     <div>
       <strong>NL East</strong>
-      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
-        <span>Atlanta Braves</span><span>91-61</span>
-        <span>Philadelphia Phillies</span><span>88-65</span>
-        <span>Miami Marlins</span><span>81-72</span>
-        <span>New York Mets</span><span>74-79</span>
-        <span>Washington Nationals</span><span>67-86</span>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Atlanta Braves</span><span>91-61</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Philadelphia Phillies</span><span>88-65</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Miami Marlins</span><span>81-72</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">New York Mets</span><span>74-79</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Washington Nationals</span><span>67-86</span>
+        </div>
       </div>
     </div>
 
     <!-- NL West -->
     <div>
       <strong>NL West</strong>
-      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
-        <span>Los Angeles Dodgers</span><span>94-59</span>
-        <span>San Francisco Giants</span><span>86-67</span>
-        <span>Arizona Diamondbacks</span><span>83-70</span>
-        <span>San Diego Padres</span><span>75-78</span>
-        <span>Colorado Rockies</span><span>62-91</span>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Los Angeles Dodgers</span><span>94-59</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">San Francisco Giants</span><span>86-67</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Arizona Diamondbacks</span><span>83-70</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">San Diego Padres</span><span>75-78</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Colorado Rockies</span><span>62-91</span>
+        </div>
       </div>
     </div>
 
     <!-- NL Central -->
     <div>
       <strong>NL Central</strong>
-      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
-        <span>Chicago Cubs</span><span>89-63</span>
-        <span>Milwaukee Brewers</span><span>85-67</span>
-        <span>St. Louis Cardinals</span><span>78-74</span>
-        <span>Pittsburgh Pirates</span><span>72-80</span>
-        <span>Cincinnati Reds</span><span>70-82</span>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Chicago Cubs</span><span>89-63</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Milwaukee Brewers</span><span>85-67</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">St. Louis Cardinals</span><span>78-74</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Pittsburgh Pirates</span><span>72-80</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Cincinnati Reds</span><span>70-82</span>
+        </div>
       </div>
     </div>
+
   </div>
 </div>
+
 
 
 <!-- 🗓️ DUPLICATE BLOCK: Game Day -->
@@ -1493,6 +1526,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
