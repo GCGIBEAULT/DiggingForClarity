@@ -91,9 +91,16 @@ function toggleReflection(event) {
 
   <!-- Masthead Content (sits above the stream) -->
 <!-- 🧭 Digging For Clarity Header -->
-<div class="masthead-wrapper" style="background-color: #f4f1ec; padding: 1.5em;">
-<div class="editorial-box">
+<div class="masthead-wrapper" style="background-color: #f4f1ec; padding: 2em; display: flex; flex-direction: column; align-items: center; gap: 1.5em; max-width: 960px; margin: 0 auto;">
+  
+  <!-- Logo Row -->
+  <div class="logo-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1em;">
+    <img src="new_logo.png" alt="Digging For Clarity Logo" style="height: 96px; max-width: 100%; object-fit: contain;">
+    <img src="dfc-inverted.png" alt="Digging For Clarity Inverted Logo" style="height: 96px; max-width: 100%; object-fit: contain;">
+  </div>
 
+  <!-- Editorial Block -->
+  <div class="editorial-box" style="text-align: center;">
     <h1 class="site-title" style="font-size: 2.8rem; font-weight: 900; font-family: 'Merriweather', serif; color: #111; margin-bottom: 0.4em;">
       Digging For Clarity
     </h1>
@@ -109,16 +116,6 @@ function toggleReflection(event) {
   </div>
 </div>
 
-
-
-<!-- 🖼️ Logo Block with Both Images -->
-<div class="logo-center-wrapper" style="text-align: center;">
-  <img src="new_logo.png" class="logo-center" style="margin-right: 1em;">
-  <img src="dfc-inverted.png" class="logo-center">
-</div>
-
-
-</div>
 
 
 
@@ -1598,6 +1595,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
