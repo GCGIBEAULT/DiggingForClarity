@@ -913,12 +913,13 @@ function toggleReflection(event) {
   <p>Email <a href="mailto:diggingforclarity@gmail.com" style="color:#003366; text-decoration: underline;">diggingforclarity@gmail.com</a></p>
 </div>
 <!-- Side-by-Side DFC + Why I Built This Page -->
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2em; margin-top: 3em;">
+<section class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2em; margin-top: 3em;">
 
   <!-- Add DFC to Your Home Screen -->
-  <div style="flex: 1 1 400px; padding: 1em; background-color: #f9f9f9; border: 1px solid #ccc; border-radius: 8px;">
+  <div style="padding: 1em; background-color: #f9f9f9; border: 1px solid #ccc; border-radius: 8px;">
     <h3>📲 Add DFC to Your Home Screen</h3>
     <p><em>One tap. Instant clarity.</em></p>
+
     <strong>Android Users:</strong>
     <ol>
       <li>Open <a href="https://diggingforclarity.com" target="_blank">DiggingForClarity.com</a> in <strong>Chrome</strong>.</li>
@@ -926,6 +927,7 @@ function toggleReflection(event) {
       <li>Select <strong>“Add to Home screen.”</strong></li>
       <li>Confirm or rename the shortcut (e.g., “DFC”) and tap <strong>Add</strong>.</li>
     </ol>
+
     <strong>iPhone & iPad Users:</strong>
     <ol>
       <li>Open <a href="https://diggingforclarity.com" target="_blank">DiggingForClarity.com</a> in <strong>Safari</strong>.</li>
@@ -936,7 +938,7 @@ function toggleReflection(event) {
   </div>
 
   <!-- Why I Built This Page -->
-  <div style="flex: 1 1 400px; padding: 1.5em; background-color: #f4f1ec; border: 1px solid #ccc; border-radius: 8px;">
+  <div style="padding: 1.5em; background-color: #f4f1ec; border: 1px solid #ccc; border-radius: 8px;">
     <h3>🛠️ Why I Built This Page</h3>
     <p>I lean conservative—but what does that really mean, anyway? It doesn’t mean I subscribe to everything one side says. It doesn’t mean I reject everything the other side believes. What it means is that I try to think for myself. And that’s exactly what led me here.</p>
     <p>And what’s all this about sides, anyway? That’s new—and extremely corrosive.</p>
@@ -952,7 +954,7 @@ function toggleReflection(event) {
     <p style="text-align: center;"><em>Welcome.</em></p>
   </div>
 
-</div>
+</section>
 
 
 <script>
@@ -1423,6 +1425,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
