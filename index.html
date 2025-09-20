@@ -912,29 +912,30 @@ function toggleReflection(event) {
   <p>This page isn’t about peace—it’s about restoring editorial control, so we can carry that clarity into the lives that matter most to us.</p>
   <p>Email <a href="mailto:diggingforclarity@gmail.com" style="color:#003366; text-decoration: underline;">diggingforclarity@gmail.com</a></p>
 </div>
-<!-- Add this EXACTLY where you want those two panels (e.g. right after your “Favorites” block) -->
-
-<!-- Inline override for this one section -->
-<style>
-  /* ID selector + inline style = highest specificity to beat any .grid or .section rules */
-  #dfc-why-wrapper {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 1em !important;
-    margin: 2em auto !important;
-    max-width: 1000px !important;
-  }
-  /* Remove any default 100% width on .section children */
-  #dfc-why-wrapper .section {
-    width: auto !important;
-    margin: 0 !important;
-  }
-</style>
-
-<section id="dfc-why-wrapper">
+<section 
+  style="
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1em;
+    max-width: 1000px;
+    margin: 3em auto;
+    box-sizing: border-box;
+  "
+>
   <!-- Panel 1: Add DFC to Your Home Screen -->
-  <div class="section" style="background:#f9f9f9; padding:1.5em; border-radius:8px;">
-    <h3 style="color:#003366;">📲 Add DFC to Your Home Screen</h3>
+  <div 
+    style="
+      flex: 1 1 48% !important;
+      min-width: 300px;
+      background-color: #f9f9f9;
+      padding: 1.5em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    "
+  >
+    <h3 style="color: #003366;">📲 Add DFC to Your Home Screen</h3>
     <p><em>One tap. Instant clarity.</em></p>
     <strong>Android Users:</strong>
     <ol>
@@ -953,8 +954,18 @@ function toggleReflection(event) {
   </div>
 
   <!-- Panel 2: Why I Built This Page -->
-  <div class="section" style="background:#f4f1ec; padding:1.5em; border-radius:8px;">
-    <h3 style="color:#003366;">🛠️ Why I Built This Page</h3>
+  <div 
+    style="
+      flex: 1 1 48% !important;
+      min-width: 300px;
+      background-color: #f4f1ec;
+      padding: 1.5em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    "
+  >
+    <h3 style="color: #003366;">🛠️ Why I Built This Page</h3>
     <p>I lean conservative—but what does that really mean, anyway? It doesn’t mean I subscribe to everything one side says. It doesn’t mean I reject everything the other side believes. What it means is that I try to think for myself. And that’s exactly what led me here.</p>
     <p>And what’s all this about sides, anyway? That’s new—and extremely corrosive.</p>
     <p>A few months ago, I clicked on Fox News. Within a minute—probably less—I realized my more liberal friends were right: Fox News does suck. But not for the reasons they think.</p>
@@ -966,9 +977,10 @@ function toggleReflection(event) {
     <p>My goal is simple: to know you by who you are—not by which news source has you trapped in its expertly engineered algorithm.</p>
     <p>I want to offer headlines without hysteria. Stories without spin. A space where editorial control belongs to the reader, not the network.</p>
     <p>If you’re here, maybe you’re looking for the same thing.</p>
-    <p style="text-align:center;"><em>Welcome.</em></p>
+    <p style="text-align: center;"><em>Welcome.</em></p>
   </div>
 </section>
+
 
 
 
@@ -1442,6 +1454,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
