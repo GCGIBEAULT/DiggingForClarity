@@ -772,7 +772,7 @@ function toggleReflection(event) {
 <!-- ⚾ MLB National League Standings -->
 <div class="section" style="margin-top: 2em;">
   <h3 style="color:#003366;">MLB National League Standings</h3>
-  <div class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2em;">
+  <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em;">
     <!-- NL East -->
     <div>
       <strong>NL East</strong>
@@ -784,8 +784,16 @@ function toggleReflection(event) {
         <span>Washington Nationals</span><span>67-86</span>
       </div>
     </div>
-    <!-- NL Central -->
+    <!-- NL West + NL Central stacked -->
     <div>
+      <strong>NL West</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em; margin-bottom: 1em;">
+        <span>Los Angeles Dodgers</span><span>94-59</span>
+        <span>San Francisco Giants</span><span>86-67</span>
+        <span>Arizona Diamondbacks</span><span>83-70</span>
+        <span>San Diego Padres</span><span>75-78</span>
+        <span>Colorado Rockies</span><span>62-91</span>
+      </div>
       <strong>NL Central</strong>
       <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
         <span>Chicago Cubs</span><span>89-63</span>
@@ -793,17 +801,6 @@ function toggleReflection(event) {
         <span>St. Louis Cardinals</span><span>78-74</span>
         <span>Pittsburgh Pirates</span><span>72-80</span>
         <span>Cincinnati Reds</span><span>70-82</span>
-      </div>
-    </div>
-    <!-- NL West -->
-    <div>
-      <strong>NL West</strong>
-      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
-        <span>Los Angeles Dodgers</span><span>94-59</span>
-        <span>San Francisco Giants</span><span>86-67</span>
-        <span>Arizona Diamondbacks</span><span>83-70</span>
-        <span>San Diego Padres</span><span>75-78</span>
-        <span>Colorado Rockies</span><span>62-91</span>
       </div>
     </div>
   </div>
@@ -1490,6 +1487,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
