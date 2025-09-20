@@ -207,98 +207,79 @@ function toggleReflection(event) {
 <!-- Local Weather Section -->
 <!-- Local Weather Section -->
 <!-- Local Weather Section -->
+<!-- ==== Local Weather + Quick Jump Wrapper ==== -->
 <div id="local-weather" class="section" style="margin: 0;">
- <div style="
-  background-color: #f5f5f5;
-  padding: 1em;
-  border-radius: 6px;
-  margin-bottom: 1em;
-  font-size: 0.95em;
-  font-weight: bold;
-  text-align: center;
-
- <div style="background-color: #f5f5f5; padding: 1em; border-radius: 6px;
-            margin-bottom: 1em; font-size: 0.95em; font-weight: bold;
-            text-align: center;">
- <div style="font-size: 0.9em; margin-bottom: 1em; font-weight: bold; text-align: center;">
-  Quick Jump:
-  <a href="#ai">AI</a> |
-  <a href="#sports">Sports</a> |
-  <a href="#nfl-standings">NFL</a> |
-  <a href="#mlb">MLB</a> |
-  <a href="#congress">Congress</a> |
-  <a href="#executive">Executive</a> |
-  <a href="#governance">Governance</a> |
-  <a href="#veterans">Veterans</a> |
-  <a href="#globalnews">Global</a> |
-  <a href="#market">Market</a> |
-  <a href="#make-noise">Make Noise</a> |
-  <a href="#favorites">Favorites</a>
-</div>
-
-
-
-  <h3 style="color:#003366;">Local Weather</h3>
-  <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
-  <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
-  <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-  <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
-
-  <!-- Navigation Tools -->
-  <div style="margin-top: 1.5em;">
-    <h4 style="color:#003366;">Need Directions?</h4>
-    <p>Click below to launch your preferred traffic app:</p>
-    <div class="snippet">
-      <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Google Maps</a>
-      &nbsp;&nbsp;
-      <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Waze</a>
+  <!-- Outer card -->
+  <div style="
+      background-color: #f5f5f5;
+      padding: 1em;
+      border-radius: 6px;
+      margin-bottom: 1em;
+      font-size: 0.95em;
+      font-weight: bold;
+      text-align: center;">
+    
+    <!-- Quick Jump Bar -->
+    <div style="font-size: 0.9em; margin-bottom: 1em;">
+      Quick Jump:
+      <a href="#ai">AI</a> |
+      <a href="#sports">Sports</a> |
+      <a href="#nfl">NFL</a> |
+      <a href="#mlb">MLB</a> |
+      <a href="#congress">Congress</a> |
+      <a href="#executive">Executive</a> |
+      <a href="#governance">Governance</a> |
+      <a href="#veterans">Veterans</a> |
+      <a href="#globalnews">Global</a> |
+      <a href="#market">Market</a> |
+      <a href="#make-noise">Make Noise</a> |
+      <a href="#favorites">Favorites</a>
     </div>
+    
+    <!-- Local Weather Section -->
+    <h3 style="color:#003366;">Local Weather</h3>
+    <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
+    <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
+    <input
+      type="text"
+      id="weatherLink"
+      placeholder="Paste your favorite weather link here"
+      style="width: 100%; padding: 0.5em; margin: 0.5em 0;">
+    <button
+      onclick="openWeather()"
+      style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">
+      Open Weather
+    </button>
   </div>
 </div>
 
-<script>
-  window.onload = function () {
-    const savedWeather = localStorage.getItem("weatherLink");
-    if (savedWeather) {
-      document.getElementById("weatherLink").value = savedWeather;
-    } else {
-      const defaultLink = "https://www.msn.com/en-us/weather/today/Denver,Colorado,United-States/we-city?ocid=msedgntp&cobrand=copilot";
-      document.getElementById("weatherLink").value = defaultLink;
-      localStorage.setItem("weatherLink", defaultLink);
-    }
-  };
+<!-- ==== Local & State News ==== -->
+<div id="traffic-news" class="section" style="margin: 0;">
+  <h3 style="color:#003366;">Local & State News</h3>
+  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+  <label for="localNews" style="font-weight: bold;">Local News Link:</label>
+  <input
+    type="text"
+    id="localNews"
+    style="width: 100%; padding: 0.5em; margin: 0.5em 0;">
+  <button
+    onclick="openLocalNews()"
+    style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">
+    Open Local News
+  </button>
 
-  function openWeather() {
-    const url = document.getElementById("weatherLink").value;
-    if (url) {
-      localStorage.setItem("weatherLink", url);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid weather link.");
-    }
-  }
-</script>
+  <label for="stateNews" style="font-weight: bold; display: block; margin-top: 1em;">State News Link:</label>
+  <input
+    type="text"
+    id="stateNews"
+    style="width: 100%; padding: 0.5em; margin: 0.5em 0;">
+  <button
+    onclick="openStateNews()"
+    style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">
+    Open State News
+  </button>
+</div>
 
-
-
-
-
-
-  <!-- Local & State News Section -->
-  <div id="traffic-news" class="section" style="margin: 0;">
-    <h3 style="color:#003366;">Local & State News</h3>
-    <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
-
-    <!-- Local News Input -->
-    <label for="localNews" style="font-weight: bold;">Local News Link:</label>
-    <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-    <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
-
-    <!-- State News Input -->
-    <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
-    <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-    <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
-  </div>
 </section>
 
 <!-- U.S. News Block -->
@@ -1608,6 +1589,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
