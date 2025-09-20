@@ -772,7 +772,7 @@ function toggleReflection(event) {
 <!-- ⚾ MLB National League Standings -->
 <div class="section" style="margin-top: 2em;">
   <h3 style="color:#003366;">MLB National League Standings</h3>
-  <div class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em;">
+  <div style="display: grid; grid-template-columns: 1fr; row-gap: 2em;">
     <!-- NL East -->
     <div>
       <strong>NL East</strong>
@@ -784,16 +784,21 @@ function toggleReflection(event) {
         <span>Washington Nationals</span><span>67-86</span>
       </div>
     </div>
-    <!-- NL West + NL Central stacked -->
+
+    <!-- NL West -->
     <div>
       <strong>NL West</strong>
-      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em; margin-bottom: 1em;">
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
         <span>Los Angeles Dodgers</span><span>94-59</span>
         <span>San Francisco Giants</span><span>86-67</span>
         <span>Arizona Diamondbacks</span><span>83-70</span>
         <span>San Diego Padres</span><span>75-78</span>
         <span>Colorado Rockies</span><span>62-91</span>
       </div>
+    </div>
+
+    <!-- NL Central -->
+    <div>
       <strong>NL Central</strong>
       <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
         <span>Chicago Cubs</span><span>89-63</span>
@@ -805,6 +810,7 @@ function toggleReflection(event) {
     </div>
   </div>
 </div>
+
 
 <!-- 🗓️ DUPLICATE BLOCK: Game Day -->
 <div class="section" style="margin-top: 2em; margin-bottom: 2em;">
@@ -1487,6 +1493,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
