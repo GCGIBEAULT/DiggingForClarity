@@ -850,22 +850,89 @@ function toggleReflection(event) {
 
 
 
-<!-- 🗓️ DUPLICATE BLOCK: Game Day -->
-<div class="section" style="margin-top: 2em; margin-bottom: 2em;">
-  <h3 style="color:#003366;">Game Day (Copy)</h3>
-  <div style="overflow-x: auto;">
-    <table style="width: 100%; border-collapse: collapse; font-family: sans-serif;">
-      <thead>
-        <tr><td style="padding: 0.5em; font-weight: bold;">Cowboys at Bears</td><td>1:25 PM</td><td>FOX</td><td>Sunday</td></tr>
-        <tr><td style="padding: 0.5em; font-weight: bold;">Cardinals at 49ers</td><td>1:25 PM</td><td>FOX</td><td>Sunday</td></tr>
-        <tr><td style="padding: 0.5em; font-weight: bold;">Broncos at Chargers</td><td>1:05 PM</td><td>CBS</td><td>Sunday</td></tr>
-        <tr><td style="padding: 0.5em; font-weight: bold;">Lions at Ravens</td><td>5:15 PM</td><td>ESPN / ABC</td><td>Monday</td></tr>
-        <tr><td style="padding: 0.5em; font-weight: bold;">Packers at Browns</td><td>6:15 PM</td><td>FOX</td><td>Monday</td></tr>
-      </thead>
-    </table>
-    <p style="font-size: 0.9em; font-style: italic; color: #333; margin-top: 0.5em;">
-      All games are televised—check local listings for your hometown game.
-    </p>
+<!-- ⚾ MLB American League Standings -->
+<div class="section" style="margin-top: 2em;">
+  <h3 style="color:#003366;">MLB American League Standings</h3>
+  <div style="display: grid; grid-template-columns: 1fr; row-gap: 2em;">
+
+    <!-- AL East -->
+    <div>
+      <strong>AL East</strong>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Toronto Blue Jays</span>
+          <span>89-65</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">New York Yankees</span>
+          <span>86-68</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Boston Red Sox</span>
+          <span>84-70</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Tampa Bay Rays</span><span>75-79</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Baltimore Orioles</span><span>73-81</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AL Central -->
+    <div>
+      <strong>AL Central</strong>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Detroit Tigers</span>
+          <span>85-69</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Cleveland Guardians</span><span>82-71</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Kansas City Royals</span><span>77-77</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Minnesota Twins</span><span>66-87</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Chicago White Sox</span><span>58-96</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AL West -->
+    <div>
+      <strong>AL West</strong>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Seattle Mariners</span>
+          <span>85-69</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Houston Astros</span>
+          <span>84-70</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Texas Rangers</span><span>79-75</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Oakland Athletics</span><span>73-81</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Los Angeles Angels</span><span>69-85</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -1531,6 +1598,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
