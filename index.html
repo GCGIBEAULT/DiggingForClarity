@@ -912,12 +912,11 @@ function toggleReflection(event) {
   <p>This page isn’t about peace—it’s about restoring editorial control, so we can carry that clarity into the lives that matter most to us.</p>
   <p>Email <a href="mailto:diggingforclarity@gmail.com" style="color:#003366; text-decoration: underline;">diggingforclarity@gmail.com</a></p>
 </div>
-<!-- Side-by-Side DFC + Why I Built This Page -->
-<section style="display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin-top: 3em; max-width: 1000px; margin-left: auto; margin-right: auto;">
+<section class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1em; margin-top: 2em;">
 
   <!-- Add DFC to Your Home Screen -->
-  <div style="padding: 1em; background-color: #f9f9f9; border: 1px solid #ccc; border-radius: 8px;">
-    <h3>📲 Add DFC to Your Home Screen</h3>
+  <div class="section" style="background-color: #f9f9f9; padding: 1.5em; border-radius: 8px;">
+    <h3 style="color:#003366;">📲 Add DFC to Your Home Screen</h3>
     <p><em>One tap. Instant clarity.</em></p>
     <strong>Android Users:</strong>
     <ol>
@@ -936,8 +935,8 @@ function toggleReflection(event) {
   </div>
 
   <!-- Why I Built This Page -->
-  <div style="padding: 1.5em; background-color: #f4f1ec; border: 1px solid #ccc; border-radius: 8px;">
-    <h3>🛠️ Why I Built This Page</h3>
+  <div class="section" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px;">
+    <h3 style="color:#003366;">🛠️ Why I Built This Page</h3>
     <p>I lean conservative—but what does that really mean, anyway? It doesn’t mean I subscribe to everything one side says. It doesn’t mean I reject everything the other side believes. What it means is that I try to think for myself. And that’s exactly what led me here.</p>
     <p>And what’s all this about sides, anyway? That’s new—and extremely corrosive.</p>
     <p>A few months ago, I clicked on Fox News. Within a minute—probably less—I realized my more liberal friends were right: Fox News does suck. But not for the reasons they think.</p>
@@ -1424,6 +1423,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
