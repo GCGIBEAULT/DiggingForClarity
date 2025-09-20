@@ -885,9 +885,9 @@ function toggleReflection(event) {
 </div>
 
 
-  <!-- Favorites -->
-<div class="section" style="margin-top: 2em; margin-bottom: 2em;">
-<h3 id="favorites" style="color:#003366;">Favorites</h3>
+<!-- Favorites Section -->
+<section class="section" style="margin-top: 2em; margin-bottom: 2em;">
+  <h3 id="favorites" style="color:#003366;">Favorites</h3>
   <p>Paste your favorite links below. They’ll stay fixed so you can open them every day with one click.</p>
 
   <!-- Favorite 1 -->
@@ -896,26 +896,36 @@ function toggleReflection(event) {
   <button onclick="openFavorite('favorite1')" style="margin-bottom: 1em;">View Favorite</button>
 
   <!-- Favorite 2 -->
-  <br>
   <label for="favorite2" style="display: block; margin-top: 1em;">Favorite 2:</label>
   <input type="text" id="favorite2" style="width: 100%; margin-bottom: 0.5em;">
   <button onclick="openFavorite('favorite2')" style="margin-bottom: 1em;">View Favorite</button>
 
   <!-- Favorite 3 -->
-  <br>
   <label for="favorite3" style="display: block; margin-top: 1em;">Favorite 3:</label>
   <input type="text" id="favorite3" style="width: 100%; margin-bottom: 0.5em;">
   <button onclick="openFavorite('favorite3')" style="margin-bottom: 1em;">View Favorite</button>
 
-  <!-- Quote and Email (Preserved) -->
-  <p style="margin-top: 2em;">Thank you for experimenting with your own clarity by participating in my vision—a quiet space for thoughtful news, even when the stories themselves are anything but quiet.</p>
-  <p>This page isn’t about peace—it’s about restoring editorial control, so we can carry that clarity into the lives that matter most to us.</p>
-  <p>Email <a href="mailto:diggingforclarity@gmail.com" style="color:#003366; text-decoration: underline;">diggingforclarity@gmail.com</a></p>
+  <!-- Add DFC Instructions -->
+  <p><strong>Android Users:</strong></p>
+  <ol>
+    <li>Open <a href="https://diggingforclarity.com" target="_blank">DiggingForClarity.com</a> in <strong>Chrome</strong>.</li>
+    <li>Tap the <strong>three dots</strong> in the top-right corner.</li>
+    <li>Select <strong>“Add to Home screen.”</strong></li>
+    <li>Confirm or rename the shortcut (e.g., “DFC”) and tap <strong>Add</strong>.</li>
+  </ol>
 
-<!-- Full-Page Block: Add DFC to Your Home Screen -->
-<section class="section" style="margin-top: 2em;">
-  <h3 id="add-dfc" style="color:#003366;">📲 Add DFC to Your Home Screen</h3>
-  <p><em>One tap. Instant clarity.</em></p>
+  <p><strong>iPhone & iPad Users:</strong></p>
+  <ol>
+    <li>Open <a href="https://diggingforclarity.com" target="_blank">DiggingForClarity.com</a> in <strong>Safari</strong>.</li>
+    <li>Tap the <strong>Share icon</strong> (square with arrow).</li>
+    <li>Scroll and tap <strong>“Add to Home Screen.”</strong></li>
+    <li>Rename if desired, then tap <strong>Add</strong>.</li>
+  </ol>
+
+  <p style="margin-top: 1em;">
+    Once added, DFC will live on your home screen like any other app—ready to launch with a single tap. No downloads. No distractions. Just clarity.
+  </p>
+</section>
 
   <p><strong>Android Users:</strong></p>
   <ol>
@@ -1407,6 +1417,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
