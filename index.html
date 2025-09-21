@@ -791,50 +791,57 @@ function toggleReflection(event) {
 </div>
 
 
-<!-- ⚾ MLB National League Standings -->
-<div class="section" style="margin-top: 2em;">
- <h3 id="mlb" style="color:#003366;" title="Last updated Friday September 20, 11:30 PM ET">
-  <a href="https://diggingforclarity.com/#mlb" target="_blank" style="color:#003366; text-decoration:none;">MLB National League Standings</a>
-</h3>
+<!-- ==== MLB National League Standings — September 21, 2025 ==== -->
+<div class="section">
+  <h3 id="mlb" style="color:#003366;" title="Last updated Sunday September 21, 3:30 PM ET">
+    <a href="https://diggingforclarity.com/#mlb" target="_blank" style="color:#003366; text-decoration: none;">
+      MLB — National League Standings
+    </a>
+  </h3>
 
-  <div style="display: grid; grid-template-columns: 1fr; row-gap: 2em;">
-
+  <div class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2em;">
     <!-- NL East -->
     <div>
       <strong>NL East</strong>
-      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-        <div style="display: flex;"><span style="min-width: 220px;">Philadelphia Phillies</span><span>92-63</span><span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span></div>
-        <div style="display: flex;"><span style="min-width: 220px;">New York Mets</span><span>80-75</span></div>
-        <div style="display: flex;"><span style="min-width: 220px;">Miami Marlins</span><span>75-80</span></div>
-        <div style="display: flex;"><span style="min-width: 220px;">Atlanta Braves</span><span>72-83</span></div>
-        <div style="display: flex;"><span style="min-width: 220px;">Washington Nationals</span><span>63-92</span></div>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span>Philadelphia Phillies</span><span>91-61</span>
+        <span>Atlanta Braves</span><span>88-64</span>
+        <span>Miami Marlins</span><span>78-74</span>
+        <span>New York Mets</span><span>72-80</span>
+        <span>Washington Nationals</span><span>65-87</span>
       </div>
     </div>
 
     <!-- NL Central -->
     <div>
       <strong>NL Central</strong>
-      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-        <div style="display: flex;"><span style="min-width: 220px;">Milwaukee Brewers</span><span>95-60</span><span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Playoff Berth</span></div>
-        <div style="display: flex;"><span style="min-width: 220px;">Chicago Cubs</span><span>88-67</span><span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Playoff Berth</span></div>
-        <div style="display: flex;"><span style="min-width: 220px;">Cincinnati Reds</span><span>79-76</span></div>
-        <div style="display: flex;"><span style="min-width: 220px;">St. Louis Cardinals</span><span>75-80</span></div>
-        <div style="display: flex;"><span style="min-width: 220px;">Pittsburgh Pirates</span><span>66-89</span></div>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span>Milwaukee Brewers</span><span>85-67</span>
+        <span>Chicago Cubs</span><span>82-70</span>
+        <span>St. Louis Cardinals</span><span>76-76</span>
+        <span>Pittsburgh Pirates</span><span>70-82</span>
+        <span>Cincinnati Reds</span><span>66-86</span>
       </div>
     </div>
 
     <!-- NL West -->
     <div>
       <strong>NL West</strong>
-      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-        <div style="display: flex;"><span style="min-width: 220px;">Los Angeles Dodgers</span><span>87-67</span></div>
-        <div style="display: flex;"><span style="min-width: 220px;">San Diego Padres</span><span>84-71</span></div>
-        <div style="display: flex;"><span style="min-width: 220px;">Arizona Diamondbacks</span><span>78-77</span></div>
-        <div style="display: flex;"><span style="min-width: 220px;">San Francisco Giants</span><span>76-78</span></div>
-        <div style="display: flex;"><span style="min-width: 220px;">Colorado Rockies</span><span>42-113</span></div>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span>Los Angeles Dodgers</span><span>92-60</span>
+        <span>San Francisco Giants</span><span>84-68</span>
+        <span>Arizona Diamondbacks</span><span>79-73</span>
+        <span>San Diego Padres</span><span>74-78</span>
+        <span>Colorado Rockies</span><span>60-92</span>
       </div>
     </div>
+  </div>
 
+  <!-- Leave a Comment Button -->
+  <div style="margin-top: 1.5em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
   </div>
 </div>
 
@@ -884,6 +891,13 @@ function toggleReflection(event) {
         <div style="display: flex;"><span style="min-width: 220px;">Los Angeles Angels</span><span>70-85</span></div>
       </div>
     </div>
+ <!-- Leave a Comment Button -->
+  <div style="margin-top: 1.5em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
+</div>
 
   </div>
 </div>
@@ -1556,6 +1570,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
