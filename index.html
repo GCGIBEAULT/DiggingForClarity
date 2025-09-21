@@ -155,7 +155,11 @@ function toggleReflection(event) {
   ">
   </p>
 </div>
-
+ <div style="margin-top: 1em; text-align: right;">
+  <button onclick="window.open('https://forms.gle/YOUR_FORM_ID', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+    Leave a Comment
+  </button>
+</div>
 <script>
   function updateEasternTime() {
     const now = new Date();
@@ -175,6 +179,8 @@ function toggleReflection(event) {
 
   setInterval(updateEasternTime, 1000);
   updateEasternTime();
+
+ 
 </script>
 
 
@@ -1495,6 +1501,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
