@@ -92,9 +92,16 @@ function toggleReflection(event) {
 
   <!-- Masthead Content (sits above the stream) -->
 <!-- 🧭 Digging For Clarity Header -->
-<div class="masthead-wrapper" style="background-color: #f4f1ec; padding: 1.5em;">
-<div class="editorial-box">
+<div class="masthead-wrapper" style="background-color: #f4f1ec; padding: 2em; display: flex; flex-direction: column; align-items: center; max-width: 960px; margin: 0 auto;">
+  
+  <!-- Logo Row -->
+  <div class="logo-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1em;">
+    <img src="new_logo.png" alt="Digging For Clarity Logo" style="height: 288px; max-width: 100%; object-fit: contain;">
+    <img src="dfc-inverted.png" alt="Digging For Clarity Inverted Logo" style="height: 288px; max-width: 100%; object-fit: contain;">
+  </div>
 
+  <!-- Editorial Block -->
+  <div class="editorial-box" style="text-align: center; margin-top: 96px;">
     <h1 class="site-title" style="font-size: 2.8rem; font-weight: 900; font-family: 'Merriweather', serif; color: #111; margin-bottom: 0.4em;">
       Digging For Clarity
     </h1>
@@ -112,14 +119,6 @@ function toggleReflection(event) {
 
 
 
-<!-- 🖼️ Logo Block with Both Images -->
-<div class="logo-center-wrapper" style="text-align: center;">
-  <img src="new_logo.png" class="logo-center" style="margin-right: 1em;">
-  <img src="dfc-inverted.png" class="logo-center">
-</div>
-
-
-</div>
 
 
 
@@ -143,9 +142,10 @@ function toggleReflection(event) {
 
 
 <div style="max-width: 480px; margin: 2.5em auto; text-align: center;">
-  <p style="text-align: center; font-size: 1.4em; font-weight: bold; font-style: italic; color: #000000; margin: 2em 0;">
-    You don’t read the news for pleasure. You don’t need more news. You need better news.
-  </p>
+ <p style="text-align: center; font-size: 1.4em; font-weight: bold; font-style: italic; color: #990000; margin: 2em 0;">
+  You don’t read the news for pleasure. You don’t need more news. You need better news.
+</p>
+
 
   <p id="eastern-time" style="
     font-size: 0.9em;
@@ -208,80 +208,95 @@ function toggleReflection(event) {
 <!-- Local Weather Section -->
 <!-- Local Weather Section -->
 <!-- Local Weather Section -->
-<!-- ==== Local Weather + Quick Jump Wrapper ==== -->
+<!-- Local Weather Section -->
 <div id="local-weather" class="section" style="margin: 0;">
-  <!-- Outer card -->
-  <div style="
-      background-color: #f5f5f5;
-      padding: 1em;
-      border-radius: 6px;
-      margin-bottom: 1em;
-      font-size: 0.95em;
-      font-weight: bold;
-      text-align: center;">
-    
-    <!-- Quick Jump Bar -->
-    <div style="font-size: 0.9em; margin-bottom: 1em;">
-      Quick Jump:
-      <a href="#ai">AI</a> |
-      <a href="#sports">Sports</a> |
-      <a href="#nfl">NFL</a> |
-      <a href="#mlb">MLB</a> |
-      <a href="#congress">Congress</a> |
-      <a href="#executive">Executive</a> |
-      <a href="#governance">Governance</a> |
-      <a href="#veterans">Veterans</a> |
-      <a href="#globalnews">Global</a> |
-      <a href="#market">Market</a> |
-      <a href="#make-noise">Make Noise</a> |
-      <a href="#favorites">Favorites</a>
+ <div style="
+  background-color: #f5f5f5;
+  padding: 1em;
+  border-radius: 6px;
+  margin-bottom: 1em;
+  font-size: 0.95em;
+  font-weight: bold;
+  text-align: center;
+">
+  Quick Jump: 
+  <a href="#ai">AI</a> |
+  <a href="#sports">Sports</a> |
+  <a href="#congress">Congress</a> |
+  <a href="#executive">Executive</a> |
+  <a href="#governance">Governance</a> |
+  <a href="#veterans">Veterans</a> |
+   <a href="#global-news">Global</a> |
+  <a href="#market">Market</a> |
+  <a href="#make-noise">Make Noise</a> |
+  <a href="#favorites">Favorites</a>
+</div>
+
+  <h3 style="color:#003366;">Local Weather</h3>
+  <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
+  <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
+  <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
+
+  <!-- Navigation Tools -->
+  <div style="margin-top: 1.5em;">
+    <h4 style="color:#003366;">Need Directions?</h4>
+    <p>Click below to launch your preferred traffic app:</p>
+    <div class="snippet">
+      <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Google Maps</a>
+      &nbsp;&nbsp;
+      <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Waze</a>
     </div>
-    
-    <!-- Local Weather Section -->
-    <h3 style="color:#003366;">Local Weather</h3>
-    <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
-    <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
-    <input
-      type="text"
-      id="weatherLink"
-      placeholder="Paste your favorite weather link here"
-      style="width: 100%; padding: 0.5em; margin: 0.5em 0;">
-    <button
-      onclick="openWeather()"
-      style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">
-      Open Weather
-    </button>
   </div>
 </div>
 
-<!-- ==== Local & State News ==== -->
-<div id="traffic-news" class="section" style="margin: 0;">
-  <h3 style="color:#003366;">Local & State News</h3>
-  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
-  <label for="localNews" style="font-weight: bold;">Local News Link:</label>
-  <input
-    type="text"
-    id="localNews"
-    style="width: 100%; padding: 0.5em; margin: 0.5em 0;">
-  <button
-    onclick="openLocalNews()"
-    style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">
-    Open Local News
-  </button>
+<script>
+  window.onload = function () {
+    const savedWeather = localStorage.getItem("weatherLink");
+    if (savedWeather) {
+      document.getElementById("weatherLink").value = savedWeather;
+    } else {
+      const defaultLink = "https://www.msn.com/en-us/weather/today/Denver,Colorado,United-States/we-city?ocid=msedgntp&cobrand=copilot";
+      document.getElementById("weatherLink").value = defaultLink;
+      localStorage.setItem("weatherLink", defaultLink);
+    }
+  };
 
-  <label for="stateNews" style="font-weight: bold; display: block; margin-top: 1em;">State News Link:</label>
-  <input
-    type="text"
-    id="stateNews"
-    style="width: 100%; padding: 0.5em; margin: 0.5em 0;">
-  <button
-    onclick="openStateNews()"
-    style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">
-    Open State News
-  </button>
-</div>
+  function openWeather() {
+    const url = document.getElementById("weatherLink").value;
+    if (url) {
+      localStorage.setItem("weatherLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid weather link.");
+    }
+  }
+</script>
 
+
+
+
+
+
+  <!-- Local & State News Section -->
+  <div id="traffic-news" class="section" style="margin: 0;">
+    <h3 style="color:#003366;">Local & State News</h3>
+    <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+
+    <!-- Local News Input -->
+    <label for="localNews" style="font-weight: bold;">Local News Link:</label>
+    <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+    <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
+
+    <!-- State News Input -->
+    <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
+    <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+    <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
+  </div>
 </section>
+
+
+  
 
 <!-- ==== U.S. News Highlights — September 20, 2025 ==== -->
 <div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
@@ -475,25 +490,45 @@ function toggleReflection(event) {
 
 
 
-</section>
-
-
- 
-</section>
-
-  <!-- Community Events -->
- 
-<!-- End of Civic Life grid -->
-
-
-
-</section>
-
-<!-- ⬇️ Market Watch now lives here, on its own line -->
-
-
-  <!-- Details blocks follow... -->
+<div class="section" style="margin-top: 2em;">
+  <h3 style="color:#003366;">Health Coverage & Care</h3>
+  <p style="line-height: 1.6; color: #333;">
+    This is the first page in a continuing series on health care. We’re not here to echo talking points—we’re here to dig.
+  </p>
+  <p style="line-height: 1.6; color: #333;">
+    To ask what’s working. What’s broken. And what’s being ignored.
+  </p>
+  <p style="line-height: 1.6; color: #333;">
+    Over time, this section will grow into a resource for anyone trying to understand how care is delivered, denied, and paid for in America.
+  </p>
+  <p style="line-height: 1.6; color: #333;">
+    First things first: money drives everything on Earth—including health care.
+  </p>
+  <p style="line-height: 1.6; color: #333;">
+    America will spend <strong>$5.6 trillion</strong> on health care in 2025. That includes everything—Medicare, Medicaid, private insurance, out-of-pocket costs, and more.
+  </p>
+  <p style="line-height: 1.6; color: #333;">
+    Of that, roughly <strong>$3.5 to $4.2 trillion</strong> is paid by the insured and their insurance companies.
+  </p>
+  <p style="line-height: 1.6; color: #333;">
+    If coverage were completely free, that cost wouldn’t disappear—it would shift. The taxpayer would have to absorb it.
+  </p>
+  <p style="line-height: 1.6; color: #333;">
+    That means replacing premiums and copays with higher taxes or new federal spending.
+  </p>
+  <p style="line-height: 1.6; color: #333;">
+    The math is simple. The politics are not. <strong>We need to start asking the right questions.</strong>
+  </p>
 </div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -918,29 +953,28 @@ function toggleReflection(event) {
 
 
 <section class="grid">
-<!-- Market Watch (grid item) -->
-<section class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1em; margin-top: 2em;">
-  <!-- Market Watch (grid item) -->
-  <div class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
-    <h3 id="market" style="color:#003366;">Market Watch</h3>
-    <p style="color:#003366;">Updated: Friday, September 19, 2025 – 12:34 PM MT</p>
-    <p style="color:#003366;">Dow Jones: 46,142.42 <span style="color: green;">+0.27%</span></p>
-    <p style="color:#003366;">S&P 500: 6,631.96 <span style="color: green;">+0.48%</span></p>
-    <p style="color:#003366;">Nasdaq: 22,470.72 <span style="color: green;">+0.94%</span></p>
+<!-- Market Watch -->
+<div class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+  <h3 id="market" style="color:#003366;">Market Watch</h3>
+  <p style="color:#003366;">Updated: Friday, September 19, 2025 – 12:34 PM MT</p>
+  <p style="color:#003366;">Dow Jones: 46,142.42 <span style="color: green;">+0.27%</span></p>
+  <p style="color:#003366;">S&amp;P 500: 6,631.96 <span style="color: green;">+0.48%</span></p>
+  <p style="color:#003366;">Nasdaq: 22,470.72 <span style="color: green;">+0.94%</span></p>
 
-    <div style="font-size: 0.9em; color: #003366; margin-top: 0.5em;">
-      <p>Gain on $10K investment:</p>
-      <ul style="list-style-type: disc; padding-left: 1.5em; margin-top: 0.3em;">
-        <li>Dow Jones +0.27% → <strong>$27</strong></li>
-        <li>S&P 500 +0.48% → <strong>$48</strong></li>
-        <li>Nasdaq +0.94% → <strong>$94</strong></li>
-      </ul>
-    </div>
-     
+  <div style="font-size: 0.9em; color: #003366; margin-top: 0.5em;">
+    <p>Gain on $10K investment:</p>
+    <ul style="list-style-type: disc; padding-left: 1.5em; margin-top: 0.3em;">
+      <li>Dow Jones +0.27% → <strong>$27</strong></li>
+      <li>S&amp;P 500 +0.48% → <strong>$48</strong></li>
+      <li>Nasdaq +0.94% → <strong>$94</strong></li>
+    </ul>
+  </div>
 
-
- 
-
+  <!-- ← Here’s your embedded reopen note -->
+  <p style="margin-top: 1em; font-style: italic; color: #003366;">
+    <strong>Stock Market reopens Monday Sept 22 at 9:30 AM ET</strong>
+  </p>
+</div>
 
 
 
@@ -1580,6 +1614,39 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
