@@ -280,22 +280,29 @@ function toggleReflection(event) {
 
 
 
-  <!-- Local & State News Section -->
-  <div id="traffic-news" class="section" style="margin: 0;">
-    <h3 style="color:#003366;">Local & State News</h3>
-    <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+ <!-- Local & State News Section -->
+<div id="traffic-news" class="section" style="margin: 0;">
+  <h3 style="color:#003366;">Local & State News</h3>
+  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
 
-    <!-- Local News Input -->
-    <label for="localNews" style="font-weight: bold;">Local News Link:</label>
-    <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-    <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
+  <!-- Local News Input -->
+  <label for="localNews" style="font-weight: bold;">Local News Link:</label>
+  <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
 
-    <!-- State News Input -->
-    <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
-    <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-    <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
+  <!-- State News Input -->
+  <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
+  <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
+
+  <!-- Leave a Comment Button -->
+  <div style="margin-top: 1em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
   </div>
-</section>
+</div>
+
 
 
   
@@ -1496,6 +1503,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
