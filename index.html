@@ -910,8 +910,8 @@ function toggleReflection(event) {
 <!-- Market Watch -->
 <div class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
   <h3 id="market" style="color:#003366;" title="Last updated Thursday September 19, 7:30 PM ET">
-  <a href="https://diggingforclarity.com/#market" target="_blank" style="color:#003366; text-decoration:none;">Market Watch</a>
-</h3>
+    <a href="https://diggingforclarity.com/#market" target="_blank" style="color:#003366; text-decoration:none;">Market Watch</a>
+  </h3>
 
   <p style="color:#003366;">Updated: Friday, September 19, 2025 – 12:34 PM MT</p>
   <p style="color:#003366;">Dow Jones: 46,142.42 <span style="color: green;">+0.27%</span></p>
@@ -927,10 +927,16 @@ function toggleReflection(event) {
     </ul>
   </div>
 
-  <!-- ← Here’s your embedded reopen note -->
   <p style="margin-top: 1em; font-style: italic; color: #003366;">
     <strong>Stock Market reopens Monday Sept 22 at 9:30 AM ET</strong>
   </p>
+
+  <!-- Leave a Comment Button -->
+  <div style="margin-top: 1.5em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
 </div>
 
 
@@ -1566,6 +1572,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
