@@ -1588,25 +1588,14 @@ function renderLocalNews(snippets, reason = "") {
   }
 </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const banner = document.getElementById("welcomeBanner");
-    const continuePrompt = document.querySelector(".continue-prompt");
 
-    // Hide banner on scroll
-    window.addEventListener("scroll", function () {
-     if (window.scrollY > 300) {
+<footer class="footer-container" style="margin-top:2em; border:1px solid #000; padding:1em; border-radius:6px;">
+  <div class="footer-row" style="display:flex; justify-content:center; align-items:center; gap:1em;">
+    <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
+    <p class="footer-text" style="margin:0;">© Digging For Clarity 2025. All rights reserved.</p>
+    <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
+  </div>
 
-        banner.style.display = "none";
-      }
-    });
-
-    // Hide banner on click
-    continuePrompt.addEventListener("click", function () {
-      banner.style.display = "none";
-    });
-  });
-</script>
 
 
 <!-- Leave these as-is -->
@@ -1614,6 +1603,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
