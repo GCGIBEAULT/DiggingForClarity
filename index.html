@@ -1768,6 +1768,31 @@ function renderLocalNews(snippets, reason = "") {
   </div>
 </footer>
 
+<script>
+  function getMountainTimeStamp() {
+    const now = new Date();
+    return new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Denver',
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true
+    }).format(now);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const marketHeader = document.getElementById('market');
+    if (marketHeader) {
+      marketHeader.addEventListener('mouseenter', () => {
+        const stamp = `Updated ${getMountainTimeStamp()} MT`;
+        marketHeader.setAttribute('title', stamp);
+      });
+    }
+  });
+</script>
 
 
 <!-- Leave these as-is -->
@@ -1775,6 +1800,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
