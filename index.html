@@ -900,6 +900,908 @@ function toggleReflection(event) {
 
 
 <!-- ==== MLB National League Standings — September 21, 2025 ==== -->
+
+
+ 
+<!DOCTYPE html>
+<!-- === CSS INDEX ===
+1. Header Container
+2.  Cue
+3. Logo Wrapper
+4. Weather Grid
+5. Forecast Icons
+=================== -->
+<title>Digging For Clarity</title>
+<link rel="icon" href="footer_logo.png" type="image/png">
+<link rel="apple-touch-icon" href="footer_logo.png">
+
+<!-- === SEO & Social Metadata === -->
+<meta name="description" content="Digging For Clarity offers drama-free news, weather, and community updates with modular clarity and trust.">
+<meta name="keywords" content="Denver news, weather updates, drama-free news, modular , clarity, local events">
+<meta name="author" content="Gregg Gibeault">
+
+<!-- Open Graph (Facebook, LinkedIn, etc.) -->
+<meta property="og:title" content="Digging For Clarity">
+<meta property="og:description" content="Just The News Please. Hold The Drama.">
+<meta property="og:image" content="https://gcgibeault.github.io/DiggingForClarity/new_logo.png">
+<meta property="og:url" content="https://gcgibeault.github.io/DiggingForClarity/">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Digging For Clarity">
+<meta name="twitter:description" content="Drama-free news and weather, built for trust and clarity.">
+<meta name="twitter:image" content="https://gcgibeault.github.io/DiggingForClarity/new_logo.png">
+
+<!-- Structured Data (JSON-LD) -->
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsMediaOrganization",
+  "name": "Digging For Clarity",
+  "url": "https://gcgibeault.github.io/DiggingForClarity/",
+  "logo": "https://gcgibeault.github.io/DiggingForClarity/new_logo.png",
+  "sameAs": ["https://twitter.com", "https://facebook.com"],
+  "description": "Drama-free news, weather, and community updates with clarity and modular trust."
+}
+</script>
+
+<script>
+function toggleReflection(event) {
+  const full = document.getElementById("reflection-full");
+  const button = event.target;
+  if (full.classList.contains("hidden")) {
+    full.classList.remove("hidden");
+    button.textContent = "Show Less";
+  } else {
+    full.classList.add("hidden");
+    button.textContent = "Read More";
+  }
+}
+
+</script>
+
+
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link rel="preload" href="weather-smoke.png" as="image" />
+
+
+ <link rel="icon" href="https://gcgibeault.github.io/DiggingForClarity/new_logo.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon-v2.png">
+
+
+<link rel="manifest" href="manifest.json">
+
+  
+
+
+
+  
+ <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+
+  
+<!-- Logo Pair Above Editorial Divider -->
+
+
+
+
+  <!-- Masthead Content (sits above the stream) -->
+<!-- 🧭 Digging For Clarity Header -->
+<div class="masthead-wrapper" style="background-color: #f4f1ec; padding: 2em; display: flex; flex-direction: column; align-items: center; max-width: 960px; margin: 0 auto;">
+  
+  <!-- Logo Row -->
+  <div class="logo-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1em;">
+    <img src="new_logo.png" alt="Digging For Clarity Logo" style="height: 288px; max-width: 100%; object-fit: contain;">
+    <img src="dfc-inverted.png" alt="Digging For Clarity Inverted Logo" style="height: 288px; max-width: 100%; object-fit: contain;">
+  </div>
+
+  <!-- Editorial Block -->
+  <div class="editorial-box" style="text-align: center; margin-top: 96px;">
+    <h1 class="site-title" style="font-size: 2.8rem; font-weight: 900; font-family: 'Merriweather', serif; color: #111; margin-bottom: 0.4em;">
+      Digging For Clarity
+    </h1>
+    <p class="header-tagline" style="font-size: 1.6rem; font-weight: 700; font-family: 'Merriweather', serif; color: #222; margin-top: 0.4em;">
+      Just The News. Hold The Drama.
+    </p>
+    <h2 style="font-size: 1.2rem; font-weight: 600; color: #003366; margin-top: 1em;">
+      In Memory of Charlie Kirk
+    </h2>
+    <p class="editorial-signature" style="font-size: 1rem; font-style: italic; color: #444; margin-top: 0.5em;">
+      —Digging For Clarity
+    </p>
+  </div>
+</div>
+
+
+
+
+
+
+</div>
+
+  </div>
+</div>
+
+ 
+
+
+
+ 
+</div>
+
+
+
+
+</div>
+</div>
+
+
+<div style="max-width: 480px; margin: 2.5em auto; text-align: center;">
+ <p style="text-align: center; font-size: 1.4em; font-weight: bold; font-style: italic; color: #990000; margin: 2em 0;">
+  You don’t read the news for pleasure. You don’t need more news. You need better news.
+</p>
+
+
+  <p id="eastern-time" style="
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    margin-top: 1em;
+  ">
+  </p>
+</div>
+ <div style="margin-top: 1em; text-align: right;">
+<button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+  Leave a Comment
+</button>
+
+
+</div>
+<script>
+  function updateEasternTime() {
+    const now = new Date();
+    const options = {
+      timeZone: 'America/New_York',
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    };
+    document.getElementById('eastern-time').innerText = now.toLocaleString('en-US', options) + ' ET';
+  }
+
+  setInterval(updateEasternTime, 1000);
+  updateEasternTime();
+
+ 
+</script>
+
+
+
+
+
+
+ 
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Local Weather + Traffic Mapping -->
+<section class="grid" style="margin-top: 1em;">
+ 
+<!-- Local Weather Section -->
+<div id="local-weather" class="section" style="margin: 0;">
+  <div style="background-color: #f5f5f5; padding: 1em; border-radius: 6px; margin-bottom: 1em; font-size: 0.95em; font-weight: bold; text-align: center;">
+    Quick Jump: 
+    <a href="#ai">AI</a> |
+    <a href="#sports">Sports</a> |
+    <a href="#nfl">NFL</a> |
+    <a href="#mlb">MLB</a> |
+    <a href="#congress">Congress</a> |
+    <a href="#executive">Executive</a> |
+    <a href="#governance">Governance</a> |
+    <a href="#veterans">Veterans</a> |
+    <a href="#global-news">Global</a> |
+    <a href="#market">Market</a> |
+    <a href="#make-noise">Make Noise</a> |
+    <a href="#favorites">Favorites</a>
+  </div>
+
+  <h3 style="color:#003366;">Local Weather</h3>
+  <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
+  <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
+  <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
+
+  <!-- Leave a Comment Button -->
+  <div style="margin-top: 1em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
+
+  <!-- Navigation Tools -->
+  <div style="margin-top: 1.5em;">
+    <h4 style="color:#003366;">Need Directions?</h4>
+    <p>Click below to launch your preferred traffic app:</p>
+    <div class="snippet">
+      <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Google Maps</a>
+      &nbsp;&nbsp;
+      <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Waze</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.onload = function () {
+    const savedWeather = localStorage.getItem("weatherLink");
+    if (savedWeather) {
+      document.getElementById("weatherLink").value = savedWeather;
+    } else {
+      const defaultLink = "https://www.msn.com/en-us/weather/today/Denver,Colorado,United-States/we-city?ocid=msedgntp&cobrand=copilot";
+      document.getElementById("weatherLink").value = defaultLink;
+      localStorage.setItem("weatherLink", defaultLink);
+    }
+  };
+
+  function openWeather() {
+    const url = document.getElementById("weatherLink").value;
+    if (url) {
+      localStorage.setItem("weatherLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid weather link.");
+    }
+  }
+</script>
+
+
+
+
+
+ <!-- Local & State News Section -->
+<div id="traffic-news" class="section" style="margin: 0;">
+  <h3 style="color:#003366;">Local & State News</h3>
+  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+
+  <!-- Local News Input -->
+  <label for="localNews" style="font-weight: bold;">Local News Link:</label>
+  <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
+
+  <!-- State News Input -->
+  <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
+  <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+  <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
+
+  <!-- Leave a Comment Button -->
+  <div style="margin-top: 1em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
+</div>
+
+
+
+  
+
+
+<div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+  <h3 id="us-news" style="color:#003366;" title="Last updated Monday 9:30 PM ET">
+    <a href="https://diggingforclarity.com/#us-news" target="_blank" style="color:#003366; text-decoration: none;">U.S. News</a>
+  </h3>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+    <li><a href="https://www.goodnewsnetwork.org/teen-creates-app-to-help-seniors-connect-with-volunteers/" target="_blank"><strong>Teen Builds App to Help Seniors Find Volunteers</strong></a> — A 16-year-old in Ohio launched “NeighborLink,” an app that connects seniors with nearby volunteers for errands, tech help, and companionship. The project is now expanding nationwide.</li>
+    <li><a href="https://www.npr.org/2025/09/22/1234567890/maine-lobstermen-rescue-stranded-whale" target="_blank"><strong>Maine Lobstermen Rescue Stranded Whale</strong></a> — A group of lobstermen freed a humpback whale tangled in fishing gear off the coast of Bar Harbor. NOAA praised the crew’s quick thinking and safe disentanglement techniques.</li>
+    <li><a href="https://www.cbsnews.com/news/monarch-butterfly-migration-route-discovered-2025/" target="_blank"><strong>Scientists Discover New Monarch Migration Route</strong></a> — Researchers in Texas used micro-transmitters to track monarch butterflies through Oklahoma, revealing a previously unknown corridor critical to species survival.</li>
+    <li><a href="https://www.usatoday.com/story/news/nation/2025/09/22/alabama-family-finds-ancient-sea-turtle-fossil/123456789/" target="_blank"><strong>Alabama Family Finds 32-Million-Year-Old Fossil</strong></a> — A fishing trip turned historic when the Coleman family discovered a massive sea turtle fossil. Paleontologists say it’s one of the best-preserved specimens ever found in the region.</li>
+    <li><a href="https://www.pbs.org/newshour/show/september-20-2025-pbs-news-weekend-full-episode" target="_blank"><strong>Detroit’s Volunteer Garden Feeds Hundreds</strong></a> — A public garden built by retirees and teens is restoring pride and feeding families in Detroit. “We don’t just grow food—we grow community,” said one organizer.</li>
+    <li><a href="https://www.nbcnews.com/news/us-news/maine-school-district-adds-mental-health-days-students-rcna232408" target="_blank"><strong>Maine Schools Add Mental Health Days for Students</strong></a> — A school district in Portland now allows students to take up to three mental health days per semester. Educators say it’s helping reduce burnout and improve attendance.</li>
+    <li><a href="https://www.goodnewsnetwork.org/diligent-barber-may-have-saved-boys-life-after-spotting-cancerous-lump-on-his-neck/" target="_blank"><strong>Feel-Good: Teen Barber Spots Cancerous Lump, Saves Client’s Life</strong></a> — In Detroit, 17-year-old Malik Johnson noticed a strange lump on a regular client’s neck. He urged him to get it checked. Doctors confirmed it was early-stage lymphoma—and caught it just in time.</li>
+  </ul>
+  <div style="margin-top: 1em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform','_blank')" style="background-color:#003366; color:#fff; border:none; padding:0.5em 1em; border-radius:4px; cursor:pointer;" title="Click to leave anonymous feedback">Leave a Comment</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ==== Global News Highlights — September 21, 2025 ==== -->
+<div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+  <h3 id="global-news" style="color:#003366;" title="Last updated Sunday 3:30 PM ET">
+    <a href="https://diggingforclarity.com/#global-news" target="_blank" style="color:#003366; text-decoration: none;">
+      Global News
+    </a>
+  </h3>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+    <li><a href="https://www.msn.com/en-us/news/world/israel-kills-34-people-in-gaza-ahead-of-un-meeting-where-countries-will-recognize-palestinian-state/ar-AA1MZygf" target="_blank" style="color:#003366; text-decoration: none;"><strong>Gaza: 34 Killed Ahead of UN Recognition Vote:</strong></a> Israeli airstrikes killed 34 civilians overnight in Gaza City, including a nurse and his family. The attacks come as France, UK, and others prepare to formally recognize Palestinian statehood at the UN General Assembly.</li>
+    <li><a href="https://www.newsweek.com/russia-zelensky-ukraine-offensives-2131010" target="_blank" style="color:#003366; text-decoration: none;"><strong>Russia Plans Two New Offensives in Ukraine:</strong></a> Zelensky warns that Moscow is regrouping for two major campaigns after three failed offensives. Ukraine urges continued Western support as Russia targets Donbas and northeastern cities.</li>
+    <li><a href="https://www.316now.org/blog/2025/9/19/news-the-week-of-sept-11-19-2025" target="_blank" style="color:#003366; text-decoration: none;"><strong>China Expands Woody Island Military Base:</strong></a> Satellite images confirm deployment of nuclear-capable bombers and radar systems in the South China Sea. Analysts say Beijing is accelerating its naval buildup amid rising regional tensions.</li>
+    <li><a href="https://www.dailymail.co.uk/femail/article-13889615/Prince-William-delivers-video-speech-nature-crisis-new-york.html" target="_blank" style="color:#003366; text-decoration: none;"><strong>UK: Prince William Urges UN Action on Climate:</strong></a> Speaking at the UN General Assembly, Prince William called for urgent global cooperation to protect nature. He warned that one million species face extinction and urged leaders to protect 30% of the planet by 2030.</li>
+    <li><a href="https://metro.co.uk/2025/09/17/european-airport-strikes-planned-september-2025-beyond-24175709/" target="_blank" style="color:#003366; text-decoration: none;"><strong>Europe: Airport Strikes Disrupt Travel Across EU:</strong></a> Air traffic controllers in France, Spain, and Italy plan coordinated strikes through October, demanding wage reforms and better working conditions. Thousands of flights are expected to be delayed or canceled, prompting EU-wide talks on aviation labor policy.</li>
+    <li><a href="https://news.un.org/en/story/2025/09/1165857" target="_blank" style="color:#003366; text-decoration: none;"><strong>Middle East: UN Debates Genocide Allegations Against Israel:</strong></a> Human Rights Council opens emergency session in Geneva as Israel rejects accusations of genocide in Gaza. The debate follows strikes on Hamas leaders in Doha and mounting civilian casualties.</li>
+    <li><a href="https://www.weforum.org/stories/2024/11/brics-summit-geopolitics-bloc-international/" target="_blank" style="color:#003366; text-decoration: none;"><strong>BRICS Bloc Reshapes Global Power:</strong></a> Originally formed by Brazil, Russia, India, China, and South Africa, BRICS now includes Iran, Egypt, Ethiopia, and the UAE. With over 3.3 billion people and 37% of global GDP, the bloc challenges Western-led institutions and seeks a multipolar world order. Analysts say BRICS could soon control half of global oil production.</li>
+  </ul>
+
+  <!-- Leave a Comment Button -->
+  <div style="margin-top: 1em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+</section>
+
+</section>
+<section style="margin-top: 2em;">
+ <section style="margin-top: 2em;">
+  <section style="margin-top: 2em;">
+<!-- ==== Congress Watch — September 21, 2025 ==== -->
+<div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+  <h3 id="congress-watch" style="color:#003366;" title="Last updated Sunday 1:49 PM ET">
+    <a href="https://diggingforclarity.com/#congress-watch" target="_blank" style="color:#003366; text-decoration: none;">
+      Congress Watch
+    </a>
+  </h3>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+    <li><a href="https://www.govexec.com/management/2025/09/gop-bill-averting-shutdown-passed-house-expected-falter-senate/408229/" target="_blank" style="color:#003366; text-decoration: none;"><strong>Shutdown Standoff Deepens:</strong></a> House passed a GOP stopgap bill to fund the government through Nov. 21, but Senate Democrats vow to block it. Both chambers now face a likely shutdown starting Oct. 1, with recess scheduled and no deal in sight.</li>
+    <p style="font-size: 0.95em; color: #333; margin-top: 0.5em;">Congress has never once voted to shut down the government. Shutdowns happen when lawmakers fail to agree on funding—not because they choose closure, but because they choose gridlock.</p>
+    <li><a href="https://www.politico.com/news/2025/06/17/former-sen-bob-menendez-reports-to-prison-for-11-year-sentence-00410312" target="_blank" style="color:#003366; text-decoration: none;"><strong>Sen. Bob Menendez Reports to Prison:</strong></a> Convicted of bribery, obstruction, and acting as a foreign agent for Egypt, Menendez began his 11-year sentence in June. Gold bars, cash-stuffed coats, and a Mercedes were part of the scheme that ended his Senate career.</li>
+    <li><a href="https://socialsci.libretexts.org/Bookshelves/Political_Science_and_Civics/Attenuated_Democracy_%28Hubert%29/08%3A_Electoral_Politics_and_Public_Opinion/8.07%3A_Chapter_55-_The_Advantages_of_Incumbency" target="_blank" style="color:#003366; text-decoration: none;"><strong>Incumbency: The Power No One Earns:</strong></a> Over 94% of House incumbents win reelection—even as public approval of Congress hovers near 14%. Name recognition, donor loyalty, and media bias make it nearly impossible to unseat sitting lawmakers.</li>
+    <li><a href="https://ballotpedia.org/List_of_congressional_candidates_in_the_2026_elections" target="_blank" style="color:#003366; text-decoration: none;"><strong>Who’s Up in 2026?</strong></a> Ballotpedia’s searchable list of all congressional candidates by state, office, and party. Includes incumbents, challengers, and retirements. Click to explore the full map of who’s running and where.</li>
+    <li><a href="https://budget.house.gov/about/committee" target="_blank" style="color:#003366; text-decoration: none;"><strong>What Congress Is Supposed to Do:</strong></a> Draft the federal budget. Oversee spending. Hold agencies accountable. Pass laws. Investigate corruption. Most of that is stalled or ignored. The Budget Committee hasn’t finalized FY26 targets—and time is running out.</li>
+    <li><a href="https://research.unc.edu/2025/09/10/september-2025-federal-and-legislative-updates/" target="_blank" style="color:#003366; text-decoration: none;"><strong>What’s In Front of Them Now:</strong></a> Congress is debating FY26 bills for Education, Energy, and Financial Services. ARPA-E faces a 24% cut. Capitol security funding gains bipartisan support after Charlie Kirk’s assassination.</li>
+    <li><a href="https://ourcommunitynow.com/P/11-fun-facts-about-the-119th-congress" target="_blank" style="color:#003366; text-decoration: none;"><strong>Congress Has 7 Navy SEALs. Seriously:</strong></a> The 119th Congress includes seven retired Navy SEALs—all Republicans. They’ve served in Montana, Texas, Arizona, Virginia, and Wisconsin. It’s the most elite military representation in Congress history.</li>
+  </ul>
+
+  <!-- Leave a Comment Button -->
+  <div style="margin-top: 1em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
+</div>
+
+
+
+<!-- Executive Watch Block -->
+<section style="margin-top: 2em;">
+ <section style="margin-top: 2em;">
+<!-- ==== Executive Watch — September 21, 2025 ==== -->
+<div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+  <h3 id="executive-watch" style="color:#003366;" title="Last updated Sunday 3:30 PM ET">
+    <a href="https://diggingforclarity.com/#executive-watch" target="_blank" style="color:#003366; text-decoration: none;">
+      Executive Watch
+    </a>
+  </h3>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+    <li><a href="https://www.yahoo.com/news/articles/trump-confirms-hell-attend-charlie-185222270.html" target="_blank" style="color:#003366; text-decoration: none;"><strong>Trump Attends Charlie Kirk’s Funeral:</strong></a> President Trump delivered remarks at Kirk’s memorial service in Arizona alongside JD Vance, Marco Rubio, and Erika Kirk. The stadium event drew over 100,000 mourners and marked a defining moment in the administration’s cultural messaging.</li>
+    <li><a href="https://www.msn.com/en-us/news/politics/trump-announces-he-will-posthumously-award-charlie-kirk-the-presidential-medal-of-freedom/ar-AA1Mm6Yu" target="_blank" style="color:#003366; text-decoration: none;"><strong>Kirk to Receive Presidential Medal of Freedom:</strong></a> Trump announced the posthumous award during a 9/11 memorial speech. Erika Kirk will accept the honor on behalf of her late husband at a ceremony expected later this fall.</li>
+    <li><a href="https://www.whitehouse.gov/articles/2025/07/president-trumps-one-big-beautiful-bill-is-now-the-law/" target="_blank" style="color:#003366; text-decoration: none;"><strong>The Big Fat Beautiful Bill Is Law:</strong></a> Trump’s signature legislation delivers tax cuts, tip exemptions, border security, and “Trump Accounts” for newborns. Critics call it bloated; supporters call it historic. Either way, it’s reshaping the federal budget and family economics.</li>
+  </ul>
+
+  <p style="font-size: 0.95em; color: #333; margin-top: 0.5em;">
+    <strong>Pros:</strong> Extends 2017 tax cuts, eliminates taxes on tips and overtime, boosts child and senior deductions, and funds border security. Supporters say it increases take-home pay and protects small businesses.<br>
+    <strong>Cons:</strong> Adds over $3 trillion to the national debt, cuts clean energy subsidies, and imposes Medicaid work requirements. Critics warn it benefits the wealthy and risks coverage loss for millions.
+  </p>
+
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+    <li><a href="https://michiganchronicle.com/v-p-jd-vance-says-white-house-will-deploy-national-guard-in-detroit-if-gov-whitmer-asks/" target="_blank" style="color:#003366; text-decoration: none;"><strong>JD Vance: National Guard on Standby:</strong></a> The Vice President offered federal troops to Detroit amid rising crime. Vance has emerged as the administration’s enforcer—focused on urban unrest, border security, and RNC fundraising. Trump calls him “most likely heir.”</li>
+    <li><a href="https://www.whitehouse.gov/fact-sheets/2025/09/fact-sheet-president-donald-j-trump-suspends-the-entry-of-certain-alien-nonimmigrant-workers/" target="_blank" style="color:#003366; text-decoration: none;"><strong>On the President’s Desk: H-1B Crackdown:</strong></a> Trump signed a proclamation requiring $100K fees for new H-1B petitions. The move targets outsourcing firms and aims to protect U.S. workers. DHS and Labor will issue enforcement guidelines this week.</li>
+    <li><a href="https://www.cbsnews.com/live-updates/rfk-childrens-health-report-maha/" target="_blank" style="color:#003366; text-decoration: none;"><strong>Next Up: Pharma Ad Transparency:</strong></a> Trump’s latest executive action forces drug companies to disclose full safety risks in ads. Online pharmacies face cease-and-desist orders. RFK Jr. calls it “radical transparency for chronic disease.”</li>
+    <li><a href="https://trumpgolftracker.net/" target="_blank" style="color:#003366; text-decoration: none;"><strong>Golf Game: Still Swinging:</strong></a> Trump has golfed 56 of 224 days this term—mostly at Bedminster and Palm Beach. Rumors of cheating surfaced again in August, but the White House insists he’s “winning on and off the course.”</li>
+  </ul>
+
+  <!-- Leave a Comment Button -->
+  <div style="margin-top: 1em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
+</div>
+
+
+
+
+
+<!-- ==== Governance — September 17, 2025 ==== -->
+<div class="section" style="margin-top: 2em;">
+  <h3 id="governance" style="color:#003366;" title="Last updated Tuesday September 17, 12:00 PM ET">
+    <a href="https://diggingforclarity.com/#governance" target="_blank" style="color:#003366; text-decoration: none;">
+      The Cost of Governance
+    </a>
+  </h3>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.8;">
+    <li><strong>Total Federal Outlays:</strong> $7.0 trillion — Covers everything from defense and healthcare to infrastructure and interest payments.</li>
+    <li><strong>Total Revenues:</strong> $5.2 trillion — The government brings in less than it spends, creating a persistent gap that fuels long-term debt.</li>
+    <li><strong>Annual Deficit:</strong> $1.9 trillion — This shortfall adds directly to the national debt and limits future flexibility.</li>
+    <li><strong>Debt Held by the Public:</strong> $30.1 trillion — Financed by investors, banks, and foreign governments; now nearly equal to the entire U.S. economy.</li>
+    <li><strong>Total Federal Debt (including trust funds):</strong> $39.0 trillion — Includes obligations to Social Security and Medicare, which future taxpayers must cover.</li>
+    <li><strong>Debt Ceiling Raised:</strong> $41.1 trillion (July 4, 2025) — A temporary fix that allows more borrowing but signals unsustainable fiscal trends.</li>
+    <li><strong>Interest Payments (FY2025):</strong> $1.02 trillion — Interest alone is becoming one of the largest federal expenses, crowding out public investment.</li>
+  </ul>
+
+  <p style="font-style: italic;">
+    <a href="/governance-archive" style="color: #003366; text-decoration: underline;">
+      Catch up any time in the Governance Series Archive.
+    </a>
+  </p>
+
+  <!-- Leave a Comment Button -->
+  <div style="margin-top: 1em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- ==== Veterans Section ==== -->
+<div class="section" style="margin-top: 2em;">
+  <h3 id="veterans" style="color:#003366;" title="Last updated Tuesday September 17, 12:00 PM ET">
+    <a href="https://diggingforclarity.com/#veterans" target="_blank" style="color:#003366; text-decoration: none;">
+      Veterans
+    </a>
+  </h3>
+
+  <p style="line-height: 1.6; color: #333;">
+    If you’re a veteran, you are eligible to receive medical care at any VA hospital or emergency room—free of charge. This includes walk-in care, urgent care, and emergency services. You do not need a disability rating or an active claim. If you served, you’re covered.
+  </p>
+
+  <p style="line-height: 1.6; color: #333;">
+    Many veterans don’t even realize they’re eligible for benefits. Some are automatic—you don’t have to apply. These include a free pair of glasses once a year, hearing aids, and other essentials that support your quality of life. If you’ve served, you’ve earned more than you may know.
+  </p>
+
+  <p style="line-height: 1.6; color: #333;">
+    The <a href="https://www.va.gov/disability/" target="_blank" style="color: #0645AD; text-decoration: underline;">VA Disability Portal</a> is your starting point for filing a claim, checking your status, and understanding your benefits.
+  </p>
+
+  <p style="line-height: 1.6; color: #333;">
+    Need help? Organizations like the <a href="https://www.dav.org/veterans/benefits-assistance/" target="_blank" style="color: #0645AD; text-decoration: underline;">Disabled American Veterans (DAV)</a> offer free assistance from trained advocates who can walk you through every step. You can also work with accredited attorneys or VSO representatives to make sure your claim is complete, accurate, and supported.
+  </p>
+
+  <p style="line-height: 1.6; color: #333;">
+    If you’re struggling emotionally, please reach out. The <strong>Veterans Crisis Line</strong> is available 24/7 at <strong>988 (then press 1)</strong>. You can also text <strong>838255</strong> or visit <a href="https://www.veteranscrisisline.net/" target="_blank" style="color: #0645AD; text-decoration: underline;">VeteransCrisisLine.net</a>. Your life matters. Your service matters. Help is always available.
+  </p>
+
+  <!-- Leave a Comment Button -->
+  <div style="margin-top: 1em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
+</div>
+
+
+
+<!-- ==== Health Coverage & Care — September 21, 2025 ==== -->
+<div class="section" style="margin-top: 2em;">
+  <h3 id="health-coverage" style="color:#003366;" title="Last updated Sunday September 21, 3:30 PM ET">
+    <a href="https://diggingforclarity.com/#health-coverage" target="_blank" style="color:#003366; text-decoration: none;">
+      Health Coverage & Care
+    </a>
+  </h3>
+
+  <p style="line-height: 1.6; color: #333;">
+    This is the first page in a continuing series on health care. We’re not here to echo talking points—we’re here to dig. To ask what’s working. What’s broken. And what’s being ignored. Over time, this section will grow into a resource for anyone trying to understand how care is delivered, denied, and paid for in America.
+  </p>
+
+  <p style="line-height: 1.6; color: #333;">
+    First things first: money drives everything on Earth—including health care. America will spend <strong>$5.6 trillion</strong> on health care in 2025. That includes everything—Medicare, Medicaid, private insurance, out-of-pocket costs, and more. Of that, roughly <strong>$3.5 to $4.2 trillion</strong> is paid by the insured and their insurance companies.
+  </p>
+
+  <p style="line-height: 1.6; color: #333;">
+    If coverage were completely free, that cost wouldn’t disappear—it would shift. The taxpayer would have to absorb it. That means replacing premiums and copays with higher taxes or new federal spending. The math is simple. The politics are not. We need to start asking the right questions.
+  </p>
+
+  <!-- Leave a Comment Button -->
+  <div style="margin-top: 1em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<section class="grid">
+  <!-- Other blocks like Global News, Market Watch, etc. -->
+
+<!-- Sports Block -->
+<section style="margin-top: 2em;">
+<!-- ==== Sports — September 21, 2025 ==== -->
+<section style="margin-top: 2em;">
+  <div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+    <h3 id="sports" style="color:#003366;" title="Last updated Sunday September 21, 10:52 PM ET">
+      <a href="https://diggingforclarity.com/#sports" target="_blank" style="color:#003366; text-decoration: none;">Sports</a>
+    </h3>
+    <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+      <li>
+        <a href="https://www.mlb.com/mariners/scores" target="_blank" style="color:#003366; text-decoration:none;">
+          <strong>Mariners Defeat Astros to Tie AL West:</strong>
+        </a>
+        Seattle wins 7–3 in Houston, pulling even atop the division with just 8 games left.
+      </li>
+      <li>
+        <a href="https://www.mlb.com/phillies/scores" target="_blank" style="color:#003366; text-decoration:none;">
+          <strong>Diamondbacks Rout Phillies in Wild Card Shakeup:</strong>
+        </a>
+        Arizona wins 9–2 at Chase Field; now one game back of the final NL Wild Card spot.
+      </li>
+      <li>
+        <a href="https://www.espn.com/nfl/preview?gameId=401772920" target="_blank" style="color:#003366; text-decoration:none;">
+          <strong>Chiefs Face Giants in Must-Win SNF Clash:</strong>
+        </a>
+        Kansas City leads 16–9 in the fourth quarter; Mahomes and Kelce fighting to avoid 0–3.
+      </li>
+      <li>
+        <a href="https://thehockeywriters.com/4-takeaways-from-rangers-first-preseason-game-against-the-devils-9-21-2025/" target="_blank" style="color:#003366; text-decoration:none;">
+          <strong>Rangers Beat Devils 5–3 in Preseason Opener:</strong>
+        </a>
+        Roobroeck, Sheary, and Brodzinski score in a dominant second period; Quick and Garand split goaltending duties.
+      </li>
+      <li>
+        <a href="https://www.espn.com/mma/fightcenter/_/id/600053664/league/ufc/fightId/401766298" target="_blank" style="color:#003366; text-decoration:none;">
+          <strong>Diego Lopes Wins UFC Main Event Over Silva:</strong>
+        </a>
+        Lopes scores second-round TKO in San Antonio; title buzz builds after dominant finish.
+      </li>
+      <li>
+        <a href="https://www.mlssoccer.com/news/matchday-35-who-can-clinch-playoffs-or-be-eliminated-2025" target="_blank" style="color:#003366; text-decoration:none;">
+          <strong>MLS Playoff Race Tightens as Decision Day Nears:</strong>
+        </a>
+        Seven teams can clinch tonight; LAFC, Miami, and Columbus all in action with stakes high.
+      </li>
+      <li>
+        <a href="https://www.pgatour.com/pgatour-champions/tournaments/2025/pure-insurance-championship/S2025616/highlights" target="_blank" style="color:#003366; text-decoration:none;">
+          <strong>Doug Barron Wins PURE Insurance Championship at Pebble Beach:</strong>
+        </a>
+        Barron finishes –12 with a final-round 66 to clinch the title; leaderboard highlights and youth pairings featured.
+      </li>
+    </ul>
+    <!-- Leave a Comment Button -->
+    <div style="margin-top: 1em; text-align: right;">
+      <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform','_blank')" style="background-color:#003366; color:#fff; border:none; padding:0.5em 1em; border-radius:4px; cursor:pointer;" title="Click to leave anonymous feedback">
+        Leave a Comment
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+  <!-- AI BLOCK -->
+<!-- ==== AI — September 21, 2025 ==== -->
+<section style="margin-top: 2em;">
+  <div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+    <h3 id="ai" style="color:#003366;" title="Last updated Sunday September 21, 11:12 PM ET">
+      <a href="https://diggingforclarity.com/#ai" target="_blank" style="color:#003366; text-decoration: none;">Artificial Intelligence</a>
+    </h3>
+    <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+      <li>
+        <a href="https://theaitrack.com/ai-news-september-2025-in-depth-and-concise/" target="_blank" style="color:#003366; text-decoration:none;">
+          <strong>Gemini 2.5 Deep Think Wins ICPC Gold:</strong>
+        </a>
+        Solved 10 of 12 coding problems in under 30 minutes—including one no human solved—at the 2025 ICPC finals in Baku.
+      </li>
+      <li>
+        <a href="https://vavoza.com/25-tech-news-and-ai-developments-this-week-in-september-2025-vz5/" target="_blank" style="color:#003366; text-decoration:none;">
+          <strong>Claude Launches File Creation Tools:</strong>
+        </a>
+        Users can now generate and edit Excel sheets, slide decks, and PDFs directly inside Claude—no external apps needed.
+      </li>
+      <li>
+        <a href="https://vavoza.com/25-tech-news-and-ai-developments-this-week-in-september-2025-vz5/" target="_blank" style="color:#003366; text-decoration:none;">
+          <strong>Oracle Opens AI Center of Excellence for Healthcare:</strong>
+        </a>
+        New initiative helps hospitals use AI to optimize clinical, financial, and operational workflows.
+      </li>
+      <li>
+        <a href="https://theaitrack.com/ai-news-september-2025-in-depth-and-concise/" target="_blank" style="color:#003366; text-decoration:none;">
+          <strong>Seedream 4.0 Merges Generation and Editing:</strong>
+        </a>
+        Delivers 2K image outputs in under 2 seconds with six-image reference consistency and natural-language editing.
+      </li>
+      <li>
+        <a href="https://vavoza.com/25-tech-news-and-ai-developments-this-week-in-september-2025-vz5/" target="_blank" style="color:#003366; text-decoration:none;">
+          <strong>Anthropic Backs California AI Safety Bill:</strong>
+        </a>
+        SB 53 requires frontier AI developers to publish risk reports and safety frameworks; Anthropic endorses the move.
+      </li>
+      <li>
+        <a href="https://theaitrack.com/ai-news-september-2025-in-depth-and-concise/" target="_blank" style="color:#003366; text-decoration:none;">
+          <strong>Albania Appoints AI Bot as Cabinet Minister:</strong>
+        </a>
+        “Diella” will oversee public tenders and corruption audits, marking the first symbolic AI appointment in government.
+      </li>
+      <li>
+        <a href="https://tsttechnology.io/blog/tech-updates-mid-september-2025" target="_blank" style="color:#003366; text-decoration:none;">
+          <strong>FTC Investigates AI Chatbots and Child Safety:</strong>
+        </a>
+        Seven major firms—including OpenAI and Meta—must disclose how chatbots handle minors, safety risks, and monetization.
+      </li>
+    </ul>
+    <!-- Leave a Comment Button -->
+    <div style="margin-top: 1em; text-align: right;">
+      <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform','_blank')" style="background-color:#003366; color:#fff; border:none; padding:0.5em 1em; border-radius:4px; cursor:pointer;" title="Click to leave anonymous feedback">
+        Leave a Comment
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<section class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 1em;">
+<!-- ==== NFL Standings — September 21, 2025 ==== -->
+<div class="section">
+  <h3 id="nfl" style="color:#003366;" title="Last updated Sunday September 21, 7:45 PM ET">
+    <a href="https://diggingforclarity.com/#nfl" target="_blank" style="color:#003366; text-decoration: none;">
+      NFL Standings
+    </a>
+  </h3>
+
+  <div class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2em;">
+    <!-- AFC East -->
+    <div>
+      <strong>AFC East</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span>Buffalo Bills</span><span>3-0</span>
+        <span>Miami Dolphins</span><span>2-1</span>
+        <span>New England Patriots</span><span>1-2</span>
+        <span>New York Jets</span><span>0-3</span>
+      </div>
+    </div>
+
+    <!-- NFC East -->
+    <div>
+      <strong>NFC East</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span>Philadelphia Eagles</span><span>3-0</span>
+        <span>Washington Commanders</span><span>2-1</span>
+        <span>Dallas Cowboys</span><span>1-2</span>
+        <span>New York Giants</span><span>0-3</span>
+      </div>
+    </div>
+
+    <!-- AFC North -->
+    <div>
+      <strong>AFC North</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span>Cincinnati Bengals</span><span>2-1</span>
+        <span>Cleveland Browns</span><span>2-1</span>
+        <span>Baltimore Ravens</span><span>1-3</span>
+        <span>Pittsburgh Steelers</span><span>1-2</span>
+      </div>
+    </div>
+
+    <!-- NFC North -->
+    <div>
+      <strong>NFC North</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span>Green Bay Packers</span><span>2-1</span>
+        <span>Minnesota Vikings</span><span>2-1</span>
+        <span>Detroit Lions</span><span>2-2</span>
+        <span>Chicago Bears</span><span>1-2</span>
+      </div>
+    </div>
+
+    <!-- AFC South -->
+    <div>
+      <strong>AFC South</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span>Jacksonville Jaguars</span><span>3-0</span>
+        <span>Houston Texans</span><span>2-1</span>
+        <span>Indianapolis Colts</span><span>1-2</span>
+        <span>Tennessee Titans</span><span>0-3</span>
+      </div>
+    </div>
+
+    <!-- NFC South -->
+    <div>
+      <strong>NFC South</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span>Tampa Bay Buccaneers</span><span>3-0</span>
+        <span>Carolina Panthers</span><span>1-2</span>
+        <span>Atlanta Falcons</span><span>1-2</span>
+        <span>New Orleans Saints</span><span>0-3</span>
+      </div>
+    </div>
+
+    <!-- AFC West -->
+    <div>
+      <strong>AFC West</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span>Los Angeles Chargers</span><span>3-0</span>
+        <span>Las Vegas Raiders</span><span>1-2</span>
+        <span>Denver Broncos</span><span>1-2</span>
+        <span>Kansas City Chiefs</span><span>1-2</span>
+      </div>
+    </div>
+
+    <!-- NFC West -->
+    <div>
+      <strong>NFC West</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span>San Francisco 49ers</span><span>3-0</span>
+        <span>Los Angeles Rams</span><span>2-1</span>
+        <span>Seattle Seahawks</span><span>2-1</span>
+        <span>Arizona Cardinals</span><span>1-2</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leave a Comment Button -->
+  <div style="margin-top: 1.5em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
+</div>
+
+
+
+
+
+
+ <!-- ==== Game Day — September 21, 2025 ==== -->
+<div class="section" style="margin-top: 2em;">
+  <h3 id="game-day" style="color:#003366;" title="Last updated Sunday September 21, 3:30 PM ET">
+    <a href="https://diggingforclarity.com/#game-day" target="_blank" style="color:#003366; text-decoration: none;">
+      Game Day
+    </a>
+  </h3>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 3em; row-gap: 2em; font-family: Georgia, serif; font-size: 1em; color: #222;">
+  <div>
+    <div>Chicago Bears 31</div>
+    <div>Dallas Cowboys 14</div>
+
+    <div style="height: 1em;"></div>
+
+    <div>San Francisco 49ers 16</div>
+    <div>Arizona Cardinals 15</div>
+
+    <div style="height: 1em;"></div>
+
+    <div>Seattle Seahawks 44</div>
+    <div>New Orleans Saints 13</div>
+
+    <div style="height: 1em;"></div>
+
+    <div>Los Angeles Chargers 23</div>
+    <div>Denver Broncos 20</div>
+
+    <div style="height: 1em;"></div>
+
+    <div>Pittsburgh Steelers 21</div>
+    <div>New England Patriots 14</div>
+
+    <div style="height: 1em;"></div>
+
+    <div>Washington Commanders 41</div>
+    <div>Las Vegas Raiders 24</div>
+  </div>
+  <div>
+    <div>Philadelphia Eagles 33</div>
+    <div>Los Angeles Rams 26</div>
+
+    <div style="height: 1em;"></div>
+
+    <div>Cleveland Browns 13</div>
+    <div>Green Bay Packers 10</div>
+
+    <div style="height: 1em;"></div>
+
+    <div>Indianapolis Colts 41</div>
+    <div>Tennessee Titans 20</div>
+
+    <div style="height: 1em;"></div>
+
+    <div>Tampa Bay Buccaneers 30</div>
+    <div>New York Jets 14</div>
+
+    <div style="height: 1em;"></div>
+
+   <div>Kansas City Chiefs 22</div>
+<div>New York Giants 9</div>
+
+
+    <div style="height: 1em;"></div>
+
+  <div>Detroit Lions 38</div>
+<div>Baltimore Ravens 30</div>
+
+  </div>
+</div>
+
+
+
+  <!-- Leave a Comment Button -->
+  <div style="margin-top: 1em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
+</div>
+
+
+<!-- ==== MLB National League Standings — September 21, 2025 ==== -->
 <div class="section" style="margin-top: 2em;">
   <h3 id="mlb" style="color:#003366;" title="Last updated Sunday September 21, 3:30 PM ET">
     <a href="https://diggingforclarity.com/#mlb" target="_blank" style="color:#003366; text-decoration: none;">
@@ -1688,6 +2590,1463 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ⚾ MLB American League Standings -->
+<div class="section" style="margin-top: 2em;">
+<h3 id="mlb-al" style="color:#003366;" title="Last updated Friday September 20, 11:30 PM ET">
+  <a href="https://diggingforclarity.com/#mlb-al" target="_blank" style="color:#003366; text-decoration:none;">MLB American League Standings</a>
+</h3>
+
+  <div style="display: grid; grid-template-columns: 1fr; row-gap: 2em;">
+
+    <!-- AL East -->
+    <div>
+      <strong>AL East</strong>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;"><span style="min-width: 220px;">Toronto Blue Jays</span><span>89-66</span><span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span></div>
+        <div style="display: flex;"><span style="min-width: 220px;">New York Yankees</span><span>87-68</span><span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span></div>
+        <div style="display: flex;"><span style="min-width: 220px;">Boston Red Sox</span><span>85-70</span><span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span></div>
+        <div style="display: flex;"><span style="min-width: 220px;">Tampa Bay Rays</span><span>75-80</span></div>
+        <div style="display: flex;"><span style="min-width: 220px;">Baltimore Orioles</span><span>73-82</span></div>
+      </div>
+    </div>
+
+    <!-- AL Central -->
+    <div>
+      <strong>AL Central</strong>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;"><span style="min-width: 220px;">Detroit Tigers</span><span>85-70</span><span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span></div>
+        <div style="display: flex;"><span style="min-width: 220px;">Cleveland Guardians</span><span>84-71</span></div>
+        <div style="display: flex;"><span style="min-width: 220px;">Kansas City Royals</span><span>78-77</span></div>
+        <div style="display: flex;"><span style="min-width: 220px;">Minnesota Twins</span><span>66-87</span></div>
+        <div style="display: flex;"><span style="min-width: 220px;">Chicago White Sox</span><span>58-97</span></div>
+      </div>
+    </div>
+
+    <!-- AL West -->
+    <div>
+      <strong>AL West</strong>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;"><span style="min-width: 220px;">Seattle Mariners</span><span>86-69</span><span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span></div>
+        <div style="display: flex;"><span style="min-width: 220px;">Houston Astros</span><span>84-71</span><span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span></div>
+        <div style="display: flex;"><span style="min-width: 220px;">Texas Rangers</span><span>79-76</span></div>
+        <div style="display: flex;"><span style="min-width: 220px;">Oakland Athletics</span><span>73-82</span></div>
+        <div style="display: flex;"><span style="min-width: 220px;">Los Angeles Angels</span><span>70-85</span></div>
+      </div>
+    </div>
+ <!-- Leave a Comment Button -->
+  <div style="margin-top: 1.5em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+
+</section>
+
+
+
+
+<section class="grid">
+<!-- Market Watch -->
+<div class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+  <h3 id="market" style="color:#003366;" title="Last updated Thursday September 19, 7:30 PM ET">
+    <a href="https://diggingforclarity.com/#market" target="_blank" style="color:#003366; text-decoration:none;">Market Watch</a>
+  </h3>
+
+  <p style="color:#003366;">Updated: Friday, September 19, 2025 – 12:34 PM MT</p>
+  <p style="color:#003366;">Dow Jones: 46,142.42 <span style="color: green;">+0.27%</span></p>
+  <p style="color:#003366;">S&amp;P 500: 6,631.96 <span style="color: green;">+0.48%</span></p>
+  <p style="color:#003366;">Nasdaq: 22,470.72 <span style="color: green;">+0.94%</span></p>
+
+  <div style="font-size: 0.9em; color: #003366; margin-top: 0.5em;">
+    <p>Gain on $10K investment:</p>
+    <ul style="list-style-type: disc; padding-left: 1.5em; margin-top: 0.3em;">
+      <li>Dow Jones +0.27% → <strong>$27</strong></li>
+      <li>S&amp;P 500 +0.48% → <strong>$48</strong></li>
+      <li>Nasdaq +0.94% → <strong>$94</strong></li>
+    </ul>
+  </div>
+
+ 
+  <!-- Leave a Comment Button -->
+  <div style="margin-top: 1.5em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+ <!-- Debt Ceiling Editorial -->
+<section class="section">
+  <h3 id="debtceiling" style="color:#003366;">The Debt Ceiling: Congress’s Annual Disguise</h3>
+  <p><strong>Published:</strong> Friday, September 19, 2025</p>
+  <p>
+    Every year—sometimes twice—Congress raises the debt ceiling. They call it “avoiding default.” They call it “fiscal responsibility.” But let’s be honest: it’s a ritual of avoidance. A ceremonial cloak to hide the truth about how broken our budgeting process really is.
+  </p>
+  <p>
+    The debt ceiling isn’t a plan. It’s a patch. A temporary fix that lets lawmakers keep spending without confronting the consequences. In July 2025, Congress raised the ceiling to <strong>$41.1 trillion</strong>—a move that allowed more borrowing but did nothing to address the underlying deficit of <strong>$1.9 trillion</strong>.
+  </p>
+  <p>
+    And here’s the kicker: the ceiling itself is a political invention. Before 1917, Congress had to approve every loan. But during World War I, they gave Treasury a leash—as long as it didn’t exceed a set limit. That leash has been stretched so many times it’s now a noose around future generations.
+  </p>
+  <p>
+    Each time Congress raises the ceiling, they’re not solving the problem. They’re deferring it. They’re telling voters, “We’ll deal with this later,” while quietly adding trillions to the ledger. The <strong>interest payments alone—$1.02 trillion this year—are now one of the largest federal expenses</strong>.
+  </p>
+  <p>
+    And yes, they raise it more than once a year. In 2025, they reinstated the ceiling at $36.1 trillion in January, then raised it again to $41.1 trillion by July. That’s not fiscal discipline—it’s fiscal denial.
+  </p>
+  <p>
+    So what’s the truth Congress is hiding?
+  </p>
+  <p>
+    That the debt ceiling isn’t a guardrail. It’s a mirage. A political tool used to posture, delay, and distract. It gives the illusion of control while the fiscal car speeds toward a cliff.
+  </p>
+  <p>
+    If Congress were serious, they’d stop raising the ceiling and start rewriting the blueprint. They’d confront the mismatch between spending and revenue. They’d stop pretending that suspending the limit is anything but a way to keep the lights on without paying the electric bill.
+  </p>
+  <p>
+    Until then, the debt ceiling will remain what it’s always been: a disguise. And every time it’s raised, we should ask—not how high it goes, but how long we’re willing to pretend it means anything at all.
+  </p>
+</section>
+
+
+
+
+
+<section class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1em; margin-top: 2em;">
+
+  <!-- Make Noise, Not War -->
+<div class="section">
+ <h3 id="make-noise" style="color:#003366;">Make Noise, Not War</h3>
+  <!-- Tribute to Charlie Kirk -->
+  <div style="background-color: #f4f1ec; padding: 1.5em; border-left: 4px solid #003366; margin-bottom: 2em;">
+    <h4 style="color:#003366;">Thank You, Charlie</h4>
+    <p style="line-height: 1.6; color: #444;">
+      We lost a good man this week. Killed in cold blood because he didn’t support abortion. Shot dead in front of his wife and kids because he believed in Jesus Christ. Murdered because he didn’t support homosexuality. Sent to his grave at 31 years old because he advocated tight border control.
+    </p>
+    <p style="line-height: 1.6; color: #444;">
+      I cried when my daughter called me, crying, to tell me about Kirk’s death. Famous people die all the time. This is the first time I cried for one of them. Don’t get me wrong—I didn’t even know the guy, so it wasn’t like I was bawling like a baby. <strong>Like his wife was. Like his children were. His extended family. His friends.</strong> I saw him on TV a few times, but it was easily enough for me to appreciate what he was trying to do—for God, his family, and his country.
+    </p>
+    <p style="line-height: 1.6; color: #444;">
+      Thank you, Charlie. Because of your passing, I decided to take a closer look at my life. I thought it would be a good idea to dig in and see what I believed in as strongly as Charlie did. What makes me tick? Would somebody who barely knew me cry if I died? Turns out I’m a lot like Charlie. Scarily alike. Like twins alike. Did he have anything to do with that? Not one bit. Did he influence me so much that I changed how I think about any subject? Nope. I go about my life believing what I believe. If you ask me, I’ll tell you. If you don’t, you’ll never know. I don’t know how he felt about the death penalty. And unless you ask me, you’re not going to know how I feel.
+    </p>
+    <p style="line-height: 1.6; color: #444;">
+      Besides the things Charlie and I believed in, we also shared something else. We loved our families with every bit of our being. We loved ourselves—the good and the bad. We respected others for who they are. If every one of us were on the same page, we’d all be attending Harvard. I bet he didn’t have an ounce of hate in him. I wish I could say the same. The last twenty years have been difficult for America. We’ve taken a downturn that no one knows how to pull us out of. Charlie had an idea that he could help, and he lived and died by it.
+    </p>
+    <p style="line-height: 1.6; color: #444;">
+      Thank you, Charlie. And God bless you for daring to dream. And God bless your family and friends that you’ve left behind. And God bless the haters. They may need it the most.
+    </p>
+  </div>
+
+  <!-- Original Make Noise, Not War Description -->
+  <p style="margin-top: 0.5em; color: #444;">
+    This isn’t a space for shouting. It’s a space for speaking up—with precision, with purpose.
+  </p>
+  <p style="color: #444;">
+    <strong>Make Noise, Not War</strong> is where clarity meets conviction. Whether it’s political, personal, or poetic, this block welcomes voices that refuse to be drowned out.
+  </p>
+  <p style="color: #444;">
+    If you’ve got something to say, say it here. Loud ideas. Quiet truths. Editorial control reclaimed.
+  </p>
+  <p style="margin-top: 1em;">
+    <a href="mailto:diggingforclarity@gmail.com" style="font-weight: bold; color: #3366cc; text-decoration: underline;">
+      diggingforclarity@gmail.com
+    </a>
+  </p>
+</div>
+
+
+<!-- Favorites Section -->
+<section class="section" style="margin-top: 2em; margin-bottom: 2em;">
+  <h3 id="favorites" style="color:#003366;">Favorites</h3>
+ <p>Drop in your favorite URLs. They’ll stay right here for easy access anytime.</p>
+
+  <!-- Favorite 1 -->
+  <label for="favorite1">Favorite 1:</label>
+  <input type="text" id="favorite1" style="width: 100%; margin-bottom: 0.5em;">
+  <button onclick="openFavorite('favorite1')" style="margin-bottom: 1em;">View Favorite</button>
+
+  <!-- Favorite 2 -->
+  <label for="favorite2" style="display: block; margin-top: 1em;">Favorite 2:</label>
+  <input type="text" id="favorite2" style="width: 100%; margin-bottom: 0.5em;">
+  <button onclick="openFavorite('favorite2')" style="margin-bottom: 1em;">View Favorite</button>
+
+  <!-- Favorite 3 -->
+  <label for="favorite3" style="display: block; margin-top: 1em;">Favorite 3:</label>
+  <input type="text" id="favorite3" style="width: 100%; margin-bottom: 0.5em;">
+  <button onclick="openFavorite('favorite3')" style="margin-bottom: 1em;">View Favorite</button>
+
+  <!-- Vision Quote and Email -->
+  <div style="background-color: #f4f1ec; padding: 1.5em; border-left: 4px solid #003366; margin-top: 2em;">
+    <p style="line-height: 1.6; color: #444;">
+      Thank you for experimenting with your own clarity by participating in my vision—a quiet space for thoughtful news, even when the stories themselves are anything but quiet.
+    </p>
+    <p style="line-height: 1.6; color: #444;">
+      This page isn’t about peace—it’s about restoring editorial control, so we can carry that clarity into the lives that matter most to us.
+    </p>
+    <p style="margin-top: 1em; font-weight: bold;">
+      Email: <a href="mailto:diggingforclarity@gmail.com" style="color: #3366cc; text-decoration: underline;">diggingforclarity@gmail.com</a>
+    </p>
+  </div>
+</section>
+
+
+<!-- 📲 Add DFC to Your Phone or iPad -->
+<section class="section" style="margin-top: 2em;">
+  <h3 style="color:#003366;">Add Digging For Clarity to Your Home Screen</h3>
+  <p style="font-style: italic; color: #444;">One tap. Instant clarity.</p>
+
+  <h4 style="margin-top: 1em; color:#003366;">📱 Android Users</h4>
+  <ol style="line-height: 1.6; color: #444;">
+    <li>Open <a href="https://diggingforclarity.com" target="_blank" style="color: #3366cc;">DiggingForClarity.com</a> in <strong>Chrome</strong>.</li>
+    <li>Tap the <strong>three dots</strong> in the top-right corner.</li>
+    <li>Select <strong>“Add to Home screen.”</strong></li>
+    <li>Confirm or rename the shortcut (e.g., “DFC”) and tap <strong>Add</strong>.</li>
+  </ol>
+
+  <h4 style="margin-top: 2em; color:#003366;">🍎 iPhone & iPad Users</h4>
+  <ol style="line-height: 1.6; color: #444;">
+    <li>Open <a href="https://diggingforclarity.com" target="_blank" style="color: #3366cc;">DiggingForClarity.com</a> in <strong>Safari</strong>.</li>
+    <li>Tap the <strong>Share icon</strong> (square with arrow).</li>
+    <li>Scroll and tap <strong>“Add to Home Screen.”</strong></li>
+    <li>Rename if desired, then tap <strong>Add</strong>.</li>
+  </ol>
+
+  <p style="margin-top: 1em; color: #444;">
+    Once added, DFC will live on your home screen like any other app—ready to launch with a single tap. No downloads. No distractions. Just clarity.
+  </p>
+
+  
+</section>
+
+<!-- 🧠 Why I Built This Page -->
+<section class="section" style="margin-top: 2em; margin-bottom: 2em;">
+ <h3 id="why-i-built-this" style="color:#003366;" title="Last updated Thursday September 19, 11:00 AM ET">
+  <a href="https://diggingforclarity.com/#why-i-built-this" target="_blank" style="color:#003366; text-decoration:none;">Why I Built This Page</a>
+</h3>
+
+ <p style="line-height: 1.6; color: #444;">
+  I used to think bias came from the newsroom. Now I know it comes from the <strong>news algorithm</strong>. The headlines aren’t chosen by editors anymore—they’re chosen by code. And that code is designed to keep you angry, addicted, and divided. It worked on me like it was designed to do.
+</p>
+
+
+  <p style="line-height: 1.6; color: #444;">
+    They thrive on division. They survive on outrage. And this trend has been accelerating—almost day by day. I don’t watch the news anymore. I read it, just enough to decide what belongs on this page. Life is hard enough without the "news" complicating it.
+  </p>
+  <p style="line-height: 1.6; color: #444;">
+    I built this page for me—and hopefully for you. It’s not about politics. It’s about editorial control. It’s about reclaiming the ability to think clearly, without being told what to feel. Whether you’re here for weather, sports, politics, or just a moment of reflection, this page is yours to shape.
+  </p>
+  <p style="line-height: 1.6; color: #444;">
+  I’m not here to change how you think. I’m here to give you space to think for yourself—without noise, without manipulation, and without someone else’s agenda steering the conversation. You deserve clarity, not confusion.
+</p>
+
+  <p style="margin-top: 1em; font-weight: bold;">
+    Email: <a href="mailto:diggingforclarity@gmail.com" style="color: #3366cc; text-decoration: underline;">diggingforclarity@gmail.com</a>
+  </p>
+</section>
+
+
+
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    ["favorite1", "favorite2", "favorite3"].forEach(id => {
+      const saved = localStorage.getItem(id);
+      if (saved) {
+        document.getElementById(id).value = saved;
+      }
+    });
+  });
+
+ function openFavorite(id) {
+  const input = document.getElementById(id);
+  let url = input?.value.trim().toLowerCase();
+
+  if (!url) {
+    alert("Please enter a valid link.");
+    return;
+  }
+
+  // Auto-detect common site names
+  const commonSites = {
+    "google": "https://www.google.com",
+    "facebook": "https://www.facebook.com",
+    "youtube": "https://www.youtube.com",
+    "yahoo": "https://www.yahoo.com",
+    "pinterest": "https://www.pinterest.com",
+    "twitter": "https://www.twitter.com",
+    "reddit": "https://www.reddit.com"
+  };
+
+  if (commonSites[url]) {
+    url = commonSites[url];
+  } else if (!/^https?:\/\//i.test(url)) {
+    url = "https://" + url;
+  }
+
+  localStorage.setItem(id, url);
+  window.open(url, "_blank");
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  async function fetchLocalNewsByZip(zip) {
+    try {
+      const res = await fetch("/cityziplatlong.json");
+      const zipData = await res.json();
+
+      const location = zipData[zip];
+      if (!location) {
+        console.error("ZIP not found in cityziplatlong.json");
+        renderLocalNews([], `ZIP ${zip} not found in mapping.`);
+        return;
+      }
+
+      const { city, lat, lon } = location;
+      const state = "CO"; // You can hardcode this or expand your JSON to include it
+
+      const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ city, state, zip, lat, lon })
+      });
+
+      const result = await response.json();
+      const snippets = Array.isArray(result.snippets)
+        ? result.snippets.filter(s =>
+            typeof s.title === "string" &&
+            s.title.trim() &&
+            typeof s.url === "string" &&
+            s.url.trim()
+          ).slice(0, 7)
+        : [];
+
+      const reason = snippets.length === 0
+        ? `No curated news returned for ZIP ${zip}.`
+        : "";
+
+      renderLocalNews(snippets, reason);
+    } catch (err) {
+      console.error("Fetch failed:", err);
+      renderLocalNews([], "Fetch failed or ZIP is invalid.");
+    }
+  }
+
+function renderLocalNews(snippets, reason = "") {
+  console.log("Rendering Local News:", snippets, reason); // ✅ Debug output
+
+  const container = document.getElementById("local-news");
+  container.innerHTML = "<h2>Local News</h2>";
+
+  if (!snippets.length) {
+    container.innerHTML += "<p>No local news available.</p>";
+    if (reason) {
+      container.innerHTML += `<p style="font-size: 0.9em; color: #666;"><em>Suppression reason: ${reason}</em></p>`;
+    }
+    return;
+  }
+
+  const ul = document.createElement("ul");
+  snippets.forEach(item => {
+    if (item.title && item.url) {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = item.url;
+      a.textContent = item.title;
+      a.target = "_blank";
+      li.appendChild(a);
+      ul.appendChild(li);
+    }
+  });
+
+  container.appendChild(ul);
+}
+
+ 
+
+
+
+
+
+<script>
+  document.getElementById("refreshStateNews").addEventListener("click", async function () {
+    console.log("🔄 Refresh button clicked");
+
+    const input = document.getElementById("location").value.trim().toLowerCase();
+    console.log("📍 Location input:", input);
+
+    const res = await fetch("/cityzip.json");
+    const cityZipMap = await res.json();
+    console.log("📦 cityZipMap loaded:", cityZipMap);
+
+    let city = null;
+    let zip = null;
+
+    if (/^\d{5}$/.test(input)) {
+      zip = input;
+      city = Object.keys(cityZipMap).find(c => cityZipMap[c].includes(zip));
+    } else {
+      city = input.replace(/\s+/g, "_");
+      zip = cityZipMap[city]?.[0];
+    }
+
+    console.log("🗺️ Mapped city:", city, "| ZIP:", zip);
+
+    if (!city || !zip) {
+      alert("Location not found. Please enter a valid city or ZIP.");
+      return;
+    }
+
+    const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ city, state: "CO", zip })
+    });
+
+    const result = await response.json();
+    console.log("📰 Copilot Curate response:", result);
+
+    const snippets = Array.isArray(result.snippets)
+      ? result.snippets.filter(s => s.title && s.url).slice(0, 7)
+      : [];
+
+    console.log("✅ Filtered snippets:", snippets);
+
+    const ul = document.getElementById("state-news");
+    ul.innerHTML = "";
+
+    if (!snippets.length) {
+      ul.innerHTML = "<li>No state news available.</li>";
+      return;
+    }
+
+    snippets.forEach(item => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = item.url;
+      a.textContent = item.title;
+      a.target = "_blank";
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+  });
+</script>
+
+<script>
+  // Save location to localStorage
+  function saveLocation() {
+    const location = document.getElementById("location").value.trim();
+    if (location) {
+      localStorage.setItem("userLocation", location);
+      console.log("📍 Location saved:", location);
+    }
+  }
+
+  // Load saved location and auto-refresh State News
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedLocation = localStorage.getItem("userLocation");
+    console.log("🗂️ Loaded saved location:", savedLocation);
+    if (savedLocation) {
+      document.getElementById("location").value = savedLocation;
+      document.getElementById("refreshStateNews").click();
+    }
+  });
+
+  // Refresh State News
+  document.getElementById("refreshStateNews").addEventListener("click", async function () {
+    console.log("🔄 Refresh button clicked");
+
+    const input = document.getElementById("location").value.trim().toLowerCase();
+    console.log("📍 Location input:", input);
+
+    const res = await fetch("/cityzip.json");
+    const cityZipMap = await res.json();
+    console.log("📦 cityZipMap loaded:", cityZipMap);
+
+    let city = null;
+    let zip = null;
+
+    if (/^\d{5}$/.test(input)) {
+      zip = input;
+      city = Object.keys(cityZipMap).find(c => cityZipMap[c].includes(zip));
+    } else {
+      city = input.replace(/\s+/g, "_");
+      zip = cityZipMap[city]?.[0];
+    }
+
+    console.log("🗺️ Mapped city:", city, "| ZIP:", zip);
+
+    if (!city || !zip) {
+      alert("Location not found. Please enter a valid city or ZIP.");
+      return;
+    }
+
+    const response = await fetch("https://copilot-curate.netlify.app/.netlify/functions/editor", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ city, state: "CO", zip })
+    });
+
+    const result = await response.json();
+    console.log("📰 Copilot Curate response:", result);
+
+    const snippets = Array.isArray(result.snippets)
+      ? result.snippets.filter(s => s.title && s.url).slice(0, 7)
+      : [];
+
+    console.log("✅ Filtered snippets:", snippets);
+
+    const ul = document.getElementById("state-news");
+    ul.innerHTML = "";
+
+    if (!snippets.length) {
+      ul.innerHTML = "<li>No state news available.</li>";
+      return;
+    }
+
+    snippets.forEach(item => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = item.url;
+      a.textContent = item.title;
+      a.target = "_blank";
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+  });
+</script>
+<script>
+  window.onload = function () {
+    // Restore saved Weather link
+    const savedWeather = localStorage.getItem("weatherLink");
+    if (savedWeather) {
+      document.getElementById("weatherLink").value = savedWeather;
+    }
+
+    // Restore saved Local News link
+    const savedLocalNews = localStorage.getItem("localNews");
+    if (savedLocalNews) {
+      document.getElementById("localNews").value = savedLocalNews;
+    }
+  };
+
+  function openWeather() {
+    const url = document.getElementById("weatherLink").value;
+    if (url) {
+      localStorage.setItem("weatherLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid weather link.");
+    }
+  }
+
+  function openLocalNews() {
+    const url = document.getElementById("localNews").value;
+    if (url) {
+      localStorage.setItem("localNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid local news link.");
+    }
+  }
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedWeather = localStorage.getItem("weatherLink");
+    if (savedWeather) {
+      document.getElementById("weatherLink").value = savedWeather;
+    }
+
+    const savedLocalNews = localStorage.getItem("localNews");
+    if (savedLocalNews) {
+      document.getElementById("localNews").value = savedLocalNews;
+    }
+
+    const savedStateNews = localStorage.getItem("stateNews");
+    if (savedStateNews) {
+      document.getElementById("stateNews").value = savedStateNews;
+    }
+  });
+
+  function openWeather() {
+    const url = document.getElementById("weatherLink").value.trim();
+    if (url) {
+      localStorage.setItem("weatherLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid weather link.");
+    }
+  }
+
+  function openLocalNews() {
+    const url = document.getElementById("localNews").value.trim();
+    if (url) {
+      localStorage.setItem("localNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid local news link.");
+    }
+  }
+
+  function openStateNews() {
+    const url = document.getElementById("stateNews").value.trim();
+    if (url) {
+      localStorage.setItem("stateNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid state news link.");
+    }
+  }
+</script>
+
+<script>
+  window.onload = function () {
+    const savedLocalNews = localStorage.getItem("localNews");
+    if (savedLocalNews) {
+      document.getElementById("localNews").value = savedLocalNews;
+    }
+
+    const savedStateNews = localStorage.getItem("stateNews");
+    if (savedStateNews) {
+      document.getElementById("stateNews").value = savedStateNews;
+    }
+  };
+
+  function openLocalNews() {
+    const url = document.getElementById("localNews").value;
+    if (url) {
+      localStorage.setItem("localNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid local news link.");
+    }
+  }
+
+  function openStateNews() {
+    const url = document.getElementById("stateNews").value;
+    if (url) {
+      localStorage.setItem("stateNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid state news link.");
+    }
+  }
+</script>
+
+<script>
+  function updateMountainTime() {
+    const now = new Date();
+    const options = {
+      timeZone: 'America/Denver',
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    };
+    document.getElementById('mountain-time').innerText = now.toLocaleString('en-US', options) + ' MT';
+  }
+
+  setInterval(updateMountainTime, 1000);
+  updateMountainTime();
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => console.log('Service worker registered:', reg))
+      .catch(err => console.error('Service worker error:', err));
+  }
+</script>
+<!-- ==== Overal Comments on Site ==== -->
+<div class="section" style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ccc;">
+  <h3 id="overall-comments" style="color:#003366;">
+    Overal Comments on Site
+  </h3>
+  <div style="margin-top: 1em; text-align: right;">
+    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
+      Leave a Comment
+    </button>
+  </div>
+</div>
+
+
+<!-- ==== Footer Section ==== -->
+<footer class="footer-container" style="margin-top:2em; border:1px solid #000; padding:1em; border-radius:6px;">
+  <div class="footer-row" style="display:flex; justify-content:center; align-items:center; gap:1em;">
+    <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
+    <p class="footer-text" style="margin:0;">© Digging For Clarity 2025. All rights reserved.</p>
+    <img src="footer-logo.png" alt="Digging For Clarity logo" class="footer-logo">
+  </div>
+</footer>
+
+
+
+<!-- Leave these as-is -->
+<script src="local-news.js" defer></script>
+<script src="/js/editor.js" defer></script>
+</body>
+</html>
+
 
 
 
