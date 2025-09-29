@@ -245,6 +245,137 @@ function toggleReflection(event) {
       </div>
     </div>
   </div>
+<!-- === Weather drawer recover / restore UI (paste once, after Local Weather block) === -->
+<style>
+  /* Minimal drawer styling so it matches existing UI */
+  #weatherDrawer {
+    display: none;
+    background: #fff8f8;
+    border: 1px dashed #cc4444;
+    padding: 0.6em;
+    border-radius: 6px;
+    margin-bottom: 0.5em;
+    font-size: 0.95em;
+    color: #222;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  #weatherDrawer .wd-buttons { display:flex; gap:0.5em; margin-top:0.5em; }
+  #weatherDrawer button { background:#003366; color:#fff; border:none; padding:0.45em 0.6em; border-radius:4px; cursor:pointer; }
+  #weatherDrawer .secondary { background:#eee; color:#222; border:1px solid #ccc; }
+  #weatherDrawer .muted { color:#666; font-size:0.9em; }
+</style>
+
+<script>
+  (function () {
+    const input = document.getElementById('weatherLink');
+    const drawer = document.getElementById('weatherDrawer');
+
+    if (!input || !drawer) return;
+
+    // Build drawer contents (idempotent)
+    function renderDrawer(saved) {
+      drawer.innerHTML = '';
+      const info = document.createElement('div');
+      info.className = 'muted';
+      info.textContent = 'Saved weather URL found. If your input is empty you can restore it:';
+      const btnRow = document.createElement('div');
+      btnRow.className = 'wd-buttons';
+
+      const restore = document.createElement('button');
+      restore.type = 'button';
+      restore.textContent = 'Restore saved URL';
+      restore.addEventListener('click', () => {
+        input.value = saved;
+        input.focus();
+        drawer.style.display = 'none';
+      });
+
+      const openDirect = document.createElement('button');
+      openDirect.type = 'button';
+      openDirect.className = 'secondary';
+      openDirect.textContent = 'Open saved URL';
+      openDirect.addEventListener('click', () => {
+        window.open(saved, '_blank');
+      });
+
+      const clearSaved = document.createElement('button');
+      clearSaved.type = 'button';
+      clearSaved.className = 'secondary';
+      clearSaved.textContent = 'Forget saved URL';
+      clearSaved.addEventListener('click', () => {
+        localStorage.removeItem('weatherLink');
+        drawer.style.display = 'none';
+      });
+
+      btnRow.appendChild(restore);
+      btnRow.appendChild(openDirect);
+      btnRow.appendChild(clearSaved);
+
+      const preview = document.createElement('div');
+      preview.style.marginTop = '0.5em';
+      preview.style.wordBreak = 'break-all';
+      preview.innerHTML = '<strong>Saved:</strong> ' + escapeHtml(saved);
+
+      drawer.appendChild(info);
+      drawer.appendChild(preview);
+      drawer.appendChild(btnRow);
+    }
+
+    // Simple escape helper for preview
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, function (m) {
+        return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+      });
+    }
+
+    // Show drawer when input is empty but a saved value exists
+    function checkAndShow() {
+      const saved = (localStorage.getItem('weatherLink') || '').trim();
+      if (saved && input.value.trim() === '') {
+        renderDrawer(saved);
+        drawer.style.display = 'block';
+      } else {
+        drawer.style.display = 'none';
+      }
+    }
+
+    // When user types or pastes into input, hide the drawer (they have a new URL)
+    input.addEventListener('input', () => {
+      if (input.value.trim()) drawer.style.display = 'none';
+      else checkAndShow();
+    });
+
+    // When Open Weather is clicked, if input empty but saved exists, restore automatically
+    // This augments your existing openWeather function by only restoring when necessary.
+    const originalOpen = window.openWeather;
+    window.openWeather = function () {
+      const value = input.value.trim();
+      const saved = (localStorage.getItem('weatherLink') || '').trim();
+      if (!value && saved) {
+        // restore saved into input and proceed
+        input.value = saved;
+      }
+      // call original behavior (if present) or fallback
+      if (typeof originalOpen === 'function') {
+        originalOpen();
+      } else {
+        if (input.value.trim()) {
+          localStorage.setItem('weatherLink', input.value.trim());
+          window.open(input.value.trim(), '_blank');
+        } else {
+          alert('Please enter a valid weather link.');
+        }
+      }
+      // hide drawer after action
+      drawer.style.display = 'none';
+    };
+
+    // Initialize on DOM ready and whenever page restores localStorage values
+    document.addEventListener('DOMContentLoaded', checkAndShow);
+    // Immediate run in case script runs after DOMContentLoaded
+    checkAndShow();
+  })();
+</script>
 
   <!-- 🗞️ Local & State News Block -->
   <div class="local-state-news-block" style="background: linear-gradient(to bottom right, #fdfdfd, #eaeaea); box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc;">
@@ -1799,6 +1930,7 @@ window.onload = function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
