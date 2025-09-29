@@ -1,6 +1,5 @@
 
 
- 
 <!DOCTYPE html>
 <!-- === CSS INDEX ===
 1. Header Container
@@ -9,14 +8,6 @@
 4. Weather Grid
 5. Forecast Icons
 =================== -->
-<!-- 🔒 Commit Drawer — Market Watch -->
-<!-- Live Commit ID: 6463a72 -->
-<!-- Original Anchor: 0c3b2ab (force-pushed and replaced) -->
-<!-- Tag: last-clean -->
-<!-- Timestamp: Sept 29, 2025 at 11:53 AM MDT -->
-<!-- Status: ✅ Layout-safe — Market Watch block recommitted -->
-<!-- Notes: This commit replaced 0c3b2ab during rollback drill -->
-
 <title>Digging For Clarity</title>
 <link rel="icon" href="footer_logo.png" type="image/png">
 <link rel="apple-touch-icon" href="footer_logo.png">
@@ -165,13 +156,7 @@ function toggleReflection(event) {
   ">
   </p>
 </div>
- <div style="margin-top: 1em; text-align: right;">
-<button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
-  Leave a Comment
-</button>
 
-
-</div>
 <script>
   function updateEasternTime() {
     const now = new Date();
@@ -191,8 +176,6 @@ function toggleReflection(event) {
 
   setInterval(updateEasternTime, 1000);
   updateEasternTime();
-
- 
 </script>
 
 
@@ -219,37 +202,41 @@ function toggleReflection(event) {
 
 <!-- Local Weather + Traffic Mapping -->
 <section class="grid" style="margin-top: 1em;">
- 
+  <!-- Local Weather Section -->
+<!-- Local Weather Section -->
+<!-- Your Choice Section -->
+<!-- Local Weather Section -->
+<!-- Local Weather Section -->
+<!-- Local Weather Section -->
 <!-- Local Weather Section -->
 <div id="local-weather" class="section" style="margin: 0;">
-  <div style="background-color: #f5f5f5; padding: 1em; border-radius: 6px; margin-bottom: 1em; font-size: 0.95em; font-weight: bold; text-align: center;">
-    Quick Jump: 
-    <a href="#ai">AI</a> |
-    <a href="#sports">Sports</a> |
-    <a href="#nfl">NFL</a> |
-    <a href="#mlb">MLB</a> |
-    <a href="#congress">Congress</a> |
-    <a href="#executive">Executive</a> |
-    <a href="#governance">Governance</a> |
-    <a href="#veterans">Veterans</a> |
-    <a href="#global-news">Global</a> |
-    <a href="#market">Market</a> |
-    <a href="#make-noise">Make Noise</a> |
-    <a href="#favorites">Favorites</a>
-  </div>
+ <div style="
+  background-color: #f5f5f5;
+  padding: 1em;
+  border-radius: 6px;
+  margin-bottom: 1em;
+  font-size: 0.95em;
+  font-weight: bold;
+  text-align: center;
+">
+  Quick Jump: 
+  <a href="#ai">AI</a> |
+  <a href="#sports">Sports</a> |
+  <a href="#congress">Congress</a> |
+  <a href="#executive">Executive</a> |
+  <a href="#governance">Governance</a> |
+  <a href="#veterans">Veterans</a> |
+   <a href="#global-news">Global</a> |
+  <a href="#market">Market</a> |
+  <a href="#make-noise">Make Noise</a> |
+  <a href="#favorites">Favorites</a>
+</div>
 
   <h3 style="color:#003366;">Local Weather</h3>
   <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
   <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
   <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
   <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
-
-  <!-- Leave a Comment Button -->
-  <div style="margin-top: 1em; text-align: right;">
-    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
-      Leave a Comment
-    </button>
-  </div>
 
   <!-- Navigation Tools -->
   <div style="margin-top: 1.5em;">
@@ -290,139 +277,40 @@ function toggleReflection(event) {
 
 
 
- <!-- Local & State News Section -->
-<div id="traffic-news" class="section" style="margin: 0;">
-  <h3 style="color:#003366;">Local & State News</h3>
-  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
 
-  <!-- Local News Input -->
-  <label for="localNews" style="font-weight: bold;">Local News Link:</label>
-  <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-  <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
+  <!-- Local & State News Section -->
+  <div id="traffic-news" class="section" style="margin: 0;">
+    <h3 style="color:#003366;">Local & State News</h3>
+    <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
 
-  <!-- State News Input -->
-  <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
-  <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-  <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
+    <!-- Local News Input -->
+    <label for="localNews" style="font-weight: bold;">Local News Link:</label>
+    <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+    <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
 
-  <!-- Leave a Comment Button -->
-  <div style="margin-top: 1em; text-align: right;">
-    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
-      Leave a Comment
-    </button>
+    <!-- State News Input -->
+    <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
+    <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+    <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
   </div>
-</div>
-
+</section>
 
 
   
 
-
+<!-- ==== U.S. News Highlights — September 20, 2025 ==== -->
 <div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
-  <h3 id="usnews" style="color:#003366;" title="Updated Tuesday, September 23, 2025 at 12:00 PM MT">
-    <a href="https://diggingforclarity.com/#usnews" target="_blank" style="color:#003366; text-decoration: none;">
-      U.S. News
-    </a>
+  <h3 id="us-news" style="color:#003366;">
+    <a href="https://diggingforclarity.com/#us-news" target="_blank" style="color:#003366; text-decoration:none;">U.S News</a>
   </h3>
   <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
-    <li>
-      <a href="https://www.usatoday.com/story/news/politics/arizona/2025/09/21/erika-kirk-forgives-killer-speech-charlie-kirk-memorial-az/86285785007/" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Erika Kirk Forgives Husband’s Killer:</strong>
-      </a> At Charlie Kirk’s memorial, Erika publicly forgave the alleged sniper and vowed to lead Turning Point USA forward.
-    </li>
-    <li>
-      <a href="https://www.yahoo.com/news/articles/2-hunters-killed-lightning-strike-143056389.html" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Colorado Hunters Killed by Lightning:</strong>
-      </a> Two young men were found dead in the San Juan Wilderness after a sudden strike during a backcountry trip.
-    </li>
-    <li>
-      <a href="https://www.usnews.com/news/health-news/articles/2025-09-23/costco-recalls-ahi-tuna-poke-in-30-states-over-listeria-risk" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Ahi Tuna Recall Over Listeria Risk:</strong>
-      </a> Federal health officials warn of contaminated shipments linked to multiple hospitalizations across several states.
-    </li>
-    <li>
-      <a href="https://cowboystatedaily.com/2025/09/22/ntsb-investigating-pipeline-explosion-that-halted-train-near-cheyenne/" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Cheyenne Pipeline Explosion Contained:</strong>
-      </a> Fire crews stopped a train carrying hazardous materials just minutes before reaching the blast zone.
-    </li>
-    <li>
-      <a href="https://www.foxnews.com/tech/wisconsin-unveils-historic-solar-farm-battery-storage-round-clock-power" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Wisconsin Solar Farm Powers Through Night:</strong>
-      </a> A new installation with 24/7 battery storage is being hailed as a national model for renewable energy.
-    </li>
-    <li>
-      <a href="https://www.foxnews.com/us/suspect-arrested-florida-synagogue-arson-hate-crime-police" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Florida Synagogue Arsonist Arrested:</strong>
-      </a> Police stopped a suspected hate crime ahead of Rosh Hashanah, calling it a “despicable act.”
-    </li>
-    <li>
-      <a href="https://www.goodnewsnetwork.org/pizzeria-owner-sees-people-eating-from-dumpster-offers-them-free-pies-and-a-slice-of-dignity/" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Pizzeria Owner Feeds Dumpster Divers:</strong>
-      </a> A Minnesota man saw people eating from his trash—and offered them hot meals and dignity instead.
-    </li>
-  </ul>
-
-  <!-- Leave a Comment Button -->
-  <div style="margin-top: 1em; text-align: right;">
-    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding:0.5em 1em; border-radius:4px; cursor:pointer;" title="Submit feedback or suggestions">
-      Leave a Comment
-    </button>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-<!-- === GLOBAL NEWS BLOCK === -->
-<div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
-  <h3 id="global-news" style="color:#003366;" title="Updated Tuesday, September 23, 2025 at 12:30 PM MT">
-    <a href="https://diggingforclarity.com/#global-news" target="_blank" style="color:#003366; text-decoration: none;">
-      Global News
-    </a>
-  </h3>
-  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
-    <li>
-      <a href="https://www.cbc.ca/news/canada/edmonton/alberta-wildfire-1.7543606" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Canada: Wildfire Evacuations Expand:</strong>
-      </a> Swan Hills residents flee as a 2,000-hectare wildfire burns out of control. Night ops and air tankers deployed amid extreme heat.
-    </li>
-    <li>
-      <a href="https://www.isro.gov.in/Chandrayaan3_Details.html" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>India: Moon Rover Sends Final Images:</strong>
-      </a> Chandrayaan-3 completes its mission, transmitting final lunar data before shutdown. ISRO confirms full success.
-    </li>
-    <li>
-      <a href="https://www.reuters.com/graphics/BRAZIL-WILDFIRE/0100B25610Q/" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Brazil: Amazon Fire Season Intensifies:</strong>
-      </a> Tens of thousands of fires recorded—worst outbreak since 2010. Global pressure mounts for federal action.
-    </li>
-    <li>
-      <a href="https://www.nhk.or.jp/bunken/english/reports/pdf/report_20230901_8.pdf" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Japan: Typhoon Kills Power to Thousands:</strong>
-      </a> NHK analysis of compound disasters shows Mawar’s winds and flooding knocked out power across Okinawa and Kyushu.
-    </li>
-    <li>
-      <a href="https://webstories.theguardian.com/stories/uk/2023/nov/3/israel-and-palestine-a-complete-guide-to-the-crisis/" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Great Britain: UK Recognizes Palestinian State:</strong>
-      </a> Guardian explainer outlines UK’s formal recognition amid shifting UN alliances and diplomatic fallout.
-    </li>
-    <li>
-      <a href="https://www.reuters.com/graphics/MIGRATION-EUROPE/MEDITERRANEAN/myvmxjemwpr/" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Europe: Airport Strikes Disrupt Travel:</strong>
-      </a> EU-wide labor unrest escalates as air traffic walkouts compound migrant crisis and travel chaos.
-    </li>
-    <li>
-      <a href="https://www.cbc.ca/news/canada/edmonton/topic/Tag/Alberta%20wildfires%202025" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Africa: Botswana Declares National Holiday:</strong>
-      </a> Placeholder only—no verified source found. Recommend replacing with a working Africa story or removing this line.
-    </li>
+    <li><a href="https://diggingforclarity.com/#charlie-memorial" target="_blank" style="color:#003366; text-decoration:none;"><strong>Charlie Kirk Memorial Today:</strong></a> Thousands gather at Turning Point USA HQ in Phoenix for a public tribute ahead of tomorrow’s funeral.</li>
+    <li><a href="https://diggingforclarity.com/#charlie-funeral" target="_blank" style="color:#003366; text-decoration:none;"><strong>Charlie Kirk Funeral Tomorrow:</strong></a> State Farm Stadium in Glendale to host high-security funeral with President Trump, VP JD Vance, and Erika Kirk.</li>
+    <li><a href="https://diggingforclarity.com/#fed-rate-cut" target="_blank" style="color:#003366; text-decoration:none;"><strong>Federal Reserve Cuts Interest Rates:</strong></a> Fed lowers benchmark rate to 4.00–4.25% amid inflation concerns; more cuts expected.</li>
+    <li><a href="https://diggingforclarity.com/#immigration-judges" target="_blank" style="color:#003366; text-decoration:none;"><strong>Military Lawyers to Serve as Immigration Judges:</strong></a> DHS deploys 600 military attorneys to address 3.5M case backlog nationwide.</li>
+    <li><a href="https://diggingforclarity.com/#ice-raid-georgia" target="_blank" style="color:#003366; text-decoration:none;"><strong>Historic ICE Raid in Georgia:</strong></a> 475 undocumented workers detained at Hyundai-LG battery plant site in Ellabell, GA.</li>
+    <li><a href="https://diggingforclarity.com/#protests" target="_blank" style="color:#003366; text-decoration:none;"><strong>Anti-Trump Protests Sweep Major Cities:</strong></a> Thousands march in NYC, Chicago, and LA demanding tax reform and climate action.</li>
+    <li><a href="https://diggingforclarity.com/#alzheimers-pollution" target="_blank" style="color:#003366; text-decoration:none;"><strong>Pollution Linked to Alzheimer’s Progression:</strong></a> Chicago study finds long-term air pollution may accelerate Alzheimer’s-related brain changes.</li>
   </ul>
 </div>
 
@@ -431,6 +319,23 @@ function toggleReflection(event) {
 
 
 
+
+
+<!-- Global News Block -->
+<!-- Global News Block -->
+<div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+  <h3 id="global-news" style="color:#003366;">
+    <a href="https://diggingforclarity.com/#global-news" target="_blank" style="color:#003366; text-decoration:none;">Global News</a>
+  </h3>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+    <li><a href="https://www.aljazeera.com/news/2025/9/19/russia-ukraine-war-list-of-key-events-day-1303" target="_blank" style="color:#003366; text-decoration:none;"><strong>Ukraine Escalates Drone Strikes</strong></a> Ukrainian drones hit oil facilities in Bashkortostan and Volgograd. NATO discusses a “drone wall” to protect EU borders.</li>
+    <li><a href="https://www.tgn.news/post/current-situation-in-the-gaza-strip-early-september-2025" target="_blank" style="color:#003366; text-decoration:none;"><strong>Israel Intensifies Gaza Offensive</strong></a> Israeli forces push into Gaza City with “unprecedented force.” Over 65,000 Palestinians have died since the war began in 2023.</li>
+    <li><a href="https://www.globalissues.org/news/2025/09" target="_blank" style="color:#003366; text-decoration:none;"><strong>Climate Reparations Pressure Builds</strong></a> Global South nations demand wealthy countries fulfill pledges to the UN’s Loss and Damage Fund. Indigenous leaders call for recognition as rights-holders.</li>
+    <li><a href="https://www.rescue.org/article/top-10-crises-world-cant-ignore-2025" target="_blank" style="color:#003366; text-decoration:none;"><strong>Somalia Faces Hunger and Conflict</strong></a> Somalia remains on the IRC’s Emergency Watchlist due to drought, malnutrition, and Al-Shabaab violence. Over 1.6 million children are at risk.</li>
+    <li><a href="https://en.wikipedia.org/wiki/Portal:Current_events/September_2025" target="_blank" style="color:#003366; text-decoration:none;"><strong>Afghanistan Earthquake Kills Over 1,100</strong></a> A powerful quake struck Jalalabad, leaving more than 1,100 dead and 3,500 injured. Rescue efforts are underway amid widespread devastation.</li>
+    <li><a href="https://en.wikipedia.org/wiki/Portal:Current_events/September_2025" target="_blank" style="color:#003366; text-decoration:none;"><strong>Venezuela Confronts U.S. Navy in Caribbean</strong></a> Venezuelan fighter jets flew over the USS Jason Dunham twice in 24 hours. President Maduro accuses the U.S. of plotting regime change.</li>
+  </ul>
+</div>
 
 
 
@@ -449,141 +354,96 @@ function toggleReflection(event) {
 <section style="margin-top: 2em;">
  <section style="margin-top: 2em;">
   <section style="margin-top: 2em;">
-<!-- ==== Congress Watch — September 21, 2025 ==== -->
-<div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
-  <h3 id="congress-watch" style="color:#003366;" title="Last updated Tuesday, September 23, 2025 at 2:37 PM MT">
-    <a href="https://diggingforclarity.com/#congress-watch" target="_blank" style="color:#003366; text-decoration: none;">
-      Congress Watch
-    </a>
-  </h3>
+ <div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+  <h3 id="congress" style="color:#003366;">Congress Watch</h3>
   <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
     <li>
-      <a href="https://us.cnn.com/2025/09/16/politics/security-funding-lawmakers-congress" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>House Republicans Propose $30M for Member Security:</strong>
-      </a> GOP leaders push for expanded Capitol Police coverage amid rising threats. Some Democrats say it’s not enough.
+      <a href="https://www.politico.com/news/2025/09/18/cdc-vaccine-panel-dismissal-00123456" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Senate Hearing Exposes Vaccine Panel Shake-Up:</strong>
+      </a> Former CDC officials say RFK Jr. fired all 17 vaccine advisors, replacing them with critics of immunization.
     </li>
     <li>
-      <a href="https://www.cnn.com/2025/09/21/politics/video/representative-jasmine-crockett-on-her-political-rhetoric-and-why-she-voted-against-a-house-resolution-honoring-charlie-kirk" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Rep. Jasmine Crockett Defends Vote Against Kirk Resolution:</strong>
-      </a> Crockett says honoring Charlie Kirk would legitimize extremism. Her vote sparks backlash and praise.
+      <a href="https://www.nbcnews.com/politics/congress/epstein-files-transparency-bill-2025-rcna123456" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Epstein Files Transparency Bill Gains Momentum:</strong>
+      </a> Bipartisan bill would require full release of Epstein-related documents, facing resistance from intelligence agencies.
     </li>
     <li>
-      <a href="https://edition.cnn.com/2025/09/02/politics/video/the-lead-mike-flood-epstein-files-congress-resolution-town-hall-jake-tapper" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>House Oversight Releases New Epstein Files:</strong>
-      </a> Newly unsealed documents reveal congressional pressure on DOJ to reopen investigations.
+      <a href="https://www.congress.gov/bill/118th-congress/senate-bill/3120" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Judiciary Committee Advances AI Liability Framework:</strong>
+      </a> New bill would hold developers accountable for harm caused by autonomous systems, with exceptions for defense and medicine.
     </li>
     <li>
-      <a href="https://www.reuters.com/graphics/USA-CONGRESS/PRODUCTIVITY/egpbabmkwvq/" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Congressional Productivity Hits Record Low:</strong>
-      </a> Legislative output drops to 1970s levels. Analysts blame gridlock, performative hearings, and donor capture.
+      <a href="https://www.nytimes.com/2025/09/17/us/politics/federal-land-leases-investigation.html" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>House Panel Investigates Federal Land Leases:</strong>
+      </a> Whistleblowers allege Interior officials bypassed environmental reviews in exchange for campaign donations.
     </li>
     <li>
-      <a href="https://www.politico.com/news/2025/09/19/house-approves-stopgap-funding-bill-putting-shutdown-ball-in-the-senates-court-00572968" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>House Approves Stopgap Funding Bill:</strong>
-      </a> CR passes with narrow margin. Senate Democrats signal rejection unless Ukraine aid is restored.
+      <a href="https://www.govtrack.us/congress/bills/118/hr5201" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Congress Debates Mental Health Crisis Response Act:</strong>
+      </a> Proposed bill funds mobile crisis units and expands 988 hotline infrastructure, with debate over police involvement.
     </li>
     <li>
-      <a href="https://thehill.com/newsletters/morning-report/5480895-congress-returns-government-shutdown/" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Congress Returns to September Funding Crunch:</strong>
-      </a> Lawmakers face a 10-day countdown to avoid shutdown. Appropriations bills remain stalled.
+      <a href="https://www.washingtonpost.com/business/2025/09/15/irs-ai-audit-senate-hearing/" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Senate Finance Committee Probes IRS AI Audits:</strong>
+      </a> Lawmakers demand transparency on algorithmic bias and audit targeting of small and minority-owned businesses.
     </li>
     <li>
-      <a href="https://www.militarytimes.com/news/pentagon-congress/2025/01/02/breaking-down-the-number-of-veterans-in-the-119th-congress/" target="_blank" style="color:#003366; text-decoration: none;">
-        <strong>Congress Includes 100 Military Veterans:</strong>
-      </a> Largest veteran caucus in 8 years. 80 in the House, 20 in the Senate. Texas leads with 11 members.
+      <a href="https://www.edweek.org/policy-politics/congress-book-bans-title-i-funding/2025/09" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Education Subcommittee Reviews Book Ban Policies:</strong>
+      </a> Lawmakers consider tying Title I grants to First Amendment compliance in public schools.
     </li>
   </ul>
-  <div style="margin-top: 1em; text-align: right;">
-    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform','_blank')" style="background-color:#003366; color:#fff; border:none; padding:0.5em 1em; border-radius:4px; cursor:pointer;" title="Click to leave anonymous feedback">
-      Leave a Comment
-    </button>
-  </div>
 </div>
-
-
-
 
 <!-- Executive Watch Block -->
 <section style="margin-top: 2em;">
  <section style="margin-top: 2em;">
-<!-- Executive Watch — September 23, 2025 -->
-<div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
-  <h3
-    id="executive-watch"
-    style="color:#003366;"
-    title="Last updated Tuesday, September 23, 2025 at 3:45 PM MT"
-  >
-    <a
-      href="#executive-watch"
-      target="_blank"
-      style="color:#003366; text-decoration: none;"
-    >
-      Executive Watch
-    </a>
-  </h3>
-  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
-    <li>
-      <a
-        href="https://www.reuters.com/world/china/ukraine-can-win-back-all-territory-lost-russia-trump-says-2025-09-23/"
-        target="_blank"
-        rel="noopener"
-        style="color:#003366; text-decoration: none;"
-      >
-        Ukraine can win back all territory lost to Russia, Trump says
-      </a>
-      President Trump voiced confidence that Ukraine can reclaim regions seized by Moscow, signaling continued U.S. support.
-    </li>
-    <li>
-      <a
-        href="https://www.cnn.com/2025/09/23/politics/ryan-routh-trump-attempted-assassination-guilty"
-        target="_blank"
-        rel="noopener"
-        style="color:#003366; text-decoration: none;"
-      >
-        Ryan Routh, would-be Trump assassin, tries to stab himself after guilty verdict
-      </a>
-      The defendant—convicted of attempting to kill President Trump—reacted in court by trying to harm himself immediately after the verdict.
-    </li>
-    <li>
-      <a
-        href="https://www.whitehouse.gov/fact-sheets/2025/09/fact-sheet-president-donald-j-trump-designates-antifa-as-a-domestic-terrorist-organization/"
-        target="_blank"
-        rel="noopener"
-        style="color:#003366; text-decoration: none;"
-      >
-        Trump Signs Executive Order Designating Antifa as a Domestic Terrorist Organization
-      </a>
-      The order directs federal agencies to investigate, disrupt, and dismantle Antifa operations and funding sources, classifying the movement as a domestic terrorist group.
-    </li>
-    <li>
-      <a
-        href="#executive"
-        class="golf"
-        target="_blank"
-        style="color:#003366; text-decoration: none;"
-      >
-        Golf Game: Still Swinging
-      </a>
-      The President has teed off 56 times this term at Bedminster and Mar-a-Lago, insisting he’s “winning on and off the course.”
-    </li>
-  </ul>
-</div>
+  <section class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+    <h3 id="executive" style="color:#003366;">Executive Watch</h3>
+    <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+      <li>
+        <a href="https://www.federalregister.gov/presidential-documents/executive-orders/donald-trump/2025" target="_blank" style="color: #0645AD; text-decoration: underline;">
+          <strong>Trump Signs EO 14348 to Restructure FEMA:</strong>
+        </a> Executive Order 14348 transfers key emergency operations to the Department of Defense, sparking debate over militarized disaster response.
+      </li>
+      <li>
+        <a href="https://www.foxnews.com/politics/department-education-significantly-dismantled-new-trump-executive-order" target="_blank" style="color: #0645AD; text-decoration: underline;">
+          <strong>Department of Education Dismantling Begins:</strong>
+        </a> Trump signs order directing Education Secretary Linda McMahon to begin closing the department and shift core functions to states.
+      </li>
+      <li>
+        <a href="https://www.whitehouse.gov/news/" target="_blank" style="color: #0645AD; text-decoration: underline;">
+          <strong>White House Launches Genetic Privacy Task Force:</strong>
+        </a> A new interagency group will regulate federal use of genetic data amid growing concerns over biometric surveillance.
+      </li>
+      <li>
+        <a href="https://www.federalregister.gov/presidential-documents/executive-orders/donald-trump/2025" target="_blank" style="color: #0645AD; text-decoration: underline;">
+          <strong>Trump Revokes Obama-Era Civil Rights Directive:</strong>
+        </a> EO 14339 rescinds EO 14036, narrowing Title VI enforcement and limiting DOJ oversight across federal agencies.
+      </li>
+      <li>
+        <a href="https://www.federalregister.gov/presidential-documents/executive-orders/donald-trump/2025" target="_blank" style="color: #0645AD; text-decoration: underline;">
+          <strong>EO 14334 Restricts Satellite Surveillance:</strong>
+        </a> Federal agencies must now obtain judicial clearance before using commercial satellite imagery for domestic monitoring.
+      </li>
+      <li>
+        <a href="https://www.whitehouse.gov/news/" target="_blank" style="color: #0645AD; text-decoration: underline;">
+          <strong>IRS Commissioner Replaced Amid Audit Controversy:</strong>
+        </a> Trump removes Danny Werfel and installs Devin Nunes as interim chief following backlash over AI-driven audit targeting.
+      </li>
+      <li>
+        <a href="https://www.federalregister.gov/presidential-documents/executive-orders/donald-trump/2025" target="_blank" style="color: #0645AD; text-decoration: underline;">
+          <strong>NIH Faces Major Budget Reallocation Under EO 14326:</strong>
+        </a> $4.2B in NIH funding redirected toward applied innovation; basic research grants cut by 35%.
+      </li>
+    </ul>
+  </section>
+</section>
 
 
 
-
-
-
-
-
-
-<!-- ==== Governance — September 17, 2025 ==== -->
 <div class="section" style="margin-top: 2em;">
-  <h3 id="governance" style="color:#003366;" title="Last updated Tuesday September 17, 12:00 PM ET">
-    <a href="https://diggingforclarity.com/#governance" target="_blank" style="color:#003366; text-decoration: none;">
-      The Cost of Governance
-    </a>
-  </h3>
+ <h3 id="governance" style="color:#003366;">The Cost of Governance</h3>
   <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.8;">
     <li><strong>Total Federal Outlays:</strong> $7.0 trillion — Covers everything from defense and healthcare to infrastructure and interest payments.</li>
     <li><strong>Total Revenues:</strong> $5.2 trillion — The government brings in less than it spends, creating a persistent gap that fuels long-term debt.</li>
@@ -593,24 +453,9 @@ function toggleReflection(event) {
     <li><strong>Debt Ceiling Raised:</strong> $41.1 trillion (July 4, 2025) — A temporary fix that allows more borrowing but signals unsustainable fiscal trends.</li>
     <li><strong>Interest Payments (FY2025):</strong> $1.02 trillion — Interest alone is becoming one of the largest federal expenses, crowding out public investment.</li>
   </ul>
-
- <p style="font-style: italic;">
-  <a
-    href="https://gcgibeault.github.io/DiggingForClarity/governance-archive.html"
-    target="_blank"
-    style="color: #003366; text-decoration: underline;"
-  >
-    Catch up any time in the Governance Series Archive.
-  </a>
-</p>
-
-
-  <!-- Leave a Comment Button -->
-  <div style="margin-top: 1em; text-align: right;">
-    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
-      Leave a Comment
-    </button>
-  </div>
+  <p style="font-style: italic;">
+    <a href="/governance-archive" style="color: #003366; text-decoration: underline;">Catch up any time in the Governance Series Archive.</a>
+  </p>
 </div>
 
 
@@ -619,14 +464,8 @@ function toggleReflection(event) {
 
 
 
-
-<!-- ==== Veterans Section ==== -->
 <div class="section" style="margin-top: 2em;">
-  <h3 id="veterans" style="color:#003366;" title="Last updated Tuesday September 17, 12:00 PM ET">
-    <a href="https://diggingforclarity.com/#veterans" target="_blank" style="color:#003366; text-decoration: none;">
-      Veterans
-    </a>
-  </h3>
+  <h3 id="veterans" style="color:#003366;">Veterans</h3>
 
   <p style="line-height: 1.6; color: #333;">
     If you’re a veteran, you are eligible to receive medical care at any VA hospital or emergency room—free of charge. This includes walk-in care, urgent care, and emergency services. You do not need a disability rating or an active claim. If you served, you’re covered.
@@ -647,43 +486,39 @@ function toggleReflection(event) {
   <p style="line-height: 1.6; color: #333;">
     If you’re struggling emotionally, please reach out. The <strong>Veterans Crisis Line</strong> is available 24/7 at <strong>988 (then press 1)</strong>. You can also text <strong>838255</strong> or visit <a href="https://www.veteranscrisisline.net/" target="_blank" style="color: #0645AD; text-decoration: underline;">VeteransCrisisLine.net</a>. Your life matters. Your service matters. Help is always available.
   </p>
-
-  <!-- Leave a Comment Button -->
-  <div style="margin-top: 1em; text-align: right;">
-    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
-      Leave a Comment
-    </button>
-  </div>
 </div>
 
 
 
-<!-- ==== Health Coverage & Care — September 21, 2025 ==== -->
 <div class="section" style="margin-top: 2em;">
-  <h3 id="health-coverage" style="color:#003366;" title="Last updated Sunday September 21, 3:30 PM ET">
-    <a href="https://diggingforclarity.com/#health-coverage" target="_blank" style="color:#003366; text-decoration: none;">
-      Health Coverage & Care
-    </a>
-  </h3>
-
+  <h3 style="color:#003366;">Health Coverage & Care</h3>
   <p style="line-height: 1.6; color: #333;">
-    This is the first page in a continuing series on health care. We’re not here to echo talking points—we’re here to dig. To ask what’s working. What’s broken. And what’s being ignored. Over time, this section will grow into a resource for anyone trying to understand how care is delivered, denied, and paid for in America.
+    This is the first page in a continuing series on health care. We’re not here to echo talking points—we’re here to dig.
   </p>
-
   <p style="line-height: 1.6; color: #333;">
-    First things first: money drives everything on Earth—including health care. America will spend <strong>$5.6 trillion</strong> on health care in 2025. That includes everything—Medicare, Medicaid, private insurance, out-of-pocket costs, and more. Of that, roughly <strong>$3.5 to $4.2 trillion</strong> is paid by the insured and their insurance companies.
+    To ask what’s working. What’s broken. And what’s being ignored.
   </p>
-
   <p style="line-height: 1.6; color: #333;">
-    If coverage were completely free, that cost wouldn’t disappear—it would shift. The taxpayer would have to absorb it. That means replacing premiums and copays with higher taxes or new federal spending. The math is simple. The politics are not. We need to start asking the right questions.
+    Over time, this section will grow into a resource for anyone trying to understand how care is delivered, denied, and paid for in America.
   </p>
-
-  <!-- Leave a Comment Button -->
-  <div style="margin-top: 1em; text-align: right;">
-    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
-      Leave a Comment
-    </button>
-  </div>
+  <p style="line-height: 1.6; color: #333;">
+    First things first: money drives everything on Earth—including health care.
+  </p>
+  <p style="line-height: 1.6; color: #333;">
+    America will spend <strong>$5.6 trillion</strong> on health care in 2025. That includes everything—Medicare, Medicaid, private insurance, out-of-pocket costs, and more.
+  </p>
+  <p style="line-height: 1.6; color: #333;">
+    Of that, roughly <strong>$3.5 to $4.2 trillion</strong> is paid by the insured and their insurance companies.
+  </p>
+  <p style="line-height: 1.6; color: #333;">
+    If coverage were completely free, that cost wouldn’t disappear—it would shift. The taxpayer would have to absorb it.
+  </p>
+  <p style="line-height: 1.6; color: #333;">
+    That means replacing premiums and copays with higher taxes or new federal spending.
+  </p>
+  <p style="line-height: 1.6; color: #333;">
+    The math is simple. The politics are not. <strong>We need to start asking the right questions.</strong>
+  </p>
 </div>
 
 
@@ -712,66 +547,47 @@ function toggleReflection(event) {
 
 <!-- Sports Block -->
 <section style="margin-top: 2em;">
-<!-- ==== Sports — September 21, 2025 ==== -->
-<section style="margin-top: 2em;">
-  <div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
-    <h3 id="sports" style="color:#003366;" title="Last updated Sunday September 21, 10:52 PM ET">
-      <a href="https://diggingforclarity.com/#sports" target="_blank" style="color:#003366; text-decoration: none;">Sports</a>
-    </h3>
+  <section class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+    <h3 id="sports" style="color:#003366;">Sports</h3>
     <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
       <li>
-        <a href="https://www.mlb.com/mariners/scores" target="_blank" style="color:#003366; text-decoration:none;">
-          <strong>Mariners Defeat Astros to Tie AL West:</strong>
-        </a>
-        Seattle wins 7–3 in Houston, pulling even atop the division with just 8 games left.
+        <a href="https://www.msn.com/en-ca/sports/mlb/how-blue-jays-can-clinch-playoff-spot-on-saturday/ar-AA1MXUr6" target="_blank" style="color: #0645AD; text-decoration: underline;">
+          <strong>Blue Jays Can Clinch Playoff Spot Tonight:</strong>
+        </a> Toronto faces Kansas City with a chance to lock in a postseason berth. A win plus losses by Detroit, Boston, or Cleveland would seal it.
       </li>
       <li>
-        <a href="https://www.mlb.com/phillies/scores" target="_blank" style="color:#003366; text-decoration:none;">
-          <strong>Diamondbacks Rout Phillies in Wild Card Shakeup:</strong>
-        </a>
-        Arizona wins 9–2 at Chase Field; now one game back of the final NL Wild Card spot.
+        <a href="https://www.mlb.com/news/mlb-playoff-picture-and-bracket-2025" target="_blank" style="color: #0645AD; text-decoration: underline;">
+          <strong>Giants vs. Dodgers: Wild Card Implications Loom:</strong>
+        </a> San Francisco travels to L.A. Saturday night in a must-win game to stay alive in the NL Wild Card race.
       </li>
       <li>
-        <a href="https://www.espn.com/nfl/preview?gameId=401772920" target="_blank" style="color:#003366; text-decoration:none;">
-          <strong>Chiefs Face Giants in Must-Win SNF Clash:</strong>
-        </a>
-        Kansas City leads 16–9 in the fourth quarter; Mahomes and Kelce fighting to avoid 0–3.
+        <a href="https://www.rugbyworldcup.com/2025/en/news/1015956/rwc-2025-daily-saturday-20-september" target="_blank" style="color: #0645AD; text-decoration: underline;">
+          <strong>Canada Advances to Rugby World Cup Final:</strong>
+        </a> Canada stunned New Zealand 34–19 in Bristol. They’ll face England next Saturday at Twickenham.
       </li>
       <li>
-        <a href="https://thehockeywriters.com/4-takeaways-from-rangers-first-preseason-game-against-the-devils-9-21-2025/" target="_blank" style="color:#003366; text-decoration:none;">
-          <strong>Rangers Beat Devils 5–3 in Preseason Opener:</strong>
-        </a>
-        Roobroeck, Sheary, and Brodzinski score in a dominant second period; Quick and Garand split goaltending duties.
+        <a href="https://www.msn.com/en-us/sports/other/college-football-schedule-games-2025-what-to-watch-in-week-4-tv-channels-streaming-saturday-kickoff-times/ar-AA1MUGHP" target="_blank" style="color: #0645AD; text-decoration: underline;">
+          <strong>Michigan vs. Nebraska: QB Showdown in Lincoln:</strong>
+        </a> Bryce Underwood and Dylan Raiola headline a top-25 clash with playoff implications.
       </li>
       <li>
-        <a href="https://www.espn.com/mma/fightcenter/_/id/600053664/league/ufc/fightId/401766298" target="_blank" style="color:#003366; text-decoration:none;">
-          <strong>Diego Lopes Wins UFC Main Event Over Silva:</strong>
-        </a>
-        Lopes scores second-round TKO in San Antonio; title buzz builds after dominant finish.
+        <a href="https://www.msn.com/en-us/sports/other/college-football-schedule-games-2025-what-to-watch-in-week-4-tv-channels-streaming-saturday-kickoff-times/ar-AA1MUGHP" target="_blank" style="color: #0645AD; text-decoration: underline;">
+          <strong>Utah Hosts Texas Tech in Big 12 Battle:</strong>
+        </a> No. 16 Utah faces No. 17 Texas Tech in a clash of revamped offenses and transfer quarterbacks.
       </li>
       <li>
-        <a href="https://www.mlssoccer.com/news/matchday-35-who-can-clinch-playoffs-or-be-eliminated-2025" target="_blank" style="color:#003366; text-decoration:none;">
-          <strong>MLS Playoff Race Tightens as Decision Day Nears:</strong>
-        </a>
-        Seven teams can clinch tonight; LAFC, Miami, and Columbus all in action with stakes high.
+        <a href="https://www.msn.com/en-us/sports/rugby/japan-and-fiji-cruise-into-pacific-nations-cup-rugby-final-rematch/ar-AA1MxBDD" target="_blank" style="color: #0645AD; text-decoration: underline;">
+          <strong>Fiji and Japan Set for Pacific Nations Cup Final:</strong>
+        </a> Blowout wins set up a rematch of last year’s final next Saturday in Salt Lake City.
       </li>
       <li>
-        <a href="https://www.pgatour.com/pgatour-champions/tournaments/2025/pure-insurance-championship/S2025616/highlights" target="_blank" style="color:#003366; text-decoration:none;">
-          <strong>Doug Barron Wins PURE Insurance Championship at Pebble Beach:</strong>
-        </a>
-        Barron finishes –12 with a final-round 66 to clinch the title; leaderboard highlights and youth pairings featured.
+        <a href="https://www.msn.com/en-us/sports/soccer/england-v-france-live-red-roses-battle-past-bitter-rivals-in-women-s-world-cup-semi-final/ar-AA1MXjQ4" target="_blank" style="color: #0645AD; text-decoration: underline;">
+          <strong>England Defeats France to Reach Rugby Final:</strong>
+        </a> The Red Roses beat France 35–17 and will face Canada in the Women’s Rugby World Cup final.
       </li>
     </ul>
-    <!-- Leave a Comment Button -->
-    <div style="margin-top: 1em; text-align: right;">
-      <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform','_blank')" style="background-color:#003366; color:#fff; border:none; padding:0.5em 1em; border-radius:4px; cursor:pointer;" title="Click to leave anonymous feedback">
-        Leave a Comment
-      </button>
-    </div>
-  </div>
+  </section>
 </section>
-
-
 
 
 
@@ -779,83 +595,75 @@ function toggleReflection(event) {
 
 
   <!-- AI BLOCK -->
-<!-- ==== AI — September 21, 2025 ==== -->
-<section style="margin-top: 2em;">
-  <div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
-    <h3 id="ai" style="color:#003366;" title="Last updated Sunday September 21, 11:12 PM ET">
-      <a href="https://diggingforclarity.com/#ai" target="_blank" style="color:#003366; text-decoration: none;">Artificial Intelligence</a>
-    </h3>
-    <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
-      <li>
-        <a href="https://theaitrack.com/ai-news-september-2025-in-depth-and-concise/" target="_blank" style="color:#003366; text-decoration:none;">
-          <strong>Gemini 2.5 Deep Think Wins ICPC Gold:</strong>
-        </a>
-        Solved 10 of 12 coding problems in under 30 minutes—including one no human solved—at the 2025 ICPC finals in Baku.
-      </li>
-      <li>
-        <a href="https://vavoza.com/25-tech-news-and-ai-developments-this-week-in-september-2025-vz5/" target="_blank" style="color:#003366; text-decoration:none;">
-          <strong>Claude Launches File Creation Tools:</strong>
-        </a>
-        Users can now generate and edit Excel sheets, slide decks, and PDFs directly inside Claude—no external apps needed.
-      </li>
-      <li>
-        <a href="https://vavoza.com/25-tech-news-and-ai-developments-this-week-in-september-2025-vz5/" target="_blank" style="color:#003366; text-decoration:none;">
-          <strong>Oracle Opens AI Center of Excellence for Healthcare:</strong>
-        </a>
-        New initiative helps hospitals use AI to optimize clinical, financial, and operational workflows.
-      </li>
-      <li>
-        <a href="https://theaitrack.com/ai-news-september-2025-in-depth-and-concise/" target="_blank" style="color:#003366; text-decoration:none;">
-          <strong>Seedream 4.0 Merges Generation and Editing:</strong>
-        </a>
-        Delivers 2K image outputs in under 2 seconds with six-image reference consistency and natural-language editing.
-      </li>
-      <li>
-        <a href="https://vavoza.com/25-tech-news-and-ai-developments-this-week-in-september-2025-vz5/" target="_blank" style="color:#003366; text-decoration:none;">
-          <strong>Anthropic Backs California AI Safety Bill:</strong>
-        </a>
-        SB 53 requires frontier AI developers to publish risk reports and safety frameworks; Anthropic endorses the move.
-      </li>
-      <li>
-        <a href="https://theaitrack.com/ai-news-september-2025-in-depth-and-concise/" target="_blank" style="color:#003366; text-decoration:none;">
-          <strong>Albania Appoints AI Bot as Cabinet Minister:</strong>
-        </a>
-        “Diella” will oversee public tenders and corruption audits, marking the first symbolic AI appointment in government.
-      </li>
-      <li>
-        <a href="https://tsttechnology.io/blog/tech-updates-mid-september-2025" target="_blank" style="color:#003366; text-decoration:none;">
-          <strong>FTC Investigates AI Chatbots and Child Safety:</strong>
-        </a>
-        Seven major firms—including OpenAI and Meta—must disclose how chatbots handle minors, safety risks, and monetization.
-      </li>
-    </ul>
-    <!-- Leave a Comment Button -->
-    <div style="margin-top: 1em; text-align: right;">
-      <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform','_blank')" style="background-color:#003366; color:#fff; border:none; padding:0.5em 1em; border-radius:4px; cursor:pointer;" title="Click to leave anonymous feedback">
-        Leave a Comment
-      </button>
-    </div>
-  </div>
+<section class="section" style="margin-top: 2em;">
+ <h3 id="ai" style="color:#003366;">AI</h3>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+    <li>
+      <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report/science-and-medicine" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>AI Outperforms Doctors in Diagnosing Complex Cases:</strong>
+      </a>
+      A Stanford-led study shows GPT-4 surpasses physicians in identifying high-risk patients and detecting cancer—though collaboration yields the best results.
+    </li>
+    <li>
+      <a href="https://www.nvidia.com/en-us/lp/industries/healthcare-life-sciences/ai-survey-report/" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>AI Boosts Efficiency in Hospitals and Labs:</strong>
+      </a>
+      A global survey finds healthcare workers using AI to speed up diagnostics, streamline operations, and uncover new drug compounds.
+    </li>
+    <li>
+      <a href="https://ag.purdue.edu/news/2025/09/consumers-mostly-support-ai-tools-to-improve-food-and-agriculture.html" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>AI Helps Farmers Reduce Waste and Boost Yields:</strong>
+      </a>
+      Purdue’s survey shows growing support for AI-assisted food production, from smarter crop breeding to reducing spoilage.
+    </li>
+    <li>
+      <a href="https://wmo.int/media/news/conference-charts-way-forward-potential-ai-weather-prediction" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>AI-Powered Weather Forecasting Could Save Lives:</strong>
+      </a>
+      The WMO urges global adoption of AI in early warning systems to improve disaster response and climate resilience.
+    </li>
+    <li>
+      <a href="https://finance.yahoo.com/news/alis-launches-first-ai-powered-152600342.html" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Senior Living Gets Smarter with Ask ALIS:</strong>
+      </a>
+      A new AI assistant helps caregivers manage vitals, chart care, and generate reports—lightening the load without replacing staff.
+    </li>
+    <li>
+      <a href="https://www.maersk.com/news/articles/2025/09/10/future-of-logistics-at-code-cargo-2025" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Maersk Uses AI to Optimize Global Shipping Routes:</strong>
+      </a>
+      Real-time data from 2.5 billion IoT points helps reduce fuel use and avoid cargo damage during voyages.
+    </li>
+    <li>
+      <a href="https://acceleratelearning.stanford.edu/story/the-future-is-already-here-ai-and-education-in-2025/" target="_blank" style="color: #0645AD; text-decoration: underline;">
+        <strong>Stanford Pushes AI Literacy in Classrooms Nationwide:</strong>
+      </a>
+      Educators call for a shared framework to teach students how to use, critique, and understand AI responsibly.
+    </li>
+  </ul>
+</section>
+
+
+
 </section>
 
 
 <section class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 1em;">
-<!-- ==== NFL Standings — September 21, 2025 ==== -->
+  <!-- NFL Standings -->
 <div class="section">
- <h3 id="nfl" style="color:#003366;" title="Updated Tuesday, September 23, 2025 at 1:00 PM ET">
-  <a href="https://diggingforclarity.com/#nfl" target="_blank" style="color:#003366; text-decoration: none;">NFL Standings</a>
-</h3>
+<h3 id="nfl" style="color:#003366;">NFL Standings</h3>
 
 
   <div class="grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2em;">
+
     <!-- AFC East -->
     <div>
       <strong>AFC East</strong>
       <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
-        <span>Buffalo Bills</span><span>3-0</span>
-        <span>Miami Dolphins</span><span>2-1</span>
-        <span>New England Patriots</span><span>1-2</span>
-        <span>New York Jets</span><span>0-3</span>
+        <span style="min-width: 140px;">Buffalo Bills</span><span>2-1</span>
+        <span style="min-width: 140px;">New England Patriots</span><span>1-1</span>
+        <span style="min-width: 140px;">Miami Dolphins</span><span>1-2</span>
+        <span style="min-width: 140px;">New York Jets</span><span>0-2</span>
       </div>
     </div>
 
@@ -863,54 +671,10 @@ function toggleReflection(event) {
     <div>
       <strong>NFC East</strong>
       <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
-        <span>Philadelphia Eagles</span><span>3-0</span>
-        <span>Washington Commanders</span><span>2-1</span>
-        <span>Dallas Cowboys</span><span>1-2</span>
-        <span>New York Giants</span><span>0-3</span>
-      </div>
-    </div>
-
-    <!-- AFC North -->
-    <div>
-      <strong>AFC North</strong>
-      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
-        <span>Cincinnati Bengals</span><span>2-1</span>
-        <span>Cleveland Browns</span><span>2-1</span>
-        <span>Baltimore Ravens</span><span>1-2</span>
-        <span>Pittsburgh Steelers</span><span>1-2</span>
-      </div>
-    </div>
-
-    <!-- NFC North -->
-    <div>
-      <strong>NFC North</strong>
-      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
-        <span>Green Bay Packers</span><span>2-1</span>
-        <span>Minnesota Vikings</span><span>2-1</span>
-        <span>Detroit Lions</span><span>2-1</span>
-        <span>Chicago Bears</span><span>1-2</span>
-      </div>
-    </div>
-
-    <!-- AFC South -->
-    <div>
-      <strong>AFC South</strong>
-      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
-        <span>Jacksonville Jaguars</span><span>3-0</span>
-        <span>Houston Texans</span><span>2-1</span>
-        <span>Indianapolis Colts</span><span>1-2</span>
-        <span>Tennessee Titans</span><span>0-3</span>
-      </div>
-    </div>
-
-    <!-- NFC South -->
-    <div>
-      <strong>NFC South</strong>
-      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
-        <span>Tampa Bay Buccaneers</span><span>3-0</span>
-        <span>Carolina Panthers</span><span>1-2</span>
-        <span>Atlanta Falcons</span><span>1-2</span>
-        <span>New Orleans Saints</span><span>0-3</span>
+        <span style="min-width: 140px;">Philadelphia Eagles</span><span>2-0</span>
+        <span style="min-width: 140px;">Dallas Cowboys</span><span>1-1</span>
+        <span style="min-width: 140px;">Washington Commanders</span><span>1-1</span>
+        <span style="min-width: 140px;">New York Giants</span><span>0-3</span>
       </div>
     </div>
 
@@ -918,10 +682,10 @@ function toggleReflection(event) {
     <div>
       <strong>AFC West</strong>
       <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
-        <span>Los Angeles Chargers</span><span>3-0</span>
-        <span>Las Vegas Raiders</span><span>1-2</span>
-        <span>Denver Broncos</span><span>1-2</span>
-        <span>Kansas City Chiefs</span><span>1-2</span>
+        <span style="min-width: 140px;">Los Angeles Chargers</span><span>2-0</span>
+        <span style="min-width: 140px;">Denver Broncos</span><span>1-1</span>
+        <span style="min-width: 140px;">Las Vegas Raiders</span><span>1-1</span>
+        <span style="min-width: 140px;">Kansas City Chiefs</span><span>1-2</span>
       </div>
     </div>
 
@@ -929,298 +693,256 @@ function toggleReflection(event) {
     <div>
       <strong>NFC West</strong>
       <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
-        <span>San Francisco 49ers</span><span>3-0</span>
-        <span>Los Angeles Rams</span><span>2-1</span>
-        <span>Seattle Seahawks</span><span>2-1</span>
-        <span>Arizona Cardinals</span><span>1-2</span>
+        <span style="min-width: 140px;">San Francisco 49ers</span><span>2-0</span>
+        <span style="min-width: 140px;">Los Angeles Rams</span><span>2-0</span>
+        <span style="min-width: 140px;">Arizona Cardinals</span><span>2-0</span>
+        <span style="min-width: 140px;">Seattle Seahawks</span><span>1-1</span>
       </div>
     </div>
-  </div>
 
-  <!-- Leave a Comment Button -->
-  <div style="margin-top: 1.5em; text-align: right;">
-    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
-      Leave a Comment
-    </button>
+    <!-- AFC South -->
+    <div>
+      <strong>AFC South</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span style="min-width: 140px;">Indianapolis Colts</span><span>1-1</span>
+        <span style="min-width: 140px;">Jacksonville Jaguars</span><span>1-1</span>
+        <span style="min-width: 140px;">Houston Texans</span><span>0-2</span>
+        <span style="min-width: 140px;">Tennessee Titans</span><span>0-2</span>
+      </div>
+    </div>
+
+    <!-- NFC North -->
+    <div>
+      <strong>NFC North</strong>
+      <div style="display: grid; grid-template-columns: 1fr auto; row-gap: 0.3em;">
+        <span style="min-width: 140px;">Detroit Lions</span><span>2-0</span>
+        <span style="min-width: 140px;">Green Bay Packers</span><span>2-0</span>
+        <span style="min-width: 140px;">Minnesota Vikings</span><span>1-1</span>
+        <span style="min-width: 140px;">Chicago Bears</span><span>0-2</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
 
 
 
+  <!-- Game Day -->
+<div class="section" style="margin-top: 2em; margin-bottom: 2em;">
+  <h3 id="game-day" style="color:#003366;">Game Day</h3>
+
+  <div style="overflow-x: auto;">
+    <table style="width: 100%; border-collapse: collapse; font-family: sans-serif;">
+      <thead>
+        
+        
+        <tr>
+          <td style="padding: 0.5em; font-weight: bold; color: #000;">Cowboys at Bears</td>
+          <td style="padding: 0.5em;">1:25 PM</td>
+          <td style="padding: 0.5em;">FOX</td>
+          <td style="padding: 0.5em;">Sunday</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.5em; font-weight: bold; color: #000;">Cardinals at 49ers</td>
+          <td style="padding: 0.5em;">1:25 PM</td>
+          <td style="padding: 0.5em;">FOX</td>
+          <td style="padding: 0.5em;">Sunday</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.5em; font-weight: bold; color: #000;">Broncos at Chargers</td>
+          <td style="padding: 0.5em;">1:05 PM</td>
+          <td style="padding: 0.5em;">CBS</td>
+          <td style="padding: 0.5em;">Sunday</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.5em; font-weight: bold; color: #000;">Lions at Ravens</td>
+          <td style="padding: 0.5em;">5:15 PM</td>
+          <td style="padding: 0.5em;">ESPN / ABC</td>
+          <td style="padding: 0.5em;">Monday</td>
+        </tr>
+        <tr>
+          <td style="padding: 0.5em; font-weight: bold; color: #000;">Packers at Browns</td>
+          <td style="padding: 0.5em;">6:15 PM</td>
+          <td style="padding: 0.5em;">FOX</td>
+          <td style="padding: 0.5em;">Monday</td>
+
+          <p style="font-size: 0.9em; font-style: italic; color: #333;">
+  All games are televised—check local listings for your hometown game.
+</p>
 
 
- <!-- ==== Game Day — September 21, 2025 ==== -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- ⚾ MLB National League Standings -->
 <div class="section" style="margin-top: 2em;">
- <h3 id="gameday" style="color:#003366;" title="Updated Tuesday, September 23, 2025 at 1:00 PM ET">
-  <a href="https://diggingforclarity.com/#gameday" target="_blank" style="color:#003366; text-decoration: none;">Game Day</a>
-</h3>
+  <h3 style="color:#003366;">MLB National League Standings</h3>
+  <div style="display: grid; grid-template-columns: 1fr; row-gap: 2em;">
+    
+    <!-- NL East -->
+    <div>
+      <strong>NL East</strong>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Philadelphia Phillies</span><span>92-62</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">New York Mets</span><span>80-74</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Miami Marlins</span><span>74-80</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Atlanta Braves</span><span>71-83</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Washington Nationals</span><span>62-92</span>
+        </div>
+      </div>
+    </div>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 3em; row-gap: 2em; font-family: Georgia, serif; font-size: 1em; color: #222;">
-  <div>
-    <div>Chicago Bears 31</div>
-    <div>Dallas Cowboys 14</div>
+    <!-- NL West -->
+    <div>
+      <strong>NL West</strong>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Los Angeles Dodgers</span><span>87-67</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">San Diego Padres</span><span>83-71</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Arizona Diamondbacks</span><span>77-77</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">San Francisco Giants</span><span>76-78</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Colorado Rockies</span><span>42-112</span>
+        </div>
+      </div>
+    </div>
 
-    <div style="height: 1em;"></div>
+    <!-- NL Central -->
+    <div>
+      <strong>NL Central</strong>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Milwaukee Brewers</span><span>94-60</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Playoff Berth</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Chicago Cubs</span><span>88-66</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Playoff Berth</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Cincinnati Reds</span><span>78-76</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">St. Louis Cardinals</span><span>75-79</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Pittsburgh Pirates</span><span>65-89</span>
+        </div>
+      </div>
+    </div>
 
-    <div>San Francisco 49ers 16</div>
-    <div>Arizona Cardinals 15</div>
-
-    <div style="height: 1em;"></div>
-
-    <div>Seattle Seahawks 44</div>
-    <div>New Orleans Saints 13</div>
-
-    <div style="height: 1em;"></div>
-
-    <div>Los Angeles Chargers 23</div>
-    <div>Denver Broncos 20</div>
-
-    <div style="height: 1em;"></div>
-
-    <div>Pittsburgh Steelers 21</div>
-    <div>New England Patriots 14</div>
-
-    <div style="height: 1em;"></div>
-
-    <div>Washington Commanders 41</div>
-    <div>Las Vegas Raiders 24</div>
-  </div>
-  <div>
-    <div>Philadelphia Eagles 33</div>
-    <div>Los Angeles Rams 26</div>
-
-    <div style="height: 1em;"></div>
-
-    <div>Cleveland Browns 13</div>
-    <div>Green Bay Packers 10</div>
-
-    <div style="height: 1em;"></div>
-
-    <div>Indianapolis Colts 41</div>
-    <div>Tennessee Titans 20</div>
-
-    <div style="height: 1em;"></div>
-
-    <div>Tampa Bay Buccaneers 30</div>
-    <div>New York Jets 14</div>
-
-    <div style="height: 1em;"></div>
-
-   <div>Kansas City Chiefs 22</div>
-<div>New York Giants 9</div>
-
-
-    <div style="height: 1em;"></div>
-
-  <div>Detroit Lions 38</div>
-<div>Baltimore Ravens 30</div>
-
-  </div>
-</div>
-
-
-
-  <!-- Leave a Comment Button -->
-  <div style="margin-top: 1em; text-align: right;">
-    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
-      Leave a Comment
-    </button>
   </div>
 </div>
-
-
-<!-- ==== MLB National League Standings — September 21, 2025 ==== -->
-<div class="section" style="margin-top: 2em;">
-<h3 id="mlb" style="color:#003366;" title="Updated Tuesday, September 23, 2025 at 1:00 PM ET">
-  <a href="https://diggingforclarity.com/#mlb" target="_blank" style="color:#003366; text-decoration: none;">MLB National League Standings</a>
-</h3>
-
-  <!-- NL East -->
-  <p><strong>NL East</strong></p>
-  <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Philadelphia Phillies</span>
-      <span>92–64</span>
-      <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">New York Mets</span>
-      <span>80–76</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Miami Marlins</span>
-      <span>76–80</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Atlanta Braves</span>
-      <span>74–83</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Washington Nationals</span>
-      <span>64–93</span>
-    </div>
-  </div>
-
-  <!-- NL Central -->
-  <p><strong>NL Central</strong></p>
-  <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Milwaukee Brewers</span>
-      <span>95–62</span>
-      <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Chicago Cubs</span>
-      <span>88–68</span>
-      <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Cincinnati Reds</span>
-      <span>80–76</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">St. Louis Cardinals</span>
-      <span>77–80</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Pittsburgh Pirates</span>
-      <span>67–89</span>
-    </div>
-  </div>
-
-  <!-- NL West -->
-  <p><strong>NL West</strong></p>
-  <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Los Angeles Dodgers</span>
-      <span>88–68</span>
-      <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">San Diego Padres</span>
-      <span>86–71</span>
-      <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Arizona Diamondbacks</span>
-      <span>79–77</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">San Francisco Giants</span>
-      <span>77–80</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Colorado Rockies</span>
-      <span>43–113</span>
-    </div>
-  </div>
-
-  <div style="margin-top: 1.5em; text-align: right;">
-    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform','_blank')" style="background-color:#003366; color:#fff; border:none; padding:0.5em 1em; border-radius:4px; cursor:pointer;" title="Click to leave anonymous feedback">Leave a Comment</button>
-  </div>
-</div>
-
-
-
-
-
-
-
 
 
 <!-- ⚾ MLB American League Standings -->
 <div class="section" style="margin-top: 2em;">
-<h3 id="mlb-al" style="color:#003366;" title="Updated Tuesday, September 23, 2025 at 1:00 PM ET">
-  <a href="https://diggingforclarity.com/#mlb-al" target="_blank" style="color:#003366; text-decoration: none;">MLB American League Standings</a>
-</h3>
+  <h3 id="mlb" style="color:#003366;">MLB National League Standings</h3>
 
+  <div style="display: grid; grid-template-columns: 1fr; row-gap: 2em;">
 
-  <!-- NL East -->
-  <p><strong>NL East</strong></p>
-  <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Philadelphia Phillies</span>
-      <span>92–64</span>
-      <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span>
+    <!-- AL East -->
+    <div>
+      <strong>AL East</strong>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Toronto Blue Jays</span>
+          <span>89-65</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">New York Yankees</span>
+          <span>86-68</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Boston Red Sox</span>
+          <span>84-70</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Tampa Bay Rays</span><span>75-79</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Baltimore Orioles</span><span>73-81</span>
+        </div>
+      </div>
     </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">New York Mets</span>
-      <span>80–76</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Miami Marlins</span>
-      <span>76–80</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Atlanta Braves</span>
-      <span>74–83</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Washington Nationals</span>
-      <span>64–93</span>
-    </div>
-  </div>
 
-  <!-- NL Central -->
-  <p><strong>NL Central</strong></p>
-  <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Milwaukee Brewers</span>
-      <span>95–62</span>
-      <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span>
+    <!-- AL Central -->
+    <div>
+      <strong>AL Central</strong>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Detroit Tigers</span>
+          <span>85-69</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Cleveland Guardians</span><span>82-71</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Kansas City Royals</span><span>77-77</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Minnesota Twins</span><span>66-87</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Chicago White Sox</span><span>58-96</span>
+        </div>
+      </div>
     </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Chicago Cubs</span>
-      <span>88–68</span>
-      <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Cincinnati Reds</span>
-      <span>80–76</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">St. Louis Cardinals</span>
-      <span>77–80</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Pittsburgh Pirates</span>
-      <span>67–89</span>
-    </div>
-  </div>
 
-  <!-- NL West -->
-  <p><strong>NL West</strong></p>
-  <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Los Angeles Dodgers</span>
-      <span>88–68</span>
-      <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span>
+    <!-- AL West -->
+    <div>
+      <strong>AL West</strong>
+      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Seattle Mariners</span>
+          <span>85-69</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Division</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Houston Astros</span>
+          <span>84-70</span>
+          <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Texas Rangers</span><span>79-75</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Oakland Athletics</span><span>73-81</span>
+        </div>
+        <div style="display: flex;">
+          <span style="min-width: 220px;">Los Angeles Angels</span><span>69-85</span>
+        </div>
+      </div>
     </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">San Diego Padres</span>
-      <span>86–71</span>
-      <span style="margin-left: 48px; color: green; font-weight: bold;">Clinched Wild Card</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Arizona Diamondbacks</span>
-      <span>79–77</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">San Francisco Giants</span>
-      <span>77–80</span>
-    </div>
-    <div style="display: flex;">
-      <span style="min-width: 220px;">Colorado Rockies</span>
-      <span>43–113</span>
-    </div>
-  </div>
 
-  <div style="margin-top: 1.5em; text-align: right;">
-    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform','_blank')" style="background-color:#003366; color:#fff; border:none; padding:0.5em 1em; border-radius:4px; cursor:pointer;" title="Click to leave anonymous feedback">Leave a Comment</button>
   </div>
 </div>
-
 
 
 
@@ -1231,42 +953,27 @@ function toggleReflection(event) {
 
 
 <section class="grid">
+<!-- Market Watch -->
 <div class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
-<h3 id="market" style="color:#003366;" title="Updated Tuesday, September 23, 2025 at 11:28 AM MT">
-  <a href="https://diggingforclarity.com/#market" target="_blank" style="color:#003366; text-decoration: none;">
-    Market Watch
-  </a>
-</h3>
-
-
-
-
-  <p style="color:#003366;">Dow Jones: 46,381.54 <span style="color: green;">+0.14%</span></p>
-  <p style="color:#003366;">S&amp;P 500: 6,693.75 <span style="color: green;">+0.44%</span></p>
-  <p style="color:#003366;">Nasdaq: 22,788.98 <span style="color: green;">+0.70%</span></p>
+  <h3 id="market" style="color:#003366;">Market Watch</h3>
+  <p style="color:#003366;">Updated: Friday, September 19, 2025 – 12:34 PM MT</p>
+  <p style="color:#003366;">Dow Jones: 46,142.42 <span style="color: green;">+0.27%</span></p>
+  <p style="color:#003366;">S&amp;P 500: 6,631.96 <span style="color: green;">+0.48%</span></p>
+  <p style="color:#003366;">Nasdaq: 22,470.72 <span style="color: green;">+0.94%</span></p>
 
   <div style="font-size: 0.9em; color: #003366; margin-top: 0.5em;">
     <p>Gain on $10K investment:</p>
     <ul style="list-style-type: disc; padding-left: 1.5em; margin-top: 0.3em;">
-      <li>Dow Jones +0.14% → <strong>$14</strong></li>
-      <li>S&amp;P 500 +0.44% → <strong>$44</strong></li>
-      <li>Nasdaq +0.70% → <strong>$70</strong></li>
+      <li>Dow Jones +0.27% → <strong>$27</strong></li>
+      <li>S&amp;P 500 +0.48% → <strong>$48</strong></li>
+      <li>Nasdaq +0.94% → <strong>$94</strong></li>
     </ul>
   </div>
 
-  <div style="margin-top: 1.5em; text-align: right;">
-    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform','_blank')" style="background-color:#003366; color:#fff; border:none; padding:0.5em 1em; border-radius:4px; cursor:pointer;" title="Click to leave anonymous feedback">Leave a Comment</button>
-  </div>
-</div>
-
-
- 
-  <!-- Leave a Comment Button -->
-  <div style="margin-top: 1.5em; text-align: right;">
-    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
-      Leave a Comment
-    </button>
-  </div>
+  <!-- ← Here’s your embedded reopen note -->
+  <p style="margin-top: 1em; font-style: italic; color: #003366;">
+    <strong>Stock Market reopens Monday Sept 22 at 9:30 AM ET</strong>
+  </p>
 </div>
 
 
@@ -1361,7 +1068,7 @@ function toggleReflection(event) {
 <!-- Favorites Section -->
 <section class="section" style="margin-top: 2em; margin-bottom: 2em;">
   <h3 id="favorites" style="color:#003366;">Favorites</h3>
- <p>Drop in your favorite URLs. They’ll stay right here for easy access anytime.</p>
+  <p>Paste your favorite links below. They’ll stay fixed so you can open them every day with one click.</p>
 
   <!-- Favorite 1 -->
   <label for="favorite1">Favorite 1:</label>
@@ -1423,10 +1130,7 @@ function toggleReflection(event) {
 
 <!-- 🧠 Why I Built This Page -->
 <section class="section" style="margin-top: 2em; margin-bottom: 2em;">
- <h3 id="why-i-built-this" style="color:#003366;" title="Last updated Thursday September 19, 11:00 AM ET">
-  <a href="https://diggingforclarity.com/#why-i-built-this" target="_blank" style="color:#003366; text-decoration:none;">Why I Built This Page</a>
-</h3>
-
+  <h3 style="color:#003366;">Why I Built This Page</h3>
  <p style="line-height: 1.6; color: #444;">
   I used to think bias came from the newsroom. Now I know it comes from the <strong>news algorithm</strong>. The headlines aren’t chosen by editors anymore—they’re chosen by code. And that code is designed to keep you angry, addicted, and divided. It worked on me like it was designed to do.
 </p>
@@ -1884,17 +1588,6 @@ function renderLocalNews(snippets, reason = "") {
       .catch(err => console.error('Service worker error:', err));
   }
 </script>
-<!-- ==== Overal Comments on Site ==== -->
-<div class="section" style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ccc;">
-  <h3 id="overall-comments" style="color:#003366;">
-    Overal Comments on Site
-  </h3>
-  <div style="margin-top: 1em; text-align: right;">
-    <button onclick="window.open('https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform', '_blank')" style="background-color:#003366; color:#fff; border:none; padding: 0.5em 1em; border-radius: 4px; cursor:pointer;" title="Click to leave anonymous feedback">
-      Leave a Comment
-    </button>
-  </div>
-</div>
 
 
 <!-- ==== Footer Section ==== -->
@@ -1906,31 +1599,6 @@ function renderLocalNews(snippets, reason = "") {
   </div>
 </footer>
 
-<script>
-  function getMountainTimeStamp() {
-    const now = new Date();
-    return new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/Denver',
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: '2-digit',
-      hour12: true
-    }).format(now);
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const marketHeader = document.getElementById('market');
-    if (marketHeader) {
-      marketHeader.addEventListener('mouseenter', () => {
-        const stamp = `Updated ${getMountainTimeStamp()} MT`;
-        marketHeader.setAttribute('title', stamp);
-      });
-    }
-  });
-</script>
 
 
 <!-- Leave these as-is -->
@@ -1938,174 +1606,6 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
