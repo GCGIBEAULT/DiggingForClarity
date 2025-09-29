@@ -1564,17 +1564,7 @@ function renderLocalNews(snippets, reason = "") {
     if (savedLocalNews) {
       document.getElementById("localNews").value = savedLocalNews;
     }
-  };
 
-  function openWeather() {
-    const url = document.getElementById("weatherLink").value;
-    if (url) {
-      localStorage.setItem("weatherLink", url);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid weather link.");
-    }
-  }
 
   function openLocalNews() {
     const url = document.getElementById("localNews").value;
@@ -1802,6 +1792,7 @@ window.onload = function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
