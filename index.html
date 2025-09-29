@@ -211,8 +211,6 @@ function toggleReflection(event) {
 
   <!-- 🌤️ Local Weather Block -->
   <div class="local-weather-block" style="background: linear-gradient(to bottom right, #fdfdfd, #eaeaea); box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc;">
-    
-    <!-- 🔗 Quick Jump -->
     <div style="background-color: #f0f0f0; padding: 1em; border-radius: 6px; margin-bottom: 1em; font-size: 0.95em; font-weight: bold; text-align: center;">
       Quick Jump: 
       <a href="#ai">AI</a> |
@@ -229,16 +227,15 @@ function toggleReflection(event) {
       <a href="#favorites">Favorites</a>
     </div>
 
-    <h3 style="color:#003366; margin-top: 0;">Local Weather</h3>
+    <h3 style="color:#003366;">Local Weather</h3>
     <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
-    <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
     <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
+    <div id="weatherDrawer" style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
     <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
 
-    <!-- 🚗 Navigation Tools -->
     <div style="margin-top: 1.5em;">
       <h4 style="color:#003366;">Need Directions or Flight Info?</h4>
-
+      <p>Click below to launch your preferred traffic or flight tracker:</p>
       <div class="snippet" style="font-weight: bold;">
         <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline;">Google Maps</a>
         &nbsp;&nbsp;
@@ -249,25 +246,26 @@ function toggleReflection(event) {
     </div>
   </div>
 
-<!-- 🗞️ Local & State News Block -->
-<section id="traffic-news" class="section" style="background: linear-gradient(to bottom right, #fdfdfd, #eaeaea); box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc; margin: 0; max-width: 960px; margin-left: auto; margin-right: auto;">
+  <!-- 🗞️ Local & State News Block -->
+  <div class="local-state-news-block" style="background: linear-gradient(to bottom right, #fdfdfd, #eaeaea); box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc;">
+    <h3 style="color:#003366;">Local & State News</h3>
+    <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
 
-  <h3 style="color:#003366; margin-top: 0;">Local & State News</h3>
-  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+    <!-- Local News Input -->
+    <label for="localNews" style="font-weight: bold;">Local News Link:</label>
+    <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
+    <div id="localDrawer" style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
+    <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
 
-  <!-- Local News Input -->
-  <label for="localNews" style="font-weight: bold;">Local News Link:</label>
-  <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-  <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
-
-  <!-- State News Input -->
-  <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
-  <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-  <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
+    <!-- State News Input -->
+    <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
+    <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
+    <div id="stateDrawer" style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
+    <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
+  </div>
 
 </section>
 
-</section>
 
 
 
@@ -1859,12 +1857,76 @@ function renderLocalNews(snippets, reason = "") {
     }
   }
 </script>
+<script>
+  window.onload = function () {
+    // Weather
+    const savedWeather = localStorage.getItem("weatherLink");
+    const weatherInput = document.getElementById("weatherLink");
+    const weatherDrawer = document.getElementById("weatherDrawer");
+    if (savedWeather) {
+      weatherInput.value = savedWeather;
+    } else {
+      weatherDrawer.style.display = "block";
+    }
+
+    // Local News
+    const savedLocal = localStorage.getItem("localNews");
+    const localInput = document.getElementById("localNews");
+    const localDrawer = document.getElementById("localDrawer");
+    if (savedLocal) {
+      localInput.value = savedLocal;
+    } else {
+      localDrawer.style.display = "block";
+    }
+
+    // State News
+    const savedState = localStorage.getItem("stateNews");
+    const stateInput = document.getElementById("stateNews");
+    const stateDrawer = document.getElementById("stateDrawer");
+    if (savedState) {
+      stateInput.value = savedState;
+    } else {
+      stateDrawer.style.display = "block";
+    }
+  };
+
+  function openWeather() {
+    const url = document.getElementById("weatherLink").value;
+    if (url) {
+      localStorage.setItem("weatherLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid weather link.");
+    }
+  }
+
+  function openLocalNews() {
+    const url = document.getElementById("localNews").value;
+    if (url) {
+      localStorage.setItem("localNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid local news link.");
+    }
+  }
+
+  function openStateNews() {
+    const url = document.getElementById("stateNews").value;
+    if (url) {
+      localStorage.setItem("stateNews", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid state news link.");
+    }
+  }
+</script>
 
 <!-- Leave these as-is -->
 <script src="local-news.js" defer></script>
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
