@@ -1815,7 +1815,7 @@ function renderLocalNews(snippets, reason = "") {
     const weatherInput = document.getElementById("weatherLink");
     const weatherDrawer = document.getElementById("weatherDrawer");
     const savedWeather = localStorage.getItem("weatherLink");
-    if (!weatherInput.value && savedWeather) {
+    if (savedWeather && weatherInput.value !== savedWeather) {
       weatherDrawer.style.display = "block";
       weatherDrawer.onclick = function () {
         weatherInput.value = savedWeather;
@@ -1827,7 +1827,7 @@ function renderLocalNews(snippets, reason = "") {
     const localInput = document.getElementById("localNews");
     const localDrawer = document.getElementById("localDrawer");
     const savedLocal = localStorage.getItem("localNews");
-    if (!localInput.value && savedLocal) {
+    if (savedLocal && localInput.value !== savedLocal) {
       localDrawer.style.display = "block";
       localDrawer.onclick = function () {
         localInput.value = savedLocal;
@@ -1839,7 +1839,7 @@ function renderLocalNews(snippets, reason = "") {
     const stateInput = document.getElementById("stateNews");
     const stateDrawer = document.getElementById("stateDrawer");
     const savedState = localStorage.getItem("stateNews");
-    if (!stateInput.value && savedState) {
+    if (savedState && stateInput.value !== savedState) {
       stateDrawer.style.display = "block";
       stateDrawer.onclick = function () {
         stateInput.value = savedState;
@@ -1849,11 +1849,13 @@ function renderLocalNews(snippets, reason = "") {
   });
 </script>
 
+
 <!-- Leave these as-is -->
 <script src="local-news.js" defer></script>
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
