@@ -245,7 +245,6 @@ function toggleReflection(event) {
       </div>
     </div>
   </div>
-<!-- REPLACE weather-drawer script with this safer version -->
 <style>
   #weatherDrawer { display: none; background: #fff8f8; border: 1px dashed #cc4444; padding: 0.6em; border-radius: 6px; margin-bottom: 0.5em; font-size: 0.95em; color: #222; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
   #weatherDrawer .wd-buttons { display:flex; gap:0.5em; margin-top:0.5em; }
@@ -255,6 +254,7 @@ function toggleReflection(event) {
 </style>
 
 <script>
+/* Drawer UI (safe: never navigates current tab) */
 (function () {
   const input = document.getElementById('weatherLink');
   const drawer = document.getElementById('weatherDrawer');
@@ -282,10 +282,9 @@ function toggleReflection(event) {
     const restore = document.createElement('button');
     restore.type = 'button';
     restore.textContent = 'Restore saved URL';
-    // SAFE: restore ONLY writes the input and localStorage; NO navigation
     restore.addEventListener('click', () => {
       input.value = saved;
-      try { localStorage.setItem('weatherLink', saved); } catch (e) { /* ignore storage errors */ }
+      try { localStorage.setItem('weatherLink', saved); } catch (e) {}
       input.focus();
       drawer.style.display = 'none';
     });
@@ -295,8 +294,7 @@ function toggleReflection(event) {
     openDirect.className = 'secondary';
     openDirect.textContent = 'Open saved URL (new tab)';
     openDirect.addEventListener('click', () => {
-      // user-triggered explicit open in new tab
-      window.open(saved, '_blank', 'noopener');
+      window.open(saved, '_blank', 'noopener,noreferrer');
     });
 
     const clearSaved = document.createElement('button');
@@ -332,12 +330,50 @@ function toggleReflection(event) {
     else checkAndShow();
   });
 
-  // Do NOT override or wrap openWeather here; let the page's openWeather handle navigation.
-  // Initialize
   document.addEventListener('DOMContentLoaded', checkAndShow);
   checkAndShow();
 })();
 </script>
+
+<script>
+/* Robust openWeather: validate, normalize, persist, open in new tab only */
+function normalizeUrl(raw) {
+  if (!raw) return '';
+  raw = String(raw).trim();
+  if (!/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//.test(raw)) {
+    raw = 'https://' + raw;
+  }
+  return raw;
+}
+
+function isLikelyValidUrl(u) {
+  try {
+    const url = new URL(u);
+    return url.protocol === 'http:' || url.protocol === 'https:';
+  } catch (e) {
+    return false;
+  }
+}
+
+function openWeather() {
+  try {
+    const input = document.getElementById('weatherLink');
+    if (!input) { alert('Weather input not found.'); return; }
+    const raw = (input.value || '').trim();
+    const normalized = normalizeUrl(raw);
+    if (!normalized || !isLikelyValidUrl(normalized)) {
+      alert('Please enter a valid weather link (include domain or full URL).');
+      return;
+    }
+    try { localStorage.setItem('weatherLink', normalized); } catch (e) {}
+    window.open(normalized, '_blank', 'noopener,noreferrer');
+  } catch (err) {
+    console.error('openWeather error', err);
+    alert('Unable to open weather link.');
+  }
+}
+</script>
+
 
   <!-- 🗞️ Local & State News Block -->
   <div class="local-state-news-block" style="background: linear-gradient(to bottom right, #fdfdfd, #eaeaea); box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc;">
@@ -1892,6 +1928,7 @@ window.onload = function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
