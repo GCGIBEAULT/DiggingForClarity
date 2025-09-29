@@ -206,25 +206,45 @@ function toggleReflection(event) {
 
 
 
-<!-- 🗞️ Local & State News Block -->
-<section class="local-state-news-block" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; margin-top: 2em; max-width: 960px; margin-left: auto; margin-right: auto;">
+<!-- 🧭 Local Weather + Local & State News Side-by-Side -->
+<section class="local-pair-wrap" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin-top: 2em; max-width: 960px; margin-left: auto; margin-right: auto;">
 
-  <h3 style="color:#003366;">Local & State News</h3>
-  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+  <!-- 🌤️ Local Weather Block -->
+  <div class="local-weather-block" style="background-color: #f5f5f5; padding: 1.5em; border-radius: 8px;">
+    <h3 style="color:#003366;">Local Weather</h3>
+    <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
+    <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
+    <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+    <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
 
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em;">
-    <!-- Local News Column -->
-    <div>
-      <label for="localNews" style="font-weight: bold;">Local News Link:</label>
-      <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-      <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
+    <div style="margin-top: 1.5em;">
+      <h4 style="color:#003366;">Need Directions?</h4>
+      <p>Click below to launch your preferred traffic app:</p>
+      <div class="snippet">
+        <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Google Maps</a>
+        &nbsp;&nbsp;
+        <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Waze</a>
+      </div>
     </div>
+  </div>
 
-    <!-- State News Column -->
-    <div>
-      <label for="stateNews" style="font-weight: bold;">State News Link:</label>
-      <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-      <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
+  <!-- 🗞️ Local & State News Block -->
+  <div class="local-state-news-block" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px;">
+    <h3 style="color:#003366;">Local & State News</h3>
+    <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em;">
+      <div>
+        <label for="localNews" style="font-weight: bold;">Local News Link:</label>
+        <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+        <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
+      </div>
+
+      <div>
+        <label for="stateNews" style="font-weight: bold;">State News Link:</label>
+        <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+        <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
+      </div>
     </div>
   </div>
 
@@ -1825,6 +1845,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
