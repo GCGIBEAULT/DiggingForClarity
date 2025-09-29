@@ -230,7 +230,7 @@ function toggleReflection(event) {
     <h3 style="color:#003366;">Local Weather</h3>
     <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
     <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-    <div id="weatherDrawer" style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
+
     <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
 
     <div style="margin-top: 1.5em;">
@@ -1810,80 +1810,43 @@ function renderLocalNews(snippets, reason = "") {
 </footer>
 
 <script>
-  function getMountainTimeStamp() {
-    const now = new Date();
-    return new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/Denver',
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: '2-digit',
-      hour12: true
-    }).format(now);
-  }
+  document.addEventListener("DOMContentLoaded", function () {
+    // Weather drawer
+    const weatherInput = document.getElementById("weatherLink");
+    const weatherDrawer = document.getElementById("weatherDrawer");
+    const savedWeather = localStorage.getItem("weatherLink");
+    if (!weatherInput.value && savedWeather) {
+      weatherDrawer.style.display = "block";
+      weatherDrawer.onclick = function () {
+        weatherInput.value = savedWeather;
+        weatherDrawer.style.display = "none";
+      };
+    }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const marketHeader = document.getElementById('market');
-    if (marketHeader) {
-      marketHeader.addEventListener('mouseenter', () => {
-        const stamp = `Updated ${getMountainTimeStamp()} MT`;
-        marketHeader.setAttribute('title', stamp);
-      });
+    // Local News drawer
+    const localInput = document.getElementById("localNews");
+    const localDrawer = document.getElementById("localDrawer");
+    const savedLocal = localStorage.getItem("localNews");
+    if (!localInput.value && savedLocal) {
+      localDrawer.style.display = "block";
+      localDrawer.onclick = function () {
+        localInput.value = savedLocal;
+        localDrawer.style.display = "none";
+      };
+    }
+
+    // State News drawer
+    const stateInput = document.getElementById("stateNews");
+    const stateDrawer = document.getElementById("stateDrawer");
+    const savedState = localStorage.getItem("stateNews");
+    if (!stateInput.value && savedState) {
+      stateDrawer.style.display = "block";
+      stateDrawer.onclick = function () {
+        stateInput.value = savedState;
+        stateDrawer.style.display = "none";
+      };
     }
   });
-</script>
-
-<script>
-  window.onload = function () {
-    const savedWeather = localStorage.getItem("weatherLink");
-    if (savedWeather) {
-      document.getElementById("weatherLink").value = savedWeather;
-    } else {
-      const defaultLink = "https://www.msn.com/en-us/weather/today/Denver,Colorado,United-States/we-city?ocid=msedgntp&cobrand=copilot";
-      document.getElementById("weatherLink").value = defaultLink;
-      localStorage.setItem("weatherLink", defaultLink);
-    }
-  };
-
-  function openWeather() {
-    const url = document.getElementById("weatherLink").value;
-    if (url) {
-      localStorage.setItem("weatherLink", url);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid weather link.");
-    }
-  }
-</script>
-<script>
-window.onload = function () {
-  // Weather
-  const weatherInput = document.getElementById("weatherLink");
-  const weatherDrawer = document.getElementById("weatherDrawer");
-  const savedWeather = localStorage.getItem("weatherLink");
-  if (savedWeather && !weatherInput.value) {
-    weatherDrawer.style.display = "block";
-  }
-
-  // Local News
-  const localInput = document.getElementById("localNews");
-  const localDrawer = document.getElementById("localDrawer");
-  const savedLocal = localStorage.getItem("localNews");
-  if (savedLocal && !localInput.value) {
-    localDrawer.style.display = "block";
-  }
-
-  // State News
-  const stateInput = document.getElementById("stateNews");
-  const stateDrawer = document.getElementById("stateDrawer");
-  const savedState = localStorage.getItem("stateNews");
-  if (savedState && !stateInput.value) {
-    stateDrawer.style.display = "block";
-  }
-};
-
 </script>
 
 <!-- Leave these as-is -->
@@ -1891,6 +1854,7 @@ window.onload = function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
