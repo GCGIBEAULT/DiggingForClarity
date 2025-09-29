@@ -1858,67 +1858,32 @@ function renderLocalNews(snippets, reason = "") {
   }
 </script>
 <script>
-  window.onload = function () {
-    // Weather
-    const savedWeather = localStorage.getItem("weatherLink");
-    const weatherInput = document.getElementById("weatherLink");
-    const weatherDrawer = document.getElementById("weatherDrawer");
-    if (savedWeather) {
-      weatherInput.value = savedWeather;
-    } else {
-      weatherDrawer.style.display = "block";
-    }
-
-    // Local News
-    const savedLocal = localStorage.getItem("localNews");
-    const localInput = document.getElementById("localNews");
-    const localDrawer = document.getElementById("localDrawer");
-    if (savedLocal) {
-      localInput.value = savedLocal;
-    } else {
-      localDrawer.style.display = "block";
-    }
-
-    // State News
-    const savedState = localStorage.getItem("stateNews");
-    const stateInput = document.getElementById("stateNews");
-    const stateDrawer = document.getElementById("stateDrawer");
-    if (savedState) {
-      stateInput.value = savedState;
-    } else {
-      stateDrawer.style.display = "block";
-    }
-  };
-
-  function openWeather() {
-    const url = document.getElementById("weatherLink").value;
-    if (url) {
-      localStorage.setItem("weatherLink", url);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid weather link.");
-    }
+window.onload = function () {
+  // Weather
+  const weatherInput = document.getElementById("weatherLink");
+  const weatherDrawer = document.getElementById("weatherDrawer");
+  const savedWeather = localStorage.getItem("weatherLink");
+  if (savedWeather && !weatherInput.value) {
+    weatherDrawer.style.display = "block";
   }
 
-  function openLocalNews() {
-    const url = document.getElementById("localNews").value;
-    if (url) {
-      localStorage.setItem("localNews", url);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid local news link.");
-    }
+  // Local News
+  const localInput = document.getElementById("localNews");
+  const localDrawer = document.getElementById("localDrawer");
+  const savedLocal = localStorage.getItem("localNews");
+  if (savedLocal && !localInput.value) {
+    localDrawer.style.display = "block";
   }
 
-  function openStateNews() {
-    const url = document.getElementById("stateNews").value;
-    if (url) {
-      localStorage.setItem("stateNews", url);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid state news link.");
-    }
+  // State News
+  const stateInput = document.getElementById("stateNews");
+  const stateDrawer = document.getElementById("stateDrawer");
+  const savedState = localStorage.getItem("stateNews");
+  if (savedState && !stateInput.value) {
+    stateDrawer.style.display = "block";
   }
+};
+
 </script>
 
 <!-- Leave these as-is -->
@@ -1926,6 +1891,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
