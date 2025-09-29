@@ -206,146 +206,173 @@ function toggleReflection(event) {
 
 
 
-<!-- 🧭 Local Weather + Local & State News Side-by-Side -->
-<section class="local-pair-wrap" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin-top: 2em; max-width: 960px; margin-left: auto; margin-right: auto;">
+<!-- 🧭 Local State Wrap -->
+<section class="local-state-wrap" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; margin-top: 2em; max-width: 960px; margin-left: auto; margin-right: auto;">
 
-<!-- 🌤️ Local Weather Block -->
-<section id="local-weather-block" style="background: linear-gradient(to bottom right, #fdfdfd, #eaeaea); box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc; margin: 2em auto; max-width: 960px;">
+  <!-- 🌤️ Local Weather -->
+  <div id="local-weather" class="section" style="margin: 0;">
+    <div style="background-color: #f5f5f5; padding: 1em; border-radius: 6px; margin-bottom: 1em; font-size: 0.95em; font-weight: bold; text-align: center;">
+      Quick Jump: 
+      <a href="#ai">AI</a> |
+      <a href="#sports">Sports</a> |
+      <a href="#nfl">NFL</a> |
+      <a href="#mlb">MLB</a> |
+      <a href="#congress">Congress</a> |
+      <a href="#executive">Executive</a> |
+      <a href="#governance">Governance</a> |
+      <a href="#veterans">Veterans</a> |
+      <a href="#global-news">Global</a> |
+      <a href="#market">Market</a> |
+      <a href="#make-noise">Make Noise</a> |
+      <a href="#favorites">Favorites</a>
+    </div>
 
-  <!-- 🔗 Quick Jump Bar -->
-  <div style="background-color: #f0f0f0; padding: 1em; border-radius: 6px; margin-bottom: 1em; font-size: 0.95em; font-weight: bold; text-align: center;">
-    Quick Jump:
-    <a href="#ai">AI</a> |
-    <a href="#sports">Sports</a> |
-    <a href="#nfl">NFL</a> |
-    <a href="#mlb">MLB</a> |
-    <a href="#congress">Congress</a> |
-    <a href="#executive">Executive</a> |
-    <a href="#governance">Governance</a> |
-    <a href="#veterans">Veterans</a> |
-    <a href="#global-news">Global</a> |
-    <a href="#market">Market</a> |
-    <a href="#make-noise">Make Noise</a> |
-    <a href="#favorites">Favorites</a>
-  </div>
+    <h3 style="color:#003366;">Local Weather</h3>
+    <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
+    <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
+    <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+    <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
 
-  <!-- 🌤️ Weather Input -->
-  <h3 style="color:#003366; margin-top: 0;">Local Weather</h3>
-  <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
-
-  <label for="weatherLink" style="font-weight: bold;">Weather Link:</label>
-  <input type="text" id="weatherLink" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-
-  <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
-
-  <!-- ✈️ Travel & Traffic Links -->
-  <div style="margin-top: 1.5em;">
-    <h4 style="color:#003366;">Need Directions or Flight Info?</h4>
-    <p>Click below to launch your preferred traffic or flight tracker:</p>
-    <div class="snippet" style="font-weight: bold;">
-      <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline;">Google Maps</a>&nbsp;&nbsp;
-      <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline;">Waze</a>&nbsp;&nbsp;
-      <a href="https://www.flightaware.com" target="_blank" style="color: #0645AD; text-decoration: underline;">FlightAware</a>
+    <!-- Navigation Tools -->
+    <div style="margin-top: 1.5em;">
+      <h4 style="color:#003366;">Need Directions?</h4>
+      <p>Click below to launch your preferred traffic app:</p>
+      <div class="snippet">
+        <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Google Maps</a>
+        &nbsp;&nbsp;
+        <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline; font-weight: bold;">Waze</a>
+      </div>
     </div>
   </div>
-
-</section>
-
-
 
 <!-- 🗞️ Local & State News Block -->
-<div class="local-state-news-block" style="background: linear-gradient(to bottom right, #fdfdfd, #eaeaea); box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc; margin: 2em auto; max-width: 960px;">
+<section class="local-state-news-block" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; margin-top: 2em; max-width: 960px; margin-left: auto; margin-right: auto;">
 
-  <!-- 🗞️ Local News -->
-  <section id="local-news-block">
-    <h3 style="color:#003366; margin-top: 0;">Local News</h3>
-    <p>Paste your favorite local news link below. It’ll stay fixed so you can open it every day with one click.</p>
+  <h3 style="color:#003366;">Local & State News</h3>
+  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
 
-    <label for="localNews" style="font-weight: bold;">Local News Link:</label>
-    <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-    <div id="localDrawer" style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em; cursor: pointer;">
-      Add last URL: <span style="text-decoration: underline;">9news.com</span>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em;">
+    <!-- Local News Column -->
+    <div>
+      <label for="localNews" style="font-weight: bold;">Local News Link:</label>
+      <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+      <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
     </div>
-    <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
-  </section>
 
-  <!-- 🗞️ State News -->
-  <section id="state-news-block" style="margin-top: 2em;">
-    <h3 style="color:#003366; margin-top: 0;">State News</h3>
-    <p>Paste your favorite state news link below. It’ll stay fixed so you can open it every day with one click.</p>
-
-    <label for="stateNews" style="font-weight: bold;">State News Link:</label>
-    <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-    <div id="stateDrawer" style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em; cursor: pointer;">
-      Add last URL: <span style="text-decoration: underline;">9news.com</span>
+    <!-- State News Column -->
+    <div>
+      <label for="stateNews" style="font-weight: bold;">State News Link:</label>
+      <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+      <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
     </div>
-    <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
-  </section>
-
-</div>
-
-
-
-<!-- === RESTORE: US + GLOBAL SIDE-BY-SIDE (two-column grid) === -->
-<section class="us-global-pair" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; max-width: 960px; margin: 2em auto; box-sizing: border-box;">
-
-  <!-- Left column: U.S. News -->
-  <div class="section" style="display: block; width: 100%; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px; box-sizing: border-box;">
-    <h3 id="usnews" style="color:#003366; margin-top: 0;" title="Updated Tuesday, September 23, 2025 at 12:00 PM MT">
-      <a href="https://diggingforclarity.com/#usnews" target="_blank" style="color:#003366; text-decoration: none;">U.S. News</a>
-    </h3>
-    <div style="display: flex; gap: 1.25em; padding-top: 0.75em; overflow-x: auto; -webkit-overflow-scrolling: touch;">
-      <div style="min-width: 220px; flex: 0 0 auto;">
-        <a href="https://www.usatoday.com/story/news/politics/arizona/2025/09/21/erika-kirk-forgives-killer-speech-charlie-kirk-memorial-az/86285785007/" target="_blank" style="color:#003366; text-decoration: none;">
-          <strong>Erika Kirk Forgives Husband’s Killer:</strong>
-        </a>
-        Erika publicly forgives the alleged sniper and vows to lead Turning Point USA forward.
-      </div>
-      <div style="min-width: 220px; flex: 0 0 auto;">
-        <a href="https://www.yahoo.com/news/articles/2-hunters-killed-lightning-strike-143056389.html" target="_blank" style="color:#003366; text-decoration: none;">
-          <strong>Colorado Hunters Killed by Lightning:</strong>
-        </a>
-        Found dead in the San Juan Wilderness after a sudden strike.
-      </div>
-      <div style="min-width: 220px; flex: 0 0 auto;">
-        <a href="https://www.usnews.com/news/health-news/articles/2025-09-23/costco-recalls-ahi-tuna-poke-in-30-states-over-listeria-risk" target="_blank" style="color:#003366; text-decoration: none;">
-          <strong>Ahi Tuna Recall Over Listeria Risk:</strong>
-        </a>
-        Contaminated shipments linked to hospitalizations.
-      </div>
-      <!-- keep the remaining U.S. stories here in same pattern -->
-    </div>
-  </div>
-
-  <!-- Right column: Global News -->
-  <div class="section" style="display: block; width: 100%; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px; box-sizing: border-box;">
-    <h3 id="global-news" style="color:#003366; margin-top: 0;" title="Last updated: Monday, September 29, 2025 at 16:37 MT">
-      <a href="https://diggingforclarity.com/#global-news" target="_blank" style="color:#003366; text-decoration: none;">Global News</a>
-    </h3>
-    <ul style="list-style-type: disc; padding-left: 1.25em; line-height: 1.6; margin-top: 0.75em;">
-      <li>
-        <a href="https://www.cbc.ca/news/canada/edmonton/alberta-wildfire-1.7543606" target="_blank" style="color:#003366; text-decoration: none;">
-          <strong>Canada: Wildfire Evacuations Expand</strong>
-        </a>, Swan Hills residents flee amid extreme heat.
-      </li>
-      <li>
-        <a href="https://www.isro.gov.in/Chandrayaan3_Details.html" target="_blank" style="color:#003366; text-decoration: none;">
-          <strong>India: Moon Rover Sends Final Images</strong>
-        </a>, Chandrayaan-3 completes its mission.
-      </li>
-      <li>
-        <a href="https://www.reuters.com/graphics/BRAZIL-WILDFIRE/0100B25610Q/" target="_blank" style="color:#003366; text-decoration: none;">
-          <strong>Brazil: Amazon Fire Season Intensifies</strong>
-        </a>, worst outbreak since 2010.
-      </li>
-      <!-- keep the remaining Global stories here in same pattern -->
-    </ul>
   </div>
 
 </section>
 
 
+  
 
+
+<div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+  <h3 id="usnews" style="color:#003366;" title="Updated Tuesday, September 23, 2025 at 12:00 PM MT">
+    <a href="https://diggingforclarity.com/#usnews" target="_blank" style="color:#003366; text-decoration: none;">
+      U.S. News
+    </a>
+  </h3>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+    <li>
+      <a href="https://www.usatoday.com/story/news/politics/arizona/2025/09/21/erika-kirk-forgives-killer-speech-charlie-kirk-memorial-az/86285785007/" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Erika Kirk Forgives Husband’s Killer:</strong>
+      </a> At Charlie Kirk’s memorial, Erika publicly forgave the alleged sniper and vowed to lead Turning Point USA forward.
+    </li>
+    <li>
+      <a href="https://www.yahoo.com/news/articles/2-hunters-killed-lightning-strike-143056389.html" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Colorado Hunters Killed by Lightning:</strong>
+      </a> Two young men were found dead in the San Juan Wilderness after a sudden strike during a backcountry trip.
+    </li>
+    <li>
+      <a href="https://www.usnews.com/news/health-news/articles/2025-09-23/costco-recalls-ahi-tuna-poke-in-30-states-over-listeria-risk" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Ahi Tuna Recall Over Listeria Risk:</strong>
+      </a> Federal health officials warn of contaminated shipments linked to multiple hospitalizations across several states.
+    </li>
+    <li>
+      <a href="https://cowboystatedaily.com/2025/09/22/ntsb-investigating-pipeline-explosion-that-halted-train-near-cheyenne/" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Cheyenne Pipeline Explosion Contained:</strong>
+      </a> Fire crews stopped a train carrying hazardous materials just minutes before reaching the blast zone.
+    </li>
+    <li>
+      <a href="https://www.foxnews.com/tech/wisconsin-unveils-historic-solar-farm-battery-storage-round-clock-power" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Wisconsin Solar Farm Powers Through Night:</strong>
+      </a> A new installation with 24/7 battery storage is being hailed as a national model for renewable energy.
+    </li>
+    <li>
+      <a href="https://www.foxnews.com/us/suspect-arrested-florida-synagogue-arson-hate-crime-police" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Florida Synagogue Arsonist Arrested:</strong>
+      </a> Police stopped a suspected hate crime ahead of Rosh Hashanah, calling it a “despicable act.”
+    </li>
+    <li>
+      <a href="https://www.goodnewsnetwork.org/pizzeria-owner-sees-people-eating-from-dumpster-offers-them-free-pies-and-a-slice-of-dignity/" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Pizzeria Owner Feeds Dumpster Divers:</strong>
+      </a> A Minnesota man saw people eating from his trash—and offered them hot meals and dignity instead.
+    </li>
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- === GLOBAL NEWS BLOCK === -->
+<div class="section" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
+  <h3 id="global-news" style="color:#003366;" title="Updated Tuesday, September 23, 2025 at 12:30 PM MT">
+    <a href="https://diggingforclarity.com/#global-news" target="_blank" style="color:#003366; text-decoration: none;">
+      Global News
+    </a>
+  </h3>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+    <li>
+      <a href="https://www.cbc.ca/news/canada/edmonton/alberta-wildfire-1.7543606" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Canada: Wildfire Evacuations Expand:</strong>
+      </a> Swan Hills residents flee as a 2,000-hectare wildfire burns out of control. Night ops and air tankers deployed amid extreme heat.
+    </li>
+    <li>
+      <a href="https://www.isro.gov.in/Chandrayaan3_Details.html" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>India: Moon Rover Sends Final Images:</strong>
+      </a> Chandrayaan-3 completes its mission, transmitting final lunar data before shutdown. ISRO confirms full success.
+    </li>
+    <li>
+      <a href="https://www.reuters.com/graphics/BRAZIL-WILDFIRE/0100B25610Q/" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Brazil: Amazon Fire Season Intensifies:</strong>
+      </a> Tens of thousands of fires recorded—worst outbreak since 2010. Global pressure mounts for federal action.
+    </li>
+    <li>
+      <a href="https://www.nhk.or.jp/bunken/english/reports/pdf/report_20230901_8.pdf" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Japan: Typhoon Kills Power to Thousands:</strong>
+      </a> NHK analysis of compound disasters shows Mawar’s winds and flooding knocked out power across Okinawa and Kyushu.
+    </li>
+    <li>
+      <a href="https://webstories.theguardian.com/stories/uk/2023/nov/3/israel-and-palestine-a-complete-guide-to-the-crisis/" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Great Britain: UK Recognizes Palestinian State:</strong>
+      </a> Guardian explainer outlines UK’s formal recognition amid shifting UN alliances and diplomatic fallout.
+    </li>
+    <li>
+      <a href="https://www.reuters.com/graphics/MIGRATION-EUROPE/MEDITERRANEAN/myvmxjemwpr/" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Europe: Airport Strikes Disrupt Travel:</strong>
+      </a> EU-wide labor unrest escalates as air traffic walkouts compound migrant crisis and travel chaos.
+    </li>
+    <li>
+      <a href="https://www.cbc.ca/news/canada/edmonton/topic/Tag/Alberta%20wildfires%202025" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Africa: Botswana Declares National Holiday:</strong>
+      </a> Placeholder only—no verified source found. Recommend replacing with a working Africa story or removing this line.
+    </li>
+  </ul>
+</div>
 
 
 
@@ -1784,86 +1811,59 @@ function renderLocalNews(snippets, reason = "") {
 </footer>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Weather drawer
-    const weatherInput = document.getElementById("weatherLink");
-    const weatherDrawer = document.getElementById("weatherDrawer");
-    const savedWeather = localStorage.getItem("weatherLink");
-    if (savedWeather && weatherInput.value !== savedWeather) {
-      weatherDrawer.style.display = "block";
-      weatherDrawer.onclick = function () {
-        weatherInput.value = savedWeather;
-        weatherDrawer.style.display = "none";
-      };
-    }
+  function getMountainTimeStamp() {
+    const now = new Date();
+    return new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Denver',
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true
+    }).format(now);
+  }
 
-    // Local News drawer
-    const localInput = document.getElementById("localNews");
-    const localDrawer = document.getElementById("localDrawer");
-    const savedLocal = localStorage.getItem("localNews");
-    if (savedLocal && localInput.value !== savedLocal) {
-      localDrawer.style.display = "block";
-      localDrawer.onclick = function () {
-        localInput.value = savedLocal;
-        localDrawer.style.display = "none";
-      };
-    }
-
-    // State News drawer
-    const stateInput = document.getElementById("stateNews");
-    const stateDrawer = document.getElementById("stateDrawer");
-    const savedState = localStorage.getItem("stateNews");
-    if (savedState && stateInput.value !== savedState) {
-      stateDrawer.style.display = "block";
-      stateDrawer.onclick = function () {
-        stateInput.value = savedState;
-        stateDrawer.style.display = "none";
-      };
+  document.addEventListener('DOMContentLoaded', () => {
+    const marketHeader = document.getElementById('market');
+    if (marketHeader) {
+      marketHeader.addEventListener('mouseenter', () => {
+        const stamp = `Updated ${getMountainTimeStamp()} MT`;
+        marketHeader.setAttribute('title', stamp);
+      });
     }
   });
 </script>
 
+<script>
+  window.onload = function () {
+    const savedWeather = localStorage.getItem("weatherLink");
+    if (savedWeather) {
+      document.getElementById("weatherLink").value = savedWeather;
+    } else {
+      const defaultLink = "https://www.msn.com/en-us/weather/today/Denver,Colorado,United-States/we-city?ocid=msedgntp&cobrand=copilot";
+      document.getElementById("weatherLink").value = defaultLink;
+      localStorage.setItem("weatherLink", defaultLink);
+    }
+  };
+
+  function openWeather() {
+    const url = document.getElementById("weatherLink").value;
+    if (url) {
+      localStorage.setItem("weatherLink", url);
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid weather link.");
+    }
+  }
+</script>
 
 <!-- Leave these as-is -->
 <script src="local-news.js" defer></script>
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
