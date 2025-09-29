@@ -257,12 +257,22 @@ function toggleReflection(event) {
     <div id="localDrawer" style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
     <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
 
-    <!-- State News Input -->
-    <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
-    <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-    <div id="stateDrawer" style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-    <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
+<!-- 🗞️ State News Block -->
+<section id="state-news-block" style="background: linear-gradient(to bottom right, #fdfdfd, #eaeaea); box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc; margin: 2em auto; max-width: 960px;">
+
+  <h3 style="color:#003366; margin-top: 0;">State News</h3>
+  <p>Paste your favorite state news link below. It’ll stay fixed so you can open it every day with one click.</p>
+
+  <label for="stateNews" style="font-weight: bold;">State News Link:</label>
+  <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
+
+  <div id="stateDrawer" style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em; cursor: pointer;">
+    Add last URL: <span style="text-decoration: underline;">9news.com</span>
   </div>
+
+  <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
+
+</section>
 
 </section>
 
@@ -1855,6 +1865,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
