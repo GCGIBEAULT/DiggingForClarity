@@ -245,134 +245,8 @@ function toggleReflection(event) {
       </div>
     </div>
   </div>
-<style>
-  #weatherDrawer { display: none; background: #fff8f8; border: 1px dashed #cc4444; padding: 0.6em; border-radius: 6px; margin-bottom: 0.5em; font-size: 0.95em; color: #222; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
-  #weatherDrawer .wd-buttons { display:flex; gap:0.5em; margin-top:0.5em; }
-  #weatherDrawer button { background:#003366; color:#fff; border:none; padding:0.45em 0.6em; border-radius:4px; cursor:pointer; }
-  #weatherDrawer .secondary { background:#eee; color:#222; border:1px solid #ccc; }
-  #weatherDrawer .muted { color:#666; font-size:0.9em; }
-</style>
 
 <script>
-/* Drawer UI (safe: never navigates current tab) */
-(function () {
-  const input = document.getElementById('weatherLink');
-  const drawer = document.getElementById('weatherDrawer');
-  if (!input || !drawer) return;
-
-  function escapeHtml(s) {
-    return String(s).replace(/[&<>"']/g, function (m) {
-      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
-    });
-  }
-
-  function renderDrawer(saved) {
-    drawer.innerHTML = '';
-    const info = document.createElement('div');
-    info.className = 'muted';
-    info.textContent = 'Saved weather URL found. If your input is empty you can restore it:';
-    const preview = document.createElement('div');
-    preview.style.marginTop = '0.5em';
-    preview.style.wordBreak = 'break-all';
-    preview.innerHTML = '<strong>Saved:</strong> ' + escapeHtml(saved);
-
-    const btnRow = document.createElement('div');
-    btnRow.className = 'wd-buttons';
-
-    const restore = document.createElement('button');
-    restore.type = 'button';
-    restore.textContent = 'Restore saved URL';
-    restore.addEventListener('click', () => {
-      input.value = saved;
-      try { localStorage.setItem('weatherLink', saved); } catch (e) {}
-      input.focus();
-      drawer.style.display = 'none';
-    });
-
-    const openDirect = document.createElement('button');
-    openDirect.type = 'button';
-    openDirect.className = 'secondary';
-    openDirect.textContent = 'Open saved URL (new tab)';
-    openDirect.addEventListener('click', () => {
-      window.open(saved, '_blank', 'noopener,noreferrer');
-    });
-
-    const clearSaved = document.createElement('button');
-    clearSaved.type = 'button';
-    clearSaved.className = 'secondary';
-    clearSaved.textContent = 'Forget saved URL';
-    clearSaved.addEventListener('click', () => {
-      try { localStorage.removeItem('weatherLink'); } catch (e) {}
-      drawer.style.display = 'none';
-    });
-
-    btnRow.appendChild(restore);
-    btnRow.appendChild(openDirect);
-    btnRow.appendChild(clearSaved);
-
-    drawer.appendChild(info);
-    drawer.appendChild(preview);
-    drawer.appendChild(btnRow);
-  }
-
-  function checkAndShow() {
-    const saved = (localStorage.getItem('weatherLink') || '').trim();
-    if (saved && input.value.trim() === '') {
-      renderDrawer(saved);
-      drawer.style.display = 'block';
-    } else {
-      drawer.style.display = 'none';
-    }
-  }
-
-  input.addEventListener('input', () => {
-    if (input.value.trim()) drawer.style.display = 'none';
-    else checkAndShow();
-  });
-
-  document.addEventListener('DOMContentLoaded', checkAndShow);
-  checkAndShow();
-})();
-</script>
-
-<script>
-/* Robust openWeather: validate, normalize, persist, open in new tab only */
-function normalizeUrl(raw) {
-  if (!raw) return '';
-  raw = String(raw).trim();
-  if (!/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//.test(raw)) {
-    raw = 'https://' + raw;
-  }
-  return raw;
-}
-
-function isLikelyValidUrl(u) {
-  try {
-    const url = new URL(u);
-    return url.protocol === 'http:' || url.protocol === 'https:';
-  } catch (e) {
-    return false;
-  }
-}
-
-function openWeather() {
-  try {
-    const input = document.getElementById('weatherLink');
-    if (!input) { alert('Weather input not found.'); return; }
-    const raw = (input.value || '').trim();
-    const normalized = normalizeUrl(raw);
-    if (!normalized || !isLikelyValidUrl(normalized)) {
-      alert('Please enter a valid weather link (include domain or full URL).');
-      return;
-    }
-    try { localStorage.setItem('weatherLink', normalized); } catch (e) {}
-    window.open(normalized, '_blank', 'noopener,noreferrer');
-  } catch (err) {
-    console.error('openWeather error', err);
-    alert('Unable to open weather link.');
-  }
-}
-</script>
 
 
   <!-- 🗞️ Local & State News Block -->
@@ -1928,6 +1802,7 @@ window.onload = function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
