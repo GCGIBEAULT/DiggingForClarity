@@ -245,25 +245,25 @@ function toggleReflection(event) {
     </div>
   </div>
 
-  <!-- 🗞️ Local & State News -->
-  <div class="local-state-news-block">
-    <h3 style="color:#003366;">Local & State News</h3>
-    <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+<!-- 🗞️ Local & State News Block -->
+<section class="local-state-news-block" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; margin-top: 2em; max-width: 960px; margin-left: auto; margin-right: auto;">
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em;">
-      <!-- Local News Column -->
-      <div>
-        <label for="localNews" style="font-weight: bold;">Local News Link:</label>
-        <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-        <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
-      </div>
+  <h3 style="color:#003366;">Local & State News</h3>
+  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
 
-      <!-- State News Column -->
-      <div>
-        <label for="stateNews" style="font-weight: bold;">State News Link:</label>
-        <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
-        <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
-      </div>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em;">
+    <!-- Local News Column -->
+    <div>
+      <label for="localNews" style="font-weight: bold;">Local News Link:</label>
+      <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+      <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
+    </div>
+
+    <!-- State News Column -->
+    <div>
+      <label for="stateNews" style="font-weight: bold;">State News Link:</label>
+      <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em;">
+      <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
     </div>
   </div>
 
@@ -1864,6 +1864,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
