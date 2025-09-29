@@ -209,42 +209,46 @@ function toggleReflection(event) {
 <!-- 🧭 Local Weather + Local & State News Side-by-Side -->
 <section class="local-pair-wrap" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin-top: 2em; max-width: 960px; margin-left: auto; margin-right: auto;">
 
-  <!-- 🌤️ Local Weather Block -->
-  <div class="local-weather-block" style="background: linear-gradient(to bottom right, #fdfdfd, #eaeaea); box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc;">
-    <div style="background-color: #f0f0f0; padding: 1em; border-radius: 6px; margin-bottom: 1em; font-size: 0.95em; font-weight: bold; text-align: center;">
-      Quick Jump: 
-      <a href="#ai">AI</a> |
-      <a href="#sports">Sports</a> |
-      <a href="#nfl">NFL</a> |
-      <a href="#mlb">MLB</a> |
-      <a href="#congress">Congress</a> |
-      <a href="#executive">Executive</a> |
-      <a href="#governance">Governance</a> |
-      <a href="#veterans">Veterans</a> |
-      <a href="#global-news">Global</a> |
-      <a href="#market">Market</a> |
-      <a href="#make-noise">Make Noise</a> |
-      <a href="#favorites">Favorites</a>
-    </div>
+<!-- 🌤️ Local Weather Block -->
+<section id="local-weather-block" style="background: linear-gradient(to bottom right, #fdfdfd, #eaeaea); box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc; margin: 2em auto; max-width: 960px;">
 
-    <h3 style="color:#003366;">Local Weather</h3>
-    <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
-    <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
+  <!-- 🔗 Quick Jump Bar -->
+  <div style="background-color: #f0f0f0; padding: 1em; border-radius: 6px; margin-bottom: 1em; font-size: 0.95em; font-weight: bold; text-align: center;">
+    Quick Jump:
+    <a href="#ai">AI</a> |
+    <a href="#sports">Sports</a> |
+    <a href="#nfl">NFL</a> |
+    <a href="#mlb">MLB</a> |
+    <a href="#congress">Congress</a> |
+    <a href="#executive">Executive</a> |
+    <a href="#governance">Governance</a> |
+    <a href="#veterans">Veterans</a> |
+    <a href="#global-news">Global</a> |
+    <a href="#market">Market</a> |
+    <a href="#make-noise">Make Noise</a> |
+    <a href="#favorites">Favorites</a>
+  </div>
 
-    <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
+  <!-- 🌤️ Weather Input -->
+  <h3 style="color:#003366;">Local Weather</h3>
+  <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
 
-    <div style="margin-top: 1.5em;">
-      <h4 style="color:#003366;">Need Directions or Flight Info?</h4>
-      <p>Click below to launch your preferred traffic or flight tracker:</p>
-      <div class="snippet" style="font-weight: bold;">
-        <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline;">Google Maps</a>
-        &nbsp;&nbsp;
-        <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline;">Waze</a>
-        &nbsp;&nbsp;
-        <a href="https://www.flightaware.com" target="_blank" style="color: #0645AD; text-decoration: underline;">FlightAware</a>
-      </div>
+  <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
+
+  <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
+
+  <!-- ✈️ Travel & Traffic Links -->
+  <div style="margin-top: 1.5em;">
+    <h4 style="color:#003366;">Need Directions or Flight Info?</h4>
+    <p>Click below to launch your preferred traffic or flight tracker:</p>
+    <div class="snippet" style="font-weight: bold;">
+      <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline;">Google Maps</a>&nbsp;&nbsp;
+      <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline;">Waze</a>&nbsp;&nbsp;
+      <a href="https://www.flightaware.com" target="_blank" style="color: #0645AD; text-decoration: underline;">FlightAware</a>
     </div>
   </div>
+
+</section>
 
   <!-- 🗞️ Local & State News Block -->
   <div class="local-state-news-block" style="background: linear-gradient(to bottom right, #fdfdfd, #eaeaea); box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc;">
@@ -1876,6 +1880,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
