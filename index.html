@@ -286,59 +286,27 @@ function toggleReflection(event) {
 
 
 <!-- 📰 U.S. & Global News Grid -->
-<section class="grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; max-width: 960px; margin: 2em auto;">
+<section style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; max-width: 960px; margin: 2em auto;">
 
   <!-- 🇺🇸 U.S. News Block -->
-  <div class="section" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-start;">
+  <div style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px;">
     <h3 id="usnews" style="color:#003366; margin-top: 0;">U.S. News</h3>
     <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin-top: 1em;">
-      <li>
-        <a href="https://www.nbcnews.com/news/us-news/texas-attorney-general-ken-paxton-acquitted-impeachment-trial-rcna105312" target="_blank" style="color:#003366; text-decoration: none;">
-          <strong>Ken Paxton Acquitted in Impeachment Trial:</strong>
-        </a> Texas AG cleared of all charges. Critics say the trial was rushed and politically motivated.
-      </li>
-      <li>
-        <a href="https://www.nytimes.com/2025/09/18/us/politics/texas-border-wall-paxton.html" target="_blank" style="color:#003366; text-decoration: none;">
-          <strong>Texas Resumes Border Wall Construction:</strong>
-        </a> State contractors begin new segments. Federal lawsuits expected.
-      </li>
-      <li>
-        <a href="https://www.cnn.com/2025/09/20/us/video/texas-border-wall-drone-footage" target="_blank" style="color:#003366; text-decoration: none;">
-          <strong>Drone Footage Shows Wall Expansion:</strong>
-        </a> Aerial video reveals rapid buildout near Eagle Pass.
-      </li>
-      <li>
-        <a href="https://www.reuters.com/legal/government/texas-sues-biden-admin-over-border-barriers-2025-09-21/" target="_blank" style="color:#003366; text-decoration: none;">
-          <strong>Texas Sues Biden Admin Over Barrier Removal:</strong>
-        </a> Lawsuit claims federal agents violated state sovereignty.
-      </li>
+      <li><a href="https://www.nbcnews.com/news/us-news/texas-attorney-general-ken-paxton-acquitted-impeachment-trial-rcna105312" target="_blank"><strong>Ken Paxton Acquitted:</strong></a> Texas AG cleared of all charges.</li>
+      <li><a href="https://www.nytimes.com/2025/09/18/us/politics/texas-border-wall-paxton.html" target="_blank"><strong>Texas Resumes Border Wall:</strong></a> New segments begin. Lawsuits expected.</li>
+      <li><a href="https://www.cnn.com/2025/09/20/us/video/texas-border-wall-drone-footage" target="_blank"><strong>Drone Footage Shows Expansion:</strong></a> Rapid buildout near Eagle Pass.</li>
+      <li><a href="https://www.reuters.com/legal/government/texas-sues-biden-admin-over-border-barriers-2025-09-21/" target="_blank"><strong>Texas Sues Biden Admin:</strong></a> Sovereignty dispute escalates.</li>
     </ul>
   </div>
 
   <!-- 🌍 Global News Block -->
-  <div class="section" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-start;">
+  <div style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px;">
     <h3 id="global-news" style="color:#003366; margin-top: 0;">Global News</h3>
     <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin-top: 1em;">
-      <li>
-        <a href="https://www.bbc.com/news/world-middle-east-66871623" target="_blank" style="color:#003366; text-decoration: none;">
-          <strong>UN Condemns Israeli Settlement Expansion:</strong>
-        </a> Security Council calls for immediate halt. Israel rejects resolution.
-      </li>
-      <li>
-        <a href="https://www.aljazeera.com/news/2025/09/20/iran-sanctions-eu-response" target="_blank" style="color:#003366; text-decoration: none;">
-          <strong>EU Expands Sanctions on Iran:</strong>
-        </a> New measures target drone exports and cyber units.
-      </li>
-      <li>
-        <a href="https://www.reuters.com/world/china/china-launches-new-ai-regulations-2025-09-19/" target="_blank" style="color:#003366; text-decoration: none;">
-          <strong>China Launches New AI Regulations:</strong>
-        </a> Rules require transparency and real-time audit logs.
-      </li>
-      <li>
-        <a href="https://www.cnn.com/2025/09/21/world/video/global-climate-strike-september-2025" target="_blank" style="color:#003366; text-decoration: none;">
-          <strong>Global Climate Strike Draws Millions:</strong>
-        </a> Youth-led protests erupt in 40+ countries demanding fossil fuel phaseout.
-      </li>
+      <li><a href="https://www.bbc.com/news/world-middle-east-66871623" target="_blank"><strong>UN Condemns Settlements:</strong></a> Israel rejects resolution.</li>
+      <li><a href="https://www.aljazeera.com/news/2025/09/20/iran-sanctions-eu-response" target="_blank"><strong>EU Expands Iran Sanctions:</strong></a> Drone exports targeted.</li>
+      <li><a href="https://www.reuters.com/world/china/china-launches-new-ai-regulations-2025-09-19/" target="_blank"><strong>China Regulates AI:</strong></a> Real-time audit logs required.</li>
+      <li><a href="https://www.cnn.com/2025/09/21/world/video/global-climate-strike-september-2025" target="_blank"><strong>Global Climate Strike:</strong></a> Youth-led protests in 40+ countries.</li>
     </ul>
   </div>
 
@@ -1827,6 +1795,7 @@ function renderLocalNews(snippets, reason = "") {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
