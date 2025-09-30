@@ -150,7 +150,7 @@ function toggleReflection(event) {
 
 
 <p id="eastern-time" style="
-  font-size: 1.4em;
+  font-size: 0.75em;
   font-weight: bold;
   color: #000000;
   text-align: center;
@@ -170,8 +170,7 @@ function toggleReflection(event) {
         second: '2-digit',
         hour12: true
       };
-      const formatter = new Intl.DateTimeFormat('en-US', options);
-      document.getElementById('eastern-time').innerText = formatter.format(now) + ' ET';
+      document.getElementById('eastern-time').innerText = new Intl.DateTimeFormat('en-US', options).format(now) + ' ET';
     }
     setInterval(updateEasternTime, 1000);
     updateEasternTime();
@@ -1836,6 +1835,7 @@ window.onload = function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
