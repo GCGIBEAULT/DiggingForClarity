@@ -128,33 +128,7 @@ function toggleReflection(event) {
 
 
 
-<p id="eastern-time" style="
-  font-size: 1.3em;
-  font-weight: bold;
-  color: #000000;
-  text-align: center;
-  margin-top: 1em;
-">
-  <script>
-    function updateEasternTime() {
-      const now = new Date();
-      const options = {
-        timeZone: 'America/New_York',
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true
-      };
-      document.getElementById('eastern-time').innerText = new Intl.DateTimeFormat('en-US', options).format(now) + ' ET';
-    }
-    setInterval(updateEasternTime, 1000);
-    updateEasternTime();
-  </script>
-</p>
+
 
 
 
@@ -1649,6 +1623,7 @@ function openWeather() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
