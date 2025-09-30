@@ -866,32 +866,44 @@ function toggleReflection(event) {
 
 
 
-<!-- ⚾ MLB American League Playoff Teams -->
-<section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
-<h3 id="mlbamerican" style="color:#003366;" title="Updated Tuesday, September 30, 2025 at 12:00 PM ET">
-  <a href="https://diggingforclarity.com/#mlbamerican" target="_blank" style="color:#003366; text-decoration: none;">
-    MLB American League
-  </a>
-</h3>
+<!-- ⚾ MLB American League -->
+<section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; font-family: Georgia, serif; overflow: hidden;">
+  <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    
+    <!-- Left Column: Standings and Results -->
+    <div style="flex: 1 1 48%;">
+      <h3 id="mlbamerican" style="color:#003366;" title="Updated Tuesday, September 30, 2025 at 12:00 PM ET">
+        <a href="https://diggingforclarity.com/#mlbamerican" target="_blank" style="color:#003366; text-decoration: none;">
+          MLB American League
+        </a>
+      </h3>
 
-  <div style="display: flex; justify-content: space-between; flex-wrap: wrap; font-family: Georgia, serif; font-size: 1em; color: #222;">
-    <!-- Left Column: Teams -->
-    <div style="flex: 0 0 48%;">
-      <p><strong>Division Winners</strong></p>
-      <div style="display: flex;"><span style="min-width: 220px;">Toronto Blue Jays</span><span>94–65</span></div>
-      <div style="display: flex;"><span style="min-width: 220px;">Seattle Mariners</span><span>90–72</span></div>
-      <div style="display: flex;"><span style="min-width: 220px;">Cleveland Guardians</span><span>88–74</span></div>
+      <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin: 0;">
+        <li><strong>Division Winners</strong></li>
+        <li>Toronto Blue Jays — 94–65</li>
+        <li>Seattle Mariners — 90–72</li>
+        <li>Cleveland Guardians — 88–74</li>
+
+        <li style="margin-top: 0.8em;"><strong>Wild Card Teams</strong></li>
+        <li>New York Yankees — 89–73</li>
+        <li>Boston Red Sox — 87–75</li>
+        <li>Detroit Tigers — 87–75</li>
+      </ul>
+
       <div style="height: 1em;"></div>
-      <p><strong>Wild Card Teams</strong></p>
-      <div style="display: flex;"><span style="min-width: 220px;">New York Yankees</span><span>89–73</span></div>
-      <div style="display: flex;"><span style="min-width: 220px;">Boston Red Sox</span><span>87–75</span></div>
-      <div style="display: flex;"><span style="min-width: 220px;">Detroit Tigers</span><span>87–75</span></div>
+
+      <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin: 0;">
+        <li>
+          <a href="https://www.espn.com/mlb/game/_/gameId/401809262/tigers-guardians" target="_blank" style="color:#003366; text-decoration: none;">
+            <strong>Tigers Shut Out Guardians 2–0 in AL Wild Card Game 1</strong>
+          </a> Tarik Skubal struck out 10 over 7 shutout innings. Kerry Carpenter drove in both Detroit runs. Tigers lead the best-of-three series 1–0.
+        </li>
+      </ul>
     </div>
 
     <!-- Right Column: TV Schedule -->
     <div style="flex: 0 0 48%; margin-top: 1em;">
       <p><strong style="color:#003366;">Playoff TV Schedule</strong></p>
-      <div>Sept 30 — Tigers @ Guardians, 1:08 PM ET on ESPN</div>
       <div>Sept 30 — Red Sox @ Yankees, 6:08 PM ET on ESPN</div>
       <div>Oct 1 — Tigers @ Guardians, 1:08 PM ET on ESPN</div>
       <div>Oct 1 — Red Sox @ Yankees, 6:08 PM ET on ESPN</div>
@@ -900,8 +912,12 @@ function toggleReflection(event) {
       <div>Oct 13–21 — ALCS on FOX/FS1</div>
       <div>Oct 24–31 — World Series on FOX</div>
     </div>
+
   </div>
 </section>
+
+<div style="height: 2em;"></div>
+
 
 
 
@@ -1672,6 +1688,7 @@ function openWeather() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
