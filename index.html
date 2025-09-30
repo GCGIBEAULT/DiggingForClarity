@@ -557,9 +557,19 @@ function toggleReflection(event) {
   </button>
 
   <script>
+    // Load saved URL on page load
+    window.onload = function() {
+      const savedURL = localStorage.getItem('sportsURL');
+      if (savedURL) {
+        document.getElementById('sportsLink').value = savedURL;
+      }
+    };
+
+    // Open and save URL
     function openSports() {
       const url = document.getElementById('sportsLink').value;
       if (url.startsWith('http')) {
+        localStorage.setItem('sportsURL', url);
         window.open(url, '_blank');
       } else {
         alert('Please enter a full URL starting with https://');
@@ -1641,6 +1651,7 @@ window.onload = function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
