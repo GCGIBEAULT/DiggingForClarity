@@ -149,14 +149,34 @@ function toggleReflection(event) {
 </p>
 
 
-  <p id="eastern-time" style="
-    font-size: 0.9em;
-    font-weight: bold;
-    color: #000000;
-    text-align: center;
-    margin-top: 1em;
-  ">
-  </p>
+<p id="eastern-time" style="
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  margin-top: 1em;
+">
+  <script>
+    function updateEasternTime() {
+      const now = new Date();
+      const options = {
+        timeZone: 'America/New_York',
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      };
+      const formatter = new Intl.DateTimeFormat('en-US', options);
+      document.getElementById('eastern-time').innerText = formatter.format(now) + ' ET';
+    }
+    setInterval(updateEasternTime, 1000);
+    updateEasternTime();
+  </script>
+</p>
 
 
 
@@ -1816,6 +1836,7 @@ window.onload = function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
