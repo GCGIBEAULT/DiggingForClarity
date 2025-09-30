@@ -710,78 +710,73 @@ function toggleReflection(event) {
     </a>
   </h3>
 
-  <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2em;">
-    <!-- LEFT COLUMN — AFC -->
-    <div>
-      <strong>AFC East</strong>
-      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-        <div style="display: flex;"><span style="width: 220px;">Buffalo Bills</span><span style="margin-left: 100px;">4-0</span></div>
-        <div style="display: flex;"><span style="width: 220px;">New England Patriots</span><span style="margin-left: 100px;">2-2</span></div>
-        <div style="display: flex;"><span style="width: 220px;">New York Jets</span><span style="margin-left: 100px;">0-4</span></div>
-        <div style="display: flex;"><span style="width: 220px;">Miami Dolphins</span><span style="margin-left: 100px;">1-3</span></div>
-      </div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 3em; row-gap: 3em; font-family: Georgia, serif; font-size: 1em; color: #222; margin-top: 2em;">
+  <!-- Column 1 -->
+  <div>
+    <strong>AFC East</strong>
+    <div>Buffalo Bills 3–1</div>
+    <div>Miami Dolphins 3–1</div>
+    <div>New York Jets 2–2</div>
+    <div>New England Patriots 1–3</div>
 
-     <strong>AFC North</strong>
-      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-        <div style="display: flex;"><span style="width: 220px;">Pittsburgh Steelers</span><span style="margin-left: 100px;">3-1</span></div>
-        <div style="display: flex;"><span style="width: 220px;">Cincinnati Bengals</span><span style="margin-left: 100px;">2-2</span></div>
-        <div style="display: flex;"><span style="width: 220px;">Baltimore Ravens</span><span style="margin-left: 100px;">1-2</span></div>
-        <div style="display: flex;"><span style="width: 220px;">Cleveland Browns</span><span style="margin-left: 100px;">1-3</span></div>
-      </div>
+    <div style="height: 2em;"></div>
 
-      <strong>AFC South</strong>
-      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-        <div style="display: flex;"><span style="width: 220px;">Indianapolis Colts</span><span style="margin-left: 100px;">3-0</span></div>
-        <div style="display: flex;"><span style="width: 220px;">Jacksonville Jaguars</span><span style="margin-left: 100px;">2-1</span></div>
-        <div style="display: flex;"><span style="width: 220px;">Houston Texans</span><span style="margin-left: 100px;">1-3</span></div>
-        <div style="display: flex;"><span style="width: 220px;">Tennessee Titans</span><span style="margin-left: 100px;">0-4</span></div>
-      </div>
+    <strong>AFC North</strong>
+    <div>Baltimore Ravens 3–1</div>
+    <div>Pittsburgh Steelers 2–2</div>
+    <div>Cleveland Browns 1–3</div>
+    <div>Cincinnati Bengals 1–3</div>
 
-      <strong>AFC West</strong>
-      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-        <div style="display: flex;"><span style="width: 220px;">Los Angeles Chargers</span><span style="margin-left: 100px;">3-1</span></div>
-        <div style="display: flex;"><span style="width: 220px;">Kansas City Chiefs</span><span style="margin-left: 100px;">2-2</span></div>
-        <div style="display: flex;"><span style="width: 220px;">Denver Broncos</span><span style="margin-left: 100px;">2-2</span></div>
-        <div style="display: flex;"><span style="width: 220px;">Las Vegas Raiders</span><span style="margin-left: 100px;">1-3</span></div>
-      </div>
-    </div>
+    <div style="height: 2em;"></div>
 
-    <!-- RIGHT COLUMN — NFC -->
-    <div>
-      <strong>NFC East</strong>
-      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-        <div style="display: flex;"><span style="width: 240px;">Philadelphia Eagles</span><span style="margin-left: 100px;">4-0</span></div>
-        <div style="display: flex;"><span style="width: 240px;">Washington Commanders</span><span style="margin-left: 100px;">2-2</span></div>
-        <div style="display: flex;"><span style="width: 240px;">Dallas Cowboys</span><span style="margin-left: 100px;">1-2</span></div>
-        <div style="display: flex;"><span style="width: 240px;">New York Giants</span><span style="margin-left: 100px;">1-3</span></div>
-      </div>
+    <strong>AFC South</strong>
+    <div>Houston Texans 3–1</div>
+    <div>Indianapolis Colts 2–2</div>
+    <div>Jacksonville Jaguars 2–2</div>
+    <div>Tennessee Titans 0–4</div>
 
-      <strong>NFC North</strong>
-      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-        <div style="display: flex;"><span style="width: 240px;">Detroit Lions</span><span style="margin-left: 100px;">3-1</span></div>
-        <div style="display: flex;"><span style="width: 240px;">Green Bay Packers</span><span style="margin-left: 100px;">2-1-1</span></div>
-        <div style="display: flex;"><span style="width: 240px;">Minnesota Vikings</span><span style="margin-left: 100px;">2-2</span></div>
-        <div style="display: flex;"><span style="width: 240px;">Chicago Bears</span><span style="margin-left: 100px;">2-2</span></div>
-      </div>
+    <div style="height: 2em;"></div>
 
-      <strong>NFC South</strong>
-      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-        <div style="display: flex;"><span style="width: 240px;">Tampa Bay Buccaneers</span><span style="margin-left: 100px;">3-1</span></div>
-        <div style="display: flex;"><span style="width: 240px;">Atlanta Falcons</span><span style="margin-left: 100px;">2-2</span></div>
-        <div style="display: flex;"><span style="width: 240px;">Carolina Panthers</span><span style="margin-left: 100px;">1-3</span></div>
-        <div style="display: flex;"><span style="width: 240px;">New Orleans Saints</span><span style="margin-left: 100px;">0-4</span></div>
-      </div>
-
-      <strong>NFC West</strong>
-      <div style="display: flex; flex-direction: column; row-gap: 0.3em;">
-        <div style="display: flex;"><span style="width: 240px;">San Francisco 49ers</span><span style="margin-left: 100px;">3-1</span></div>
-        <div style="display: flex;"><span style="width: 240px;">Los Angeles Rams</span><span style="margin-left: 100px;">3-1</span></div>
-        <div style="display: flex;"><span style="width: 240px;">Seattle Seahawks</span><span style="margin-left: 100px;">3-1</span></div>
-        <div style="display: flex;"><span style="width: 240px;">Arizona Cardinals</span><span style="margin-left: 100px;">2-2</span></div>
-      </div>
-    </div>
+    <strong>AFC West</strong>
+    <div>Kansas City Chiefs 4–0</div>
+    <div>Las Vegas Raiders 1–3</div>
+    <div>Denver Broncos 1–3</div>
+    <div>Los Angeles Chargers 1–3</div>
   </div>
-</section>
+
+  <!-- Column 2 -->
+  <div>
+    <strong>NFC East</strong>
+    <div>Philadelphia Eagles 4–0</div>
+    <div>Dallas Cowboys 2–2</div>
+    <div>New York Giants 2–2</div>
+    <div>Washington Commanders 1–3</div>
+
+    <div style="height: 2em;"></div>
+
+    <strong>NFC North</strong>
+    <div>Detroit Lions 3–1</div>
+    <div>Green Bay Packers 2–2</div>
+    <div>Chicago Bears 2–2</div>
+    <div>Minnesota Vikings 1–3</div>
+
+    <div style="height: 2em;"></div>
+
+    <strong>NFC South</strong>
+    <div>Atlanta Falcons 3–1</div>
+    <div>Tampa Bay Buccaneers 2–2</div>
+    <div>New Orleans Saints 1–3</div>
+    <div>Carolina Panthers 0–4</div>
+
+    <div style="height: 2em;"></div>
+
+    <strong>NFC West</strong>
+    <div>Seattle Seahawks 3–1</div>
+    <div>Los Angeles Rams 2–2</div>
+    <div>San Francisco 49ers 2–2</div>
+    <div>Arizona Cardinals 1–3</div>
+  </div>
+</div>
 
 
 
@@ -1698,6 +1693,7 @@ window.onload = function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
