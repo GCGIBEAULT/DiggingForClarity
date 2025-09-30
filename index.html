@@ -974,22 +974,21 @@ function toggleReflection(event) {
 
 
 
-<!-- ==== Market Watch — Updated with Lookup Prompt ==== -->
+<!-- ==== Market Watch — Updated with Lookup Prompt and Directional Labels ==== -->
 <section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px; display: flex; justify-content: space-between; align-items: flex-start;">
   <!-- Left: Market Data -->
   <div style="flex: 1;">
-    <h3 id="market" style="color:#003366;" title="Updated Monday, September 29, 2025 at 8:40 PM MDT">
+    <h3 id="market" style="color:#003366;" title="Updated Monday, September 29, 2025 at 8:51 PM MDT">
       <a href="https://diggingforclarity.com/#market" target="_blank" style="color:#003366; text-decoration: none;">
         Market Watch
       </a>
     </h3>
-    <p style="color:#003366;">Dow Jones: 46,381.54 <span style="color: green;">+0.14%</span></p>
-    <p style="color:#003366;">S&P 500: 5,317.22 <span style="color: green;">+0.09%</span></p>
-    <p style="color:#003366;">Nasdaq: 14,981.77 <span style="color: red;">−0.06%</span></p>
-    <p style="color:#003366;">10-Year Treasury: 4.48% <span style="color: green;">+0.02</span></p>
-    <p style="color:#003366;">Bitcoin: $27,914 <span style="color: red;">−1.2%</span></p>
+    <p style="color:#003366;">Dow Jones: 46,247.29 <span style="color: green;">+0.65% <strong>Up</strong></span></p>
+    <p style="color:#003366;">S&P 500: 6,643.70 <span style="color: green;">+0.59% <strong>Up</strong></span></p>
+    <p style="color:#003366;">Nasdaq: 22,484.07 <span style="color: green;">+0.44% <strong>Up</strong></span></p>
+    <p style="color:#003366;">10-Year Treasury: 4.187% <span style="color: green;">+0.36% <strong>Up</strong></span></p>
+    <p style="color:#003366;">Bitcoin: $27,914 <span style="color: #333;">(latest close)</span></p>
   </div>
-
   <!-- Right: Lookup Prompt -->
   <div style="flex: 0 0 300px; margin-left: 2em;">
     <label for="tickerInput" style="font-weight: bold; color: #003366;">Look up a stock, ETF, or mutual fund:</label>
@@ -1689,6 +1688,7 @@ window.onload = function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
