@@ -1596,35 +1596,21 @@ function renderLocalNews(snippets, reason = "") {
 </script>
 
 <script>
-  window.onload = function () {
-    const savedWeather = localStorage.getItem("weatherLink");
-    if (savedWeather) {
-      document.getElementById("weatherLink").value = savedWeather;
-    } else {
-      const defaultLink = "https://www.msn.com/en-us/weather/today/Denver,Colorado,United-States/we-city?ocid=msedgntp&cobrand=copilot";
-      document.getElementById("weatherLink").value = defaultLink;
-      localStorage.setItem("weatherLink", defaultLink);
-    }
-  };
-
-  function openWeather() {
-    const url = document.getElementById("weatherLink").value;
-    if (url) {
-      localStorage.setItem("weatherLink", url);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid weather link.");
-    }
-  }
-</script>
-<script>
 window.onload = function () {
   // Weather
   const weatherInput = document.getElementById("weatherLink");
   const weatherDrawer = document.getElementById("weatherDrawer");
   const savedWeather = localStorage.getItem("weatherLink");
-  if (savedWeather && !weatherInput.value) {
-    weatherDrawer.style.display = "block";
+
+  if (savedWeather) {
+    weatherInput.value = savedWeather;
+    if (!weatherInput.value) {
+      weatherDrawer.style.display = "block";
+    }
+  } else {
+    const defaultLink = "https://www.msn.com/en-us/weather/today/Denver,Colorado,United-States/we-city?ocid=msedgntp&cobrand=copilot";
+    weatherInput.value = defaultLink;
+    localStorage.setItem("weatherLink", defaultLink);
   }
 
   // Local News
@@ -1644,6 +1630,15 @@ window.onload = function () {
   }
 };
 
+function openWeather() {
+  const url = document.getElementById("weatherLink").value;
+  if (url) {
+    localStorage.setItem("weatherLink", url);
+    window.open(url, "_blank");
+  } else {
+    alert("Please enter a valid weather link.");
+  }
+}
 </script>
 
 <!-- Leave these as-is -->
@@ -1651,6 +1646,7 @@ window.onload = function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
