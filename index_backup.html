@@ -949,6 +949,19 @@ function toggleReflection(event) {
     window.open(url, "_blank");
   }
 </script>
+<section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.5em; border-radius: 8px;">
+  <h3 style="color:#003366;">This Day in History — September 30</h3>
+  <ul style="padding-left: 1.5em; font-family: Georgia, serif; font-size: 1em; line-height: 1.6;">
+    <li><strong>1868:</strong> Louisa May Alcott’s <em>Little Women</em> is published.</li>
+    <li><strong>1889:</strong> Wyoming drafts the first state constitution granting women the right to vote.</li>
+    <li><strong>1927:</strong> Babe Ruth hits his 60th home run of the season—a record that stood until 1961.</li>
+    <li><strong>1935:</strong> President Franklin D. Roosevelt dedicates the Boulder Dam (now Hoover Dam).</li>
+    <li><strong>1938:</strong> The Munich Agreement is signed, appeasing Hitler and delaying WWII.</li>
+    <li><strong>1954:</strong> USS Nautilus, the world’s first nuclear submarine, is commissioned.</li>
+  </ul>
+  <p style="font-size: 0.9em; color: #666;">Curated for clarity. Updated daily. No spin—just time-stamped truth.</p>
+</section>
+
 
 <!-- 🧾 Debt Ceiling Editorial — Full Width, Stacked Below -->
 <section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.5em; border-radius: 8px;">
@@ -1597,35 +1610,21 @@ function renderLocalNews(snippets, reason = "") {
 </script>
 
 <script>
-  window.onload = function () {
-    const savedWeather = localStorage.getItem("weatherLink");
-    if (savedWeather) {
-      document.getElementById("weatherLink").value = savedWeather;
-    } else {
-      const defaultLink = "https://www.msn.com/en-us/weather/today/Denver,Colorado,United-States/we-city?ocid=msedgntp&cobrand=copilot";
-      document.getElementById("weatherLink").value = defaultLink;
-      localStorage.setItem("weatherLink", defaultLink);
-    }
-  };
-
-  function openWeather() {
-    const url = document.getElementById("weatherLink").value;
-    if (url) {
-      localStorage.setItem("weatherLink", url);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid weather link.");
-    }
-  }
-</script>
-<script>
 window.onload = function () {
   // Weather
   const weatherInput = document.getElementById("weatherLink");
   const weatherDrawer = document.getElementById("weatherDrawer");
   const savedWeather = localStorage.getItem("weatherLink");
-  if (savedWeather && !weatherInput.value) {
-    weatherDrawer.style.display = "block";
+
+  if (savedWeather) {
+    weatherInput.value = savedWeather;
+    if (!weatherInput.value) {
+      weatherDrawer.style.display = "block";
+    }
+  } else {
+    const defaultLink = "https://www.msn.com/en-us/weather/today/Denver,Colorado,United-States/we-city?ocid=msedgntp&cobrand=copilot";
+    weatherInput.value = defaultLink;
+    localStorage.setItem("weatherLink", defaultLink);
   }
 
   // Local News
@@ -1645,6 +1644,15 @@ window.onload = function () {
   }
 };
 
+function openWeather() {
+  const url = document.getElementById("weatherLink").value;
+  if (url) {
+    localStorage.setItem("weatherLink", url);
+    window.open(url, "_blank");
+  } else {
+    alert("Please enter a valid weather link.");
+  }
+}
 </script>
 
 <!-- Leave these as-is -->
@@ -1652,6 +1660,9 @@ window.onload = function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
+
+
 
 
 
