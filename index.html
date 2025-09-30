@@ -548,7 +548,7 @@ function toggleReflection(event) {
     Paste your favorite sports link below. It’ll stay fixed so you can open it every day with one click.
   </p>
 
-  <input id="sportsLink" type="text" placeholder="https://your-sports-url.com" style="width: 620px; padding: 0.5em; font-size: 1em; font-family: Georgia, serif; border: 1px solid #ccc; border-left: 4px solid #003366; background-color: #ffffff; margin-top: 0.5em;">
+  <input type="text" id="sportsLink" placeholder="Paste your favorite sports link here" style="width: 620px; padding: 0.5em; font-size: 1em; font-family: Georgia, serif; border: 1px solid #ccc; border-left: 4px solid #003366; background-color: #ffffff; margin-top: 0.5em;">
 
   <br>
 
@@ -557,22 +557,20 @@ function toggleReflection(event) {
   </button>
 
   <script>
-    // Load saved URL on page load
-    window.onload = function() {
-      const savedURL = localStorage.getItem('sportsURL');
-      if (savedURL) {
-        document.getElementById('sportsLink').value = savedURL;
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedSports = localStorage.getItem("sportsLink");
+      if (savedSports) {
+        document.getElementById("sportsLink").value = savedSports;
       }
-    };
+    });
 
-    // Open and save URL
     function openSports() {
-      const url = document.getElementById('sportsLink').value;
-      if (url.startsWith('http')) {
-        localStorage.setItem('sportsURL', url);
-        window.open(url, '_blank');
+      const url = document.getElementById("sportsLink").value.trim();
+      if (url.startsWith("http")) {
+        localStorage.setItem("sportsLink", url);
+        window.open(url, "_blank");
       } else {
-        alert('Please enter a full URL starting with https://');
+        alert("Please enter a full URL starting with https://");
       }
     }
   </script>
@@ -1651,6 +1649,7 @@ window.onload = function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
