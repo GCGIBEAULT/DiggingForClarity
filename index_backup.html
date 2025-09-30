@@ -87,97 +87,55 @@ function toggleReflection(event) {
 
   <link rel="stylesheet" href="style.css">
 
+<!-- 🔧 Logo Row Start -->
+<div class="logo-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1em; margin-top: 48px;">
+  <img src="new_logo.png" alt="Digging For Clarity Logo" style="height: 288px; max-width: 100%; object-fit: contain;">
+  <img src="dfc-inverted.png" alt="Digging For Clarity Inverted Logo" style="height: 288px; max-width: 100%; object-fit: contain;">
+</div>
+<!-- 🔧 Logo Row End -->
 
   
 <!-- Logo Pair Above Editorial Divider -->
+<!-- 🧭 Editorial Masthead Start -->
+<div class="editorial-box" style="text-align: center; margin-top: 48px;">
+  <h1 style="font-family: Georgia, serif; font-size: 2.4em; color: #003366; margin-bottom: 0.6em;">
+    Digging For Clarity
+  </h1>
+
+  <h2 style="font-size: 1.2em; font-weight: 600; color: #003366; margin-top: 0.4em; margin-bottom: 0.4em;">
+    In Memory of Children – And the Leaves of Fall
+  </h2>
+
+  <p style="font-size: 1.2em; font-weight: 500; color: #003366; margin-top: 1em; line-height: 1.6;">
+    Before we debate, before we report, before we react—<br>
+    remember who we were.
+  </p>
+</div>
+<!-- 🧭 Editorial Masthead End -->
 
 
 
 
-  <!-- Masthead Content (sits above the stream) -->
-<!-- 🧭 Digging For Clarity Header -->
-<div class="masthead-wrapper" style="background-color: #f4f1ec; padding: 2em; display: flex; flex-direction: column; align-items: center; max-width: 960px; margin: 0 auto;">
+
+
+
+
+
+
+
+
   
-  <!-- Logo Row -->
-  <div class="logo-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1em;">
-    <img src="new_logo.png" alt="Digging For Clarity Logo" style="height: 288px; max-width: 100%; object-fit: contain;">
-    <img src="dfc-inverted.png" alt="Digging For Clarity Inverted Logo" style="height: 288px; max-width: 100%; object-fit: contain;">
-  </div>
-
-  <!-- Editorial Block -->
-  <div class="editorial-box" style="text-align: center; margin-top: 96px;">
-    <h1 class="site-title" style="font-size: 2.8rem; font-weight: 900; font-family: 'Merriweather', serif; color: #111; margin-bottom: 0.4em;">
-      Digging For Clarity
-    </h1>
-    <p class="header-tagline" style="font-size: 1.6rem; font-weight: 700; font-family: 'Merriweather', serif; color: #222; margin-top: 0.4em;">
-      Just The News. Hold The Drama.
-    </p>
-    <h2 style="font-size: 1.2rem; font-weight: 600; color: #003366; margin-top: 1em;">
-      In Memory of Children - And the Leaves of Fall
-    </h2>
-    <p class="editorial-signature" style="font-size: 1rem; font-style: italic; color: #444; margin-top: 0.5em;">
-      —Digging For Clarity
-    </p>
-  </div>
-</div>
 
 
 
 
 
 
-</div>
-
-  </div>
-</div>
-
- 
-
-
-
- 
-</div>
 
 
 
 
-</div>
-</div>
 
-
-<div style="max-width: 480px; margin: 2.5em auto; text-align: center;">
- <p style="text-align: center; font-size: 1.4em; font-weight: bold; font-style: italic; color: #990000; margin: 2em 0;">
-  You don’t read the news for pleasure. You don’t need more news. You need better news.
-</p>
-
-
-<p id="eastern-time" style="
-  font-size: 1.3em;
-  font-weight: bold;
-  color: #000000;
-  text-align: center;
-  margin-top: 1em;
-">
-  <script>
-    function updateEasternTime() {
-      const now = new Date();
-      const options = {
-        timeZone: 'America/New_York',
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true
-      };
-      document.getElementById('eastern-time').innerText = new Intl.DateTimeFormat('en-US', options).format(now) + ' ET';
-    }
-    setInterval(updateEasternTime, 1000);
-    updateEasternTime();
-  </script>
-</p>
 
 
 
@@ -305,21 +263,56 @@ function toggleReflection(event) {
 
 
 
-<!-- Left: U.S. News (matches Global News styling) -->
-<div class="section" id="us-news-block" style="background-color: #f4f1ec; padding: 1.25em; border-radius: 8px; box-sizing: border-box;">
-  kuse
+<!-- 🗽 U.S. News Block -->
+<div class="section" id="us-news-block" style="
+  background-color: #f4f1ec;
+  padding: 1.25em;
+  border-radius: 8px;
+  box-sizing: border-box;
+">
+  <h3 id="us" style="color: #003366; font-size: 1.2em; font-weight: 600; margin-bottom: 0.6em;">
+    U.S. News
+  </h3>
 
   <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin: 0;">
-    <li><a href="https://www.freep.com/story/news/local/michigan/2025/09/29/michigan-church-shooting-updates-victims-thomas-joseph-sanford/86412455007/" target="_blank" style="color:#003366; text-decoration: none;"><strong>Michigan Church Attack Leaves 4 Dead, 8 Injured</strong></a> A Marine veteran drove into a Michigan temple, opened fire, and set the building ablaze. Authorities say the attack was deliberate and premeditated.</li>
-    <li><a href="https://abcnews.go.com/US/nigel-edge-north-carolina-boat-shooting-suspect/story?id=126034075" target="_blank" style="color:#003366; text-decoration: none;"><strong>North Carolina Waterfront Bar Shooting Kills 3</strong></a> A gunman arrived by boat and opened fire at a Southport restaurant. Three were killed, five wounded. Motive under investigation.</li>
-    <li><a href="https://www.nwfdailynews.com/story/weather/hurricane/2025/09/30/national-hurricane-center-tracking-hurricane-imelda-humberto-path-florida/86433796007/" target="_blank" style="color:#003366; text-decoration: none;"><strong>Hurricanes Humberto and Imelda Threaten U.S. Coast</strong></a> Category 4 Humberto and Tropical Storm Imelda are sending dangerous rip currents toward the East Coast and Puerto Rico.</li>
-    <li><a href="https://www.foxnews.com/us/yogurt-shop-murders-investigators-lay-out-how-they-solved-killings-four-teen-girls" target="_blank" style="color:#003366; text-decoration: none;"><strong>DNA Breakthrough Solves 1991 Austin Yogurt Shop Murders</strong></a> New DNA testing identified a serial killer responsible for the deaths of four teenage girls. Families say closure is long overdue.</li>
-    <li><a href="https://www.nbcchicago.com/news/politics/great-lakes-naval-base-chicago-suburbs-lake-county-ice-enforcement/3819005/" target="_blank" style="color:#003366; text-decoration: none;"><strong>ICE Requests Access to Chicago-Area Navy Base</strong></a> Immigration officials asked to use a naval base near Chicago. Local leaders push back, citing federal overreach and privacy concerns.</li>
-    <li><a href="https://www.axios.com/local/denver/2024/02/05/same-cafe-nonprofit-restaurant-migrants-homeless-community" target="_blank" style="color:#003366; text-decoration: none;"><strong>Divers Serve Hot Meals and Dignity in Denver</strong></a> SAME Café offers pay-what-you-can meals to migrants and unhoused neighbors. It’s now the longest-running nonprofit café of its kind in the U.S.</li>
-   <li><a href="https://www.timeanddate.com/countdown/christmas" target="_blank" style="color:#003366; text-decoration: none;">🎄 <strong>Countdown to Christmas</strong></a> Find out exactly how many days, hours, and minutes remain until December 25. Updated live every second.</li>
-
+    <li>
+      <a href="https://www.freep.com/story/news/local/michigan/2025/09/29/michigan-church-shooting-updates-victims-thomas-joseph-sanford/86412455007/" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Michigan Church Attack Leaves 4 Dead, 8 Injured</strong>
+      </a> A Marine veteran drove into a Michigan temple, opened fire, and set the building ablaze. Authorities say the attack was deliberate and premeditated.
+    </li>
+    <li>
+      <a href="https://abcnews.go.com/US/nigel-edge-north-carolina-boat-shooting-suspect/story?id=126034075" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>North Carolina Waterfront Bar Shooting Kills 3</strong>
+      </a> A gunman arrived by boat and opened fire at a Southport restaurant. Three were killed, five wounded. Motive under investigation.
+    </li>
+    <li>
+      <a href="https://www.nwfdailynews.com/story/weather/hurricane/2025/09/30/national-hurricane-center-tracking-hurricane-imelda-humberto-path-florida/86433796007/" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Hurricanes Humberto and Imelda Threaten U.S. Coast</strong>
+      </a> Category 4 Humberto and Tropical Storm Imelda are sending dangerous rip currents toward the East Coast and Puerto Rico.
+    </li>
+    <li>
+      <a href="https://www.foxnews.com/us/yogurt-shop-murders-investigators-lay-out-how-they-solved-killings-four-teen-girls" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>DNA Breakthrough Solves 1991 Austin Yogurt Shop Murders</strong>
+      </a> New DNA testing identified a serial killer responsible for the deaths of four teenage girls. Families say closure is long overdue.
+    </li>
+    <li>
+      <a href="https://www.nbcchicago.com/news/politics/great-lakes-naval-base-chicago-suburbs-lake-county-ice-enforcement/3819005/" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>ICE Requests Access to Chicago-Area Navy Base</strong>
+      </a> Immigration officials asked to use a naval base near Chicago. Local leaders push back, citing federal overreach and privacy concerns.
+    </li>
+    <li>
+      <a href="https://www.axios.com/local/denver/2024/02/05/same-cafe-nonprofit-restaurant-migrants-homeless-community" target="_blank" style="color:#003366; text-decoration: none;">
+        <strong>Divers Serve Hot Meals and Dignity in Denver</strong>
+      </a> SAME Café offers pay-what-you-can meals to migrants and unhoused neighbors. It’s now the longest-running nonprofit café of its kind in the U.S.
+    </li>
+    <li>
+      <a href="https://www.timeanddate.com/countdown/christmas" target="_blank" style="color:#003366; text-decoration: none;">
+        🎄 <strong>Countdown to Christmas</strong>
+      </a> Find out exactly how many days, hours, and minutes remain until December 25. Updated live every second.
+    </li>
   </ul>
 </div>
+
 
 
 
@@ -550,9 +543,19 @@ function toggleReflection(event) {
 
     <li><a href="https://www.nbcmiami.com/news/sports/nfl/jets-dolphins-week-4-tyreek-hill/3698917/" target="_blank" style="color:#003366; text-decoration: none;"><strong>Dolphins Edge Jets 27–21, But Tyreek Hill Injured</strong></a> Miami got its first win of the season, but star WR Tyreek Hill suffered a dislocated knee mid-game and was hospitalized overnight.</li>
 
-    <li><a href="https://www.foxsports.com/articles/mlb/cubs-vs-padres-nl-wild-card-game-1-prediction-odds-picks-september-30" target="_blank" style="color:#003366; text-decoration: none;"><strong>Cubs Host Padres in NL Wild Card Opener</strong></a> Game 1 kicks off at 3:08 PM ET at Wrigley Field. Chicago enters as slight favorites, but San Diego’s Fernando Tatis Jr. is riding an 8-game hit streak.</li>
+<li>
+  <a href="https://www.espn.com/mlb/game/_/gameId/401809260/padres-cubs" target="_blank" style="color:#003366; text-decoration: none;">
+    <strong>Cubs Beat Padres 3–1 in NL Wild Card Opener</strong>
+  </a> Back-to-back homers by Suzuki and Kelly lifted Chicago at Wrigley. Cubs bullpen retired 14 straight to seal Game 1.
+</li>
 
-    <li><a href="https://www.foxsports.com/articles/mlb/how-to-watch-tigers-vs-guardians-al-wild-card-game-1-september-30" target="_blank" style="color:#003366; text-decoration: none;"><strong>Tigers vs Guardians: Pitchers’ Duel Expected</strong></a> Detroit’s ace Tarik Skubal faces Cleveland’s Gavin Williams in a low-run showdown. Both starters have dominated September.</li>
+
+<li>
+  <a href="https://www.freep.com/story/sports/mlb/cleveland-guardians/2025/09/23/guardians-score-tigers-al-central-standings/86307891007/" target="_blank" style="color:#003366; text-decoration: none;">
+    <strong>Guardians Beat Tigers 5–2 in AL Wild Card Opener</strong>
+  </a> Gavin Williams struck out 12 and Daniel Schneemann drove in two as Cleveland took Game 1 at Progressive Field.
+</li>
+
 
     <li><a href="https://www.forbes.com/sites/break80/2025/09/30/tensions-boil-over-at-ryder-cup-amid-fan-misconduct/" target="_blank" style="color:#003366; text-decoration: none;"><strong>Ryder Cup: NY Fans Slammed for Hostile Behavior</strong></a> Rory McIlroy’s wife was hit with a beer cup, and chants of “F--- you Rory” echoed across Bethpage Black. Officials increased security and issued apologies after Team Europe’s victory.</li>
 <li style="list-style: none; margin-top: 1.5em;">
@@ -795,54 +798,44 @@ function toggleReflection(event) {
 </div>
 
 
-<!-- ⚾ MLB National League Playoff Teams -->
-<section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
-<h3 id="mlb" style="color:#003366;" title="Updated Tuesday, September 30, 2025 at 12:00 PM ET">
-  <a href="https://diggingforclarity.com/#mlb" target="_blank" style="color:#003366; text-decoration: none;">
-    MLB
-  </a>
-</h3>
+<!-- ⚾ MLB National League -->
+<section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; font-family: Georgia, serif; overflow: hidden;">
+  <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    
+    <!-- Left Column: Standings and Results -->
+    <div style="flex: 1 1 48%;">
+      <h3 id="mlb" style="color:#003366;" title="Updated Tuesday, September 30, 2025 at 12:00 PM ET">
+        <a href="https://diggingforclarity.com/#mlb" target="_blank" style="color:#003366; text-decoration: none;">
+          MLB National League
+        </a>
+      </h3>
 
+      <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin: 0;">
+        <li><strong>Division Winners</strong></li>
+        <li>Milwaukee Brewers — 95–62</li>
+        <li>Philadelphia Phillies — 92–64</li>
+        <li>Los Angeles Dodgers — 88–68</li>
 
-  <div style="display: flex; justify-content: space-between; flex-wrap: wrap; font-family: Georgia, serif; font-size: 1em; color: #222;">
-
-    <!-- Left Column: Teams -->
-    <div style="flex: 0 0 48%;">
-      <p><strong>Division Winners</strong></p>
-      <div style="display: flex;">
-        <span style="min-width: 220px;">Milwaukee Brewers</span>
-        <span>95–62</span>
-      </div>
-      <div style="display: flex;">
-        <span style="min-width: 220px;">Philadelphia Phillies</span>
-        <span>92–64</span>
-      </div>
-      <div style="display: flex;">
-        <span style="min-width: 220px;">Los Angeles Dodgers</span>
-        <span>88–68</span>
-      </div>
+        <li style="margin-top: 0.8em;"><strong>Wild Card Teams</strong></li>
+        <li>Chicago Cubs — 88–68</li>
+        <li>San Diego Padres — 86–71</li>
+        <li>Cincinnati Reds — 83–79</li>
+      </ul>
 
       <div style="height: 1em;"></div>
 
-      <p><strong>Wild Card Teams</strong></p>
-      <div style="display: flex;">
-        <span style="min-width: 220px;">Chicago Cubs</span>
-        <span>88–68</span>
-      </div>
-      <div style="display: flex;">
-        <span style="min-width: 220px;">San Diego Padres</span>
-        <span>86–71</span>
-      </div>
-      <div style="display: flex;">
-        <span style="min-width: 220px;">Arizona Diamondbacks</span>
-        <span>79–77</span>
-      </div>
+      <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin: 0;">
+        <li>
+          <a href="https://www.espn.com/mlb/game/_/gameId/401809260/padres-cubs" target="_blank" style="color:#003366; text-decoration: none;">
+            <strong>Cubs Beat Padres 3–1 in NL Wild Card Game 1</strong>
+          </a> Back-to-back homers by Suzuki and Kelly lifted Chicago at Wrigley. Cubs bullpen retired 14 straight to seal Game 1. Chicago leads the best-of-three series 1–0.
+        </li>
+      </ul>
     </div>
 
     <!-- Right Column: TV Schedule -->
     <div style="flex: 0 0 48%; margin-top: 1em;">
       <p><strong style="color:#003366;">Playoff TV Schedule</strong></p>
-      <div>Sept 30 — Padres @ Cubs, 3:08 PM ET on ABC</div>
       <div>Sept 30 — Reds @ Dodgers, 9:08 PM ET on ESPN</div>
       <div>Oct 1 — Padres @ Cubs, 3:08 PM ET on ABC</div>
       <div>Oct 1 — Reds @ Dodgers, 9:08 PM ET on ESPN</div>
@@ -851,9 +844,11 @@ function toggleReflection(event) {
       <div>Oct 13–21 — NLCS on TBS</div>
       <div>Oct 24–31 — World Series on FOX</div>
     </div>
+
   </div>
 </section>
 
+<div style="height: 2em;"></div>
 
 
 
@@ -866,33 +861,50 @@ function toggleReflection(event) {
 
 
 
-<!-- ⚾ MLB American League Playoff Teams -->
-<section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
-<h3 id="mlbamerican" style="color:#003366;" title="Updated Tuesday, September 30, 2025 at 12:00 PM ET">
-  <a href="https://diggingforclarity.com/#mlbamerican" target="_blank" style="color:#003366; text-decoration: none;">
-    MLB American League
-  </a>
-</h3>
 
-  <div style="display: flex; justify-content: space-between; flex-wrap: wrap; font-family: Georgia, serif; font-size: 1em; color: #222;">
-    <!-- Left Column: Teams -->
-    <div style="flex: 0 0 48%;">
-      <p><strong>Division Winners</strong></p>
-      <div style="display: flex;"><span style="min-width: 220px;">Toronto Blue Jays</span><span>94–65</span></div>
-      <div style="display: flex;"><span style="min-width: 220px;">Seattle Mariners</span><span>90–72</span></div>
-      <div style="display: flex;"><span style="min-width: 220px;">Cleveland Guardians</span><span>88–74</span></div>
+
+
+
+
+
+<!-- ⚾ MLB American League -->
+<section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; font-family: Georgia, serif; overflow: hidden;">
+  <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    
+    <!-- Left Column: Standings and Results -->
+    <div style="flex: 1 1 48%;">
+      <h3 id="mlbamerican" style="color:#003366;" title="Updated Tuesday, September 30, 2025 at 12:00 PM ET">
+        <a href="https://diggingforclarity.com/#mlbamerican" target="_blank" style="color:#003366; text-decoration: none;">
+          MLB American League
+        </a>
+      </h3>
+
+      <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin: 0;">
+        <li><strong>Division Winners</strong></li>
+        <li>Toronto Blue Jays — 94–65</li>
+        <li>Seattle Mariners — 90–72</li>
+        <li>Cleveland Guardians — 88–74</li>
+
+        <li style="margin-top: 0.8em;"><strong>Wild Card Teams</strong></li>
+        <li>New York Yankees — 89–73</li>
+        <li>Boston Red Sox — 87–75</li>
+        <li>Detroit Tigers — 87–75</li>
+      </ul>
+
       <div style="height: 1em;"></div>
-      <p><strong>Wild Card Teams</strong></p>
-      <div style="display: flex;"><span style="min-width: 220px;">New York Yankees</span><span>89–73</span></div>
-      <div style="display: flex;"><span style="min-width: 220px;">Boston Red Sox</span><span>87–75</span></div>
-      <div style="display: flex;"><span style="min-width: 220px;">Detroit Tigers</span><span>87–75</span></div>
+
+      <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin: 0;">
+        <li>
+          <a href="https://www.espn.com/mlb/game/_/gameId/401809262/tigers-guardians" target="_blank" style="color:#003366; text-decoration: none;">
+            <strong>Tigers Shut Out Guardians 2–0 in AL Wild Card Game 1</strong>
+          </a> Tarik Skubal struck out 10 over 7 shutout innings. Kerry Carpenter drove in both Detroit runs. Tigers lead the best-of-three series 1–0.
+        </li>
+      </ul>
     </div>
 
     <!-- Right Column: TV Schedule -->
     <div style="flex: 0 0 48%; margin-top: 1em;">
       <p><strong style="color:#003366;">Playoff TV Schedule</strong></p>
-      <div>Sept 30 — Tigers @ Guardians, 1:08 PM ET on ESPN</div>
-      <div>Sept 30 — Red Sox @ Yankees, 6:08 PM ET on ESPN</div>
       <div>Oct 1 — Tigers @ Guardians, 1:08 PM ET on ESPN</div>
       <div>Oct 1 — Red Sox @ Yankees, 6:08 PM ET on ESPN</div>
       <div>Oct 2 — Game 3s (if needed), same matchups and times</div>
@@ -900,8 +912,12 @@ function toggleReflection(event) {
       <div>Oct 13–21 — ALCS on FOX/FS1</div>
       <div>Oct 24–31 — World Series on FOX</div>
     </div>
+
   </div>
 </section>
+
+<div style="height: 2em;"></div>
+
 
 
 
@@ -916,29 +932,25 @@ function toggleReflection(event) {
 <section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px; display: flex; justify-content: space-between; align-items: flex-start;">
   <!-- Left: Market Data -->
   <div style="flex: 1;">
-    <h3 id="market" style="color:#003366;" title="Updated Tuesday, September 30, 2025 at 10:15 AM MDT">
+    <h3 id="market" style="color:#003366;" title="Updated Tuesday, September 30, 2025 at 4:24 PM MDT">
       <a href="https://diggingforclarity.com/#market" target="_blank" style="color:#003366; text-decoration: none;">
         Market Watch
       </a>
     </h3>
-<p style="color:#003366;">Dow Jones: 46,316.07 <span style="color: green;">+0.20% <strong>Up</strong></span></p>
-<p style="margin-left: 2em; font-size: 0.95em; color: #003366;">52-week range: 36,611.78 – 46,714.27</p>
-<p style="margin-left: 2em; font-size: 0.95em; color: #003366;">30 Largest US companies across industries.</p>
 
+    <p style="color:#003366;">Dow Jones: 46,397.89 <span style="color: green;">+0.18% <strong>Up</strong></span></p>
+    <p style="margin-left: 2em; font-size: 0.95em; color: #003366;">52-week range: 36,611.78 – 46,714.27</p>
+    <p style="margin-left: 2em; font-size: 0.95em; color: #003366;">30 Largest US companies across industries.</p>
 
-<p style="color:#003366;">S&P 500: 6,661.21 <span style="color: green;">+0.30% <strong>Up</strong></span></p>
-<p style="margin-left: 2em; font-size: 0.95em; color: #003366;">52-week range: 4,835.04 – 6,699.52</p>
-<p style="margin-left: 2em; font-size: 0.95em; color: #003366;">500 Largest US companies.</p>
+    <p style="color:#003366;">S&P 500: 6,688.46 <span style="color: green;">+0.41% <strong>Up</strong></span></p>
+    <p style="margin-left: 2em; font-size: 0.95em; color: #003366;">52-week range: 4,835.04 – 6,699.52</p>
+    <p style="margin-left: 2em; font-size: 0.95em; color: #003366;">500 Largest US companies.</p>
 
-
-
-<p style="color:#003366;">Nasdaq: 22,591.15 <span style="color: green;">+0.50% <strong>Up</strong></span></p>
-<p style="margin-left: 2em; font-size: 0.95em; color: #003366;">52-week range: 19,842.03 – 23,104.77</p>
-<p style="margin-left: 2em; font-size: 0.95em; color: #003366;">Over 3,000 US companies, mostly tech.</p>
-
-
-
+    <p style="color:#003366;">Nasdaq: 22,660.01 <span style="color: green;">+0.30% <strong>Up</strong></span></p>
+    <p style="margin-left: 2em; font-size: 0.95em; color: #003366;">52-week range: 19,842.03 – 23,104.77</p>
+    <p style="margin-left: 2em; font-size: 0.95em; color: #003366;">Over 3,000 US companies, mostly tech.</p>
   </div>
+
   <!-- Right: Lookup Prompt -->
   <div style="flex: 0 0 300px; margin-left: 2em;">
     <label for="tickerInput" style="font-weight: bold; color: #003366;">Look up a stock, ETF, or mutual fund:</label>
@@ -959,6 +971,7 @@ function toggleReflection(event) {
     window.open(url, "_blank");
   }
 </script>
+
 <section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.5em; border-radius: 8px;">
 <h3 id="history" style="color:#003366;" title="Updated Tuesday, September 30, 2025 at 12:00 PM ET">
   On This Day in History
@@ -1672,6 +1685,46 @@ function openWeather() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
