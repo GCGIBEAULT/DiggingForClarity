@@ -1656,14 +1656,14 @@ function renderLocalNews(snippets, reason = "") {
   }
 </script>
 <!-- 🔧 Comment Invitation Block Start -->
-<div class="section" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; font-family: Georgia, serif; display: flex; align-items: center; justify-content: center; gap: 1.5em; margin-top: 2em;">
+<div class="section" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; font-family: Georgia, serif; display: flex; align-items: flex-start; gap: 1.5em; margin-top: 2em;">
   <!-- Logo on Left Margin -->
   <div style="flex: 0 0 auto;">
     <img src="new_logo.png" alt="Digging For Clarity Logo" style="height: 96px; object-fit: contain;">
   </div>
 
-  <!-- Centered Text Block -->
-  <div style="text-align: center;">
+  <!-- Left-Aligned Text Block -->
+  <div style="flex: 1;">
     <p style="font-size: 1.1em; font-weight: bold; color: #003366; margin: 0;">
       Your comments are needed and welcome
     </p>
@@ -1673,6 +1673,8 @@ function renderLocalNews(snippets, reason = "") {
   </div>
 </div>
 <!-- 🔧 Comment Invitation Block End -->
+
+
 
 
 
@@ -1765,6 +1767,7 @@ function openWeather() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
