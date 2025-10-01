@@ -1022,6 +1022,15 @@ function toggleReflection(event) {
     <input type="text" id="symbol" name="symbol" style="margin-top: 4px; width: 100%;">
     <button type="submit" style="margin-top: 8px;">Search</button>
   </div>
+<!-- Right: Lookup Prompt -->
+<div style="background-color:#e6f0ff; padding:12px; border-radius:6px; width:280px;">
+  <p style="color:#003366;"><strong>Look up a stock, ETF, or mutual fund:</strong></p>
+  <label for="symbol" style="color:#003366;">Enter symbol (e.g. AAPL, VTI)</label>
+  <br>
+  <input type="text" id="symbol" name="symbol" class="symbol-input" />
+  <br>
+  <button type="submit" class="search-button">Search</button>
+</div>
 
 </section>
 
@@ -1761,6 +1770,7 @@ function openWeather() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
