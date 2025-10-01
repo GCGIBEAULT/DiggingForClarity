@@ -879,3 +879,33 @@ body {
   margin-right: 12px;
   margin-top: 4px;
 }
+/* Market Watch — Symbol Input */
+.symbol-input {
+  margin-top: 4px;
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid #0077cc;
+  border-radius: 4px;
+  transition: box-shadow 0.2s ease;
+}
+.symbol-input:focus {
+  outline: none;
+  box-shadow: 0 0 4px #0077cc;
+}
+
+/* Market Watch — Search Button */
+.search-button {
+  margin-top: 8px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.search-button:hover {
+  background-color: #005fa3;
+}
