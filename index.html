@@ -1757,6 +1757,22 @@ function openWeather() {
 }
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const searchButton = document.querySelector(".search-button");
+    const symbolInput = document.querySelector(".symbol-input");
+
+    searchButton.addEventListener("click", () => {
+      const symbol = symbolInput.value.trim().toUpperCase();
+      if (!symbol) {
+        alert("Please enter a valid ticker symbol.");
+        return;
+      }
+      const url = `https://www.google.com/search?q=${symbol}+stock+quote`;
+      window.open(url, "_blank");
+    });
+  });
+</script>
 
 
 <!-- Leave these as-is -->
@@ -1764,6 +1780,7 @@ function openWeather() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
