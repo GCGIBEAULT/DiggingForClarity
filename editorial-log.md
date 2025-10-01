@@ -11,6 +11,7 @@
 **Oct 1, 2025** – Removed all logos from footer block by editorial choice; sealed masthead as centerpiece with invocation line. Emotional clarity restored. Footer wrapped in soft containment (`#f4f1ec`) to match comment block tone.
 **Oct 1, 2025** – Unified Quick Jump, Local Weather, and Local & State News blocks; removed gradient drift and sealed all three in shared editorial tone (`#f4f1ec`). Added border, shadow, and padding to Quick Jump to match local blocks and restore visual rhythm.
 **Oct 1, 2025** – Plausible views spiked; 129 pageviews and 12.9 views per visit. Footer and masthead clarity credited for engagement. Beta testers confirmed layout rhythm.
+**Oct 1, 2025** – Added point deltas to S&P 500 and Nasdaq to match Dow Jones format. "+pts" notation and directional labels ("Up") restored editorial rhythm. Font parity confirmed across all index blocks. No layout drift detected.
 
 
 
