@@ -1680,12 +1680,55 @@ function openWeather() {
   }
 }
 </script>
+<!-- 🔢 Visitor Counter -->
+<div id="visitorCounter" style="margin-top: 1em; font-size: 1.05em; color: #003366; font-family: Georgia, serif;">
+  Visitors: <span id="visitorCount">0</span>
+</div>
+
+<script>
+  const baseCount = 0;
+  const isEditor = window.location.search.includes("editor=true");
+
+  if (!isEditor) {
+    if (!localStorage.getItem("hasVisitedDFC")) {
+      fetch("https://api.countapi.xyz/update/diggingforclarity.com/visitor?amount=1")
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("visitorCount").textContent = baseCount + data.value;
+          localStorage.setItem("hasVisitedDFC", "true");
+        });
+    } else {
+      fetch("https://api.countapi.xyz/get/diggingforclarity.com/visitor")
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("visitorCount").textContent = baseCount + data.value;
+        });
+    }
+  } else {
+    // Editor mode: just show current count without incrementing
+    fetch("https://api.countapi.xyz/get/diggingforclarity.com/visitor")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("visitorCount").textContent = baseCount + data.value;
+      });
+  }
+</script>
+<script>
+  const isEditor = window.location.search.includes("editor=true");
+  const counterDiv = document.getElementById("visitorCounter");
+
+  if (counterDiv) {
+    counterDiv.style.display = isEditor ? "block" : "none";
+  }
+</script>
+
 
 <!-- Leave these as-is -->
 <script src="local-news.js" defer></script>
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
