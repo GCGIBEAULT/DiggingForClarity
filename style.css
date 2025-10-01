@@ -872,3 +872,10 @@ body {
     cursor: pointer;
   }
 }
+.signature-logo {
+  float: left;
+  width: 40px;
+  height: auto;
+  margin-right: 12px;
+  margin-top: 4px;
+}
