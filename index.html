@@ -994,27 +994,14 @@ function toggleReflection(event) {
     <p style="margin-left: 2em; font-size: 0.95em; color: #003366;">Tech-heavy index with growth sector focus.</p>
   </div>
 
-<!-- 🧭 Right: Lookup + Trusted Finance Source -->
-<div style="background-color:#e6f0ff; padding:12px; border-radius:6px; width:280px;">
-
-  <!-- 🔍 Symbol Lookup -->
-  <p style="color:#003366;"><strong>Look up a stock, ETF, or mutual fund:</strong></p>
-  <label for="symbol" style="color:#003366;">Enter symbol (e.g. AAPL, VTI)</label><br>
-  <input type="text" id="symbol" name="symbol" class="symbol-input" /><br>
-  <button type="submit" class="search-button" onclick="lookupSymbol()">Search</button>
-
-  <!-- 🧱 Spacer + Divider -->
-  <div style="height: 1.5em;"></div>
-  <hr style="border: none; border-top: 1px solid #c0d4e8; margin: 0.5em 0;">
-
-  <!-- 🔗 Trusted Finance Source -->
-  <p style="font-size: 0.95em; color: #003366;">
-    Prefer your own finance platform? Paste it below. It’ll stay fixed for easy access.
-  </p>
-  <input type="text" id="financeLink" placeholder="Paste your trusted finance site (e.g. https://morningstar.com)" class="symbol-input" />
-  <button onclick="openFinanceLink()" class="search-button">Open Trusted Site</button>
-
-</div>
+  <!-- 🧭 Right: Lookup Prompt -->
+  <div style="background-color:#e6f0ff; padding:12px; border-radius:6px; width:280px;">
+    <p style="color:#003366;"><strong>Look up a stock, ETF, or mutual fund:</strong></p>
+    <label for="symbol" style="color:#003366;">Enter symbol (e.g. AAPL, VTI)</label><br>
+    <input type="text" id="symbol" name="symbol" class="symbol-input" /><br>
+    <button type="submit" class="search-button" onclick="lookupSymbol()">Search</button>
+  </div>
+</section>
 
 
 
@@ -1786,6 +1773,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
