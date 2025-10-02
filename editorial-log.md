@@ -12,6 +12,9 @@
 **Oct 1, 2025** – Unified Quick Jump, Local Weather, and Local & State News blocks; removed gradient drift and sealed all three in shared editorial tone (`#f4f1ec`). Added border, shadow, and padding to Quick Jump to match local blocks and restore visual rhythm.
 **Oct 1, 2025** – Plausible views spiked; 129 pageviews and 12.9 views per visit. Footer and masthead clarity credited for engagement. Beta testers confirmed layout rhythm.
 **Oct 1, 2025** – Added point deltas to S&P 500 and Nasdaq to match Dow Jones format. "+pts" notation and directional labels ("Up") restored editorial rhythm. Font parity confirmed across all index blocks. No layout drift detected.
+**Oct 1, 2025** – Added “Trusted Site” button to Market Watch block; links to verified finance platform. Button sealed in soft containment (`#f4f1ec`) and aligned with index summary tone. Editorial clarity and user autonomy reinforced.
+**Oct 1, 2025** – Copilot initiated 3 commits despite code matching previously given structure. Editorial disruption logged. This behavior requires continual monitoring to preserve modular trust and prevent redundant pushes.
+
 
 
 
