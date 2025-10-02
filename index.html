@@ -1744,21 +1744,7 @@ function openWeather() {
     });
   });
 </script>
-document.addEventListener("DOMContentLoaded", () => {
-  const savedFinance = localStorage.getItem("financeLink");
-  if (savedFinance) {
-    document.getElementById("financeLink").value = savedFinance;
-  }
-});
 
-function openFinanceLink() {
-  const url = document.getElementById("financeLink").value.trim();
-  if (!url.startsWith("http")) {
-    alert("Please enter a full URL starting with https://");
-    return;
-  }
-  localStorage.setItem("financeLink", url);
-  window.open(url, "_blank");
 }
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -1793,6 +1779,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
