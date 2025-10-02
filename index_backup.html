@@ -41,10 +41,8 @@
 {
   "@context": "https://schema.org",
   "@type": "NewsMediaOrganization",
-  "name": "Digging For Clarity",
-  "url": "https://gcgibeault.github.io/DiggingForClarity/",
-  "logo": "https://gcgibeault.github.io/DiggingForClarity/new_logo.png",
-  "sameAs": ["https://twitter.com", "https://facebook.com"],
+  "name": "Digging For Clarity",  "logo": "https://gcgibeault.github.io/DiggingForClarity/new_logo.png",
+  "sameAs": ["https://twitter.com", https://facebook.com"],
   "description": "Drama-free news, weather, and community updates with clarity and modular trust."
 }
 </script>
@@ -88,16 +86,8 @@ function toggleReflection(event) {
 
   <link rel="stylesheet" href="style.css">
 
-<!-- 🔧 Logo Row Start -->
-<div class="logo-row" style="display: flex; justify-content: center; margin-top: 48px;">
-  <img src="new_logo.png" alt="Digging For Clarity Logo" style="height: 144px; max-width: 100%; object-fit: contain;">
-</div>
-<!-- 🔧 Logo Row End -->
-
-
-
   
-<!-- Logo Pair Above Editorial Divider -->
+
 <!-- 🧭 Editorial Masthead Start -->
 <div class="editorial-box" style="text-align: center; margin-top: 48px;">
   <h1 style="font-family: Georgia, serif; font-size: 2.8em; color: #003366; margin-bottom: 0.6em;">
@@ -118,28 +108,31 @@ function toggleReflection(event) {
 <br>
 <br>
 
-<!-- Quick Jump Navigation (Centered Horizontal) -->
-<p style="text-align: center;">
-  <strong>Quick Jump:</strong>
-  <a href="#ai">AI</a> |
-  <a href="#sports">Sports</a> |
-  <a href="#nfl">NFL</a> |
-  <a href="#mlb">MLB</a> |
-  <a href="#congress">Congress</a> |
-  <a href="#executive">Executive</a> |
-  <a href="#governance">Governance</a> |
-  <a href="#veterans">Veterans</a> |
-  <a href="#global">Global</a> |
-  <a href="#market">Market</a> |
-  <a href="#make-noise">Make Noise</a> |
-  <a href="#favorites">Favorites</a>
- <a href="#history">On This Day</a>
-</p>
-
-
-
-
+<!-- 🔧 Quick Jump Navigation Start -->
+<div class="section" style="background-color: #f4f1ec; box-shadow: 0 2px 6px rgba(0,0,0,0.1); border: 1px solid #ccc; padding: 1.75em; border-radius: 10px; font-family: Georgia, serif; max-width: 720px; margin: 2em auto; text-align: center;">
+  <p style="font-size: 1.05em; font-weight: bold; color: #003366; margin-bottom: 0.6em;">
+    Quick Jump
+  </p>
+  <p style="font-size: 1em; color: #003366; line-height: 1.6; margin: 0;">
+    <a href="#ai" style="color: #003366; text-decoration: none;">AI</a> |
+    <a href="#sports" style="color: #003366; text-decoration: none;">Sports</a> |
+    <a href="#nfl" style="color: #003366; text-decoration: none;">NFL</a> |
+    <a href="#mlb" style="color: #003366; text-decoration: none;">MLB</a> |
+    <a href="#congress" style="color: #003366; text-decoration: none;">Congress</a> |
+    <a href="#executive" style="color: #003366; text-decoration: none;">Executive</a> |
+    <a href="#governance" style="color: #003366; text-decoration: none;">Governance</a> |
+    <a href="#veterans" style="color: #003366; text-decoration: none;">Veterans</a> |
+    <a href="#global" style="color: #003366; text-decoration: none;">Global</a> |
+    <a href="#market" style="color: #003366; text-decoration: none;">Market</a> |
+    <a href="#make-noise" style="color: #003366; text-decoration: none;">Make Noise</a> |
+    <a href="#favorites" style="color: #003366; text-decoration: none;">Favorites</a> |
+    <a href="#history" style="color: #003366; text-decoration: none;">On This Day</a>
+  </p>
 </div>
+<!-- 🔧 Quick Jump Navigation End -->
+
+
+
 <script>
   function updateEasternTime() {
     const now = new Date();
@@ -189,7 +182,8 @@ function toggleReflection(event) {
 <section class="local-pair-wrap" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin-top: 2em; max-width: 960px; margin-left: auto; margin-right: auto;">
 
   <!-- 🌤️ Local Weather Block -->
-  <div class="local-weather-block" style="background: linear-gradient(to bottom right, #fdfdfd, #eaeaea); box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc;">
+<div class="local-weather-block" style="background-color: #f4f1ec; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc;">
+
 
 
     <h3 style="color:#003366;">Local Weather</h3>
@@ -215,8 +209,9 @@ function toggleReflection(event) {
 
 
   <!-- 🗞️ Local & State News Block -->
-  <div class="local-state-news-block" style="background: linear-gradient(to bottom right, #fdfdfd, #eaeaea); box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc;">
-    <h3 style="color:#003366;">Local & State News</h3>
+<div class="local-state-news-block" style="background-color: #f4f1ec; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc;">
+
+
     <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
 
     <!-- Local News Input -->
@@ -878,11 +873,12 @@ function toggleReflection(event) {
       <div style="height: 1em;"></div>
 
       <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin: 0;">
-        <li>
-          <a href="https://www.espn.com/mlb/game/_/gameId/401809260/padres-cubs" target="_blank" style="color:#003366; text-decoration: none;">
-            <strong>Cubs Beat Padres 3–1 in NL Wild Card Game 1</strong>
-          </a> Back-to-back homers by Suzuki and Kelly lifted Chicago at Wrigley. Cubs bullpen retired 14 straight to seal Game 1. Chicago leads the best-of-three series 1–0.
-        </li>
+<li>
+  <a href="https://www.mlb.com/news/cubs-lose-to-padres-nl-wild-card-series-game-2-2025" target="_blank" style="color:#003366; text-decoration: none;">
+    <strong>Padres Shut Out Cubs 3–0 to Force NL Wild Card Game 3</strong>
+  </a> Manny Machado crushed a two-run homer in the fifth, and Jackson Merrill added a sacrifice fly. Dylan Cease struck out five over 3.2 innings before handing off to a dominant bullpen. Mason Miller hit 104.5 mph and struck out five straight. Robert Suarez closed with a double play. Series tied 1–1. Updated Oct 1 at 5:03 PM MDT.
+</li>
+
         <li>
           <a href="https://www.espn.com/mlb/recap?gameId=401809257" target="_blank" style="color:#003366; text-decoration: none;">
             <strong>Dodgers Crush Reds 10–5 in NL Wild Card Game 1</strong>
@@ -936,11 +932,12 @@ function toggleReflection(event) {
       <div style="height: 1em;"></div>
 
       <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin: 0;">
-        <li>
-          <a href="https://www.espn.com/mlb/game/_/gameId/401809262/tigers-guardians" target="_blank" style="color:#003366; text-decoration: none;">
-            <strong>Tigers Shut Out Guardians 2–0 in AL Wild Card Game 1</strong>
-          </a> Tarik Skubal struck out 10 over 7 shutout innings. Kerry Carpenter drove in both Detroit runs. Tigers lead the best-of-three series 1–0.
-        </li>
+<li>
+  <a href="https://www.espn.com/mlb/game/_/gameId/401809262/tigers-guardians" target="_blank" style="color:#003366; text-decoration: none;">
+    <strong>Guardians Defeat Tigers 6–1 to Force AL Wild Card Game 3</strong>
+  </a> Brayan Rocchio launched a solo homer to ignite a five-run eighth inning. Bo Naylor added a three-run blast, and George Valera homered early to set the tone. Tanner Bibee struck out six over 4.2 innings. Series tied 1–1. Updated Oct 1 at 5:02 PM MDT.
+</li>
+
        <li>
   <a href="https://www.espn.com/mlb/game/_/gameId/401809263/red-sox-yankees" target="_blank" style="color:#003366; text-decoration: none;">
     <strong>Red Sox Beat Yankees 3–1 in AL Wild Card Game 1</strong>
@@ -966,69 +963,54 @@ function toggleReflection(event) {
 
 <div style="height: 2em;"></div>
 
+<!-- 🔎 Market Watch Block -->
+<section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px; display: flex; justify-content: space-between; align-items: flex-start; gap: 24px;">
 
-
-
-
-
-
-
-
-
-
-<!-- ==== Market Watch — Updated with Lookup Prompt and Directional Labels ==== -->
-<section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px; display: flex; justify-content: space-between; align-items: flex-start;">
-  <!-- Left: Market Data -->
+  <!-- 📊 Left: Market Index Data -->
   <div style="flex: 1;">
-<h3 id="market" style="color:#003366;" title="Updated Wednesday, October 1, 2025 at 11:41 AM MT">
-  <a href="https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-waver-as-us-shutdown-begins-adp-shows-unexpected-jobs-decline-232709049.html" target="_blank" style="color:#003366; text-decoration: none;">
-    Market Watch
-  </a>
-</h3>
+    <h3 id="market" style="color:#003366;" title="Updated Wednesday, October 1, 2025 at 5:05 PM MT">
+      <a href="https://www.nasdaq.com/articles/stock-market-news-oct-1-2025" target="_blank" style="color:#003366; text-decoration: none;">Market Watch</a>
+    </h3>
 
-<p style="color:#003366;">
-  Dow Jones: 46,310.12
-  <span style="color: red;">−0.09% <strong>Down</strong></span>
-</p>
-<p style="margin-left: 2em; font-size: 0.95em; color: #003366;">
-  52-week range: 36,611.78 – 46,714.27
-</p>
-<p style="margin-left: 2em; font-size: 0.95em; color: #003366;">
-  30 Largest US companies across industries.
-</p>
+    <p style="color:#003366;">Dow Jones: 46,397.89 <span style="color: green;">+87 pts (+0.18%) <strong>Up</strong></span></p>
+    <p style="margin-left: 2em; font-size: 0.95em; color: #003366;">52-week range: 36,611.78 – 46,714.27</p>
+    <p style="margin-left: 2em; font-size: 0.95em; color: #003366;">30 Largest US companies across industries.</p>
 
-<p style="color:#003366;">
-  S&P 500: 6,661.03
-  <span style="color: red;">−0.41% <strong>Down</strong></span>
-</p>
-<p style="margin-left: 2em; font-size: 0.95em; color: #003366;">
-  52-week range: 4,835.04 – 6,699.52
-</p>
-<p style="margin-left: 2em; font-size: 0.95em; color: #003366;">
-  500 Largest US companies.
-</p>
+    <p style="color:#003366;">S&P 500: 6,688.46 <span style="color: green;">+27.19 pts (+0.41%) <strong>Up</strong></span></p>
+    <p style="margin-left: 2em; font-size: 0.95em; color: #003366;">52-week range: 4,835.04 – 6,699.52</p>
+    <p style="margin-left: 2em; font-size: 0.95em; color: #003366;">Broad index of 500 leading US companies.</p>
 
-<p style="color:#003366;">
-  Nasdaq: 22,624.43
-  <span style="color: red;">−0.16% <strong>Down</strong></span>
-</p>
-<p style="margin-left: 2em; font-size: 0.95em; color: #003366;">
-  52-week range: 19,842.03 – 23,104.77
-</p>
-<p style="margin-left: 2em; font-size: 0.95em; color: #003366;">
-  Over 3,000 US companies, mostly tech.
-</p>
-
+    <p style="color:#003366;">Nasdaq: 24,800.86 <span style="color: green;">+120.88 pts (+0.49%) <strong>Up</strong></span></p>
+    <p style="margin-left: 2em; font-size: 0.95em; color: #003366;">52-week range: 10,565.42 – 24,811.03</p>
+    <p style="margin-left: 2em; font-size: 0.95em; color: #003366;">Tech-heavy index with growth sector focus.</p>
   </div>
 
-  <!-- Right: Lookup Prompt -->
-  <div style="flex: 0 0 300px; margin-left: 2em;">
-    <label for="tickerInput" style="font-weight: bold; color: #003366;">Look up a stock, ETF, or mutual fund:</label>
-    <input type="text" id="tickerInput" placeholder="Enter symbol (e.g. AAPL, VTI)" style="width: 100%; padding: 0.5em; margin-top: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-    <button onclick="lookupTicker()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Search</button>
-    <div id="tickerResult" style="margin-top: 1em; font-size: 0.9em; color: #333;"></div>
+  <!-- 🧭 Right: Lookup + Trusted Finance Source -->
+  <div style="background-color:#e6f0ff; padding:12px; border-radius:6px; width:280px;">
+
+    <!-- 🔍 Symbol Lookup -->
+    <p style="color:#003366;"><strong>Look up a stock, ETF, or mutual fund:</strong></p>
+    <label for="symbol" style="color:#003366;">Enter symbol (e.g. AAPL, VTI)</label><br>
+    <input type="text" id="symbol" name="symbol" class="symbol-input" /><br>
+    <button type="submit" class="search-button" onclick="lookupSymbol()">Search</button>
+
+    <!-- 🧱 Spacer -->
+    <div style="margin-top: 1.5em;"></div>
+
+    <!-- 🔗 Trusted Finance Source -->
+    <p style="font-size: 0.95em; color: #003366;">
+      Prefer your own finance platform? Paste it below. It’ll stay fixed for easy access.
+    </p>
+    <input type="text" id="financeLink" placeholder="https://morningstar.com" class="symbol-input" />
+    <button onclick="openFinanceLink()" class="search-button">Open Trusted Site</button>
+
   </div>
 </section>
+
+
+
+
+
 
 <script>
   function lookupTicker() {
@@ -1758,6 +1740,64 @@ function openWeather() {
 }
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const searchButton = document.querySelector(".search-button");
+    const symbolInput = document.querySelector(".symbol-input");
+
+    searchButton.addEventListener("click", () => {
+      const symbol = symbolInput.value.trim().toUpperCase();
+      if (!symbol) {
+        alert("Please enter a valid ticker symbol.");
+        return;
+      }
+      const url = `https://www.google.com/search?q=${symbol}+stock+quote`;
+      window.open(url, "_blank");
+    });
+  });
+</script>
+document.addEventListener("DOMContentLoaded", () => {
+  const savedFinance = localStorage.getItem("financeLink");
+  if (savedFinance) {
+    document.getElementById("financeLink").value = savedFinance;
+  }
+});
+
+function openFinanceLink() {
+  const url = document.getElementById("financeLink").value.trim();
+  if (!url.startsWith("http")) {
+    alert("Please enter a full URL starting with https://");
+    return;
+  }
+  localStorage.setItem("financeLink", url);
+  window.open(url, "_blank");
+}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const savedFinance = localStorage.getItem("financeLink");
+  if (savedFinance) {
+    const input = document.getElementById("financeLink");
+    if (input) input.value = savedFinance;
+  }
+});
+
+function openFinanceLink() {
+  const input = document.getElementById("financeLink");
+  if (!input) {
+    alert("Finance input field not found.");
+    return;
+  }
+
+  let url = input.value.trim();
+  if (!url.startsWith("http")) {
+    alert("Please enter a full URL starting with https://");
+    return;
+  }
+
+  localStorage.setItem("financeLink", url);
+  window.open(url, "_blank");
+}
+</script>
 
 
 <!-- Leave these as-is -->
@@ -1765,6 +1805,34 @@ function openWeather() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
