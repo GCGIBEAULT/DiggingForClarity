@@ -1771,6 +1771,32 @@ function openFinanceLink() {
   localStorage.setItem("financeLink", url);
   window.open(url, "_blank");
 }
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const savedFinance = localStorage.getItem("financeLink");
+  if (savedFinance) {
+    const input = document.getElementById("financeLink");
+    if (input) input.value = savedFinance;
+  }
+});
+
+function openFinanceLink() {
+  const input = document.getElementById("financeLink");
+  if (!input) {
+    alert("Finance input field not found.");
+    return;
+  }
+
+  let url = input.value.trim();
+  if (!url.startsWith("http")) {
+    alert("Please enter a full URL starting with https://");
+    return;
+  }
+
+  localStorage.setItem("financeLink", url);
+  window.open(url, "_blank");
+}
+</script>
 
 
 <!-- Leave these as-is -->
@@ -1778,6 +1804,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
