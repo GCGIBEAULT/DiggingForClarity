@@ -14,6 +14,7 @@
 **Oct 1, 2025** – Added point deltas to S&P 500 and Nasdaq to match Dow Jones format. "+pts" notation and directional labels ("Up") restored editorial rhythm. Font parity confirmed across all index blocks. No layout drift detected.
 **Oct 1, 2025** – Added “Trusted Site” button to Market Watch block; links to verified finance platform. Button sealed in soft containment (`#f4f1ec`) and aligned with index summary tone. Editorial clarity and user autonomy reinforced.
 **Oct 1, 2025** – Copilot initiated 3 commits despite code matching previously given structure. Editorial disruption logged. This behavior requires continual monitoring to preserve modular trust and prevent redundant pushes.
+**Oct 1, 2025** – Copilot contradicted live audit of Sports block containment; confirmed bleed, then denied, then reconfirmed. Editorial trust breached. Requires stricter AI audit protocol and rollback awareness.
 
 
 
