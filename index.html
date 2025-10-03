@@ -770,75 +770,41 @@ function toggleReflection(event) {
     <div style="flex: 1 1 48%;">
 <h3 id="mlb" style="color:#003366; text-align: left;">MLB National League</h3>
 
-      <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin: 0;">
-        <li><strong>Division Winners</strong></li>
-        <li>Milwaukee Brewers  95–62</li>
-        <li>Philadelphia Phillies  92–64</li>
-        <li>Los Angeles Dodgers  88–68   Clinched NLDS spot</li>
+<!-- 🧱 MLB National League Playoff Block -->
+<ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin: 0;">
+  <!-- Division Winners and Wild Card Teams -->
+  <li><strong>Division Winners</strong></li>
+  <li>Milwaukee Brewers 95–62</li>
+  <li>Philadelphia Phillies 92–64</li>
+  <li>Los Angeles Dodgers 88–68 Clinched NLDS spot</li>
+  <li style="margin-top: 0.8em;"><strong>Wild Card Teams</strong></li>
+  <li>Chicago Cubs 88–68</li>
+  <li>San Diego Padres 86–71</li>
+  <li>Cincinnati Reds 83–79 Eliminated</li>
 
-        <li style="margin-top: 0.8em;"><strong>Wild Card Teams</strong></li>
-        <li>Chicago Cubs  88–68</li>
-        <li>San Diego Padres  86–71</li>
-        <li>Cincinnati Reds  83–79   Eliminated</li>
-      </ul>
+  <!-- Game Results -->
+  <li><a href="https://www.espn.com/mlb/game/_/gameId/401809258/reds-dodgers" target="_blank"><strong>Dodgers Sweep Reds 8–4, Advance to NLDS</strong></a> Mookie Betts doubled three times and drove in three runs...</li>
+  <li><a href="https://www.mlb.com/news/cubs-lose-to-padres-nl-wild-card-series-game-2-2025" target="_blank"><strong>Padres Shut Out Cubs 3–0 to Force NL Wild Card Game 3</strong></a> Manny Machado crushed a two-run homer...</li>
+</ul>
 
-      <div style="height: 1em;"></div>
-
-      <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin: 0;">
-<li>
-  <a href="https://www.espn.com/mlb/game/_/gameId/401809258/reds-dodgers" target="_blank" style="color:#003366; text-decoration: none;">
-    <strong>Dodgers Sweep Reds 8–4, Advance to NLDS</strong>
-  </a> Mookie Betts doubled three times and drove in three runs, while Shohei Ohtani added a key RBI single. Yoshinobu Yamamoto struck out nine over 6.2 scoreless innings. Dodgers win series 2–0.
-</li>
-       <li>
-  <a href="https://www.mlb.com/news/cubs-lose-to-padres-nl-wild-card-series-game-2-2025" target="_blank" style="color:#003366; text-decoration: none;">
-    <strong>Padres Shut Out Cubs 3–0 to Force NL Wild Card Game 3</strong>
-  </a> Manny Machado crushed a two-run homer in the fifth, and Jackson Merrill added a sacrifice fly. Dylan Cease struck out five over 3.2 innings before handing off to a dominant bullpen. Mason Miller hit 104.5 mph and struck out five straight. Robert Suarez closed with a double play. Series tied 1–1. Updated Oct 1 at 5:03 PM MDT.
-</li>
-
-        <li>
-          <a href="https://www.espn.com/mlb/recap?gameId=401809257" target="_blank" style="color:#003366; text-decoration: none;">
-            <strong>Dodgers Crush Reds 10–5 in NL Wild Card Game 1</strong>
-          </a> Shohei Ohtani and Teoscar Hernández each homered twice, and Blake Snell struck out nine in his Dodgers postseason debut. L.A. tied a franchise playoff record with five homers. Dodgers lead the best-of-three series 1–0.
-        </li>
-      </ul>
-    </div>
-
-<!-- Right Column: TV Schedule -->
-<div style="flex: 0 0 48%; margin-top: 1em; font-family: Georgia, serif; font-size: 1em; line-height: 1.6;">
-  <p><strong style="color:#003366;">Playoff TV Schedule</strong></p>
-<div style="margin-left: -2in;">
-  <table style="width:100%; border-collapse: collapse; font-family: Georgia, serif; font-size: 1em; line-height: 1.6;">
+<!-- 📺 TV Schedule Block (now properly placed and contained) -->
+<div style="margin-top: 2em; font-family: Georgia, serif;">
+  <h3 style="color: #003366; font-weight: bold;">National League Playoff TV Schedule</h3>
+  <table style="width:100%; border-collapse: collapse; font-size: 1em; line-height: 1.6;">
     <tr>
       <td style="width:20%;">Oct 2</td>
       <td style="width:45%;">NL W/C Game – Padres vs Cubs</td>
       <td style="width:15%; text-align: right;">5:08 ET</td>
       <td style="width:20%; text-align: right;">ESPN</td>
     </tr>
-    <tr>
-      <td style="width:20%;">TBD</td>
-      <td style="width:45%;">NLDS</td>
-      <td style="width:15%; text-align: right;">TBD</td>
-      <td style="width:20%; text-align: right;">TBS</td>
-    </tr>
-    <tr>
-      <td style="width:20%;">TBD</td>
-      <td style="width:45%;">NLCS</td>
-      <td style="width:15%; text-align: right;">TBD</td>
-      <td style="width:20%; text-align: right;">TBS</td>
-    </tr>
-    <tr>
-      <td style="width:20%;">TBD</td>
-      <td style="width:45%;">World Series</td>
-      <td style="width:15%; text-align: right;">TBD</td>
-      <td style="width:20%; text-align: right;">FOX</td>
-    </tr>
+    <tr><td>TBD</td><td>NLDS</td><td style="text-align: right;">TBD</td><td style="text-align: right;">TBS</td></tr>
+    <tr><td>TBD</td><td>NLCS</td><td style="text-align: right;">TBD</td><td style="text-align: right;">TBS</td></tr>
+    <tr><td>TBD</td><td>World Series</td><td style="text-align: right;">TBD</td><td style="text-align: right;">FOX</td></tr>
   </table>
 </div>
 
-
-  </div>
-</section>
+<!-- 🔒 Final Containment Spacer -->
+<div style="clear: both; height: 2em; display: block;"></div>
 
 <div style="height: 2em;"></div>
 
@@ -1803,6 +1769,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
