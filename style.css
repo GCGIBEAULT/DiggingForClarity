@@ -944,4 +944,27 @@ html, body {
   margin-left: auto;
   margin-right: auto;
 }
+.local-pair-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5em;
+  margin-top: 2em;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.local-weather-block,
+.local-state-news-block {
+  flex: 1;
+  min-width: 280px;
+  background-color: #f4f1ec;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1.75em;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
 
