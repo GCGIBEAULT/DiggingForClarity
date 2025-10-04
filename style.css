@@ -967,4 +967,9 @@ html, body {
   border-radius: 10px;
   border: 1px solid #ccc;
 }
+@media screen and (max-width: 767px) {
+  .local-pair-wrap {
+    grid-template-columns: 1fr !important;
+  }
+}
 
