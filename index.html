@@ -211,27 +211,29 @@ function toggleReflection(event) {
 
 
 
-  <!-- 🗞️ Local & State News Block -->
+<!-- 🗞️ Local & State News Block -->
 <div class="local-state-news-block" style="background-color: #f4f1ec; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc;">
-<h3 style="color:#003366;">Local & State News</h3>
+  <h3 style="color:#003366;">Local & State News</h3>
+  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
 
+  <!-- Local News Input -->
+  <label for="localNews" style="font-weight: bold;">Local News Link:</label>
+  <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
+  <div id="localDrawer" style="display: none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
+  <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
 
-    <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+  <!-- State News Input -->
+  <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
+  <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
+  <div id="stateDrawer" style="display: none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
+  <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
 
-    <!-- Local News Input -->
-    <label for="localNews" style="font-weight: bold;">Local News Link:</label>
-    <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-    <div id="localDrawer" style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-    <button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
-
-    <!-- State News Input -->
-    <label for="stateNews" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
-    <input type="text" id="stateNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-    <div id="stateDrawer" style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-    <button onclick="openStateNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
+  <!-- 🔧 Filler Block for Visual Parity -->
+  <div style="margin-top: 1.5em;">
+    <p style="color: #666;">This space reserved for local story submissions. Coming soon.</p>
   </div>
+</div>
 
-</section>
 <!-- 🔧 Comment Invitation Block Start -->
 <div class="section" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; font-family: Georgia, serif; display: flex; align-items: flex-start; gap: 2em; margin-top: 2em; max-width: 640px; margin-left: auto; margin-right: auto;">
   <!-- Logo on Left Margin -->
@@ -1649,6 +1651,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
