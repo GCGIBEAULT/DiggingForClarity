@@ -181,48 +181,38 @@ function toggleReflection(event) {
 
 
 <!-- 📍 Local Blocks: Weather + News (Mobile-Responsive Fix) -->
-<section style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start; gap: 1.5em; margin-top: 2em; max-width: 960px; margin-left: auto; margin-right: auto;">
-  <!-- Local Weather Block -->
-  <div style="flex: 1; min-width: 280px; background-color: #f4f1ec; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc;">
+<section class="local-pair-wrap" style="display: flex; flex-direction: column; gap: 1.5em; margin-top: 2em; max-width: 960px; margin-left: auto; margin-right: auto;">
+
+  <!-- 🌤️ Local Weather Block -->
+  <div class="local-weather-block" style="background-color:#f4f1ec; box-shadow:0 2px 6px rgba(0,0,0,0.1); padding:1.75em; border-radius:10px; border:1px solid #ccc;">
     <h3 style="color:#003366;">Local Weather</h3>
-    <input type="text" id="weatherLink" placeholder="Enter weather URL" style="width:100%; padding:0.5em; margin-bottom:0.5em;">
-    <button onclick="openWeather()" style="padding:0.5em 1em;">Open Weather</button>
+    <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
+    <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width:100%; padding:0.5em; margin-bottom:0.5em; border:1px solid #ccc; border-radius:4px;">
+    <div id="weatherDrawer" style="display:none; font-size:0.9em; color:#990000; margin-bottom:0.5em;">Add last URL</div>
+    <button onclick="openWeather()" style="padding:0.5em 1em; background-color:#003366; color:#fff; border:none; border-radius:4px;">Open Weather</button>
 
-    <div style="margin-top: 1.5em;">
-      <label for="wazeLink" style="font-weight: bold;">Waze Traffic</label>
-      <input type="text" id="wazeLink" placeholder="Enter Waze URL" style="width:100%; padding:0.5em; margin-top:0.5em;">
-      <button onclick="openWaze()" style="margin-top:0.5em; padding:0.5em 1em;">Open Waze</button>
-    </div>
-
-    <div style="margin-top: 1.5em;">
-      <label for="mapsLink" style="font-weight: bold;">Google Maps</label>
-      <input type="text" id="mapsLink" placeholder="Enter Maps URL" style="width:100%; padding:0.5em; margin-top:0.5em;">
-      <button onclick="openMaps()" style="margin-top:0.5em; padding:0.5em 1em;">Open Maps</button>
-    </div>
-
-    <div style="margin-top: 1.5em;">
-      <label for="flightLink" style="font-weight: bold;">Flight Tracker</label>
-      <input type="text" id="flightLink" placeholder="Enter Flight URL" style="width:100%; padding:0.5em; margin-top:0.5em;">
-      <button onclick="openFlight()" style="margin-top:0.5em; padding:0.5em 1em;">Open Flight</button>
+    <div style="margin-top:1.5em;">
+      <h4 style="color:#003366;">Need Directions or Flight Info?</h4>
+      <p>Click below to launch your preferred traffic or flight tracker:</p>
+      <div class="snippet" style="font-weight:bold;">
+        <a href="https://www.google.com/maps" target="_blank" style="color:#0645AD; text-decoration:underline;">Google Maps</a>&nbsp;&nbsp;
+        <a href="https://www.waze.com" target="_blank" style="color:#0645AD; text-decoration:underline;">Waze</a>&nbsp;&nbsp;
+        <a href="https://www.flightaware.com" target="_blank" style="color:#0645AD; text-decoration:underline;">FlightAware</a>
+      </div>
     </div>
   </div>
 
-  <!-- Local + State News Block -->
-  <div style="flex: 1; min-width: 280px;">
-    <div style="background-color: #f4f1ec; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc; margin-bottom: 1.5em;">
-      <h3 style="color:#003366;">Local News</h3>
-      <input type="text" id="localNewsLink" placeholder="Enter local news URL" style="width:100%; padding:0.5em; margin-bottom:0.5em;">
-      <button onclick="openLocalNews()" style="padding:0.5em 1em;">Open Local News</button>
-    </div>
-
-    <div style="background-color: #f4f1ec; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc;">
-      <h3 style="color:#003366;">State News</h3>
-      <input type="text" id="stateNewsLink" placeholder="Enter state news URL" style="width:100%; padding:0.5em; margin-bottom:0.5em;">
-      <button onclick="openStateNews()" style="padding:0.5em 1em;">Open State News</button>
-    </div>
+  <!-- 🗞️ Local + State News Block -->
+  <div class="local-state-news-block" style="background-color:#f4f1ec; box-shadow:0 2px 6px rgba(0,0,0,0.1); padding:1.75em; border-radius:10px; border:1px solid #ccc;">
+    <h3 style="color:#003366;">Local + State News</h3>
+    <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+    <input type="text" id="localNewsLink" placeholder="Paste local news link here" style="width:100%; padding:0.5em; margin-bottom:0.5em; border:1px solid #ccc; border-radius:4px;">
+    <input type="text" id="stateNewsLink" placeholder="Paste state news link here" style="width:100%; padding:0.5em; margin-bottom:0.5em; border:1px solid #ccc; border-radius:4px;">
+    <button onclick="openLocalNews()" style="padding:0.5em 1em; background-color:#003366; color:#fff; border:none; border-radius:4px;">Open Local News</button>
+    <button onclick="openStateNews()" style="padding:0.5em 1em; background-color:#003366; color:#fff; border:none; border-radius:4px; margin-left:0.5em;">Open State News</button>
   </div>
+
 </section>
-
 
 
 
@@ -567,13 +557,25 @@ function toggleReflection(event) {
 
 
     <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6; margin: 0;">
-<li><a href="https://www.aljazeera.com/sports/2025/10/3/pro-palestine-protestors-target-italy-training-for-israel-world-cup-tie" target="_blank" style="color:#003366; text-decoration:none;"><strong>Italy Training Targeted by Protesters Ahead of Israel Match</strong></a> Demonstrators gathered outside Italy’s football training center demanding cancellation of the October 14 World Cup qualifier against Israel. The protest followed Israel’s interdiction of an aid flotilla and coincided with a nationwide strike. UEFA is reportedly considering suspending Israel from competition.</li>
+<li><a href="https://www.cbssports.com/mlb/news/mlb-wild-card-2025-guardians-tigers-game-3-live-updates-score-results/live/" target="_blank" style="color:#003366; text-decoration:none;"><strong>Tigers Advance to ALDS After 6–3 Win Over Guardians</strong></a> Dingler’s solo homer broke a 1–1 tie in the sixth. Detroit added four more runs to seal the series. Guardians exit after late bullpen collapse and missed chances with runners on.</li>
 
 
-<li><a href="https://www.aljazeera.com/sports/2025/10/2/coco-gauff-defeats-eva-lys-to-reach-china-open-semifinal" target="_blank" style="color:#003366; text-decoration:none;"><strong>Coco Gauff Defeats Eva Lys to Reach China Open Semifinal</strong></a> Gauff overcame a spirited challenge from 66th-ranked Eva Lys, winning 6–3, 6–4 in Beijing. The defending champion is bidding to become the first woman to win back-to-back titles at the WTA 1000 event. She next faces either Amanda Anisimova or Jasmine Paolini.</li>
+<li><a href="https://www.mlb.com/news/padres-lose-2025-nl-wild-card-series-to-cubs" target="_blank" style="color:#003366; text-decoration:none;"><strong>Cubs Eliminate Padres—Advance to NLDS</strong></a> Pete Crow-Armstrong and Michael Busch drove in key runs as Chicago beat San Diego 3–1 in Game 3. Jameson Taillon and the bullpen held the Padres to one run. Cubs head to Milwaukee; Padres’ season ends.</li>
 
-<li><a href="https://sports.com/en/golf/news/432409" target="_blank" style="color:#003366; text-decoration:none;"><strong>Fitzpatrick Slams PGA Chief Over Ryder Cup Crowd Comparison</strong></a> Matt Fitzpatrick called comments by PGA of America president Don Rea “offensive” after Rea equated the hostile New York crowd with European fans in Rome. Fitzpatrick said the European team felt bitterness during the trophy handoff and received apologies from American friends. Tyrrell Hatton added that future Ryder Cups should be respectful, not hostile.</li>
 
+
+<li>
+  <a href="https://www.cbssports.com/mlb/news/mlb-playoff-bracket-schedule-2025/" target="_blank" style="color:#003366; text-decoration: none;">
+    <strong>Dodgers Sweep Reds 8–4, Advance to NLDS</strong>
+  </a>
+  Mookie Betts doubled three times and drove in three runs. Shohei Ohtani added a two-run blast in the fifth. The Dodgers never trailed and locked their 13th straight postseason berth with a clean sweep.
+</li>
+    <li>
+  <a href="https://www.cbssports.com/mlb/news/mlb-playoff-bracket-schedule-2025/" target="_blank" style="color:#003366; text-decoration: none;">
+    <strong>Roki Sasaki Closes Dodgers Sweep with Triple-Digit Heat</strong>
+  </a>
+  In his MLB postseason debut, Sasaki fired three straight 102 mph fastballs followed by a trapdoor splitter to strike out the side. The 23-year-old phenom sealed the Dodgers’ 8–4 win over the Reds and locked their NLDS berth with surgical precision.
+</li>
 
 <li>
   <a href="https://www.youtube.com/watch?v=7p2osXWUoUw" target="_blank" style="color:#003366; text-decoration: none;">
@@ -1574,6 +1576,51 @@ function renderLocalNews(snippets, reason = "") {
   });
 </script>
 
+<script>
+window.onload = function () {
+  // Weather
+  const weatherInput = document.getElementById("weatherLink");
+  const weatherDrawer = document.getElementById("weatherDrawer");
+  const savedWeather = localStorage.getItem("weatherLink");
+
+  if (savedWeather) {
+    weatherInput.value = savedWeather;
+    if (!weatherInput.value) {
+      weatherDrawer.style.display = "block";
+    }
+  } else {
+    const defaultLink = "https://www.msn.com/en-us/weather/today/Denver,Colorado,United-States/we-city?ocid=msedgntp&cobrand=copilot";
+    weatherInput.value = defaultLink;
+    localStorage.setItem("weatherLink", defaultLink);
+  }
+
+  // Local News
+  const localInput = document.getElementById("localNews");
+  const localDrawer = document.getElementById("localDrawer");
+  const savedLocal = localStorage.getItem("localNews");
+  if (savedLocal && !localInput.value) {
+    localDrawer.style.display = "block";
+  }
+
+  // State News
+  const stateInput = document.getElementById("stateNews");
+  const stateDrawer = document.getElementById("stateDrawer");
+  const savedState = localStorage.getItem("stateNews");
+  if (savedState && !stateInput.value) {
+    stateDrawer.style.display = "block";
+  }
+};
+
+function openWeather() {
+  const url = document.getElementById("weatherLink").value;
+  if (url) {
+    localStorage.setItem("weatherLink", url);
+    window.open(url, "_blank");
+  } else {
+    alert("Please enter a valid weather link.");
+  }
+}
+</script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -1626,12 +1673,6 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
 
 
 
