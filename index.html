@@ -184,39 +184,46 @@ function toggleReflection(event) {
 
 
 <!-- 🧭 Local Weather + Local & State News Side-by-Side -->
-<section class="local-pair-wrap" style="display:flex;gap:1.25em;max-width:960px;margin:1.5em auto;align-items:stretch;">
+<section class="local-pair-wrap" style="display:flex;gap:1.25em;max-width:960px;margin:1.5em auto;align-items:stretch;box-sizing:border-box;">
   <!-- Local Weather block -->
   <div id="weather" class="section local-weather-block"
-       style="flex:1;display:flex;flex-direction:column;justify-content:flex-start;background:#f4f1ec;padding:1.25em;border-radius:8px;border:1px solid #ccc;">
-    <h3 style="color:#003366;margin:0 0 .5em 0;">Local Weather</h3>
-    <p style="margin:.25em 0 .75em 0;">Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
-    <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width:100%;padding:.45em;margin-bottom:.5em;border:1px solid #ccc;border-radius:4px;">
-    <button onclick="openWeather()" style="padding:.45em .85em;background:#003366;color:#fff;border:none;border-radius:4px;">Open Weather</button>
+       style="flex:1;display:flex;flex-direction:column;justify-content:flex-start;background:#f4f1ec;padding:1.25em;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;">
+    <h3 style="color:#003366;margin:0 0 .5em 0;line-height:1.2;font-weight:600;box-sizing:border-box;">Local Weather</h3>
+    <p style="margin:.25em 0 .75em 0;line-height:1.35;margin-bottom:.75em;box-sizing:border-box;">Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
+    <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here"
+           style="width:100%;padding:.45em;margin-bottom:.5em;border:1px solid #ccc;border-radius:4px;box-sizing:border-box;">
+    <button onclick="openWeather()"
+            style="padding:.45em .85em;background:#003366;color:#fff;border:none;border-radius:4px;box-sizing:border-box;">Open Weather</button>
 
-    <div style="margin-top:auto;font-size:.9em;color:#333;padding-top:.75em;">
+    <div style="margin-top:auto;font-size:.9em;color:#333;padding-top:.75em;box-sizing:border-box;">
       Need Directions or Flight Info?
-      <a href="https://www.google.com/maps" class="weather-maps" target="_blank" style="color:#0645AD;text-decoration:underline;margin-left:.5em;">Google Maps</a>
-      <a href="https://www.waze.com" class="weather-waze" target="_blank" style="color:#0645AD;text-decoration:underline;margin-left:.5em;">Waze</a>
-      <a href="https://www.flightaware.com" class="weather-flightaware" target="_blank" style="color:#0645AD;text-decoration:underline;margin-left:.5em;">FlightAware</a>
+      <a href="https://www.google.com/maps" class="weather-maps" target="_blank"
+         style="color:#0645AD;text-decoration:underline;margin-left:.5em;box-sizing:border-box;">Google Maps</a>
+      <a href="https://www.waze.com" class="weather-waze" target="_blank"
+         style="color:#0645AD;text-decoration:underline;margin-left:.5em;box-sizing:border-box;">Waze</a>
+      <a href="https://www.flightaware.com" class="weather-flightaware" target="_blank"
+         style="color:#0645AD;text-decoration:underline;margin-left:.5em;box-sizing:border-box;">FlightAware</a>
     </div>
   </div>
 
   <!-- Local & State News block -->
   <div class="local-state-news-block"
-       style="flex:1;display:flex;flex-direction:column;justify-content:flex-start;background:#f4f1ec;padding:1.25em;border-radius:8px;border:1px solid #ccc;">
-    <h3 style="color:#003366;margin:0 0 .5em 0;">Local & State News</h3>
-    <p style="margin:.25em 0 .75em 0;">Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+       style="flex:1;display:flex;flex-direction:column;justify-content:flex-start;background:#f4f1ec;padding:1.25em;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;">
+    <h3 style="color:#003366;margin:0 0 .5em 0;line-height:1.2;font-weight:600;box-sizing:border-box;">Local & State News</h3>
+    <p style="margin:.25em 0 .75em 0;line-height:1.35;box-sizing:border-box;">Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
 
-    <p style="margin:.25em 0 .6em 0;"><strong>Local News Link:</strong>
-      <a id="localNewsAnchor" href="https://www.9news.com/" target="_blank" style="color:#0645AD;text-decoration:underline;margin-left:.4em;">Open Local News</a>
+    <p style="margin:.25em 0 .6em 0;box-sizing:border-box;"><strong>Local News Link:</strong>
+      <a id="localNewsAnchor" href="https://www.9news.com/" target="_blank"
+         style="color:#0645AD;text-decoration:underline;margin-left:.4em;box-sizing:border-box;">Open Local News</a>
     </p>
 
-    <p style="margin:.25em 0 .6em 0;"><strong>State News Link:</strong>
-      <a id="stateNewsAnchor" href="https://coloradonewsline.com/" target="_blank" style="color:#0645AD;text-decoration:underline;margin-left:.4em;">Open State News</a>
+    <p style="margin:.25em 0 .6em 0;box-sizing:border-box;"><strong>State News Link:</strong>
+      <a id="stateNewsAnchor" href="https://coloradonewsline.com/" target="_blank"
+         style="color:#0645AD;text-decoration:underline;margin-left:.4em;box-sizing:border-box;">Open State News</a>
     </p>
 
-    <label for="localNews" style="font-weight:600;margin-bottom:.25em;display:block;">Or paste a URL here:</label>
-    <input type="text" id="localNews" style="width:100%;padding:.45em;margin-bottom:.5em;border:1px solid #ccc;border-radius:4px;">
+    <label for="localNews" style="font-weight:600;margin-bottom:.25em;display:block;box-sizing:border-box;">Or paste a URL here:</label>
+    <input type="text" id="localNews" style="width:100%;padding:.45em;margin-bottom:.5em;border:1px solid #ccc;border-radius:4px;box-sizing:border-box;">
   </div>
 </section>
 
@@ -1623,6 +1630,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
