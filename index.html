@@ -1661,6 +1661,66 @@ function openFinanceLink() {
   window.open(url, "_blank");
 }
 </script>
+<script>
+(function(){
+  // Queue events until plausible is ready
+  var plausibleQueue = [];
+  function sendQueued(){
+    if (typeof plausible !== 'function') return false;
+    while(plausibleQueue.length){
+      var ev = plausibleQueue.shift();
+      try { plausible(ev); } catch(e) { /* swallow */ }
+    }
+    return true;
+  }
+
+  // Safe send: use plausible if available, otherwise queue
+  function safePlausible(goalName){
+    if (typeof plausible === 'function') {
+      try { plausible(goalName); } catch(e) { plausibleQueue.push(goalName); }
+    } else {
+      plausibleQueue.push(goalName);
+    }
+  }
+
+  // Bind all [data-goal] anchors (idempotent)
+  function bindGoals(){
+    document.querySelectorAll('[data-goal]').forEach(function(link){
+      if (link.__plausibleBound) return;
+      link.addEventListener('click', function(e){
+        // Fire immediately for analytics; allow default navigation
+        var goal = link.getAttribute('data-goal');
+        if (goal) safePlausible(goal);
+      }, {passive: true});
+      link.__plausibleBound = true;
+    });
+  }
+
+  // Try to flush queue when plausible becomes available
+  var checkInterval = setInterval(function(){
+    bindGoals();
+    if (sendQueued()){
+      clearInterval(checkInterval);
+    }
+  }, 800);
+
+  // Bind on DOM ready immediately
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', bindGoals);
+  } else {
+    bindGoals();
+  }
+
+  // Final attempt when page fully loaded
+  window.addEventListener('load', function(){
+    bindGoals();
+    sendQueued();
+  });
+
+  // Expose for debugging in console
+  window.__plausibleQueue = plausibleQueue;
+})();
+</script>
 
 
 <!-- Leave these as-is -->
@@ -1668,6 +1728,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
