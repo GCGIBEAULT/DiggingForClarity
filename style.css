@@ -909,3 +909,7 @@ body {
 .search-button:hover {
   background-color: #005fa3;
 }
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+}
