@@ -1563,51 +1563,6 @@ function renderLocalNews(snippets, reason = "") {
   });
 </script>
 
-<script>
-window.onload = function () {
-  // Weather
-  const weatherInput = document.getElementById("weatherLink");
-  const weatherDrawer = document.getElementById("weatherDrawer");
-  const savedWeather = localStorage.getItem("weatherLink");
-
-  if (savedWeather) {
-    weatherInput.value = savedWeather;
-    if (!weatherInput.value) {
-      weatherDrawer.style.display = "block";
-    }
-  } else {
-    const defaultLink = "https://www.msn.com/en-us/weather/today/Denver,Colorado,United-States/we-city?ocid=msedgntp&cobrand=copilot";
-    weatherInput.value = defaultLink;
-    localStorage.setItem("weatherLink", defaultLink);
-  }
-
-  // Local News
-  const localInput = document.getElementById("localNews");
-  const localDrawer = document.getElementById("localDrawer");
-  const savedLocal = localStorage.getItem("localNews");
-  if (savedLocal && !localInput.value) {
-    localDrawer.style.display = "block";
-  }
-
-  // State News
-  const stateInput = document.getElementById("stateNews");
-  const stateDrawer = document.getElementById("stateDrawer");
-  const savedState = localStorage.getItem("stateNews");
-  if (savedState && !stateInput.value) {
-    stateDrawer.style.display = "block";
-  }
-};
-
-function openWeather() {
-  const url = document.getElementById("weatherLink").value;
-  if (url) {
-    localStorage.setItem("weatherLink", url);
-    window.open(url, "_blank");
-  } else {
-    alert("Please enter a valid weather link.");
-  }
-}
-</script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -1660,6 +1615,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
