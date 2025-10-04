@@ -28,6 +28,9 @@
 **Oct 4, 2025** – Applied responsive override to `.local-pair-wrap`. Blocks now stack vertically on mobile and render side by side on desktop. No rewrap. No block loss. Editorial containment restored.
 **Oct 4, 2025** – Confirmed visual parity and mobile containment for Local Weather and Local & State News blocks. Anchor jump and Plausible goals operational. Deferred anchor and goal setup for other blocks until evening or Oct 5. Editorial tone and layout integrity preserved.
 ** Oct 4, 2025 ** – Copilot failed to render Game Day block correctly. Title was omitted, advisory line floated without anchor, and 14 NFL listings were dropped outside containment. Block identity lost. Gregg rebuilt manually—restored title, spacing, and full containment. Emotional toll logged. Editorial trust breached.
+** Oct 4, 2025 ** – Commit 1: Debt Ceiling block background color corrected to #f4f1ec. Headline color locked to #003366. Hover timepiece sealed at 2:03 PM MDT. Editorial containment restored.
+
+** Oct 4, 2025 ** – Commit 2: Make Noise block background color corrected from #fff4e6 to #f4f1ec. Headline color, font, and size matched to Debt Ceiling. Hover timepiece sealed at 2:27 PM MDT. AI failed to verify color standard before acting. Gregg caught the breach. Fix sealed.
 
 
 
