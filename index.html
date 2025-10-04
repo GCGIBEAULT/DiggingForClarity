@@ -184,42 +184,28 @@ function toggleReflection(event) {
 
 
 <!-- 🧭 Local Weather + Local & State News Side-by-Side -->
-<section class="local-pair-wrap" style="display: flex; gap: 1.5em; max-width: 960px; margin: 2em auto;">
-  <!-- 🌤️ Local Weather Block -->
-<div id="weather" class="section local-weather-block" style="flex: 1; background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; border: 1px solid #ccc; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px;">
-
-    <h3 style="color:#003366;">Local Weather</h3>
-    <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
-    <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-    <div id="weatherDrawer" style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-    <button onclick="openWeather()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
-
-    <div style="margin-top: 1.5em;">
-      <h4 style="color:#003366;">Need Directions or Flight Info?</h4>
-      <p>Click below to launch your preferred traffic or flight tracker:</p>
-      <div class="snippet" style="font-weight: bold;">
-        <a href="https://www.google.com/maps" class="weather-maps" target="_blank" style="color: #0645AD; text-decoration: underline;">Google Maps</a>&nbsp;&nbsp;
-        <a href="https://www.waze.com" class="weather-waze" target="_blank" style="color: #0645AD; text-decoration: underline;">Waze</a>&nbsp;&nbsp;
-        <a href="https://www.flightaware.com" class="weather-flightaware" target="_blank" style="color: #0645AD; text-decoration: underline;">FlightAware</a>
-      </div>
-    </div>
+<section class="local-pair-wrap" style="display:flex;gap:1.25em;max-width:960px;margin:1.5em auto;align-items:stretch;">
+  <!-- Local Weather block -->
+  <div id="weather" class="section local-weather-block"
+       style="flex:1;display:flex;flex-direction:column;justify-content:flex-start;background:#f4f1ec;padding:1.25em;border-radius:8px;border:1px solid #ccc;">
+    <h3 style="color:#003366;margin:0 0 .5em 0;">Local Weather</h3>
+    <p style="margin:.25em 0 .75em 0;">Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
+    <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width:100%;padding:.45em;margin-bottom:.5em;border:1px solid #ccc;border-radius:4px;">
+    <button onclick="openWeather()" style="padding:.45em .85em;background:#003366;color:#fff;border:none;border-radius:4px;">Open Weather</button>
+    <div style="margin-top:auto;font-size:.9em;color:#333;padding-top:.75em;">Need Directions or Flight Info? <a href="https://www.google.com/maps" target="_blank" style="color:#0645AD;text-decoration:underline;">Maps</a></div>
   </div>
 
-  <!-- 🗞️ Local & State News Block -->
-<div class="local-state-news-block" style="flex: 1; background-color: #f4f1ec; padding: 1.75em; border-radius: 10px; border: 1px solid #ccc; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px;">
-
-    <h3 style="color:#003366;">Local & State News</h3>
-    <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
-    <label for="localNews" style="font-weight: bold;">Local News Link:</label>
-    <input type="text" id="localNews" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-    <div id="localDrawer" style="display: none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-
-    <div style="margin-top: 1.5em;">
-      <h4 style="color:#003366;">What you say matters and is welcome</h4>
-      <p><a href="#comment" style="color: #0645AD; text-decoration: underline;">Please Leave a Comment</a></p>
-    </div>
+  <!-- Local & State News block -->
+  <div class="local-state-news-block"
+       style="flex:1;display:flex;flex-direction:column;justify-content:flex-start;background:#f4f1ec;padding:1.25em;border-radius:8px;border:1px solid #ccc;">
+    <h3 style="color:#003366;margin:0 0 .5em 0;">Local & State News</h3>
+    <p style="margin:.25em 0 .75em 0;">Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
+    <label for="localNews" style="font-weight:600;margin-bottom:.25em;display:block;">Local News Link:</label>
+    <input type="text" id="localNews" style="width:100%;padding:.45em;margin-bottom:.5em;border:1px solid #ccc;border-radius:4px;">
+    <div style="margin-top:auto;font-size:.9em;color:#333;padding-top:.75em;"><a href="#comment" style="color:#0645AD;text-decoration:underline;">Please Leave a Comment</a></div>
   </div>
 </section>
+
 
 
 <!-- 🗽 U.S. News Block -->
@@ -1623,6 +1609,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
