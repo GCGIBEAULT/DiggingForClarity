@@ -119,6 +119,7 @@ function toggleReflection(event) {
     Quick Jump
   </p>
   <p style="font-size: 1em; color: #003366; line-height: 1.6; margin: 0;">
+   <a href="#weather" style="color: #003366; text-decoration: none;">Local Weather</a> |
     <a href="#ai" style="color: #003366; text-decoration: none;">AI</a> |
     <a href="#sports" style="color: #003366; text-decoration: none;">Sports</a> |
     <a href="#nfl" style="color: #003366; text-decoration: none;">NFL</a> |
@@ -187,10 +188,7 @@ function toggleReflection(event) {
 <section class="local-pair-wrap" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin-top: 2em; max-width: 960px; margin-left: auto; margin-right: auto;">
 
   <!-- 🌤️ Local Weather Block -->
-<div class="local-weather-block" style="background-color: #f4f1ec; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 1.75em; border-radius: 10px; border: 1px solid #ccc;">
-
-
-
+  <div id="weather" class="section local-weather-block" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; border: 1px solid #ccc;">
     <h3 style="color:#003366;">Local Weather</h3>
     <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
     <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
@@ -201,16 +199,12 @@ function toggleReflection(event) {
       <h4 style="color:#003366;">Need Directions or Flight Info?</h4>
       <p>Click below to launch your preferred traffic or flight tracker:</p>
       <div class="snippet" style="font-weight: bold;">
-        <a href="https://www.google.com/maps" target="_blank" style="color: #0645AD; text-decoration: underline;">Google Maps</a>
-        &nbsp;&nbsp;
-        <a href="https://www.waze.com" target="_blank" style="color: #0645AD; text-decoration: underline;">Waze</a>
-        &nbsp;&nbsp;
-        <a href="https://www.flightaware.com" target="_blank" style="color: #0645AD; text-decoration: underline;">FlightAware</a>
+        <a href="https://www.google.com/maps" class="weather-maps" target="_blank" rel="noopener noreferrer" style="color: #0645AD; text-decoration: underline;">Google Maps</a>&nbsp;&nbsp;
+        <a href="https://www.waze.com" class="weather-waze" target="_blank" rel="noopener noreferrer" style="color: #0645AD; text-decoration: underline;">Waze</a>&nbsp;&nbsp;
+        <a href="https://www.flightaware.com" class="weather-flightaware" target="_blank" rel="noopener noreferrer" style="color: #0645AD; text-decoration: underline;">FlightAware</a>
       </div>
     </div>
   </div>
-
-
 
 
   <!-- 🗞️ Local & State News Block -->
@@ -234,6 +228,8 @@ function toggleReflection(event) {
   </div>
 
 </section>
+
+
 <!-- 🔧 Comment Invitation Block Start -->
 <div class="section" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; font-family: Georgia, serif; display: flex; align-items: flex-start; gap: 2em; margin-top: 2em; max-width: 640px; margin-left: auto; margin-right: auto;">
   <!-- Logo on Left Margin -->
@@ -251,6 +247,7 @@ What you say matters and is welcome    </p>
   </div>
 </div>
 <!-- 🔧 Comment Invitation Block End -->
+
 
 
 <!-- 🗽 U.S. News Block -->
@@ -688,41 +685,46 @@ What you say matters and is welcome    </p>
 
 <!-- ==== NFL Standings — Timestamped and Modular ==== -->
 <section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.25em; border-radius: 8px;">
-  <h3 id="nfl" style="color:#003366;" title="Updated Friday, October 3, 2025 at 6:47 PM MDT">
+  <h3 id="nfl" style="color:#003366;" title="Updated Saturday, October 4, 2025 at 1:27 PM MDT">
     <a href="https://diggingforclarity.com/#nfl" target="_blank" style="color:#003366; text-decoration: none;">
       NFL Standings
     </a>
   </h3>
+
   <div style="display: flex; justify-content: space-between; flex-wrap: wrap; font-family: Georgia, serif; font-size: 1em; color: #222;">
+
     <!-- Column 1 -->
     <div style="flex: 0 0 48%;">
       <div style="margin-bottom: 1.5em;">
         <strong>AFC East</strong><br>
-        Buffalo Bills 3–1<br>
-        New England Patriots 2–2<br>
-        Miami Dolphins 1–3<br>
-        New York Jets 0–4
+        <span style="display: inline-block; width: 240px;">Buffalo Bills</span><span style="display: inline-block; width: 96px;">4–0</span><br>
+        <span style="display: inline-block; width: 240px;">New England Patriots</span><span style="display: inline-block; width: 96px;">2–2</span><br>
+        <span style="display: inline-block; width: 240px;">Miami Dolphins</span><span style="display: inline-block; width: 96px;">1–3</span><br>
+        <span style="display: inline-block; width: 240px;">New York Jets</span><span style="display: inline-block; width: 96px;">0–4</span>
       </div>
+
       <div style="margin-bottom: 1.5em;">
         <strong>AFC North</strong><br>
-        Pittsburgh Steelers 3–1<br>
-        Cincinnati Bengals 2–2<br>
-        Baltimore Ravens 1–3<br>
-        Cleveland Browns 1–3
+        <span style="display: inline-block; width: 240px;">Pittsburgh Steelers</span><span style="display: inline-block; width: 96px;">3–1</span><br>
+        <span style="display: inline-block; width: 240px;">Cincinnati Bengals</span><span style="display: inline-block; width: 96px;">2–2</span><br>
+        <span style="display: inline-block; width: 240px;">Baltimore Ravens</span><span style="display: inline-block; width: 96px;">1–3</span><br>
+        <span style="display: inline-block; width: 240px;">Cleveland Browns</span><span style="display: inline-block; width: 96px;">1–3</span>
       </div>
+
       <div style="margin-bottom: 1.5em;">
         <strong>AFC South</strong><br>
-        Indianapolis Colts 3–1<br>
-        Jacksonville Jaguars 3–1<br>
-        Houston Texans 1–3<br>
-        Tennessee Titans 0–4
+        <span style="display: inline-block; width: 240px;">Indianapolis Colts</span><span style="display: inline-block; width: 96px;">3–1</span><br>
+        <span style="display: inline-block; width: 240px;">Jacksonville Jaguars</span><span style="display: inline-block; width: 96px;">3–1</span><br>
+        <span style="display: inline-block; width: 240px;">Houston Texans</span><span style="display: inline-block; width: 96px;">1–3</span><br>
+        <span style="display: inline-block; width: 240px;">Tennessee Titans</span><span style="display: inline-block; width: 96px;">0–4</span>
       </div>
-      <div>
+
+      <div style="margin-bottom: 1.5em;">
         <strong>AFC West</strong><br>
-        Los Angeles Chargers 3–1<br>
-        Kansas City Chiefs 2–2<br>
-        Denver Broncos 2–2<br>
-        Las Vegas Raiders 1–3
+        <span style="display: inline-block; width: 240px;">Los Angeles Chargers</span><span style="display: inline-block; width: 96px;">3–1</span><br>
+        <span style="display: inline-block; width: 240px;">Kansas City Chiefs</span><span style="display: inline-block; width: 96px;">2–2</span><br>
+        <span style="display: inline-block; width: 240px;">Denver Broncos</span><span style="display: inline-block; width: 96px;">1–3</span><br>
+        <span style="display: inline-block; width: 240px;">Las Vegas Raiders</span><span style="display: inline-block; width: 96px;">1–3</span>
       </div>
     </div>
 
@@ -730,70 +732,72 @@ What you say matters and is welcome    </p>
     <div style="flex: 0 0 48%;">
       <div style="margin-bottom: 1.5em;">
         <strong>NFC East</strong><br>
-        Philadelphia Eagles 4–0<br>
-        Washington Commanders 2–2<br>
-        Dallas Cowboys 1–2–1<br>
-        New York Giants 1–3
+        <span style="display: inline-block; width: 240px;">Philadelphia Eagles</span><span style="display: inline-block; width: 96px;">4–0</span><br>
+        <span style="display: inline-block; width: 240px;">Dallas Cowboys</span><span style="display: inline-block; width: 96px;">2-1–1</span><br>
+        <span style="display: inline-block; width: 240px;">Washington Commanders</span><span style="display: inline-block; width: 96px;">2–2</span><br>
+        <span style="display: inline-block; width: 240px;">New York Giants</span><span style="display: inline-block; width: 96px;">1–3</span>
       </div>
+
       <div style="margin-bottom: 1.5em;">
         <strong>NFC North</strong><br>
-        Detroit Lions 3–1<br>
-        Green Bay Packers 2–1–1<br>
-        Minnesota Vikings 2–2<br>
-        Chicago Bears 2–2
+        <span style="display: inline-block; width: 240px;">Detroit Lions</span><span style="display: inline-block; width: 96px;">3–1</span><br>
+        <span style="display: inline-block; width: 240px;">Green Bay Packers</span><span style="display: inline-block; width: 96px;">2–1-1</span><br>
+        <span style="display: inline-block; width: 240px;">Minnesota Vikings</span><span style="display: inline-block; width: 96px;">2–2</span><br>
+        <span style="display: inline-block; width: 240px;">Chicago Bears</span><span style="display: inline-block; width: 96px;">2–2</span>
       </div>
+
       <div style="margin-bottom: 1.5em;">
         <strong>NFC South</strong><br>
-        Tampa Bay Buccaneers 3–1<br>
-        Atlanta Falcons 2–2<br>
-        Carolina Panthers 1–3<br>
-        New Orleans Saints 0–4
+        <span style="display: inline-block; width: 240px;">Tampa Bay Buccaneers</span><span style="display: inline-block; width: 96px;">3–1</span><br>
+        <span style="display: inline-block; width: 240px;">Atlanta Falcons</span><span style="display: inline-block; width: 96px;">2–2</span><br>
+        <span style="display: inline-block; width: 240px;">New Orleans Saints</span><span style="display: inline-block; width: 96px;">1–3</span><br>
+        <span style="display: inline-block; width: 240px;">Carolina Panthers</span><span style="display: inline-block; width: 96px;">0–4</span>
       </div>
-      <div>
+
+      <div style="margin-bottom: 1.5em;">
         <strong>NFC West</strong><br>
-        San Francisco 49ers 3–1<br>
-        Seattle Seahawks 3–1<br>
-        Los Angeles Rams 3–1<br>
-        Arizona Cardinals 2–2
+        <span style="display: inline-block; width: 240px;">San Francisco 49ers</span><span style="display: inline-block; width: 96px;">4–1</span><br>
+        <span style="display: inline-block; width: 240px;">Seattle Seahawks</span><span style="display: inline-block; width: 96px;">3–1</span><br>
+        <span style="display: inline-block; width: 240px;">Los Angeles Rams</span><span style="display: inline-block; width: 96px;">3–2</span><br>
+        <span style="display: inline-block; width: 240px;">Arizona Cardinals</span><span style="display: inline-block; width: 96px;">1–3</span>
       </div>
     </div>
   </div>
 </section>
 
 
+
+
 <!-- ==== Game Day — Week 5: National TV Broadcasts ==== -->
-<div class="section" style="margin-top: 2em;">
-  <h3 id="gameday" style="color:#003366; text-align: center;" title="Updated Wednesday, October 1, 2025 at 9:13 PM MDT">
-    <a href="https://diggingforclarity.com/#gameday" target="_blank" style="color:#003366; text-decoration: none;">Coverage varies by region. Check local listings.</a>
+<div class="section" id="gameday" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.5em; border-radius: 10px; border: 1px solid #ccc;">
+  <h3 style="color:#003366; font-size: 1.5em; font-weight: bold;">
+    Game Day
   </h3>
+  <p style="text-align: center; font-size: 0.95em; color: #003366;">
+    Coverage varies by region. Check local listings.
+  </p>
 
-  <div style="margin-top: 20px;">
-    <table style="margin: 0 auto; font-family: Georgia, serif; font-size: 1em; border-collapse: collapse;">
+  <br><br>
 
-      <tr>
-        <td style="padding: 4px 24px; text-align: left;">Vikings vs Browns</td>
-        <td style="padding: 4px 24px; text-align: center;">Sunday</td>
-        <td style="padding: 4px 24px; text-align: center;">9:30 AM ET</td>
-        <td style="padding: 4px 24px; text-align: right;">NFL Network Only</td>
-      </tr>
-      <tr><td colspan="4" style="text-align: center; padding: 12px 0;"><strong>Sunday Afternoon</strong></td></tr>
-      <tr><td style="padding: 4px 24px; text-align: left;">Texans vs Ravens</td><td style="padding: 4px 24px; text-align: center;">1:00 PM ET</td><td></td><td style="padding: 4px 24px; text-align: right;">CBS</td></tr>
-      <tr><td style="padding: 4px 24px; text-align: left;">Giants vs Saints</td><td style="padding: 4px 24px; text-align: center;">1:00 PM ET</td><td></td><td style="padding: 4px 24px; text-align: right;">CBS</td></tr>
-      <tr><td style="padding: 4px 24px; text-align: left;">Broncos vs Eagles</td><td style="padding: 4px 24px; text-align: center;">1:00 PM ET</td><td></td><td style="padding: 4px 24px; text-align: right;">CBS</td></tr>
-      <tr><td style="padding: 4px 24px; text-align: left;">Cowboys vs Jets</td><td style="padding: 4px 24px; text-align: center;">1:00 PM ET</td><td></td><td style="padding: 4px 24px; text-align: right;">FOX</td></tr>
-      <tr><td style="padding: 4px 24px; text-align: left;">Raiders vs Colts</td><td style="padding: 4px 24px; text-align: center;">1:00 PM ET</td><td></td><td style="padding: 4px 24px; text-align: right;">FOX</td></tr>
-      <tr><td style="padding: 4px 24px; text-align: left;">Dolphins vs Panthers</td><td style="padding: 4px 24px; text-align: center;">1:00 PM ET</td><td></td><td style="padding: 4px 24px; text-align: right;">FOX</td></tr>
-      <tr><td style="padding: 4px 24px; text-align: left;">Titans vs Cardinals</td><td style="padding: 4px 24px; text-align: center;">4:05 PM ET</td><td></td><td style="padding: 4px 24px; text-align: right;">CBS</td></tr>
-      <tr><td style="padding: 4px 24px; text-align: left;">Buccaneers vs Seahawks</td><td style="padding: 4px 24px; text-align: center;">4:05 PM ET</td><td></td><td style="padding: 4px 24px; text-align: right;">CBS</td></tr>
-      <tr><td style="padding: 4px 24px; text-align: left;">Lions vs Bengals</td><td style="padding: 4px 24px; text-align: center;">4:25 PM ET</td><td></td><td style="padding: 4px 24px; text-align: right;">FOX</td></tr>
-      <tr><td style="padding: 4px 24px; text-align: left;">Commanders vs Chargers</td><td style="padding: 4px 24px; text-align: center;">4:25 PM ET</td><td></td><td style="padding: 4px 24px; text-align: right;">FOX</td></tr>
-      <tr><td style="padding: 4px 24px; text-align: left;">Patriots vs Bills</td><td style="padding: 4px 24px; text-align: center;">8:20 PM ET</td><td></td><td style="padding: 4px 24px; text-align: right;">NBC</td></tr>
-    </table>
-
-<p style="text-align: center;">Chiefs vs Jaguars — 8:15 PM ET — ABC and ESPN</p>
-
-  </div>
+  <ul style="list-style-type: disc; padding-left: 1.5em; line-height: 1.6;">
+    <li>Vikings vs Browns — Sunday 9:30 AM ET — NFL Network Only</li>
+    <li>Texans vs Ravens — 1:00 PM ET — CBS</li>
+    <li>Giants vs Saints — 1:00 PM ET — CBS</li>
+    <li>Broncos vs Eagles — 1:00 PM ET — CBS</li>
+    <li>Cowboys vs Jets — 1:00 PM ET — FOX</li>
+    <li>Raiders vs Colts — 1:00 PM ET — FOX</li>
+    <li>Dolphins vs Panthers — 1:00 PM ET — FOX</li>
+    <li>Titans vs Cardinals — 4:05 PM ET — CBS</li>
+    <li>Buccaneers vs Seahawks — 4:05 PM ET — CBS</li>
+    <li>Lions vs Bengals — 4:25 PM ET — FOX</li>
+    <li>Commanders vs Chargers — 4:25 PM ET — FOX</li>
+    <li>Patriots vs Bills — 8:20 PM ET — NBC</li>
+    <li>Chiefs vs Jaguars — 8:15 PM ET — ABC and ESPN</li>
+  </ul>
 </div>
+
+
+
 
 
 <!-- ⚾ MLB National League Division Series -->
@@ -958,40 +962,51 @@ What you say matters and is welcome    </p>
 
 <!-- 🧾 Debt Ceiling Editorial — Full Width, Stacked Below -->
 <section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.5em; border-radius: 8px;">
-<h3 id="debtceiling" style="color:#003366;" title="Updated Tuesday, September 30, 2025 at 12:00 PM ET">
-  <a href="https://diggingforclarity.com/#debtceiling" target="_blank" style="color:#003366; text-decoration: none;">
-    The Debt Ceiling
-  </a>
-</h3>
+  <h3 id="debt-ceiling" style="color:#003366;" title="Updated Saturday, October 4, 2025 at 2:03 PM MDT">
+    <a href="https://diggingforclarity.com/#governance" target="_blank" style="color:#003366; text-decoration: none;">
+      Debt Ceiling
+    </a>
+  </h3>
 
-  <p style="line-height: 1.6; color: #444;">
-    You may notice a theme in the stories I choose. I stay neutral on the politics of the day—with one exception: the budget. Not mine. Not yours. But really, both ours.
+  <p style="font-family: Georgia, serif; font-size: 1em; color: #222;">
+    Senators are elected by the states they represent. Their job is to defend federal law and operate the country under budget constraints. That’s not optional. That’s the job. Just like any household, they’re supposed to spend what they have—not what they wish they had.
   </p>
-  <p style="line-height: 1.6; color: #444;">
-    The Federal Budget is the culprit. It’s the one Congress controls to fund the way of life we’ve all grown accustomed to. The one they use to pay our debt. The one they tap to send federal aid to nearly every state—because most couldn’t survive without it.
+
+  <p style="font-family: Georgia, serif; font-size: 1em; color: #222;">
+    But today, the Senate has authorized over <strong>$40 trillion</strong> in expenditures—money that doesn’t exist. They cut a dollar here and a dollar there, but those cuts are symbolic. In the latest budget talks, the only thing growing is the debt: another <strong>$2 trillion</strong> in spending they can’t pay for.
   </p>
-  <p style="line-height: 1.6; color: #444;">
-    Pick a state. Any state. Our tax dollars fund programs those states simply can’t afford on their own. In 2025, 20% of all federal revenue—the money Washington collects from taxes—goes out to aid all 50 states. I’ve done the math. That’s nearly $1 trillion a year.
+
+  <p style="font-family: Georgia, serif; font-size: 1em; color: #222;">
+    This is the Senate’s budget betrayal. They were hired to protect the states. To defend the Constitution. To pass budgets that reflect reality. Instead, they’ve become the last line of defense for a fantasy economy—one funded by borrowed money and political theater. If there was ever a moment for every single member of the Senate to resign, it’s now. They’re not doing the job. They’re doing the opposite.
   </p>
-  <p style="line-height: 1.6; color: #444;">
-    But here’s the illusion: most of that money is borrowed. The federal government doesn’t have it. It borrows it. And every time Congress raises the debt ceiling, it’s giving itself permission to borrow even more. That’s what the debt ceiling is. It’s not a budget. It’s a borrowing limit.
-  </p>
-  <p style="line-height: 1.6; color: #444;">
-    So when you hear that Congress is debating the debt ceiling, what they’re really debating is whether to keep borrowing money they don’t have to fund programs we all rely on. And if they don’t raise it? The government shuts down. Federal workers don’t get paid. Social Security checks stop. Military bases freeze. And the economy tanks.
-  </p>
-  <p style="line-height: 1.6; color: #444;">
-    That’s the illusion. The American Dream isn’t funded by taxes. It’s funded by debt. And the ceiling keeps rising.
+
+  <p style="font-family: Georgia, serif; font-size: 1em; color: #222;">
+    The debt ceiling isn’t a budget. It’s a borrowing limit. And every time they raise it, they’re giving themselves permission to spend money we don’t have. That’s not governance. That’s betrayal.
   </p>
 </section>
 
 
 
 <!-- 🔊 Make Noise: Enforcement Collapse -->
-<section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; font-family: Georgia, serif;">
-  <h3 id="make-noise" style="color:#003366; text-align: left;">Make Noise</h3>
-  <p style="color:#000000; font-size: 1.05em;">
-    I put <a href="https://diggingforclarity.com" target="_blank" style="color:#003366; text-decoration: none;">diggingforclarity.com</a> in a text to everyone in my phone for a beta test on the site. Net result: I don’t have enough numbers in my phone—and I heard from three old friends. That’s a win I’ll take. A couple thought it was spam. Didn’t think of that.<br><br>
-    This block, Make Noise, is here for you—for stuff like that. Got something to say? Say it. Right now you have a 90 percent chance of it appearing on the site. Maybe higher. My hope is those odds don’t last, so get it while it’s hot.
+<section class="section" style="margin-top: 2em; background-color: #f4f1ec; padding: 1.5em; border-radius: 8px;">
+  <h3 id="make-noise" style="color:#003366;" title="Updated Saturday, October 4, 2025 at 2:27 PM MDT">
+    <a href="https://diggingforclarity.com/#make-noise" target="_blank" style="color:#003366; text-decoration: none;">
+      Make Noise
+    </a>
+  </h3>
+
+  <p style="font-family: Georgia, serif; font-size: 1em; color: #222;">
+    If you’ve got something to say—say it. Right here. Right now. This is your space to speak up, call out contradictions, and demand clarity. Whether it’s budget betrayal, shutdown injustice, or something local that’s been ignored, your voice belongs in this block.
+  </p>
+
+  <p style="font-family: Georgia, serif; font-size: 1em; color: #222;">
+    <strong>Make some noise.</strong> Do it right here. Your comment won’t be buried. It won’t be filtered. It’ll be seen. And if it’s consequence-aware, it’ll be heard.
+  </p>
+
+  <p style="font-family: Georgia, serif; font-size: 1em; color: #222;">
+    <a href="https://docs.google.com/forms/d/1K1RNVIED1G_PNe8t0kAvHCrio_6hIlBky3sz8hJHZBo/viewform" target="_blank" style="color:#003366; text-decoration: underline;">
+      Leave a Comment
+    </a>
   </p>
 </section>
 
@@ -1654,6 +1669,52 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
