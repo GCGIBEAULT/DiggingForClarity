@@ -27,6 +27,7 @@
 **Oct 4, 2025** – Audited DFC Sandbox and confirmed full linkage to shared `style.css`. Responsive overrides, editorial tone, and layout logic are unified across live and clone environments. Sandbox edits reflect only upon GitHub commit. Editorial containment verified.
 **Oct 4, 2025** – Applied responsive override to `.local-pair-wrap`. Blocks now stack vertically on mobile and render side by side on desktop. No rewrap. No block loss. Editorial containment restored.
 **Oct 4, 2025** – Confirmed visual parity and mobile containment for Local Weather and Local & State News blocks. Anchor jump and Plausible goals operational. Deferred anchor and goal setup for other blocks until evening or Oct 5. Editorial tone and layout integrity preserved.
+** Oct 4, 2025 ** – Copilot failed to render Game Day block correctly. Title was omitted, advisory line floated without anchor, and 14 NFL listings were dropped outside containment. Block identity lost. Gregg rebuilt manually—restored title, spacing, and full containment. Emotional toll logged. Editorial trust breached.
 
 
 
