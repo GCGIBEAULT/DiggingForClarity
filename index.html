@@ -186,7 +186,8 @@ function toggleReflection(event) {
 <!-- 🧭 Local Weather + Local & State News Side-by-Side -->
 <section class="local-pair-wrap" style="display: flex; gap: 1.5em; max-width: 960px; margin: 2em auto;">
   <!-- 🌤️ Local Weather Block -->
-  <div id="weather" class="section local-weather-block" style="flex: 1; background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; border: 1px solid #ccc; display: flex; flex-direction: column; justify-content: space-between;">
+<div id="weather" class="section local-weather-block" style="flex: 1; background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; border: 1px solid #ccc; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px;">
+
     <h3 style="color:#003366;">Local Weather</h3>
     <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
     <input type="text" id="weatherLink" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
@@ -205,7 +206,8 @@ function toggleReflection(event) {
   </div>
 
   <!-- 🗞️ Local & State News Block -->
-  <div class="local-state-news-block" style="flex: 1; background-color: #f4f1ec; padding: 1.75em; border-radius: 10px; border: 1px solid #ccc; display: flex; flex-direction: column; justify-content: space-between;">
+<div class="local-state-news-block" style="flex: 1; background-color: #f4f1ec; padding: 1.75em; border-radius: 10px; border: 1px solid #ccc; display: flex; flex-direction: column; justify-content: space-between; min-height: 500px;">
+
     <h3 style="color:#003366;">Local & State News</h3>
     <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
     <label for="localNews" style="font-weight: bold;">Local News Link:</label>
@@ -1621,6 +1623,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
