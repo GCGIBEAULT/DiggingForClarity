@@ -21,6 +21,8 @@
 **Oct 4, 2025** – Restored container styling to Weather block—background, padding, border, radius. Matches editorial tone (`#f4f1ec`). No ripple into adjacent blocks.
 **Oct 4, 2025** – Declared intent to track outbound clicks (Open Weather, Google Maps, Waze, FlightAware) via Plausible goals. Engagement audit initiated.
 **Oct 4, 2025** – Confirmed anchor jump to `/#weather` works in Sandbox. No drift, no contradiction. Editorial trust preserved.
+**Oct 4, 2025** – Configured Plausible goals for Weather block engagement. Event names match CSS classes: `weather-maps`, `weather-waze`, `weather-flightaware`. Display names set for dashboard clarity. Revenue tracking disabled.
+**Oct 4, 2025** – Added Plausible goals for outbound clicks in Weather block. Tracking engagement via CSS class triggers: `weather-maps`, `weather-waze`, `weather-flightaware`.
 
 
 
