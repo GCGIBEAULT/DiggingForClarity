@@ -23,6 +23,7 @@
 **Oct 4, 2025** – Confirmed anchor jump to `/#weather` works in Sandbox. No drift, no contradiction. Editorial trust preserved.
 **Oct 4, 2025** – Configured Plausible goals for Weather block engagement. Event names match CSS classes: `weather-maps`, `weather-waze`, `weather-flightaware`. Display names set for dashboard clarity. Revenue tracking disabled.
 **Oct 4, 2025** – Added Plausible goals for outbound clicks in Weather block. Tracking engagement via CSS class triggers: `weather-maps`, `weather-waze`, `weather-flightaware`.
+**Oct 4, 2025** – Replaced static grid in `.local-pair-wrap` with responsive layout. Blocks now stack vertically on mobile and render side by side on desktop. Editorial containment restored.
 
 
 
