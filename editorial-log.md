@@ -24,6 +24,8 @@
 **Oct 4, 2025** – Configured Plausible goals for Weather block engagement. Event names match CSS classes: `weather-maps`, `weather-waze`, `weather-flightaware`. Display names set for dashboard clarity. Revenue tracking disabled.
 **Oct 4, 2025** – Added Plausible goals for outbound clicks in Weather block. Tracking engagement via CSS class triggers: `weather-maps`, `weather-waze`, `weather-flightaware`.
 **Oct 4, 2025** – Replaced static grid in `.local-pair-wrap` with responsive layout. Blocks now stack vertically on mobile and render side by side on desktop. Editorial containment restored.
+**Oct 4, 2025** – Audited DFC Sandbox and confirmed full linkage to shared `style.css`. Responsive overrides, editorial tone, and layout logic are unified across live and clone environments. Sandbox edits reflect only upon GitHub commit. Editorial containment verified.
+**Oct 4, 2025** – Applied responsive override to `.local-pair-wrap`. Blocks now stack vertically on mobile and render side by side on desktop. No rewrap. No block loss. Editorial containment restored.
 
 
 
