@@ -231,7 +231,23 @@ function toggleReflection(event) {
   </div>
 
 </section>
+<!-- 🔧 Comment Invitation Block Start -->
+<div class="section" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; font-family: Georgia, serif; display: flex; align-items: flex-start; gap: 2em; margin-top: 2em; max-width: 640px; margin-left: auto; margin-right: auto;">
+  <!-- Logo on Left Margin -->
+  <div style="flex: 0 0 auto;">
+    <img src="new_logo.png" alt="Digging For Clarity Logo" style="height: 96px; object-fit: contain;">
+  </div>
 
+  <!-- Left-Aligned Text Block -->
+  <div style="flex: 1;">
+    <p style="font-size: 1.1em; font-weight: bold; color: #003366; margin: 0;">
+What you say matters and is welcome    </p>
+    <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd4mYAENWhXzujGgvhFDF_LWXi_Du_Y1ITqgv_A4_AWSOHUxQ/viewform?usp=dialog', '_blank')" style="margin-top: 1em; padding: 0.6em 1.2em; background-color: #003366; color: #ffffff; font-family: Georgia, serif; font-size: 1em; border-radius: 4px; border: none; cursor: pointer;">
+      Pleae Leave a Comment
+    </button>
+  </div>
+</div>
+<!-- 🔧 Comment Invitation Block End -->
 
 
 <!-- 🗽 U.S. News Block -->
@@ -1499,26 +1515,6 @@ function renderLocalNews(snippets, reason = "") {
       .catch(err => console.error('Service worker error:', err));
   }
 </script>
-<!-- 🔧 Comment Invitation Block Start -->
-<div class="section" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; font-family: Georgia, serif; display: flex; align-items: flex-start; gap: 2em; margin-top: 2em; max-width: 640px; margin-left: auto; margin-right: auto;">
-  <!-- Logo on Left Margin -->
-  <div style="flex: 0 0 auto;">
-    <img src="new_logo.png" alt="Digging For Clarity Logo" style="height: 96px; object-fit: contain;">
-  </div>
-
-  <!-- Left-Aligned Text Block -->
-  <div style="flex: 1;">
-    <p style="font-size: 1.1em; font-weight: bold; color: #003366; margin: 0;">
-      Your comments are needed and welcome
-    </p>
-    <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd4mYAENWhXzujGgvhFDF_LWXi_Du_Y1ITqgv_A4_AWSOHUxQ/viewform?usp=dialog', '_blank')" style="margin-top: 1em; padding: 0.6em 1.2em; background-color: #003366; color: #ffffff; font-family: Georgia, serif; font-size: 1em; border-radius: 4px; border: none; cursor: pointer;">
-      Leave a Comment
-    </button>
-  </div>
-</div>
-<!-- 🔧 Comment Invitation Block End -->
-
-
 
 <!-- 🔧 Footer Copyright Block Start -->
 <div style="background-color: #f4f1ec; padding: 1.2em; border-radius: 8px; font-family: Georgia, serif; text-align: center; max-width: 640px; margin: 2em auto;">
@@ -1652,6 +1648,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
