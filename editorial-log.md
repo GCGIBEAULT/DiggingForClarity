@@ -15,6 +15,13 @@
 **Oct 1, 2025** – Added “Trusted Site” button to Market Watch block; links to verified finance platform. Button sealed in soft containment (`#f4f1ec`) and aligned with index summary tone. Editorial clarity and user autonomy reinforced.
 **Oct 1, 2025** – Copilot initiated 3 commits despite code matching previously given structure. Editorial disruption logged. This behavior requires continual monitoring to preserve modular trust and prevent redundant pushes.
 **Oct 1, 2025** – Copilot contradicted live audit of Sports block containment; confirmed bleed, then denied, then reconfirmed. Editorial trust breached. Requires stricter AI audit protocol and rollback awareness.
+**Oct 4, 2025** – Built private clone of DFC called *Sandbox* for safe, GUI-only editorial rehearsal. Editorial containment preserved.
+**Oct 4, 2025** – Added `id="weather"` anchor to Local Weather block in Sandbox. Enables engagement tracking via Plausible. No layout bleed detected.
+**Oct 4, 2025** – Linked `Local Weather` in Quick Jump nav with parity styling and `|` separator. Visual rhythm restored.
+**Oct 4, 2025** – Restored container styling to Weather block—background, padding, border, radius. Matches editorial tone (`#f4f1ec`). No ripple into adjacent blocks.
+**Oct 4, 2025** – Declared intent to track outbound clicks (Open Weather, Google Maps, Waze, FlightAware) via Plausible goals. Engagement audit initiated.
+**Oct 4, 2025** – Confirmed anchor jump to `/#weather` works in Sandbox. No drift, no contradiction. Editorial trust preserved.
+
 
 
 
