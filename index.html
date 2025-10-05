@@ -1812,9 +1812,11 @@ function openFinanceLink() {
   }
 </script>
 <script>
-  function openLocalNews() {
+  function openLocalNews(button) {
     const url = document.getElementById("localNewsClone").value;
     if (url) {
+      button.classList.add("blink");
+      setTimeout(() => button.classList.remove("blink"), 300);
       window.open(url, "_blank");
     } else {
       alert("Please enter a valid Local News URL.");
@@ -1828,6 +1830,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
