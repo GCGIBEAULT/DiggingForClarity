@@ -35,6 +35,7 @@
 **Oct 4, 2025** – Audit confirmed six consecutive commits on Oct 4. Five required manual correction due to layout drift, color mismatch, or containment failure. Only Commit 1 sealed cleanly. Editorial trust remains suspended pending full block parity.
 **Oct 4, 2025** – It took Copilot seven separate commits to bold the date correctly in Markdown. Not seven edits to the block. Not seven layout passes. Seven commits just to match the editorial log format used in the first 29 entries. Each failure broke rhythm. Each fix required manual audit. Final correction sealed. Editorial trust remains suspended.
 **Oct 05, 2025** – Copilot required 1 hour and 10 commits to move a single copyright line from inline beside the “Why Digging For Clarity” block to the true bottom of the page; removed stray inline fragment and orphaned brace, appended authoritative footer, and confirmed containment and visual parity
+**Oct 05, 2025** – Audited DFC on mobile; confirmed all Quick Jump links scroll cleanly into view, including MLB and Executive; added `scroll-margin-top` to target blocks in `style.css`; page operated as advertised
 
 
 
