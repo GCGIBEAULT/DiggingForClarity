@@ -1793,6 +1793,12 @@ document.addEventListener('DOMContentLoaded', function () {
   f.style.textAlign = 'center';
 });
 </script>
+<script>
+  function openLocalNews() {
+    const url = document.getElementById("localNewsInput").value;
+    if (url) window.open(url, "_blank");
+  }
+</script>
 
 
 <!-- Leave these as-is -->
@@ -1800,6 +1806,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
