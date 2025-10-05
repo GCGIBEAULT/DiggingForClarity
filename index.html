@@ -221,7 +221,7 @@ function toggleReflection(event) {
 </section>
 
 <!-- 🔧 Comment Invitation Block Start -->
-<div class="section" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; font-family: Georgia, serif; display: flex; align-items: flex-start; gap: 2em; margin-top: 2em; max-width: 640px; margin-left: auto; margin-right: auto;">
+<div class="section dfc-comment-invite" style="background-color: #f4f1ec; padding: 1.5em; border-radius: 8px; font-family: Georgia, serif; display: flex; align-items: flex-start; gap: 2em; margin-top: 2em; max-width: 640px; margin-left: auto; margin-right: auto;">
   <!-- Logo on Left Margin -->
   <div style="flex: 0 0 auto;">
     <img src="new_logo.png" alt="Digging For Clarity Logo" style="height: 96px; object-fit: contain;">
@@ -229,15 +229,15 @@ function toggleReflection(event) {
 
   <!-- Left-Aligned Text Block -->
   <div style="flex: 1;">
-    <p style="font-size: 1.1em; font-weight: bold; color: #003366; margin: 0;">
-What you say matters and is welcome    </p>
-    <button class="dfc-pulse dfc-open" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd4mYAENWhXzujGgvhFDF_LWXi_Du_Y1ITqgv_A4_AWSOHUxQ/viewform?usp=dialog', '_blank')">Please Leave a Comment</button>
-
-      Please Leave a Comment
-    </button>
+    <p style="font-size: 1.1em; font-weight: bold; color: #003366; margin: 0;">What you say matters and is welcome</p>
+    <p style="margin: 0.6em 0 0 0; color: #222;">Please Leave a Comment</p>
+    <div style="margin-top: 0.6em;">
+      <button class="dfc-pulse dfc-open" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSd4mYAENWhXzujGgvhFDF_LWXi_Du_Y1ITqgv_A4_AWSOHUxQ/viewform?usp=dialog', '_blank')">Please Leave a Comment</button>
+    </div>
   </div>
 </div>
 <!-- 🔧 Comment Invitation Block End -->
+
 
 
 
@@ -1888,6 +1888,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
