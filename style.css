@@ -986,3 +986,10 @@ html, body {
   color: #003366;
 }
 
+button {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 16px;
+  max-width: 200px;
+  white-space: nowrap;
+}
