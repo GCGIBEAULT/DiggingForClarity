@@ -1032,25 +1032,31 @@ button.dfc-open:focus {
   30%  { box-shadow: 0 6px 18px -6px rgba(0,85,170,0.18); }
   100% { box-shadow: 0 0 0 0 rgba(0,85,170,0); }
 }
-/* DFC comment CTA pulse */
+/* DFC comment CTA pulse — no hard background so it inherits shared dfc-open styles */
 button.dfc-pulse, a.dfc-pulse {
   cursor: pointer;
   display: inline-block;
   transition: transform 120ms ease, box-shadow 220ms ease, background-color 160ms;
-  background-color: #8b0000;
   color: #fff;
   padding: 0.5em 0.9em;
   border-radius: 6px;
   border: none;
   text-decoration: none;
+  background-color: transparent; /* let dfc-open set the color */
 }
 
+/* when dfc-pulse is used together with dfc-open the base color comes from dfc-open */
+button.dfc-pulse.dfc-open, a.dfc-pulse.dfc-open {
+  background-color: #003366;
+}
+
+/* hover/pulse only; color change uses dfc-open hover if present */
 button.dfc-pulse:hover, a.dfc-pulse:hover {
   transform: translateY(-2px);
   animation: dfc-comment-pulse 0.5s ease-in-out 1;
-  background-color: #a30000;
 }
 
+/* focus for keyboard users */
 button.dfc-pulse:focus, a.dfc-pulse:focus {
   outline: 3px solid rgba(163,0,0,0.18);
   outline-offset: 2px;
