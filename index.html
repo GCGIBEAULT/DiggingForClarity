@@ -1576,15 +1576,6 @@ function renderLocalNews(snippets, reason = "") {
   }
 </script>
 
-<!-- 🔧 Footer Copyright Block Start -->
-<div style="background-color: #f4f1ec; padding: 1.2em; border-radius: 8px; font-family: Georgia, serif; text-align: center; max-width: 640px; margin: 2em auto;">
-  <p style="font-size: 0.95em; color: #444; margin: 0;">
-    © 2025 Digging For Clarity. All rights reserved. Editorially sealed, consequence-aware, and built with love.
-  </p>
-</div>
-<!-- 🔧 Footer Copyright Block End -->
-
-
 <script>
   function getMountainTimeStamp() {
     const now = new Date();
@@ -1761,6 +1752,21 @@ function openFinanceLink() {
   window.__plausibleQueue = plausibleQueue;
 })();
 </script>
+<footer id="dfc-footer" style="width:100%;text-align:center;font-family:Georgia,serif;font-size:0.95em;color:#444;margin-top:3rem;padding:2rem 1rem;clear:both;display:block;">
+  © 2025 Digging For Clarity. All rights reserved. Editorially sealed, consequence-aware, and built with love.
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var f = document.getElementById('dfc-footer');
+  if (!f) return;
+  document.body.appendChild(f);
+  f.style.display = 'block';
+  f.style.clear = 'both';
+  f.style.width = '100%';
+  f.style.textAlign = 'center';
+});
+</script>
 
 
 <!-- Leave these as-is -->
@@ -1768,6 +1774,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
