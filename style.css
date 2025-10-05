@@ -993,3 +993,12 @@ button {
   max-width: 200px;
   white-space: nowrap;
 }
+.blink {
+  animation: blink-animation 0.3s ease-in-out;
+}
+
+@keyframes blink-animation {
+  0%   { background-color: #003366; }
+  50%  { background-color: #0055aa; }
+  100% { background-color: #003366; }
+}
