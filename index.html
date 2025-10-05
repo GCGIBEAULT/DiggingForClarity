@@ -1783,9 +1783,12 @@ function openFinanceLink() {
   © 2025 Digging For Clarity. All rights reserved. Editorially sealed, consequence-aware, and built with love.
 </footer>
 
+
+
+
 <script>
   function openLocalNews() {
-    const url = document.getElementById("localNewsInput").value;
+    const url = document.getElementById("localNewsClone").value;
     if (url) {
       window.open(url, "_blank");
     } else {
@@ -1794,7 +1797,7 @@ function openFinanceLink() {
   }
 
   function openStateNews() {
-    const url = document.getElementById("stateNewsInput").value;
+    const url = document.getElementById("stateNewsClone").value;
     if (url) {
       window.open(url, "_blank");
     } else {
@@ -1803,7 +1806,7 @@ function openFinanceLink() {
   }
 
   function openWeather() {
-    const url = document.getElementById("weatherInput").value;
+    const url = document.getElementById("weatherLinkClone").value;
     if (url) {
       window.open(url, "_blank");
     } else {
@@ -1811,18 +1814,7 @@ function openFinanceLink() {
     }
   }
 </script>
-<script>
-  function openLocalNews(button) {
-    const url = document.getElementById("localNewsClone").value;
-    if (url) {
-      button.classList.add("blink");
-      setTimeout(() => button.classList.remove("blink"), 300);
-      window.open(url, "_blank");
-    } else {
-      alert("Please enter a valid Local News URL.");
-    }
-  }
-</script>
+
 
 
 <!-- Leave these as-is -->
@@ -1830,6 +1822,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
