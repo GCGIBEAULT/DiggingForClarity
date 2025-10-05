@@ -209,7 +209,8 @@ function toggleReflection(event) {
   <label for="localNewsClone" style="font-weight: bold;">Local News Link:</label>
   <input type="text" id="localNewsClone" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
   <div style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-  <button style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
+<button onclick="openLocalNews()" style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
+
   <label for="stateNewsClone" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
   <input type="text" id="stateNewsClone" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
   <div style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
@@ -1810,6 +1811,16 @@ function openFinanceLink() {
     }
   }
 </script>
+<script>
+  function openLocalNews() {
+    const url = document.getElementById("localNewsClone").value;
+    if (url) {
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid Local News URL.");
+    }
+  }
+</script>
 
 
 <!-- Leave these as-is -->
@@ -1817,6 +1828,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
