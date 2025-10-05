@@ -972,4 +972,7 @@ html, body {
     grid-template-columns: 1fr !important;
   }
 }
+#weather, #ai, #sports, #nfl, #mlb, #congress, #exec, #governance, #veterans, #global, #market, #make-noise, #favorites, #history {
+  scroll-margin-top: 80px;
+}
 
