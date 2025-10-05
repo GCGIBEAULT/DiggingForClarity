@@ -1815,6 +1815,70 @@ function openFinanceLink() {
   }
 </script>
 
+<script>
+  // IDs must match your inputs
+  const IDS = {
+    local: 'localNewsClone',
+    state: 'stateNewsClone',
+    weather: 'weatherLinkClone'
+  };
+
+  // Restore saved values on load
+  window.addEventListener('DOMContentLoaded', () => {
+    Object.values(IDS).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        const saved = localStorage.getItem('dfc:' + id);
+        if (saved) el.value = saved;
+      }
+    });
+  });
+
+  // Save helper
+  function saveField(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (el.value && el.value.trim()) {
+      localStorage.setItem('dfc:' + id, el.value.trim());
+    } else {
+      localStorage.removeItem('dfc:' + id);
+    }
+  }
+
+  // Replace existing openX functions with these (no-op change to signature)
+  function openLocalNews() {
+    saveField(IDS.local);
+    const url = document.getElementById(IDS.local).value;
+    if (url) window.open(url, '_blank'); else alert('Please enter a valid Local News URL.');
+  }
+
+  function openStateNews() {
+    saveField(IDS.state);
+    const url = document.getElementById(IDS.state).value;
+    if (url) window.open(url, '_blank'); else alert('Please enter a valid State News URL.');
+  }
+
+  function openWeather() {
+    saveField(IDS.weather);
+    const url = document.getElementById(IDS.weather).value;
+    if (url) window.open(url, '_blank'); else alert('Please enter a valid Weather URL.');
+  }
+
+  // Optional: save live as the user types (adds resilience)
+  window.addEventListener('DOMContentLoaded', () => {
+    Object.values(IDS).forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('input', () => saveField(id));
+      // keep Enter key behavior consistent
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+        }
+      });
+    });
+  });
+</script>
 
 
 <!-- Leave these as-is -->
@@ -1822,6 +1886,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
