@@ -1783,20 +1783,31 @@ function openFinanceLink() {
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  var f = document.getElementById('dfc-footer');
-  if (!f) return;
-  document.body.appendChild(f);
-  f.style.display = 'block';
-  f.style.clear = 'both';
-  f.style.width = '100%';
-  f.style.textAlign = 'center';
-});
-</script>
-<script>
   function openLocalNews() {
     const url = document.getElementById("localNewsInput").value;
-    if (url) window.open(url, "_blank");
+    if (url) {
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid Local News URL.");
+    }
+  }
+
+  function openStateNews() {
+    const url = document.getElementById("stateNewsInput").value;
+    if (url) {
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid State News URL.");
+    }
+  }
+
+  function openWeather() {
+    const url = document.getElementById("weatherInput").value;
+    if (url) {
+      window.open(url, "_blank");
+    } else {
+      alert("Please enter a valid Weather URL.");
+    }
   }
 </script>
 
@@ -1806,6 +1817,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
