@@ -87,15 +87,20 @@
 
 
           <div id="lines" style="margin-top:8px"></div>
+<ul id="billList" style="list-style:none;padding:0;margin:0;">
+  <li>
+    <input type="text" placeholder="New item" style="width:140px;">
+    $<input type="number" value="0" style="width:60px;"> ➕ ✕
+  </li>
+</ul>
 
-          <div style="display:flex;gap:8px;margin-top:10px;justify-content:space-between">
-            <div style="display:flex;gap:8px">
-              <button class="btn" onclick="addLine()">+ Add line</button>
+<div style="display:flex;gap:8px;margin-top:10px;justify-content:space-between">
+  <div style="display:flex;gap:8px">
+    <button class="btn" onclick="addLine()">+ Add line</button>
+  </div>
+</div>
 
-            </div>
-
-          </div>
-        </div>
+        </div> 
       </div>
     </main>
 
@@ -193,6 +198,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 </body>
 </html>
+
 
 
 
