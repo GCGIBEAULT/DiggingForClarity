@@ -83,14 +83,21 @@
           </div>
 
 <div style="display:flex;gap:8px;align-items:center;">
-  <input type="number" id="incomeInput" value="1800" style="width:80px;height:32px;">
+<input type="number" id="incomeInput" value="1800" style="width: 80px; height: 32px;">
+
+<div style="display:flex;gap:12px;align-items:center;margin-top:8px">
+  <div class="small">Income <span id="incomeVal">$0</span></div>
+  <div class="small">Expenses <span id="expensesVal">$0</span></div>
+  <div class="small">Leftover <span id="leftoverVal">$0</span></div>
+  <div class="small">Per day <span id="perDayVal">$0/day</span></div>
 </div>
 
-<div style="display:flex;gap:8px;margin-top:10px;justify-content:space-between">
-  <div style="display:flex;gap:8px">
+<div style="display: flex; gap: 8px; margin-top: 10px; justify-content: space-between">
+  <div style="display: flex; gap: 8px">
     <button class="btn" onclick="addLine()">+ Add line</button>
   </div>
 </div>
+
 
     <footer>
       <div class="small">Private workspace • Local-first testing • Your backup is safe</div>
@@ -196,6 +203,7 @@ function addLine(){
 </script>
 </body>
 </html>
+
 
 
 
