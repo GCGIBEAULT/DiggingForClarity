@@ -13,7 +13,53 @@
 2.  Cue
 3. Logo Wrapper
 4. Weather Grid
-5. Forecast Icons
+5. Forecast<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Digging For Clarity — Private Lab</title>
+  <link rel="icon" href="footer_logo.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root{--bg:#f6f7f9;--card:#fff;--accent:#003366;--muted:#6b7280}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Georgia,serif;background:var(--bg);margin:0;color:#0b1220}
+    .wrap{max-width:960px;margin:0 auto;padding:20px}
+    .masthead{text-align:center;margin-top:28px}
+    .masthead h1{font-family:Georgia,serif;color:var(--accent);font-size:2.4rem;margin:0}
+    .masthead p{color:var(--muted);margin:6px 0 18px}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:900px){ .grid{grid-template-columns:1fr 420px} }
+    .card{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 4px 14px rgba(7,12,20,0.06)}
+    .small{font-size:0.95rem;color:var(--muted)}
+    .btn{background:var(--accent);color:#fff;padding:8px 12px;border:0;border-radius:8px}
+    #budgetRoot{min-height:220px;display:flex;flex-direction:column;gap:8px}
+    .paytabs{display:flex;gap:8px}
+    .tab{flex:1;padding:10px;border-radius:8px;text-align:center;background:#f0f4f8;color:#254a68;font-weight:700}
+    .tab.active{background:var(--accent);color:#fff}
+    .line{display:flex;gap:8px;align-items:center;padding:8px;border-radius:8px;background:#fbfdff}
+    .line input{border:0;background:transparent;outline:none;font-size:15px}
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:0.95rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="masthead">
+      <h1>Digging For Clarity</h1>
+      <p class="small">Drama-free news, weather, and community updates with modular clarity.</p>
+    </header>
+
+    <section class="grid" aria-label="Top columns">
+      <div class="card" id="weatherCard" aria-labelledby="weatherHeading">
+        <h3 id="weatherHeading" style="margin:0;color:var(--accent)">Local Weather</h3>
+        <p class="small" style="margin:8px 0 10px">Paste your preferred weather link below and open with one tap.</p>
+        <input id="weatherLink" type="text" placeholder="https://your.weather.link" style="width:100%;padding:8px;border-radius:6px;border:1px solid #ddd">
+        <div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end">
+          <button class="btn" onclick="openWeather()">Open Weather</button>
+        </div>
+      </div>
+
+      <div class="card" id="newsCard" aria-labelledby="newsHeading"> Icons
 =================== -->
 <title>Digging For Clarity</title>
 <link rel="icon" href="footer_logo.png" type="image/png">
@@ -1462,6 +1508,7 @@ function openFinanceLink() {
 <script src="/js/editor.js" defer></script>
 </body>
 </html>
+
 
 
 
