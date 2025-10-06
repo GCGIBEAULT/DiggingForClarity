@@ -200,63 +200,14 @@ function render(){
   renderTotals();
 }
 function renderTotals(){
-  const pay = state.paychecks[state.active];
-  const income = Number(pay.income)||0;
-  const expenses = pay.lines.reduce((s,l)=>s + (Number(l.amount)||0),0);
-  $('#expensesVal').textContent = '$' + Math.round(expenses);
-  const leftover = income - expenses;
-  $('#leftoverVal').textContent = '$' + Math.round(leftover);
-  $('#perDayVal').textContent = '$' + Math.round(leftover/15) + '/day';
-  saveState();
-}
-function addLine(){
-  const id = 'n' + Date.now();
-  state.paychecks[state.active].lines.push({id,name:'New item',amount:0,type:'offline',vendor_url:''});
-  saveState(); render();
-}
-function switchPay(p){ state.active = p; document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.pay===p)); render(); }
-function exportSnapshot(){
-  const pay = state.paychecks[state.active];
-  const snap = {payId:state.active, income:pay.income, lines:pay.lines, created:new Date().toISOString()};
-  const blob = new Blob([JSON.stringify(snap,null,2)],{type:'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href=url; a.download = `snapshot_${state.active}.json`; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-}
-function escape(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
-function openWeather(){ const el = document.getElementById('weatherLink'); const url = el.value && el.value.trim(); if(!url){ alert('Enter a valid weather URL first.'); return; } localStorage.setItem('dfc:weather',url); window.open(url,'_blank'); }
-function openLocalNews(){ const el = document.getElementById('localNews'); const url = el.value && el.value.trim(); if(!url){ alert('Enter a valid local news URL first.'); return; } localStorage.setItem('dfc:local',url); window.open(url,'_blank'); }
 
-document.addEventListener('DOMContentLoaded',()=>{
-  const savedWeather = localStorage.getItem('dfc:weather'); if(savedWeather) document.getElementById('weatherLink').value = savedWeather;
-  const savedLocal = localStorage.getItem('dfc:local'); if(savedLocal) document.getElementById('localNews').value = savedLocal;
-  document.getElementById('incomeVal').addEventListener('click', ()=>{
-    const pay = state.paychecks[state.active];
-    const v = prompt('Edit income for this paycheck', pay.income);
-    if(v!==null){ pay.income = Number(v)||0; saveState(); render(); }
-  });
-  render();
-});
- // Make Total Income editable in-place; user can enter household total directly
-(function(){
-  const incomeEl = document.getElementById('incomeVal');
-  if(!incomeEl) return;
-  incomeEl.addEventListener('click', ()=>{
-    const pay = state && state.paychecks && state.paychecks[state.active];
-    const current = pay ? Number(pay.income) || 0 : 0;
-    const v = prompt('Enter total income for this pay period (include household total if shared)', current);
-    if(v !== null && pay){
-      pay.income = Number(v) || 0;
-      saveState();
-      render();
-    }
-  });
-})();
  
 </script>
 
   
 </body>
 </html>
+
 
 
 
