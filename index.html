@@ -64,7 +64,40 @@
       <p class="small">Drama-free news, weather, and community updates with modular clarity.</p>
     </header>
 
-    <div class="card" id="primaryCard">
+    <div class="card" id="weatherCard" style="margin-top:24px;">
+      <h2 style="margin:0 0 8px;color:var(--accent)">Weather Snapshot</h2>
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li style="margin-bottom:6px;">Burlington: 62°F, partly cloudy</li>
+        <li style="margin-bottom:6px;">Montpelier: 58°F, light rain</li>
+        <li style="margin-bottom:6px;">Rutland: 60°F, foggy</li>
+        <li style="margin-bottom:6px;">Stowe: 54°F, snow flurries</li>
+      </ul>
+      <p class="small" style="margin-top:8px;">Updated hourly • Source: NWS</p>
+    </div>
+
+    <div class="card" id="newsCard" style="margin-top:24px;">
+      <h2 style="margin:0 0 8px;color:var(--accent)">News Highlights</h2>
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li style="margin-bottom:6px;">DNA breakthrough solves 1992 cold case in Barre</li>
+        <li style="margin-bottom:6px;">Congress debates military pay parity during shutdown</li>
+        <li style="margin-bottom:6px;">Local builders rally to restore flood-damaged homes</li>
+        <li style="margin-bottom:6px;">Vermont launches privacy-first broadband initiative</li>
+      </ul>
+      <p class="small" style="margin-top:8px;">Curated for clarity • No paywalls, no pop-ups</p>
+    </div>
+
+    <div class="card" id="rhythmCard" style="margin-top:24px;">
+      <h2 style="margin:0 0 8px;color:var(--accent)">First and 15th Rhythm</h2>
+      <ul style="list-style:none;padding:0;margin:0;">
+        <li style="margin-bottom:6px;">Oct 1: Rent, insurance, utilities</li>
+        <li style="margin-bottom:6px;">Oct 15: Groceries, gas, subscriptions</li>
+        <li style="margin-bottom:6px;">Export snapshot before each cycle</li>
+        <li style="margin-bottom:6px;">Import previous cycle to audit drift</li>
+      </ul>
+      <p class="small" style="margin-top:8px;">Mapped to real pay periods • Editorially contained</p>
+    </div>
+
+    <div class="card" id="primaryCard" style="margin-top:24px;">
       <h2 style="margin:0 0 8px;color:var(--accent)">IOIOIO Budget Starter</h2>
       <div id="budgetRoot"></div>
     </div>
@@ -104,15 +137,10 @@
       state.lines.forEach(line => {
         const el = document.createElement('div');
         el.className = 'billLine';
-        el.style = 'display:flex;gap:8px;align-items:center;flex-wrap:wrap;';
+        el.style = 'display:flex;gap:8px;align-items:center;';
         el.innerHTML = `
-          <input type="text" class="name" value="${line.name}" style="width:20%;" />
-          <input type="number" class="amt" value="${line.amount}" style="width:15%;" />
-          <select class="type" style="width:15%;">
-            <option value="offline" ${line.type === 'offline' ? 'selected' : ''}>Offline</option>
-            <option value="auto" ${line.type === 'auto' ? 'selected' : ''}>Auto</option>
-          </select>
-          <input type="date" class="transDate" value="${line.trans_date || ''}" style="width:20%;" />
+          <input type="text" class="name" value="${line.name}" style="width:30%;" />
+          <input type="number" class="amt" value="${line.amount}" style="width:20%;" />
           <button class="urlBtn">➕</button>
           <button class="rem">✕</button>
         `;
@@ -127,16 +155,6 @@
           line.amount = Number(e.target.value) || 0;
           saveState();
           renderTotals();
-        });
-
-        el.querySelector('.type').addEventListener('change', e => {
-          line.type = e.target.value;
-          saveState();
-        });
-
-        el.querySelector('.transDate').addEventListener('change', e => {
-          line.trans_date = e.target.value;
-          saveState();
         });
 
         el.querySelector('.urlBtn').addEventListener('click', () => {
@@ -188,13 +206,7 @@
     }
 
     function addLine() {
-      state.lines.push({
-        name: 'New item',
-        amount: 0,
-        type: 'offline',
-        trans_date: '',
-        vendor_url: ''
-      });
+      state.lines.push({ name: 'New item', amount: 0, vendor_url: '' });
       saveState();
       render();
     }
@@ -223,3 +235,8 @@
   </script>
 </body>
 </html>
+
+  </script>
+</body>
+</html>
+
