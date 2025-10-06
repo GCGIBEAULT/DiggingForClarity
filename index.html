@@ -156,11 +156,7 @@ function renderTotals(){
   $('#perDayVal').textContent = '$' + Math.round(leftover/15) + '/day';
   saveState();
 }
-function addLine(){
-  const id = 'n' + Date.now();
-  state.paychecks[state.active].lines.push({id,name:'New item',amount:0,type:'offline',vendor_url:''});
-  saveState(); render();
-}
+del
 function switchPay(p){ state.active = p; document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.pay===p)); render(); }
 function exportSnapshot(){
   const pay = state.paychecks[state.active];
@@ -183,11 +179,24 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
   render();
 });
+function addLine(){
+  const id = 'n' + Date.now();
+  state.paychecks[state.active].lines.push({
+    id,
+    name: 'New item',
+    amount: 0,
+    type: 'offline',
+    vendor_url: ''
+  });
+  saveState();
+  render();
+}
 
  
 </script>
 </body>
 </html>
+
 
 
 
