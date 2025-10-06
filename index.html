@@ -8,24 +8,54 @@
   <link rel="icon" href="footer_logo.png" type="image/png">
   <link rel="stylesheet" href="style.css">
   <style>
-    :root{--bg:#f6f7f9;--card:#fff;--accent:#003366;--muted:#6b7280}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Georgia,serif;background:var(--bg);margin:0;color:#0b1220}
-    .wrap{max-width:960px;margin:0 auto;padding:20px}
-    .masthead{text-align:center;margin-top:28px}
-    .masthead h1{font-family:Georgia,serif;color:var(--accent);font-size:2.4rem;margin:0}
-    .masthead p{color:var(--muted);margin:6px 0 18px}
-    .grid{display:grid;grid-template-columns:1fr;gap:14px}
-    @media(min-width:900px){ .grid{grid-template-columns:1fr 420px} }
-    .card{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 4px 14px rgba(7,12,20,0.06)}
-    .small{font-size:0.95rem;color:var(--muted)}
-    .btn{background:var(--accent);color:#fff;padding:8px 12px;border:0;border-radius:8px}
-    #budgetRoot{min-height:220px;display:flex;flex-direction:column;gap:8px}
-    .paytabs{display:flex;gap:8px}
-    .tab{flex:1;padding:10px;border-radius:8px;text-align:center;background:#f0f4f8;color:#254a68;font-weight:700}
-    .tab.active{background:var(--accent);color:#fff}
-    .line{display:flex;gap:8px;align-items:center;padding:8px;border-radius:8px;background:#fbfdff}
-    .line input{border:0;background:transparent;outline:none;font-size:15px}
-    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:0.95rem}
+    :root {
+      --bg: #f6f7f9;
+      --card: #fff;
+      --accent: #003366;
+      --muted: #6b7280;
+    }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Georgia, serif;
+      background: var(--bg);
+      margin: 0;
+      color: #0b1220;
+    }
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .masthead {
+      text-align: center;
+      margin-top: 28px;
+    }
+    .masthead h1 {
+      font-family: Georgia, serif;
+      color: var(--accent);
+      font-size: 2.4rem;
+      margin: 0;
+    }
+    .masthead p {
+      color: var(--muted);
+      margin: 6px 0 18px;
+    }
+    .card {
+      background: var(--card);
+      padding: 14px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(7, 12, 20, 0.06);
+    }
+    .small {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 12px;
+      border: 0;
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body>
@@ -35,143 +65,145 @@
       <p class="small">Drama-free news, weather, and community updates with modular clarity.</p>
     </header>
 
-<!-- ✅ Two Equal Empty Blocks in Grid -->
-<section class="news-empty-pair" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin-top: 1.5em; max-width: 960px; margin-left: auto; margin-right: auto;">
-<div id="weather" class="news-empty-left" style="background-color: #f4f1ec; border: 1px solid #ccc; border-radius: 8px; padding: 1.5em;">
-
-  <h3 style="color:#003366;">Local Weather</h3>
-  <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
-  <input type="text" id="weatherLinkClone" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-  <div style="display: none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-  <button style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
-  <div style="margin-top: 1.5em;">
-    <h4 style="color:#003366;">Need Directions or Flight Info?</h4>
-    <p>Click below to launch your preferred traffic or flight tracker:</p>
-    <div style="font-weight: bold;">
-      <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" style="color: #0645AD; text-decoration: underline;">Google Maps</a>
-      <a href="https://www.waze.com" target="_blank" rel="noopener noreferrer" style="color: #0645AD; text-decoration: underline;">Waze</a>
-      <a href="https://www.flightaware.com" target="_blank" rel="noopener noreferrer" style="color: #0645AD; text-decoration: underline;">FlightAware</a>
+    <div class="card" id="primaryCard">
+      <h2 style="margin:0 0 8px;color:var(--accent)">IOIOIO Budget Starter</h2>
+      <div id="budgetRoot"></div>
     </div>
   </div>
-</div>
 
-<div class="news-empty-right" style="background-color: #f4f1ec; border: 1px solid #ccc; border-radius: 8px; padding: 1.75em;">
-  <h3 style="color:#003366;">Local & State News</h3>
-  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
-  <label for="localNewsClone" style="font-weight: bold;">Local News Link:</label>
-  <input type="text" id="localNewsClone" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-  <div style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-  <button style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
-  <label for="stateNewsClone" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
-  <input type="text" id="stateNewsClone" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-  <div style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-  <button style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
-</div>
+  <script>
+    const state = {
+      income: 0,
+      lines: []
+    };
 
-</section>
+    function saveState() {
+      localStorage.setItem('dfc:budget', JSON.stringify(state));
+    }
 
-    <main style="margin-top:18px" role="main">
-      <div class="card" id="primaryCard">
-        <h2 style="margin:0 0 8px;color:var(--accent)">IOIOIO</h2>
+    function loadState() {
+      const saved = localStorage.getItem('dfc:budget');
+      if (saved) Object.assign(state, JSON.parse(saved));
+    }
 
-<script>
-  function updateLeftover() {
-    const income = parseFloat(document.getElementById('income').value) || 0;
-    const expenses = [...document.querySelectorAll('.expense')].map(e => parseFloat(e.value) || 0);
-    const total = expenses.reduce((a, b) => a + b, 0);
-    const leftover = income - total;
-    const perDay = Math.round(leftover / 15);
-    document.getElementById('leftover').textContent = `Leftover: $${leftover} • $${perDay}/day`;
-  }
+    function render() {
+      const root = document.getElementById('budgetRoot');
+      root.innerHTML = '';
 
-function addLine() {
-  state.lines.push({ name: 'New item', amount: 0, vendor_url: '' });
-  saveState();
-  render();
-}
+      const incomeBlock = document.createElement('div');
+      incomeBlock.innerHTML = `
+        <label for="income"><strong>Income:</strong></label>
+        <input type="number" id="income" value="${state.income}" style="width:100%;padding:8px;border-radius:6px;border:1px solid #ccc;" />
+      `;
+      root.appendChild(incomeBlock);
 
-function render() {
-  const root = document.getElementById('budgetRoot');
-  root.innerHTML = '';
+      const linesBox = document.createElement('div');
+      linesBox.id = 'billBox';
+      linesBox.style = 'margin-top:12px;display:flex;flex-direction:column;gap:8px;';
+      root.appendChild(linesBox);
 
-  // Income input
-  const incomeBlock = document.createElement('div');
-  incomeBlock.innerHTML = `
-    <label for="income"><strong>Income:</strong></label>
-    <input type="number" id="income" value="${state.income}" style="width:100%;padding:8px;border-radius:6px;border:1px solid #ccc;" />
-  `;
-  root.appendChild(incomeBlock);
+      state.lines.forEach(line => {
+        const el = document.createElement('div');
+        el.className = 'billLine';
+        el.style = 'display:flex;gap:8px;align-items:center;';
+        el.innerHTML = `
+          <input type="text" class="name" value="${line.name}" style="width:30%;" />
+          <input type="number" class="amt" value="${line.amount}" style="width:20%;" />
+          <button class="urlBtn">➕</button>
+          <button class="rem">✕</button>
+        `;
+        linesBox.appendChild(el);
 
-  // Expense lines
-  const linesBox = document.createElement('div');
-  linesBox.id = 'billBox';
-  linesBox.style = 'margin-top:12px;display:flex;flex-direction:column;gap:8px;';
-  root.appendChild(linesBox);
+        el.querySelector('.name').addEventListener('change', e => {
+          line.name = e.target.value;
+          saveState();
+        });
 
-  state.lines.forEach(line => {
-    const el = document.createElement('div');
-    el.className = 'billLine';
-    el.style = 'display:flex;gap:8px;align-items:center;';
-    el.innerHTML = `
-      <input type="text" class="name" value="${line.name}" style="width:30%;" />
-      <input type="number" class="amt" value="${line.amount}" style="width:20%;" />
-      <button class="urlBtn">➕</button>
-      <button class="rem">✕</button>
-    `;
-    linesBox.appendChild(el);
+        el.querySelector('.amt').addEventListener('change', e => {
+          line.amount = Number(e.target.value) || 0;
+          saveState();
+          renderTotals();
+        });
 
-    el.querySelector('.name').addEventListener('change', e => {
-      line.name = e.target.value;
-      saveState();
-    });
+        el.querySelector('.urlBtn').addEventListener('click', () => {
+          const v = prompt('Enter or edit vendor URL:', line.vendor_url || '');
+          if (v !== null) {
+            line.vendor_url = v.trim();
+            saveState();
+          }
+        });
 
-    el.querySelector('.amt').addEventListener('change', e => {
-      line.amount = Number(e.target.value) || 0;
-      saveState();
+        el.querySelector('.rem').addEventListener('click', () => {
+          if (confirm('Remove this line?')) {
+            state.lines = state.lines.filter(l => l !== line);
+            saveState();
+            render();
+          }
+        });
+      });
+
+      const controls = document.createElement('div');
+      controls.innerHTML = `
+        <button onclick="addLine()">+ Add line</button>
+        <button onclick="exportSnapshot()">Export</button>
+      `;
+      root.appendChild(controls);
+
+      const totals = document.createElement('p');
+      totals.id = 'totalsBlock';
+      totals.innerHTML = `
+        Leftover: <span id="leftoverVal">$0</span> • <span id="perDayVal">$0/day</span>
+      `;
+      root.appendChild(totals);
+
+      document.getElementById('income').addEventListener('input', e => {
+        state.income = Number(e.target.value) || 0;
+        saveState();
+        renderTotals();
+      });
+
       renderTotals();
+    }
+
+    function renderTotals() {
+      const income = Number(state.income) || 0;
+      const expenses = state.lines.reduce((sum, l) => sum + (Number(l.amount) || 0), 0);
+      const leftover = income - expenses;
+      document.getElementById('leftoverVal').textContent = '$' + Math.round(leftover);
+      document.getElementById('perDayVal').textContent = '$' + Math.round(leftover / 15) + '/day';
+    }
+
+    function addLine() {
+      state.lines.push({ name: 'New item', amount: 0, vendor_url: '' });
+      saveState();
+      render();
+    }
+
+    function exportSnapshot() {
+      const snap = {
+        income: state.income,
+        lines: state.lines,
+        created: new Date().toISOString()
+      };
+      const blob = new Blob([JSON.stringify(snap, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `budget_snapshot.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadState();
+      render();
     });
+  </script>
+</body>
+</html>
 
-    el.querySelector('.urlBtn').addEventListener('click', () => {
-      const v = prompt('Enter or edit vendor URL:', line.vendor_url || '');
-      if (v !== null) {
-        line.vendor_url = v.trim();
-        saveState();
-      }
-    });
-
-    el.querySelector('.rem').addEventListener('click', () => {
-      if (confirm('Remove this line?')) {
-        state.lines = state.lines.filter(l => l !== line);
-        saveState();
-        render();
-      }
-    });
-  });
-
-  // Controls
-  const controls = document.createElement('div');
-  controls.innerHTML = `
-    <button onclick="addLine()">+ Add line</button>
-    <button onclick="exportSnapshot()">Export</button>
-  `;
-  root.appendChild(controls);
-
-  // Totals
-  const totals = document.createElement('p');
-  totals.id = 'totalsBlock';
-  totals.innerHTML = `
-    Leftover: <span id="leftoverVal">$0</span> • <span id="perDayVal">$0/day</span>
-  `;
-  root.appendChild(totals);
-
-  document.getElementById('income').addEventListener('input', e => {
-    state.income = Number(e.target.value) || 0;
-    saveState();
-    renderTotals();
-  });
-
-  renderTotals();
-}
 
 
  
@@ -180,6 +212,7 @@ function render() {
   
 </body>
 </html>
+
 
 
 
