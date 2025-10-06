@@ -74,24 +74,28 @@
         <h2 style="margin:0 0 8px;color:var(--accent)">Blank Slate</h2>
         <p class="small" style="margin:0 0 12px">Header, editorial, and news/weather preserved. This page is private for you to iterate on. Below is the IOIOIO budget starter.</p>
 
-        <div id="budgetRoot" aria-live="polite">
-          <div class="paytabs" role="tablist" aria-label="Pay periods">
-            <div class="tab active" data-pay="1" onclick="switchPay('1')">1st</div>
-            <div class="tab" data-pay="15" onclick="switchPay('15')">15th</div>
-          </div>
+<div id="budgetRoot" aria-live="polite">
+  <div class="paytabs" role="tablist" aria-label="Pay periods">
+    <div class="tab active" data-pay="1" onclick="switchPay('1')">1st</div>
+    <div class="tab" data-pay="15" onclick="switchPay('15')">15th</div>
+  </div>
 
-          <div id="budgetSummary" style="margin-top:10px" class="small">Income: <strong id="incomeVal">$0</strong> • Expenses: <strong id="expensesVal">$0</strong></div>
+  <div id="budgetSummary" style="margin-top:10px" class="small">
+    Income: <strong id="incomeVal">$0</strong> • Expenses: <strong id="expensesVal">$0</strong>
+  </div>
 
-          <div id="lines" style="margin-top:8px"></div>
+  <div id="lines" style="margin-top:8px"></div>
 
-          <div style="display:flex;gap:8px;margin-top:10px;justify-content:space-between">
-            <div style="display:flex;gap:8px">
-              <button class="btn" onclick="addLine()">+ Add line</button>
-            </div>
-            <div class="small" id="leftoverText">Leftover: <strong id="leftoverVal">$0</strong> • <span id="perDayVal">$0/day</span></div>
-          </div>
-        </div>
-      </div>
+  <div style="display:flex;gap:8px;margin-top:10px;justify-content:space-between">
+    <div style="display:flex;gap:8px">
+      <button class="btn" onclick="addLine()">+ Add line</button>
+    </div>
+    <div class="small" id="leftoverText">
+      Leftover: <strong id="leftoverVal">$0</strong> • <span id="perDayVal">$0/day</span>
+    </div>
+  </div>
+</div>
+
     </main>
 
     <footer>
@@ -207,6 +211,7 @@ render();
 </script>
 </body>
 </html>
+
 
 
 
