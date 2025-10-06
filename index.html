@@ -80,7 +80,10 @@
             <div class="tab" data-pay="15" onclick="switchPay('15')">15th</div>
           </div>
 
-          <div id="budgetSummary" style="margin-top:10px" class="small">Income: <strong id="incomeVal">$0</strong> • Expenses: <strong id="expensesVal">$0</strong></div>
+<div id="budgetSummary" style="margin-top:10px" class="small">
+  Total income (enter household total if shared): <strong id="incomeVal">$1800</strong> • Expenses: <strong id="expensesVal">$0</strong>
+</div>
+
 
           <div id="lines" style="margin-top:8px"></div>
 
@@ -187,6 +190,19 @@ document.addEventListener('DOMContentLoaded',()=>{
   render();
 });
 </script>
+// Make Total Income editable in-place; user can enter household total directly
+document.getElementById('incomeVal').addEventListener('click', ()=>{
+  const pay = state.paychecks[state.active];
+  const current = Number(pay.income) || 0;
+  const v = prompt('Enter total income for this pay period (include household total if shared)', current);
+  if(v !== null){
+    pay.income = Number(v) || 0;
+    saveState();
+    render();
+  }
+});
+  
 </body>
 </html>
+
 
