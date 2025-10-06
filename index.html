@@ -80,20 +80,8 @@
             <div class="tab active" data-pay="1" onclick="switchPay('1')">1st</div>
             <div class="tab" data-pay="15" onclick="switchPay('15')">15th</div>
           </div>
-<div class="card" id="billsCard" style="margin-top:12px">
-  <h3 style="margin:0 0 8px;color:var(--accent)">Bills</h3>
-  <div id="billsList" class="small"></div>
-  <div style="margin-top:8px;display:flex;gap:8px">
-    <button class="btn" id="addBillBtn">+ Add bill</button>
-    <button class="btn" id="exportBillsBtn" style="background:#444">Export bills</button>
-  </div>
-</div>
 
-
-<div id="budgetSummary" style="margin-top:10px" class="small">
-  Total income (enter household total if shared): <strong id="incomeVal">$1800</strong> • Expenses: <strong id="expensesVal">$0</strong>
-</div>
-
+          <div id="budgetSummary" style="margin-top:10px" class="small">Income: <strong id="incomeVal">$0</strong> • Expenses: <strong id="expensesVal">$0</strong></div>
 
           <div id="lines" style="margin-top:8px"></div>
 
@@ -172,17 +160,6 @@ function renderTotals(){
   $('#perDayVal').textContent = '$' + Math.round(leftover/15) + '/day';
   saveState();
 }
-  function renderBills(){
-  const container = document.getElementById('billsList');
-  if(!container) return;
-  container.innerHTML = '';
-  const pay = state.active || '1';
-  const list = (state.bills||[]).filter(b=> String(b.pay) === String(pay));
-  list.forEach(b=>{
-    const row = document.createElement('div'); row.className='line';
-    row.innerHTML = `
-      <div style="flex:1"><input class="billName" value="${escape(b.name)}"></div>
-      <div style="width:90px;text-align:right">
 function addLine(){
   const id = 'n' + Date.now();
   state.paychecks[state.active].lines.push({id,name:'New item',amount:0,type:'offline',vendor_url:''});
@@ -210,30 +187,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
   render();
 });
- // Make Total Income editable in-place; user can enter household total directly
-(function(){
-  const incomeEl = document.getElementById('incomeVal');
-  if(!incomeEl) return;
-  incomeEl.addEventListener('click', ()=>{
-    const pay = state && state.paychecks && state.paychecks[state.active];
-    const current = pay ? Number(pay.income) || 0 : 0;
-    const v = prompt('Enter total income for this pay period (include household total if shared)', current);
-    if(v !== null && pay){
-      pay.income = Number(v) || 0;
-      saveState();
-      render();
-    }
-  });
-})();
- 
 </script>
-
-  
 </body>
 </html>
-
-
-
-
-
 
