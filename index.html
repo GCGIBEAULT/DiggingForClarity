@@ -171,6 +171,17 @@ function renderTotals(){
   $('#perDayVal').textContent = '$' + Math.round(leftover/15) + '/day';
   saveState();
 }
+  function renderBills(){
+  const container = document.getElementById('billsList');
+  if(!container) return;
+  container.innerHTML = '';
+  const pay = state.active || '1';
+  const list = (state.bills||[]).filter(b=> String(b.pay) === String(pay));
+  list.forEach(b=>{
+    const row = document.createElement('div'); row.className='line';
+    row.innerHTML = `
+      <div style="flex:1"><input class="billName" value="${escape(b.name)}"></div>
+      <div style="width:90px;text-align:right">
 function addLine(){
   const id = 'n' + Date.now();
   state.paychecks[state.active].lines.push({id,name:'New item',amount:0,type:'offline',vendor_url:''});
@@ -219,6 +230,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   
 </body>
 </html>
+
 
 
 
