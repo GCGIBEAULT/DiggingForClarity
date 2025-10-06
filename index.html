@@ -51,12 +51,28 @@
 </main>
 
 <script>
+<script>
 const KEY = 'dfc:blank:ioioio:v6';
 const defaults = {
   active: '1',
   paychecks: {
-    '1': { income: 1800, lines: [] },
-    '15': { income: 1200, lines: [] }
+    '1': {
+      income: 1800,
+      lines: [
+        {
+          id: 'demo1',
+          name: 'Rent',
+          amount: 1200,
+          type: 'auto',
+          trans_day: 1,
+          vendor_url: ''
+        }
+      ]
+    },
+    '15': {
+      income: 1200,
+      lines: []
+    }
   }
 };
 
@@ -134,5 +150,8 @@ function switchPay(p){
 render();
 </script>
 
+</script>
+
 </body>
 </html>
+
