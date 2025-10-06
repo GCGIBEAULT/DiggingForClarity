@@ -179,6 +179,7 @@ function render(){
   document.getElementById('perDayVal').textContent = `${(leftover/15).toFixed(0)}/day`;
 }
 
+<script>
 function addLine(){
   const id = 'n' + Date.now();
   const newLine = {
@@ -189,28 +190,23 @@ function addLine(){
     trans_day: 1,
     vendor_url: ''
   };
+
+  if (!state || !state.paychecks || !state.paychecks[state.active]) {
+    console.error('State is broken. Cannot add line.');
+    return;
+  }
+
   const pay = state.paychecks[state.active];
-  if (!pay.lines) pay.lines = [];
+  if (!Array.isArray(pay.lines)) pay.lines = [];
   pay.lines.push(newLine);
   saveState();
   render();
 }
-
-
-
-function switchPay(p){
-  state.active = p;
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelector(`.tab[data-pay="${p}"]`).classList.add('active');
-  render();
-}
-
-render();
 </script>
 
-</script>
 </body>
 </html>
+
 
 
 
