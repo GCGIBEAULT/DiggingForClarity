@@ -138,6 +138,8 @@ function render(){
   const pay = state.paychecks[state.active];
   $('#incomeVal').textContent = '$' + Math.round(pay.income);
   const linesEl = $('#lines'); linesEl.innerHTML = '';
+  renderBills();
+
   pay.lines.forEach(line=>{
     const el = document.createElement('div'); el.className='line';
     el.innerHTML = `
@@ -230,6 +232,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   
 </body>
 </html>
+
 
 
 
