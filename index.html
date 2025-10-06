@@ -173,6 +173,12 @@ function renderTotals(){
   $('#perDayVal').textContent = '$' + Math.round(leftover/15) + '/day';
   saveState();
 }
+function switchPay(pay){
+  state.active = String(pay);
+  saveState();
+  render();
+}
+  
   function renderBills(){
   const container = document.getElementById('billsList');
   if(!container) return;
@@ -232,6 +238,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   
 </body>
 </html>
+
 
 
 
