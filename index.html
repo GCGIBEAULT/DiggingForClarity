@@ -74,31 +74,7 @@
       <div class="card" id="primaryCard">
         <h2 style="margin:0 0 8px;color:var(--accent)">Blank Slate</h2>
         <p class="small" style="margin:0 0 12px">Header, editorial, and news/weather preserved. This page is private for you to iterate on. Below is the IOIOIO budget starter.</p>
-<section id="budgetRoot" style="min-height:220px;display:flex;flex-direction:column;gap:8px;">
-  <h2>IOIOIO Budget Starter</h2>
 
-  <!-- ✅ Move this block up here -->
-  <div class="paytabs" style="display:flex;gap:12px;">
-    <div class="tab active">1st Paycheck</div>
-    <div class="tab">15th Paycheck</div>
-  </div>
-
-  <label for="income" style="font-weight:bold;">Income:</label>
-  <input type="number" id="income" value="1800" style="padding:8px;border-radius:6px;border:1px solid #ccc;" />
-
-  <div id="lines">
-    <div class="line">
-      <input type="text" value="Rent" placeholder="Item" />
-      <input type="number" value="1859" class="expense" />
-      <button onclick="removeLine(this)">✕</button>
-    </div>
-  </div>
-
-  <button onclick="addLine()" class="btn">+ Add line</button>
-  <button onclick="exportBudget()" class="btn">Export</button>
-
-  <p id="leftover" class="small">Leftover: $-59 • $-4/day</p>
-</section>
 
 <script>
   function updateLeftover() {
@@ -283,6 +259,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   
 </body>
 </html>
+
 
 
 
