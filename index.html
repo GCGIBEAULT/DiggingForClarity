@@ -84,122 +84,95 @@
     document.getElementById('leftover').textContent = `Leftover: $${leftover} • $${perDay}/day`;
   }
 
-  function addLine() {
-    const container = document.getElementById('lines');
-    const div = document.createElement('div');
-    div.className = 'line';
-    div.innerHTML = `
-      <input type="text" placeholder="Item" />
-      <input type="number" class="expense" value="0" />
-      <button onclick="removeLine(this)">✕</button>
-    `;
-    container.appendChild(div);
-    div.querySelector('.expense').addEventListener('input', updateLeftover);
-  }
+function addLine() {
+  state.lines.push({ name: 'New item', amount: 0, vendor_url: '' });
+  saveState();
+  render();
+}
 
-  function removeLine(btn) {
-    btn.closest('.line').remove();
-    updateLeftover();
-  }
+function render() {
+  const root = document.getElementById('budgetRoot');
+  root.innerHTML = '';
 
-  function exportBudget() {
-    const income = document.getElementById('income').value;
-    const rows = [...document.querySelectorAll('#lines .line')];
-    const data = rows.map(row => {
-      const item = row.querySelector('input[type="text"]').value;
-      const amount = row.querySelector('input[type="number"]').value;
-      return `${item}: $${amount}`;
-    });
-    const blob = new Blob([`Income: $${income}\n` + data.join('\n')], { type: 'text/plain' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'budget.txt';
-    link.click();
-  }
+  // Income input
+  const incomeBlock = document.createElement('div');
+  incomeBlock.innerHTML = `
+    <label for="income"><strong>Income:</strong></label>
+    <input type="number" id="income" value="${state.income}" style="width:100%;padding:8px;border-radius:6px;border:1px solid #ccc;" />
+  `;
+  root.appendChild(incomeBlock);
 
-  document.getElementById('income').addEventListener('input', updateLeftover);
-  document.querySelector('.expense').addEventListener('input', updateLeftover);
-</script>
+  // Expense lines
+  const linesBox = document.createElement('div');
+  linesBox.id = 'billBox';
+  linesBox.style = 'margin-top:12px;display:flex;flex-direction:column;gap:8px;';
+  root.appendChild(linesBox);
 
-        <div id="budgetRoot" aria-live="polite">
-          <div class="paytabs" role="tablist" aria-label="Pay periods">
-            <div class="tab active" data-pay="1" onclick="switchPay('1')">1st</div>
-            <div class="tab" data-pay="15" onclick="switchPay('15')">15th</div>
-          </div>
-
-<div id="budgetSummary" style="margin-top:10px" class="small">
-  Total income (enter household total if shared): <strong id="incomeVal">$1800</strong> • Expenses: <strong id="expensesVal">$0</strong>
-</div>
-
-
-          <div id="lines" style="margin-top:8px"></div>
-
-          <div style="display:flex;gap:8px;margin-top:10px;justify-content:space-between">
-            <div style="display:flex;gap:8px">
-              <button class="btn" onclick="addLine()">+ Add line</button>
-
-            </div>
-            <div class="small" id="leftoverText">Leftover: <strong id="leftoverVal">$0</strong> • <span id="perDayVal">$0/day</span></div>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <footer>
-      <div class="small">Private workspace • Local-first testing • Your backup is safe</div>
-    </footer>
-  </div>
-
-<script>
-const KEY = 'dfc:blank:ioioio:v1';
-const defaults = {
-  active: '1',
-  paychecks: {
-    '1': { income:1800, lines:[
-      {id:'r1',name:'Rent',amount:700,type:'auto',vendor_url:''},
-      {id:'r2',name:'Electric',amount:80,type:'auto',vendor_url:''},
-      {id:'r3',name:'Savings',amount:200,type:'auto',vendor_url:''}
-    ]},
-    '15': { income:1200, lines:[
-      {id:'p1',name:'Groceries',amount:200,type:'offline',vendor_url:''},
-      {id:'p2',name:'Subscriptions',amount:40,type:'auto',vendor_url:''},
-      {id:'p3',name:'Savings',amount:100,type:'auto',vendor_url:''}
-    ]}
-  }
-};
-let state = loadState();
-function loadState(){ try{ const raw=localStorage.getItem(KEY); return raw?JSON.parse(raw):JSON.parse(JSON.stringify(defaults)); }catch(e){ return JSON.parse(JSON.stringify(defaults)); } }
-function saveState(){ localStorage.setItem(KEY,JSON.stringify(state)); }
-function $(s){ return document.querySelector(s); }
-
-function render(){
-  const pay = state.paychecks[state.active];
-  $('#incomeVal').textContent = '$' + Math.round(pay.income);
-  const linesEl = $('#lines'); linesEl.innerHTML = '';
-  pay.lines.forEach(line=>{
-    const el = document.createElement('div'); el.className='line';
+  state.lines.forEach(line => {
+    const el = document.createElement('div');
+    el.className = 'billLine';
+    el.style = 'display:flex;gap:8px;align-items:center;';
     el.innerHTML = `
-      <div style="flex:1"><input value="${escape(line.name)}" data-id="${line.id}" class="name"></div>
-      <div style="width:110px;text-align:right"><input type="number" value="${line.amount}" data-id="${line.id}" class="amt"></div>
-      <div style="width:90px"><select class="type" data-id="${line.id}"><option value="auto"${line.type==='auto'?' selected':''}>Auto</option><option value="offline"${line.type==='offline'?' selected':''}>Offline</option></select></div>
-      <div style="width:36px;text-align:center"><button class="url" data-id="${line.id}">${line.vendor_url? '🔗':'+'}</button></div>
-      <div style="width:36px;text-align:center"><button class="rem" data-id="${line.id}">✕</button></div>`;
-    linesEl.appendChild(el);
-    el.querySelector('.name').addEventListener('change',e=>{ line.name=e.target.value; saveState(); renderTotals(); });
-    el.querySelector('.amt').addEventListener('change',e=>{ line.amount=Number(e.target.value)||0; saveState(); renderTotals(); });
-    el.querySelector('.type').addEventListener('change',e=>{ line.type=e.target.value; saveState(); renderTotals(); });
-    el.querySelector('.url').addEventListener('click',()=>{
-      const url = prompt('Vendor URL (billing page or contact)', line.vendor_url||'');
-      if(url===null) return;
-      line.vendor_url = url.trim(); saveState(); render();
+      <input type="text" class="name" value="${line.name}" style="width:30%;" />
+      <input type="number" class="amt" value="${line.amount}" style="width:20%;" />
+      <button class="urlBtn">➕</button>
+      <button class="rem">✕</button>
+    `;
+    linesBox.appendChild(el);
+
+    el.querySelector('.name').addEventListener('change', e => {
+      line.name = e.target.value;
+      saveState();
     });
-    el.querySelector('.rem').addEventListener('click',()=>{
-      if(confirm('Remove this line?')){ state.paychecks[state.active].lines = state.paychecks[state.active].lines.filter(l=>l.id!==line.id); saveState(); render(); }
+
+    el.querySelector('.amt').addEventListener('change', e => {
+      line.amount = Number(e.target.value) || 0;
+      saveState();
+      renderTotals();
+    });
+
+    el.querySelector('.urlBtn').addEventListener('click', () => {
+      const v = prompt('Enter or edit vendor URL:', line.vendor_url || '');
+      if (v !== null) {
+        line.vendor_url = v.trim();
+        saveState();
+      }
+    });
+
+    el.querySelector('.rem').addEventListener('click', () => {
+      if (confirm('Remove this line?')) {
+        state.lines = state.lines.filter(l => l !== line);
+        saveState();
+        render();
+      }
     });
   });
+
+  // Controls
+  const controls = document.createElement('div');
+  controls.innerHTML = `
+    <button onclick="addLine()">+ Add line</button>
+    <button onclick="exportSnapshot()">Export</button>
+  `;
+  root.appendChild(controls);
+
+  // Totals
+  const totals = document.createElement('p');
+  totals.id = 'totalsBlock';
+  totals.innerHTML = `
+    Leftover: <span id="leftoverVal">$0</span> • <span id="perDayVal">$0/day</span>
+  `;
+  root.appendChild(totals);
+
+  document.getElementById('income').addEventListener('input', e => {
+    state.income = Number(e.target.value) || 0;
+    saveState();
+    renderTotals();
+  });
+
   renderTotals();
 }
-function renderTotals(){
+
 
  
 </script>
@@ -207,6 +180,7 @@ function renderTotals(){
   
 </body>
 </html>
+
 
 
 
