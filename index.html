@@ -182,12 +182,13 @@ function addLine(){
     name: 'New item',
     amount: 0,
     type: 'auto',
-    trans_day: '',
+    trans_day: 1, // ← default value ensures ordinal label renders
     vendor_url: ''
   });
   saveState();
   render();
 }
+
 
 function switchPay(p){
   state.active = p;
@@ -202,5 +203,6 @@ render();
 </script>
 </body>
 </html>
+
 
 
