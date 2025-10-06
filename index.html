@@ -136,7 +136,7 @@ function $(s){ return document.querySelector(s); }
 
 function render(){
   const pay = state.paychecks[state.active];
-  $('#incomeVal').textContent = '$' + Math.round(pay.income);
+document.getElementById('incomeInput').value = Math.round(pay.income);
   const linesEl = $('#lines'); linesEl.innerHTML = '';
   pay.lines.forEach(line=>{
     const el = document.createElement('div'); el.className='line';
@@ -167,11 +167,9 @@ function renderTotals(){
   const expenses = pay.lines.reduce((s,l)=>s + (Number(l.amount)||0),0);
   $('#expensesVal').textContent = '$' + Math.round(expenses);
   const leftover = income - expenses;
-  $('#leftoverVal').textContent = '$' + Math.round(leftover);
-  $('#perDayVal').textContent = '$' + Math.round(leftover/15) + '/day';
   saveState();
 }
-del
+
 function switchPay(p){ state.active = p; document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.pay===p)); render(); }
 function exportSnapshot(){
   const pay = state.paychecks[state.active];
@@ -211,6 +209,7 @@ function addLine(){
 </script>
 </body>
 </html>
+
 
 
 
