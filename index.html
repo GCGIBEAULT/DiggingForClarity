@@ -4,27 +4,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Digging For Clarity — Private Lab</title>
-  <link rel="icon" href="footer_logo.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
   <style>
     :root{--bg:#f6f7f9;--card:#fff;--accent:#003366;--muted:#6b7280}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Georgia,serif;background:var(--bg);margin:0;color:#0b1220}
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Georgia,serif;background:var(--bg);margin:0;color:#0b1220}
     .wrap{max-width:960px;margin:0 auto;padding:20px}
     .masthead{text-align:center;margin-top:28px}
     .masthead h1{font-family:Georgia,serif;color:var(--accent);font-size:2.4rem;margin:0}
     .masthead p{color:var(--muted);margin:6px 0 18px}
     .grid{display:grid;grid-template-columns:1fr;gap:14px}
-    @media(min-width:900px){ .grid{grid-template-columns:1fr 420px} }
-    .card{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 4px 14px rgba(7,12,20,0.06)}
+    @media(min-width:900px){.grid{grid-template-columns:1fr 420px}}
+    .card{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 4px 14px rgba(7,12,20,.06)}
     .small{font-size:0.95rem;color:var(--muted)}
-    .btn{background:var(--accent);color:#fff;padding:8px 12px;border:0;border-radius:8px}
+    .btn{background:var(--accent);color:#fff;padding:8px 12px;border:0;border-radius:8px;cursor:pointer}
     #budgetRoot{min-height:220px;display:flex;flex-direction:column;gap:8px}
     .paytabs{display:flex;gap:8px}
-    .tab{flex:1;padding:10px;border-radius:8px;text-align:center;background:#f0f4f8;color:#254a68;font-weight:700}
+    .tab{flex:1;padding:10px;border-radius:8px;text-align:center;background:#f0f4f8;color:#254a68;font-weight:700;cursor:pointer}
     .tab.active{background:var(--accent);color:#fff}
     .line{display:flex;gap:8px;align-items:center;padding:8px;border-radius:8px;background:#fbfdff}
-    .line input{border:0;background:transparent;outline:none;font-size:15px}
+    .line input[type="text"], .line input[type="number"], .line select{border:0;background:transparent;outline:none;font-size:15px}
+    .line input[type="number"]{width:90px}
     footer{margin-top:28px;text-align:center;color:var(--muted);font-size:0.95rem}
+    @media (max-width:520px){
+      .line{flex-direction:column;align-items:flex-start}
+      .line input[type="number"]{width:100%}
+    }
   </style>
 </head>
 <body>
@@ -34,174 +37,153 @@
       <p class="small">Drama-free news, weather, and community updates with modular clarity.</p>
     </header>
 
-<!-- ✅ Two Equal Empty Blocks in Grid -->
-<section class="news-empty-pair" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin-top: 1.5em; max-width: 960px; margin-left: auto; margin-right: auto;">
-<div id="weather" class="news-empty-left" style="background-color: #f4f1ec; border: 1px solid #ccc; border-radius: 8px; padding: 1.5em;">
+    <main class="grid">
+      <section class="card" id="budgetRoot" aria-labelledby="budgetTitle">
+        <h2 id="budgetTitle" class="small">Minimal bills card</h2>
 
-  <h3 style="color:#003366;">Local Weather</h3>
-  <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
-  <input type="text" id="weatherLinkClone" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-  <div style="display: none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-  <button style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
-  <div style="margin-top: 1.5em;">
-    <h4 style="color:#003366;">Need Directions or Flight Info?</h4>
-    <p>Click below to launch your preferred traffic or flight tracker:</p>
-    <div style="font-weight: bold;">
-      <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" style="color: #0645AD; text-decoration: underline;">Google Maps</a>
-      <a href="https://www.waze.com" target="_blank" rel="noopener noreferrer" style="color: #0645AD; text-decoration: underline;">Waze</a>
-      <a href="https://www.flightaware.com" target="_blank" rel="noopener noreferrer" style="color: #0645AD; text-decoration: underline;">FlightAware</a>
-    </div>
-  </div>
-</div>
+        <div class="paytabs" role="tablist" aria-label="Paychecks">
+          <div class="tab" role="tab" tabindex="0" data-pay="1" onclick="switchPay('1')">Pay 1</div>
+          <div class="tab" role="tab" tabindex="0" data-pay="2" onclick="switchPay('2')">Pay 2</div>
+          <div class="tab" role="tab" tabindex="0" data-pay="3" onclick="switchPay('3')">Pay 3</div>
+          <div class="tab" role="tab" tabindex="0" data-pay="15" onclick="switchPay('15')">Pay 15</div>
+        </div>
 
-<div class="news-empty-right" style="background-color: #f4f1ec; border: 1px solid #ccc; border-radius: 8px; padding: 1.75em;">
-  <h3 style="color:#003366;">Local & State News</h3>
-  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
-  <label for="localNewsClone" style="font-weight: bold;">Local News Link:</label>
-  <input type="text" id="localNewsClone" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-  <div style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-  <button style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
-  <label for="stateNewsClone" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
-  <input type="text" id="stateNewsClone" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-  <div style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-  <button style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
-</div>
-
-</section>
-
-    <main style="margin-top:18px" role="main">
-      <div class="card" id="primaryCard">
-        <h2 style="margin:0 0 8px;color:var(--accent)">Blank Slate</h2>
-        <p class="small" style="margin:0 0 12px">Header, editorial, and news/weather preserved. This page is private for you to iterate on. Below is the IOIOIO budget starter.</p>
-
-        <div id="budgetRoot" aria-live="polite">
-          <div class="paytabs" role="tablist" aria-label="Pay periods">
-            <div class="tab active" data-pay="1" onclick="switchPay('1')">1st</div>
-            <div class="tab" data-pay="15" onclick="switchPay('15')">15th</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+          <div>
+            <div class="small">Income</div>
+            <div id="incomeVal" style="font-weight:700">$0</div>
           </div>
-
-          <div id="budgetSummary" style="margin-top:10px" class="small">Income: <strong id="incomeVal">$0</strong> • Expenses: <strong id="expensesVal">$0</strong></div>
-
-          <div id="lines" style="margin-top:8px"></div>
-
-          <div style="display:flex;gap:8px;margin-top:10px;justify-content:space-between">
-            <div style="display:flex;gap:8px">
-              <button class="btn" onclick="addLine()">+ Add line</button>
-              <button class="btn" onclick="exportSnapshot()" style="background:#444">Export</button>
-            </div>
-            <div class="small" id="leftoverText">Leftover: <strong id="leftoverVal">$0</strong> • <span id="perDayVal">$0/day</span></div>
+          <div>
+            <div class="small">Expenses</div>
+            <div id="expensesVal" style="font-weight:700">$0</div>
+          </div>
+          <div>
+            <div class="small">Leftover</div>
+            <div id="leftoverVal" style="font-weight:700">$0</div>
+          </div>
+          <div>
+            <div class="small">Per day</div>
+            <div id="perDayVal" style="font-weight:700">0/day</div>
+          </div>
+          <div>
+            <button class="btn" onclick="addLine()">Add line</button>
           </div>
         </div>
-      </div>
+
+        <div id="lines" style="margin-top:12px"></div>
+      </section>
+
+      <aside class="card">
+        <h3 class="small">Notes</h3>
+        <p class="small">Editable line items; Add line and Pay 15 should be functional.</p>
+      </aside>
     </main>
 
     <footer>
-      <div class="small">Private workspace • Local-first testing • Your backup is safe</div>
+      <div class="small">Built with editorial restraint.</div>
     </footer>
   </div>
 
-<script>
-(function(){
-  const KEY = 'dfc:blank:ioioio:v7';
-  const defaults = {
-    active: '1',
-    paychecks: {
-      '1': { income: 1800, lines: [{ id: 'demo1', name: 'Rent', amount: 1200, type: 'auto', trans_day: 27, vendor_url: '' }] },
-      '2': { income: 1200, lines: [] },
-      '3': { income: 0, lines: [] },
-      '15': { income: 1200, lines: [] }
+  <script>
+  (function(){
+    const KEY = 'dfc:blank:ioioio:v7';
+    const defaults = {
+      active: '1',
+      paychecks: {
+        '1': { income: 1800, lines: [{ id: 'demo1', name: 'Rent', amount: 1200, type: 'auto', trans_day: 27, vendor_url: '' }] },
+        '2': { income: 1200, lines: [] },
+        '3': { income: 0, lines: [] },
+        '15': { income: 1200, lines: [] }
+      }
+    };
+
+    let state;
+    try {
+      state = JSON.parse(localStorage.getItem(KEY) || 'null') || defaults;
+    } catch(e) {
+      state = defaults;
+      localStorage.setItem(KEY, JSON.stringify(defaults));
     }
-  };
 
-  let state;
-  try {
-    state = JSON.parse(localStorage.getItem(KEY) || 'null') || defaults;
-  } catch(e) {
-    state = defaults;
-    localStorage.setItem(KEY, JSON.stringify(defaults));
-  }
+    function saveState(){ localStorage.setItem(KEY, JSON.stringify(state)); }
 
-  function saveState(){ localStorage.setItem(KEY, JSON.stringify(state)); }
+    function escapeHtml(s){
+      if (s === undefined || s === null) return '';
+      return String(s).replace(/[&<>"']/g, function(m){
+        return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);
+      });
+    }
 
-  function escapeHtml(s){
-    if (s === undefined || s === null) return '';
-    return String(s).replace(/[&<>"']/g, function(m){
-      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);
+    function ordinalize(n){
+      n = parseInt(n);
+      if (!n || n < 1 || n > 31) return '';
+      const suffix = (n % 10 === 1 && n !== 11) ? 'st' : (n % 10 === 2 && n !== 12) ? 'nd' : (n % 10 === 3 && n !== 13) ? 'rd' : 'th';
+      return '' + n + suffix;
+    }
+
+    function render(){
+      const pay = state.paychecks[state.active] || { income:0, lines:[] };
+      const linesEl = document.getElementById('lines');
+      if (!linesEl) return;
+      linesEl.innerHTML = '';
+      pay.lines.forEach(line => {
+        const el = document.createElement('div');
+        el.className = 'line';
+        const transDay = ordinalize(line.trans_day);
+        el.innerHTML = `
+          <input type="text" class="line-name" value="${escapeHtml(line.name)}" />
+          <input type="number" class="line-amount" value="${Number(line.amount)||0}" />
+          <select class="line-type"><option value="auto"${line.type==='auto'?' selected':''}>Auto</option><option value="offline"${line.type==='offline'?' selected':''}>Offline</option></select>
+          <input type="number" class="line-day" value="${line.trans_day||''}" min="1" max="31" style="width:60px" />
+          <span style="min-width:56px"><strong>${transDay}</strong></span>
+          <button class="vendor-btn">${line.vendor_url? '🔗' : '+'}</button>
+          <button class="del-btn">✕</button>
+        `;
+        const nameI = el.querySelector('.line-name'), amtI = el.querySelector('.line-amount'), sel = el.querySelector('.line-type'), dayI = el.querySelector('.line-day'), vendorB = el.querySelector('.vendor-btn'), delB = el.querySelector('.del-btn');
+        nameI.addEventListener('change', ()=>{ line.name = nameI.value.trim(); saveState(); render(); });
+        amtI.addEventListener('change', ()=>{ line.amount = Number(amtI.value)||0; saveState(); render(); });
+        sel.addEventListener('change', ()=>{ line.type = sel.value; saveState(); render(); });
+        dayI.addEventListener('change', ()=>{ line.trans_day = Number(dayI.value)||''; saveState(); render(); });
+        vendorB.addEventListener('click', ()=>{ const url = prompt('Vendor URL:', line.vendor_url||''); if(url!==null){ line.vendor_url = url.trim(); saveState(); render(); }});
+        delB.addEventListener('click', ()=>{ if(confirm('Remove?')){ state.paychecks[state.active].lines = state.paychecks[state.active].lines.filter(l=>l.id!==line.id); saveState(); render(); }});
+        linesEl.appendChild(el);
+      });
+
+      document.getElementById('incomeVal').textContent = `$${Number(pay.income)||0}`;
+      const expenses = pay.lines.reduce((s,l)=>(s + (Number(l.amount)||0)), 0);
+      document.getElementById('expensesVal').textContent = `$${expenses}`;
+      const leftover = (Number(pay.income)||0) - expenses;
+      document.getElementById('leftoverVal').textContent = `$${leftover}`;
+      document.getElementById('perDayVal').textContent = `${Math.round(leftover/15)}/day`;
+      document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.pay === state.active));
+    }
+
+    function switchPay(pay){
+      state.active = String(pay);
+      saveState();
+      render();
+    }
+
+    function addLine(){
+      const id = 'n' + Date.now();
+      const newLine = { id, name: 'New item', amount: 0, type: 'auto', trans_day: 1, vendor_url: '' };
+      const pay = state.paychecks[state.active] || (state.paychecks[state.active] = { income:0, lines:[] });
+      if (!Array.isArray(pay.lines)) pay.lines = [];
+      pay.lines.push(newLine);
+      saveState();
+      render();
+      setTimeout(()=>{ const lines = document.querySelectorAll('#lines .line'); if (lines.length){ const last = lines[lines.length-1]; const name = last.querySelector('.line-name'); if (name) name.focus(); } }, 10);
+    }
+
+    window.switchPay = switchPay;
+    window.addLine = addLine;
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      if (!state.paychecks[state.active]) state.active = Object.keys(state.paychecks)[0] || '1';
+      document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', ()=> switchPay(t.dataset.pay)));
+      render();
     });
-  }
-
-  function ordinalize(n){
-    n = parseInt(n);
-    if (!n || n < 1 || n > 31) return '';
-    const suffix = (n % 10 === 1 && n !== 11) ? 'st' : (n % 10 === 2 && n !== 12) ? 'nd' : (n % 10 === 3 && n !== 13) ? 'rd' : 'th';
-    return `${n}${suffix}`;
-  }
-
-  function render(){
-    const pay = state.paychecks[state.active] || { income:0, lines:[] };
-    const linesEl = document.getElementById('lines');
-    if (!linesEl) return;
-    linesEl.innerHTML = '';
-    pay.lines.forEach(line => {
-      const el = document.createElement('div');
-      el.className = 'line';
-      const transDay = ordinalize(line.trans_day);
-      el.innerHTML = `
-        <input type="text" class="line-name" value="${escapeHtml(line.name)}" />
-        <input type="number" class="line-amount" value="${Number(line.amount)||0}" />
-        <select class="line-type"><option value="auto"${line.type==='auto'?' selected':''}>Auto</option><option value="offline"${line.type==='offline'?' selected':''}>Offline</option></select>
-        <input type="number" class="line-day" value="${line.trans_day||''}" min="1" max="31" style="width:60px" />
-        <span style="min-width:56px"><strong>${transDay}</strong></span>
-        <button class="vendor-btn">${line.vendor_url? '🔗' : '+'}</button>
-        <button class="del-btn">✕</button>
-      `;
-      const nameI = el.querySelector('.line-name'), amtI = el.querySelector('.line-amount'), sel = el.querySelector('.line-type'), dayI = el.querySelector('.line-day'), vendorB = el.querySelector('.vendor-btn'), delB = el.querySelector('.del-btn');
-      nameI.addEventListener('change', ()=>{ line.name = nameI.value.trim(); saveState(); render(); });
-      amtI.addEventListener('change', ()=>{ line.amount = Number(amtI.value)||0; saveState(); render(); });
-      sel.addEventListener('change', ()=>{ line.type = sel.value; saveState(); render(); });
-      dayI.addEventListener('change', ()=>{ line.trans_day = Number(dayI.value)||''; saveState(); render(); });
-      vendorB.addEventListener('click', ()=>{ const url = prompt('Vendor URL:', line.vendor_url||''); if(url!==null){ line.vendor_url = url.trim(); saveState(); render(); }});
-      delB.addEventListener('click', ()=>{ if(confirm('Remove?')){ state.paychecks[state.active].lines = state.paychecks[state.active].lines.filter(l=>l.id!==line.id); saveState(); render(); }});
-      linesEl.appendChild(el);
-    });
-
-    document.getElementById('incomeVal').textContent = `$${Number(pay.income)||0}`;
-    const expenses = pay.lines.reduce((s,l)=>(s + (Number(l.amount)||0)), 0);
-    document.getElementById('expensesVal').textContent = `$${expenses}`;
-    const leftover = (Number(pay.income)||0) - expenses;
-    document.getElementById('leftoverVal').textContent = `$${leftover}`;
-    document.getElementById('perDayVal').textContent = `${Math.round(leftover/15)}/day`;
-    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.pay === state.active));
-  }
-
-  function switchPay(pay){
-    state.active = String(pay);
-    saveState();
-    render();
-  }
-
-  function addLine(){
-    const id = 'n' + Date.now();
-    const newLine = { id, name: 'New item', amount: 0, type: 'auto', trans_day: 1, vendor_url: '' };
-    const pay = state.paychecks[state.active] || (state.paychecks[state.active] = { income:0, lines:[] });
-    if (!Array.isArray(pay.lines)) pay.lines = [];
-    pay.lines.push(newLine);
-    saveState();
-    render();
-    setTimeout(()=>{ const lines = document.querySelectorAll('#lines .line'); if (lines.length){ const last = lines[lines.length-1]; const name = last.querySelector('.line-name'); if (name) name.focus(); } }, 10);
-  }
-
-  window.switchPay = switchPay;
-  window.addLine = addLine;
-
-  document.addEventListener('DOMContentLoaded', ()=>{
-    if (!state.paychecks[state.active]) state.active = Object.keys(state.paychecks)[0] || '1';
-    document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', ()=> switchPay(t.dataset.pay)));
-    render();
-  });
-})();
-</script>
-
+  })();
+  </script>
 </body>
 </html>
-
