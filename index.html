@@ -139,8 +139,6 @@ function render(){
   const pay = state.paychecks[state.active];
   $('#incomeVal').textContent = '$' + Math.round(pay.income);
   const linesEl = $('#lines'); linesEl.innerHTML = '';
-  renderBills();
-
   pay.lines.forEach(line=>{
     const el = document.createElement('div'); el.className='line';
     el.innerHTML = `
@@ -174,12 +172,6 @@ function renderTotals(){
   $('#perDayVal').textContent = '$' + Math.round(leftover/15) + '/day';
   saveState();
 }
-function switchPay(pay){
-  state.active = String(pay);
-  saveState();
-  render();
-}
-  
   function renderBills(){
   const container = document.getElementById('billsList');
   if(!container) return;
@@ -233,56 +225,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
   });
 })();
- function switchPay(pay){
-  state.active = String(pay);
-  saveState();
-  render();
-}
-
+ 
 </script>
-function switchPay(pay){
-  state.active = String(pay);
-  saveState();
-  render();
-}
-
-function renderBills(){
-  const container = document.getElementById('billsList');
-  if(!container || !state || !Array.isArray(state.bills)) return;
-  container.innerHTML = '';
-  const pay = state.active || '1';
-  const list = state.bills.filter(b => String(b.pay) === String(pay));
-  list.forEach(b => {
-    const row = document.createElement('div'); row.className = 'line';
-    row.innerHTML = `
-      <div style="flex:1"><input class="billName" value="${b.name}"></div>
-      <div style="width:90px;text-align:right"><input class="billAmt" type="number" value="${b.amount}"></div>
-      <div style="width:90px"><select class="billType"><option value="auto"${b.type==='auto'?' selected':''}>Auto</option><option value="offline"${b.type==='offline'?' selected':''}>Offline</option></select></div>
-      <div style="width:90px"><select class="billPay"><option value="1"${b.pay==='1'?' selected':''}>1st</option><option value="15"${b.pay==='15'?' selected':''}>15th</option></select></div>
-      <div style="width:36px;text-align:center"><button class="billRem">✕</button></div>`;
-    container.appendChild(row);
-
-    row.querySelector('.billName').onchange = e => { b.name = e.target.value; saveState(); render(); };
-    row.querySelector('.billAmt').onchange = e => { b.amount = Number(e.target.value)||0; saveState(); render(); };
-    row.querySelector('.billType').onchange = e => { b.type = e.target.value; saveState(); render(); };
-    row.querySelector('.billPay').onchange = e => { b.pay = e.target.value; saveState(); render(); };
-    row.querySelector('.billRem').onclick = () => {
-      if(confirm('Remove bill?')) {
-        state.bills = state.bills.filter(x => x.id !== b.id);
-        saveState(); render();
-      }
-    };
-  });
-  if(list.length === 0) container.innerHTML = '<div class="small">No bills for this pay period. Click + Add bill to create one.</div>';
-}
 
   
 </body>
 </html>
-
-
-
-
 
 
 
