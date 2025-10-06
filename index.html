@@ -189,20 +189,27 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
   render();
 });
+ // Make Total Income editable in-place; user can enter household total directly
+(function(){
+  const incomeEl = document.getElementById('incomeVal');
+  if(!incomeEl) return;
+  incomeEl.addEventListener('click', ()=>{
+    const pay = state && state.paychecks && state.paychecks[state.active];
+    const current = pay ? Number(pay.income) || 0 : 0;
+    const v = prompt('Enter total income for this pay period (include household total if shared)', current);
+    if(v !== null && pay){
+      pay.income = Number(v) || 0;
+      saveState();
+      render();
+    }
+  });
+})();
+ 
 </script>
-// Make Total Income editable in-place; user can enter household total directly
-document.getElementById('incomeVal').addEventListener('click', ()=>{
-  const pay = state.paychecks[state.active];
-  const current = Number(pay.income) || 0;
-  const v = prompt('Enter total income for this pay period (include household total if shared)', current);
-  if(v !== null){
-    pay.income = Number(v) || 0;
-    saveState();
-    render();
-  }
-});
+
   
 </body>
 </html>
+
 
 
