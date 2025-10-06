@@ -81,7 +81,10 @@
             <div class="tab" data-pay="15" onclick="switchPay('15')">15th</div>
           </div>
 
-          <div id="budgetSummary" style="margin-top:10px" class="small">Income: <strong id="incomeVal">$0</strong> • Expenses: <strong id="expensesVal">$0</strong></div>
+<div style="display:flex;gap:8px;align-items:center;">
+  <input type="number" id="incomeInput" value="1800" style="width:80px;height:32px;">
+</div>
+
 
           <div id="lines" style="margin-top:8px"></div>
 
@@ -190,6 +193,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 </body>
 </html>
+
 
 
 
