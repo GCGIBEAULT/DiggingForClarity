@@ -26,11 +26,6 @@
     <h2>IOIOIO Budget Starter</h2>
     <p class="small">Manual entry only. No autofill. No export. Just clarity.</p>
 
-    <!-- Bank Transaction Day Input -->
-    <div class="card" style="margin-top: 12px;">
-      <label><strong>Bank Transaction Day:</strong></label>
-      <input type="number" id="transDayInput" min="1" max="31" placeholder="e.g. 13" onchange="render()" style="width:60px; margin-left: 8px;">
-    </div>
 
     <!-- Pay Period Tabs -->
     <div class="paytabs">
@@ -89,26 +84,25 @@ function render(){
   const transDayRaw = document.getElementById('transDayInput')?.value || '';
   const transDay = ordinalize(transDayRaw);
 
-  pay.lines.forEach(line => {
-    const el = document.createElement('div');
-    el.className = 'line';
+pay.lines.forEach(line => {
+  const el = document.createElement('div');
+  el.className = 'line';
 
-    const typeLabel = line.type + (transDay ? ` (${transDay})` : '');
+  const transDay = ordinalize(line.trans_day);
+  const typeLabel = line.type + (transDay ? ` (${transDay})` : '');
 
-    el.innerHTML = `
-      <input value="${line.name}" onchange="line.name=this.value;saveState();render()">
-      <input type="number" value="${line.amount}" onchange="line.amount=Number(this.value)||0;saveState();render()">
-      <select onchange="line.type=this.value;saveState();render()">
-        <option value="auto"${line.type==='auto'?' selected':''}>Auto</option>
-        <option value="offline"${line.type==='offline'?' selected':''}>Offline</option>
-      </select>
-      <span style="margin-left:8px">${typeLabel}</span>
-      <button onclick="const url=prompt('Vendor URL:',line.vendor_url||'');if(url!==null){line.vendor_url=url.trim();saveState();render()}">${line.vendor_url ? '🔗' : '+'}</button>
-      <button onclick="if(confirm('Remove?')){pay.lines=pay.lines.filter(l=>l.id!==line.id);saveState();render()}">✕</button>
-    `;
+  el.innerHTML = `
+    <input value="${line.name}" onchange="line.name=this.value;saveState();render()">
+    <input type="number" value="${line.amount}" onchange="line.amount=Number(this.value)||0;saveState();render()">
+    <input type="number" value="${line.trans_day || ''}" min="1" max="31" placeholder="Day" onchange="line.trans_day=Number(this.value)||'';saveState();render()" style="width:50px">
+    <span><strong>${typeLabel}</strong></span>
+    <button onclick="const url=prompt('Vendor URL:',line.vendor_url||'');if(url!==null){line.vendor_url=url.trim();saveState();render()}">${line.vendor_url ? '🔗' : '+'}</button>
+    <button onclick="if(confirm('Remove?')){pay.lines=pay.lines.filter(l=>l.id!==line.id);saveState();render()}">✕</button>
+  `;
 
-    linesEl.appendChild(el);
-  });
+  linesEl.appendChild(el);
+});
+
 
   document.getElementById('incomeVal').textContent = `$${pay.income}`;
   const expenses = pay.lines.reduce((sum, l) => sum + l.amount, 0);
@@ -125,11 +119,13 @@ function addLine(){
     name: 'New item',
     amount: 0,
     type: 'offline',
+    trans_day: '',
     vendor_url: ''
   });
   saveState();
   render();
 }
+
 
 function switchPay(p){
   state.active = p;
@@ -143,3 +139,4 @@ render();
 
 </body>
 </html>
+
