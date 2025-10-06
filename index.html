@@ -105,107 +105,104 @@
 
 <script>
 <script>
+<script>
 const KEY = 'dfc:blank:ioioio:v7';
 const defaults = {
   active: '1',
   paychecks: {
-    '1': {
-      income: 1800,
-      lines: [
-        {
-          id: 'demo1',
-          name: 'Rent',
-          amount: 1200,
-          type: 'auto',
-          trans_day: 27,
-          vendor_url: ''
-        }
-      ]
-    },
-    '15': {
-      income: 1200,
-      lines: []
-    }
+    '1': { income: 1800, lines: [{ id: 'demo1', name: 'Rent', amount: 1200, type: 'auto', trans_day: 27, vendor_url: '' }] },
+    '15': { income: 1200, lines: [] }
   }
 };
 
 let state = JSON.parse(localStorage.getItem(KEY) || 'null') || defaults;
 
-function saveState(){
+function saveState() {
   localStorage.setItem(KEY, JSON.stringify(state));
 }
 
-function ordinalize(n){
+function ordinalize(n) {
   n = parseInt(n);
   if (!n || n < 1 || n > 31) return '';
-  const suffix = (n % 10 === 1 && n !== 11) ? 'st' :
-                 (n % 10 === 2 && n !== 12) ? 'nd' :
-                 (n % 10 === 3 && n !== 13) ? 'rd' : 'th';
+  const suffix = (n % 10 === 1 && n !== 11) ? 'st' : (n % 10 === 2 && n !== 12) ? 'nd' : (n % 10 === 3 && n !== 13) ? 'rd' : 'th';
   return `${n}${suffix}`;
 }
 
-function render(){
-  const pay = state.paychecks[state.active];
+function switchPay(pay) {
+  if (!state || !state.paychecks) return;
+  state.active = String(pay);
+  saveState();
+  render();
+  document.querySelectorAll('.tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.pay === String(pay));
+  });
+}
+
+function render() {
+  const pay = state.paychecks[state.active] || { income: 0, lines: [] };
   const linesEl = document.getElementById('lines');
   linesEl.innerHTML = '';
-
   pay.lines.forEach(line => {
     const el = document.createElement('div');
     el.className = 'line';
-
     const transDay = ordinalize(line.trans_day);
-
     el.innerHTML = `
-      <input value="${line.name}" onchange="line.name=this.value;saveState();render()">
-      <input type="number" value="${line.amount}" onchange="line.amount=Number(this.value)||0;saveState();render()">
-      <select onchange="line.type=this.value;saveState();render()">
+      <input value="${line.name}" onchange="(function(){ this._line && (this._line.name=this.value); saveState(); render(); }).call(this)" />
+      <input type="number" value="${line.amount}" onchange="(function(){ this._line && (this._line.amount=Number(this.value)||0); saveState(); render(); }).call(this)" />
+      <select onchange="(function(){ this._line && (this._line.type=this.value); saveState(); render(); }).call(this)">
         <option value="auto"${line.type==='auto'?' selected':''}>Auto</option>
         <option value="offline"${line.type==='offline'?' selected':''}>Offline</option>
       </select>
-      <input type="number" value="${line.trans_day || ''}" min="1" max="31" placeholder="Day" onchange="line.trans_day=Number(this.value)||'';saveState();render()" style="width:60px">
+      <input type="number" value="${line.trans_day||''}" min="1" max="31" placeholder="Day" onchange="(function(){ this._line && (this._line.trans_day=Number(this.value)||''); saveState(); render(); }).call(this)" style="width:60px" />
       <span><strong>${transDay}</strong></span>
-      <button onclick="const url=prompt('Vendor URL:',line.vendor_url||'');if(url!==null){line.vendor_url=url.trim();saveState();render()}">${line.vendor_url ? '🔗' : '+'}</button>
-      <button onclick="if(confirm('Remove?')){pay.lines=pay.lines.filter(l=>l.id!==line.id);saveState();render()}">✕</button>
+      <button onclick="(function(){ const url=prompt('Vendor URL:', this._line.vendor_url||''); if(url!==null){ this._line.vendor_url=url.trim(); saveState(); render(); } }).call(this)">${line.vendor_url ? '🔗' : '+'}</button>
+      <button onclick="(function(){ if(confirm('Remove?')){ const p = state.paychecks[state.active]; p.lines = p.lines.filter(l => l.id !== this._line.id); saveState(); render(); } }).call(this)">✕</button>
     `;
-
+    // attach line reference so inline handlers can modify it
+    const inputs = el.querySelectorAll('input, select, button');
+    inputs.forEach(inp => inp._line = line);
     linesEl.appendChild(el);
   });
 
   document.getElementById('incomeVal').textContent = `$${pay.income}`;
-  const expenses = pay.lines.reduce((sum, l) => sum + l.amount, 0);
+  const expenses = pay.lines.reduce((sum, l) => sum + (Number(l.amount) || 0), 0);
   document.getElementById('expensesVal').textContent = `$${expenses}`;
-  const leftover = pay.income - expenses;
+  const leftover = (Number(pay.income) || 0) - expenses;
   document.getElementById('leftoverVal').textContent = `$${leftover}`;
   document.getElementById('perDayVal').textContent = `${(leftover/15).toFixed(0)}/day`;
+
+  // ensure active tab class matches state.active
+  document.querySelectorAll('.tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.pay === state.active);
+  });
 }
 
-<script>
-function addLine(){
+function addLine() {
   const id = 'n' + Date.now();
-  const newLine = {
-    id,
-    name: 'New item',
-    amount: 0,
-    type: 'auto',
-    trans_day: 1,
-    vendor_url: ''
-  };
-
+  const newLine = { id, name: 'New item', amount: 0, type: 'auto', trans_day: 1, vendor_url: '' };
   if (!state || !state.paychecks || !state.paychecks[state.active]) {
     console.error('State is broken. Cannot add line.');
     return;
   }
-
   const pay = state.paychecks[state.active];
   if (!Array.isArray(pay.lines)) pay.lines = [];
   pay.lines.push(newLine);
   saveState();
   render();
 }
+
+// initialize tab click handlers (for non-inline onclicks or if DOM had inline attributes)
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.tab').forEach(t => {
+    t.addEventListener('click', () => switchPay(t.dataset.pay));
+  });
+  render();
+});
 </script>
 
 </body>
 </html>
+
 
 
 
