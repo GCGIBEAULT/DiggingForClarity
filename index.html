@@ -177,17 +177,21 @@ function render(){
 
 function addLine(){
   const id = 'n' + Date.now();
-  state.paychecks[state.active].lines.push({
+  const newLine = {
     id,
     name: 'New item',
     amount: 0,
     type: 'auto',
-    trans_day: 1, // ← default value ensures ordinal label renders
+    trans_day: 1,
     vendor_url: ''
-  });
+  };
+  const pay = state.paychecks[state.active];
+  if (!pay.lines) pay.lines = [];
+  pay.lines.push(newLine);
   saveState();
   render();
 }
+
 
 
 function switchPay(p){
@@ -203,6 +207,7 @@ render();
 </script>
 </body>
 </html>
+
 
 
 
