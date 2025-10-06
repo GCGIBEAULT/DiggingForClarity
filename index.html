@@ -101,91 +101,107 @@
   </div>
 
 <script>
-const KEY = 'dfc:blank:ioioio:v1';
-const defaults = {
-  active: '1',
-  paychecks: {
-    '1': { income:1800, lines:[
-      {id:'r1',name:'Rent',amount:700,type:'auto',vendor_url:''},
-      {id:'r2',name:'Electric',amount:80,type:'auto',vendor_url:''},
-      {id:'r3',name:'Savings',amount:200,type:'auto',vendor_url:''}
-    ]},
-    '15': { income:1200, lines:[
-      {id:'p1',name:'Groceries',amount:200,type:'offline',vendor_url:''},
-      {id:'p2',name:'Subscriptions',amount:40,type:'auto',vendor_url:''},
-      {id:'p3',name:'Savings',amount:100,type:'auto',vendor_url:''}
-    ]}
+(function(){
+  const KEY = 'dfc:blank:ioioio:v7';
+  const defaults = {
+    active: '1',
+    paychecks: {
+      '1': { income: 1800, lines: [{ id: 'demo1', name: 'Rent', amount: 1200, type: 'auto', trans_day: 27, vendor_url: '' }] },
+      '2': { income: 1200, lines: [] },
+      '3': { income: 0, lines: [] },
+      '15': { income: 1200, lines: [] }
+    }
+  };
+
+  let state;
+  try {
+    state = JSON.parse(localStorage.getItem(KEY) || 'null') || defaults;
+  } catch(e) {
+    state = defaults;
+    localStorage.setItem(KEY, JSON.stringify(defaults));
   }
-};
-let state = loadState();
-function loadState(){ try{ const raw=localStorage.getItem(KEY); return raw?JSON.parse(raw):JSON.parse(JSON.stringify(defaults)); }catch(e){ return JSON.parse(JSON.stringify(defaults)); } }
-function saveState(){ localStorage.setItem(KEY,JSON.stringify(state)); }
-function $(s){ return document.querySelector(s); }
 
-function render(){
-  const pay = state.paychecks[state.active];
-  $('#incomeVal').textContent = '$' + Math.round(pay.income);
-  const linesEl = $('#lines'); linesEl.innerHTML = '';
-  pay.lines.forEach(line=>{
-    const el = document.createElement('div'); el.className='line';
-    el.innerHTML = `
-      <div style="flex:1"><input value="${escape(line.name)}" data-id="${line.id}" class="name"></div>
-      <div style="width:110px;text-align:right"><input type="number" value="${line.amount}" data-id="${line.id}" class="amt"></div>
-      <div style="width:90px"><select class="type" data-id="${line.id}"><option value="auto"${line.type==='auto'?' selected':''}>Auto</option><option value="offline"${line.type==='offline'?' selected':''}>Offline</option></select></div>
-      <div style="width:36px;text-align:center"><button class="url" data-id="${line.id}">${line.vendor_url? '🔗':'+'}</button></div>
-      <div style="width:36px;text-align:center"><button class="rem" data-id="${line.id}">✕</button></div>`;
-    linesEl.appendChild(el);
-    el.querySelector('.name').addEventListener('change',e=>{ line.name=e.target.value; saveState(); renderTotals(); });
-    el.querySelector('.amt').addEventListener('change',e=>{ line.amount=Number(e.target.value)||0; saveState(); renderTotals(); });
-    el.querySelector('.type').addEventListener('change',e=>{ line.type=e.target.value; saveState(); renderTotals(); });
-    el.querySelector('.url').addEventListener('click',()=>{
-      const url = prompt('Vendor URL (billing page or contact)', line.vendor_url||'');
-      if(url===null) return;
-      line.vendor_url = url.trim(); saveState(); render();
-    });
-    el.querySelector('.rem').addEventListener('click',()=>{
-      if(confirm('Remove this line?')){ state.paychecks[state.active].lines = state.paychecks[state.active].lines.filter(l=>l.id!==line.id); saveState(); render(); }
-    });
-  });
-  renderTotals();
-}
-function renderTotals(){
-  const pay = state.paychecks[state.active];
-  const income = Number(pay.income)||0;
-  const expenses = pay.lines.reduce((s,l)=>s + (Number(l.amount)||0),0);
-  $('#expensesVal').textContent = '$' + Math.round(expenses);
-  const leftover = income - expenses;
-  $('#leftoverVal').textContent = '$' + Math.round(leftover);
-  $('#perDayVal').textContent = '$' + Math.round(leftover/15) + '/day';
-  saveState();
-}
-function addLine(){
-  const id = 'n' + Date.now();
-  state.paychecks[state.active].lines.push({id,name:'New item',amount:0,type:'offline',vendor_url:''});
-  saveState(); render();
-}
-function switchPay(p){ state.active = p; document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.pay===p)); render(); }
-function exportSnapshot(){
-  const pay = state.paychecks[state.active];
-  const snap = {payId:state.active, income:pay.income, lines:pay.lines, created:new Date().toISOString()};
-  const blob = new Blob([JSON.stringify(snap,null,2)],{type:'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href=url; a.download = `snapshot_${state.active}.json`; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-}
-function escape(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
-function openWeather(){ const el = document.getElementById('weatherLink'); const url = el.value && el.value.trim(); if(!url){ alert('Enter a valid weather URL first.'); return; } localStorage.setItem('dfc:weather',url); window.open(url,'_blank'); }
-function openLocalNews(){ const el = document.getElementById('localNews'); const url = el.value && el.value.trim(); if(!url){ alert('Enter a valid local news URL first.'); return; } localStorage.setItem('dfc:local',url); window.open(url,'_blank'); }
+  function saveState(){ localStorage.setItem(KEY, JSON.stringify(state)); }
 
-document.addEventListener('DOMContentLoaded',()=>{
-  const savedWeather = localStorage.getItem('dfc:weather'); if(savedWeather) document.getElementById('weatherLink').value = savedWeather;
-  const savedLocal = localStorage.getItem('dfc:local'); if(savedLocal) document.getElementById('localNews').value = savedLocal;
-  document.getElementById('incomeVal').addEventListener('click', ()=>{
-    const pay = state.paychecks[state.active];
-    const v = prompt('Edit income for this paycheck', pay.income);
-    if(v!==null){ pay.income = Number(v)||0; saveState(); render(); }
+  function escapeHtml(s){
+    if (s === undefined || s === null) return '';
+    return String(s).replace(/[&<>"']/g, function(m){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);
+    });
+  }
+
+  function ordinalize(n){
+    n = parseInt(n);
+    if (!n || n < 1 || n > 31) return '';
+    const suffix = (n % 10 === 1 && n !== 11) ? 'st' : (n % 10 === 2 && n !== 12) ? 'nd' : (n % 10 === 3 && n !== 13) ? 'rd' : 'th';
+    return `${n}${suffix}`;
+  }
+
+  function render(){
+    const pay = state.paychecks[state.active] || { income:0, lines:[] };
+    const linesEl = document.getElementById('lines');
+    if (!linesEl) return;
+    linesEl.innerHTML = '';
+    pay.lines.forEach(line => {
+      const el = document.createElement('div');
+      el.className = 'line';
+      const transDay = ordinalize(line.trans_day);
+      el.innerHTML = `
+        <input type="text" class="line-name" value="${escapeHtml(line.name)}" />
+        <input type="number" class="line-amount" value="${Number(line.amount)||0}" />
+        <select class="line-type"><option value="auto"${line.type==='auto'?' selected':''}>Auto</option><option value="offline"${line.type==='offline'?' selected':''}>Offline</option></select>
+        <input type="number" class="line-day" value="${line.trans_day||''}" min="1" max="31" style="width:60px" />
+        <span style="min-width:56px"><strong>${transDay}</strong></span>
+        <button class="vendor-btn">${line.vendor_url? '🔗' : '+'}</button>
+        <button class="del-btn">✕</button>
+      `;
+      const nameI = el.querySelector('.line-name'), amtI = el.querySelector('.line-amount'), sel = el.querySelector('.line-type'), dayI = el.querySelector('.line-day'), vendorB = el.querySelector('.vendor-btn'), delB = el.querySelector('.del-btn');
+      nameI.addEventListener('change', ()=>{ line.name = nameI.value.trim(); saveState(); render(); });
+      amtI.addEventListener('change', ()=>{ line.amount = Number(amtI.value)||0; saveState(); render(); });
+      sel.addEventListener('change', ()=>{ line.type = sel.value; saveState(); render(); });
+      dayI.addEventListener('change', ()=>{ line.trans_day = Number(dayI.value)||''; saveState(); render(); });
+      vendorB.addEventListener('click', ()=>{ const url = prompt('Vendor URL:', line.vendor_url||''); if(url!==null){ line.vendor_url = url.trim(); saveState(); render(); }});
+      delB.addEventListener('click', ()=>{ if(confirm('Remove?')){ state.paychecks[state.active].lines = state.paychecks[state.active].lines.filter(l=>l.id!==line.id); saveState(); render(); }});
+      linesEl.appendChild(el);
+    });
+
+    document.getElementById('incomeVal').textContent = `$${Number(pay.income)||0}`;
+    const expenses = pay.lines.reduce((s,l)=>(s + (Number(l.amount)||0)), 0);
+    document.getElementById('expensesVal').textContent = `$${expenses}`;
+    const leftover = (Number(pay.income)||0) - expenses;
+    document.getElementById('leftoverVal').textContent = `$${leftover}`;
+    document.getElementById('perDayVal').textContent = `${Math.round(leftover/15)}/day`;
+    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.pay === state.active));
+  }
+
+  function switchPay(pay){
+    state.active = String(pay);
+    saveState();
+    render();
+  }
+
+  function addLine(){
+    const id = 'n' + Date.now();
+    const newLine = { id, name: 'New item', amount: 0, type: 'auto', trans_day: 1, vendor_url: '' };
+    const pay = state.paychecks[state.active] || (state.paychecks[state.active] = { income:0, lines:[] });
+    if (!Array.isArray(pay.lines)) pay.lines = [];
+    pay.lines.push(newLine);
+    saveState();
+    render();
+    setTimeout(()=>{ const lines = document.querySelectorAll('#lines .line'); if (lines.length){ const last = lines[lines.length-1]; const name = last.querySelector('.line-name'); if (name) name.focus(); } }, 10);
+  }
+
+  window.switchPay = switchPay;
+  window.addLine = addLine;
+
+  document.addEventListener('DOMContentLoaded', ()=>{
+    if (!state.paychecks[state.active]) state.active = Object.keys(state.paychecks)[0] || '1';
+    document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', ()=> switchPay(t.dataset.pay)));
+    render();
   });
-  render();
-});
+})();
 </script>
+
 </body>
 </html>
+
