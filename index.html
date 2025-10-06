@@ -232,12 +232,18 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
   });
 })();
- 
+ function switchPay(pay){
+  state.active = String(pay);
+  saveState();
+  render();
+}
+
 </script>
 
   
 </body>
 </html>
+
 
 
 
