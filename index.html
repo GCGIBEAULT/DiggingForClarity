@@ -142,108 +142,58 @@ function render(){
   const pay = state.paychecks[state.active];
 document.getElementById('incomeInput').value = Math.round(pay.income);
   const linesEl = $('#lines'); linesEl.innerHTML = '';
-repl
+  pay.lines.forEach(line=>{
+    const el = document.createElement('div'); el.className='line';
+    el.innerHTML = `
+      <div style="flex:1"><input value="${escape(line.name)}" data-id="${line.id}" class="name"></div>
+      <div style="width:110px;text-align:right"><input type="number" value="${line.amount}" data-id="${line.id}" class="amt"></div>
+      <div style="width:90px"><select class="type" data-id="${line.id}"><option value="auto"${line.type==='auto'?' selected':''}>Auto</option><option value="offline"${line.type==='offline'?' selected':''}>Offline</option></select></div>
+      <div style="width:36px;text-align:center"><button class="url" data-id="${line.id}">${line.vendor_url? '🔗':'+'}</button></div>
+      <div style="width:36px;text-align:center"><button class="rem" data-id="${line.id}">✕</button></div>`;
+    linesEl.appendChild(el);
+    el.querySelector('.name').addEventListener('change',e=>{ line.name=e.target.value; saveState(); renderTotals(); });
+    el.querySelector('.amt').addEventListener('change',e=>{ line.amount=Number(e.target.value)||0; saveState(); renderTotals(); });
+    el.querySelector('.type').addEventListener('change',e=>{ line.type=e.target.value; saveState(); renderTotals(); });
+    el.querySelector('.url').addEventListener('click',()=>{
+      const url = prompt('Vendor URL (billing page or contact)', line.vendor_url||'');
+      if(url===null) return;
+      line.vendor_url = url.trim(); saveState(); render();
+    });
+    el.querySelector('.rem').addEventListener('click',()=>{
+      if(confirm('Remove this line?')){ state.paychecks[state.active].lines = state.paychecks[state.active].lines.filter(l=>l.id!==line.id); saveState(); render(); }
+    });
+  });
   renderTotals();
 }
 function renderTotals(){
   const pay = state.paychecks[state.active];
   const income = Number(pay.income)||0;
-pay.lines.forEach(line => {
-  const el = document.createElement('div');
-  el.className = 'line';
-  // New layout: Name | Payment (closer) | Offline/Auto | Trans day (4) | + | ✕ | Comment
-  el.innerHTML = `
-    <div style="flex:1;min-width:90px;">
-      <input value="${escape(line.name)}" data-id="${line.id}" class="name" aria-label="bill name">
-    </div>
+  const expenses = pay.lines.reduce((s,l)=>s + (Number(l.amount)||0),0);
+  $('#expensesVal').textContent = '$' + Math.round(expenses);
+  const leftover = income - expenses;
+  saveState();
+}
 
-    <div style="width:120px; display:flex;flex-direction:column;gap:4px;align-items:flex-end;">
-      <div style="font-size:12px;color:var(--muted);font-weight:700">Payment</div>
-      <input type="number" value="${line.amount}" data-id="${line.id}" class="amt" style="text-align:right;width:100%;">
-    </div>
+function switchPay(p){ state.active = p; document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.pay===p)); render(); }
+function exportSnapshot(){
+  const pay = state.paychecks[state.active];
+  const snap = {payId:state.active, income:pay.income, lines:pay.lines, created:new Date().toISOString()};
+  const blob = new Blob([JSON.stringify(snap,null,2)],{type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download = `snapshot_${state.active}.json`; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+}
+function escape(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+function openWeather(){ const el = document.getElementById('weatherLink'); const url = el.value && el.value.trim(); if(!url){ alert('Enter a valid weather URL first.'); return; } localStorage.setItem('dfc:weather',url); window.open(url,'_blank'); }
+function openLocalNews(){ const el = document.getElementById('localNews'); const url = el.value && el.value.trim(); if(!url){ alert('Enter a valid local news URL first.'); return; } localStorage.setItem('dfc:local',url); window.open(url,'_blank'); }
 
-    <div style="width:90px;display:flex;flex-direction:column;gap:4px;align-items:flex-start;">
-      <div style="font-size:12px;color:var(--muted);font-weight:700">Mode</div>
-      <select class="type" data-id="${line.id}" style="width:88px;">
-        <option value="auto"${line.type==='auto'?' selected':''}>Auto</option>
-        <option value="offline"${line.type==='offline'?' selected':''}>Offline</option>
-      </select>
-    </div>
-
-    <div style="width:60px;display:flex;flex-direction:column;gap:4px;align-items:flex-start;">
-      <div style="font-size:12px;color:var(--muted);font-weight:700">Trans day</div>
-      <input class="transday" type="text" maxlength="4" value="${line.transday || ''}" placeholder="30th" style="width:56px;text-align:center;">
-    </div>
-
-    <div style="width:84px;display:flex;gap:6px;align-items:center;justify-content:flex-end;">
-      <button class="dup" data-id="${line.id}" title="Duplicate line" style="height:34px;width:34px;border-radius:8px;border:0;background:#111;color:#fff;">+</button>
-      <button class="rem" data-id="${line.id}" title="Remove line" style="height:34px;width:34px;border-radius:8px;border:0;background:#eee;color:#111;">✕</button>
-    </div>
-
-    <div style="flex-basis:220px;max-width:40%;display:flex;flex-direction:column;gap:4px;">
-      <div style="font-size:12px;color:var(--muted);font-weight:700">Comment</div>
-      <input class="comment" value="${escape(line.comment||'')}" placeholder="Optional note (e.g., paid late 10/22)" style="height:36px;">
-    </div>
-  `;
-
-  linesEl.appendChild(el);
-
-  // wire up events (keeps existing saveState/renderTotals behavior)
-  el.querySelector('.name').addEventListener('change', e => {
-    line.name = e.target.value;
-    saveState(); renderTotals();
+document.addEventListener('DOMContentLoaded',()=>{
+  const savedWeather = localStorage.getItem('dfc:weather'); if(savedWeather) document.getElementById('weatherLink').value = savedWeather;
+  const savedLocal = localStorage.getItem('dfc:local'); if(savedLocal) document.getElementById('localNews').value = savedLocal;
+  document.getElementById('incomeVal').addEventListener('click', ()=>{
+    const pay = state.paychecks[state.active];
+    const v = prompt('Edit income for this paycheck', pay.income);
+    if(v!==null){ pay.income = Number(v)||0; saveState(); render(); }
   });
-
-  el.querySelector('.amt').addEventListener('change', e => {
-    line.amount = Number(e.target.value) || 0;
-    saveState(); renderTotals();
-  });
-
-  el.querySelector('.type').addEventListener('change', e => {
-    line.type = e.target.value;
-    saveState(); renderTotals();
-  });
-
-  // trans day field
-  const td = el.querySelector('.transday');
-  if(td){
-    td.addEventListener('change', e => {
-      line.transday = e.target.value;
-      saveState();
-    });
-    td.addEventListener('input', e => {
-      if(e.target.value.length>4) e.target.value = e.target.value.slice(0,4);
-    });
-  }
-
-  // comment field
-  const cm = el.querySelector('.comment');
-  if(cm){
-    cm.addEventListener('change', e => {
-      line.comment = e.target.value;
-      saveState();
-    });
-  }
-
-  // duplicate / add + behavior: inserts a new line after this one
-  el.querySelector('.dup').addEventListener('click', () => {
-    const id = 'n' + Date.now();
-    const idx = state.paychecks[state.active].lines.findIndex(l=>l.id===line.id);
-    const newLine = { id, name: line.name || 'New item', amount: line.amount || 0, type: line.type || 'offline', vendor_url: line.vendor_url||'', transday: line.transday||'', comment: line.comment||'' };
-    state.paychecks[state.active].lines.splice(idx+1, 0, newLine);
-    saveState();
-    render();
-  });
-
-  // remove
-  el.querySelector('.rem').addEventListener('click', () => {
-    if(confirm('Remove this line?')){
-      state.paychecks[state.active].lines = state.paychecks[state.active].lines.filter(l => l.id !== line.id);
-      saveState(); render();
-    }
-  });
-});
-
   render();
 });
 function addLine(){
@@ -263,8 +213,6 @@ function addLine(){
 </script>
 </body>
 </html>
-
-
 
 
 
