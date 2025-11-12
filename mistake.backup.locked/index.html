@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <title>Start Your Round</title>
+  <style>
+    body { font-family: sans-serif; padding: 1rem; }
+    fieldset { margin-bottom: 1.5rem; }
+    button { margin: 0.25rem; }
+    button.selected { background-color:#4CAF50; color:#fff; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: center; }
+    th { background-color: #f0f0f0; }
+  </style>
+</head>
+<body>
+
+ <!-- 🧱 Block 1: Course Info -->
+<fieldset>
+ <legend><strong>BRENNEN's Scorecard - Course Info</strong></legend>
+
+ 
+  <!-- Form Fields -->
+  <label>Course Name: <input type="text" id="course-name" /></label><br /><br />
+  <label>Date: <input type="date" id="round-date" /></label><br /><br />
+
+  <label>Slope:
+    <input type="number" id="slope" min="55" max="155" />
+  </label><br /><br />
+
+  <label>Course Rating:
+    <input type="number" id="courseRating" step="0.1" min="60" max="80" />
+  </label><br /><br />
+
+  <label>Yardage:
+    <input type="number" id="yardage" min="1000" max="8000" />
+  </label><br /><br />
+
+  <label>Handicap:
+    <input type="number" id="handicap" readonly />
+  </label><br /><br />
+</fieldset>
+
+
+
+
+  <!-- 🧱 Block 2: Stats to Track -->
+  <fieldset>
+  <legend><strong>Stats to Track</strong></legend>
+
+<div style="display: flex; align-items: flex-start; gap: 20px;">
+  <!-- Left: Checkboxes -->
+  <div>
+    <label><input type="checkbox" id="track-score" checked /> Score</label><br />
+    <label><input type="checkbox" id="track-putts" checked /> Putts</label><br />
+    <label><input type="checkbox" id="track-gir" checked /> GIR</label><br />
+    <label><input type="checkbox" id="track-fairway" checked /> Fairway</label><br />
+  </div>
+
+  
+<!-- Start Round button below image -->
+<div style="margin-top: 10px;">
+  <button onclick="startRound()" style="background-color:#add8e6; color:#000; border:1px solid #0077b6; padding:6px 10px; font-size:12px; font-weight:bold; border-radius:4px; cursor:pointer;">Start Round</button>
+</div>
+
+</fieldset>
+
+
+
+  <!-- 🧱 Block 3: Hole Entry -->
+  <div id="hole-entry"></div>
+
+  <!-- 🧱 Block 4: Live Summary -->
+  <div id="summary-block"></div>
+
+<div style="margin-top: 16px;"></div>
+  <!-- 🧱 Block 5: Saved Rounds -->
+<div id="saved-rounds"></div>
+
+
+  <script>
+    // canonical store
+    const holeStats = [];
+    let currentHole = 1;
+    
+
+    function startRound() {
+  currentHole = 1;
+  holeStats.length = 0;
+  document.getElementById("summary-block").innerHTML = "";
+
+  // ✅ Capture tracking preferences
+  const trackingPrefs = {
+    score: document.getElementById("track-score").checked,
+    putts: document.getElementById("track-putts").checked,
+    gir: document.getElementById("track-gir").checked,
+    fairway: document.getElementById("track-fairway").checked
+  };
+
+  // ✅ Pass preferences to hole entry renderer
+  renderHoleEntry(currentHole, trackingPrefs);
+}
+
+
+    function renderHoleEntry(holeNumber) {
+      const entry = document.getElementById("hole-entry");
+      entry.innerHTML = "";
+
+      const fieldset = document.createElement("fieldset");
+      fieldset.innerHTML = `
+        <legend><strong>Hole ${holeNumber}</strong></legend>
+        ${renderStatBlock("Par", [3, 4, 5], "par")}
+        ${document.getElementById("track-score").checked ? renderStatBlock("Score", [1,2,3,4,5,6,7,8], "score") : ""}
+        ${document.getElementById("track-putts").checked ? renderStatBlock("Putts", [0,1,2,3], "putts") : ""}
+        ${document.getElementById("track-gir").checked ? renderStatBlock("GIR", ["Yes","X"], "gir") : ""}
+       ${document.getElementById("track-fairway").checked ? renderStatBlock("Fairway", ["Yes","X"], "fairway") : ""}
+${document.getElementById("track-fairway").checked ? `<p style="font-size: 0.85rem; margin-top: 4px; color: #555;">On par 3s, always mark X for Fairway.</p>` : ""}
+
+        
+      `;
+
+      entry.appendChild(fieldset);
+
+      // wire buttons: use dataset.stat and selected class
+      const buttons = fieldset.querySelectorAll("button[data-stat]");
+      buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          // remove selected on group, add on this button
+          const stat = btn.dataset.stat;
+          fieldset.querySelectorAll(`button[data-stat="${stat}"]`).forEach(b=>b.classList.remove('selected'));
+          btn.classList.add('selected');
+
+          // if all groups have a selected, record
+          if (allLocked(fieldset)) {
+            recordHole(fieldset);
+            currentHole++;
+           if (currentHole <= 18) {
+
+              renderHoleEntry(currentHole);
+            } else {
+            }
+          }
+        });
+      });
+    }
+function recordHole(fieldset) {
+  const scoreBtn = fieldset.querySelector('[data-stat="score"].selected');
+  const puttsBtn = fieldset.querySelector('[data-stat="putts"].selected');
+  const girBtn = fieldset.querySelector('[data-stat="gir"].selected');
+  const fairwayBtn = fieldset.querySelector('[data-stat="fairway"].selected');
+  const parBtn = fieldset.querySelector('[data-stat="par"].selected');
+
+  const score = scoreBtn ? parseInt(scoreBtn.dataset.value) : null;
+  const putts = puttsBtn ? parseInt(puttsBtn.dataset.value) : null;
+  const gir = girBtn ? girBtn.dataset.value === "Yes" : null;
+  const fairway = fairwayBtn ? fairwayBtn.dataset.value === "Yes" : null;
+  const par = parBtn ? parseInt(parBtn.dataset.value) : null;
+
+  const stat = { hole: currentHole, score, putts, gir, fairway, par };
+
+  const index = holeStats.findIndex(h => h.hole === currentHole);
+  if (index !== -1) {
+    holeStats[index] = stat; // ✅ Overwrite existing hole
+  } else {
+    holeStats.push(stat); // ✅ Add new hole
+  }
+}
+
+    function renderStatBlock(label, options, statKey) {
+      // statKey provided for dataset; buttons include data-stat attr now
+      return `
+        <div class="stat-block" data-label="${label}">
+          <strong>${label}:</strong><br />
+          ${options.map(opt => `<button type="button" data-stat="${statKey}" data-value="${opt}">${opt}</button>`).join(" ")}
+        </div><br />
+      `;
+    }
+
+    function allLocked(fieldset) {
+      // every .stat-block must contain a button.selected
+      return Array.from(fieldset.querySelectorAll('.stat-block')).every(block => !!block.querySelector('button.selected'));
+    }
+
+    function getLockedValue(fieldset, label) {
+      const block = Array.from(fieldset.querySelectorAll(".stat-block")).find(div =>
+        div.dataset.label === label || div.textContent.includes(label)
+      );
+      const locked = block?.querySelector("button.selected");
+      return locked ? locked.dataset.value ?? locked.textContent : "-";
+    }
+
+    function recordHole(fieldset) {
+      // read values from selected buttons in the fieldset (no external holeData)
+      const par = getLockedValue(fieldset, "Par") || "-";
+      const score = document.getElementById("track-score").checked ? getLockedValue(fieldset, "Score") : "-";
+      const putts = document.getElementById("track-putts").checked ? getLockedValue(fieldset, "Putts") : "-";
+      const gir = document.getElementById("track-gir").checked ? getLockedValue(fieldset, "GIR") : "-";
+      const fairway = document.getElementById("track-fairway").checked ? getLockedValue(fieldset, "Fairway") : "-";
+
+      // normalize numeric fields where appropriate
+      const parNum = par === "-" ? "-" : Number(par);
+      const scoreNum = score === "-" ? "-" : Number(score);
+
+      holeStats.push({ par: parNum, score: scoreNum, putts, gir, fairway });
+      showSummary();
+    }
+
+    function showSummary() {
+      
+      const summary = document.getElementById("summary-block");
+      let cumulative = 0;
+      let totalScore = 0;
+      let totalPutts = 0;
+      let totalGIR = 0;
+      let totalFairway = 0;
+
+      let html = `
+        <fieldset>
+          <legend><strong>Round Summary (${holeStats.length}/9)</strong></legend>
+          <table>
+            <thead>
+              <tr>
+                <th>Hole</th>
+                <th>Par</th>
+                <th>Score</th>
+                <th>Putts</th>
+                <th>GIR</th>
+                <th>Fairway</th>
+              </tr>
+            </thead>
+            <tbody>
+      `;
+
+      holeStats.forEach((stat, i) => {
+        const score = Number.isFinite(stat.score) ? stat.score : 0;
+        const par = Number.isFinite(stat.par) ? stat.par : 0;
+        const putts = Number(stat.putts) || 0;
+        const gir = stat.gir === "Yes" ? 1 : 0;
+        const fairway = stat.fairway === "Yes" ? 1 : 0;
+
+        const diff = (Number.isFinite(score) && Number.isFinite(par)) ? (score - par) : 0;
+        cumulative += diff;
+        totalScore += score;
+        totalPutts += putts;
+        totalGIR += gir;
+        totalFairway += fairway;
+
+        const relation = cumulative === 0 ? "E" : (cumulative > 0 ? `+${cumulative}` : cumulative);
+
+        html += `
+          <tr>
+            <td>${i + 1}</td>
+            <td>${stat.par === "-" ? "-" : stat.par}</td>
+            <td><div class="score-cell">${stat.score === "-" ? "-" : stat.score}&nbsp;&nbsp;&nbsp;&nbsp;${relation}</div></td>
+            <td>${stat.putts}</td>
+            <td>${stat.gir === "Yes" ? "✅" : ""}</td>
+            <td>${stat.fairway === "Yes" ? "✅" : ""}</td>
+          </tr>
+        `;
+      });
+
+      const finalRelation = cumulative === 0 ? "E" : (cumulative > 0 ? `+${cumulative}` : cumulative);
+
+      html += `
+          <tr style="font-weight: bold; border-top: 2px solid #000;">
+            <td colspan="2">Totals</td>
+            <td>${totalScore}   ${finalRelation}</td>
+            <td>${totalPutts}</td>
+            <td>${totalGIR}</td>
+            <td>${totalFairway}</td>
+          </tr>
+      `;
+
+     html += `
+  </tbody>
+  </table>
+</fieldset>
+
+<div class="button-row">
+<button onclick="saveRoundSummary()" style="background-color:#add8e6; color:#000; border:1px solid #0077b6; padding:0.5rem 1rem; border-radius:4px;">Save Round</button>
+<button style="background-color:#add8e6; color:#000; border:1px solid #0077b6; padding:0.5rem 1rem; border-radius:4px;">USGA</button>
+<button style="background-color:#add8e6; color:#000; border:1px solid #0077b6; padding:0.5rem 1rem; border-radius:4px;" onclick="window.open('https://play.google.com/store/apps/details?id=com.bushnell.golf','_blank');">GPS</button>
+
+</div>
+
+<div id="summary-output" style="white-space: pre-line; margin-top: 12px; font-family: monospace; background-color: #f8f9fa; padding: 8px; border: 1px solid #ccc;"
+
+
+
+
+
+`;
+      
+
+      summary.innerHTML = html;
+      
+    }
+
+function saveRoundSummary() {
+  const courseInput = document.getElementById("course-name");
+  const dateInput = document.getElementById("round-date");
+  const slopeInput = document.getElementById("slope");
+  const yardageInput = document.getElementById("yardage");
+  const courseRatingInput = document.getElementById("courseRating");
+
+  const course = courseInput.value.trim();
+  const date = dateInput.value;
+  const slope = slopeInput.value.trim();
+  const yardage = yardageInput.value.trim();
+
+  const totalScore = holeStats.reduce((sum, h) => sum + (Number(h.score) || 0), 0);
+  const holesPlayed = holeStats.length;
+
+  // Reset borders
+  [courseInput, dateInput, slopeInput, yardageInput, courseRatingInput].forEach(field => {
+    if (field) field.style.border = "1px solid #ccc";
+  });
+
+  // Validate required fields
+  const missingFields = [];
+  if (!course) missingFields.push(courseInput);
+  if (!date) missingFields.push(dateInput);
+  if (!slope) missingFields.push(slopeInput);
+  if (!yardage) missingFields.push(yardageInput);
+  if (!courseRatingInput || !courseRatingInput.value.trim()) missingFields.push(courseRatingInput);
+  if (holesPlayed === 0) return;
+
+  if (missingFields.length > 0) {
+    missingFields.forEach(field => {
+      if (field) field.style.border = "2px solid red";
+    });
+    alert("Please fill out all course info before saving.");
+    return;
+  }
+
+  const slopeRating = parseFloat(slope);
+  const courseRating = parseFloat(courseRatingInput.value);
+  if (isNaN(courseRating) || courseRating < 60 || courseRating > 80) return;
+
+  if (holesPlayed === 9 || holesPlayed === 18) {
+    const adjustedRating = holesPlayed === 9 ? courseRating / 2 : courseRating;
+    const differential = (totalScore - adjustedRating) * (113 / slopeRating);
+    const rounded = Math.round(differential * 10) / 10;
+
+    const handicapInput = document.getElementById("handicap");
+    if (handicapInput) {
+      handicapInput.value = rounded;
+      localStorage.setItem("lastHandicap", rounded);
+    }
+  }
+
+  const round = { course, date, slope, yardage, totalScore, courseRating, holesPlayed };
+  const saved = JSON.parse(localStorage.getItem("savedRounds") || "[]");
+  saved.push(round);
+  localStorage.setItem("savedRounds", JSON.stringify(saved));
+  renderSavedRounds();
+  renderCumulativeHandicap();
+
+  const summary = `
+Course: ${course}
+Date: ${date}
+Slope: ${slope}
+Yardage: ${yardage}
+Total Score: ${totalScore}
+Course Rating: ${courseRating}
+Holes Played: ${holesPlayed}
+`;
+
+  document.getElementById("summary-output").textContent = summary;
+}
+
+
+function renderSavedRounds() {
+  const container = document.getElementById("saved-rounds");
+  const saved = JSON.parse(localStorage.getItem("savedRounds") || "[]");
+
+  if (saved.length === 0) {
+    container.innerHTML = "";
+    return;
+  }
+
+  let html = `
+    <fieldset>
+      <legend><strong>Saved Rounds</strong></legend>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Date</th>
+            <th>Course</th>
+            <th>Score</th>
+            <th>Slope</th>
+            <th>Course Rating</th>
+           <th>Yardage</th>
+
+          </tr>
+        </thead>
+        <tbody>
+  `;
+
+  saved.forEach((r, index) => {
+    html += `
+      <tr>
+        <td>
+          <button onclick="deleteRound(${index})"
+            style="color:red; font-weight:bold; border:none; background:none; cursor:pointer;">
+            ×
+          </button>
+        </td>
+        <td>${r.date}</td>
+        <td>${r.course}</td>
+        <td>${r.totalScore}</td>
+        <td>${r.slope}</td>
+        <td>${r.courseRating}</td>
+        <td>${r.yardage}</td>
+
+      </tr>
+    `;
+  });
+
+  html += `</tbody></table></fieldset>`;
+  container.innerHTML = html;
+  renderCumulativeHandicap();
+}
+
+function deleteRound(index) {
+  const saved = JSON.parse(localStorage.getItem("savedRounds") || "[]");
+  saved.splice(index, 1);
+  localStorage.setItem("savedRounds", JSON.stringify(saved));
+  renderSavedRounds();
+}
+
+window.addEventListener("DOMContentLoaded", renderSavedRounds);
+
+    // auto-render if desired
+    // renderHoleEntry(currentHole);
+  </script>
+<script>
+ function calculateHandicapIndex(rounds) {
+  const differentials = rounds
+    .map(calculateDifferential)
+    .filter(d => Number.isFinite(d));
+
+  if (differentials.length === 0) return null;
+
+  const lowest = Math.min(...differentials);
+  const index = Math.round(lowest * 0.96 * 10) / 10;
+  return index;
+}
+
+     function onRoundComplete(score, holesPlayed) {
+    if (holesPlayed !== 9 && holesPlayed !== 18) return;
+
+    const slopeRating = parseFloat(document.getElementById('slope').value);
+    if (!slopeRating) return;
+
+    const handicap = calculateHandicap(score, slopeRating);
+    updateHandicapInput(handicap);
+  }
+ function calculateDifferential(round) {
+  const score = Number(round.totalScore);
+  const slope = Number(round.slope);
+  const holesPlayed = Number(round.holesPlayed);
+  const courseRating = Number(round.courseRating); // ✅ Use actual rating
+
+  if (!Number.isFinite(score) || !Number.isFinite(slope) || !Number.isFinite(holesPlayed) || !Number.isFinite(courseRating)) return null;
+
+  const normalizedScore = holesPlayed === 9 ? score * 2 : score;
+  const differential = (normalizedScore - courseRating) * 113 / slope;
+  return Math.round(differential * 10) / 10;
+}
+
+function renderCumulativeHandicap() {
+  // @ts-nocheck
+/* global holeStats */
+/* eslint-disable-next-line no-undef */
+var holeStats = JSON.parse(localStorage.getItem("holeStats") || "[]");
+
+  const savedRounds = JSON.parse(localStorage.getItem("savedRounds") || "[]");
+  if (savedRounds.length < 2) return;
+
+const differentials = savedRounds.map(r => {
+  const score = Number(r.totalScore);
+  const slope = Number(r.slope);
+  const rating = Number(r.courseRating);
+  const holes = Number(r.holesPlayed);
+
+  if (!score || !slope || !rating || !holes) return null;
+
+  const adjustedRating = holes === 9 ? rating / 2 : rating;
+  return (score - adjustedRating) * (113 / slope);
+}).filter(d => Number.isFinite(d));
+
+if (!differentials.length) return;
+
+  const avg = differentials.reduce((a, b) => a + b, 0) / differentials.length;
+  const rounded = Math.round(avg * 10) / 10;
+
+  const input = document.getElementById("handicap");
+  if (input) {
+    input.value = rounded;
+    localStorage.setItem("lastHandicap", rounded);
+  }
+}
+
+renderCumulativeHandicap();
+
+document.querySelectorAll('div, h1, h2, span, p').forEach(el => {
+  if (el.textContent.trim() === 'Start Your Round') {
+    el.remove();
+  }
+});
+
+
+</script>
+
+<script>
+const existing = document.getElementById("summary-output");
+if (!existing && summary.trim() !== '') {
+  const s = document.createElement('div');
+  s.id = 'summary-output';
+  s.textContent = summary.trim();
+  s.style.whiteSpace = 'pre-line';
+  s.style.marginTop = '12px';
+  s.style.fontFamily = 'monospace';
+  s.style.backgroundColor = '#f8f9fa';
+  s.style.padding = '8px';
+  s.style.border = '1px solid #ccc';
+  document.querySelector('.button-row').appendChild(s);
+}
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+ 
+
