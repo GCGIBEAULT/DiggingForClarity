@@ -72,6 +72,31 @@
 
 </section>
 
+<script>
+function openWeather(){
+  const el = document.getElementById('weatherLink');
+  const url = el.value && el.value.trim();
+  if(!url){ alert('Enter a valid weather URL first.'); return; }
+  localStorage.setItem('dfc:weather', url);
+  window.open(url, '_blank');
+}
+
+function openLocalNews(){
+  const el = document.getElementById('localNews');
+  const url = el.value && el.value.trim();
+  if(!url){ alert('Enter a valid local news URL first.'); return; }
+  localStorage.setItem('dfc:local', url);
+  window.open(url, '_blank');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedWeather = localStorage.getItem('dfc:weather');
+  if(savedWeather) document.getElementById('weatherLink').value = savedWeather;
+
+  const savedLocal = localStorage.getItem('dfc:local');
+  if(savedLocal) document.getElementById('localNews').value = savedLocal;
+});
+</script>
 
     
 
