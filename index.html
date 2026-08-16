@@ -15,6 +15,11 @@
     .masthead h1{font-family:Georgia,serif;color:var(--accent);font-size:2.4rem;margin:0}
     .masthead p{color:var(--muted);margin:6px 0 18px}
     .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    section{background:var(--card);padding:16px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+    section h2{margin:0 0 10px;color:var(--accent)}
+    input{width:100%;padding:10px;border-radius:6px;border:1px solid #ccc;font-size:1rem}
+    button{margin-top:10px;padding:10px 16px;border:0;border-radius:6px;background:var(--accent);color:#fff;font-size:1rem;cursor:pointer}
+    button:hover{opacity:0.9}
   </style>
 </head>
 
@@ -22,3 +27,54 @@
 
 <div class="wrap">
   <header class="masthead">
+    <h1>Digging For Clarity</h1>
+    <p>Your private workspace</p>
+  </header>
+
+  <div class="grid">
+
+    <!-- ⭐ YOUR ORIGINAL FIRST BLOCK -->
+    <section class="card">
+      <h2>Weather</h2>
+      <input id="weatherLink" placeholder="Paste your favorite weather link here">
+      <button onclick="openWeather()">Open Weather</button>
+    </section>
+
+    <!-- ⭐ YOUR ORIGINAL SECOND BLOCK -->
+    <section class="card">
+      <h2>Local News</h2>
+      <input id="localNews" placeholder="Paste your favorite local news link here">
+      <button onclick="openLocalNews()">Open Local News</button>
+    </section>
+
+  </div>
+</div>
+
+<script>
+function openWeather(){
+  const el = document.getElementById('weatherLink');
+  const url = el.value && el.value.trim();
+  if(!url){ alert('Enter a valid weather URL first.'); return; }
+  localStorage.setItem('dfc:weather', url);
+  window.open(url, '_blank');
+}
+
+function openLocalNews(){
+  const el = document.getElementById('localNews');
+  const url = el.value && el.value.trim();
+  if(!url){ alert('Enter a valid local news URL first.'); return; }
+  localStorage.setItem('dfc:local', url);
+  window.open(url, '_blank');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedWeather = localStorage.getItem('dfc:weather');
+  if(savedWeather) document.getElementById('weatherLink').value = savedWeather;
+
+  const savedLocal = localStorage.getItem('dfc:local');
+  if(savedLocal) document.getElementById('localNews').value = savedLocal;
+});
+</script>
+
+</body>
+</html>
