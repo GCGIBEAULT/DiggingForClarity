@@ -85,28 +85,7 @@
 
 
 
-    <footer>
-      <div class="small">Private workspace • Local-first testing • Your backup is safe</div>
-    </footer>
-  </div>
-
-<script>
-const KEY = 'dfc:blank:ioioio:v1';
-const defaults = {
-  active: '1',
-  paychecks: {
-    '1': { income:1800, lines:[
-      {id:'r1',name:'Rent',amount:700,type:'auto',vendor_url:''},
-      {id:'r2',name:'Electric',amount:80,type:'auto',vendor_url:''},
-      {id:'r3',name:'Savings',amount:200,type:'auto',vendor_url:''}
-    ]},
-    '15': { income:1200, lines:[
-      {id:'p1',name:'Groceries',amount:200,type:'offline',vendor_url:''},
-      {id:'p2',name:'Subscriptions',amount:40,type:'auto',vendor_url:''},
-      {id:'p3',name:'Savings',amount:100,type:'auto',vendor_url:''}
-    ]}
-  }
-};
+    
 let state = loadState();
 function loadState(){ try{ const raw=localStorage.getItem(KEY); return raw?JSON.parse(raw):JSON.parse(JSON.stringify(defaults)); }catch(e){ return JSON.parse(JSON.stringify(defaults)); } }
 function saveState(){ localStorage.setItem(KEY,JSON.stringify(state)); }
