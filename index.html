@@ -15,74 +15,51 @@
     .masthead h1{font-family:Georgia,serif;color:var(--accent);font-size:2.4rem;margin:0}
     .masthead p{color:var(--muted);margin:6px 0 18px}
     .grid{display:grid;grid-template-columns:1fr;gap:14px}
-    @media(min-width:900px){ .grid{grid-template-columns:1fr 420px} }
-    .card{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 4px 14px rgba(7,12,20,0.06)}
-    .small{font-size:0.95rem;color:var(--muted)}
-    .btn{background:var(--accent);color:#fff;padding:8px 12px;border:0;border-radius:8px}
-    #budgetRoot{min-height:220px;display:flex;flex-direction:column;gap:8px}
-    .paytabs{display:flex;gap:8px}
-    .tab{flex:1;padding:10px;border-radius:8px;text-align:center;background:#f0f4f8;color:#254a68;font-weight:700}
-    .tab.active{background:var(--accent);color:#fff}
-    .line{display:flex;gap:8px;align-items:center;padding:8px;border-radius:8px;background:#fbfdff}
-    .line input{border:0;background:transparent;outline:none;font-size:15px}
-    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:0.95rem}
   </style>
 </head>
+
 <body>
   <div class="wrap">
-    <header class="masthead">
-      <h1>Digging For Clarity</h1>
-      <p class="small">Whatever I want it to be.</p>
-    </header>
+    <div class="masthead">
+      <h1>Digging For Clarity — Private Lab</h1>
+      <p>Drama-free news, weather, and community updates with modular clarity.</p>
+    </div>
 
-<!-- ✅ Two Equal Empty Blocks in Grid -->
-<section class="news-empty-pair" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin-top: 1.5em; max-width: 960px; margin-left: auto; margin-right: auto;">
-<div id="weather" class="news-empty-left" style="background-color: #f4f1ec; border: 1px solid #ccc; border-radius: 8px; padding: 1.5em;">
+    <div class="grid">
 
-  <h3 style="color:#003366;">Local Weather</h3>
-  <p>Paste your favorite weather link below. It’ll stay fixed so you can open it every day with one click.</p>
-  <input type="text" id="weatherLinkClone" placeholder="Paste your favorite weather link here" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-  <div style="display: none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-  <button style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Weather</button>
-  <div style="margin-top: 1.5em;">
-    <h4 style="color:#003366;">Need Directions or Flight Info?</h4>
-    <p>Click below to launch your preferred traffic or flight tracker:</p>
-    <div style="font-weight: bold;">
-      <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" style="color: #0645AD; text-decoration: underline;">Google Maps</a>
-      <a href="https://www.waze.com" target="_blank" rel="noopener noreferrer" style="color: #0645AD; text-decoration: underline;">Waze</a>
-      <a href="https://www.flightaware.com" target="_blank" rel="noopener noreferrer" style="color: #0645AD; text-decoration: underline;">FlightAware</a>
+      <!-- BLOCK 1: WEATHER -->
+      <section>
+        <h2>Local Weather</h2>
+        <input id="weatherLink" placeholder="Paste your favorite weather link here">
+        <button onclick="openWeather()">Open Weather</button>
+      </section>
+
+      <!-- BLOCK 2: LOCAL NEWS -->
+      <section>
+        <h2>Local News</h2>
+        <input id="localNews" placeholder="Local News Link">
+        <button onclick="openLocalNews()">Open Local News</button>
+      </section>
+
+      <!-- EVERYTHING BELOW THIS POINT REMOVED ON PURPOSE -->
+
     </div>
   </div>
-</div>
 
-<div class="news-empty-right" style="background-color: #f4f1ec; border: 1px solid #ccc; border-radius: 8px; padding: 1.75em;">
-  <h3 style="color:#003366;">Local & State News</h3>
-  <p>Paste your favorite local and state news links below. They’ll stay fixed so you can open them every day with one click.</p>
-  <label for="localNewsClone" style="font-weight: bold;">Local News Link:</label>
-  <input type="text" id="localNewsClone" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-  <div style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-  <button style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open Local News</button>
-  <label for="stateNewsClone" style="font-weight: bold; margin-top: 1em; display: block;">State News Link:</label>
-  <input type="text" id="stateNewsClone" style="width: 100%; padding: 0.5em; margin-bottom: 0.5em; border: 1px solid #ccc; border-radius: 4px;">
-  <div style="display:none; font-size: 0.9em; color: #990000; margin-bottom: 0.5em;">Add last URL</div>
-  <button style="padding: 0.5em 1em; background-color: #003366; color: #fff; border: none; border-radius: 4px;">Open State News</button>
-</div>
+  <script>
+    function openWeather(){
+      const url = document.getElementById('weatherLink').value.trim();
+      if(url) window.open(url, '_blank');
+    }
 
-</section>
-
-
-
-
-
-
-
-    
-
-
- 
-</script>
+    function openLocalNews(){
+      const url = document.getElementById('localNews').value.trim();
+      if(url) window.open(url, '_blank');
+    }
+  </script>
 </body>
 </html>
+
 
 
 
